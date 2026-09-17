@@ -13,7 +13,7 @@ interface Props { title?: string; description?: string; active?: PageKey }
 const { title, description = SITE.subtitle, active = 'home' } = Astro.props;
 const liveForm = active === 'corrections' && SITE.feedback.mode === 'LIVE_PUBLIC';
 const formPolicy = liveForm && !qualification ? "connect-src 'self' https://formspree.io; form-action https://formspree.io" : "connect-src 'self'; form-action 'none'";
-const csp = `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'none'; object-src 'none'; base-uri 'none'; ${formPolicy}`;
+const csp = `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; ${formPolicy}`;
 const pageTitle = title ? `${title} — ${SITE.name}` : SITE.name;
 ---
 <!doctype html>
@@ -25,7 +25,7 @@ const pageTitle = title ? `${title} — ${SITE.name}` : SITE.name;
   <title>{pageTitle}</title>
 </head><body>
   <div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a>
-  {(!publicWording || qualification) && <div class="preview-strip"><div class="container"><span>{qualification ? 'Local public-wording qualification · No publication or legal effect' : SITE.preview_notice}</span><span class="preview-right"><Link to="verification" label="Read the status guide" class="" arrow={false}/></span></div></div>}
+  {(!publicWording || qualification) && <div class="preview-strip"><div class="container"><span>{qualification ? 'Local post-public update candidate · No deployment' : SITE.preview_notice}</span><span class="preview-right"><Link to="verification" label="Read the status guide" class="" arrow={false}/></span></div></div>}
   <Header active={active}/><main id="main" tabindex="-1"><slot/>{active === 'research' && <div class="container context-feedback"><a href={`${pageHref('corrections')}?project=Research&locator=${encodeURIComponent(Astro.url.pathname)}`}>Send a correction or prior-art reference for this page or Brief Report</a></div>}</main>
   <footer class="site-footer"><div class="container"><div class="footer-inner"><div><p class="footer-brand">{SITE.name}</p><p class="footer-credit"><a href={`${pageHref('about')}#operator`}>{SITE.owner.display_name}</a> · {SITE.owner.title}<br/>{SITE.owner.unit}, {SITE.owner.institution}</p><p class="footer-note">{INDEPENDENCE_NOTICE}</p></div><nav class="footer-links" aria-label="Footer navigation"><Link to="verification" label="Verification guide" class="" arrow={false}/><Link to="corrections" label="Corrections & prior art" class="" arrow={false}/><Link to="licensing" label="Content terms" class="" arrow={false}/><a href={`${pageHref('annex')}#lfh-definition`}>Declaration-card guide</a><a href="#site-top">Back to top ↑</a></nav></div><p class="footer-tech">Built with Astro + Scholar-Lite</p></div></footer>
 <BackToTop/></body></html>

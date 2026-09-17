@@ -135,5 +135,10 @@
     }
   ],
   "adapter": "publication/workbench/adapter-lock.json",
-  "content_input_gate": "FULL_LAUNCH_NEUTRAL_PUBLIC_PRESENTATION_REQUIRED"
+  "content_input_gate": "POSTPUBLIC_MANKIEWICZ_11_CARD_FIX1_REQUIRED",
+  "selected_postpublic_input": {
+    "path": "publication/workbench/selected/232067522f10f7bc108802d05e52c6d5d9c0a35d94c7dad95b1bbb5e9ff4e927/WEBSITE_ROUTE_MANIFEST.json",
+    "sha256": "cc97b7b8aaef8208b3a877c64bbc4b4bb526c4f0ed5a7b831b4de8978b0b7968",
+    "public_cards": 11
+  }
 }

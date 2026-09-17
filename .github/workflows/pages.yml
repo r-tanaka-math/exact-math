@@ -1,4 +1,4 @@
-name: Explicitly authorized website release
+name: Explicitly authorized post-public website update
 on:
   workflow_dispatch:
 permissions:
@@ -24,13 +24,13 @@ jobs:
           test -z "$(git status --porcelain)"
           printf 'EXACT_SITE_REVISION=%s\n' "$(git rev-parse HEAD)" >> "$GITHUB_ENV"
           printf 'EXACT_SITE_TREE=%s\n' "$(git rev-parse 'HEAD^{tree}')" >> "$GITHUB_ENV"
-      - name: Load previously authorized owner act
+      - name: Load exact post-public owner update act
         env:
-          OWNER_ACT: ${{ secrets.EXACT_OWNER_RELEASE_ACT }}
+          OWNER_ACT: ${{ secrets.EXACT_OWNER_POSTPUBLIC_UPDATE_ACT }}
         run: |
           test -n "$OWNER_ACT"
-          printf '%s' "$OWNER_ACT" > "$RUNNER_TEMP/exact-owner-release-act.json"
-      - name: Validate release and build
+          printf '%s' "$OWNER_ACT" > "$RUNNER_TEMP/exact-owner-postpublic-update-act.json"
+      - name: Validate exact successor and build
         run: npm run build
         env:
           EXACT_PROFILE: FULL_LAUNCH
@@ -40,7 +40,7 @@ jobs:
           EXACT_DEPLOYMENT_PROFILE: ROOT
           EXACT_PUBLIC_REPOSITORY: ${{ github.server_url }}/${{ github.repository }}
           EXACT_FEEDBACK_MODE: LIVE_PUBLIC
-          EXACT_RELEASE_ACT: ${{ runner.temp }}/exact-owner-release-act.json
+          EXACT_UPDATE_ACT: ${{ runner.temp }}/exact-owner-postpublic-update-act.json
           ASTRO_TELEMETRY_DISABLED: '1'
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0

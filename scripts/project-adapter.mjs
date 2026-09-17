@@ -6,6 +6,7 @@ import {isDeepStrictEqual} from 'node:util';
 import postcss from 'postcss';
 import {digest,files} from './distribution-policy.mjs';
 import {publicWording} from './deployment-identity.mjs';
+import {integratePostPublic} from './postpublic-adapter.mjs';
 
 const repo=fileURLToPath(new URL('../',import.meta.url));
 const input=path.join(repo,'publication','workbench','input');
@@ -164,14 +165,16 @@ export function integrateProjects(output,base,profile='LOCAL_REVIEW'){
   if(!['/','/exact-mathematics/'].includes(base))fail('unsupported base profile');
   const publicProfile=['FULL_LAUNCH','PUBLIC_RELEASE_QUALIFICATION'].includes(profile);
   if(publicProfile){
+    // The old zero-Card successor remains historical input, never the selected mount.
     const successor=verifyPublicPresentationSuccessor(),lock=read(lockPath),projects={};
     for(const slug of ['sphere-rigidity','mankiewicz']){
       const data=read(path.join(successor.root,'mathlibannex','data','project-presentation-r1',slug,'project.json'));
       const cards=validateCardPolicy(data);
-      if(cards.public!==0||cards.canonical_links!==0||cards.rows!==(slug==='sphere-rigidity'?467:11)||data.source_binding?.commit!==exact.commit||data.source_binding?.tree!==exact.tree)fail('successor Project source/Card identity');
+      if(cards.public!==0||cards.canonical_links!==0||cards.rows!==(slug==='sphere-rigidity'?467:11))fail('historical presentation changed');
       projects[slug]={data,cards};
     }
-    return integrateNeutral(output,base,profile,lock,projects,successor);
+    integrateNeutral(output,base,profile,lock,projects,successor);
+    return integratePostPublic(output,base,profile);
   }
   const {lock,projects}=verifyInputs(),mounted=[];
   const raw=(rel)=>fs.readFileSync(path.join(input,...rel.split('/')));

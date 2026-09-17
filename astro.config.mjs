@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {auditOutput} from './scripts/distribution-policy.mjs';
 import {integrateProjects} from './scripts/project-adapter.mjs';
 import {finishOutput} from './scripts/rc4-output.mjs';
-import {releaseGate} from './scripts/release-gate.mjs';
+import {postPublicUpdateGate} from './scripts/postpublic-gate.mjs';
 import {deploymentIdentity,gitIdentity,publicWording} from './scripts/deployment-identity.mjs';
 
 const outputs=new Set(['dist-rc4','dist-rc4-base','dist-rc4-review','dist-rc4-review-base','dist-rc4-live','dist-rc4-live-base','dist-rc4-indexable','dist-rc4-indexable-base','dist-rc4-release','dist-rc4-public-qualification','dist-rc4-public-qualification-base']);
@@ -24,7 +24,7 @@ let release=null;
 const guard={name:'exact-public-launch-hardening',hooks:{
   'astro:build:start':()=>{
     if(publicWording(profile))gitIdentity(profile);
-    if(profile==='FULL_LAUNCH')release=releaseGate(deployment);
+    if(profile==='FULL_LAUNCH')release=postPublicUpdateGate(deployment);
     const target=new URL('./'+out+'/',import.meta.url);
     if(fs.existsSync(target)&&fs.lstatSync(target).isSymbolicLink())throw Error('Linked output');
     fs.rmSync(target,{recursive:true,force:true});

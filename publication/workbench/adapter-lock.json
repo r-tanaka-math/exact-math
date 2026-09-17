@@ -1,5 +1,12 @@
 {
   "schema": "exact.website-qualified-workbench-adapter-lock.v1",
+  "selected_postpublic_presentation": {
+    "authority_zip_sha256": "232067522f10f7bc108802d05e52c6d5d9c0a35d94c7dad95b1bbb5e9ff4e927",
+    "route_manifest_sha256": "cc97b7b8aaef8208b3a877c64bbc4b4bb526c4f0ed5a7b831b4de8978b0b7968",
+    "project_json_sha256": "ef992a95989095ad0718ad19fcce1c3fe6717ba1f30faac2933df4bdc5570cef",
+    "public_cards": 11,
+    "historical_zero_card_successor_retained": true
+  },
   "outer_zip": {
     "filename": "MATHLIBANNEX_SPHERE_RIGIDITY_PROGRESSIVE_PROJECT_HANDOFF_R1.zip",
     "bytes": 95772025,

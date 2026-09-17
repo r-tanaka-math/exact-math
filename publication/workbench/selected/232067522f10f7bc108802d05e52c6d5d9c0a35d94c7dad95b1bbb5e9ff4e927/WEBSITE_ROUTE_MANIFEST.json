@@ -1,0 +1,412 @@
+{
+  "canonical_card_links": 11,
+  "card_routes": [
+    "/mathlibannex/cards/078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281/",
+    "/mathlibannex/cards/0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04/",
+    "/mathlibannex/cards/30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373/",
+    "/mathlibannex/cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/",
+    "/mathlibannex/cards/4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36/",
+    "/mathlibannex/cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/",
+    "/mathlibannex/cards/b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a/",
+    "/mathlibannex/cards/c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3/",
+    "/mathlibannex/cards/d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed/",
+    "/mathlibannex/cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/",
+    "/mathlibannex/cards/e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8/"
+  ],
+  "catalog_route": "/mathlibannex/catalog/",
+  "content_terms_effect": "REUSE_CURRENT_EFFECTIVE_TERMS_NO_MUTATION",
+  "deployment_performed": false,
+  "effective_content_terms_sha256": "eaf1195b43fdd0d4245fccaf2aa74b50287f176700567394e872cbb610e3d817",
+  "files": [
+    {
+      "bytes": 4816,
+      "path": "mathlibannex/assets/DEJAVU-LICENSE.txt",
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+    },
+    {
+      "bytes": 35147,
+      "path": "mathlibannex/assets/FREEMONO-COPYING.txt",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+    },
+    {
+      "bytes": 5115,
+      "path": "mathlibannex/assets/FREEMONO-README.txt",
+      "sha256": "d7375e3982a2e0afc471f8900c46ac6ea41b1112de1f5cdb9ca5c820adf25a33"
+    },
+    {
+      "bytes": 3388,
+      "path": "mathlibannex/assets/FREEMONO-WEBFONT-NOTICE.txt",
+      "sha256": "285f12f39f6713402b90acabce135077613f7ea6021017636461ef74bcf9db1e"
+    },
+    {
+      "bytes": 4816,
+      "path": "mathlibannex/assets/LICENSE.txt",
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+    },
+    {
+      "bytes": 483,
+      "path": "mathlibannex/assets/NOTICE.txt",
+      "sha256": "2099bd14188f89fdf04786701115e065ac880aa518c322afb269b3675d5e8f87"
+    },
+    {
+      "bytes": 1430,
+      "path": "mathlibannex/assets/project-presentation-r1/project.js",
+      "sha256": "4f07dc3814a69f4fb9b6ac215013b6a224927732dbcab92f3148dbe25d8a33b4"
+    },
+    {
+      "bytes": 2900,
+      "path": "mathlibannex/assets/project-presentation-r1/style.css",
+      "sha256": "3c8d0fa550f226da858403c51ba0653fd0283bb357f9b195c572927ccd44ffcf"
+    },
+    {
+      "bytes": 1490,
+      "path": "mathlibannex/assets/PROVENANCE.json",
+      "sha256": "81b83b2b81ad75b27afa4057ecb3345dc07cf109fa71ca6cae3121a743f5a72b"
+    },
+    {
+      "bytes": 2446,
+      "path": "mathlibannex/assets/style.css",
+      "sha256": "493afa776be77dd0a214dbc28182aa0672995463b5ac849fa9bb278cb7a3d599"
+    },
+    {
+      "bytes": 4820,
+      "path": "mathlibannex/cards/078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281/index.html",
+      "sha256": "3e2c0a85c9eaaad917da2bf9b58c6ba41401fec487e70566fae4d73cac0269f5"
+    },
+    {
+      "bytes": 5041,
+      "path": "mathlibannex/cards/0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04/index.html",
+      "sha256": "63e08429642871aa824416ea1d76266bb1267a67e4c950a977b452cf144b81cd"
+    },
+    {
+      "bytes": 4732,
+      "path": "mathlibannex/cards/30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373/index.html",
+      "sha256": "9ceb35d7c7ddc0272da369b8b31a7c110a997a0f28853b41c6f4c0b41eaf38d9"
+    },
+    {
+      "bytes": 5266,
+      "path": "mathlibannex/cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/index.html",
+      "sha256": "b1def006f5f1ef6b138423efbd45cd7d5910cc1b3a7bf06648ce3e3b45797e10"
+    },
+    {
+      "bytes": 5248,
+      "path": "mathlibannex/cards/4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36/index.html",
+      "sha256": "58fe295bce35525beee08b3503b368fda38c5caaa31653da1652089b5b7d024e"
+    },
+    {
+      "bytes": 5212,
+      "path": "mathlibannex/cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/index.html",
+      "sha256": "2b6ea668d84abf8f34fa782260c3331fa5f47b60c435feebdff5b684c9f20b4b"
+    },
+    {
+      "bytes": 2860,
+      "path": "mathlibannex/cards/b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a/index.html",
+      "sha256": "a285c53004c2aaad78286207f690c32ea85042887ffb9a87745ff0f3828248cf"
+    },
+    {
+      "bytes": 7049,
+      "path": "mathlibannex/cards/c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3/index.html",
+      "sha256": "3533a97ce257319b782fa250a9101dbdd11b266e3c1989971ed1d2e1ab558a4c"
+    },
+    {
+      "bytes": 4112,
+      "path": "mathlibannex/cards/d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed/index.html",
+      "sha256": "e17880e2dcc43a0eb9ebcb1e22a273a52d0553ac2fa4f777e2e533ffa33b51af"
+    },
+    {
+      "bytes": 4959,
+      "path": "mathlibannex/cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/index.html",
+      "sha256": "0e3499d78d0b3c91f03df09b5357748d12d00c82ee2e4c51ebf010c536617150"
+    },
+    {
+      "bytes": 5338,
+      "path": "mathlibannex/cards/e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8/index.html",
+      "sha256": "6d1bde26196d4633821fb068a917e879ca53ac5389b28c267a6442480cc79c32"
+    },
+    {
+      "bytes": 3856,
+      "path": "mathlibannex/catalog/index.html",
+      "sha256": "8600693b3a951681f9716e6acdf18dfd03c6c47c1c678099873d9b188f2c0a00"
+    },
+    {
+      "bytes": 2457,
+      "path": "mathlibannex/catalog/presentation-binding.json",
+      "sha256": "6514e7de1fa83f92b8383e43765e8c1ca82875cc324b169e6fa66fbae224ecd6"
+    },
+    {
+      "bytes": 53250,
+      "path": "mathlibannex/catalog/public-projection.json",
+      "sha256": "2cf7d73ee374455a28b66c3d1c662b404bb413ce02173a6ed37a8cff2b537e96"
+    },
+    {
+      "bytes": 758507,
+      "path": "mathlibannex/data/project-presentation-r1/mankiewicz/boundary-projection.accepted.json",
+      "sha256": "eb3a94835698feecac56f2e05c032f9bfc3eee61cea79dcfc4473f02e4678cf0"
+    },
+    {
+      "bytes": 1344,
+      "path": "mathlibannex/data/project-presentation-r1/mankiewicz/levels.accepted.json",
+      "sha256": "3cbb8b47936fac43e70a750c7f1545c979b040bf64bca3a6835094e5a3b591e1"
+    },
+    {
+      "bytes": 2118,
+      "path": "mathlibannex/data/project-presentation-r1/mankiewicz/presentation-binding.json",
+      "sha256": "64f476530dd10067d20c5c3d8fbbe44d56bcda531a20cbf72b6321dfbe5bda16"
+    },
+    {
+      "bytes": 28257,
+      "path": "mathlibannex/data/project-presentation-r1/mankiewicz/project.json",
+      "sha256": "ef992a95989095ad0718ad19fcce1c3fe6717ba1f30faac2933df4bdc5570cef"
+    },
+    {
+      "bytes": 14157,
+      "path": "mathlibannex/data/project-presentation-r1/mankiewicz/selected-graph.accepted.json",
+      "sha256": "342de4be1528a50cff58464eb41c8e737bdd0ee874fb996edc76c464c3249ece"
+    },
+    {
+      "bytes": 2206531,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/boundary-inputs.json",
+      "sha256": "b5b14c0995809e3db381e00d37845b7920ed377a8497bdd92237bfa8041424e6"
+    },
+    {
+      "bytes": 186,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/card-coverage.json",
+      "sha256": "3dbbcfe3c9bc6e5591785e4fc0d03dc8067d9de3f9a24683670a06bc065c5184"
+    },
+    {
+      "bytes": 454931,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/declarations.json",
+      "sha256": "40e920c53653d6c47bff3690fa8fa940c9e14042f29caed00be44f7a3b63800d"
+    },
+    {
+      "bytes": 61186,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/display-graph.json",
+      "sha256": "49e59f0599833ea7f1a69a9fe053652ee528ce15d1d02bc71ab9c31764abc53f"
+    },
+    {
+      "bytes": 22553,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/levels.json",
+      "sha256": "abd946b21759f76664fbfe70e1024c31266e06e6d7c6f001ae0c84857045d4d7"
+    },
+    {
+      "bytes": 3189,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/presentation-binding.json",
+      "sha256": "966c2c5221042329c0201106637eccdf03020a6f5f92268a412bde0a9527340f"
+    },
+    {
+      "bytes": 611301,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/project.json",
+      "sha256": "e9e76a64238b331e09f2a78816920fcf5a17226dd69389c087509f9bf4e1c56d"
+    },
+    {
+      "bytes": 5180644,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/reachability.accepted.json",
+      "sha256": "14436e759aa9d38fe5da7fcaca410555bb6609b7c569b514b7af6c4f98bc3407"
+    },
+    {
+      "bytes": 3350,
+      "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/routes.json",
+      "sha256": "7efcba4db603fee12b8d2cafa0b7f942a75e065a56aa5351662ab2c2a9fdebbb"
+    },
+    {
+      "bytes": 60912,
+      "path": "mathlibannex/documents/mankiewicz-project-r1.pdf",
+      "sha256": "59ca555f4908dd68322ff6c018761e897c789ca6741be3c1c10ec59444232a8a"
+    },
+    {
+      "bytes": 251827,
+      "path": "mathlibannex/documents/sphere-rigidity-project-r1.pdf",
+      "sha256": "fbfd426053b0ef8a3535ea5bf27ab60497a22ba1d869a1d088497de1b8bd747b"
+    },
+    {
+      "bytes": 2354,
+      "path": "mathlibannex/index.html",
+      "sha256": "64fa38bf0ab6c0f10b88f5c16893d2a0ba1e63068c8997408555197a57bd7575"
+    },
+    {
+      "bytes": 758507,
+      "path": "mathlibannex/overviews/mankiewicz/boundary-projection.json",
+      "sha256": "eb3a94835698feecac56f2e05c032f9bfc3eee61cea79dcfc4473f02e4678cf0"
+    },
+    {
+      "bytes": 977595,
+      "path": "mathlibannex/overviews/mankiewicz/boundary.html",
+      "sha256": "43b9dae9086b6fbea3c9ee619999b867055cedea19ec642d7bfbdcade29098af"
+    },
+    {
+      "bytes": 13302,
+      "path": "mathlibannex/overviews/mankiewicz/index.html",
+      "sha256": "9fd564bcc4febd320d9d73503d1671f23420501a3aa2da7e5602e9f0497c2911"
+    },
+    {
+      "bytes": 1344,
+      "path": "mathlibannex/overviews/mankiewicz/levels.json",
+      "sha256": "3cbb8b47936fac43e70a750c7f1545c979b040bf64bca3a6835094e5a3b591e1"
+    },
+    {
+      "bytes": 14157,
+      "path": "mathlibannex/overviews/mankiewicz/selected-graph.json",
+      "sha256": "342de4be1528a50cff58464eb41c8e737bdd0ee874fb996edc76c464c3249ece"
+    },
+    {
+      "bytes": 13483,
+      "path": "mathlibannex/projects/mankiewicz/index.html",
+      "sha256": "46449e9593ba8ca983c8437dfeb8b9cf948de0d641d0933ce684981b1bf00846"
+    },
+    {
+      "bytes": 470775,
+      "path": "mathlibannex/projects/sphere-rigidity/index.html",
+      "sha256": "39c7f932a7a8e0a6b98c93da3ee1952b5fc4602a83e7f37a64fbb1add5a654b7"
+    },
+    {
+      "bytes": 3126,
+      "path": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean.txt",
+      "sha256": "81913268d8f7f5d2e3ee5097edf683fee537074f09480b15fbe3d4cce2f1d369"
+    },
+    {
+      "bytes": 3639,
+      "path": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean.txt",
+      "sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c"
+    },
+    {
+      "bytes": 33093,
+      "path": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt",
+      "sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e"
+    },
+    {
+      "bytes": 5944,
+      "path": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean.txt",
+      "sha256": "235562fa4eb1df95ac0320f53756178e6bf8a0739e3a536a6f3afd3069b8ec91"
+    },
+    {
+      "bytes": 4020,
+      "path": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean.txt",
+      "sha256": "f289f13a3b7459b738604ee35278417298da58619c6daa14e3491944fc851982"
+    },
+    {
+      "bytes": 3110,
+      "path": "mathlibannex/releases/candidate-r1/binding.json",
+      "sha256": "abca2f7103217b7246ddde59a5c917590b5a7801e78e6b31900e0154d33c552f"
+    },
+    {
+      "bytes": 1273,
+      "path": "mathlibannex/releases/candidate-r1/index.html",
+      "sha256": "ddd13f1a6fad07372ffb097bfaac7b2ac603c7a417d1fcd9a9a646f6c38f1519"
+    },
+    {
+      "bytes": 117121,
+      "path": "mathlibannex/sources/2ad5f91a406f116e/index.html",
+      "sha256": "bb9be9a748af6b3bd34e6af20211ae01b3361576dfc08143586b786e5408b3ac"
+    },
+    {
+      "bytes": 23161,
+      "path": "mathlibannex/sources/6ae5410142202e65/index.html",
+      "sha256": "b17a042b5eab4fdaaf92fdb4250c08bb86930c2b033c8d8339335ee2d84250ad"
+    },
+    {
+      "bytes": 15180,
+      "path": "mathlibannex/sources/73a8923ac282c480/index.html",
+      "sha256": "20cbe737572e1cdb06cb67c2a89638b7888a02868111a776660f0528efc28435"
+    },
+    {
+      "bytes": 13348,
+      "path": "mathlibannex/sources/75ecc75ffa22f0f0/index.html",
+      "sha256": "c66234544a9de3f3e0d02faf1635192e93bc3f2e19d6416b8c04055b1d5ea42c"
+    },
+    {
+      "bytes": 15401,
+      "path": "mathlibannex/sources/a124cf13bc121b8e/index.html",
+      "sha256": "46504b7287790f34894cf88c1808603d51fe11de1c8d35c0e86fa10c365fe0e1"
+    },
+    {
+      "bytes": 15369,
+      "path": "mathlibannex/sources/cards/078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281/index.html",
+      "sha256": "d3e82daa46ffce29994be8864bfa5bda478598ce0e48a3270fda3d69b236aa98"
+    },
+    {
+      "bytes": 116716,
+      "path": "mathlibannex/sources/cards/0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04/index.html",
+      "sha256": "72e4295d0ed53e00ca5333687b9cbe7a7247bc3eb224c0f082ee5e1ea35c7d79"
+    },
+    {
+      "bytes": 23440,
+      "path": "mathlibannex/sources/cards/30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373/index.html",
+      "sha256": "d2e3718d8dd208bdcda4b3996e48f20812054f5d81e2b826e9e1ddd12c90d91f"
+    },
+    {
+      "bytes": 15833,
+      "path": "mathlibannex/sources/cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/index.html",
+      "sha256": "c4e6891cf49bf328c8bf77ee6c4c823fc4da302ecba082caf5f68ef57e649b9e"
+    },
+    {
+      "bytes": 116541,
+      "path": "mathlibannex/sources/cards/4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36/index.html",
+      "sha256": "e3f50ce7f5abac6978426bdfdc6e96c73cc76026325b41ee233d26a2965ce45d"
+    },
+    {
+      "bytes": 13574,
+      "path": "mathlibannex/sources/cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/index.html",
+      "sha256": "2930c70939d65232411d53fc51ef5c97b93a02a761eae0c2147fe7a60dccadae"
+    },
+    {
+      "bytes": 116406,
+      "path": "mathlibannex/sources/cards/b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a/index.html",
+      "sha256": "37022db0ebe571db66f045fb1b9363c344b102a50eda19168e89dc1f52641179"
+    },
+    {
+      "bytes": 117238,
+      "path": "mathlibannex/sources/cards/c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3/index.html",
+      "sha256": "2a388db045d703deb1a542363eb29042405f46fc1d2fe371ddb576bcf5ea906b"
+    },
+    {
+      "bytes": 13307,
+      "path": "mathlibannex/sources/cards/d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed/index.html",
+      "sha256": "d77ba3e52adaeac9b31dea1f63c12021cb31a6f30f5cadb0677f762ae78d23c0"
+    },
+    {
+      "bytes": 116908,
+      "path": "mathlibannex/sources/cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/index.html",
+      "sha256": "d2c665794673ad1b243c53d4ec914dcd92e106672dc21edf34dd32fb650c0816"
+    },
+    {
+      "bytes": 116553,
+      "path": "mathlibannex/sources/cards/e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8/index.html",
+      "sha256": "ed715728dd486161b2494abc0a85b1507975fe1f555a12f61bf9481c7e09c239"
+    },
+    {
+      "bytes": 2514,
+      "path": "mathlibannex/verification/index.html",
+      "sha256": "12bec747b9b04ac95c9f0e2216bedf49c3b203d55574205f321a1142e1afa45b"
+    }
+  ],
+  "first_publication_date": null,
+  "mount_rule": "Mount every WEB member at <site-base>/<relative path>; retain directories and relative links. This is a staging manifest, not an instruction to edit or publish a website.",
+  "overview_route": "/mathlibannex/overviews/mankiewicz/",
+  "presentation_profile": "MANKIEWICZ_11_CARD_SUCCESSOR_FIX1",
+  "public_cards": 11,
+  "publication_effect": "NONE",
+  "relative_source_root": "WEB",
+  "routes": [
+    {
+      "json": "/mathlibannex/data/project-presentation-r1/sphere-rigidity/project.json",
+      "local_file": "WEB/mathlibannex/projects/sphere-rigidity/index.html",
+      "path": "/mathlibannex/projects/sphere-rigidity/",
+      "pdf": "/mathlibannex/documents/sphere-rigidity-project-r1.pdf",
+      "project": "sphere-rigidity"
+    },
+    {
+      "json": "/mathlibannex/data/project-presentation-r1/mankiewicz/project.json",
+      "local_file": "WEB/mathlibannex/projects/mankiewicz/index.html",
+      "path": "/mathlibannex/projects/mankiewicz/",
+      "pdf": "/mathlibannex/documents/mankiewicz-project-r1.pdf",
+      "project": "mankiewicz"
+    }
+  ],
+  "schema": "exact-mathematics.website-route-manifest.v2",
+  "source_release": {
+    "commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+    "tag": "v0.2.0",
+    "tree": "b3378851a5287f5e3c8418f668e4d0ba52718739"
+  },
+  "website_changed": false
+}

@@ -11,7 +11,7 @@ export const SITE = {
   public_release: publicWording,
   preview_notice: publicWording ? 'Public presentation' : parsed.preview_notice,
   annex: {...parsed.annex,
-    status: publicWording ? 'MathlibAnnex v0.2.0 source and the selected Project views are available. Public Declaration Cards: 0. Brief↔Lean correspondence and full human mathematical verification remain incomplete.' : parsed.annex.status,
+    status: publicWording ? 'MathlibAnnex v0.2.0 source and the selected Project views are available. Public Declaration Cards: 11 (Mankiewicz); Sphere Rigidity currently has 0 public Cards. Brief↔Lean correspondence and full human mathematical verification remain incomplete.' : parsed.annex.status,
   },
 };
 export const PREVIEW_ASSETS = assetRegistrySchema.parse(assets);

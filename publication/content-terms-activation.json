@@ -1,8 +1,9 @@
 {
-  "status": "OWNER_APPROVED_PENDING_PUBLICATION",
-  "effective_now": false,
-  "effective_date": null,
+  "status": "PUBLIC_EFFECTIVE",
+  "effective_now": true,
+  "effective_date": "2026-09-17",
   "approved_text_sha256": "eaf1195b43fdd0d4245fccaf2aa74b50287f176700567394e872cbb610e3d817",
-  "activation_requires": "EXPLICIT_OWNER_RELEASE_ACT_BOUND_TO_FINAL_COMMIT_AND_DATE",
-  "public_effective_variant": "content-terms-public-effective.md"
+  "activation_requires": "COMPLETED_BY_INITIAL_PUBLIC_RELEASE_ACT",
+  "public_effective_variant": "content-terms-public-effective.md",
+  "activation_commit": "3925e899c1660a2520845f3117d7bdd34dafbe47"
 }

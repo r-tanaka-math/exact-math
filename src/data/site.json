@@ -77,8 +77,8 @@
     "eyebrow": "REUSABLE FORMAL MATHEMATICS",
     "title": "MathlibAnnex",
     "lead": "Build on Mathlib. Keep the useful mathematics.",
-    "intro": "MathlibAnnex is a shared library of reusable Lean declarations. Its canonical source release v0.2.0 is public. The Research Companion, Theorem Project views, Declaration Cards and this website have separate publication states.",
-    "status": "Source release v0.2.0: public. Project views: integrated local review, not public. Declaration Card Catalog: not public. LFH content terms: not effective. Website: not public.",
+    "intro": "MathlibAnnex is a shared library of reusable Lean declarations. Its canonical source release v0.2.0 is public. The whole-library Catalog contains eleven public Declaration Cards referenced by the Mankiewicz Project. Sphere Rigidity has a progressive Research Companion and zero public Cards.",
+    "status": "Source release v0.2.0: public. Mankiewicz: 11 public Cards. Sphere Rigidity: 0 public Cards. LFH content terms: effective.",
     "sections": [
       {
         "id": "mathlib-first",
@@ -108,7 +108,7 @@
     "work": [
       {
         "title": "Mankiewicz",
-        "text": "A Theorem Project view of the Mankiewicz Extension Theorem, bound to MathlibAnnex v0.2.0. Eleven declaration explanations have completed source–exposition correspondence review; public Card links are not yet active."
+        "text": "A Theorem Project view of the Mankiewicz Extension Theorem, bound to MathlibAnnex v0.2.0 and referencing eleven public canonical Declaration Cards."
       },
       {
         "title": "Sphere Rigidity formalization materials",

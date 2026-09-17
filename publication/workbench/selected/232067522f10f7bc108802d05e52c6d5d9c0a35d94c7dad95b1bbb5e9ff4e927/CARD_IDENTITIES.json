@@ -1,0 +1,50 @@
+{
+  "cards": [
+    {
+      "card_sha256": "a97a1976b14207fc263907ee8fef3f37bda326fe215a2ac5516026cc01017806",
+      "stable_card_id": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "card_sha256": "4efc62d8a56c8dfa3372c385987153dc2be7eb7c3e7d7266df28cec985605db0",
+      "stable_card_id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "card_sha256": "ffd0c21c4c389feaa7abe9e5ca64bc9546fb5736d9768da63c049de11648ba84",
+      "stable_card_id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    {
+      "card_sha256": "7dc5136edabd6e33db77b7a9f9a2122488e5b12c078056cb01de6e0ab95ce426",
+      "stable_card_id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+    },
+    {
+      "card_sha256": "21daf8652777c81a08e94a4a7a3eff63eef5bfd09483b15da2b62d60227b0e87",
+      "stable_card_id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "card_sha256": "17f27f1cddaac7817c4669469925411815ac3e0475b586fd47b2e04f5d14e0d3",
+      "stable_card_id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+    },
+    {
+      "card_sha256": "8ec9c339586d12c353b6eeece0fed3c279aef6a9933e7bea978a68d85a9c2ca7",
+      "stable_card_id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "card_sha256": "57980774b7bb9d703dad9b73dc930e03203d182af996346c7408eb373b1e0322",
+      "stable_card_id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    {
+      "card_sha256": "0010c8ccb8965671842243a51487d560ec2424c0e83c8ce493dd7a161cdd859c",
+      "stable_card_id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+    },
+    {
+      "card_sha256": "81c408d08caad98e784a6f6c6f5aaacbe2736834dee2eb84cce9af3ab14ccf02",
+      "stable_card_id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "card_sha256": "b8c28fe867604d317c6bb50248b4684deb39c56fb6fcd964b2329c93e42d14b6",
+      "stable_card_id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    }
+  ],
+  "count": 11,
+  "schema": "mathlibannex.mankiewicz-public-card-set.v1"
+}
