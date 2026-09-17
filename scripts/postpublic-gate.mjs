@@ -7,8 +7,10 @@ import {verifyPostPublic} from './postpublic-adapter.mjs';
 import {gitIdentity} from './deployment-identity.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
-const parent='3925e899c1660a2520845f3117d7bdd34dafbe47';
-const parentTree='2c4d4b0cf52b59cc09a83d61c81a818dfa6cb141';
+const parent='10b0766b39945e4ec132aebdad8844b78ac6a8bc';
+const parentTree='4850a2458eebc3ad74543bcd528abed1ae10f526';
+const initial='3925e899c1660a2520845f3117d7bdd34dafbe47';
+const initialTree='2c4d4b0cf52b59cc09a83d61c81a818dfa6cb141';
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const git=(...args)=>execFileSync('git',['-C',root,...args],{encoding:'utf8'}).trim();
 const need=(x,s)=>{if(!x)throw Error('POSTPUBLIC_UPDATE_REFUSED: '+s)};
@@ -43,7 +45,7 @@ export function validatePostPublicAct(act,identity,manifest,origin,repository,to
 }
 export function postPublicUpdateGate(deployment){
   const identity=gitIdentity('FULL_LAUNCH');
-  need(git('rev-list','--count','HEAD')==='2'&&git('rev-parse','HEAD^')===parent&&git('rev-parse',parent+'^{tree}')===parentTree,'normal two-commit public history');
+  need(git('rev-list','--count','HEAD')==='3'&&git('rev-parse','HEAD^')===parent&&git('rev-parse','HEAD^^')===initial&&git('rev-parse',parent+'^{tree}')===parentTree&&git('rev-parse',initial+'^{tree}')===initialTree,'normal three-commit public history');
   const {manifest}=verifyPostPublic();
   need(process.env.EXACT_UPDATE_ACT,'EXACT_UPDATE_ACT must identify a separate owner act');
   const act=JSON.parse(fs.readFileSync(path.resolve(process.env.EXACT_UPDATE_ACT),'utf8'));
