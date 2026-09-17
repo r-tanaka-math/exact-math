@@ -1,0 +1,7 @@
+---
+import { pageHref, type PageKey } from '../lib/routes';
+interface Props { to: PageKey; label: string; class?: string; hash?: string; arrow?: boolean }
+const { to, label, class: className = 'text-link', hash = '', arrow = true } = Astro.props;
+const href = pageHref(to);
+---
+{href && <a class={className} href={href + hash}>{label}{arrow && <span class="arrow" aria-hidden="true">↗</span>}</a>}

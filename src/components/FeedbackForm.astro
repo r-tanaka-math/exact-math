@@ -1,0 +1,160 @@
+---
+import { feedbackForm } from '../lib/formspree';
+import {qualification} from '../lib/build-profile';
+
+interface Props {
+  enabled: boolean;
+  siteRevision: string;
+  projectOptions?: string[];
+}
+
+const {
+  enabled,
+  siteRevision,
+  projectOptions = ['MathlibAnnex and declaration cards', 'Sphere Rigidity', 'Mankiewicz Extension Theorem', 'Website or other'],
+} = Astro.props;
+
+const subjectTemplate = '[Exact Mathematics] {{ category }} — {{ project_or_page }}';
+---
+
+{!enabled ? (
+  <div class="notice" role="note">
+    <p><strong>Submissions are disabled in this local review.</strong></p>
+    <p>Use the separate form-review launcher to inspect the sending experience, or open the confirmation demo without sending a message.</p>
+  </div>
+) : (
+  <div class="feedback-shell">
+    {qualification && <div class="notice" role="note">Qualification only. Submissions are intercepted locally; no message is sent.</div>}
+    <div class="feedback-result feedback-success" data-fs-success role="status" aria-live="polite" tabindex="-1">
+      Submission received. Formspree accepted your message. This does not confirm notification email delivery.
+    </div>
+    <div class="feedback-result feedback-error" data-fs-error role="alert" aria-live="assertive" tabindex="-1"></div>
+
+    <form
+      id="exact-feedback-form"
+      class="feedback-form"
+      data-qualification={qualification ? 'true' : undefined}
+      action={feedbackForm.endpoint}
+      method="POST"
+      accept-charset="UTF-8"
+    >
+      <input type="hidden" name="subject" value={subjectTemplate} />
+      <input type="hidden" name="form_version" value={feedbackForm.profileVersion} />
+      <input type="hidden" name="site_revision" value={siteRevision} />
+      <input type="hidden" name="page_url" value={`${import.meta.env.BASE_URL}corrections/`} />
+
+      <div class="feedback-honeypot" aria-hidden="true">
+        <label for="feedback-gotcha">Leave this field empty</label>
+        <input id="feedback-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <p class="form-required-note">Fields marked “Required” must be completed.</p>
+
+      <div class="form-field">
+        <label for="feedback-category">Category <span>Required</span></label>
+        <select id="feedback-category" name="category" required data-fs-field>
+          <option value="">Select one</option>
+          <option>Mathematical error</option>
+          <option>Prior-art or novelty concern</option>
+          <option>Lean/source/exposition mismatch</option>
+          <option>Citation or attribution issue</option>
+          <option>Broken artifact or technical issue</option>
+          <option>Other material correction</option>
+        </select>
+        <span class="form-field-error" data-fs-error="category"></span>
+      </div>
+
+      <div class="form-field">
+        <label for="feedback-project">Project or page <span>Required</span></label>
+        <input id="feedback-project" name="project_or_page" list="feedback-project-options" maxlength="200" required data-fs-field />
+        <datalist id="feedback-project-options">
+          {projectOptions.map(option => <option value={option} />)}
+        </datalist>
+        <span class="form-field-error" data-fs-error="project_or_page"></span>
+      </div>
+
+      <div class="form-field">
+        <label for="feedback-locator">Exact locator <span>Required</span></label>
+        <input
+          id="feedback-locator"
+          name="locator"
+          maxlength="500"
+          placeholder="URL, theorem, section, Card ID, declaration name, or PDF page"
+          required
+          data-fs-field
+        />
+        <span class="form-field-error" data-fs-error="locator"></span>
+      </div>
+
+      <div class="form-field">
+        <label for="feedback-message">Message and supporting evidence <span>Required</span></label>
+        <textarea id="feedback-message" name="message" rows="10" maxlength="12000" required data-fs-field></textarea>
+        <span class="form-field-error" data-fs-error="message"></span>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="feedback-name">Name <span>Optional</span></label>
+          <input id="feedback-name" name="name" maxlength="120" autocomplete="name" data-fs-field />
+          <span class="form-field-error" data-fs-error="name"></span>
+        </div>
+
+        <div class="form-field">
+          <label for="feedback-email">Email <span>Required</span></label>
+          <input id="feedback-email" type="email" name="email" maxlength="254" autocomplete="email" required data-fs-field />
+          <span class="form-field-error" data-fs-error="email"></span>
+        </div>
+      </div>
+
+      <p class="form-privacy">
+        This form is intended for substantive corrections, prior-art or novelty concerns, formalization discrepancies,
+        and technical problems affecting the published material. Your email address, message, page identifier, and related
+        technical metadata will be processed through Formspree and delivered to the site operator. Do not submit confidential
+        material or sensitive personal information.
+      </p>
+
+      <button class="button" type="submit" data-fs-submit-btn><span class="feedback-spinner" aria-hidden="true"></span><span class="feedback-submit-label">Send feedback</span></button><p class="feedback-wait" role="status" aria-live="polite" hidden></p>
+    </form>
+  </div>
+)}
+
+{enabled && (<script>
+ import { initForm } from '@formspree/ajax';
+ import { feedbackForm } from '../lib/formspree';
+ import { fields,previousPath,storeReceipt,RECEIPT_KEY,type Receipt } from '../lib/submission-receipt';
+ const form=document.querySelector<HTMLFormElement>('#exact-feedback-form');
+ if(form){
+  const error=document.querySelector<HTMLElement>('.feedback-error')!;
+  const success=document.querySelector<HTMLElement>('.feedback-success')!;
+  const button=form.querySelector<HTMLButtonElement>('[type=submit]')!;
+  const label=button.querySelector<HTMLElement>('.feedback-submit-label')!;
+  const wait=form.querySelector<HTMLElement>('.feedback-wait')!;
+  let timer:ReturnType<typeof setTimeout>|undefined;
+  let snapshot:Receipt|null=null;
+  const returnPath=previousPath();
+  const query=new URLSearchParams(location.search);
+  for(const [key,name,limit] of [['project','project_or_page',200],['locator','locator',500]] as const){
+   if(query.has(key))(form.elements.namedItem(name) as HTMLInputElement).value=query.get(key)!.slice(0,limit);
+  }
+  for(const field of form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[data-fs-field]')){
+   const hint=form.querySelector<HTMLElement>(`[data-fs-error="${field.name}"]`)!;hint.id=`feedback-error-${field.name}`;field.setAttribute('aria-describedby',hint.id);
+   field.addEventListener('invalid',()=>{field.setAttribute('aria-invalid','true');hint.textContent=field.validationMessage;hint.setAttribute('data-fs-active','');error.textContent='Please complete the required fields and correct the highlighted entries.';error.setAttribute('data-fs-active','');success.removeAttribute('data-fs-active');});
+   field.addEventListener('input',()=>{field.removeAttribute('aria-invalid');hint.removeAttribute('data-fs-active');hint.textContent='';});
+  }
+  const fail=()=>{snapshot=null;error.textContent='Your message could not be sent. Please check the highlighted fields or try again later. Your entries have been kept.';error.setAttribute('data-fs-active','');(form.querySelector<HTMLElement>('[aria-invalid="true"]')||error).focus();};
+  if(form.dataset.qualification==='true')form.addEventListener('submit',event=>{event.preventDefault();event.stopImmediatePropagation();error.textContent='Qualification only: submission intercepted locally; no message was sent.';error.setAttribute('data-fs-active','');},true);
+  else initForm({formElement:form,formId:feedbackForm.formId,useDefaultStyles:false,
+   disable:()=>{button.disabled=true;form.setAttribute('aria-busy','true');label.textContent='Sending…';wait.hidden=false;wait.textContent='Sending…';clearTimeout(timer);timer=setTimeout(()=>{wait.textContent='Still sending. Please keep this page open.'},8000)},
+   enable:()=>{clearTimeout(timer);form.removeAttribute('aria-busy');button.disabled=false;label.textContent='Send feedback';wait.hidden=true;wait.textContent='';},
+   onSubmit:()=>{
+    try{sessionStorage.removeItem(RECEIPT_KEY)}catch{}
+    const value=(name:string)=>(form.elements.namedItem(name) as HTMLInputElement).value;
+    snapshot={version:1,values:Object.fromEntries(fields.map(k=>[k,value(k)])) as Receipt['values'],submittedAt:new Date().toISOString(),previousPath:returnPath,demo:false};
+    (form.elements.namedItem('subject') as HTMLInputElement).value=`[Exact Mathematics] ${value('category').replace(/[\r\n]/g,' ')} — ${value('project_or_page').replace(/[\r\n]/g,' ')}`;
+    (form.elements.namedItem('page_url') as HTMLInputElement).value=location.origin+location.pathname;
+   },
+   onSuccess:()=>{if(snapshot)storeReceipt(snapshot);snapshot=null;form.reset();location.assign(`${import.meta.env.BASE_URL}corrections/received/`);},
+   onError:fail,onFailure:fail,
+  });
+ }
+</script>)}

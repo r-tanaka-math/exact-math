@@ -1,0 +1,79 @@
+{
+  "commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+  "parent": "18519611549f0aac228f03aa11dbdfd3cb0d6f06",
+  "progressive_project_input_binding": {
+    "display_edges": 773,
+    "identity_record_sha256": "33401c196afb5295d5915ee536c232ecdd47e082530aa78ec6ac4e2a1545e289",
+    "maximum_level": 27,
+    "reachability_pairs": 10423,
+    "selected_nodes": 467,
+    "status": "IN_PREPARATION_NOT_PUBLISHED"
+  },
+  "project_entries": [
+    {
+      "manifest_path": "docs/projects/mankiewicz.json",
+      "manifest_sha256": "0c2fed827acd2a631c8f0182da489cf6f2886a38b286dad8d92e63f440b77b00",
+      "path": "MathlibAnnex/Projects/Mankiewicz.lean",
+      "sha256": "c1d5be872e56c41be3c37e503b64467a5fc6ea098dc13bb66a3e53dc7b55036c",
+      "slug": "mankiewicz"
+    },
+    {
+      "manifest_path": "docs/projects/sphere-rigidity.json",
+      "manifest_sha256": "c4b77099d6b66b217ecd4c371ac81269f11a811986b6018154c6eeb477add1c6",
+      "path": "MathlibAnnex/Projects/SphereRigidity.lean",
+      "sha256": "b2d65019159b56484a87ec139ce8ec9ebd8f7a51cfdf7eaf44a97d8c99a05f80",
+      "slug": "sphere-rigidity"
+    }
+  ],
+  "qualification": {
+    "allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "artifact_sha256": "40c62d234d6a49192404b5a2379295c58432b8e7b8606ecd0e055eeae18938a7",
+    "attempt": 1,
+    "compiled_axiom_declarations": 2016,
+    "conclusion": "success",
+    "receipt_sha256": "333a646d0fea713524137f17983d0126914904d5e1e41a4b5fea80fa7b0e9b3b",
+    "run_id": 35086615666
+  },
+  "release": {
+    "id": 389871289,
+    "published_at": "2026-09-16T11:38:49Z",
+    "title": "MathlibAnnex v0.2.0",
+    "url": "https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.2.0"
+  },
+  "release_axes": {
+    "brief_report": "NOT_PUBLISHED",
+    "declaration_cards": "NOT_PUBLISHED",
+    "lfh_project": "NOT_PUBLISHED",
+    "pages": "NOT_PUBLISHED",
+    "source": "PUBLISHED",
+    "website": "NOT_PUBLISHED"
+  },
+  "repository": "r-tanaka-math/mathlib-annex",
+  "repository_url": "https://github.com/r-tanaka-math/mathlib-annex",
+  "schema": "mathlibannex.source-release-manifest.v2",
+  "source": {
+    "file_count": 76,
+    "license": {
+      "path": "LICENSE",
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363",
+      "spdx": "Apache-2.0"
+    },
+    "source_zip": {
+      "bytes": 208954,
+      "name": "mathlib-annex-v0.2.0-source.zip",
+      "sha256": "585c1a07ff8a125ab189405d6fa7432703e3c1622c8515fb39bd9894ee74dd74"
+    },
+    "third_party_notices": {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "de94c2fd6c3847f475b980978c86f52deb7f685cb821970907349f1c65fa845d"
+    }
+  },
+  "tag": "v0.2.0",
+  "tag_object": "08491414664a0cea5d24f7e81e5ae6119bdfd081",
+  "tree": "b3378851a5287f5e3c8418f668e4d0ba52718739",
+  "version": "0.2.0"
+}

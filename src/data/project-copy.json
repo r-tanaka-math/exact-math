@@ -1,0 +1,16 @@
+{
+  "sr": {
+    "title": "Sphere Rigidity",
+    "summary": "The preliminary Brief Report presents the mathematical statements and proofs. It is a standalone record; conventional papers, formalization, and reusable-library materials each have their own review and release history.",
+    "statuses.1.detail": "Full human verification of the Sphere Rigidity Brief Report, Draft R1, has not been completed. An AI-assisted review of the written argument was recorded on 10 September 2026; this is not human verification or journal peer review.",
+    "statuses.3.detail": "The correspondence between the Sphere Rigidity Brief Report, Draft R1, and the Lean formalization has not yet been checked in full.",
+    "statuses.5.value": "Preliminary Brief Report",
+    "statuses.5.detail": "The preliminary Brief Report is available as a PDF. Its publication metadata is prepared; no first-publication date has been assigned. Sphere Rigidity formal source and Project-guide publication remain separate.",
+    "artifacts.0.state": "Available as a preliminary PDF",
+    "artifacts.3.kind": "Formalization guides in HTML and PDF",
+    "notes.2.title": "Related formalization materials.",
+    "notes.2.text": "The MathlibAnnex v0.2.0 formal source is public. The progressive Research Companion is available here in HTML, PDF and JSON for local review. Project and Card publication, and correspondence between the Brief Report and Lean source, remain pending.",
+    "updates.1.title": "Brief Report, Draft R1, prepared",
+    "updates.1.text": "The 22-page preliminary Brief Report and conventional manuscript incorporate the same local corrections. Preparation does not establish publication or full human verification."
+  }
+}

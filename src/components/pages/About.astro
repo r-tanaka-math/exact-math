@@ -1,0 +1,10 @@
+---
+import { SITE } from '../../config';
+import {publicWording} from '../../lib/build-profile';
+import { INDEPENDENCE_NOTICE } from '../../lib/publication';
+import { pageHref } from '../../lib/routes';
+import Sections from '../Sections.astro';
+import Contents from '../Contents.astro';
+const c = SITE.about;
+---
+<header class="page-head"><p class="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p class="lead">{c.lead}</p></header><div class="reading-layout"><article class="article"><section id="exact"><h2>What “Exact” means</h2><p class="quote">{SITE.exact_meaning}</p><p>{SITE.introduction}</p></section><Sections items={c.sections}/><section id="operator"><h2>Operator</h2><div class="operator-identity"><p class="operator-name">{SITE.owner.display_name}</p><p>{SITE.owner.title}<br/>{SITE.owner.unit}<br/>{SITE.owner.institution}</p></div><p class="independence-notice">{INDEPENDENCE_NOTICE}</p><p><a href={SITE.owner.institutional_profile} rel="external">Institutional profile — identification</a></p><p><a href={pageHref('corrections')}>Corrections and prior-art feedback</a></p><p class="contact">{c.contact_notice}</p><p><a href={pageHref('licensing')}>Content terms</a>{publicWording ? '.' : ' — not yet effective.'}</p></section></article><Contents items={[{id:'exact',label:'The meaning of “Exact”'},{id:'purpose',label:'Purpose'},{id:'ai',label:'AI participation'},{id:'versions',label:'Versions and corrections'},{id:'brief-reports',label:'Brief reports'},{id:'operator',label:'Operator and contact'}]}/></div>

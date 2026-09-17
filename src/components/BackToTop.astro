@@ -1,0 +1,32 @@
+<a class="back-to-top" href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a>
+<script>
+ document.addEventListener('click',event=>{
+  const anchor=(event.target as Element|null)?.closest<HTMLAnchorElement>('a[href]');
+  if(!anchor || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)return;
+  const destination=new URL(anchor.href,location.href);
+  if(destination.origin===location.origin && destination.pathname===`${import.meta.env.BASE_URL}corrections/` && !location.pathname.includes('/corrections/')){
+   try{sessionStorage.setItem('exact-feedback-return-path',location.pathname)}catch{}
+  }
+ });
+ const control=document.querySelector<HTMLAnchorElement>('.back-to-top');
+ const top=document.getElementById('site-top');
+ if(control && top){
+  let scheduled=false;
+  const update=()=>{
+   scheduled=false;
+   control.hidden=window.scrollY<600;
+   control.classList.remove('is-obstructed');
+   if(control.hidden || document.activeElement===control)return;
+   const r=control.getBoundingClientRect();
+   const blocked=[...document.querySelectorAll<HTMLElement>('input:not([type=hidden]),textarea,select,button,nav,a,summary,[role=doc-footnote],.footnotes,sup')].some(e=>{
+    if(e===control||control.contains(e))return false;
+    const b=e.getBoundingClientRect();return b.width>0 && b.height>0 && b.left<r.right+4 && b.right>r.left-4 && b.top<r.bottom+4 && b.bottom>r.top-4;
+   });
+   control.classList.toggle('is-obstructed',blocked);
+  };
+  const schedule=()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update)}};
+  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);control.addEventListener('blur',schedule);
+  control.addEventListener('click',e=>{e.preventDefault();top.focus({preventScroll:true});window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
+  update();
+ }
+</script>

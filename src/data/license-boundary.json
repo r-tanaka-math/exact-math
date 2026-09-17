@@ -1,0 +1,65 @@
+{
+  "schema": "exact.license-boundary.v1",
+  "version": "R1",
+  "status": "OWNER_APPROVED_PENDING_PUBLICATION",
+  "display_state": "Content terms approved · Not yet effective",
+  "legal_effect": "NONE_UNTIL_SEPARATE_PUBLIC_RELEASE_ACT",
+  "owner": "Ryotaro Tanaka",
+  "recommended_option": "ARR_NARROW_SCHOLARLY_PERMISSION_R1",
+  "owner_acceptance": {
+    "date": "2026-09-15",
+    "scope": "CONTENT_TERMS_PROPOSAL_R1_IN_SUBSTANCE",
+    "authority": "OWNER_RC3_DISPATCH"
+  },
+  "effective_date": null,
+  "public_release": false,
+  "indexing": "NOINDEX",
+  "layers": [
+    {
+      "id": "lean_source",
+      "label": "Canonical MathlibAnnex Lean source",
+      "treatment": "MathlibAnnex Lean source is governed by the Apache License 2.0 where stated in its canonical source repository. These content terms do not change source licenses."
+    },
+    {
+      "id": "website_code",
+      "label": "Website software and third-party components",
+      "treatment": "Preserve existing MIT and file-specific software terms and third-party notices. Fonts, libraries, templates and quoted material retain their own terms."
+    },
+    {
+      "id": "public_content",
+      "label": "Declaration cards, Brief Reports and original editorial content",
+      "treatment": "All rights reserved, with narrow personal, educational and scholarly-use permission. The owner has approved this wording in substance. It remains not yet effective until a separately authorized public release."
+    },
+    {
+      "id": "private_engine",
+      "label": "Private formalization and review technology",
+      "treatment": "Not distributed; no license granted by publication of outputs. The underlying private tools and operational procedures retain their separate status."
+    },
+    {
+      "id": "third_party",
+      "label": "Third-party assets and quoted material",
+      "treatment": "Fonts, libraries, templates and quoted material remain governed by their own licenses and attribution requirements."
+    }
+  ],
+  "proposed_notice_paragraphs": [
+    "Copyright © 2026 Ryotaro Tanaka. All rights reserved.",
+    "Unless a page or artifact states otherwise, Lean for Human (LFH) declaration cards, Catalog and Project exposition, Brief Reports, prior-art Research Notes, explanatory text, and their rendered HTML and PDF presentations are protected content.",
+    "You may access, download, cache, and print the material for your own personal, educational, or scholarly use; link to the official pages; and quote limited excerpts with appropriate citation, subject to applicable law. Ordinary indexing by general-purpose search engines consistent with this site's robots.txt is permitted.",
+    "No permission is granted to republish or redistribute substantial portions or complete copies, prepare or distribute adaptations or translations, use the content commercially, or systematically extract it for datasets, model training, or model evaluation, without prior written permission from the copyright holder.",
+    "These terms do not apply to MathlibAnnex Lean source released under the Apache License 2.0, website software released under its stated code licenses, or third-party material governed by its own terms. They do not restrict mathematical ideas, facts, methods, or results as such, or any use permitted by applicable law."
+  ],
+  "transition": {
+    "requires": [
+      "SEPARATE_AUTHORIZED_PUBLIC_RELEASE"
+    ],
+    "automatic_transition": false,
+    "acceptance_record": "OWNER_RC3_DISPATCH_CONTENT_TERMS_DECISION_R1"
+  },
+  "exclusions": [
+    "mathematical ideas, facts, methods, and results as such",
+    "uses permitted by applicable law",
+    "separately licensed source, software and third-party material"
+  ],
+  "effective_now": false,
+  "activation": "SEPARATE_PUBLIC_RELEASE_ACT"
+}

@@ -1,0 +1,196 @@
+{
+  "schema": "exact.project-preview.v2",
+  "id": "sr",
+  "title": "Sphere rigidity",
+  "long_title": "Rigidity of unit spheres in finite-dimensional real normed spaces",
+  "category": "Geometry of normed spaces",
+  "short_description": "A study of how the metric structure of a unit sphere determines its ambient real normed space, with a separate route toward reusable proof tools.",
+  "visibility": "PRIVATE_PREVIEW",
+  "website_revision": "RC5",
+  "website_updated": "2026-09-16",
+  "first_publication": null,
+  "briefing_version": "draft-r1",
+  "mathematical_review_date": null,
+  "stage": {
+    "code": "BRIEFING_PREVIEW_READY",
+    "label": "Brief report ready"
+  },
+  "summary": "A brief report presenting the mathematical statements and proofs is ready for private preview. The report is a standalone record; conventional-paper preparation, formalization, and reusable-library work continue independently.",
+  "claim": {
+    "label": "CLAIM PRESENTED IN THE BRIEF REPORT",
+    "text": "Finite-dimensional real normed spaces with isometric unit spheres are linearly isometric as normed spaces.",
+    "qualifier": "This is an existence statement about the two spaces. It is not a claim that a prescribed sphere isometry extends to a linear isometry.",
+    "preview_note": "This is a preliminary, AI-assisted manuscript. Full human verification of this report version has not been completed.",
+    "source_refs": [
+      "sr-boundaries",
+      "sr-lineage"
+    ],
+    "status": "PRELIMINARY_MANUSCRIPT_CLAIM"
+  },
+  "statuses": [
+    {
+      "id": "novelty",
+      "label": "Prior-art search",
+      "code": "DOCUMENTED_BOUNDED_SEARCH",
+      "value": "Documented through 15 September 2026",
+      "detail": "No equivalent result was identified in the sources examined through 15 September 2026. This is not a novelty certificate or a guarantee that no earlier result exists.",
+      "tone": "neutral"
+    },
+    {
+      "id": "human",
+      "label": "Human mathematical review",
+      "code": "HUMAN_VERIFICATION_INCOMPLETE",
+      "value": "Human verification incomplete",
+      "detail": "Full human verification of SR / draft-r1 has not been completed. An AI textual review was recorded on 10 September 2026; it is not human verification or journal peer review.",
+      "tone": "pending"
+    },
+    {
+      "id": "lean",
+      "label": "Lean formalization",
+      "code": "PUBLIC_SOURCE_V0_2_0",
+      "value": "MathlibAnnex v0.2.0 source public",
+      "detail": "The exact MathlibAnnex v0.2.0 source release includes the Sphere Rigidity Project entry and source manifest. Its pinned qualification is recorded separately from human review and Brief Report correspondence.",
+      "tone": "recorded",
+      "source_refs": [
+        "sr-formal",
+        "sr-lineage"
+      ]
+    },
+    {
+      "id": "alignment",
+      "label": "Text ↔ formal source",
+      "code": "REPORT_ALIGNMENT_PENDING",
+      "value": "Report correspondence pending",
+      "detail": "Correspondence between the Brief Report and MathlibAnnex v0.2.0 has not been fully checked. Project integration and its dependency route are not document alignment.",
+      "tone": "pending",
+      "source_refs": [
+        "sr-boundaries"
+      ]
+    },
+    {
+      "id": "exposition",
+      "label": "LFH reading materials",
+      "code": "LOCAL_COMPANION_REVIEW",
+      "value": "Local Companion review",
+      "detail": "The progressive Research Companion has been integrated into this local website review. Its 467 exact declarations are not provisional Cards; no Project or Card publication has occurred.",
+      "tone": "neutral"
+    },
+    {
+      "id": "publication",
+      "label": "Paper / public release",
+      "code": "PRIVATE_BRIEFING_PREVIEW",
+      "value": "Brief report in private preview",
+      "detail": "The brief report PDF is available inside this local preview only. Editable manuscript sources are retained privately. No public release date, arXiv link, DOI, or public Lean repository is assigned.",
+      "tone": "neutral"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "briefing",
+      "label": "Brief report",
+      "kind": "PDF",
+      "state": "Available in this private preview",
+      "url": "/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf",
+      "version": "draft-r1",
+      "sha256": "7eabe530c8ab74462515797325044ab5128a752a66c44581df9c5551ea07df1d",
+      "bytes": 411489,
+      "pages": 22,
+      "mime": "application/pdf",
+      "prepared_date": "2026-09-10",
+      "exposure": "PRIVATE_PREVIEW",
+      "action_label": "Read brief report (PDF)"
+    },
+    {
+      "id": "paper",
+      "label": "Conventional paper",
+      "kind": "arXiv / DOI",
+      "state": "No public link yet",
+      "url": null,
+      "version": null
+    },
+    {
+      "id": "formal",
+      "label": "Formal source",
+      "kind": "Lean repository",
+      "state": "MathlibAnnex v0.2.0 source public; see Formalization and LFH below",
+      "url": null,
+      "version": null
+    },
+    {
+      "id": "reading",
+      "label": "Reading materials",
+      "kind": "LFH HTML / PDF",
+      "state": "Companion HTML, PDF and JSON available below for local review",
+      "url": null,
+      "version": null
+    },
+    {
+      "id": "prior-art",
+      "label": "Prior-Art Search Note",
+      "kind": "PDF",
+      "state": "Search documented through 15 September 2026",
+      "exposure": "PRIVATE_PREVIEW",
+      "action_label": "Read prior-art search note (PDF)",
+      "url": "/reports/sphere-rigidity/prior-art/r2/sphere-rigidity-prior-art-search.pdf",
+      "bytes": 192068,
+      "sha256": "00fe9df433dc0ca5c20824f5fb688555ec6206d3b66a3a52789eb085d4321221",
+      "mime": "application/pdf",
+      "version": "r2",
+      "prepared_date": "2026-09-15",
+      "pages": 2
+    }
+  ],
+  "notes": [
+    {
+      "title": "A standalone mathematical record.",
+      "text": "The brief report contains the statements, proofs, necessary notation, and references. Its footer reads “AI-assisted manuscript · Human verification incomplete”. Subsequent Lean, library, and paper milestones belong to this project record; they do not require a new report edition unless the report itself changes."
+    },
+    {
+      "title": "AI assistance and human direction.",
+      "text": "The research direction and revisions were developed through human–AI dialogue. AI contributed substantially to proof development and manuscript preparation. This description does not imply that full human verification has been completed."
+    },
+    {
+      "title": "Reusable tools on a separate path.",
+      "text": "The SR tools have been grouped into nine candidate MathlibAnnex routes. Those research lanes continue independently. Their completion is not a prerequisite for reading the brief report."
+    },
+    {
+      "title": "Comments and collaborative verification.",
+      "text": "Comments, corrections, and proposals for collaborative verification are welcome. Editable manuscript files may be shared individually by agreement."
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-10",
+      "kind": "WEBSITE_EDIT",
+      "title": "PDF-only report distribution",
+      "text": "The website provides the report as a PDF. Editable manuscript sources are retained privately. The report bytes and mathematical review status are unchanged."
+    },
+    {
+      "date": "2026-09-10",
+      "kind": "DOCUMENT_PREPARED",
+      "title": "Brief report draft-r1 prepared",
+      "text": "The 22-page brief report was prepared for private preview. The conventional manuscript contains the same local corrections. This is not a public release."
+    },
+    {
+      "date": "2026-09-10",
+      "kind": "AI_TEXTUAL_REVIEW",
+      "title": "AI textual review recorded",
+      "text": "Statements and proof applications were re-examined, with eight groups of local corrections recorded. Full human verification and a new Lean build were not performed."
+    },
+    {
+      "date": "2026-09-09",
+      "kind": "WEBSITE_EDIT",
+      "title": "Private website record prepared",
+      "text": "Initial presentation and status fields only. This entry is not a mathematical review, a new Lean build, or a public release."
+    }
+  ],
+  "ai_textual_review": {
+    "kind": "AI_TEXTUAL_REVIEW",
+    "date": "2026-09-10",
+    "scope": "SR / draft-r1 and its synchronized conventional manuscript",
+    "full_human_verification": false,
+    "new_lean_build": false,
+    "full_formal_alignment_audit": false,
+    "mathematical_certification": false
+  }
+}

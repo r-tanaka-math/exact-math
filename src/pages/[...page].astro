@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Research from '../components/pages/Research.astro';
+import Annex from '../components/pages/Annex.astro';
+import About from '../components/pages/About.astro';
+import Verification from '../components/pages/Verification.astro';
+import { pagePaths, pageEnabled } from '../lib/routes';
+export function getStaticPaths() {
+  return (['research', 'annex', 'about', 'verification'] as const).filter(pageEnabled)
+    .map(key => ({ params: { page: pagePaths[key].replace(/\/$/, '') }, props: { pageKey: key } }));
+}
+interface Props { pageKey: 'research' | 'annex' | 'about' | 'verification' }
+const { pageKey } = Astro.props;
+const titles = { research:'Research', annex:'MathlibAnnex', about:'About', verification:'Verification guide' };
+const Component = { research:Research, annex:Annex, about:About, verification:Verification }[pageKey];
+---
+<Layout title={titles[pageKey]} active={pageKey}><div class="container"><Component/></div></Layout>

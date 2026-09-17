@@ -1,0 +1,7 @@
+---
+import { SITE } from '../../config';
+import { projectRecords } from '../../lib/records';
+import { projectHref } from '../../lib/routes';
+const c = SITE.verification; const sr = (await projectRecords()).find(p => p.id === 'sr');
+---
+<header class="page-head"><p class="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p class="lead">{c.lead}</p></header><div class="status-guide">{c.axes.map((x,i) => <section class="guide-item" id={x.id}><span class="number">{String(i+1).padStart(2,'0')}</span><h2>{x.title}</h2><p>{x.text}</p></section>)}</div><div class="guide-end"><h2>{c.order_title}</h2><p>{c.order_text}</p><div class="notice"><strong>{c.preview_title}</strong><p>{c.preview_text}</p></div>{sr && <a class="text-link" href={projectHref(sr.id)}>See the Sphere Rigidity project record<span class="arrow" aria-hidden="true">↗</span></a>}</div>

@@ -1,0 +1,6 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+export function getStaticPaths(){return ['sphere-rigidity','mankiewicz'].map(slug=>({params:{slug}}));}
+const title=Astro.params.slug==='sphere-rigidity'?'Sphere Rigidity Research Companion':'Mankiewicz Theorem Project';
+---
+<Layout title={title} active="annex"><div class="container"><h1>{title}</h1></div></Layout>

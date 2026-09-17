@@ -1,0 +1,17 @@
+{
+  "schema": "exact.public-citation-record.v1",
+  "title": "Sphere Rigidity",
+  "series_type": "Exact Mathematics with AI: Brief Report",
+  "version": "Draft R1",
+  "publisher": "Exact Mathematics with AI",
+  "date": "2026-09-17",
+  "prepared_date": "2026-09-10",
+  "author": null,
+  "canonical_landing_page": "https://exactmathematics.org/research/sphere-rigidity/",
+  "canonical_pdf": "https://exactmathematics.org/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf",
+  "pdf_sha256": "7eabe530c8ab74462515797325044ab5128a752a66c44581df9c5551ea07df1d",
+  "publication_responsibility_note": "Responsible for publication: Ryotaro Tanaka. This role covers release, versioning, corrections, and withdrawal; it does not constitute mathematical authorship or independent verification.",
+  "plain_reference": "Sphere Rigidity. Exact Mathematics with AI: Brief Report, Draft R1. Exact Mathematics with AI, 17 September 2026. https://exactmathematics.org/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf",
+  "bibtex": "@misc{exactmathematics_sphere_rigidity_brief_draft_r1,\n  title = {Sphere Rigidity},\n  howpublished = {Exact Mathematics with AI: Brief Report, Draft R1},\n  year = {2026},\n  month = sep,\n  url = {https://exactmathematics.org/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf},\n  note = {Published 17 September 2026. Responsible for publication: Ryotaro Tanaka (release, versioning, corrections, and withdrawal; not mathematical authorship or independent verification).}\n}",
+  "biblatex": "@online{exactmathematics_sphere_rigidity_brief_draft_r1,\n  title = {Sphere Rigidity},\n  organization = {Exact Mathematics with AI},\n  type = {Brief Report, Draft R1},\n  date = {2026-09-17},\n  url = {https://exactmathematics.org/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf},\n  note = {Responsible for publication: Ryotaro Tanaka (release, versioning, corrections, and withdrawal; not mathematical authorship or independent verification).}\n}"
+}

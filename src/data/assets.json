@@ -1,0 +1,38 @@
+{
+  "schema": "exact.preview-assets.v1",
+  "scope": "LOCAL_PREVIEW_ONLY",
+  "assets": [
+    {
+      "project_id": "sr",
+      "artifact_id": "briefing",
+      "logical_path": "reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf",
+      "package_path": "ASSETS/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf",
+      "url": "/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf",
+      "bytes": 411489,
+      "sha256": "7eabe530c8ab74462515797325044ab5128a752a66c44581df9c5551ea07df1d",
+      "mime": "application/pdf",
+      "version": "draft-r1",
+      "prepared_date": "2026-09-10",
+      "pages": 22,
+      "source_archive": "RC4_BRIEF_SOURCE_AUTHORITY_RETURN.zip",
+      "source_member": "PRODUCTS/SR_BRIEF_PUBLICATION_SOURCE"
+    },
+    {
+      "project_id": "sr",
+      "artifact_id": "prior-art",
+      "logical_path": "reports/sphere-rigidity/prior-art/r2/sphere-rigidity-prior-art-search.pdf",
+      "package_path": "ASSETS/reports/sphere-rigidity/prior-art/r2/sphere-rigidity-prior-art-search.pdf",
+      "url": "/reports/sphere-rigidity/prior-art/r2/sphere-rigidity-prior-art-search.pdf",
+      "bytes": 192068,
+      "sha256": "00fe9df433dc0ca5c20824f5fb688555ec6206d3b66a3a52789eb085d4321221",
+      "mime": "application/pdf",
+      "version": "r2",
+      "prepared_date": "2026-09-15",
+      "pages": 2,
+      "source_archive": "EXACT_SR_PRIOR_ART_PUBLICATION_PACK_R2_FIX1.zip",
+      "source_member": "PUBLIC/SR_PRIOR_ART_SEARCH_NOTE_R2_PUBLICATION_CANDIDATE.pdf"
+    }
+  ],
+  "publication_authorized": false,
+  "public_release_date": null
+}

@@ -1,0 +1,139 @@
+{
+  "schema": "exact.workbench-input-slots.v2",
+  "preferred_profile": "FULL_LAUNCH",
+  "fallback_profile": "WITHOUT_LFH_PROJECT_VIEWS",
+  "fallback_selected": false,
+  "slots": [
+    {
+      "id": "MANKIEWICZ_PUBLIC_PROFILE_EXPORT",
+      "state": "SUPPLIED_QUALIFIED_ADAPTER",
+      "required_for": [
+        "FULL_LAUNCH"
+      ],
+      "manifest": "publication/workbench/input/PROJECTS/mankiewicz/LFH_PROJECT_MANIFEST.json",
+      "manifest_sha256": "e0901857fdc2c9c0ec605b0c74db3824797f015a9ae8a08b452b3da1106a84a5"
+    },
+    {
+      "id": "SPHERE_RIGIDITY_PROGRESSIVE_PROJECT_EXPORT",
+      "state": "SUPPLIED_QUALIFIED_ADAPTER",
+      "required_for": [
+        "FULL_LAUNCH"
+      ],
+      "manifest": "publication/workbench/input/PROJECTS/sphere-rigidity/LFH_PROJECT_MANIFEST.json",
+      "manifest_sha256": "bc61667f9afd4898a8c76f0e0874fd60048fa79b2ea7df1f861e899a26890d77b"
+    },
+    {
+      "id": "NEUTRAL_WORKBENCH_PUBLIC_PRESENTATION_SUCCESSOR",
+      "state": "SUPPLIED_QUALIFIED_WORKBENCH",
+      "required_for": [
+        "FULL_LAUNCH"
+      ],
+      "manifest": "publication/workbench/public-presentation/WEBSITE_ROUTE_MANIFEST.json",
+      "manifest_sha256": "175214ab08c062f6a04a20da02653c4def3e6abf6815f858ef84822b1c7eb94f",
+      "selected_files": [
+        {
+          "bytes": 1430,
+          "path": "mathlibannex/assets/project-presentation-r1/project.js",
+          "sha256": "4f07dc3814a69f4fb9b6ac215013b6a224927732dbcab92f3148dbe25d8a33b4"
+        },
+        {
+          "bytes": 2900,
+          "path": "mathlibannex/assets/project-presentation-r1/style.css",
+          "sha256": "3c8d0fa550f226da858403c51ba0653fd0283bb357f9b195c572927ccd44ffcf"
+        },
+        {
+          "bytes": 758507,
+          "path": "mathlibannex/data/project-presentation-r1/mankiewicz/boundary-projection.accepted.json",
+          "sha256": "eb3a94835698feecac56f2e05c032f9bfc3eee61cea79dcfc4473f02e4678cf0"
+        },
+        {
+          "bytes": 1344,
+          "path": "mathlibannex/data/project-presentation-r1/mankiewicz/levels.accepted.json",
+          "sha256": "3cbb8b47936fac43e70a750c7f1545c979b040bf64bca3a6835094e5a3b591e1"
+        },
+        {
+          "bytes": 1906,
+          "path": "mathlibannex/data/project-presentation-r1/mankiewicz/presentation-binding.json",
+          "sha256": "5aae55494aaab84ab571de971b0942958a04a65fa50926c4133b34839a55d41f"
+        },
+        {
+          "bytes": 27829,
+          "path": "mathlibannex/data/project-presentation-r1/mankiewicz/project.json",
+          "sha256": "b9fe41c5a438a90883b3d8bca1272c1f32893f3be7805b6fd4bae4c34bf1028f"
+        },
+        {
+          "bytes": 14157,
+          "path": "mathlibannex/data/project-presentation-r1/mankiewicz/selected-graph.accepted.json",
+          "sha256": "342de4be1528a50cff58464eb41c8e737bdd0ee874fb996edc76c464c3249ece"
+        },
+        {
+          "bytes": 2206531,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/boundary-inputs.json",
+          "sha256": "b5b14c0995809e3db381e00d37845b7920ed377a8497bdd92237bfa8041424e6"
+        },
+        {
+          "bytes": 186,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/card-coverage.json",
+          "sha256": "3dbbcfe3c9bc6e5591785e4fc0d03dc8067d9de3f9a24683670a06bc065c5184"
+        },
+        {
+          "bytes": 454931,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/declarations.json",
+          "sha256": "40e920c53653d6c47bff3690fa8fa940c9e14042f29caed00be44f7a3b63800d"
+        },
+        {
+          "bytes": 61186,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/display-graph.json",
+          "sha256": "49e59f0599833ea7f1a69a9fe053652ee528ce15d1d02bc71ab9c31764abc53f"
+        },
+        {
+          "bytes": 22553,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/levels.json",
+          "sha256": "abd946b21759f76664fbfe70e1024c31266e06e6d7c6f001ae0c84857045d4d7"
+        },
+        {
+          "bytes": 3189,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/presentation-binding.json",
+          "sha256": "966c2c5221042329c0201106637eccdf03020a6f5f92268a412bde0a9527340f"
+        },
+        {
+          "bytes": 611301,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/project.json",
+          "sha256": "e9e76a64238b331e09f2a78816920fcf5a17226dd69389c087509f9bf4e1c56d"
+        },
+        {
+          "bytes": 5180644,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/reachability.accepted.json",
+          "sha256": "14436e759aa9d38fe5da7fcaca410555bb6609b7c569b514b7af6c4f98bc3407"
+        },
+        {
+          "bytes": 3350,
+          "path": "mathlibannex/data/project-presentation-r1/sphere-rigidity/routes.json",
+          "sha256": "7efcba4db603fee12b8d2cafa0b7f942a75e065a56aa5351662ab2c2a9fdebbb"
+        },
+        {
+          "bytes": 54781,
+          "path": "mathlibannex/documents/mankiewicz-project-r1.pdf",
+          "sha256": "0cef4790d7d620604595c7e6e0cfca29a886b821892b3327747ed5d26c735563"
+        },
+        {
+          "bytes": 251827,
+          "path": "mathlibannex/documents/sphere-rigidity-project-r1.pdf",
+          "sha256": "fbfd426053b0ef8a3535ea5bf27ab60497a22ba1d869a1d088497de1b8bd747b"
+        },
+        {
+          "bytes": 11090,
+          "path": "mathlibannex/projects/mankiewicz/index.html",
+          "sha256": "73a3eef95ec1db8ba6bdf38909c38caef0a7aadb7cf15aa9745051606c426b73"
+        },
+        {
+          "bytes": 470775,
+          "path": "mathlibannex/projects/sphere-rigidity/index.html",
+          "sha256": "39c7f932a7a8e0a6b98c93da3ee1952b5fc4602a83e7f37a64fbb1add5a654b7"
+        }
+      ]
+    }
+  ],
+  "adapter": "publication/workbench/adapter-lock.json",
+  "content_input_gate": "FULL_LAUNCH_NEUTRAL_PUBLIC_PRESENTATION_REQUIRED"
+}

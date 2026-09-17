@@ -1,0 +1,5 @@
+---
+interface Props { text: string; tone?: 'neutral' | 'pending' | 'recorded' }
+const { text, tone = 'pending' } = Astro.props;
+---
+<span class:list={['badge', tone]}>{text}</span>

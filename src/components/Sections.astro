@@ -1,0 +1,5 @@
+---
+interface Props { items: {id:string;title:string;paragraphs:string[]}[] }
+const { items } = Astro.props;
+---
+{items.map(s => <section id={s.id}><h2>{s.title}</h2>{s.paragraphs.map(p => <p>{p}</p>)}</section>)}

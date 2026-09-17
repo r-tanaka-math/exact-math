@@ -1,0 +1,4 @@
+# Exact upstream evidence must survive every checkout byte-for-byte.
+publication/workbench/input/** -text
+publication/workbench/public-presentation/** -text
+publication/source-v0.2.0/** -text

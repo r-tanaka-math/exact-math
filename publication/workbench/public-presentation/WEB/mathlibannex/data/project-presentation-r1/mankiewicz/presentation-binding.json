@@ -1,0 +1,52 @@
+{
+  "canonical_card_links": 0,
+  "content_terms_effect": "NONE",
+  "exposure_record": "HOSTING_RELEASE_RECORD",
+  "first_publication_date": null,
+  "inherited_project_manifest": {
+    "authority": "ACCEPTED_PROGRESSIVE_PROJECT_HANDOFF",
+    "sha256": "e0901857fdc2c9c0ec605b0c74db3824797f015a9ae8a08b452b3da1106a84a5"
+  },
+  "profile": "PROJECT_PUBLIC_PRESENTATION_R1",
+  "project_identity": {
+    "slug": "mankiewicz",
+    "title": "Mankiewicz Extension Theorem"
+  },
+  "project_json": {
+    "bytes": 27829,
+    "path": "project.json",
+    "sha256": "b9fe41c5a438a90883b3d8bca1272c1f32893f3be7805b6fd4bae4c34bf1028f"
+  },
+  "project_kind": "THEOREM_PROJECT",
+  "public_cards": 0,
+  "record_type": "LFH_PROJECT_PRESENTATION_BINDING",
+  "revision": "R1",
+  "schema": "mathlibannex.project-public-presentation-binding.v1",
+  "source_binding": {
+    "commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+    "entry_path": "MathlibAnnex/Projects/Mankiewicz.lean",
+    "entry_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Projects/Mankiewicz.lean",
+    "manifest_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/docs/projects/mankiewicz.json",
+    "qualification_run": 35086615666,
+    "repository": "https://github.com/r-tanaka-math/mathlib-annex",
+    "tag": "v0.2.0",
+    "tree": "b3378851a5287f5e3c8418f668e4d0ba52718739"
+  },
+  "structural_files": [
+    {
+      "bytes": 758507,
+      "path": "boundary-projection.accepted.json",
+      "sha256": "eb3a94835698feecac56f2e05c032f9bfc3eee61cea79dcfc4473f02e4678cf0"
+    },
+    {
+      "bytes": 1344,
+      "path": "levels.accepted.json",
+      "sha256": "3cbb8b47936fac43e70a750c7f1545c979b040bf64bca3a6835094e5a3b591e1"
+    },
+    {
+      "bytes": 14157,
+      "path": "selected-graph.accepted.json",
+      "sha256": "342de4be1528a50cff58464eb41c8e737bdd0ee874fb996edc76c464c3249ece"
+    }
+  ]
+}

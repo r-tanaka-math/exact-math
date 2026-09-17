@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageHref } from '../../lib/routes';
+const labels=[['category','Category'],['project_or_page','Project or page'],['locator','Exact locator'],['message','Message'],['name','Name'],['email','Email'],['submittedAt','Local submission time']];
+---
+<Layout title="Submission received" active="received"><div class="container"><header class="page-head"><p class="eyebrow">CORRECTIONS AND PRIOR ART</p><h1 tabindex="-1" id="receipt-heading">Submission received</h1></header>
+<section class="receipt-content" aria-labelledby="receipt-heading"><p>No automatic confirmation email is sent. Browser confirmation records Formspree acceptance, not delivery of an operator notification email.</p><p id="receipt-empty" role="status">No recent submission is available in this tab.</p><div id="receipt-summary" hidden><p id="receipt-status" role="status"></p><p>This summary is shown once in this tab. Refreshing or leaving the page clears it.</p><dl class="receipt-values">{labels.map(([key,label])=><div><dt>{label}</dt><dd data-receipt-field={key}></dd></div>)}</dl></div><div class="actions"><a class="button" href={pageHref('corrections')}>Send another message</a><a id="receipt-back" href={pageHref('home')}>Return to the previous page</a></div><noscript><p>The one-time summary requires JavaScript. Native form submissions use Formspree’s ordinary confirmation page.</p></noscript></section></div></Layout>
+<script>
+ import { consumeReceipt,fields } from '../../lib/submission-receipt';
+ const summary=document.getElementById('receipt-summary')!,empty=document.getElementById('receipt-empty')!;
+ const clear=()=>{document.querySelectorAll<HTMLElement>('[data-receipt-field]').forEach(e=>e.textContent='');document.getElementById('receipt-status')!.textContent='';summary.hidden=true;empty.hidden=false;};
+ (()=>{const r=consumeReceipt();if(!r)return;
+  for(const key of fields)document.querySelector<HTMLElement>(`[data-receipt-field="${key}"]`)!.textContent=r.values[key];
+  document.querySelector<HTMLElement>('[data-receipt-field="submittedAt"]')!.textContent=new Date(r.submittedAt).toLocaleString();
+  document.getElementById('receipt-status')!.textContent=r.demo?'Confirmation demo — no message was sent. The values below are synthetic examples.':'Formspree accepted this submission. Notification email is a separate delivery step; its delivery has not been confirmed.';
+  (document.getElementById('receipt-back') as HTMLAnchorElement).href=r.previousPath;
+  summary.hidden=false;empty.hidden=true;document.getElementById('receipt-heading')!.focus();
+ })();
+ addEventListener('pagehide',clear);addEventListener('pageshow',e=>{if(e.persisted)clear()});
+</script>

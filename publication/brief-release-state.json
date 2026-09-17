@@ -1,0 +1,13 @@
+{
+  "status": "FINAL_DATED_CANDIDATE_NOT_PUBLISHED",
+  "first_publication_date": "2026-09-17",
+  "timezone": "Asia/Tokyo",
+  "sha256": "7eabe530c8ab74462515797325044ab5128a752a66c44581df9c5551ea07df1d",
+  "bytes": 411489,
+  "pages": 22,
+  "pdf_author": "",
+  "body_tex_sha256": "46c2f465a568ec5d0239357144afed2ecbba1c9b78ecbfc64707080f03c23407",
+  "references_bib_sha256": "63f3b1d12b7e2f995a4f4cb263ad64d6b1ea82ff8620a5bd1e77581b07b8f611",
+  "all_pages_qualified": true,
+  "final_dated_render_qualified": true
+}

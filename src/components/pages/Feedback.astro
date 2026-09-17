@@ -1,0 +1,38 @@
+---
+import FeedbackForm from '../FeedbackForm.astro';
+import { SITE } from '../../config';
+import { projectRecords } from '../../lib/records';
+import {publicWording,exactSiteCommit} from '../../lib/build-profile';
+
+const projects = await projectRecords();
+const projectOptions = [
+  ...projects.map(project => project.data.title),
+  'MathlibAnnex and declaration cards',
+  'Website or other',
+];
+const enabled = SITE.feedback.mode === 'LIVE_PUBLIC';
+---
+
+<header class="page-head">
+  <p class="eyebrow">CORRECTIONS AND PRIOR ART</p>
+  <h1>Corrections and prior-art feedback</h1>
+  <p class="lead">Substantive corrections, prior-art references, and formalization discrepancies are welcome.</p>
+</header>
+
+<div class="reading-layout">
+  <article class="article">
+    <section>
+      <h2>What to include</h2>
+      <p>Identify the exact project, theorem, section, declaration, Card, URL, or PDF page. Explain the issue and provide a public reference where possible.</p>
+      <p>Please do not send confidential manuscripts, unpublished third-party material, passwords, access tokens, or sensitive personal information.</p>
+    </section>
+    <section id="form">
+      <h2>Send feedback</h2><p>No automatic confirmation email is sent. Browser confirmation records Formspree acceptance, not delivery of an operator notification email.</p>
+      <FeedbackForm enabled={enabled} siteRevision={publicWording ? exactSiteCommit : `${SITE.revision}@LOCAL_REVIEW`} projectOptions={projectOptions} />
+    </section>
+  </article>
+  <aside class="contents">
+    <p class="eyebrow">ON THIS PAGE</p>
+    <a href="#form">Feedback form</a>
+  </aside>
+</div>

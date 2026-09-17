@@ -1,0 +1,52 @@
+[
+  {
+    "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.2.0/mathlib-annex-v0.2.0-source.zip",
+    "bytes": 208954,
+    "created_at": "2026-09-16T11:38:51Z",
+    "id": 567846970,
+    "label": "",
+    "name": "mathlib-annex-v0.2.0-source.zip",
+    "sha256": "585c1a07ff8a125ab189405d6fa7432703e3c1622c8515fb39bd9894ee74dd74",
+    "updated_at": "2026-09-16T11:38:51Z"
+  },
+  {
+    "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.2.0/GITHUB_QUALIFICATION_RECEIPT.json",
+    "bytes": 2341,
+    "created_at": "2026-09-16T11:38:56Z",
+    "id": 567847097,
+    "label": "",
+    "name": "GITHUB_QUALIFICATION_RECEIPT.json",
+    "sha256": "4b0bd54faa09df6cc594e57348535fc80314e529d8e4af2597ab3e3546665609",
+    "updated_at": "2026-09-16T11:38:56Z"
+  },
+  {
+    "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.2.0/MATHLIBANNEX_PROJECT_SOURCE_MANIFESTS.json",
+    "bytes": 35527,
+    "created_at": "2026-09-16T11:38:59Z",
+    "id": 567847168,
+    "label": "",
+    "name": "MATHLIBANNEX_PROJECT_SOURCE_MANIFESTS.json",
+    "sha256": "128d1fa10a8b286bfb3b70b091e60cee823be8bde7f26014704cbbeb868cca5a",
+    "updated_at": "2026-09-16T11:38:59Z"
+  },
+  {
+    "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.2.0/SOURCE_RELEASE_MANIFEST.json",
+    "bytes": 2818,
+    "created_at": "2026-09-16T11:39:02Z",
+    "id": 567847287,
+    "label": "",
+    "name": "SOURCE_RELEASE_MANIFEST.json",
+    "sha256": "8a8bc59f242d8479bfc7784fadf106821fafbf4b6af7ad77a415ffd3e663741c",
+    "updated_at": "2026-09-16T11:39:03Z"
+  },
+  {
+    "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.2.0/SHA256SUMS.txt",
+    "bytes": 402,
+    "created_at": "2026-09-16T11:39:06Z",
+    "id": 567847449,
+    "label": "",
+    "name": "SHA256SUMS.txt",
+    "sha256": "5444ce0fbc10d161d540c028cedb736141044637ec81fb2532df47ef3294b55d",
+    "updated_at": "2026-09-16T11:39:06Z"
+  }
+]

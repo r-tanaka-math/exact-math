@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {publicWording} from '../../lib/build-profile';
+---
+<Layout title="Confirmation demo" active="demo"><div class="container"><header class="page-head"><p class="eyebrow">{publicWording ? 'FORM DEMONSTRATION' : 'LOCAL REVIEW'}</p><h1>Confirmation demo</h1><p class="lead">Preview the confirmation page without sending a message.</p></header><section class="receipt-content"><p>This demonstration uses synthetic values stored once in this tab. It makes no submission to Formspree.</p><button class="button" id="confirmation-demo">Show a simulated confirmation</button><p id="demo-error" role="status"></p></section></div></Layout>
+<script>
+ import {storeReceipt} from '../../lib/submission-receipt';
+ document.getElementById('confirmation-demo')!.addEventListener('click',()=>{
+  const ok=storeReceipt({version:1,demo:true,values:{category:'Broken artifact or technical issue',project_or_page:'Website confirmation demo',locator:'Demonstration only',message:'This is a synthetic example. No message has been sent.',name:'Example reader',email:'reader@example.invalid'},submittedAt:new Date().toISOString(),previousPath:import.meta.env.BASE_URL});
+  if(ok)location.assign(`${import.meta.env.BASE_URL}corrections/received/`);else document.getElementById('demo-error')!.textContent='Temporary session storage is unavailable in this browser. Nothing was sent.';
+ });
+</script>

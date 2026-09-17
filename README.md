@@ -1,0 +1,4 @@
+# Exact Mathematics with AI website
+Astro website for an independent mathematics research initiative. The canonical MathlibAnnex v0.2.0 source is public. The historical v0.1.0 release remains available; this website and LFH content have separate release acts.
+Use the version in .node-version, run npm ci, then npm run check and npm run build. The default PUBLIC_PREVIEW build is noindex with form sending disabled. See publication/DEPLOYMENT_PREPARATION.md for profiles and the explicit owner-act release gate. A public release requires an exact owner act bound to the repository commit and tree before its first content-bearing push.
+Keep LICENSE, THIRD_PARTY_NOTICES.md and notices/. Mathematical content and software have separate terms. Content terms remain approved but inactive until an explicit owner release act. See publication/content-terms-activation.json.

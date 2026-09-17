@@ -1,0 +1,27 @@
+---
+// Derived from Scholar-Lite research/index.astro: typed collection, mapped cards,
+// explicit empty state. Status and search share the same project records.
+import { SITE } from '../../config';
+import { projectRecords } from '../../lib/records';
+import ProjectCard from '../ProjectCard.astro';
+import Link from '../Link.astro';
+const c = SITE.research; const projects = await projectRecords();
+---
+<header class="page-head"><p class="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p class="intro">{c.intro}</p></header>
+<div class="notice">{projects.length ? c.notice : 'No research artifact is available yet.'}</div>
+<div class="filter-row"><div class="search-wrap"><label for="project-search">Find a project</label><input id="project-search" class="filter-input" type="search" placeholder="Title, topic, or keyword" autocomplete="off" aria-controls="project-list"/></div><p class="count" id="project-count" role="status" aria-live="polite">{projects.length} {projects.length === 1 ? 'project' : 'projects'} listed</p></div>
+<noscript><p class="meta-note">Keyword filtering requires JavaScript. All projects are shown below.</p></noscript>
+<div class="research-list" id="project-list">{projects.map(entry => <ProjectCard entry={entry}/>)}<p class="empty-state" id="empty-state" hidden={projects.length !== 0}>{projects.length ? 'No matching project. Try “sphere” or clear the search.' : 'No project record is available yet.'}</p></div>
+<section class="principle"><h3>Read the evidence, not just a label.</h3><p>Human review, formal checking, and statement alignment are shown separately. <Link to="verification" label="How to read the verification record"/></p></section>
+<script>
+const input = document.querySelector<HTMLInputElement>('#project-search');
+const cards = [...document.querySelectorAll<HTMLElement>('[data-project]')];
+const count = document.querySelector('#project-count');
+const empty = document.querySelector<HTMLElement>('#empty-state');
+input?.addEventListener('input', () => {
+  const q = input.value.trim().toLowerCase(); let n = 0;
+  cards.forEach(card => { const show = (card.dataset.search || '').includes(q); card.hidden = !show; if (show) n++; });
+  if (count) count.textContent = `${n} project${n === 1 ? '' : 's'} listed`;
+  if (empty) empty.hidden = n !== 0;
+});
+</script>

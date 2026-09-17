@@ -1,0 +1,13 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import r from '../../../data/mathlibannex-release.json';
+const base=import.meta.env.BASE_URL;
+const link=(p:string)=>`${r.repository}/blob/${r.commit}/${p}`;
+---
+<Layout title="MathlibAnnex v0.2.0" active="annex"><div class="container"><header class="page-head"><p class="eyebrow">SOURCE RELEASE</p><h1>MathlibAnnex v0.2.0</h1><p class="lead">The current canonical Lean source release is public under Apache License 2.0.</p><p>The Research Companion, Theorem Project view, Declaration Cards and this website have separate publication states.</p></header><div class="reading-layout"><article class="article">
+<section><h2>Repository and Project source</h2><ul><li><a href={r.repository}>Source repository</a></li><li><a href={r.release}>v0.2.0 release</a></li>{r.project_entries.map(p=><li><a href={link(p.path)}>{p.label} Project entry</a> · <a href={link(p.manifest_path)}>Project Source Manifest</a><details><summary>Exact file identity</summary><p><code>{p.sha256}</code> · <code>{p.manifest_sha256}</code></p></details></li>)}</ul></section>
+<section><h2>Release assets</h2><ul>{r.assets.map(a=><li><a href={a.browser_download_url}>{a.name}</a><details><summary>File identity</summary><p>{a.bytes} bytes</p><code>{a.sha256}</code></details></li>)}</ul></section>
+<section><h2>Qualification and trust boundary</h2><p>The exact source qualification passed the pinned build, downstream imports, both Project-entry imports, repository cleanliness and compiled-axiom audit. The 2,016 audited declarations used only propext, Classical.choice and Quot.sound. This does not constitute a line-by-line human proof audit or verify the Brief Report against the Lean source.</p><p><a href={r.qualification.receipt_url}>Qualification receipt</a> · Run {r.qualification.run_id}</p></section>
+<section><h2>Exact source identity</h2><dl><dt>Tag</dt><dd><code>{r.tag}</code></dd><dt>Commit</dt><dd><a href={`${r.repository}/commit/${r.commit}`}><code>{r.commit}</code></a></dd><dt>Tree</dt><dd><code>{r.tree}</code></dd></dl></section>
+<p><a href={base+'mathlibannex/'}>MathlibAnnex overview</a> · <a href={base+'mathlibannex/releases/v0.1.0/'}>Historical v0.1.0 release</a></p>
+</article></div></div></Layout>

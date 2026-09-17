@@ -1,0 +1,8 @@
+{
+  "status": "OWNER_APPROVED_PENDING_PUBLICATION",
+  "effective_now": false,
+  "effective_date": null,
+  "approved_text_sha256": "eaf1195b43fdd0d4245fccaf2aa74b50287f176700567394e872cbb610e3d817",
+  "activation_requires": "EXPLICIT_OWNER_RELEASE_ACT_BOUND_TO_FINAL_COMMIT_AND_DATE",
+  "public_effective_variant": "content-terms-public-effective.md"
+}

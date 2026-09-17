@@ -1,0 +1,26 @@
+{
+  "name": "exact-mathematics-private",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "stage:assets": "node scripts/stage-assets.mjs",
+    "precheck": "npm run stage:assets",
+    "check": "astro check",
+    "prebuild": "npm run stage:assets",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@formspree/ajax": "1.1.5",
+    "astro": "5.16.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.6",
+    "typescript": "5.9.3"
+  }
+}

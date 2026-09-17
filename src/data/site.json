@@ -1,0 +1,208 @@
+{
+  "schema": "exact.site-draft.v1",
+  "language": "en",
+  "revision": "RC5",
+  "preview_only": true,
+  "public_release": false,
+  "content_date": "2026-09-17",
+  "name": "Exact Mathematics with AI",
+  "subtitle": "Mathematical discovery, formal verification, and human understanding.",
+  "introduction": "An independent research initiative exploring mathematics with AI. We share preliminary results, develop reusable formal mathematics, and build explanations that help readers understand proofs. Each project records its verification status and how that status changes over time.",
+  "exact_meaning": "“Exact” describes our commitment to explicit statements, traceable reasoning, and transparent verification—not a claim that every preliminary result is already correct.",
+  "owner": {
+    "display_name": "Ryotaro Tanaka",
+    "title": "Associate Professor",
+    "unit": "Institute of Arts and Sciences",
+    "institution": "Tokyo University of Science",
+    "institutional_profile": "https://www.tus.ac.jp/ridai/doc/ji/RIJIA01Detail.php?act=&diu=6fd5&kin=ken&pri=en",
+    "contact_route": "/corrections/",
+    "independence_notice": "The affiliation is provided for identification only. Exact Mathematics with AI is an independent research initiative and is not an official website or publication of Tokyo University of Science.",
+    "publish_direct_email": false,
+    "authority": "OWNER_PROVIDED_FINAL_FOR_SITE_IDENTITY"
+  },
+  "navigation": [
+    {
+      "key": "home",
+      "label": "Home"
+    },
+    {
+      "key": "research",
+      "label": "Research"
+    },
+    {
+      "key": "annex",
+      "label": "MathlibAnnex"
+    },
+    {
+      "key": "about",
+      "label": "About"
+    }
+  ],
+  "preview_notice": "Local review · Not yet public",
+  "home": {
+    "eyebrow": "AN INDEPENDENT RESEARCH INITIATIVE",
+    "side_title": "A research result is a beginning.",
+    "side_text": "We want the mathematics behind it to remain available: the statement, the proof, its verification record, and the tools that another proof can use.",
+    "research_title": "Research in progress",
+    "research_intro": "Follow a result from its first precise statement to a proof that can be checked, understood, and reused.",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Discover",
+        "text": "Share mathematical claims and proofs without waiting for the final form of a journal article. State what is known, and what still needs checking."
+      },
+      {
+        "number": "02",
+        "title": "Verify",
+        "text": "Keep human review, formal checking, and statement alignment visible as separate records. A new version should say exactly what changed."
+      },
+      {
+        "number": "03",
+        "title": "Understand",
+        "text": "Make the necessary definitions and intermediate results reachable from the proof itself. The aim is mathematics that readers can learn and reuse."
+      }
+    ],
+    "annex_title": "Let one proof help the next.",
+    "annex_text": "MathlibAnnex connects reusable Lean declarations with human-readable declaration cards, exact source views, and guided Project overviews. Begin with the Mankiewicz Extension Theorem.",
+    "principle_title": "Precision without a black box.",
+    "principle_text": "A reader should be free to skip familiar details—and able to open the details that are not yet familiar."
+  },
+  "research": {
+    "eyebrow": "RESEARCH",
+    "title": "Results, with their evidence.",
+    "intro": "Each project brings together a mathematical claim, its available documents, and a version-specific verification record. Preliminary work is labelled as preliminary.",
+    "notice": "The Sphere Rigidity Brief Report is available as a preliminary PDF. Its project page records the current mathematical review, formalization, and correspondence status."
+  },
+  "annex": {
+    "eyebrow": "REUSABLE FORMAL MATHEMATICS",
+    "title": "MathlibAnnex",
+    "lead": "Build on Mathlib. Keep the useful mathematics.",
+    "intro": "MathlibAnnex is a shared library of reusable Lean declarations. Its canonical source release v0.2.0 is public. The Research Companion, Theorem Project views, Declaration Cards and this website have separate publication states.",
+    "status": "Source release v0.2.0: public. Project views: integrated local review, not public. Declaration Card Catalog: not public. LFH content terms: not effective. Website: not public.",
+    "sections": [
+      {
+        "id": "mathlib-first",
+        "title": "One foundation, not a parallel mathematics.",
+        "paragraphs": [
+          "Mathlib is the preferred source of existing results. Project names, paper numbering, and temporary proof scaffolding should not determine the public mathematical API.",
+          "When a suitable result becomes available in Mathlib, the preferred provider can move there. The explanations and history should remain connected to the exact declarations they describe."
+        ]
+      },
+      {
+        "id": "cards",
+        "title": "A declaration, and the mathematics behind it.",
+        "paragraphs": [
+          "The reading unit is a declaration card: an exact Lean statement, an explanation of its assumptions and conclusion, proof steps, citations, and a record of review.",
+          "MathlibAnnex declarations and selected Mathlib declarations belong in the long-term catalog. Research-specific material stays in versioned project packs. The generated HTML and PDF are views of those records, not separate versions of the mathematics."
+        ]
+      },
+      {
+        "id": "reading",
+        "title": "Follow the proof as far as you need.",
+        "paragraphs": [
+          "A reference should lead not only to a theorem name, but to the assumptions and reasoning needed to understand its use. General-purpose cards can be reused; the project explains how a result applies in this proof.",
+          "Each declaration card can be read on its own or followed through a Project’s dependency-guided route. Exact source links remain available for readers who want the formal statement and implementation details."
+        ]
+      }
+    ],
+    "work": [
+      {
+        "title": "Mankiewicz",
+        "text": "A Theorem Project view of the Mankiewicz Extension Theorem, bound to MathlibAnnex v0.2.0. Eleven declaration explanations have completed source–exposition correspondence review; public Card links are not yet active."
+      },
+      {
+        "title": "Sphere Rigidity formalization materials",
+        "text": "A progressive Research Companion for Sphere Rigidity with 467 exact declaration nodes, route summaries and source links. Cards remain in preparation."
+      }
+    ],
+    "closing": "No separate completion of these library projects is required to publish a clearly labelled research briefing."
+  },
+  "about": {
+    "eyebrow": "ABOUT THE INITIATIVE",
+    "title": "Exactness that helps us understand.",
+    "lead": "AI can help produce a proof. Our next task is to make that proof usable mathematics.",
+    "sections": [
+      {
+        "id": "purpose",
+        "title": "Why this initiative exists",
+        "paragraphs": [
+          "The work starts from a practical difficulty: producing a proof and coming to understand it are different tasks. A growing body of AI-assisted mathematics should not become a collection of opaque results.",
+          "We want to retain precise claims, reusable formal tools, and explanations that let a reader follow the necessary mathematics without reconstructing every missing link from external literature."
+        ]
+      },
+      {
+        "id": "ai",
+        "title": "AI participation and human responsibility",
+        "paragraphs": [
+          "AI may contribute to exploration, proof construction, formalization, literature searches, and exposition. The role of AI and the extent of human review should be recorded for each result rather than hidden behind a general label.",
+          "A preliminary briefing is not a peer-reviewed article. Later papers record their actual human contributions; a preliminary website record does not predetermine their authorship."
+        ]
+      },
+      {
+        "id": "versions",
+        "title": "Versions, corrections, and unfinished work",
+        "paragraphs": [
+          "A project is a changing record, not a permanent claim of correctness. Substantive corrections should identify the affected statement and version. A known error should be marked as an error, not left under an ambiguous “unverified” label.",
+          "Formal checking and ordinary mathematical writing can proceed in either order. We aim to bring both to completion, while making each useful intermediate result available under an accurate description of its state."
+        ]
+      },
+      {
+        "id": "brief-reports",
+        "title": "Brief reports are independent records",
+        "paragraphs": [
+          "Brief reports retain mathematical statements, proofs, necessary notation, and references without waiting for a conventional paper. The standard label is “AI-assisted manuscript”; the human-verification notice describes the report version.",
+          "Lean, MathlibAnnex, explanatory-material, and publication milestones are recorded on project pages. A later milestone does not by itself require the report PDF to be revised.",
+          "Brief reports are distributed as PDFs. Editable manuscript sources are retained privately and may be shared individually by agreement. This does not determine the separate release policy for Lean code or MathlibAnnex."
+        ]
+      }
+    ],
+    "contact_notice": "Use the corrections form for substantive corrections, prior-art feedback, and website enquiries."
+  },
+  "verification": {
+    "eyebrow": "READING THE RESEARCH RECORD",
+    "title": "What has actually been checked?",
+    "lead": "There is no single “verified” badge. Different questions need different evidence.",
+    "axes": [
+      {
+        "id": "novelty",
+        "title": "Literature and novelty",
+        "text": "What was searched, when it was searched, and how the claim differs from the closest identified results. Not finding an equivalent result is not proof that none exists."
+      },
+      {
+        "id": "human",
+        "title": "Human mathematical review",
+        "text": "Which statements and proofs a person has examined, in which version, and with what outcome. This is distinct from journal peer review."
+      },
+      {
+        "id": "lean",
+        "title": "Formal checking",
+        "text": "Which exact formal source and environment have a recorded successful build or proof check. An old build record is not a new check of a revised statement."
+      },
+      {
+        "id": "alignment",
+        "title": "Statement and proof alignment",
+        "text": "Whether the mathematical text and formal declarations express the intended same claim, including their assumptions and scope. This is separate from compilation."
+      },
+      {
+        "id": "exposition",
+        "title": "Explanatory materials",
+        "text": "Which definitions, proof steps, citations, and reading aids are available, and what review they have received. A readable explanation is not automatically a verified one."
+      },
+      {
+        "id": "publication",
+        "title": "Paper and public release",
+        "text": "Which briefing, paper, code, or reading material is actually available. Permission to publish an unreviewed result does not turn it into a reviewed result."
+      }
+    ],
+    "order_title": "Two complementary paths—not a forced sequence.",
+    "order_text": "Human review and conventional papers may come before or after formalization. Each is tracked independently, and any claim of completion must refer to matching versions.",
+    "preview_title": "Read the evidence for each result",
+    "preview_text": "A report, its formal source, and their correspondence are separate records. Check the project page for the version, date, and scope of each review. An AI-assisted review of a written argument does not establish human verification."
+  },
+  "feedback": {
+    "mode": "DISABLED_PRIVATE_PREVIEW",
+    "form_id": "mrpgwrbd",
+    "endpoint": "https://formspree.io/f/mrpgwrbd",
+    "profile_version": "exact-feedback-r1"
+  }
+}

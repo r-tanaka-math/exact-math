@@ -1,0 +1,41 @@
+---
+// Adapted from Scholar-Lite research/[slug].astro (MIT): collection-driven
+// getStaticPaths and entry props retained; typed JSON replaces Markdown render.
+import Layout from '../../layouts/Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { projectRecords } from '../../lib/records';
+import { artifactHref } from '../../lib/routes';
+import Badge from '../../components/Badge.astro';
+import Link from '../../components/Link.astro';
+import Contents from '../../components/Contents.astro';
+import PriorArt from '../../components/PriorArt.astro';
+import {publicWording} from '../../lib/build-profile';
+
+export async function getStaticPaths() {
+  const researchAreas = await projectRecords();
+  return researchAreas.map(area => ({ params: { slug: area.id === 'sr' ? 'sphere-rigidity' : area.id }, props: { area } }));
+}
+
+interface Props { area: CollectionEntry<'research'> }
+const { area } = Astro.props;
+const p = area.data;
+const formatDate = (value: string) => new Date(`${value}T00:00:00Z`).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+});
+const updateKinds = {
+  WEBSITE_EDIT: 'Website edit',
+  DOCUMENT_PREPARED: 'Document prepared',
+  AI_TEXTUAL_REVIEW: 'AI textual review',
+};
+---
+<Layout title={p.title} active="research" description={p.short_description}><div class="container">
+<header class="page-head project-head"><p class="breadcrumb"><Link to="research" label="Research" class="" arrow={false}/> <span aria-hidden="true">/</span> {p.title}</p><p class="eyebrow">{p.category}</p><div class="title-line"><h1>{p.title}</h1><Badge text={p.stage.label}/></div><p class="project-subtitle">{p.long_title}</p><p class="intro">{p.summary}</p></header>
+<div class="reading-layout"><article class="article">
+<section id="claim"><h2>The mathematical claim</h2><div class="claim-box"><p class="eyebrow">{p.claim.label}</p><p class="claim">{p.claim.text}</p><div class="math-definition"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="S of X equals the set of x in X whose norm is one"><mrow><mi>S</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mo>&#123;</mo><mi>x</mi><mo>∈</mo><mi>X</mi><mo>:</mo><mo>‖</mo><mi>x</mi><mo>‖</mo><mo>=</mo><mn>1</mn><mo>&#125;</mo></mrow></math></div><p class="scope">{p.claim.qualifier}</p><p class="meta-note">{p.claim.preview_note}</p></div></section>
+<section id="verification"><h2>Verification record</h2><p>These entries refer to different aspects of the project. They must not be combined into a single claim that this brief report is verified.</p><div class="status-list">{p.statuses.map(status => <div class="status-row" data-axis={status.id} data-status={status.code}><div class="status-top"><span class="status-title">{status.label}</span><Badge text={status.value} tone={status.tone}/></div><details><summary>Scope and evidence</summary><p>{status.detail}</p></details></div>)}</div><Link to="verification" label="What these distinctions mean"/></section>
+<section id="materials"><h2>Report and related materials</h2><p>The Brief Report is a preliminary mathematical record. Its preparation date is distinct from publication and review dates.</p><div class="artifact-list">{p.artifacts.map(artifact => artifact.url ? <article class="artifact-row available" data-artifact={artifact.id}><div class="artifact-copy"><strong>{artifact.label}</strong><span>{artifact.kind} · {artifact.version} · Prepared {formatDate(artifact.prepared_date)}{artifact.pages ? ` · ${artifact.pages} pages` : ''}</span><details><summary>File details</summary><dl class="artifact-details"><div><dt>Size</dt><dd>{artifact.bytes.toLocaleString('en-US')} bytes</dd></div><div><dt>SHA-256</dt><dd><code>{artifact.sha256}</code></dd></div></dl></details></div><a class="button artifact-action" href={artifactHref(artifact.url)}>{artifact.action_label}<span aria-hidden="true">↗</span></a></article> : <article class="artifact-row" data-artifact={artifact.id}><div><strong>{artifact.label}</strong><span>{artifact.kind}</span></div><span class="artifact-state">{artifact.state}</span></article>)}</div><p class="meta-note">Comments, corrections, and collaborative verification are welcome. <Link to="about" hash="#operator" label="People and contact" class="" arrow={false}/></p></section>
+{publicWording && <section id="publication-responsibility"><h2>Brief Report publication record</h2><p>Prepared: 10 September 2026. First published: 17 September 2026.</p><p>Responsible for publication: Ryotaro Tanaka. This role covers release, versioning, corrections, and withdrawal; it does not constitute mathematical authorship or independent verification. Issued by Exact Mathematics with AI.</p><p>The Brief Report has no named author. <a href={import.meta.env.BASE_URL+'research/sphere-rigidity/citation.json'}>Citation metadata and authorless reference examples</a>.</p></section>}
+<section id="formalization-lfh"><h2>Formalization and LFH</h2><p>The formal source is the MathlibAnnex v0.2.0 release, commit <code>30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305</code>, tree <code>b3378851a5287f5e3c8418f668e4d0ba52718739</code>. <a href="https://github.com/r-tanaka-math/mathlib-annex/blob/30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305/MathlibAnnex/Projects/SphereRigidity.lean">Project entry</a> · <a href="https://github.com/r-tanaka-math/mathlib-annex/blob/30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305/docs/projects/sphere-rigidity.json">Project Source Manifest</a>.</p><p>The progressive Research Companion is available here{publicWording ? '' : ' for local review'}: <a href={import.meta.env.BASE_URL+'mathlibannex/projects/sphere-rigidity/'}>HTML</a> · <a href={import.meta.env.BASE_URL+(publicWording ? 'mathlibannex/documents/sphere-rigidity-project-r1.pdf' : 'mathlibannex/projects/sphere-rigidity/sphere-rigidity-progressive-research-companion-r1.pdf')}>PDF</a> · <a href={import.meta.env.BASE_URL+(publicWording ? 'mathlibannex/data/project-presentation-r1/sphere-rigidity/project.json' : 'mathlibannex/projects/sphere-rigidity/project.json')}>JSON</a>. Its 467 exact declaration nodes do not create provisional Cards.</p><p>Correspondence between the Brief Report and this Lean release remains pending. The Project view records source structure; it is not a completed document alignment or human verification.</p></section>
+<PriorArt/><section id="next"><h2>About the report</h2>{p.notes.map(note => <><h3>{note.title}</h3><p>{note.text}</p></>)}<Link to="annex" label="Read about MathlibAnnex"/></section>
+<section id="updates"><h2>Record history</h2><div class="timeline">{p.updates.map(update => <article><time datetime={update.date}>{formatDate(update.date)} · {updateKinds[update.kind]}</time><h3>{update.title}</h3><p>{update.text}</p></article>)}</div></section>
+</article><Contents items={[{id:'claim',label:'The claim and its scope'},{id:'verification',label:'Verification record'},{id:'materials',label:'Report and related materials'},{id:'formalization-lfh',label:'Formalization and LFH'},{id:'prior-art',label:'Prior-art search'},{id:'next',label:'Preparation'},{id:'updates',label:'Record history'}]} note="Each review applies to the stated version and scope."/></div></div></Layout>

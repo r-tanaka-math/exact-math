@@ -1,0 +1,23 @@
+{
+  "schema": "exact.owner-release-act.v2",
+  "authorized": false,
+  "owner": "Ryotaro Tanaka",
+  "commit": null,
+  "profile": "FULL_LAUNCH",
+  "publication_date": null,
+  "content_terms_sha256": "eaf1195b43fdd0d4245fccaf2aa74b50287f176700567394e872cbb610e3d817",
+  "workbench_manifests": {},
+  "brief_sha256": null,
+  "prior_art_cutoff": "2026-09-15",
+  "older_cutoff_explicitly_accepted": false,
+  "site_tree": null,
+  "public_repository": null,
+  "canonical_origin": null,
+  "deployment_profile": null,
+  "workbench_successor_manifest_sha256": null,
+  "adapter_lock_sha256": null,
+  "workbench_handoff_sha256": null,
+  "source_tag": "v0.2.0",
+  "source_commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+  "source_tree": "b3378851a5287f5e3c8418f668e4d0ba52718739"
+}

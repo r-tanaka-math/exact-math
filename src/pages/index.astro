@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Link from '../components/Link.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { SITE } from '../config';
+import { projectRecords } from '../lib/records';
+const c = SITE.home; const projects = await projectRecords();
+---
+<Layout><div class="container">
+  <section class="hero"><div><p class="eyebrow">{c.eyebrow}</p><h1>Exact Mathematics<br/><em>with AI</em></h1><p class="subtitle">{SITE.subtitle}</p><p class="intro">{SITE.introduction}</p><div class="actions"><Link to="research" label="Explore the research" class="button"/><Link to="annex" label="About MathlibAnnex"/></div></div><aside class="hero-aside" aria-label="Our approach"><p class="eyebrow">FROM RESULTS TO UNDERSTANDING</p><h2>{c.side_title}</h2><p>{c.side_text}</p><ol class="aside-list">{c.pillars.map(x => <li><span class="number">{x.number}</span><span>{x.title}</span></li>)}</ol></aside></section>
+  <section class="section" aria-labelledby="research-title"><div class="section-head"><div><h2 id="research-title">{c.research_title}</h2><p>{c.research_intro}</p></div><Link to="research" label="All research"/></div>{projects.map(entry => <ProjectCard entry={entry}/>)}{projects.length === 0 && <p>No project record is available yet.</p>}</section>
+  <section class="section" aria-label="Research principles"><div class="pillars">{c.pillars.map(x => <article class="pillar"><span class="number">{x.number}</span><h3>{x.title}</h3><p>{x.text}</p></article>)}</div></section>
+  <section class="annex-feature" aria-labelledby="annex-title"><div><p class="eyebrow">MATHLIBANNEX</p><h2 id="annex-title">{c.annex_title}</h2></div><div><p>{c.annex_text}</p><Link to="annex" label="Explore the library direction"/></div></section>
+  <section class="principle"><h3>{c.principle_title}</h3><p>{c.principle_text}</p></section>
+</div></Layout>

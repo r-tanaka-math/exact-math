@@ -1,0 +1,14 @@
+---
+// Extracted from Scholar-Lite research/index.astro's collection card map.
+import type { CollectionEntry } from 'astro:content';
+import Badge from './Badge.astro';
+import { projectHref } from '../lib/routes';
+interface Props { entry: CollectionEntry<'research'> }
+const { entry } = Astro.props; const p = entry.data;
+const search = [p.title, p.long_title, p.category, p.short_description].join(' ').toLowerCase();
+const availableArtifact = p.artifacts.find(artifact => artifact.url !== null);
+---
+<article class="project-card" data-project data-search={search}>
+  <div><p class="eyebrow">{p.category}</p><h3><a href={projectHref(entry.id)}>{p.title}</a></h3><p>{p.short_description}</p><a class="text-link" href={projectHref(entry.id)}>Read the project record<span class="arrow" aria-hidden="true">↗</span></a></div>
+  <div class="card-meta"><Badge text={p.stage.label}/><p class="meta-note">{p.statuses.find(s => s.id === 'lean')?.value}<br/>{p.statuses.find(s => s.id === 'alignment')?.value}</p><p class="meta-note">{availableArtifact ? `${availableArtifact.label} is available as a preliminary PDF.` : 'No research artifact is available yet.'}</p></div>
+</article>

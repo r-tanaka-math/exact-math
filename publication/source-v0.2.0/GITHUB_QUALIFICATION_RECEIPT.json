@@ -1,0 +1,63 @@
+{
+  "compiled_axiom_audit": {
+    "allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "audited_declarations": 2016,
+    "result": "PASS_ALL_WITHIN_ALLOWLIST",
+    "root": "MathlibAnnex"
+  },
+  "environment": {
+    "dependency_lock_sha256": "ba2675150a9443e1d9200d37fc2d4a50f03087ed8f56232a85d121afea0f0c90",
+    "lean_toolchain": "leanprover/lean4:v4.32.0-rc1",
+    "mathlib_revision": "360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56"
+  },
+  "owner_authority": {
+    "record": "OWNER_SOURCE_PUBLICATION_ACT_R1.md",
+    "sha256": "c1419c7ca5729b557178be2d287a3a414b3dbb1125b658a219169bc1e6fbfd23"
+  },
+  "qualification": {
+    "checks": {
+      "blob_lf_policy": "PASS",
+      "build": "PASS",
+      "cleanliness": "PASS",
+      "compiled_axiom_audit": "PASS",
+      "downstream_import": "PASS",
+      "identity": "PASS",
+      "mankiewicz_project_entry_import": "PASS",
+      "sphere_rigidity_project_entry_import": "PASS"
+    },
+    "original_artifact_sha256": "40c62d234d6a49192404b5a2379295c58432b8e7b8606ecd0e055eeae18938a7",
+    "original_qualification_receipt_sha256": "333a646d0fea713524137f17983d0126914904d5e1e41a4b5fea80fa7b0e9b3b",
+    "result": "PASS",
+    "run_attempt": 1,
+    "run_conclusion": "success",
+    "run_id": 35086615666,
+    "workflow_path": ".github/workflows/release-qualification.yml",
+    "workflow_sha256": "848b386ff052f55de98c7cf82f632042cebec50fff7fc415c432cd1c85ba599e"
+  },
+  "schema": "mathlibannex.public-github-qualification-receipt.v2",
+  "separate_axes": {
+    "brief_report": "NOT_PUBLISHED",
+    "cards": "NOT_STARTED",
+    "lfh_project": "IN_PREPARATION_NOT_PUBLISHED",
+    "pages": "NOT_ENABLED",
+    "source": "PUBLISHED_V0_2_0",
+    "website": "UNCHANGED_NOT_PUBLISHED"
+  },
+  "source_release": {
+    "commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+    "parent": "18519611549f0aac228f03aa11dbdfd3cb0d6f06",
+    "published_at": "2026-09-16T11:38:49Z",
+    "release_id": 389871289,
+    "release_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.2.0",
+    "repository": "r-tanaka-math/mathlib-annex",
+    "repository_url": "https://github.com/r-tanaka-math/mathlib-annex",
+    "tag": "v0.2.0",
+    "tag_object": "08491414664a0cea5d24f7e81e5ae6119bdfd081",
+    "tree": "b3378851a5287f5e3c8418f668e4d0ba52718739",
+    "version": "0.2.0"
+  }
+}

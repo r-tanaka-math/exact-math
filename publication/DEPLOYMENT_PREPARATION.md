@@ -1,0 +1,7 @@
+# Release preparation and owner-act gate
+
+The exact intended repository is `https://github.com/r-tanaka-math/exact-math`, with canonical origin `https://exactmathematics.org/` and root base `/`. The manual GitHub Pages workflow uses pinned action commits, derives the actual checkout commit/tree, and reads the separately approved release act from the `EXACT_OWNER_RELEASE_ACT` repository secret. No tracked `CNAME` file is required.
+
+The neutral Workbench presentation and dated 22-page authorless Sphere Rigidity Brief are selected and SHA-bound. `PUBLIC_RELEASE_QUALIFICATION` exercises the public route and feedback configuration without deployment, indexing, Formspree submission, or content-terms effect. Its generated `release-state.json` records the candidate date while `first_publication_date` remains null. The active publication date is set only by the separately approved owner release act.
+
+`FULL_LAUNCH` refuses without that act and requires the date of first public access to be 17 September 2026 in `Asia/Tokyo`. After that date, the release requires `DATE_REBIND_REQUIRED`; the dated Brief candidate cannot silently be reused. The owner-review pack and Japanese publication guide in the release handoff contain the user-facing steps. The selected public repository begins with a single initial commit and contains no private website Git history. The act must be approved and installed as the repository secret before the first content-bearing push.

@@ -1,0 +1,26 @@
+{
+  "authority": "OWNER_PROVIDED_FINAL_FOR_SITE_IDENTITY",
+  "compact": "Ryotaro Tanaka, Associate Professor, Institute of Arts and Sciences, Tokyo University of Science",
+  "contact_route": "/corrections/",
+  "date": "2026-09-15",
+  "display_name": "Ryotaro Tanaka",
+  "display_order": [
+    "display_name",
+    "title",
+    "unit",
+    "institution"
+  ],
+  "independence_notice": "The affiliation is provided for identification only. Exact Mathematics with AI is an independent research initiative and is not an official website or publication of Tokyo University of Science.",
+  "institution": "Tokyo University of Science",
+  "institutional_profile": "https://www.tus.ac.jp/ridai/doc/ji/RIJIA01Detail.php?act=&diu=6fd5&kin=ken&pri=en",
+  "official_source_note": "Owner-provided authority; the institutional profile URL is supplementary verification, not site authority.",
+  "prohibited_public_fields": [
+    "direct_email",
+    "phone",
+    "postal_address"
+  ],
+  "publish_direct_email": false,
+  "schema": "exact.public-operator-identity.v1",
+  "title": "Associate Professor",
+  "unit": "Institute of Arts and Sciences"
+}

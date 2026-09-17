@@ -1,0 +1,12 @@
+---
+// Adapted from Scholar-Lite Header: SITE-driven brand and nav map.
+// English, always-visible navigation replaces the sample drawer/i18n/icons.
+import { SITE } from '../config';
+import { pageHref, type PageKey } from '../lib/routes';
+interface Props { active: PageKey }
+const { active } = Astro.props;
+---
+<header class="site-header"><div class="container header-inner">
+  <a class="brand" href={pageHref('home')} aria-label={`${SITE.name} — Home`}>Exact Mathematics<span>with AI</span></a>
+  <nav class="nav" aria-label="Main navigation">{SITE.navigation.map(item => pageHref(item.key) && <a href={pageHref(item.key)} aria-current={active === item.key ? 'page' : undefined}>{item.label}</a>)}</nav>
+</div></header>

@@ -1,0 +1,277 @@
+{
+  "status": "MATHLIBANNEX_V0_1_0_SOURCE_PUBLISHED",
+  "main": {
+    "commit": "6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f",
+    "parents": [],
+    "tree": "fec2f437f050c7163dfcd34fd92834822eda3f91"
+  },
+  "project": {
+    "direct_roots_digest": "0892084dd4ab109fc25edb68bbdda80586355c4d3b1dd55d75bfd698ea7bf48f",
+    "entry_path": "MathlibAnnex/Projects/Mankiewicz.lean",
+    "entry_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Projects/Mankiewicz.lean",
+    "entry_sha256": "c1d5be872e56c41be3c37e503b64467a5fc6ea098dc13bb66a3e53dc7b55036c",
+    "manifest_path": "docs/projects/mankiewicz.json",
+    "manifest_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/docs/projects/mankiewicz.json",
+    "manifest_sha256": "0c2fed827acd2a631c8f0182da489cf6f2886a38b286dad8d92e63f440b77b00",
+    "resolved_closure_digest": "b54445ca54489ba4b3fb4b1f7f0c2b299b6fc97901fcb503897cdf117f42bd21"
+  },
+  "environment": {
+    "dependency_lock_sha256": "ba2675150a9443e1d9200d37fc2d4a50f03087ed8f56232a85d121afea0f0c90",
+    "lean_toolchain": "leanprover/lean4:v4.32.0-rc1",
+    "mathlib_revision": "360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56"
+  },
+  "assets": [
+    {
+      "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.1.0/mathlib-annex-v0.1.0-source.zip",
+      "bytes": 34368,
+      "created_at": "2026-09-15T23:16:25Z",
+      "id": 566698224,
+      "label": "",
+      "name": "mathlib-annex-v0.1.0-source.zip",
+      "sha256": "533abb85700813aef391de0a1a42f7c64ce9a11a6e7bbda65696076ec4a1ef12",
+      "updated_at": "2026-09-15T23:16:25Z"
+    },
+    {
+      "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.1.0/GITHUB_QUALIFICATION_RECEIPT.json",
+      "bytes": 2235,
+      "created_at": "2026-09-15T23:16:28Z",
+      "id": 566698276,
+      "label": "",
+      "name": "GITHUB_QUALIFICATION_RECEIPT.json",
+      "sha256": "32b851e39c530cb0c918af0ad7015957232b8774b166e0eb7b917b4f044ce39a",
+      "updated_at": "2026-09-15T23:16:28Z"
+    },
+    {
+      "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.1.0/MATHLIBANNEX_PROJECT_SOURCE_MANIFESTS.json",
+      "bytes": 7241,
+      "created_at": "2026-09-15T23:16:31Z",
+      "id": 566698337,
+      "label": "",
+      "name": "MATHLIBANNEX_PROJECT_SOURCE_MANIFESTS.json",
+      "sha256": "e1cbf75abf56a0eb533b6ce7adaa3e4e21d4dd28ade5ddedffa9c218331cba3a",
+      "updated_at": "2026-09-15T23:16:31Z"
+    },
+    {
+      "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.1.0/SOURCE_RELEASE_MANIFEST.json",
+      "bytes": 4051,
+      "created_at": "2026-09-15T23:16:41Z",
+      "id": 566698506,
+      "label": "",
+      "name": "SOURCE_RELEASE_MANIFEST.json",
+      "sha256": "5b07a000efc34801f481196f87b33f6ebc5a3976f94ca2b4dbce1d14288dae56",
+      "updated_at": "2026-09-15T23:16:41Z"
+    },
+    {
+      "browser_download_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.1.0/SHA256SUMS.txt",
+      "bytes": 402,
+      "created_at": "2026-09-15T23:16:44Z",
+      "id": 566698546,
+      "label": "",
+      "name": "SHA256SUMS.txt",
+      "sha256": "8215b167cabafe55cf93699030d6df4c048f25039dad2de216fc12c9da1c489e",
+      "updated_at": "2026-09-15T23:16:44Z"
+    }
+  ],
+  "compiled_axiom_audit": {
+    "allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "audited_declarations": 88,
+    "result": "PASS_ALL_WITHIN_ALLOWLIST",
+    "root": "MathlibAnnex"
+  },
+  "repository": "https://github.com/r-tanaka-math/mathlib-annex",
+  "release": "https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.1.0",
+  "tag": "v0.1.0",
+  "tree": "fec2f437f050c7163dfcd34fd92834822eda3f91",
+  "qualification": {
+    "run_id": 35029159302,
+    "conclusion": "success",
+    "checks": [
+      "identity",
+      "build",
+      "downstream_import",
+      "project_entry_import",
+      "compiled_axiom_audit",
+      "cleanliness"
+    ],
+    "receipt_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/download/v0.1.0/GITHUB_QUALIFICATION_RECEIPT.json"
+  },
+  "source_permalinks": [
+    {
+      "bytes": 129,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/.gitattributes",
+      "path": ".gitattributes",
+      "sha256": "30c4329267a34b22e1899958d7d9c1d0b5e012c631a4d7b7e2988cb504f319c2",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/.gitattributes"
+    },
+    {
+      "bytes": 4770,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/.github/workflows/release-qualification.yml",
+      "path": ".github/workflows/release-qualification.yml",
+      "sha256": "7044fad2ac7b63400e2dcb9fbc8a64cac20ceaae01c4df2b5d13505a79145b3c",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/.github/workflows/release-qualification.yml"
+    },
+    {
+      "bytes": 54,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/.gitignore",
+      "path": ".gitignore",
+      "sha256": "fa93602196e983b9e99cd109b649274c3de0f0ec7a561b56097121ed20bc8b90",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/.gitignore"
+    },
+    {
+      "bytes": 1000,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/CHANGELOG.md",
+      "path": "CHANGELOG.md",
+      "sha256": "75b0465262143436684c9925e7df7737c38367834449256f5a664d9e837a698c",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/CHANGELOG.md"
+    },
+    {
+      "bytes": 1285,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/CONTRIBUTING.md",
+      "path": "CONTRIBUTING.md",
+      "sha256": "c07bcbb19790a832f6aba96ce60847399502934ed90d2d5da2ad64a4eaa6a42d",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/CONTRIBUTING.md"
+    },
+    {
+      "bytes": 11558,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/LICENSE",
+      "path": "LICENSE",
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/LICENSE"
+    },
+    {
+      "bytes": 138,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex.lean",
+      "path": "MathlibAnnex.lean",
+      "sha256": "e2b2f751f5c7cf50476b6a6e4fe8b8aeb1048f04a03e4f0e1b01749aec0f9567",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex.lean"
+    },
+    {
+      "bytes": 303,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension.lean",
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension.lean",
+      "sha256": "b12d906ee545c7e9855ee98ae4bd1f20c51256d0e99f16b5e5ea5807fdcf246e",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension.lean"
+    },
+    {
+      "bytes": 3126,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+      "sha256": "81913268d8f7f5d2e3ee5097edf683fee537074f09480b15fbe3d4cce2f1d369",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean"
+    },
+    {
+      "bytes": 3639,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+      "sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean"
+    },
+    {
+      "bytes": 33093,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean"
+    },
+    {
+      "bytes": 5944,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+      "sha256": "235562fa4eb1df95ac0320f53756178e6bf8a0739e3a536a6f3afd3069b8ec91",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean"
+    },
+    {
+      "bytes": 4020,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+      "path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+      "sha256": "f289f13a3b7459b738604ee35278417298da58619c6daa14e3491944fc851982",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean"
+    },
+    {
+      "bytes": 217,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/MathlibAnnex/Projects/Mankiewicz.lean",
+      "path": "MathlibAnnex/Projects/Mankiewicz.lean",
+      "sha256": "c1d5be872e56c41be3c37e503b64467a5fc6ea098dc13bb66a3e53dc7b55036c",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/MathlibAnnex/Projects/Mankiewicz.lean"
+    },
+    {
+      "bytes": 3394,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/README.md",
+      "path": "README.md",
+      "sha256": "1969a3a5868952a031cb33615680187770292b095e93d89bdaff3088eaaf384e",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/README.md"
+    },
+    {
+      "bytes": 1359,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/THIRD_PARTY_NOTICES.md",
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "de94c2fd6c3847f475b980978c86f52deb7f685cb821970907349f1c65fa845d",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "bytes": 3101,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/VERIFICATION.md",
+      "path": "VERIFICATION.md",
+      "sha256": "40b764325638f049d49b767349e647032c667b91883f804f916ea539a7123f4c",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/VERIFICATION.md"
+    },
+    {
+      "bytes": 5467,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/docs/projects/mankiewicz.json",
+      "path": "docs/projects/mankiewicz.json",
+      "sha256": "0c2fed827acd2a631c8f0182da489cf6f2886a38b286dad8d92e63f440b77b00",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/docs/projects/mankiewicz.json"
+    },
+    {
+      "bytes": 707,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/examples/Import.lean",
+      "path": "examples/Import.lean",
+      "sha256": "80f2026a6725692834a24e89f1329d72a1481bb4d883b42318209b9526cf8667",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/examples/Import.lean"
+    },
+    {
+      "bytes": 326,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/examples/ImportMankiewicz.lean",
+      "path": "examples/ImportMankiewicz.lean",
+      "sha256": "5e8c45416634b0f04b4827e5e07fa3e356eaa2467892e5dd6e0e733305b4c4bf",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/examples/ImportMankiewicz.lean"
+    },
+    {
+      "bytes": 3167,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/lake-manifest.json",
+      "path": "lake-manifest.json",
+      "sha256": "ba2675150a9443e1d9200d37fc2d4a50f03087ed8f56232a85d121afea0f0c90",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/lake-manifest.json"
+    },
+    {
+      "bytes": 368,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/lakefile.toml",
+      "path": "lakefile.toml",
+      "sha256": "95895d680e4863197e2916994855f3e2687b9b83e5c46882d241fdf504defab0",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/lakefile.toml"
+    },
+    {
+      "bytes": 29,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/lean-toolchain",
+      "path": "lean-toolchain",
+      "sha256": "72681913b978b3f7c2f48229836771f736f6e97d833917726b2263afbc6108ed",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/lean-toolchain"
+    },
+    {
+      "bytes": 7348,
+      "commit_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/6b97ccddc4641d8c8f55b2c3982aa481f4e3b15f/scripts/release_qualification.py",
+      "path": "scripts/release_qualification.py",
+      "sha256": "1c80f9941dc02e89e81b627e5184a97b8b82e63885bc82203fbe0e068b40bc81",
+      "tag_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.1.0/scripts/release_qualification.py"
+    }
+  ],
+  "release_axes": {
+    "source": "PUBLISHED_V0_1_0",
+    "lfh": "NOT_PUBLISHED",
+    "website": "NOT_PUBLISHED"
+  }
+}
