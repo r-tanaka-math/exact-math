@@ -20,6 +20,7 @@
    const r=control.getBoundingClientRect();
    const blocked=[...document.querySelectorAll<HTMLElement>('input:not([type=hidden]),textarea,select,button,nav,a,summary,[role=doc-footnote],.footnotes,sup')].some(e=>{
     if(e===control||control.contains(e))return false;
+    if(!['fixed','sticky'].includes(getComputedStyle(e).position))return false;
     const b=e.getBoundingClientRect();return b.width>0 && b.height>0 && b.left<r.right+4 && b.right>r.left-4 && b.top<r.bottom+4 && b.bottom>r.top-4;
    });
    control.classList.toggle('is-obstructed',blocked);

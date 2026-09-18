@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {integrateReaderRestoration} from './reader-restoration-adapter.mjs';
 
 const repo=fileURLToPath(new URL('../',import.meta.url));
 const authority='232067522f10f7bc108802d05e52c6d5d9c0a35d94c7dad95b1bbb5e9ff4e927';
@@ -58,21 +59,31 @@ export function integratePostPublic(output,base,profile){
   const {manifest,web,cards}=verifyPostPublic(),adapterPath=path.join(output,'WORKBENCH_ADAPTER.json');
   const adapter=read(adapterPath),mounted=[];
   const replaced=new Set();
+  const r1Rows=new Map(read(path.join(repo,'publication','project-reader','r1-public-artifacts.json')).files.map(r=>[r.path,r]));
   const frameRel='mathlibannex/assets/site-frame.css';
+  const controlRel='mathlibannex/assets/mounted-back-to-top.js';
   const frameBytes=fs.readFileSync(path.join(repo,'src','styles','card-frame.css'));
   const frameTarget=path.join(output,frameRel);
   if(fs.existsSync(frameTarget))fail('website frame asset collision');
   fs.mkdirSync(path.dirname(frameTarget),{recursive:true});fs.writeFileSync(frameTarget,frameBytes);
   mounted.push({path:frameRel,bytes:frameBytes.length,sha256:sha(frameBytes)});
-  const preserveSphere=new Set([
-    'mathlibannex/projects/sphere-rigidity/index.html',
-    'mathlibannex/documents/sphere-rigidity-project-r1.pdf',
-    'mathlibannex/data/project-presentation-r1/sphere-rigidity/project.json',
-  ]);
+  const controlBytes=fs.readFileSync(path.join(repo,'src','scripts','mounted-back-to-top.js'));
+  const controlTarget=path.join(output,controlRel);
+  if(fs.existsSync(controlTarget))fail('website control asset collision');
+  fs.writeFileSync(controlTarget,controlBytes);
+  mounted.push({path:controlRel,bytes:controlBytes.length,sha256:sha(controlBytes)});
   for(const row of manifest.files){
     const rel=safe(row.path);
-    if(rel==='mathlibannex/index.html'||preserveSphere.has(rel)||rel.startsWith('mathlibannex/data/project-presentation-r1/sphere-rigidity/'))continue;
+    if(rel==='mathlibannex/index.html'||/^mathlibannex\/projects\/(?:mankiewicz|sphere-rigidity)\/index\.html$/.test(rel))continue;
     const src=fs.readFileSync(path.join(web,...rel.split('/'))),target=path.join(output,...rel.split('/'));
+    if(r1Rows.has(rel)){
+      const expected=r1Rows.get(rel);
+      if(!fs.existsSync(target)||src.length!==expected.bytes||sha(src)!==expected.sha256)fail('published R1 source identity '+rel);
+      fs.writeFileSync(target,src);
+      replaced.add(rel);
+      mounted.push({path:rel,bytes:src.length,sha256:sha(src),accepted_sha256:row.sha256,preserved_r1:true});
+      continue;
+    }
     if(fs.existsSync(target)){
       if(!rel.startsWith('mathlibannex/data/project-presentation-r1/mankiewicz/')&&!rel.startsWith('mathlibannex/documents/mankiewicz-')&&!rel.startsWith('mathlibannex/projects/mankiewicz/')&&!rel.startsWith('mathlibannex/assets/project-presentation-r1/'))fail('route collision '+rel);
       replaced.add(rel);
@@ -86,10 +97,18 @@ export function integratePostPublic(output,base,profile){
       if(rel==='mathlibannex/catalog/index.html')html=html.replace('11 canonical Cards in the Mankiewicz Project.','The current whole-library Catalog contains 11 canonical Cards, all referenced by the Mankiewicz Project.').replace('Read the common verification contract','Read the common verification contract');
       if(rel==='mathlibannex/verification/index.html')html=html.replace('exact candidate identities','exact Card identities');
       const context=`<div class="exact-site-context"><a href="${base}">Exact Mathematics home</a> · <a href="${base}mathlibannex/">MathlibAnnex hub</a> · <a href="${base}licensing/">Content terms</a> · <a href="${base}corrections/">Corrections</a></div>`;
-      html=html.replace('</header>',`${context}</header>`).replace('</body>',`<p class="exact-back"><a href="#main">Back to top</a></p></body>`);
+      if(!/<body\b[^>]*>/i.test(html)||!html.includes('</body>')||html.includes('id="site-top"')||html.includes('data-exact-mounted'))fail('unexpected mounted HTML shell '+rel);
+      html=html.replace('</header>',`${context}</header>`)
+        .replace(/<body\b([^>]*)>/i,'<body$1><div id="site-top" tabindex="-1"></div>')
+        .replace('</body>',`<p class="exact-back"><a href="#site-top">Back to top</a></p><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="${base}${controlRel}" defer></script></body>`);
       if(!/<meta name="robots"/.test(html))html=html.replace('</head>','<meta name="robots" content="noindex,follow"></head>');
-      if(!/Content-Security-Policy/.test(html))html=html.replace('</head>',`<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;self&#39;; font-src &#39;self&#39;; img-src &#39;self&#39;; script-src &#39;none&#39;; connect-src &#39;none&#39;; base-uri &#39;none&#39;"></head>`);
+      if(!/Content-Security-Policy/.test(html))html=html.replace('</head>',`<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;self&#39;; font-src &#39;self&#39;; img-src &#39;self&#39;; script-src &#39;self&#39;; connect-src &#39;none&#39;; base-uri &#39;none&#39;"></head>`);
+      else {
+        if(!/script-src (?:&#39;|')none(?:&#39;|');/.test(html))fail('unexpected mounted CSP '+rel);
+        html=html.replace(/script-src (?:&#39;|')none(?:&#39;|');/,"script-src &#39;self&#39;;");
+      }
       html=html.replace('</head>',`<link rel="stylesheet" href="${base}${frameRel}"></head>`);
+      if(!html.includes(`src="${base}${controlRel}"`)||!html.includes('script-src &#39;self&#39;'))fail('mounted control or CSP missing '+rel);
       if(article&&!html.includes(article))fail('accepted Card article edited');
       bytes=Buffer.from(html);
     }
@@ -104,6 +123,7 @@ export function integratePostPublic(output,base,profile){
   adapter.mounted=adapter.mounted.filter(r=>!replaced.has(r.path)).concat(mounted);
   adapter.selected_public_presentation={authority_zip_sha256:authority,route_manifest_sha256:manifestHash,public_cards:11,canonical_cards:cards.length,source_release:manifest.source_release,fonts:Object.fromEntries(Object.entries(fonts).map(([k,v])=>[k,v[1]]))};
   adapter.historical_zero_card_presentation=true;
+  integrateReaderRestoration(output,base,adapter,frameRel,controlRel);
   fs.writeFileSync(adapterPath,JSON.stringify(adapter,null,2)+'\n');
   console.log(`PASS_POSTPUBLIC_11_CARD_ADAPTER ${base} ${profile}`);
 }

@@ -1,0 +1,265 @@
+{
+  "status": "PASS",
+  "browser": "HEADLESS_EDGE",
+  "browser_version": "153.0.4234.32",
+  "rows": [
+    {
+      "slug": "mankiewicz",
+      "mount": "/",
+      "width": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "tileCount": 11,
+      "levelCount": 9,
+      "cardActions": 11,
+      "badCardTargets": [],
+      "sourceActions": 11,
+      "duplicateIds": 0,
+      "relationLinks": 20,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "mankiewicz",
+      "mount": "/",
+      "width": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "tileCount": 11,
+      "levelCount": 9,
+      "cardActions": 11,
+      "badCardTargets": [],
+      "sourceActions": 11,
+      "duplicateIds": 0,
+      "relationLinks": 20,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "mankiewicz",
+      "mount": "/",
+      "width": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "tileCount": 11,
+      "levelCount": 9,
+      "cardActions": 11,
+      "badCardTargets": [],
+      "sourceActions": 11,
+      "duplicateIds": 0,
+      "relationLinks": 20,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "mankiewicz",
+      "mount": "/preview",
+      "width": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "tileCount": 11,
+      "levelCount": 9,
+      "cardActions": 11,
+      "badCardTargets": [],
+      "sourceActions": 11,
+      "duplicateIds": 0,
+      "relationLinks": 20,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "mankiewicz",
+      "mount": "/preview",
+      "width": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "tileCount": 11,
+      "levelCount": 9,
+      "cardActions": 11,
+      "badCardTargets": [],
+      "sourceActions": 11,
+      "duplicateIds": 0,
+      "relationLinks": 20,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "mankiewicz",
+      "mount": "/preview",
+      "width": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "tileCount": 11,
+      "levelCount": 9,
+      "cardActions": 11,
+      "badCardTargets": [],
+      "sourceActions": 11,
+      "duplicateIds": 0,
+      "relationLinks": 20,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "sphere-rigidity",
+      "mount": "/",
+      "width": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "tileCount": 467,
+      "levelCount": 28,
+      "cardActions": 0,
+      "badCardTargets": [],
+      "sourceActions": 467,
+      "duplicateIds": 0,
+      "relationLinks": 1546,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "sphere-rigidity",
+      "mount": "/",
+      "width": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "tileCount": 467,
+      "levelCount": 28,
+      "cardActions": 0,
+      "badCardTargets": [],
+      "sourceActions": 467,
+      "duplicateIds": 0,
+      "relationLinks": 1546,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "sphere-rigidity",
+      "mount": "/",
+      "width": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "tileCount": 467,
+      "levelCount": 28,
+      "cardActions": 0,
+      "badCardTargets": [],
+      "sourceActions": 467,
+      "duplicateIds": 0,
+      "relationLinks": 1546,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "sphere-rigidity",
+      "mount": "/preview",
+      "width": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "tileCount": 467,
+      "levelCount": 28,
+      "cardActions": 0,
+      "badCardTargets": [],
+      "sourceActions": 467,
+      "duplicateIds": 0,
+      "relationLinks": 1546,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "sphere-rigidity",
+      "mount": "/preview",
+      "width": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "tileCount": 467,
+      "levelCount": 28,
+      "cardActions": 0,
+      "badCardTargets": [],
+      "sourceActions": 467,
+      "duplicateIds": 0,
+      "relationLinks": 1546,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    },
+    {
+      "slug": "sphere-rigidity",
+      "mount": "/preview",
+      "width": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "tileCount": 467,
+      "levelCount": 28,
+      "cardActions": 0,
+      "badCardTargets": [],
+      "sourceActions": 467,
+      "duplicateIds": 0,
+      "relationLinks": 1546,
+      "badRelationTargets": [],
+      "fontLoaded": true
+    }
+  ],
+  "screens": [
+    {
+      "name": "mankiewicz-root-overview-320",
+      "path": "EVIDENCE/screenshots/mankiewicz-root-overview-320.png",
+      "sha256": "bc7903648a52e89df7a5a910a3728c142b2b46dbe50f205f15560229c65e607a"
+    },
+    {
+      "name": "mankiewicz-root-overview-1440",
+      "path": "EVIDENCE/screenshots/mankiewicz-root-overview-1440.png",
+      "sha256": "b02b7a7149a25975d86891d89a53b641028a97a58c82e67c52d98e22c5f8ed1b"
+    },
+    {
+      "name": "mankiewicz-subpath-overview-320",
+      "path": "EVIDENCE/screenshots/mankiewicz-subpath-overview-320.png",
+      "sha256": "bc7903648a52e89df7a5a910a3728c142b2b46dbe50f205f15560229c65e607a"
+    },
+    {
+      "name": "mankiewicz-subpath-overview-1440",
+      "path": "EVIDENCE/screenshots/mankiewicz-subpath-overview-1440.png",
+      "sha256": "b02b7a7149a25975d86891d89a53b641028a97a58c82e67c52d98e22c5f8ed1b"
+    },
+    {
+      "name": "sphere-rigidity-root-overview-320",
+      "path": "EVIDENCE/screenshots/sphere-rigidity-root-overview-320.png",
+      "sha256": "54051b1e572919040a421a1463a241ec7fc8043b7b6b1af042164d0362ac0237"
+    },
+    {
+      "name": "sphere-rigidity-root-overview-1440",
+      "path": "EVIDENCE/screenshots/sphere-rigidity-root-overview-1440.png",
+      "sha256": "a68de54eae678083e2ba4065125a49fe9544169769dc87a0244599ec1e491bf8"
+    },
+    {
+      "name": "sphere-rigidity-subpath-overview-320",
+      "path": "EVIDENCE/screenshots/sphere-rigidity-subpath-overview-320.png",
+      "sha256": "54051b1e572919040a421a1463a241ec7fc8043b7b6b1af042164d0362ac0237"
+    },
+    {
+      "name": "sphere-rigidity-subpath-overview-1440",
+      "path": "EVIDENCE/screenshots/sphere-rigidity-subpath-overview-1440.png",
+      "sha256": "a68de54eae678083e2ba4065125a49fe9544169769dc87a0244599ec1e491bf8"
+    },
+    {
+      "name": "mankiewicz-level-7-1440",
+      "path": "EVIDENCE/screenshots/mankiewicz-level-7-1440.png",
+      "sha256": "92d1b969ca221b45c701d606f840a2288ca0b59bfb38d3baee19dd7d9be12aea"
+    },
+    {
+      "name": "mankiewicz-long-name-target-1440",
+      "path": "EVIDENCE/screenshots/mankiewicz-long-name-target-1440.png",
+      "sha256": "e80ae7ffff01b9ebf5063f024b8e598d9714f2d9d241cca84b4f3f2703636353"
+    },
+    {
+      "name": "sphere-rigidity-level-27-1440",
+      "path": "EVIDENCE/screenshots/sphere-rigidity-level-27-1440.png",
+      "sha256": "f49f57d8dfb92b68760bb92fd96f9d5ad16ab8c770f5e9a7939a09c586327559"
+    },
+    {
+      "name": "sphere-rigidity-long-name-target-1440",
+      "path": "EVIDENCE/screenshots/sphere-rigidity-long-name-target-1440.png",
+      "sha256": "46a031f40c6e89fd10b59454b8483c0522c54d134978dfee7e59425839cf3181"
+    }
+  ],
+  "hash_filter_reveal": "PASS",
+  "external_requests": [],
+  "missing_requests": [],
+  "page_errors": []
+}

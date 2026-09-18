@@ -1,0 +1,10 @@
+{
+  "forbidden_patterns": [
+    "Windows host paths",
+    "Unix home paths",
+    "AppData local paths",
+    "private key headers"
+  ],
+  "status": "PASS",
+  "text_files_scanned": 24
+}

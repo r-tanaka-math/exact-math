@@ -1,0 +1,18 @@
+{
+  "schema": "exact.site.project-reader-integration-lock.v1",
+  "live_parent_commit": "c5090da1853b24da29cc1fcfe3f480d024024cab",
+  "live_parent_tree": "6a2a2b01cafee7f392868da32c800c6906ac36cd",
+  "workbench_return_sha256": "19cc11eb56760753b484e5beaf3dbc1bfadaff4b765f3b3ae5dbf32884267250",
+  "website_ia_return_sha256": "f4335f54cf9090173cf3c9ef408fb85d523e11dac1bcf1798c9c992b44b60465",
+  "workbench_manifest_sha256": "c99f6975920eb0e833ed62b530bceeb5dced3a457a7d57071ced2c4b6b5bbd2b",
+  "route_manifest_sha256": "3ef85145323792942ad7d7441353c4d9fa419bbc5b317e117826842edc9f1949",
+  "presentation_binding_sha256": "fa0cbad3bb2732658e0f3462da3f7afd917fcba6ad7cf799cd658d87f2e23f7e",
+  "r1_public_artifacts_sha256": "22de7d1b327348e0eebbbaa709ff38f39e12e9c8f2e0ed0c45d5ed868850279a",
+  "source_release_commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+  "source_release_tree": "b3378851a5287f5e3c8418f668e4d0ba52718739",
+  "versioned_root": "mathlibannex/project-reader-restoration-r1",
+  "projects": {
+    "mankiewicz": {"levels": 9, "tiles": 11, "public_cards": 11, "relation_links": 20, "source_actions": 11},
+    "sphere-rigidity": {"levels": 28, "tiles": 467, "public_cards": 0, "relation_links": 1546, "source_actions": 467}
+  }
+}

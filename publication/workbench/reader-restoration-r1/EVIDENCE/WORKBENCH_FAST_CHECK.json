@@ -1,0 +1,10 @@
+{
+  "completed_test_lines": 418,
+  "example": "test_bootstrap expects an older active task; P2-LB01 and P2-LF03 historical suites also reported failures/errors",
+  "local_log_sha256": "19061d7d01822652ba6d8975774976d959144e9de670f8a676d48c11a73322ca",
+  "log_in_return": false,
+  "observed_failure_or_error_lines": 55,
+  "scope": "legacy repository-wide fast-check; independent of Project presentation qualification",
+  "status": "FAIL_INCOMPLETE_REPOSITORY_SUITE",
+  "stopped_after_unrelated_failures": true
+}

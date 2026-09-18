@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {verifyPostPublic} from './postpublic-adapter.mjs';
+import {verifyReaderSelection} from './reader-restoration-adapter.mjs';
 import {gitIdentity} from './deployment-identity.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
@@ -11,6 +12,8 @@ const parent='10b0766b39945e4ec132aebdad8844b78ac6a8bc';
 const parentTree='4850a2458eebc3ad74543bcd528abed1ae10f526';
 const initial='3925e899c1660a2520845f3117d7bdd34dafbe47';
 const initialTree='2c4d4b0cf52b59cc09a83d61c81a818dfa6cb141';
+const readerParent='c5090da1853b24da29cc1fcfe3f480d024024cab';
+const readerParentTree='6a2a2b01cafee7f392868da32c800c6906ac36cd';
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const git=(...args)=>execFileSync('git',['-C',root,...args],{encoding:'utf8'}).trim();
 const need=(x,s)=>{if(!x)throw Error('POSTPUBLIC_UPDATE_REFUSED: '+s)};
@@ -43,13 +46,57 @@ export function validatePostPublicAct(act,identity,manifest,origin,repository,to
   need(act.content_terms_sha256==='eaf1195b43fdd0d4245fccaf2aa74b50287f176700567394e872cbb610e3d817','effective terms identity');
   return act;
 }
+export function validateReaderRestorationAct(act,identity,origin,repository,today=tokyoDate()){
+  const integration=JSON.parse(fs.readFileSync(path.join(root,'publication','project-reader','integration-lock.json'),'utf8'));
+  const ledger=JSON.parse(fs.readFileSync(path.join(root,'publication','project-reader','r1-public-artifacts.json'),'utf8'));
+  const {routes}=verifyReaderSelection();
+  need(act?.schema==='exact.owner-postpublic-update-act.v2'&&act.authorized===true&&act.owner==='Ryotaro Tanaka','separate exact owner reader-restoration act required');
+  need(act.update_kind==='MATHLIBANNEX_PROJECT_READER_EXPERIENCE_RESTORATION_R1','reader update kind');
+  same([act.old_commit,act.old_tree],[readerParent,readerParentTree],'old publication binding');
+  same([act.new_commit,act.new_tree],[identity.commit,identity.tree],'reader successor commit/tree');
+  need(act.update_date_asia_tokyo===today&&/^\d{4}-\d{2}-\d{2}$/.test(today),'actual Asia/Tokyo update date');
+  same([act.public_repository,act.canonical_origin],[repository,origin],'deployment identity');
+  same([act.workbench_return_sha256,act.website_ia_return_sha256,act.route_manifest_sha256,act.presentation_binding_sha256],
+    [integration.workbench_return_sha256,integration.website_ia_return_sha256,integration.route_manifest_sha256,integration.presentation_binding_sha256],'accepted Return and manifest bindings');
+  same([act.mankiewicz_public_cards,act.sphere_rigidity_public_cards],[11,0],'public Card state');
+  same(act.source_release,{tag:'v0.2.0',commit:integration.source_release_commit,tree:integration.source_release_tree},'source release');
+  const protectedPaths={
+    brief:'assets/reports/sphere-rigidity/draft-r1/sphere-rigidity-brief-report.pdf',
+    prior_art:'assets/reports/sphere-rigidity/prior-art/r2/sphere-rigidity-prior-art-search.pdf',
+    content_terms:'publication/content-terms-public-effective.md',
+    source_release:'src/data/mathlibannex-release.json',
+    card_identities:`publication/workbench/selected/232067522f10f7bc108802d05e52c6d5d9c0a35d94c7dad95b1bbb5e9ff4e927/CARD_IDENTITIES.json`,
+  };
+  const protectedHashes={};
+  for(const [key,p] of Object.entries(protectedPaths)){
+    const before=sha(execFileSync('git',['-C',root,'show',`${readerParent}:${p}`]));
+    const after=sha(execFileSync('git',['-C',root,'show',`HEAD:${p}`]));
+    need(before===after,'protected source changed '+key);
+    protectedHashes[key]=before;
+  }
+  same(act.protected_source_sha256,protectedHashes,'unchanged Brief/prior-art/terms/source/Cards');
+  need(sha(fs.readFileSync(path.join(root,'publication','project-reader','r1-public-artifacts.json')))===integration.r1_public_artifacts_sha256,'R1 ledger identity');
+  same(act.r1_public_artifacts,ledger.files,'all existing R1 Project artifact identities');
+  const successor={};
+  for(const slug of ['mankiewicz','sphere-rigidity']){
+    const files=routes.routes[slug].file_identity;
+    successor[slug]={pdf:{path:`${integration.versioned_root}/projects/${slug}/project.pdf`,...files['project.pdf']},json:{path:`${integration.versioned_root}/projects/${slug}/project.json`,...files['project.json']}};
+  }
+  same(act.successor_projects,successor,'versioned successor PDF/JSON routes');
+  return act;
+}
 export function postPublicUpdateGate(deployment){
   const identity=gitIdentity('FULL_LAUNCH');
-  need(git('rev-list','--count','HEAD')==='3'&&git('rev-parse','HEAD^')===parent&&git('rev-parse','HEAD^^')===initial&&git('rev-parse',parent+'^{tree}')===parentTree&&git('rev-parse',initial+'^{tree}')===initialTree,'normal three-commit public history');
-  const {manifest}=verifyPostPublic();
   need(process.env.EXACT_UPDATE_ACT,'EXACT_UPDATE_ACT must identify a separate owner act');
   const act=JSON.parse(fs.readFileSync(path.resolve(process.env.EXACT_UPDATE_ACT),'utf8'));
-  validatePostPublicAct(act,identity,manifest,deployment.origin,deployment.public_repository);
+  if(act.update_kind==='MATHLIBANNEX_PROJECT_READER_EXPERIENCE_RESTORATION_R1'){
+    need(git('rev-list','--count','HEAD')==='4'&&git('rev-parse','HEAD^')===readerParent&&git('rev-parse','HEAD^^')===parent&&git('rev-parse','HEAD^^^')===initial&&git('rev-parse',readerParent+'^{tree}')===readerParentTree&&git('rev-parse',parent+'^{tree}')===parentTree&&git('rev-parse',initial+'^{tree}')===initialTree,'normal four-commit public history');
+    validateReaderRestorationAct(act,identity,deployment.origin,deployment.public_repository);
+  }else{
+    need(git('rev-list','--count','HEAD')==='3'&&git('rev-parse','HEAD^')===parent&&git('rev-parse','HEAD^^')===initial&&git('rev-parse',parent+'^{tree}')===parentTree&&git('rev-parse',initial+'^{tree}')===initialTree,'normal three-commit public history');
+    const {manifest}=verifyPostPublic();
+    validatePostPublicAct(act,identity,manifest,deployment.origin,deployment.public_repository);
+  }
   return {act,imports:[],postpublic_update:true};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){

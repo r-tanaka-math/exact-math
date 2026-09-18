@@ -1,0 +1,237 @@
+{
+  "expected_token": "PASS_MATHLIBANNEX_PROJECT_READER_EXPERIENCE_RESTORATION_RETURN_R1",
+  "file_count": 46,
+  "files": [
+    {
+      "bytes": 9494,
+      "path": "CHECK.py",
+      "sha256": "6794b955af78c9bfa6ab9eb347e6852e3c83be7e113217a07e7276dae82784fd"
+    },
+    {
+      "bytes": 563,
+      "path": "EVIDENCE/GLYPH_QA.json",
+      "sha256": "276d2f9cd66c4c9a81068c4d5254598ae7d0404a2f4ca89aca72de5e8932530c"
+    },
+    {
+      "bytes": 624,
+      "path": "EVIDENCE/LINK_FRAGMENT_QA.json",
+      "sha256": "3692610dc7b14b469e1f8107e6f42bff41623c8c1ac80904766ba665852529bd"
+    },
+    {
+      "bytes": 298,
+      "path": "EVIDENCE/MUTATION_QA.json",
+      "sha256": "bac513a1f845a1249715ef8e02ec00fb4d9294ea7ee41970df66d54442c128f5"
+    },
+    {
+      "bytes": 174202,
+      "path": "EVIDENCE/pdf-renders/mankiewicz-page-1.png",
+      "sha256": "d9c2da03bcbe78a36b5728a953dcc453c6a3a32d58955abca64db44efb58aa3a"
+    },
+    {
+      "bytes": 71938,
+      "path": "EVIDENCE/pdf-renders/mankiewicz-page-4.png",
+      "sha256": "828a9c0fd94e602cb93de299a8ea4e563216235112ea8bc7d0cc7469b1572b01"
+    },
+    {
+      "bytes": 212086,
+      "path": "EVIDENCE/pdf-renders/sphere-page-1.png",
+      "sha256": "ab430a87e54a03b5dac83c1d30406dd8458223c382099f1ca2dbf6c9c6261692"
+    },
+    {
+      "bytes": 136377,
+      "path": "EVIDENCE/pdf-renders/sphere-page-2.png",
+      "sha256": "ffc6bbbe9c1ba832137bcfa08c536ac6ae3ecc48597872e488a1db04dddd3fa7"
+    },
+    {
+      "bytes": 128960,
+      "path": "EVIDENCE/pdf-renders/sphere-page-50.png",
+      "sha256": "60c045f0639d6ec49e130c4ca7c482ebec59e864f0f9e3f565ff4625126b8337"
+    },
+    {
+      "bytes": 45757,
+      "path": "EVIDENCE/pdf-renders/sphere-page-96.png",
+      "sha256": "c79b17d5b1b0a63e9a32681cb408d4f9569e2164ed011209379095fedc519109"
+    },
+    {
+      "bytes": 1766,
+      "path": "EVIDENCE/PDF_QA.json",
+      "sha256": "e68084218f2dcbb92d80d495aa196a2c1a9abe7b43def495abde5fce2d729914"
+    },
+    {
+      "bytes": 194,
+      "path": "EVIDENCE/PRIVATE_LEAKAGE_QA.json",
+      "sha256": "0a0a19b54f7a362f377f0e29f9a19a5414b49c408ffa02fe5f18af087d27db11"
+    },
+    {
+      "bytes": 67798,
+      "path": "EVIDENCE/screenshots/mankiewicz-level-7-1440.png",
+      "sha256": "92d1b969ca221b45c701d606f840a2288ca0b59bfb38d3baee19dd7d9be12aea"
+    },
+    {
+      "bytes": 68479,
+      "path": "EVIDENCE/screenshots/mankiewicz-long-name-target-1440.png",
+      "sha256": "e80ae7ffff01b9ebf5063f024b8e598d9714f2d9d241cca84b4f3f2703636353"
+    },
+    {
+      "bytes": 76802,
+      "path": "EVIDENCE/screenshots/mankiewicz-root-overview-1440.png",
+      "sha256": "b02b7a7149a25975d86891d89a53b641028a97a58c82e67c52d98e22c5f8ed1b"
+    },
+    {
+      "bytes": 38622,
+      "path": "EVIDENCE/screenshots/mankiewicz-root-overview-320.png",
+      "sha256": "bc7903648a52e89df7a5a910a3728c142b2b46dbe50f205f15560229c65e607a"
+    },
+    {
+      "bytes": 76802,
+      "path": "EVIDENCE/screenshots/mankiewicz-subpath-overview-1440.png",
+      "sha256": "b02b7a7149a25975d86891d89a53b641028a97a58c82e67c52d98e22c5f8ed1b"
+    },
+    {
+      "bytes": 38622,
+      "path": "EVIDENCE/screenshots/mankiewicz-subpath-overview-320.png",
+      "sha256": "bc7903648a52e89df7a5a910a3728c142b2b46dbe50f205f15560229c65e607a"
+    },
+    {
+      "bytes": 62328,
+      "path": "EVIDENCE/screenshots/sphere-rigidity-level-27-1440.png",
+      "sha256": "f49f57d8dfb92b68760bb92fd96f9d5ad16ab8c770f5e9a7939a09c586327559"
+    },
+    {
+      "bytes": 66271,
+      "path": "EVIDENCE/screenshots/sphere-rigidity-long-name-target-1440.png",
+      "sha256": "46a031f40c6e89fd10b59454b8483c0522c54d134978dfee7e59425839cf3181"
+    },
+    {
+      "bytes": 70336,
+      "path": "EVIDENCE/screenshots/sphere-rigidity-root-overview-1440.png",
+      "sha256": "a68de54eae678083e2ba4065125a49fe9544169769dc87a0244599ec1e491bf8"
+    },
+    {
+      "bytes": 38076,
+      "path": "EVIDENCE/screenshots/sphere-rigidity-root-overview-320.png",
+      "sha256": "54051b1e572919040a421a1463a241ec7fc8043b7b6b1af042164d0362ac0237"
+    },
+    {
+      "bytes": 70336,
+      "path": "EVIDENCE/screenshots/sphere-rigidity-subpath-overview-1440.png",
+      "sha256": "a68de54eae678083e2ba4065125a49fe9544169769dc87a0244599ec1e491bf8"
+    },
+    {
+      "bytes": 38076,
+      "path": "EVIDENCE/screenshots/sphere-rigidity-subpath-overview-320.png",
+      "sha256": "54051b1e572919040a421a1463a241ec7fc8043b7b6b1af042164d0362ac0237"
+    },
+    {
+      "bytes": 7402,
+      "path": "EVIDENCE/VIEWPORT_QA.json",
+      "sha256": "4b4588c7b4a18ae755426a1e935bf606a05071a566c296b11bd1353bbf5f072b"
+    },
+    {
+      "bytes": 521,
+      "path": "EVIDENCE/WORKBENCH_FAST_CHECK.json",
+      "sha256": "77f4b098bd80371bc8eb846c505661b26c091815a09b486004981787e2ec7006"
+    },
+    {
+      "bytes": 371,
+      "path": "EVIDENCE/WORKBENCH_TARGETED_LF08.json",
+      "sha256": "ddd8bd82aee039f6cfdb4f0d226f57de59141b2ac6ef6a579c5aefb3f43ceae6"
+    },
+    {
+      "bytes": 14765,
+      "path": "INPUT_BINDINGS.json",
+      "sha256": "e205fe3329c191d54b89e6059d1720862dd380ba63f854ce5d4d45895e142a1f"
+    },
+    {
+      "bytes": 13279,
+      "path": "INPUTS/golden-p2lf10-mankiewicz-overview.html",
+      "sha256": "cc89067a7d9854cd07ec1b40775c4ee95c02eca2bcc07512cfa379fcb9219856"
+    },
+    {
+      "bytes": 28257,
+      "path": "INPUTS/mankiewicz-project.json",
+      "sha256": "ef992a95989095ad0718ad19fcce1c3fe6717ba1f30faac2933df4bdc5570cef"
+    },
+    {
+      "bytes": 611301,
+      "path": "INPUTS/sphere-rigidity-project.json",
+      "sha256": "e9e76a64238b331e09f2a78816920fcf5a17226dd69389c087509f9bf4e1c56d"
+    },
+    {
+      "bytes": 2615,
+      "path": "PRESENTATION_BINDING.json",
+      "sha256": "fa0cbad3bb2732658e0f3462da3f7afd917fcba6ad7cf799cd658d87f2e23f7e"
+    },
+    {
+      "bytes": 693876,
+      "path": "projects/assets/DejaVuSans-Bold.ttf",
+      "sha256": "7e69e81478e233b81c3ad730f5b10abe76c792d48ec6c3e7cc3b3596a37bb3b1"
+    },
+    {
+      "bytes": 741536,
+      "path": "projects/assets/DejaVuSans.ttf",
+      "sha256": "08ca98e69d9d8fa1065584b4f9ab7d49b6205abea6572b90e171b254845bb990"
+    },
+    {
+      "bytes": 4816,
+      "path": "projects/assets/LICENSE.txt",
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+    },
+    {
+      "bytes": 4937,
+      "path": "projects/assets/project.css",
+      "sha256": "b00c7d5cc9f54b5ed7cd3a78193549da69d03cd8d69daa45aca23a5cdd0efce9"
+    },
+    {
+      "bytes": 1529,
+      "path": "projects/assets/project.js",
+      "sha256": "72bd7a861870002f5cbc267a3c955cd1443d74003156b0c5e88dd28f03248b4e"
+    },
+    {
+      "bytes": 27173,
+      "path": "projects/mankiewicz/index.html",
+      "sha256": "ac7a17bf8a65dcf140ae4135a9c1e52928ce71ef5c6a41b9a2808a61507ff5ef"
+    },
+    {
+      "bytes": 37117,
+      "path": "projects/mankiewicz/project.json",
+      "sha256": "2f80e744645ef2e2b7da2ed22d68785ee23380d65d9760b033c980febc795033"
+    },
+    {
+      "bytes": 60237,
+      "path": "projects/mankiewicz/project.pdf",
+      "sha256": "ce6865ec6562b075aacd093f209fdd0f5b8f94c6c1f9874a1ab10cd9ebb0509a"
+    },
+    {
+      "bytes": 540506,
+      "path": "projects/sphere-rigidity/index.html",
+      "sha256": "4aac183f09dc5238a2a9b1b5f3f80d85e90ccbd3a0d7e38a00120804ea297313"
+    },
+    {
+      "bytes": 887221,
+      "path": "projects/sphere-rigidity/project.json",
+      "sha256": "a2c7b9287b1b7e6d4f9b508c0660a3e39d75d79137ad46de6683f78904ad62ff"
+    },
+    {
+      "bytes": 607588,
+      "path": "projects/sphere-rigidity/project.pdf",
+      "sha256": "c53cb3b74bb16bf8cd3a1e2bf4b4f44047888099f3b221f9f75b285c750bf02a"
+    },
+    {
+      "bytes": 669,
+      "path": "README_FIRST_JA.md",
+      "sha256": "469ab2cd5461d59901ad2dc03b87a14600641318917483e0738c7bb57469e1b2"
+    },
+    {
+      "bytes": 1736,
+      "path": "REPORT.json",
+      "sha256": "609df1446addf90d2f084e9d73508f356c84347c868a8becc28799ff7a627bba"
+    },
+    {
+      "bytes": 2298,
+      "path": "ROUTE_MANIFEST.json",
+      "sha256": "3ef85145323792942ad7d7441353c4d9fa419bbc5b317e117826842edc9f1949"
+    }
+  ],
+  "schema": "mathlibannex.project-reader-experience-restoration.return-manifest.v1"
+}

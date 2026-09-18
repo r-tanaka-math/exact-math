@@ -1,0 +1,13 @@
+{
+  "causes": [
+    "bundled Python lacks jsonschema",
+    "bundled Python Tcl/Tk init.tcl unavailable"
+  ],
+  "errors": 3,
+  "local_log_sha256": "04e48fd0e3df8fb93a51a5292c2332aff3afccebe2b2325d0c1a5bdce65dbb50",
+  "log_in_return": false,
+  "product_files_changed_by_tests": false,
+  "status": "ERROR_ENVIRONMENT",
+  "tests_passed": 43,
+  "tests_run": 46
+}

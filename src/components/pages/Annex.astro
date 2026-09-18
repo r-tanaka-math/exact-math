@@ -3,8 +3,74 @@ import { SITE } from '../../config';
 import Sections from '../Sections.astro';
 import Contents from '../Contents.astro';
 import Link from '../Link.astro';
-import {publicWording} from '../../lib/build-profile';
+import release from '../../data/mathlibannex-release.json';
+import { publicWording } from '../../lib/build-profile';
 const c = SITE.annex;
+const base = import.meta.env.BASE_URL;
 ---
-<header class="page-head"><p class="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p class="lead">{c.lead}</p><p class="intro">{c.intro}</p></header><div class="notice">{publicWording ? 'MathlibAnnex v0.2.0 source: public. Mankiewicz: 11 public canonical Cards and Project HTML/PDF/JSON. Sphere Rigidity: 0 public Cards; Research Companion available. LFH content terms: effective.' : c.status}</div><p><a href={import.meta.env.BASE_URL+'mathlibannex/releases/v0.2.0/'}>Current MathlibAnnex v0.2.0 source release</a> · <a href={import.meta.env.BASE_URL+'mathlibannex/releases/v0.1.0/'}>Historical v0.1.0 source release</a></p><section id="lfh-definition"><p>Lean for Human (LFH) is the human-readable layer accompanying selected Lean declarations: declaration cards, exact source links, and guided Project views.</p><p>Project views organize routes through exact source declarations. A declaration Card belongs to the whole-library Catalog; Project ordering is a reading route, not canonical library order. {publicWording ? 'The current Catalog contains eleven public Cards, all referenced by the Mankiewicz Project. Sphere Rigidity has zero public Cards.' : 'The present views are available for local content review.'}</p><p><a href={import.meta.env.BASE_URL+'mathlibannex/catalog/'}>Browse the whole-library Catalog</a> · <a href={import.meta.env.BASE_URL+'mathlibannex/overviews/mankiewicz/'}>Mankiewicz overview</a> · <a href={import.meta.env.BASE_URL+'mathlibannex/projects/mankiewicz/'}>Mankiewicz Project</a> · <a href={import.meta.env.BASE_URL+'mathlibannex/verification/'}>Card verification contract</a></p></section>
-<div class="reading-layout"><article class="article"><Sections items={c.sections}/><section id="work"><h2>Two concrete starting points.</h2><div class="work-grid"><article class="work-item"><h3>Mankiewicz Theorem Project</h3><p>{publicWording ? 'A derived proof route through the eleven public canonical Declaration Cards, with prerequisites, used-by navigation, exact source and a three-page PDF.' : c.work[0].text}</p><a href={import.meta.env.BASE_URL+'mathlibannex/projects/mankiewicz/'}>{publicWording ? 'Open the Project' : 'Open the local Project view'}</a></article><article class="work-item"><h3>Sphere Rigidity Research Companion</h3><p>{publicWording ? 'A progressive Research Companion with 467 exact declaration nodes and zero public Cards.' : c.work[1].text}</p><a href={import.meta.env.BASE_URL+'mathlibannex/projects/sphere-rigidity/'}>{publicWording ? 'Open the Companion' : 'Open the local Companion'}</a></article></div></section><section><p>{c.closing}</p><Link to="research" label="Return to the research"/></section></article><Contents items={[{id:'mathlib-first',label:'Mathlib first'},{id:'cards',label:'Declaration cards'},{id:'reading',label:'Reading the proof'},{id:'work',label:'Starting points'}]} note="The Catalog records Card identity; Project views provide reading routes."/></div>
+<header class="page-head"><p class="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p class="lead">{c.lead}</p><p class="intro">{c.intro}</p></header>
+
+<section class="annex-primary" aria-labelledby="projects-catalog-heading">
+  <h2 id="projects-catalog-heading">Projects and Catalog</h2>
+  <div class="annex-primary-grid">
+    <article class="annex-primary-card">
+      <p class="annex-card-kind">Theorem Project</p>
+      <h3>Mankiewicz Extension Theorem</h3>
+      <p>A guided proof route through 11 public canonical Declaration Cards, with prerequisites, used-by navigation, and exact source.</p>
+      <a href={base+'mathlibannex/projects/mankiewicz/'}>Open Project <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="annex-primary-card">
+      <p class="annex-card-kind">Research Companion</p>
+      <h3>Sphere Rigidity</h3>
+      <p>467 formal declarations organized by project-local levels. Declaration Card publication progresses separately; 0 Cards are public.</p>
+      <a href={base+'mathlibannex/projects/sphere-rigidity/'}>Open Project <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="annex-primary-card">
+      <p class="annex-card-kind">Whole-library Catalog</p>
+      <h3>Declaration Card Catalog</h3>
+      <p>Browse the 11 published canonical Cards across MathlibAnnex. Each Card has its own identity, independent of a Project reading route.</p>
+      <a href={base+'mathlibannex/catalog/'}>Browse Catalog <span aria-hidden="true">↗</span></a>
+    </article>
+  </div>
+</section>
+
+<style>
+  .annex-primary{padding:0 0 54px}
+  .annex-primary h2{margin-bottom:24px}
+  .annex-primary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .annex-primary-card{min-width:0;display:flex;flex-direction:column;padding:28px;border:1px solid var(--line);border-top:3px solid var(--green);border-radius:var(--radius);background:var(--white)}
+  .annex-card-kind{font-size:11px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;font-weight:650;color:var(--green);margin-bottom:18px}
+  .annex-primary-card h3{font:28px/1.24 var(--serif);letter-spacing:-.02em;overflow-wrap:anywhere;margin-bottom:18px}
+  .annex-primary-card>p:not(.annex-card-kind){font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:28px}
+  .annex-primary-card a{margin-top:auto;align-self:flex-start;font-size:14px;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px}
+  .annex-primary-card a span{margin-left:8px}
+  .annex-definition{border-top:1px solid var(--line);padding:28px 0 34px;max-width:850px}
+  .annex-definition p{font-size:16px;line-height:1.85}
+  .annex-secondary{border-top:1px solid var(--line);padding:50px 0 72px}
+  .annex-secondary-intro{max-width:710px;font-size:15px;color:var(--muted)}
+  .annex-secondary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;margin-top:30px}
+  .annex-secondary-grid h3{font-size:16px}
+  .annex-secondary-grid ul{margin:0;padding-left:20px}
+  .annex-secondary-grid li{font-size:14px;line-height:1.7;margin-bottom:11px;overflow-wrap:anywhere}
+  .annex-release-status{border-left:3px solid var(--line);padding:10px 0 10px 17px;margin:35px 0 0;font-size:13px;color:var(--muted)}
+  @media(max-width:850px){.annex-primary-grid{grid-template-columns:1fr}.annex-primary-card{padding:23px}.annex-secondary-grid{grid-template-columns:1fr}.annex-primary{padding-bottom:40px}}
+  @media print{.annex-primary-card{break-inside:avoid}}
+</style>
+
+<section id="lfh-definition" class="annex-definition">
+  <p>Lean for Human (LFH) is the human-readable layer accompanying selected Lean declarations: declaration cards, exact source links, and guided Project views.</p>
+  <p>Project views organize routes through exact source declarations. A declaration Card belongs to the whole-library Catalog; Project ordering is a reading route, not canonical library order. {publicWording ? 'The current Catalog contains eleven public Cards, all referenced by the Mankiewicz Project. Sphere Rigidity has zero public Cards.' : 'The present views are available for local content review.'}</p>
+</section>
+
+<div class="reading-layout"><article class="article"><Sections items={c.sections}/><section><p>{c.closing}</p><Link to="research" label="Return to the research"/></section></article><Contents items={[{id:'mathlib-first',label:'Mathlib first'},{id:'cards',label:'Declaration cards'},{id:'reading',label:'Reading the proof'},{id:'source-verification',label:'Source and verification'}]} note="The Catalog records Card identity; Project views provide reading routes."/></div>
+
+<section id="source-verification" class="annex-secondary" aria-labelledby="source-verification-heading">
+  <h2 id="source-verification-heading">Source and verification</h2>
+  <p class="annex-secondary-intro">The canonical source release and the records used to verify it are available separately from the reader-facing Projects and Cards.</p>
+  <div class="annex-secondary-grid">
+    <div><h3>Source and release</h3><ul><li><a href={release.repository}>MathlibAnnex source repository</a></li><li><a href={base+'mathlibannex/releases/v0.2.0/'}>Current source release v0.2.0</a></li><li><a href={release.assets[0].browser_download_url}>Source ZIP</a></li></ul></div>
+    <div><h3>Verification</h3><ul><li><a href={release.qualification.receipt_url}>Source qualification receipt</a></li><li><a href={base+'mathlibannex/verification/'}>Card verification contract</a></li></ul></div>
+    <div><h3>History</h3><ul><li><a href={base+'mathlibannex/releases/v0.1.0/'}>Historical source release v0.1.0</a></li></ul></div>
+  </div>
+  <p class="annex-release-status">{publicWording ? 'MathlibAnnex v0.2.0 source: public. Mankiewicz: 11 public canonical Cards and Project HTML/PDF/JSON. Sphere Rigidity: 0 public Cards; Research Companion available. LFH content terms: effective.' : c.status}</p>
+</section>

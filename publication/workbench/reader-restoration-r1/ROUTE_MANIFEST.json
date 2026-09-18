@@ -1,0 +1,69 @@
+{
+  "mount": "<base>/mathlibannex/",
+  "relative_package_root": "projects/",
+  "routes": {
+    "mankiewicz": {
+      "anchor_rule": "decl-<stable_card_id>",
+      "canonical_card_actions": 11,
+      "exact_source_actions": 11,
+      "file_identity": {
+        "index.html": {
+          "bytes": 27173,
+          "sha256": "ac7a17bf8a65dcf140ae4135a9c1e52928ce71ef5c6a41b9a2808a61507ff5ef"
+        },
+        "project.json": {
+          "bytes": 37117,
+          "sha256": "2f80e744645ef2e2b7da2ed22d68785ee23380d65d9760b033c980febc795033"
+        },
+        "project.pdf": {
+          "bytes": 60237,
+          "sha256": "ce6865ec6562b075aacd093f209fdd0f5b8f94c6c1f9874a1ab10cd9ebb0509a"
+        }
+      },
+      "html": "projects/mankiewicz/index.html",
+      "json": "projects/mankiewicz/project.json",
+      "level_count": 9,
+      "node_count": 11,
+      "pdf": "projects/mankiewicz/project.pdf",
+      "pdf_page_inventory": {
+        "bytes": 60237,
+        "level_count": 9,
+        "sha256": "ce6865ec6562b075aacd093f209fdd0f5b8f94c6c1f9874a1ab10cd9ebb0509a",
+        "tile_count": 11
+      },
+      "route": "projects/mankiewicz/"
+    },
+    "sphere-rigidity": {
+      "anchor_rule": "decl-<node_id>",
+      "canonical_card_actions": 0,
+      "exact_source_actions": 467,
+      "file_identity": {
+        "index.html": {
+          "bytes": 540506,
+          "sha256": "4aac183f09dc5238a2a9b1b5f3f80d85e90ccbd3a0d7e38a00120804ea297313"
+        },
+        "project.json": {
+          "bytes": 887221,
+          "sha256": "a2c7b9287b1b7e6d4f9b508c0660a3e39d75d79137ad46de6683f78904ad62ff"
+        },
+        "project.pdf": {
+          "bytes": 607588,
+          "sha256": "c53cb3b74bb16bf8cd3a1e2bf4b4f44047888099f3b221f9f75b285c750bf02a"
+        }
+      },
+      "html": "projects/sphere-rigidity/index.html",
+      "json": "projects/sphere-rigidity/project.json",
+      "level_count": 28,
+      "node_count": 467,
+      "pdf": "projects/sphere-rigidity/project.pdf",
+      "pdf_page_inventory": {
+        "bytes": 607588,
+        "level_count": 28,
+        "sha256": "c53cb3b74bb16bf8cd3a1e2bf4b4f44047888099f3b221f9f75b285c750bf02a",
+        "tile_count": 467
+      },
+      "route": "projects/sphere-rigidity/"
+    }
+  },
+  "schema": "mathlibannex.project-route-manifest.restoration-r1"
+}

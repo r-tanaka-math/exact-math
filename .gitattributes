@@ -2,4 +2,5 @@
 publication/workbench/input/** -text
 publication/workbench/public-presentation/** -text
 publication/workbench/selected/** -text
+publication/workbench/reader-restoration-r1/** -text -diff
 publication/source-v0.2.0/** -text

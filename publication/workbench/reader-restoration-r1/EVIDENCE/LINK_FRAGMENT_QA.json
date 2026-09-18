@@ -1,0 +1,24 @@
+{
+  "root_subpath_browser_evidence": "VIEWPORT_QA.json",
+  "rows": [
+    {
+      "anchors": 11,
+      "canonical_card_actions": 11,
+      "exact_source_actions": 11,
+      "missing_targets": [],
+      "relation_links": 20,
+      "same_page_project_links_including_architecture": 29,
+      "slug": "mankiewicz"
+    },
+    {
+      "anchors": 467,
+      "canonical_card_actions": 0,
+      "exact_source_actions": 467,
+      "missing_targets": [],
+      "relation_links": 1546,
+      "same_page_project_links_including_architecture": 1546,
+      "slug": "sphere-rigidity"
+    }
+  ],
+  "status": "PASS"
+}

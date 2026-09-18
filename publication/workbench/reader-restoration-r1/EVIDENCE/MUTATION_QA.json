@@ -1,0 +1,7 @@
+{
+  "actual_rejection": "FAIL_PASS_MATHLIBANNEX_PROJECT_READER_EXPERIENCE_RESTORATION_RETURN_R1: file identity: projects/assets/project.css",
+  "case": "project.css byte mutation",
+  "checker_exit_code": 1,
+  "expected_rejection": "file identity: projects/assets/project.css",
+  "status": "PASS"
+}

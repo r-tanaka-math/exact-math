@@ -1,0 +1,20 @@
+{
+  "font": "DejaVu Sans",
+  "rows": [
+    {
+      "browser_font_loaded": true,
+      "font_file_sha256": "08ca98e69d9d8fa1065584b4f9ab7d49b6205abea6572b90e171b254845bb990",
+      "slug": "mankiewicz",
+      "unsupported_codepoints": [],
+      "visible_codepoints": 82
+    },
+    {
+      "browser_font_loaded": true,
+      "font_file_sha256": "08ca98e69d9d8fa1065584b4f9ab7d49b6205abea6572b90e171b254845bb990",
+      "slug": "sphere-rigidity",
+      "unsupported_codepoints": [],
+      "visible_codepoints": 72
+    }
+  ],
+  "status": "PASS"
+}

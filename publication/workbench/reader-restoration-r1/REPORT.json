@@ -1,0 +1,47 @@
+{
+  "ending_workbench_commit": "c9e4b4623421bc67f7114bbcd22caab858f31055",
+  "expected_token": "PASS_MATHLIBANNEX_PROJECT_READER_EXPERIENCE_RESTORATION_RETURN_R1",
+  "external_effects": "NONE",
+  "input_dispatch_sha256": "f3a3b000e39b683f151824001e32df0d750128fe22e6dd85c5b31d358ceeb82a",
+  "known_limitations": [
+    "Sphere Rigidity canonical Declaration Cards remain NOT_STARTED; zero canonical Card actions.",
+    "Repository-wide fast-check did not PASS: unrelated historical failures appeared before the run was stopped; task-specific render and link qualification passed.",
+    "The 46-test LF08 legacy suite had 43 passes and 3 environment errors: jsonschema and usable Tcl/Tk are absent from the bundled Python runtime.",
+    "The hosting website frame, deployment, Pages, DNS, and publication are outside this Return."
+  ],
+  "projects": {
+    "mankiewicz": {
+      "canonical_card_actions": 11,
+      "exact_source_actions": 11,
+      "levels": 9,
+      "tiles": 11
+    },
+    "sphere-rigidity": {
+      "canonical_card_actions": 0,
+      "exact_source_actions": 467,
+      "levels": 28,
+      "tiles": 467
+    }
+  },
+  "qualification": [
+    "root/subpath browser",
+    "all Project anchors",
+    "filter/hash navigation",
+    "320/390/1440px",
+    "glyph/font",
+    "PDF",
+    "private leakage",
+    "mutation"
+  ],
+  "reused_without_rerun": [
+    "Lean/Lake build",
+    "formal extraction",
+    "compiled-axiom audit",
+    "Mankiewicz Card source-exposition review"
+  ],
+  "schema": "mathlibannex.project-reader-experience-restoration.report.v1",
+  "scope": "PRESENTATION_ONLY",
+  "starting_workbench_commit": "b5ca3d2fdd20464301ea1f6d8b464a2f07abdf76",
+  "status": "CANDIDATE_COMPLETE",
+  "work_branch": "work/P2-MA07"
+}

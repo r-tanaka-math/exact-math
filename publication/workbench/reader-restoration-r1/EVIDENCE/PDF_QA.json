@@ -1,0 +1,52 @@
+{
+  "rendered_pages": [
+    {
+      "path": "EVIDENCE/pdf-renders/mankiewicz-page-1.png",
+      "sha256": "d9c2da03bcbe78a36b5728a953dcc453c6a3a32d58955abca64db44efb58aa3a"
+    },
+    {
+      "path": "EVIDENCE/pdf-renders/mankiewicz-page-4.png",
+      "sha256": "828a9c0fd94e602cb93de299a8ea4e563216235112ea8bc7d0cc7469b1572b01"
+    },
+    {
+      "path": "EVIDENCE/pdf-renders/sphere-page-1.png",
+      "sha256": "ab430a87e54a03b5dac83c1d30406dd8458223c382099f1ca2dbf6c9c6261692"
+    },
+    {
+      "path": "EVIDENCE/pdf-renders/sphere-page-2.png",
+      "sha256": "ffc6bbbe9c1ba832137bcfa08c536ac6ae3ecc48597872e488a1db04dddd3fa7"
+    },
+    {
+      "path": "EVIDENCE/pdf-renders/sphere-page-50.png",
+      "sha256": "60c045f0639d6ec49e130c4ca7c482ebec59e864f0f9e3f565ff4625126b8337"
+    },
+    {
+      "path": "EVIDENCE/pdf-renders/sphere-page-96.png",
+      "sha256": "c79b17d5b1b0a63e9a32681cb408d4f9569e2164ed011209379095fedc519109"
+    }
+  ],
+  "rows": [
+    {
+      "bytes": 60237,
+      "canonical_card_links": 11,
+      "exact_source_links": 11,
+      "level_labels": 9,
+      "page_count": 4,
+      "project_relation_links": 20,
+      "sha256": "ce6865ec6562b075aacd093f209fdd0f5b8f94c6c1f9874a1ab10cd9ebb0509a",
+      "slug": "mankiewicz"
+    },
+    {
+      "bytes": 607588,
+      "canonical_card_links": 0,
+      "exact_source_links": 467,
+      "level_labels": 28,
+      "page_count": 96,
+      "project_relation_links": 1365,
+      "sha256": "c53cb3b74bb16bf8cd3a1e2bf4b4f44047888099f3b221f9f75b285c750bf02a",
+      "slug": "sphere-rigidity"
+    }
+  ],
+  "status": "PASS",
+  "visual_review": "Representative first, detail, and final pages inspected for legibility, clipping, and page transitions"
+}

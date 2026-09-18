@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 import sys
+from collections import Counter
 
 sys.dont_write_bytecode = True
 TOKEN = 'PASS_EXACT_SITE_POSTPUBLIC_11_CARD_BUILD_R1'
@@ -57,6 +58,8 @@ def check(root):
         if state['profile']=='FULL_LAUNCH':
             assert not re.search(r'\bcandidate\b|private preview|local review|not yet public|public Card links are not yet active',visible,re.I), ('public terminology',n)
         assert p.mains==1, ('main',n)
+        if n.startswith('mathlibannex/'):
+            assert t.count('aria-label="Back to top"')==1, ('Back to top count',n)
         assert 'content-security-policy' in p.meta and 'default-src' in p.meta['content-security-policy'], ('CSP',n)
         excluded=bool(re.match(r'^(?:404\.html|research/sr/|corrections/(?:received|demo)/)',n))
         support=bool(re.match(r'^mathlibannex/(?:sources/|verification/|releases/candidate-r1/|overviews/mankiewicz/boundary\.html)',n))
@@ -82,16 +85,50 @@ def check(root):
         if 'accepted_article_sha256' in row:
             article=re.search(rb'<article\b[^>]*>[\s\S]*?</article>',b)
             assert article and sha(article[0])==row['accepted_article_sha256'], row['path']
+    mapping=json.loads(paths['PROJECT_READER_ROUTE_MAPPING.json'].read_text(encoding='utf-8'))
+    assert mapping['schema']=='exact.site.project-reader-route-mapping.v1' and mapping['base']==base
+    assert mapping['workbench_return_sha256']=='19cc11eb56760753b484e5beaf3dbc1bfadaff4b765f3b3ae5dbf32884267250'
+    assert mapping['website_ia_return_sha256']=='f4335f54cf9090173cf3c9ef408fb85d523e11dac1bcf1798c9c992b44b60465'
+    assert mapping['route_manifest_sha256']=='3ef85145323792942ad7d7441353c4d9fa419bbc5b317e117826842edc9f1949'
+    assert mapping['presentation_binding_sha256']=='fa0cbad3bb2732658e0f3462da3f7afd917fcba6ad7cf799cd658d87f2e23f7e'
+    assert mapping['r1_ledger_sha256']=='22de7d1b327348e0eebbbaa709ff38f39e12e9c8f2e0ed0c45d5ed868850279a'
+    assert len(mapping['preserved_r1_artifacts'])==18
+    for row in mapping['preserved_r1_artifacts']:
+        b=paths[row['path']].read_bytes()
+        assert len(b)==row['bytes'] and sha(b)==row['sha256'], ('published R1 changed',row['path'])
+    for row in mapping['assets']:
+        b=paths[row['path']].read_bytes()
+        assert len(b)==row['bytes'] and sha(b)==row['sha256'], ('versioned asset',row['path'])
+    for slug,levels,tiles,relations,cards,sources in [('mankiewicz',9,11,20,11,11),('sphere-rigidity',28,467,1546,0,467)]:
+        route=f'mathlibannex/projects/{slug}/index.html'
+        project=paths[route].read_text(encoding='utf-8')
+        info=mapping['projects'][slug]
+        assert info['current_html']==route and (info['levels'],info['tiles'],info['public_cards'],info['relation_links'],info['source_actions'])==(levels,tiles,cards,relations,sources)
+        assert project.count('class="level"')==levels and project.count('class="tile"')==tiles, slug
+        assert project.count('class="card-action"')==cards and project.count('Read exact source')==sources, slug
+        relation_html=re.findall(r'<div class="relations">([\s\S]*?)</div>',project)
+        assert len(relation_html)==tiles, ('relations per tile',slug)
+        if slug=='mankiewicz':
+            assert sum(len(re.findall(r'href="#decl-[^"]+"',x)) for x in relation_html)==relations, ('relation links',slug)
+        else:
+            assert len(re.findall(r'href="#decl-[^"]+"',project))==relations, ('Project target links',slug)
+        assert project.count('data-exact-mounted')==1 and project.count('id="site-top"')==1, slug
+        for type_ in ('pdf','json'):
+            row=info['versioned_'+type_]
+            b=paths[row['path']].read_bytes()
+            assert len(b)==row['bytes'] and sha(b)==row['sha256'] and f'href="{base}{row["path"]}"' in project, ('versioned '+type_,slug)
+        data=json.loads(paths[info['versioned_json']['path']].read_text(encoding='utf-8'))
+        rows=data.get('cards',data.get('nodes'))
+        assert len(rows)==tiles and sum(x['card_resolution']=='PUBLIC' for x in rows)==cards
+        assert sum(x['canonical_card_link'] is not None for x in rows)==cards
     man=paths['mathlibannex/projects/mankiewicz/index.html'].read_text(encoding='utf-8')
-    assert man.count('Read canonical Card')==11 and man.count('Immediate prerequisites:')==11 and man.count('Used by:')==11
+    level_distribution=Counter(int(x) for x in re.findall(r'<section class="tile"[^>]*>[\s\S]*?<span class="eyebrow">Level (\d+)</span>',man))
+    assert level_distribution=={0:2,1:1,2:1,3:1,4:1,5:1,6:1,7:2,8:1}
+    assert man.count('Read canonical Card')==11 and man.count('Immediate prerequisites in this Project')==11 and man.count('Used by in this Project')==11
     catalog=paths['mathlibannex/catalog/index.html'].read_text(encoding='utf-8')
     assert 'whole-library Catalog contains 11 canonical Cards' in catalog and '11 canonical Cards in the Mankiewicz Project' not in catalog
     hub=paths['mathlibannex/index.html'].read_text(encoding='utf-8')
     assert 'MathlibAnnex v0.2.0 source: public' in hub and 'Sphere Rigidity: 0 public Cards' in hub
-    for slug,num in [('mankiewicz',11),('sphere-rigidity',0)]:
-        data=json.loads(paths[f'mathlibannex/data/project-presentation-r1/{slug}/project.json'].read_text(encoding='utf-8'))
-        rows=data.get('cards',data.get('nodes'))
-        assert sum(x['card_resolution']=='PUBLIC' for x in rows)==num
     for name,h in adapter['selected_public_presentation']['fonts'].items():
         assert sha(paths['mathlibannex/assets/'+name].read_bytes())==h
     assert not any(n.endswith(('.zip','.bundle','.map','.tex','.bib','.sty')) or n.startswith(('.git/','AUDIT/')) for n in paths)
