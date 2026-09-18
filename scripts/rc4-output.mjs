@@ -4,6 +4,23 @@ import {files,digest,reports} from './distribution-policy.mjs';
 import {gitIdentity,publicWording} from './deployment-identity.mjs';
 
 const esc=s=>s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
+const faviconLinks=base=>[
+  `<link rel="icon" href="${base}favicon.ico" sizes="any">`,
+  `<link rel="icon" type="image/svg+xml" href="${base}favicon.svg">`,
+  `<link rel="icon" type="image/png" sizes="32x32" href="${base}favicon-32x32.png">`,
+  `<link rel="icon" type="image/png" sizes="16x16" href="${base}favicon-16x16.png">`,
+  `<link rel="apple-touch-icon" sizes="180x180" href="${base}apple-touch-icon.png">`,
+].join('');
+function ensureFaviconHead(html,base,route){
+  const tags=[...html.matchAll(/<link\b[^>]*\brel="(?:icon|apple-touch-icon)"[^>]*>/g)].map(m=>m[0]);
+  const names=['favicon.ico','favicon.svg','favicon-32x32.png','favicon-16x16.png','apple-touch-icon.png'];
+  if(tags.length===0){
+    if(html.split('</head>').length!==2)throw Error('Missing HTML head '+route);
+    return html.replace('</head>',faviconLinks(base)+'</head>');
+  }
+  if(tags.length!==5||names.some(name=>tags.filter(tag=>tag.includes(`href="${base}${name}"`)).length!==1))throw Error('Incomplete or duplicate favicon links '+route);
+  return html;
+}
 export function finishOutput(root,deployment,profile,mode,release){
   const {base,origin,canonical_root}=deployment;
   const qualification=profile==='PUBLIC_RELEASE_QUALIFICATION';
@@ -13,7 +30,7 @@ export function finishOutput(root,deployment,profile,mode,release){
   const pages=files(root).filter(p=>p.endsWith('.html')),sitemap=[],owned=[];
   for(const p of pages){
     const rel=path.relative(root,p).split(path.sep).join('/');
-    let t=fs.readFileSync(p,'utf8');
+    let t=ensureFaviconHead(fs.readFileSync(p,'utf8'),base,rel);
     const excluded=/^(?:404\.html|research\/sr\/|corrections\/(?:received|demo)\/)/.test(rel);
     const support=/^mathlibannex\/(?:sources\/|verification\/|releases\/candidate-r1\/|overviews\/mankiewicz\/boundary\.html)/.test(rel);
     const route=rel==='index.html'?'':rel.replace(/index\.html$/,'');

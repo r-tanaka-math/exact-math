@@ -15,6 +15,7 @@ const liveForm = active === 'corrections' && SITE.feedback.mode === 'LIVE_PUBLIC
 const formPolicy = liveForm && !qualification ? "connect-src 'self' https://formspree.io; form-action https://formspree.io" : "connect-src 'self'; form-action 'none'";
 const csp = `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; ${formPolicy}`;
 const pageTitle = title ? `${title} — ${SITE.name}` : SITE.name;
+const assetBase = import.meta.env.BASE_URL;
 ---
 <!doctype html>
 <html lang="en"><head>
@@ -23,6 +24,11 @@ const pageTitle = title ? `${title} — ${SITE.name}` : SITE.name;
   <meta name="robots" content="noindex,nofollow,noarchive"/><meta name="referrer" content={liveForm ? 'strict-origin-when-cross-origin' : 'no-referrer'}/><meta name="color-scheme" content="light"/>
   <meta http-equiv="Content-Security-Policy" content={csp}/>
   <title>{pageTitle}</title>
+  <link rel="icon" href={`${assetBase}favicon.ico`} sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href={`${assetBase}favicon.svg`}/>
+  <link rel="icon" type="image/png" sizes="32x32" href={`${assetBase}favicon-32x32.png`}/>
+  <link rel="icon" type="image/png" sizes="16x16" href={`${assetBase}favicon-16x16.png`}/>
+  <link rel="apple-touch-icon" sizes="180x180" href={`${assetBase}apple-touch-icon.png`}/>
 </head><body>
   <div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a>
   {(!publicWording || qualification) && <div class="preview-strip"><div class="container"><span>{qualification ? 'Local post-public update candidate · No deployment' : SITE.preview_notice}</span><span class="preview-right"><Link to="verification" label="Read the status guide" class="" arrow={false}/></span></div></div>}
