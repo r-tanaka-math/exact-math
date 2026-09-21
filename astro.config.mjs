@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {fullPublicProfile,integrateFullHP,finishFullHPOutput} from './scripts/full-hp-public-adapter.mjs';
 import {auditOutput} from './scripts/distribution-policy.mjs';
 import {integrateProjects} from './scripts/project-adapter.mjs';
 import {finishOutput} from './scripts/rc4-output.mjs';
@@ -35,7 +36,8 @@ const guard={name:'exact-public-launch-hardening',hooks:{
     auditOutput(root);
     integrateProjects(root,base,profile);
     if(release)for(const f of release.imports){const p=path.resolve(root,f.path);if(!p.startsWith(root)||fs.existsSync(p))throw Error('Imported route collision');fs.mkdirSync(path.dirname(p),{recursive:true});fs.copyFileSync(f.src,p)}
-    finishOutput(root,deployment,profile,mode,release);
+    if(fullPublicProfile(profile)){integrateFullHP(root,base);finishFullHPOutput(root,deployment,profile,mode,release);}
+    else finishOutput(root,deployment,profile,mode,release);
   },
 }};
 export default defineConfig({site:deployment.origin,integrations:[guard],output:'static',base,trailingSlash:'always',compressHTML:true,outDir:'./'+out,cacheDir:'./.astro/cache-'+out,build:{inlineStylesheets:'always'},vite:{cacheDir:'./.astro/vite',build:{sourcemap:false,assetsInlineLimit:0}},server:{host:'127.0.0.1'}});

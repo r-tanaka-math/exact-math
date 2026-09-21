@@ -1,0 +1,150 @@
+{
+  "accepted_type_fingerprint_sha256": "840569faf705082ccb32f2a4491373d3e0429ca9bef72636bd43cd2ed770732e",
+  "approved_card_model_sha256": "698bfe257a5d50fc0a24dea38180270f53f2ac33d1705088202e93e4c429c03b",
+  "assumptions": "Let A be a nonzero complex C*-algebra, not assumed unital, H a separable complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "5b07a7c7de32145f121f2a50d936d721f077b048bca799b7e2852db18b512bba",
+    "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.countable_characterSpace_of_nonUnital_singleton",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "22237a1d60bd1b4dae08a2f0dfe2cc4ccdc6f96f85b6be11b110839d3e1671f9",
+        "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_isolated_character_ne_infinity",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "86c77d8996979dd6453b5b81a6f1314b1a2a146adc1a437fd80d77e3a94c0ee0",
+        "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.exists_maximalAbelian_containing_isSelfAdjoint",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3b716c28ce2e856618761c6501f718c76cf15bc712d79bcac94e6f1d09befae4",
+        "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "There is a nonzero star projection p in A whose every corner p a p is a complex scalar multiple of p.",
+  "declaration_kind": "theorem",
+  "definition_equation": "∃ p : A, IsStarProjection p ∧ p≠0 ∧ ∀ a : A, ∃ c : ℂ, p*a*p=c•p.",
+  "definition_explanation": "∃ p : A, IsStarProjection p ∧ p≠0 ∧ ∀ a : A, ∃ c : ℂ, p*a*p=c•p.",
+  "display_title": "Scalar corner from a representative of the unique irreducible-representation class",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∃ p, IsStarProjection p ∧ p ≠ 0 ∧ ∀ (a : A), ∃ c, p * a * p = c • p",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "6e9c1ad5c1903b5edc14e35ad7be7de2fbf796f0190ed8a16086f39929864c49",
+    "uid": "lfh:lfh-card-exposition:sha256:1bebbc39531b6c6b9fcd802ec8161d1e5dcd6515370ceeea6260508c6fded955"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "f9aee03042ede29cf81434cfda079e454c03b6ccde844be75e8fce9656c92d84",
+    "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "6e9c1ad5c1903b5edc14e35ad7be7de2fbf796f0190ed8a16086f39929864c49",
+    "uid": "lfh:lfh-card-exposition:sha256:1bebbc39531b6c6b9fcd802ec8161d1e5dcd6515370ceeea6260508c6fded955"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "f9aee03042ede29cf81434cfda079e454c03b6ccde844be75e8fce9656c92d84",
+      "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_scalar_corner",
+  "natural_language_statement": "Let A be a nonzero complex C*-algebra, not assumed unital, H a separable complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. There is a nonzero star projection p in A whose every corner p a p is a complex scalar multiple of p.",
+  "one_sentence_role": "Produces a nonzero projection with one-dimensional corner from a separably acting representative of the unique irreducible-representation class.",
+  "owner_review_item_sha256": "845d999709e1f18988392fd12341559e01125de6c44d7fc77110b5087727b516",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∃ p, IsStarProjection p ∧ p ≠ 0 ∧ ∀ (a : A), ∃ c, p * a * p = c • p"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∃ p : A, IsStarProjection p ∧ p≠0 ∧ ∀ a : A, ∃ c : ℂ, p*a*p=c•p."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source takes a nonzero a, inserts b=a* a into a maximal abelian subalgebra of the unitization, uses separability to count its characters, and obtains an isolated character distinct from the scalar character. A projection supported at that character has a scalar corner; the zero scalar coordinate forces that projection back into A."
+    }
+  ],
+  "proof_summary": "The source takes a nonzero a, inserts b=a* a into a maximal abelian subalgebra of the unitization, uses separability to count its characters, and obtains an isolated character distinct from the scalar character. A projection supported at that character has a scalar corner; the zero scalar coordinate forces that projection back into A.",
+  "source_excerpt": {
+    "bytes": 2500,
+    "sha256": "e14dcaec20b2e81196c72fb80040b91c669bd6888108a3124d4cb6c1fd77194e"
+  },
+  "source_locator": {
+    "end_column": 27,
+    "end_line": 159,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+    "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+    "start_column": 1,
+    "start_line": 102
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "0da2906b1ba8a41c38554c3b8aeff8dbc36327daa642ec842627b93c74feb5ce",
+    "uid": "lfh:lfh-source-build-binding:sha256:07d6597c69f1c0e9fd07a5bd3a0930de3d57ed8bc9288053908849e61f0a1b57"
+  },
+  "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+  "source_signature": {
+    "end_byte": 4133,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "f99eeb76e4d421cd44087ccdf5c51323abb956aa15cc7e8b510d19b40682d091",
+    "source_command_range": {
+      "end_column": 27,
+      "end_line": 159,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+      "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+      "start_column": 1,
+      "start_line": 102
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+    "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+    "start_byte": 3828,
+    "text": "theorem exists_nonzero_projection_scalar_corner [Nontrivial A]\n    [TopologicalSpace.SeparableSpace H]\n    (pi : NonUnitalCStarRepresentation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :\n    ∃ p : A, IsStarProjection p ∧ p ≠ 0 ∧\n      ∀ a : A, ∃ c : ℂ, p * a * p = c • p"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean#L102-L159",
+  "stable_card_id": "964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

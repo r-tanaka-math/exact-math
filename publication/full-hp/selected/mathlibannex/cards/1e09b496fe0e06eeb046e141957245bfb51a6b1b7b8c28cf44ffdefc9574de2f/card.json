@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "4c5fc60bde7467ffd5f076d8016924f7561843e46b7743e7e24308f6a32ec4bd",
+  "approved_card_model_sha256": "dc74f25917550997e81881a3e2988f926772881c4935345e8575029b1ee1c30b",
+  "assumptions": "Let D be a commutative unital complex C*-algebra, J an ideal whose carrier is norm-closed, and d∈D with d∉J.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "6478c2932ffa998eda8ac724e6df08a7c18971e943cf48ac511aa19e7793261a",
+    "uid": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f"
+  },
+  "citations": [],
+  "conclusion": "There is a character χ of D that vanishes on every x∈J while χ(d)≠0. Properness follows from d∉J and is not separately assumed.",
+  "declaration_kind": "theorem",
+  "definition_equation": "∃ χ, (∀ x : D, x∈J → χ x=0) ∧ χ d≠0.",
+  "definition_explanation": "∃ χ, (∀ x : D, x∈J → χ x=0) ∧ χ d≠0.",
+  "display_title": "A character separates a closed ideal",
+  "exact_elaborated_lean_type": "∀ {D : Type u} [inst : CommCStarAlgebra D] (J : Ideal D), IsClosed ↑J → ∀ {d : D}, d ∉ J → ∃ chi, (∀ x ∈ J, chi x = 0) ∧ chi d ≠ 0",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "ec0a6da44dce8322e006bd4e79b375e404e1fe02c3846aa95e2db21df116b753",
+    "uid": "lfh:lfh-card-exposition:sha256:c32c418a1434040a8f542ab2d6625f814b86d04f748f836aa678b36ee7940fac"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "69d5f9588e927acae641d21368c2568eaa01b6f21a3840dd3f708a0240e1d5aa",
+    "uid": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "ec0a6da44dce8322e006bd4e79b375e404e1fe02c3846aa95e2db21df116b753",
+    "uid": "lfh:lfh-card-exposition:sha256:c32c418a1434040a8f542ab2d6625f814b86d04f748f836aa678b36ee7940fac"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "69d5f9588e927acae641d21368c2568eaa01b6f21a3840dd3f708a0240e1d5aa",
+      "uid": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_character_annihilating_closedIdeal_of_not_mem",
+  "natural_language_statement": "Let D be a commutative unital complex C*-algebra, J an ideal whose carrier is norm-closed, and d∈D with d∉J. There is a character χ of D that vanishes on every x∈J while χ(d)≠0. Properness follows from d∉J and is not separately assumed.",
+  "one_sentence_role": "Separates an element from a closed ideal of a commutative C*-algebra by a character vanishing on the ideal.",
+  "owner_review_item_sha256": "7fd11326216311bb6df1ee1126d3dcb58cc562b53bd537b030d2f923ffa6d6d4",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {D : Type u} [inst : CommCStarAlgebra D] (J : Ideal D), IsClosed ↑J → ∀ {d : D}, d ∉ J → ∃ chi, (∀ x ∈ J, chi x = 0) ∧ chi d ≠ 0"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∃ χ, (∀ x : D, x∈J → χ x=0) ∧ χ d≠0."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source transports J through the Gelfand star transform to an ideal of continuous functions, uses isometry to preserve closedness and d∉J, then separates the transformed point by a character and pulls the annihilation/nonvanishing equations back."
+    }
+  ],
+  "proof_summary": "The source transports J through the Gelfand star transform to an ideal of continuous functions, uses isometry to preserve closedness and d∉J, then separates the transformed point by a character and pulls the annihilation/nonvanishing equations back.",
+  "source_excerpt": {
+    "bytes": 1899,
+    "sha256": "c63307d4bd49812931bbb5f18eed07a5215263e4414ea3924df21fa702d0533d"
+  },
+  "source_locator": {
+    "end_column": 16,
+    "end_line": 65,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean",
+    "source_sha256": "bd49792cfd7e9f95ab8922af10c1b308f518e8898b128fa17cd43bec3b5c35d1",
+    "start_column": 1,
+    "start_line": 20
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "e5ac0fa1d6c617853e28970459ff576efb23ce124e35f748c569502f126d385a",
+    "uid": "lfh:lfh-source-build-binding:sha256:19afda9308f13f1dbfd03af33496d0359fe3194989a490eef9a1541265b0a5b7"
+  },
+  "source_sha256": "bd49792cfd7e9f95ab8922af10c1b308f518e8898b128fa17cd43bec3b5c35d1",
+  "source_signature": {
+    "end_byte": 841,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "1e9d043e8b248ab89b7744d14b9c05e45c08c259f2bb0737ded8a47e83485421",
+    "source_command_range": {
+      "end_column": 16,
+      "end_line": 65,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean",
+      "source_sha256": "bd49792cfd7e9f95ab8922af10c1b308f518e8898b128fa17cd43bec3b5c35d1",
+      "start_column": 1,
+      "start_line": 20
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean",
+    "source_sha256": "bd49792cfd7e9f95ab8922af10c1b308f518e8898b128fa17cd43bec3b5c35d1",
+    "start_byte": 560,
+    "text": "theorem exists_character_annihilating_closedIdeal_of_not_mem\n    {D : Type u} [CommCStarAlgebra D]\n    (J : Ideal D) (hJclosed : IsClosed (J : Set D))\n    {d : D} (hd : d ∉ J) :\n    ∃ chi : WeakDual.characterSpace ℂ D,\n      (∀ x : D, x ∈ J → chi x = 0) ∧ chi d ≠ 0"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean#L20-L65",
+  "stable_card_id": "1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

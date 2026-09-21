@@ -1,9 +1,13 @@
 import type { CollectionEntry } from 'astro:content';
+import fullProjects from '../data/full-hp-projects.json';
+import {publicProject} from './full-hp-public-presentation';
+import {fullHP} from './build-profile';
 import copy from '../data/project-copy.json';
 import {publicWording,exactSiteCommit} from './build-profile';
 // Display text only: the accepted mathematical record, dates, codes and artifact bytes remain untouched.
 export function presentProject(entry: CollectionEntry<'research'>): CollectionEntry<'research'> {
   const result = structuredClone(entry);
+  if (fullHP && entry.id in fullProjects) { result.data = structuredClone((fullProjects as any)[entry.id]); if (publicWording) result.data = publicProject(result.data, entry.id); return result; }
   if (entry.id !== 'sr') return result;
   for (const [path, text] of Object.entries(copy.sr)) {
     const parts = path.split('.');

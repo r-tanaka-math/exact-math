@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/cards/956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298/"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a><span> · Public edition</span></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/FiniteDimension.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem finiteDimensional_space_of_singleton [Nontrivial A]
+    [TopologicalSpace.SeparableSpace H]
+    (pi : Representation A H)
+    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :
+    FiniteDimensional ℂ H</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import MathlibAnnex.Analysis.CStarAlgebra.CompactPreimage</span>
+<span id="L2"><a href="#L2">2</a> import MathlibAnnex.Analysis.CStarAlgebra.Representation.Faithful</span>
+<span id="L3"><a href="#L3">3</a> import MathlibAnnex.Analysis.CStarAlgebra.Representation.RankOneProjection</span>
+<span id="L4"><a href="#L4">4</a> </span>
+<span id="L5"><a href="#L5">5</a> /-!</span>
+<span id="L6"><a href="#L6">6</a> # Finite dimension forced by a separable singleton irreducible model</span>
+<span id="L7"><a href="#L7">7</a> -/</span>
+<span id="L8"><a href="#L8">8</a> </span>
+<span id="L9"><a href="#L9">9</a> set_option autoImplicit false</span>
+<span id="L10"><a href="#L10">10</a> </span>
+<span id="L11"><a href="#L11">11</a> open Set</span>
+<span id="L12"><a href="#L12">12</a> open scoped ComplexOrder</span>
+<span id="L13"><a href="#L13">13</a> </span>
+<span id="L14"><a href="#L14">14</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> universe u v</span>
+<span id="L17"><a href="#L17">17</a> </span>
+<span id="L18"><a href="#L18">18</a> variable {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L19"><a href="#L19">19</a> variable {H : Type v}</span>
+<span id="L20"><a href="#L20">20</a> variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L21"><a href="#L21">21</a> </span>
+<span id="L22"><a href="#L22">22</a> namespace Representation</span>
+<span id="L23"><a href="#L23">23</a> </span>
+<span id="L24" class="source-highlight"><a href="#L24">24</a> /-- The Hilbert space of a separable singleton irreducible model of a</span>
+<span id="L25" class="source-highlight"><a href="#L25">25</a> nonzero unital C-star algebra is finite-dimensional. -/</span>
+<span id="L26" class="source-highlight"><a href="#L26">26</a> theorem finiteDimensional_space_of_singleton [Nontrivial A]</span>
+<span id="L27" class="source-highlight"><a href="#L27">27</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L28" class="source-highlight"><a href="#L28">28</a>     (pi : Representation A H)</span>
+<span id="L29" class="source-highlight"><a href="#L29">29</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L30" class="source-highlight"><a href="#L30">30</a>     FiniteDimensional ℂ H := by</span>
+<span id="L31" class="source-highlight"><a href="#L31">31</a>   have hinj : Function.Injective pi := injective_of_singleton pi hsingle</span>
+<span id="L32" class="source-highlight"><a href="#L32">32</a>   have hsimple : IsSimpleCStarAlgebra A :=</span>
+<span id="L33" class="source-highlight"><a href="#L33">33</a>     isSimpleCStarAlgebra_of_singleton_of_injective pi hsingle hinj</span>
+<span id="L34" class="source-highlight"><a href="#L34">34</a>   obtain ⟨p, hp, hpne, hcorner⟩ :=</span>
+<span id="L35" class="source-highlight"><a href="#L35">35</a>     exists_nonzero_projection_scalar_corner pi hsingle</span>
+<span id="L36" class="source-highlight"><a href="#L36">36</a>   have hpmap : pi p ≠ 0 := by</span>
+<span id="L37" class="source-highlight"><a href="#L37">37</a>     intro hzero</span>
+<span id="L38" class="source-highlight"><a href="#L38">38</a>     apply hpne</span>
+<span id="L39" class="source-highlight"><a href="#L39">39</a>     apply hinj</span>
+<span id="L40" class="source-highlight"><a href="#L40">40</a>     simpa using hzero</span>
+<span id="L41" class="source-highlight"><a href="#L41">41</a>   have hpcompact : IsCompactOperator (pi p) :=</span>
+<span id="L42" class="source-highlight"><a href="#L42">42</a>     isCompactOperator_map_of_scalar_corner pi hsingle.1 hp hpmap hcorner</span>
+<span id="L43" class="source-highlight"><a href="#L43">43</a>   let piNU : A →⋆ₙₐ H →L[ℂ] H := pi.toNonUnitalStarAlgHom</span>
+<span id="L44" class="source-highlight"><a href="#L44">44</a>   let I : TwoSidedIdeal A := MathlibAnnex.CStarAlgebra.compactPreimageIdeal piNU</span>
+<span id="L45" class="source-highlight"><a href="#L45">45</a>   have hpI : p ∈ I :=</span>
+<span id="L46" class="source-highlight"><a href="#L46">46</a>     (MathlibAnnex.CStarAlgebra.mem_compactPreimageIdeal piNU p).2 hpcompact</span>
+<span id="L47" class="source-highlight"><a href="#L47">47</a>   have hIne : I ≠ ⊥ := by</span>
+<span id="L48" class="source-highlight"><a href="#L48">48</a>     intro hbot</span>
+<span id="L49" class="source-highlight"><a href="#L49">49</a>     have hpzero : p = 0 := by</span>
+<span id="L50" class="source-highlight"><a href="#L50">50</a>       rw [hbot] at hpI</span>
+<span id="L51" class="source-highlight"><a href="#L51">51</a>       simpa using hpI</span>
+<span id="L52" class="source-highlight"><a href="#L52">52</a>     exact hpne hpzero</span>
+<span id="L53" class="source-highlight"><a href="#L53">53</a>   have hItop : I = ⊤ :=</span>
+<span id="L54" class="source-highlight"><a href="#L54">54</a>     (hsimple.2 I</span>
+<span id="L55" class="source-highlight"><a href="#L55">55</a>       (MathlibAnnex.CStarAlgebra.isClosed_compactPreimageIdeal piNU)).resolve_left hIne</span>
+<span id="L56" class="source-highlight"><a href="#L56">56</a>   have honeI : (1 : A) ∈ I := by</span>
+<span id="L57" class="source-highlight"><a href="#L57">57</a>     rw [hItop]</span>
+<span id="L58" class="source-highlight"><a href="#L58">58</a>     trivial</span>
+<span id="L59" class="source-highlight"><a href="#L59">59</a>   have honeCompact : IsCompactOperator (pi (1 : A)) :=</span>
+<span id="L60" class="source-highlight"><a href="#L60">60</a>     (MathlibAnnex.CStarAlgebra.mem_compactPreimageIdeal piNU 1).1 honeI</span>
+<span id="L61" class="source-highlight"><a href="#L61">61</a>   have hcompactOne :</span>
+<span id="L62" class="source-highlight"><a href="#L62">62</a>       IsCompactOperator ((1 : H →L[ℂ] H) : H → H) := by</span>
+<span id="L63" class="source-highlight"><a href="#L63">63</a>     simpa only [map_one, one_apply_eq_self] using honeCompact</span>
+<span id="L64" class="source-highlight"><a href="#L64">64</a>   apply FiniteDimensional.of_isCompactOperator_id</span>
+<span id="L65" class="source-highlight"><a href="#L65">65</a>   change IsCompactOperator (fun x : H =&gt; x)</span>
+<span id="L66" class="source-highlight"><a href="#L66">66</a>   exact hcompactOne</span>
+<span id="L67"><a href="#L67">67</a> </span>
+<span id="L68"><a href="#L68">68</a> /-- The algebra itself is finite-dimensional once its singleton model is</span>
+<span id="L69"><a href="#L69">69</a> faithful and its separable representation space is finite-dimensional. -/</span>
+<span id="L70"><a href="#L70">70</a> theorem finiteDimensional_algebra_of_singleton [Nontrivial A]</span>
+<span id="L71"><a href="#L71">71</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L72"><a href="#L72">72</a>     (pi : Representation A H)</span>
+<span id="L73"><a href="#L73">73</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L74"><a href="#L74">74</a>     FiniteDimensional ℂ A := by</span>
+<span id="L75"><a href="#L75">75</a>   letI : FiniteDimensional ℂ H :=</span>
+<span id="L76"><a href="#L76">76</a>     finiteDimensional_space_of_singleton pi hsingle</span>
+<span id="L77"><a href="#L77">77</a>   letI : FiniteDimensional ℂ (H →L[ℂ] H) :=</span>
+<span id="L78"><a href="#L78">78</a>     ContinuousLinearMap.finiteDimensional</span>
+<span id="L79"><a href="#L79">79</a>   exact FiniteDimensional.of_injective</span>
+<span id="L80"><a href="#L80">80</a>     (LinearMapClass.linearMap pi) (injective_of_singleton pi hsingle)</span>
+<span id="L81"><a href="#L81">81</a> </span>
+<span id="L82"><a href="#L82">82</a> end Representation</span>
+<span id="L83"><a href="#L83">83</a> </span>
+<span id="L84"><a href="#L84">84</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

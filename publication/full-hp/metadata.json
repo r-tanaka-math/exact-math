@@ -1,0 +1,566 @@
+{
+  "schema": "exact.full-hp-publication.v1",
+  "batch": "EM_FULL_HP_PUBLICATION_R1",
+  "accepted_candidate_sha256": "d3822169e640e68ec717b0496d4df99393f7bcbec14c0a4622939528866e0746",
+  "dispatch_sha256": "5747a91f8ddd9164c2d698a6e613e4b5892538a319e62da082642dc55dfc479a",
+  "old_commit": "5eba3bdfdbc652fd28d31f1a66d7ff43b127e3d9",
+  "old_tree": "6de623a809195583095b98d051793d96179a7e6d",
+  "publication_date": "2026-09-21",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "canonical_origin": "https://exactmathematics.org",
+  "source_release": {
+    "tag": "v0.4.0",
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "public_cards": 44,
+  "project_card_counts": {
+    "mankiewicz": 11,
+    "sphere-rigidity": 0,
+    "rosenberg": 33,
+    "naimark-problem": 0
+  },
+  "project_nodes": {
+    "mankiewicz": 11,
+    "sphere-rigidity": 467,
+    "rosenberg": 63,
+    "naimark-problem": 466
+  },
+  "card_identities": [
+    {
+      "stable_card_id": "e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "87c6848b90700ef729e5e4c337c08137c9495291a3155b705a5ad63663287d77",
+        "uid": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0"
+      },
+      "canonical_projection_sha256": "cda8376059b5e59bb8e0c8018a5fb3f6186069d971184e292716b7b5dcc9846a",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3935024dd76f1c0d54f0ff1aa13a35e31d2a4b7ebce1fae22ae01e793e6eba20",
+        "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+      },
+      "canonical_projection_sha256": "2ebe292dfa56f890c11c5fdcaff24d27a29f045c79a189872c25faa3b8a54017",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "aa07f5efc7a9d59552a046091c57dfad6548ee065751704b012ec1f00954522b",
+        "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+      },
+      "canonical_projection_sha256": "64fce3d67eb28ba123c83cec55047da8c4f41860e6b07203b20081a5f7c0c7c5",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "8d98a636a7e168433d5141c38866083e4d514bbd9a686b436317cdeb3c85a05e",
+        "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+      },
+      "canonical_projection_sha256": "fd8a3809369ab3f41b650ec703c9cbf26e22899387aef068344b063e40fa94bb",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ce8bfa95660d8de634aced4f54406ab9e2fd70c17a7ce374fa8a0d30cd90822e",
+        "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+      },
+      "canonical_projection_sha256": "85f97430ee88b80bc28d5eec399a2f9aca96641709a0cc645cc821f0f6fdda80",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "4b0e889e2a2710f6ce882d742e637066a12e3e43cdc4a99d90b6e3fa9a47cb1e",
+        "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+      },
+      "canonical_projection_sha256": "a44766034dbf29999e52e85e4b500ae3c369bb9f28775fe42ebb8ba95bed1651",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "b4ef8d7f9913ca0a211b548805d49160070e9f0bf268e84724d67c5b53d3412e",
+        "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+      },
+      "canonical_projection_sha256": "47691cbca22c67b9aa2dbec44bd0add70c7b543718926cbd8bc580b9c94f5b38",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "1263484c712e461a6802349daed7936b3d5bc3f619a4670a7d5bc843f8a3263f",
+        "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+      },
+      "canonical_projection_sha256": "3c3a78623020231de3de7595b51fef266b175b93a0d84b06837d36fa5fa6e952",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "cc4454a6e59885d550f36925cf51555be4156dabe1f9ec84bd6dbcd8ed269233",
+        "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+      },
+      "canonical_projection_sha256": "e9a668b8a1db1c1329f9317386f298549bb82c0eead70e755f208668b85c8bc4",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "e9a5e15ee95ad76de6435c37a4fee43c4bdda17836534bf186964da0c62a9c4f",
+        "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+      },
+      "canonical_projection_sha256": "7abc23d48eff15befa3bcd966171803ff4fb1341a2cb4ae8c96f529f5d67dcca",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "8f8f74883b3320a2f4b6f780cbbf954685b42419f699eb7498b3a5f62286e6f5",
+        "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+      },
+      "canonical_projection_sha256": "23005f2b2692b9365369db2cb15484035da7cd5219cb4ab0b2eab378c6ec585c",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5b6417ca84b7f238af19c451492ddf07d9960d3c2b4eae863704a3ad8e7ad3ce",
+        "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+      },
+      "canonical_projection_sha256": "3e08e6bab63c55c9a4440812a7a22be6391f9369b01e1766b463e216447d0226",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "6ecd9d4cd166a51597108ebc647b9591f3f695086b94c6969a58bccef565a979",
+        "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+      },
+      "canonical_projection_sha256": "f6c1e46ac87aa698c607b034573012b37313069c1568dd193ed85f5777e179ba",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ab3cc7055573144f26c2ee004138fc8a252ae8b2fbc21ba53cbcfc4e5337a997",
+        "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+      },
+      "canonical_projection_sha256": "2f4d174f9683a3aa8f9899172d1cc78cf932c86fde95cd21daf8c7c42359a130",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5f6518c19b7ddf2cefa410727daa089f8bcd028d40af5d7507d33d3490084f9c",
+        "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+      },
+      "canonical_projection_sha256": "bd52fb6935d96e8d1764e263c7cd1038160ff13ec97bacef7181a656919820fc",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "518aa200681b91f3c30151862209af278c02422d54f77469f2eacb9dd43de6f9",
+        "uid": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f"
+      },
+      "canonical_projection_sha256": "63678039f2f788530abe3c0b315948dbd320219ad5bf682ef0402e8e97c4412e",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "70bf38775c890eefb79631d1b6c0acb1310662f238112198f657a426c9c0edd2",
+        "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+      },
+      "canonical_projection_sha256": "8a01f1dde5a6d89c51aff1313c8417c2fc2e50a703d80e746180cad1b43880fc",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "cdaca830d65c48ca1059ea14c788eaeafa21d27eaa3c998721e82809414d3690",
+        "uid": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00"
+      },
+      "canonical_projection_sha256": "e1869e3bb706c2cc392b1cc9b461d9ff7c4a6f83ec8686ed85417a8ffb0518f7",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "6478c2932ffa998eda8ac724e6df08a7c18971e943cf48ac511aa19e7793261a",
+        "uid": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f"
+      },
+      "canonical_projection_sha256": "e962571fdc0e5a43ffd7e0bb58e7fd7b0b2310ae7cc9e287d611e90d2761c35b",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ee21384769079014e7f0b83108c683e777408b5e63149385e2931aa44db2b8b1",
+        "uid": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6"
+      },
+      "canonical_projection_sha256": "4714906f9eed85a08a6d243aac4de509ebcd289c0c5b1f5332d285bf125ecdef",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "819701b501957cdcf19003e34a0cad05ad728f597d7dc5224d359463cbf86461",
+        "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+      },
+      "canonical_projection_sha256": "4112a7de90b7f5adf65a0b51fe5764c569baa8611f571c7fe31cd136320fb341",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "bc9645084bd34c210153e9a1ceb61fa2f603b776edf5ab668678f9356e023b96",
+        "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+      },
+      "canonical_projection_sha256": "4e3bb0fb4561e94033e6279f009ce3a82342f39d69ef03bbb5ae99be6ccdb865",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "a8e25386a77ea847a8782daf3e66b3684a80f4986143acac07d0377f2fbd2dff",
+        "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+      },
+      "canonical_projection_sha256": "f0ba866f6418003d61d969f3ca7713ba0bcb4c90df9ca1c0f07b998f1ed98a20",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "86c77d8996979dd6453b5b81a6f1314b1a2a146adc1a437fd80d77e3a94c0ee0",
+        "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+      },
+      "canonical_projection_sha256": "f1b57470819ada2f29c8dd091d08258927d7cc4bab81fffab411da286ecf6e1f",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3b716c28ce2e856618761c6501f718c76cf15bc712d79bcac94e6f1d09befae4",
+        "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+      },
+      "canonical_projection_sha256": "a16efc82144d7c416b0e1ae8494ec8f5b892f308fc9c7c710abaa82fcc49c44a",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "b491c2ef82049b88e4d26e38eab76305c842ad0185cc3edeb40f129127bbe887",
+        "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+      },
+      "canonical_projection_sha256": "ec9fccc464fd45f9aecb9c104f5ad246375ee43b3619e3707698c28e98857dc4",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "54d38276b2624f4bbb831bdcdc75bbba5ee6d940ee1923e2674d469c88464230",
+        "uid": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a"
+      },
+      "canonical_projection_sha256": "f06612774c70860020739101f3f5a04404cd2b2852ff450d2971ecce20ae6047",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "c089732cc79ef2a1a463e42c0bd496ccda8b2525b493dc8bcde5e4da70950bdb",
+        "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+      },
+      "canonical_projection_sha256": "d0ed66b21f0f01d2d3262304c39097c96009b3c5107288b962f506208ed24199",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3e840be62b2cd37be2177465ee59017e1bba2f722c38e1e8234b5ca2f888b123",
+        "uid": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03"
+      },
+      "canonical_projection_sha256": "f4d6d3438fb38486551bc94bf3a4a46f9659511bfa2b539446fb1b83047c4017",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "80afe23433c02265252a97ff93dd683f25f5d0dbab62a98400823808de83329a",
+        "uid": "lfh:lfh-declaration-card:sha256:23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013"
+      },
+      "canonical_projection_sha256": "e7da14e04728f6eeb940e075fb30116c103863fad04e9d9bbd9c6f020aa20b23",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "66362986cb8e27b76374628c9b58a049b33fc3ce262e58e3e38d04a93a47ed08",
+        "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+      },
+      "canonical_projection_sha256": "267acb31ba86890912a60a3b2a990212ac0aec6fee784d05f391ec545ef4bc23",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3753106ba648e2a30ddde2adad74dbe93df42d065d9a8b9d3790136458806884",
+        "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+      },
+      "canonical_projection_sha256": "5e0598c341ca63355b87cc2feb912107f8250411dd07060a2826117b8452cc09",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "88f0d99a8e018be7d631ec67a0b283306e74549bc5526e3185861f3927db6411",
+        "uid": "lfh:lfh-declaration-card:sha256:956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298"
+      },
+      "canonical_projection_sha256": "94f56a74fa78cedd5d30bd285f3cbbee40bb313d7ea6aeaab1296af802681826",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "22237a1d60bd1b4dae08a2f0dfe2cc4ccdc6f96f85b6be11b110839d3e1671f9",
+        "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+      },
+      "canonical_projection_sha256": "6d0da77c76da2998e53be04fbb8e53f453eaae97bfad6768156519cc1e078451",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "16bca310f77405e367eea080da63ce9a180e242a66c01b35672b2def0606a50d",
+        "uid": "lfh:lfh-declaration-card:sha256:8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141"
+      },
+      "canonical_projection_sha256": "a6764471acf3314fc63a57c5dd95cc3f687a5e9d41010a2f2841eb4136502207",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ecc79438064f62aae0bbacb681b74e61a1bdf6907db81f63936cc28abaaa4b2d",
+        "uid": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9"
+      },
+      "canonical_projection_sha256": "26e233fa8c5bb8d5404aa16ce7353810267b70c0fef6ced9b6f5ad1daa16947c",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "6c39a0335bae06c780f4d6169369e5075367719237ff4ec7c2428f09aff37038",
+        "uid": "lfh:lfh-declaration-card:sha256:fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d"
+      },
+      "canonical_projection_sha256": "d6115236a88670ebc8adfaa4300f64fcece0b1eae74e96e4c557aaac67debc3a",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5b07a7c7de32145f121f2a50d936d721f077b048bca799b7e2852db18b512bba",
+        "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+      },
+      "canonical_projection_sha256": "e7c3a65b1fac08a465200a1c84d93c59856eb3654884e52b4a0cc3793d764ce0",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "f21cea9af3dce8c0c987722a576294b1d5d1053d1a5473e2956074cae45cb850",
+        "uid": "lfh:lfh-declaration-card:sha256:f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467"
+      },
+      "canonical_projection_sha256": "b4204861b8ae36638417d3bd988a6573ef39e80ae486c033762c1d5a507fdba4",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "0f8e7968c7269244dff3347b8dd04824dd6f183f487dc52919fbc4e7b19ca3c9",
+        "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+      },
+      "canonical_projection_sha256": "abb032aa62a43b62e5b0884752c2613aee3fb30977755d9d10f35334e38a03a6",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "a1c2ac8a3243c4697c1d5133870dfbda664c5a4e32cfba5f403fe5d6f387df5a",
+        "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+      },
+      "canonical_projection_sha256": "9a8548ce928c444c68314f1daa428cce3810833e85af54046b7f07391960dec6",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ef9634a120bc677817374b923a401e6b48677300dcbed8bfe81cb3c9b001d2c0",
+        "uid": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8"
+      },
+      "canonical_projection_sha256": "87a85e2931631ea221653d5b1929ed6cdea32b76c4ba963c441d1995c4022efe",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "9c84c41fbd329d019a48250459bbaa298670bcb68317e4f2c154f1c9e5144ac3",
+        "uid": "lfh:lfh-declaration-card:sha256:be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85"
+      },
+      "canonical_projection_sha256": "5a7884edba0a83a48f2d78e36e8dfa83a2dbb3f79a39ce3325d0698aa52c2c69",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "stable_card_id": "4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "f98a893acfc2db2d884a3079ff3eb5aa5de2a9cdd0e9a5e0ae65b26cb3ac687f",
+        "uid": "lfh:lfh-declaration-card:sha256:4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537"
+      },
+      "canonical_projection_sha256": "c92b5fde5d14319543d0018ee026463b5d0bc39ed29bef23a16b156eb4246683",
+      "approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    }
+  ],
+  "reports": [
+    {
+      "document": "sphere",
+      "title": "Sphere Rigidity",
+      "version": "Draft R2",
+      "path": "reports/sphere-rigidity/draft-r2/sphere-rigidity-brief-report.pdf",
+      "bytes": 438927,
+      "sha256": "23a5557657143c9c8a613f2c388c121fceb4a59e8fd54ff22a60abce244c0c62",
+      "pages": 23,
+      "prepared_date": "2026-09-21",
+      "first_publication_date": "2026-09-17",
+      "this_version_publication_date": "2026-09-21",
+      "accepted_pdf_sha256": "0313f6e5f7155da28d0af71d213d22878045664c356a8789180acf01f31e01f3",
+      "authors": [],
+      "responsible_for_publication": "Ryotaro Tanaka"
+    },
+    {
+      "document": "naimark_brief",
+      "title": "Naimark's problem",
+      "version": "Draft R1",
+      "path": "reports/naimark-problem/draft-r1/naimark-brief-report.pdf",
+      "bytes": 327459,
+      "sha256": "88f9e2c78553a99558b76c00328470c967b8a981e67a0cc7652472e1ea6e6b88",
+      "pages": 9,
+      "prepared_date": "2026-09-21",
+      "first_publication_date": "2026-09-21",
+      "this_version_publication_date": "2026-09-21",
+      "accepted_pdf_sha256": "f629e75b819adba69c7f3c084ce0b8dfedd7fbdbc77f21ab5292a5ce19f64f48",
+      "authors": [],
+      "responsible_for_publication": "Ryotaro Tanaka"
+    },
+    {
+      "document": "naimark_prior_art",
+      "title": "Naimark's problem: Prior-Art Search",
+      "version": "R1",
+      "path": "reports/naimark-problem/prior-art/r1/naimark-prior-art-search.pdf",
+      "bytes": 254335,
+      "sha256": "75d6d04c768850e7b5ac6d2c9a55b06eb6c6d37b64994da2568081e53f0cb0d0",
+      "pages": 4,
+      "prepared_date": "2026-09-21",
+      "first_publication_date": "2026-09-21",
+      "this_version_publication_date": "2026-09-21",
+      "accepted_pdf_sha256": "1e8f4d9512e48be160e8df29bf5f3d4b74858f67e41fe75229861f676ca65951",
+      "authors": [],
+      "responsible_for_publication": "Ryotaro Tanaka",
+      "search_cutoff": "2026-09-20"
+    }
+  ],
+  "content_terms_sha256": "eaf1195b43fdd0d4245fccaf2aa74b50287f176700567394e872cbb610e3d817",
+  "new_mathematical_review": false,
+  "Lean_rebuild": false
+}

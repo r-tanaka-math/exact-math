@@ -1,0 +1,807 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a><span> · Public edition</span></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball</h1><p><a href="../../../raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem map_midpoint_of_mem_ball
+    {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) {R : ℝ} (hR : 0 &lt; R)
+    (hsball : ball (c : E) R ⊆ s)
+    (htball : ball ((f c : t) : F) R ⊆ t)
+    (x y : s) (hx : (x : E) ∈ ball (c : E) (R / 4))
+    (hy : (y : E) ∈ ball (c : E) (R / 4)) :
+    ((f ⟨midpoint ℝ (x : E) (y : E),
+          hsball (by
+            rw [mem_ball]
+            calc
+              dist (midpoint ℝ (x : E) (y : E)) (c : E) ≤
+                  (dist (x : E) (c : E) + dist (y : E) (c : E)) / 2 := by
+                    simpa [dist_comm] using
+                      dist_midpoint_midpoint_le (x : E) (y : E) (c : E) (c : E)
+              _ &lt; R := by rw [mem_ball] at hx hy; linarith)⟩ : t) : F) =
+      midpoint ℝ ((f x : t) : F) ((f y : t) : F)</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import MathlibAnnex.Analysis.Normed.Affine.Reflection</span>
+<span id="L2"><a href="#L2">2</a> import Mathlib.Analysis.Convex.Basic</span>
+<span id="L3"><a href="#L3">3</a> import Mathlib.Analysis.Normed.Affine.AddTorsor</span>
+<span id="L4"><a href="#L4">4</a> import Mathlib.Analysis.Normed.Module.Convex</span>
+<span id="L5"><a href="#L5">5</a> import Mathlib.LinearAlgebra.AffineSpace.MidpointZero</span>
+<span id="L6"><a href="#L6">6</a> import Mathlib.Tactic.Linarith</span>
+<span id="L7"><a href="#L7">7</a> import Mathlib.Tactic.Module</span>
+<span id="L8"><a href="#L8">8</a> import Mathlib.Tactic.NormNum</span>
+<span id="L9"><a href="#L9">9</a> import Mathlib.Tactic.Order</span>
+<span id="L10"><a href="#L10">10</a> import Mathlib.Tactic.Positivity</span>
+<span id="L11"><a href="#L11">11</a> import Mathlib.Tactic.Ring</span>
+<span id="L12"><a href="#L12">12</a> </span>
+<span id="L13"><a href="#L13">13</a> /-!</span>
+<span id="L14"><a href="#L14">14</a> # Local extension machinery for isometries</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> This module develops the local midpoint and affine-segment identities used to</span>
+<span id="L17"><a href="#L17">17</a> extend isometries between open subsets of real normed spaces.</span>
+<span id="L18"><a href="#L18">18</a> -/</span>
+<span id="L19"><a href="#L19">19</a> </span>
+<span id="L20"><a href="#L20">20</a> open Metric Set AffineIsometryEquiv Bornology</span>
+<span id="L21"><a href="#L21">21</a> </span>
+<span id="L22"><a href="#L22">22</a> namespace MathlibAnnex</span>
+<span id="L23"><a href="#L23">23</a> </span>
+<span id="L24"><a href="#L24">24</a> noncomputable section</span>
+<span id="L25"><a href="#L25">25</a> </span>
+<span id="L26"><a href="#L26">26</a> variable {E F : Type*}</span>
+<span id="L27"><a href="#L27">27</a>   [NormedAddCommGroup E] [NormedSpace ℝ E]</span>
+<span id="L28"><a href="#L28">28</a>   [NormedAddCommGroup F] [NormedSpace ℝ F]</span>
+<span id="L29"><a href="#L29">29</a> </span>
+<span id="L30"><a href="#L30">30</a> /-- The intersection of two closed balls with the same radius. -/</span>
+<span id="L31"><a href="#L31">31</a> def symmetricLens (x y : E) (r : ℝ) : Set E :=</span>
+<span id="L32"><a href="#L32">32</a>   closedBall x r ∩ closedBall y r</span>
+<span id="L33"><a href="#L33">33</a> </span>
+<span id="L34"><a href="#L34">34</a> private theorem midpoint_mem_symmetricLens {x y : E} {r : ℝ}</span>
+<span id="L35"><a href="#L35">35</a>     (h : 2⁻¹ * dist x y ≤ r) : midpoint ℝ x y ∈ symmetricLens x y r := by</span>
+<span id="L36"><a href="#L36">36</a>   constructor</span>
+<span id="L37"><a href="#L37">37</a>   · simpa [symmetricLens, dist_midpoint_left, Real.norm_two] using h</span>
+<span id="L38"><a href="#L38">38</a>   · simpa [symmetricLens, dist_midpoint_right, Real.norm_two] using h</span>
+<span id="L39"><a href="#L39">39</a> </span>
+<span id="L40"><a href="#L40">40</a> private theorem mapsTo_pointReflection_symmetricLens (x y : E) (r : ℝ) :</span>
+<span id="L41"><a href="#L41">41</a>     MapsTo (pointReflection ℝ (midpoint ℝ x y))</span>
+<span id="L42"><a href="#L42">42</a>       (symmetricLens x y r) (symmetricLens x y r) := by</span>
+<span id="L43"><a href="#L43">43</a>   rintro z ⟨hzx, hzy⟩</span>
+<span id="L44"><a href="#L44">44</a>   constructor</span>
+<span id="L45"><a href="#L45">45</a>   · change dist (pointReflection ℝ (midpoint ℝ x y) z) x ≤ r</span>
+<span id="L46"><a href="#L46">46</a>     calc</span>
+<span id="L47"><a href="#L47">47</a>       dist (pointReflection ℝ (midpoint ℝ x y) z) x =</span>
+<span id="L48"><a href="#L48">48</a>           dist (pointReflection ℝ (midpoint ℝ x y) z)</span>
+<span id="L49"><a href="#L49">49</a>             (pointReflection ℝ (midpoint ℝ x y) y) :=</span>
+<span id="L50"><a href="#L50">50</a>         congrArg (dist (pointReflection ℝ (midpoint ℝ x y) z))</span>
+<span id="L51"><a href="#L51">51</a>           (pointReflection_midpoint_right x y).symm</span>
+<span id="L52"><a href="#L52">52</a>       _ = dist z y := (pointReflection ℝ (midpoint ℝ x y)).dist_map z y</span>
+<span id="L53"><a href="#L53">53</a>       _ ≤ r := hzy</span>
+<span id="L54"><a href="#L54">54</a>   · change dist (pointReflection ℝ (midpoint ℝ x y) z) y ≤ r</span>
+<span id="L55"><a href="#L55">55</a>     calc</span>
+<span id="L56"><a href="#L56">56</a>       dist (pointReflection ℝ (midpoint ℝ x y) z) y =</span>
+<span id="L57"><a href="#L57">57</a>           dist (pointReflection ℝ (midpoint ℝ x y) z)</span>
+<span id="L58"><a href="#L58">58</a>             (pointReflection ℝ (midpoint ℝ x y) x) :=</span>
+<span id="L59"><a href="#L59">59</a>         congrArg (dist (pointReflection ℝ (midpoint ℝ x y) z))</span>
+<span id="L60"><a href="#L60">60</a>           (pointReflection_midpoint_left x y).symm</span>
+<span id="L61"><a href="#L61">61</a>       _ = dist z x := (pointReflection ℝ (midpoint ℝ x y)).dist_map z x</span>
+<span id="L62"><a href="#L62">62</a>       _ ≤ r := hzx</span>
+<span id="L63"><a href="#L63">63</a> </span>
+<span id="L64"><a href="#L64">64</a> namespace IsometryEquiv</span>
+<span id="L65"><a href="#L65">65</a> </span>
+<span id="L66"><a href="#L66">66</a> /-- An isometry between corresponding bounded symmetric lenses maps the</span>
+<span id="L67"><a href="#L67">67</a> midpoint of their foci to the midpoint of the target foci. -/</span>
+<span id="L68"><a href="#L68">68</a> theorem map_midpoint_of_symmetricLens</span>
+<span id="L69"><a href="#L69">69</a>     {x y : E} {x&#x27; y&#x27; : F} {r : ℝ}</span>
+<span id="L70"><a href="#L70">70</a>     (hxy : 2⁻¹ * dist x y ≤ r) (hxy&#x27; : 2⁻¹ * dist x&#x27; y&#x27; ≤ r)</span>
+<span id="L71"><a href="#L71">71</a>     (f : symmetricLens x y r ≃ᵢ symmetricLens x&#x27; y&#x27; r) :</span>
+<span id="L72"><a href="#L72">72</a>     ((f ⟨midpoint ℝ x y, midpoint_mem_symmetricLens hxy⟩ :</span>
+<span id="L73"><a href="#L73">73</a>         symmetricLens x&#x27; y&#x27; r) : F) = midpoint ℝ x&#x27; y&#x27; := by</span>
+<span id="L74"><a href="#L74">74</a>   have hs : IsBounded (symmetricLens x y r) :=</span>
+<span id="L75"><a href="#L75">75</a>     isBounded_closedBall.subset inter_subset_left</span>
+<span id="L76"><a href="#L76">76</a>   have h := MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection</span>
+<span id="L77"><a href="#L77">77</a>     f (midpoint_mem_symmetricLens hxy) (midpoint_mem_symmetricLens hxy&#x27;) hs</span>
+<span id="L78"><a href="#L78">78</a>     (mapsTo_pointReflection_symmetricLens x y r)</span>
+<span id="L79"><a href="#L79">79</a>     (mapsTo_pointReflection_symmetricLens x&#x27; y&#x27; r)</span>
+<span id="L80"><a href="#L80">80</a>   exact congrArg Subtype.val h</span>
+<span id="L81"><a href="#L81">81</a> </span>
+<span id="L82"><a href="#L82">82</a> private def restrictToSymmetricLens</span>
+<span id="L83"><a href="#L83">83</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (x y : s) (r : ℝ)</span>
+<span id="L84"><a href="#L84">84</a>     (hs : symmetricLens (x : E) (y : E) r ⊆ s)</span>
+<span id="L85"><a href="#L85">85</a>     (ht : symmetricLens ((f x : t) : F) ((f y : t) : F) r ⊆ t) :</span>
+<span id="L86"><a href="#L86">86</a>     symmetricLens (x : E) (y : E) r ≃ᵢ</span>
+<span id="L87"><a href="#L87">87</a>       symmetricLens ((f x : t) : F) ((f y : t) : F) r where</span>
+<span id="L88"><a href="#L88">88</a>   toFun z := by</span>
+<span id="L89"><a href="#L89">89</a>     let zs : s := ⟨z, hs z.property⟩</span>
+<span id="L90"><a href="#L90">90</a>     refine ⟨(f zs : t), ?_⟩</span>
+<span id="L91"><a href="#L91">91</a>     constructor</span>
+<span id="L92"><a href="#L92">92</a>     · change dist (f zs) (f x) ≤ r</span>
+<span id="L93"><a href="#L93">93</a>       rw [f.dist_eq, Subtype.dist_eq]</span>
+<span id="L94"><a href="#L94">94</a>       exact z.property.1</span>
+<span id="L95"><a href="#L95">95</a>     · change dist (f zs) (f y) ≤ r</span>
+<span id="L96"><a href="#L96">96</a>       rw [f.dist_eq, Subtype.dist_eq]</span>
+<span id="L97"><a href="#L97">97</a>       exact z.property.2</span>
+<span id="L98"><a href="#L98">98</a>   invFun z := by</span>
+<span id="L99"><a href="#L99">99</a>     let zt : t := ⟨z, ht z.property⟩</span>
+<span id="L100"><a href="#L100">100</a>     refine ⟨(f.symm zt : s), ?_⟩</span>
+<span id="L101"><a href="#L101">101</a>     constructor</span>
+<span id="L102"><a href="#L102">102</a>     · change dist (f.symm zt) x ≤ r</span>
+<span id="L103"><a href="#L103">103</a>       rw [← f.dist_eq, f.apply_symm_apply, Subtype.dist_eq]</span>
+<span id="L104"><a href="#L104">104</a>       exact z.property.1</span>
+<span id="L105"><a href="#L105">105</a>     · change dist (f.symm zt) y ≤ r</span>
+<span id="L106"><a href="#L106">106</a>       rw [← f.dist_eq, f.apply_symm_apply, Subtype.dist_eq]</span>
+<span id="L107"><a href="#L107">107</a>       exact z.property.2</span>
+<span id="L108"><a href="#L108">108</a>   left_inv z := by</span>
+<span id="L109"><a href="#L109">109</a>     apply Subtype.ext</span>
+<span id="L110"><a href="#L110">110</a>     change ((f.symm (f ⟨(z : E), hs z.property⟩) : s) : E) = (z : E)</span>
+<span id="L111"><a href="#L111">111</a>     exact congrArg Subtype.val (f.symm_apply_apply ⟨(z : E), hs z.property⟩)</span>
+<span id="L112"><a href="#L112">112</a>   right_inv z := by</span>
+<span id="L113"><a href="#L113">113</a>     apply Subtype.ext</span>
+<span id="L114"><a href="#L114">114</a>     change ((f (f.symm ⟨(z : F), ht z.property⟩) : t) : F) = (z : F)</span>
+<span id="L115"><a href="#L115">115</a>     exact congrArg Subtype.val (f.apply_symm_apply ⟨(z : F), ht z.property⟩)</span>
+<span id="L116"><a href="#L116">116</a>   isometry_toFun := Isometry.of_dist_eq fun z w =&gt; by</span>
+<span id="L117"><a href="#L117">117</a>     change dist (f ⟨z, hs z.property⟩) (f ⟨w, hs w.property⟩) = dist z w</span>
+<span id="L118"><a href="#L118">118</a>     rw [f.dist_eq, Subtype.dist_eq, Subtype.dist_eq]</span>
+<span id="L119"><a href="#L119">119</a> </span>
+<span id="L120"><a href="#L120">120</a> /-- A set isometry preserves the midpoint of two points whenever the</span>
+<span id="L121"><a href="#L121">121</a> corresponding symmetric lenses stay inside the source and target sets. -/</span>
+<span id="L122"><a href="#L122">122</a> theorem map_midpoint_of_symmetricLens_subset</span>
+<span id="L123"><a href="#L123">123</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (x y : s) (r : ℝ)</span>
+<span id="L124"><a href="#L124">124</a>     (hhalf : 2⁻¹ * dist (x : E) (y : E) ≤ r)</span>
+<span id="L125"><a href="#L125">125</a>     (hs : symmetricLens (x : E) (y : E) r ⊆ s)</span>
+<span id="L126"><a href="#L126">126</a>     (ht : symmetricLens ((f x : t) : F) ((f y : t) : F) r ⊆ t) :</span>
+<span id="L127"><a href="#L127">127</a>     ((f ⟨midpoint ℝ (x : E) (y : E),</span>
+<span id="L128"><a href="#L128">128</a>           hs (midpoint_mem_symmetricLens hhalf)⟩ : t) : F) =</span>
+<span id="L129"><a href="#L129">129</a>       midpoint ℝ ((f x : t) : F) ((f y : t) : F) := by</span>
+<span id="L130"><a href="#L130">130</a>   let g := restrictToSymmetricLens f x y r hs ht</span>
+<span id="L131"><a href="#L131">131</a>   have hdist : dist ((f x : t) : F) ((f y : t) : F) = dist (x : E) (y : E) := by</span>
+<span id="L132"><a href="#L132">132</a>     simpa only [Subtype.dist_eq] using f.dist_eq x y</span>
+<span id="L133"><a href="#L133">133</a>   have hhalf&#x27; : 2⁻¹ * dist ((f x : t) : F) ((f y : t) : F) ≤ r := by</span>
+<span id="L134"><a href="#L134">134</a>     rwa [hdist]</span>
+<span id="L135"><a href="#L135">135</a>   exact map_midpoint_of_symmetricLens hhalf hhalf&#x27; g</span>
+<span id="L136"><a href="#L136">136</a> </span>
+<span id="L137" class="source-highlight"><a href="#L137">137</a> /-- If corresponding ambient balls lie in the source and target sets, then a</span>
+<span id="L138" class="source-highlight"><a href="#L138">138</a> set isometry preserves midpoints on the concentric quarter ball. -/</span>
+<span id="L139" class="source-highlight"><a href="#L139">139</a> theorem map_midpoint_of_mem_ball</span>
+<span id="L140" class="source-highlight"><a href="#L140">140</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) {R : ℝ} (hR : 0 &lt; R)</span>
+<span id="L141" class="source-highlight"><a href="#L141">141</a>     (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L142" class="source-highlight"><a href="#L142">142</a>     (htball : ball ((f c : t) : F) R ⊆ t)</span>
+<span id="L143" class="source-highlight"><a href="#L143">143</a>     (x y : s) (hx : (x : E) ∈ ball (c : E) (R / 4))</span>
+<span id="L144" class="source-highlight"><a href="#L144">144</a>     (hy : (y : E) ∈ ball (c : E) (R / 4)) :</span>
+<span id="L145" class="source-highlight"><a href="#L145">145</a>     ((f ⟨midpoint ℝ (x : E) (y : E),</span>
+<span id="L146" class="source-highlight"><a href="#L146">146</a>           hsball (by</span>
+<span id="L147" class="source-highlight"><a href="#L147">147</a>             rw [mem_ball]</span>
+<span id="L148" class="source-highlight"><a href="#L148">148</a>             calc</span>
+<span id="L149" class="source-highlight"><a href="#L149">149</a>               dist (midpoint ℝ (x : E) (y : E)) (c : E) ≤</span>
+<span id="L150" class="source-highlight"><a href="#L150">150</a>                   (dist (x : E) (c : E) + dist (y : E) (c : E)) / 2 := by</span>
+<span id="L151" class="source-highlight"><a href="#L151">151</a>                     simpa [dist_comm] using</span>
+<span id="L152" class="source-highlight"><a href="#L152">152</a>                       dist_midpoint_midpoint_le (x : E) (y : E) (c : E) (c : E)</span>
+<span id="L153" class="source-highlight"><a href="#L153">153</a>               _ &lt; R := by rw [mem_ball] at hx hy; linarith)⟩ : t) : F) =</span>
+<span id="L154" class="source-highlight"><a href="#L154">154</a>       midpoint ℝ ((f x : t) : F) ((f y : t) : F) := by</span>
+<span id="L155" class="source-highlight"><a href="#L155">155</a>   have hxy_lt : dist (x : E) (y : E) &lt; R / 2 := by</span>
+<span id="L156" class="source-highlight"><a href="#L156">156</a>     calc</span>
+<span id="L157" class="source-highlight"><a href="#L157">157</a>       dist (x : E) (y : E) ≤ dist (x : E) (c : E) + dist (c : E) (y : E) :=</span>
+<span id="L158" class="source-highlight"><a href="#L158">158</a>         dist_triangle _ _ _</span>
+<span id="L159" class="source-highlight"><a href="#L159">159</a>       _ &lt; R / 4 + R / 4 := by</span>
+<span id="L160" class="source-highlight"><a href="#L160">160</a>         rw [mem_ball] at hx hy</span>
+<span id="L161" class="source-highlight"><a href="#L161">161</a>         exact add_lt_add hx (by simpa [dist_comm] using hy)</span>
+<span id="L162" class="source-highlight"><a href="#L162">162</a>       _ = R / 2 := by ring</span>
+<span id="L163" class="source-highlight"><a href="#L163">163</a>   have hhalf : 2⁻¹ * dist (x : E) (y : E) ≤ R / 2 := by</span>
+<span id="L164" class="source-highlight"><a href="#L164">164</a>     have := hxy_lt.le</span>
+<span id="L165" class="source-highlight"><a href="#L165">165</a>     norm_num at ⊢</span>
+<span id="L166" class="source-highlight"><a href="#L166">166</a>     linarith</span>
+<span id="L167" class="source-highlight"><a href="#L167">167</a>   have hsLens : symmetricLens (x : E) (y : E) (R / 2) ⊆ s := by</span>
+<span id="L168" class="source-highlight"><a href="#L168">168</a>     intro z hz</span>
+<span id="L169" class="source-highlight"><a href="#L169">169</a>     apply hsball</span>
+<span id="L170" class="source-highlight"><a href="#L170">170</a>     rw [mem_ball]</span>
+<span id="L171" class="source-highlight"><a href="#L171">171</a>     have hzx : dist z (x : E) ≤ R / 2 := hz.1</span>
+<span id="L172" class="source-highlight"><a href="#L172">172</a>     rw [mem_ball] at hx</span>
+<span id="L173" class="source-highlight"><a href="#L173">173</a>     calc</span>
+<span id="L174" class="source-highlight"><a href="#L174">174</a>       dist z (c : E) ≤ dist z (x : E) + dist (x : E) (c : E) := dist_triangle _ _ _</span>
+<span id="L175" class="source-highlight"><a href="#L175">175</a>       _ &lt; R / 2 + R / 4 := add_lt_add_of_le_of_lt hzx hx</span>
+<span id="L176" class="source-highlight"><a href="#L176">176</a>       _ &lt; R := by linarith</span>
+<span id="L177" class="source-highlight"><a href="#L177">177</a>   have hfx : dist ((f x : t) : F) ((f c : t) : F) &lt; R / 4 := by</span>
+<span id="L178" class="source-highlight"><a href="#L178">178</a>     rw [← Subtype.dist_eq, f.dist_eq, Subtype.dist_eq]</span>
+<span id="L179" class="source-highlight"><a href="#L179">179</a>     exact hx</span>
+<span id="L180" class="source-highlight"><a href="#L180">180</a>   have htLens :</span>
+<span id="L181" class="source-highlight"><a href="#L181">181</a>       symmetricLens ((f x : t) : F) ((f y : t) : F) (R / 2) ⊆ t := by</span>
+<span id="L182" class="source-highlight"><a href="#L182">182</a>     intro z hz</span>
+<span id="L183" class="source-highlight"><a href="#L183">183</a>     apply htball</span>
+<span id="L184" class="source-highlight"><a href="#L184">184</a>     rw [mem_ball]</span>
+<span id="L185" class="source-highlight"><a href="#L185">185</a>     have hzx : dist z ((f x : t) : F) ≤ R / 2 := hz.1</span>
+<span id="L186" class="source-highlight"><a href="#L186">186</a>     calc</span>
+<span id="L187" class="source-highlight"><a href="#L187">187</a>       dist z ((f c : t) : F) ≤</span>
+<span id="L188" class="source-highlight"><a href="#L188">188</a>           dist z ((f x : t) : F) + dist ((f x : t) : F) ((f c : t) : F) :=</span>
+<span id="L189" class="source-highlight"><a href="#L189">189</a>         dist_triangle _ _ _</span>
+<span id="L190" class="source-highlight"><a href="#L190">190</a>       _ &lt; R / 2 + R / 4 := add_lt_add_of_le_of_lt hzx hfx</span>
+<span id="L191" class="source-highlight"><a href="#L191">191</a>       _ &lt; R := by linarith</span>
+<span id="L192" class="source-highlight"><a href="#L192">192</a>   exact map_midpoint_of_symmetricLens_subset f x y (R / 2) hhalf hsLens htLens</span>
+<span id="L193"><a href="#L193">193</a> </span>
+<span id="L194"><a href="#L194">194</a> private theorem map_lineMap_of_map_midpoint</span>
+<span id="L195"><a href="#L195">195</a>     {u : Set E} (hu : Convex ℝ u) (g : u → F) (hg : Continuous g)</span>
+<span id="L196"><a href="#L196">196</a>     (hm : ∀ x y : u,</span>
+<span id="L197"><a href="#L197">197</a>       g ⟨midpoint ℝ (x : E) (y : E), hu.midpoint_mem x.2 y.2⟩ =</span>
+<span id="L198"><a href="#L198">198</a>         midpoint ℝ (g x) (g y))</span>
+<span id="L199"><a href="#L199">199</a>     (x y : u) (r : ℝ) (hr : r ∈ Icc (0 : ℝ) 1) :</span>
+<span id="L200"><a href="#L200">200</a>     g ⟨AffineMap.lineMap (x : E) (y : E) r,</span>
+<span id="L201"><a href="#L201">201</a>         hu.lineMap_mem x.2 y.2 hr⟩ =</span>
+<span id="L202"><a href="#L202">202</a>       AffineMap.lineMap (g x) (g y) r := by</span>
+<span id="L203"><a href="#L203">203</a>   let p : Icc (0 : ℝ) 1 → u := fun a ↦</span>
+<span id="L204"><a href="#L204">204</a>     ⟨AffineMap.lineMap (x : E) (y : E) (a : ℝ),</span>
+<span id="L205"><a href="#L205">205</a>       hu.lineMap_mem x.2 y.2 a.2⟩</span>
+<span id="L206"><a href="#L206">206</a>   have hp : Continuous p := Continuous.subtype_mk</span>
+<span id="L207"><a href="#L207">207</a>     (AffineMap.lineMap_continuous.comp continuous_subtype_val) _</span>
+<span id="L208"><a href="#L208">208</a>   have hrat (q : ℚ) (hq0 : 0 ≤ q) (hq1 : q ≤ 1) :</span>
+<span id="L209"><a href="#L209">209</a>       g (p ⟨(q : ℝ), by</span>
+<span id="L210"><a href="#L210">210</a>         constructor</span>
+<span id="L211"><a href="#L211">211</a>         · exact_mod_cast hq0</span>
+<span id="L212"><a href="#L212">212</a>         · exact_mod_cast hq1⟩) =</span>
+<span id="L213"><a href="#L213">213</a>         AffineMap.lineMap (g x) (g y) (q : ℝ) := by</span>
+<span id="L214"><a href="#L214">214</a>     let n : ℕ := q.den</span>
+<span id="L215"><a href="#L215">215</a>     let k : ℕ := q.num.natAbs</span>
+<span id="L216"><a href="#L216">216</a>     have hn : 0 &lt; n := q.den_pos</span>
+<span id="L217"><a href="#L217">217</a>     have hnR : 0 &lt; (n : ℝ) := by exact_mod_cast hn</span>
+<span id="L218"><a href="#L218">218</a>     have hnum : 0 ≤ q.num := Rat.num_nonneg.mpr hq0</span>
+<span id="L219"><a href="#L219">219</a>     have hq_cast : (q : ℝ) = (k : ℝ) / (n : ℝ) := by</span>
+<span id="L220"><a href="#L220">220</a>       have hknumZ : (k : ℤ) = q.num := by</span>
+<span id="L221"><a href="#L221">221</a>         dsimp [k]</span>
+<span id="L222"><a href="#L222">222</a>         exact Int.natAbs_of_nonneg hnum</span>
+<span id="L223"><a href="#L223">223</a>       have hknumR : (k : ℝ) = (q.num : ℝ) := by exact_mod_cast hknumZ</span>
+<span id="L224"><a href="#L224">224</a>       rw [Rat.cast_def, hknumR]</span>
+<span id="L225"><a href="#L225">225</a>     have hq1R : (q : ℝ) ≤ 1 := by exact_mod_cast hq1</span>
+<span id="L226"><a href="#L226">226</a>     have hkR : (k : ℝ) ≤ (n : ℝ) := by</span>
+<span id="L227"><a href="#L227">227</a>       rw [hq_cast, div_le_one hnR] at hq1R</span>
+<span id="L228"><a href="#L228">228</a>       exact hq1R</span>
+<span id="L229"><a href="#L229">229</a>     have hk : k ≤ n := by exact_mod_cast hkR</span>
+<span id="L230"><a href="#L230">230</a>     have hcoeff {i : ℕ} (hi : i ≤ n) :</span>
+<span id="L231"><a href="#L231">231</a>         (i : ℝ) / (n : ℝ) ∈ Icc (0 : ℝ) 1 := by</span>
+<span id="L232"><a href="#L232">232</a>       constructor</span>
+<span id="L233"><a href="#L233">233</a>       · positivity</span>
+<span id="L234"><a href="#L234">234</a>       · rw [div_le_one hnR]</span>
+<span id="L235"><a href="#L235">235</a>         exact_mod_cast hi</span>
+<span id="L236"><a href="#L236">236</a>     let Q : ℕ → F := fun i ↦</span>
+<span id="L237"><a href="#L237">237</a>       if hi : i ≤ n then</span>
+<span id="L238"><a href="#L238">238</a>         g ⟨AffineMap.lineMap (x : E) (y : E) ((i : ℝ) / (n : ℝ)),</span>
+<span id="L239"><a href="#L239">239</a>           hu.lineMap_mem x.2 y.2 (hcoeff hi)⟩</span>
+<span id="L240"><a href="#L240">240</a>       else 0</span>
+<span id="L241"><a href="#L241">241</a>     have hQmid : ∀ i, i + 2 ≤ n →</span>
+<span id="L242"><a href="#L242">242</a>         Q (i + 1) = midpoint ℝ (Q i) (Q (i + 2)) := by</span>
+<span id="L243"><a href="#L243">243</a>       intro i hi</span>
+<span id="L244"><a href="#L244">244</a>       have hi0 : i ≤ n := by omega</span>
+<span id="L245"><a href="#L245">245</a>       have hi1 : i + 1 ≤ n := by omega</span>
+<span id="L246"><a href="#L246">246</a>       have hi2 : i + 2 ≤ n := hi</span>
+<span id="L247"><a href="#L247">247</a>       let z0 : u := ⟨AffineMap.lineMap (x : E) (y : E)</span>
+<span id="L248"><a href="#L248">248</a>           ((i : ℝ) / (n : ℝ)), hu.lineMap_mem x.2 y.2 (hcoeff hi0)⟩</span>
+<span id="L249"><a href="#L249">249</a>       let z1 : u := ⟨AffineMap.lineMap (x : E) (y : E)</span>
+<span id="L250"><a href="#L250">250</a>           (((i + 1 : ℕ) : ℝ) / (n : ℝ)), hu.lineMap_mem x.2 y.2 (hcoeff hi1)⟩</span>
+<span id="L251"><a href="#L251">251</a>       let z2 : u := ⟨AffineMap.lineMap (x : E) (y : E)</span>
+<span id="L252"><a href="#L252">252</a>           (((i + 2 : ℕ) : ℝ) / (n : ℝ)), hu.lineMap_mem x.2 y.2 (hcoeff hi2)⟩</span>
+<span id="L253"><a href="#L253">253</a>       have hz : midpoint ℝ (z0 : E) (z2 : E) = (z1 : E) := by</span>
+<span id="L254"><a href="#L254">254</a>         change midpoint ℝ</span>
+<span id="L255"><a href="#L255">255</a>           (AffineMap.lineMap (x : E) (y : E) ((i : ℝ) / (n : ℝ)))</span>
+<span id="L256"><a href="#L256">256</a>           (AffineMap.lineMap (x : E) (y : E) (((i + 2 : ℕ) : ℝ) / (n : ℝ))) =</span>
+<span id="L257"><a href="#L257">257</a>           AffineMap.lineMap (x : E) (y : E) (((i + 1 : ℕ) : ℝ) / (n : ℝ))</span>
+<span id="L258"><a href="#L258">258</a>         calc</span>
+<span id="L259"><a href="#L259">259</a>           _ = AffineMap.lineMap (x : E) (y : E)</span>
+<span id="L260"><a href="#L260">260</a>               (midpoint ℝ ((i : ℝ) / (n : ℝ))</span>
+<span id="L261"><a href="#L261">261</a>                 (((i + 2 : ℕ) : ℝ) / (n : ℝ))) :=</span>
+<span id="L262"><a href="#L262">262</a>             ((AffineMap.lineMap (x : E) (y : E)).map_midpoint _ _).symm</span>
+<span id="L263"><a href="#L263">263</a>           _ = _ := by</span>
+<span id="L264"><a href="#L264">264</a>             congr 1</span>
+<span id="L265"><a href="#L265">265</a>             simp only [midpoint_eq_smul_add, invOf_eq_inv, smul_eq_mul]</span>
+<span id="L266"><a href="#L266">266</a>             push_cast</span>
+<span id="L267"><a href="#L267">267</a>             field_simp</span>
+<span id="L268"><a href="#L268">268</a>             ring</span>
+<span id="L269"><a href="#L269">269</a>       simp only [Q, dif_pos hi0, dif_pos hi1, dif_pos hi2]</span>
+<span id="L270"><a href="#L270">270</a>       change g z1 = midpoint ℝ (g z0) (g z2)</span>
+<span id="L271"><a href="#L271">271</a>       simpa only [hz] using hm z0 z2</span>
+<span id="L272"><a href="#L272">272</a>     have hformula : ∀ j, j ≤ n → Q j = Q 0 + (j : ℝ) • (Q 1 - Q 0) := by</span>
+<span id="L273"><a href="#L273">273</a>       intro j</span>
+<span id="L274"><a href="#L274">274</a>       induction j using Nat.twoStepInduction with</span>
+<span id="L275"><a href="#L275">275</a>       | zero =&gt; intro _; simp</span>
+<span id="L276"><a href="#L276">276</a>       | one =&gt; intro _; simp</span>
+<span id="L277"><a href="#L277">277</a>       | more j hj hj1 =&gt;</span>
+<span id="L278"><a href="#L278">278</a>           intro hj2n</span>
+<span id="L279"><a href="#L279">279</a>           have hj_le : j ≤ n := by omega</span>
+<span id="L280"><a href="#L280">280</a>           have hj1_le : j + 1 ≤ n := by omega</span>
+<span id="L281"><a href="#L281">281</a>           have hmid := hQmid j hj2n</span>
+<span id="L282"><a href="#L282">282</a>           have hmid&#x27; := congrArg (fun z : F ↦ z + z) hmid</span>
+<span id="L283"><a href="#L283">283</a>           rw [midpoint_add_self] at hmid&#x27;</span>
+<span id="L284"><a href="#L284">284</a>           have hj2 : Q (j + 2) = Q (j + 1) + Q (j + 1) - Q j := by</span>
+<span id="L285"><a href="#L285">285</a>             apply (eq_sub_iff_add_eq).2</span>
+<span id="L286"><a href="#L286">286</a>             simpa [add_comm, add_left_comm, add_assoc] using hmid&#x27;.symm</span>
+<span id="L287"><a href="#L287">287</a>           rw [hj2, hj hj_le, hj1 hj1_le]</span>
+<span id="L288"><a href="#L288">288</a>           simp only [Nat.cast_add, Nat.cast_one, Nat.cast_ofNat]</span>
+<span id="L289"><a href="#L289">289</a>           module</span>
+<span id="L290"><a href="#L290">290</a>     have H := hformula k hk</span>
+<span id="L291"><a href="#L291">291</a>     have Hn := hformula n le_rfl</span>
+<span id="L292"><a href="#L292">292</a>     have Q0 : Q 0 = g x := by</span>
+<span id="L293"><a href="#L293">293</a>       simp only [Q, dif_pos (Nat.zero_le n)]</span>
+<span id="L294"><a href="#L294">294</a>       congr 1</span>
+<span id="L295"><a href="#L295">295</a>       apply Subtype.ext</span>
+<span id="L296"><a href="#L296">296</a>       simp</span>
+<span id="L297"><a href="#L297">297</a>     have Qn : Q n = g y := by</span>
+<span id="L298"><a href="#L298">298</a>       simp only [Q, dif_pos le_rfl]</span>
+<span id="L299"><a href="#L299">299</a>       congr 1</span>
+<span id="L300"><a href="#L300">300</a>       apply Subtype.ext</span>
+<span id="L301"><a href="#L301">301</a>       simp [hn.ne&#x27;]</span>
+<span id="L302"><a href="#L302">302</a>     have Qk : Q k = g (p ⟨(q : ℝ), by</span>
+<span id="L303"><a href="#L303">303</a>         constructor</span>
+<span id="L304"><a href="#L304">304</a>         · exact_mod_cast hq0</span>
+<span id="L305"><a href="#L305">305</a>         · exact_mod_cast hq1⟩) := by</span>
+<span id="L306"><a href="#L306">306</a>       simp only [Q, dif_pos hk]</span>
+<span id="L307"><a href="#L307">307</a>       congr 1</span>
+<span id="L308"><a href="#L308">308</a>       apply Subtype.ext</span>
+<span id="L309"><a href="#L309">309</a>       exact congrArg (AffineMap.lineMap (x : E) (y : E)) hq_cast.symm</span>
+<span id="L310"><a href="#L310">310</a>     rw [Qk, Q0] at H</span>
+<span id="L311"><a href="#L311">311</a>     rw [Qn, Q0] at Hn</span>
+<span id="L312"><a href="#L312">312</a>     rw [AffineMap.lineMap_apply_module]</span>
+<span id="L313"><a href="#L313">313</a>     have hn0 : (n : ℝ) ≠ 0 := by exact_mod_cast hn.ne&#x27;</span>
+<span id="L314"><a href="#L314">314</a>     have hkn : ((k : ℝ) / (n : ℝ)) * (n : ℝ) = (k : ℝ) := by field_simp</span>
+<span id="L315"><a href="#L315">315</a>     calc</span>
+<span id="L316"><a href="#L316">316</a>       g (p ⟨(q : ℝ), by</span>
+<span id="L317"><a href="#L317">317</a>           constructor</span>
+<span id="L318"><a href="#L318">318</a>           · exact_mod_cast hq0</span>
+<span id="L319"><a href="#L319">319</a>           · exact_mod_cast hq1⟩) =</span>
+<span id="L320"><a href="#L320">320</a>           g x + (k : ℝ) • (Q 1 - g x) := H</span>
+<span id="L321"><a href="#L321">321</a>       _ = (1 - (q : ℝ)) • g x + (q : ℝ) • g y := by</span>
+<span id="L322"><a href="#L322">322</a>         rw [Hn, hq_cast, smul_add, smul_smul, hkn]</span>
+<span id="L323"><a href="#L323">323</a>         module</span>
+<span id="L324"><a href="#L324">324</a>   let C : ℝ → Icc (0 : ℝ) 1 := fun a ↦</span>
+<span id="L325"><a href="#L325">325</a>     ⟨max 0 (min 1 a), by constructor &lt;;&gt; simp⟩</span>
+<span id="L326"><a href="#L326">326</a>   have hCcont : Continuous C := Continuous.subtype_mk</span>
+<span id="L327"><a href="#L327">327</a>     (continuous_const.max (continuous_const.min continuous_id)) _</span>
+<span id="L328"><a href="#L328">328</a>   have hCsurj : Function.Surjective C := by</span>
+<span id="L329"><a href="#L329">329</a>     intro a</span>
+<span id="L330"><a href="#L330">330</a>     refine ⟨a, Subtype.ext ?_⟩</span>
+<span id="L331"><a href="#L331">331</a>     simp [C, a.2.1, a.2.2]</span>
+<span id="L332"><a href="#L332">332</a>   have hdense : DenseRange (C ∘ ((↑) : ℚ → ℝ)) :=</span>
+<span id="L333"><a href="#L333">333</a>     hCsurj.denseRange.comp Rat.denseRange_cast hCcont</span>
+<span id="L334"><a href="#L334">334</a>   let rr : Icc (0 : ℝ) 1 := ⟨r, hr⟩</span>
+<span id="L335"><a href="#L335">335</a>   change g (p rr) = AffineMap.lineMap (g x) (g y) (rr : ℝ)</span>
+<span id="L336"><a href="#L336">336</a>   refine hdense.induction_on rr ?_ ?_</span>
+<span id="L337"><a href="#L337">337</a>   · exact isClosed_eq (hg.comp hp)</span>
+<span id="L338"><a href="#L338">338</a>       (AffineMap.lineMap_continuous.comp continuous_subtype_val)</span>
+<span id="L339"><a href="#L339">339</a>   · intro q</span>
+<span id="L340"><a href="#L340">340</a>     let u : ℚ := max 0 (min 1 q)</span>
+<span id="L341"><a href="#L341">341</a>     have hu0 : 0 ≤ u := le_max_left _ _</span>
+<span id="L342"><a href="#L342">342</a>     have hu1 : u ≤ 1 := max_le zero_le_one (min_le_left _ _)</span>
+<span id="L343"><a href="#L343">343</a>     have hCu : C (q : ℝ) =</span>
+<span id="L344"><a href="#L344">344</a>         ⟨(u : ℝ), by</span>
+<span id="L345"><a href="#L345">345</a>           constructor</span>
+<span id="L346"><a href="#L346">346</a>           · exact_mod_cast hu0</span>
+<span id="L347"><a href="#L347">347</a>           · exact_mod_cast hu1⟩ := by</span>
+<span id="L348"><a href="#L348">348</a>       apply Subtype.ext</span>
+<span id="L349"><a href="#L349">349</a>       simp [C, u]</span>
+<span id="L350"><a href="#L350">350</a>     rw [Function.comp_apply, hCu]</span>
+<span id="L351"><a href="#L351">351</a>     exact hrat u hu0 hu1</span>
+<span id="L352"><a href="#L352">352</a> </span>
+<span id="L353"><a href="#L353">353</a> /-- Under the same local ball hypotheses as</span>
+<span id="L354"><a href="#L354">354</a> `map_midpoint_of_mem_ball`, the isometry preserves every point of a</span>
+<span id="L355"><a href="#L355">355</a> segment contained in the quarter ball. -/</span>
+<span id="L356"><a href="#L356">356</a> theorem map_lineMap_of_mem_ball</span>
+<span id="L357"><a href="#L357">357</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) {R : ℝ} (hR : 0 &lt; R)</span>
+<span id="L358"><a href="#L358">358</a>     (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L359"><a href="#L359">359</a>     (htball : ball ((f c : t) : F) R ⊆ t)</span>
+<span id="L360"><a href="#L360">360</a>     (x y : s) (hx : (x : E) ∈ ball (c : E) (R / 4))</span>
+<span id="L361"><a href="#L361">361</a>     (hy : (y : E) ∈ ball (c : E) (R / 4))</span>
+<span id="L362"><a href="#L362">362</a>     (a : ℝ) (ha : a ∈ Icc (0 : ℝ) 1) :</span>
+<span id="L363"><a href="#L363">363</a>     ((f ⟨AffineMap.lineMap (x : E) (y : E) a,</span>
+<span id="L364"><a href="#L364">364</a>           hsball (ball_subset_ball (by linarith : R / 4 ≤ R)</span>
+<span id="L365"><a href="#L365">365</a>             ((convex_ball (c : E) (R / 4)).lineMap_mem hx hy ha))⟩ : t) : F) =</span>
+<span id="L366"><a href="#L366">366</a>       AffineMap.lineMap ((f x : t) : F) ((f y : t) : F) a := by</span>
+<span id="L367"><a href="#L367">367</a>   let u : Set E := ball (c : E) (R / 4)</span>
+<span id="L368"><a href="#L368">368</a>   let i : u → s := fun z ↦</span>
+<span id="L369"><a href="#L369">369</a>     ⟨z, hsball (ball_subset_ball (by linarith : R / 4 ≤ R) z.property)⟩</span>
+<span id="L370"><a href="#L370">370</a>   let g : u → F := fun z ↦ ((f (i z) : t) : F)</span>
+<span id="L371"><a href="#L371">371</a>   have hi : Continuous i := Continuous.subtype_mk continuous_subtype_val _</span>
+<span id="L372"><a href="#L372">372</a>   have hg : Continuous g :=</span>
+<span id="L373"><a href="#L373">373</a>     continuous_subtype_val.comp (f.continuous.comp hi)</span>
+<span id="L374"><a href="#L374">374</a>   have hm : ∀ z w : u,</span>
+<span id="L375"><a href="#L375">375</a>       g ⟨midpoint ℝ (z : E) (w : E),</span>
+<span id="L376"><a href="#L376">376</a>         (convex_ball (c : E) (R / 4)).midpoint_mem z.2 w.2⟩ =</span>
+<span id="L377"><a href="#L377">377</a>         midpoint ℝ (g z) (g w) := by</span>
+<span id="L378"><a href="#L378">378</a>     intro z w</span>
+<span id="L379"><a href="#L379">379</a>     have h := map_midpoint_of_mem_ball f c hR hsball htball</span>
+<span id="L380"><a href="#L380">380</a>       (i z) (i w) z.property w.property</span>
+<span id="L381"><a href="#L381">381</a>     simpa only [g, i] using h</span>
+<span id="L382"><a href="#L382">382</a>   let xu : u := ⟨x, hx⟩</span>
+<span id="L383"><a href="#L383">383</a>   let yu : u := ⟨y, hy⟩</span>
+<span id="L384"><a href="#L384">384</a>   have h := map_lineMap_of_map_midpoint</span>
+<span id="L385"><a href="#L385">385</a>     (convex_ball (c : E) (R / 4)) g hg hm xu yu a ha</span>
+<span id="L386"><a href="#L386">386</a>   simpa only [g, i, xu, yu] using h</span>
+<span id="L387"><a href="#L387">387</a> </span>
+<span id="L388"><a href="#L388">388</a> private def radialSourcePoint (c : E) (r : ℝ) (x : E) : E :=</span>
+<span id="L389"><a href="#L389">389</a>   c + (r / ‖x‖) • x</span>
+<span id="L390"><a href="#L390">390</a> </span>
+<span id="L391"><a href="#L391">391</a> private theorem dist_radialSourcePoint {c : E} {r : ℝ} (hr : 0 &lt; r)</span>
+<span id="L392"><a href="#L392">392</a>     {x : E} (hx : x ≠ 0) : dist (radialSourcePoint c r x) c = r := by</span>
+<span id="L393"><a href="#L393">393</a>   rw [radialSourcePoint, dist_eq_norm, add_sub_cancel_left, norm_smul,</span>
+<span id="L394"><a href="#L394">394</a>     Real.norm_eq_abs, abs_of_pos (div_pos hr (norm_pos_iff.mpr hx))]</span>
+<span id="L395"><a href="#L395">395</a>   field_simp</span>
+<span id="L396"><a href="#L396">396</a> </span>
+<span id="L397"><a href="#L397">397</a> private theorem radialSourcePoint_mem_ball {c : E} {r R : ℝ} (hr : 0 &lt; r)</span>
+<span id="L398"><a href="#L398">398</a>     (hrR : r &lt; R) {x : E} (hx : x ≠ 0) : radialSourcePoint c r x ∈ ball c R := by</span>
+<span id="L399"><a href="#L399">399</a>   rw [mem_ball, dist_radialSourcePoint hr hx]</span>
+<span id="L400"><a href="#L400">400</a>   exact hrR</span>
+<span id="L401"><a href="#L401">401</a> </span>
+<span id="L402"><a href="#L402">402</a> private noncomputable def radialMap</span>
+<span id="L403"><a href="#L403">403</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) (r R : ℝ)</span>
+<span id="L404"><a href="#L404">404</a>     (hr : 0 &lt; r) (hrR : r &lt; R) (hsball : ball (c : E) R ⊆ s) : E → F := by</span>
+<span id="L405"><a href="#L405">405</a>   classical</span>
+<span id="L406"><a href="#L406">406</a>   exact fun x ↦ if hx : x = 0 then 0 else</span>
+<span id="L407"><a href="#L407">407</a>     (‖x‖ / r) •</span>
+<span id="L408"><a href="#L408">408</a>       (((f ⟨radialSourcePoint (c : E) r x,</span>
+<span id="L409"><a href="#L409">409</a>         hsball (radialSourcePoint_mem_ball hr hrR hx)⟩ : t) : F) - ((f c : t) : F))</span>
+<span id="L410"><a href="#L410">410</a> </span>
+<span id="L411"><a href="#L411">411</a> @[simp] private theorem radialMap_zero</span>
+<span id="L412"><a href="#L412">412</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) (r R : ℝ)</span>
+<span id="L413"><a href="#L413">413</a>     (hr : 0 &lt; r) (hrR : r &lt; R) (hsball : ball (c : E) R ⊆ s) :</span>
+<span id="L414"><a href="#L414">414</a>     radialMap f c r R hr hrR hsball 0 = 0 := by</span>
+<span id="L415"><a href="#L415">415</a>   simp [radialMap]</span>
+<span id="L416"><a href="#L416">416</a> </span>
+<span id="L417"><a href="#L417">417</a> private theorem radialSourcePoint_smul_of_pos {c : E} {r a : ℝ}</span>
+<span id="L418"><a href="#L418">418</a>     (ha : 0 &lt; a) {x : E} (hx : x ≠ 0) :</span>
+<span id="L419"><a href="#L419">419</a>     radialSourcePoint c r (a • x) = radialSourcePoint c r x := by</span>
+<span id="L420"><a href="#L420">420</a>   have hnx : ‖x‖ ≠ 0 := (norm_pos_iff.mpr hx).ne&#x27;</span>
+<span id="L421"><a href="#L421">421</a>   rw [radialSourcePoint, radialSourcePoint, norm_smul, Real.norm_eq_abs,</span>
+<span id="L422"><a href="#L422">422</a>     abs_of_pos ha, smul_smul]</span>
+<span id="L423"><a href="#L423">423</a>   congr 1</span>
+<span id="L424"><a href="#L424">424</a>   field_simp</span>
+<span id="L425"><a href="#L425">425</a> </span>
+<span id="L426"><a href="#L426">426</a> private theorem radialSourcePoint_neg {c : E} {r : ℝ} {x : E} :</span>
+<span id="L427"><a href="#L427">427</a>     radialSourcePoint c r (-x) = c - (r / ‖x‖) • x := by</span>
+<span id="L428"><a href="#L428">428</a>   simp [radialSourcePoint, sub_eq_add_neg]</span>
+<span id="L429"><a href="#L429">429</a> </span>
+<span id="L430"><a href="#L430">430</a> private theorem radialMap_smul_of_pos</span>
+<span id="L431"><a href="#L431">431</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) (r R : ℝ)</span>
+<span id="L432"><a href="#L432">432</a>     (hr : 0 &lt; r) (hrR : r &lt; R) (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L433"><a href="#L433">433</a>     {a : ℝ} (ha : 0 &lt; a) (x : E) :</span>
+<span id="L434"><a href="#L434">434</a>     radialMap f c r R hr hrR hsball (a • x) =</span>
+<span id="L435"><a href="#L435">435</a>       a • radialMap f c r R hr hrR hsball x := by</span>
+<span id="L436"><a href="#L436">436</a>   by_cases hx : x = 0</span>
+<span id="L437"><a href="#L437">437</a>   · subst x</span>
+<span id="L438"><a href="#L438">438</a>     simp</span>
+<span id="L439"><a href="#L439">439</a>   have hax : a • x ≠ 0 := smul_ne_zero ha.ne&#x27; hx</span>
+<span id="L440"><a href="#L440">440</a>   simp only [radialMap, dif_neg hax, dif_neg hx]</span>
+<span id="L441"><a href="#L441">441</a>   have hfpoint :</span>
+<span id="L442"><a href="#L442">442</a>       ((f ⟨radialSourcePoint (c : E) r (a • x),</span>
+<span id="L443"><a href="#L443">443</a>         hsball (radialSourcePoint_mem_ball hr hrR hax)⟩ : t) : F) =</span>
+<span id="L444"><a href="#L444">444</a>       ((f ⟨radialSourcePoint (c : E) r x,</span>
+<span id="L445"><a href="#L445">445</a>         hsball (radialSourcePoint_mem_ball hr hrR hx)⟩ : t) : F) := by</span>
+<span id="L446"><a href="#L446">446</a>     apply congrArg Subtype.val</span>
+<span id="L447"><a href="#L447">447</a>     apply congrArg f</span>
+<span id="L448"><a href="#L448">448</a>     apply Subtype.ext</span>
+<span id="L449"><a href="#L449">449</a>     exact radialSourcePoint_smul_of_pos ha hx</span>
+<span id="L450"><a href="#L450">450</a>   rw [hfpoint, norm_smul, Real.norm_eq_abs, abs_of_pos ha, smul_smul]</span>
+<span id="L451"><a href="#L451">451</a>   congr 1</span>
+<span id="L452"><a href="#L452">452</a>   ring</span>
+<span id="L453"><a href="#L453">453</a> </span>
+<span id="L454"><a href="#L454">454</a> private theorem radialMap_neg</span>
+<span id="L455"><a href="#L455">455</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) (r R : ℝ)</span>
+<span id="L456"><a href="#L456">456</a>     (hr : 0 &lt; r) (hrR : r &lt; R) (hR : 0 &lt; R) (hrq : r &lt; R / 4)</span>
+<span id="L457"><a href="#L457">457</a>     (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L458"><a href="#L458">458</a>     (htball : ball ((f c : t) : F) R ⊆ t) (x : E) :</span>
+<span id="L459"><a href="#L459">459</a>     radialMap f c r R hr hrR hsball (-x) =</span>
+<span id="L460"><a href="#L460">460</a>       -radialMap f c r R hr hrR hsball x := by</span>
+<span id="L461"><a href="#L461">461</a>   by_cases hx : x = 0</span>
+<span id="L462"><a href="#L462">462</a>   · subst x</span>
+<span id="L463"><a href="#L463">463</a>     simp</span>
+<span id="L464"><a href="#L464">464</a>   have hnx : -x ≠ 0 := neg_ne_zero.mpr hx</span>
+<span id="L465"><a href="#L465">465</a>   let px : s := ⟨radialSourcePoint (c : E) r x,</span>
+<span id="L466"><a href="#L466">466</a>     hsball (radialSourcePoint_mem_ball hr hrR hx)⟩</span>
+<span id="L467"><a href="#L467">467</a>   let nx : s := ⟨radialSourcePoint (c : E) r (-x),</span>
+<span id="L468"><a href="#L468">468</a>     hsball (radialSourcePoint_mem_ball hr hrR hnx)⟩</span>
+<span id="L469"><a href="#L469">469</a>   have hpx : (px : E) ∈ ball (c : E) (R / 4) := by</span>
+<span id="L470"><a href="#L470">470</a>     rw [mem_ball]</span>
+<span id="L471"><a href="#L471">471</a>     exact (dist_radialSourcePoint hr hx).trans_lt hrq</span>
+<span id="L472"><a href="#L472">472</a>   have hnx&#x27; : (nx : E) ∈ ball (c : E) (R / 4) := by</span>
+<span id="L473"><a href="#L473">473</a>     rw [mem_ball]</span>
+<span id="L474"><a href="#L474">474</a>     exact (dist_radialSourcePoint hr hnx).trans_lt hrq</span>
+<span id="L475"><a href="#L475">475</a>   have hsource : midpoint ℝ (px : E) (nx : E) = (c : E) := by</span>
+<span id="L476"><a href="#L476">476</a>     change midpoint ℝ (radialSourcePoint (c : E) r x)</span>
+<span id="L477"><a href="#L477">477</a>       (radialSourcePoint (c : E) r (-x)) = (c : E)</span>
+<span id="L478"><a href="#L478">478</a>     rw [radialSourcePoint, radialSourcePoint_neg]</span>
+<span id="L479"><a href="#L479">479</a>     simp only [midpoint_eq_smul_add, invOf_eq_inv]</span>
+<span id="L480"><a href="#L480">480</a>     module</span>
+<span id="L481"><a href="#L481">481</a>   have hm := map_midpoint_of_mem_ball f c hR hsball htball</span>
+<span id="L482"><a href="#L482">482</a>     px nx hpx hnx&#x27;</span>
+<span id="L483"><a href="#L483">483</a>   have hfc : ((f c : t) : F) =</span>
+<span id="L484"><a href="#L484">484</a>       midpoint ℝ ((f px : t) : F) ((f nx : t) : F) := by</span>
+<span id="L485"><a href="#L485">485</a>     rw [← hm]</span>
+<span id="L486"><a href="#L486">486</a>     congr 2</span>
+<span id="L487"><a href="#L487">487</a>     apply Subtype.ext</span>
+<span id="L488"><a href="#L488">488</a>     exact hsource.symm</span>
+<span id="L489"><a href="#L489">489</a>   have hdiff : ((f nx : t) : F) - ((f c : t) : F) =</span>
+<span id="L490"><a href="#L490">490</a>       -(((f px : t) : F) - ((f c : t) : F)) := by</span>
+<span id="L491"><a href="#L491">491</a>     rw [hfc]</span>
+<span id="L492"><a href="#L492">492</a>     simp only [midpoint_eq_smul_add, invOf_eq_inv]</span>
+<span id="L493"><a href="#L493">493</a>     module</span>
+<span id="L494"><a href="#L494">494</a>   simp only [radialMap, dif_neg hnx, dif_neg hx]</span>
+<span id="L495"><a href="#L495">495</a>   rw [norm_neg]</span>
+<span id="L496"><a href="#L496">496</a>   change (‖x‖ / r) • (((f nx : t) : F) - ((f c : t) : F)) =</span>
+<span id="L497"><a href="#L497">497</a>     -((‖x‖ / r) • (((f px : t) : F) - ((f c : t) : F)))</span>
+<span id="L498"><a href="#L498">498</a>   rw [hdiff]</span>
+<span id="L499"><a href="#L499">499</a>   module</span>
+<span id="L500"><a href="#L500">500</a> </span>
+<span id="L501"><a href="#L501">501</a> private theorem norm_radialMap</span>
+<span id="L502"><a href="#L502">502</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) (r R : ℝ)</span>
+<span id="L503"><a href="#L503">503</a>     (hr : 0 &lt; r) (hrR : r &lt; R) (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L504"><a href="#L504">504</a>     (x : E) : ‖radialMap f c r R hr hrR hsball x‖ = ‖x‖ := by</span>
+<span id="L505"><a href="#L505">505</a>   by_cases hx : x = 0</span>
+<span id="L506"><a href="#L506">506</a>   · subst x</span>
+<span id="L507"><a href="#L507">507</a>     simp</span>
+<span id="L508"><a href="#L508">508</a>   rw [radialMap, dif_neg hx, norm_smul, Real.norm_eq_abs,</span>
+<span id="L509"><a href="#L509">509</a>     abs_of_nonneg (div_nonneg (norm_nonneg x) hr.le)]</span>
+<span id="L510"><a href="#L510">510</a>   have hd :</span>
+<span id="L511"><a href="#L511">511</a>       ‖((f ⟨radialSourcePoint (c : E) r x,</span>
+<span id="L512"><a href="#L512">512</a>           hsball (radialSourcePoint_mem_ball hr hrR hx)⟩ : t) : F) -</span>
+<span id="L513"><a href="#L513">513</a>           ((f c : t) : F)‖ = r := by</span>
+<span id="L514"><a href="#L514">514</a>     rw [← dist_eq_norm, ← Subtype.dist_eq, f.dist_eq, Subtype.dist_eq,</span>
+<span id="L515"><a href="#L515">515</a>       dist_radialSourcePoint hr hx]</span>
+<span id="L516"><a href="#L516">516</a>   rw [hd]</span>
+<span id="L517"><a href="#L517">517</a>   field_simp</span>
+<span id="L518"><a href="#L518">518</a> </span>
+<span id="L519"><a href="#L519">519</a> private theorem map_midpoint_of_local_of_smul_pos (T : E → F) {r : ℝ} (hr : 0 &lt; r)</span>
+<span id="L520"><a href="#L520">520</a>     (hsmul : ∀ (a : ℝ), 0 &lt; a → ∀ x, T (a • x) = a • T x)</span>
+<span id="L521"><a href="#L521">521</a>     (hlocal : ∀ x y, ‖x‖ &lt; r → ‖y‖ &lt; r →</span>
+<span id="L522"><a href="#L522">522</a>       T (midpoint ℝ x y) = midpoint ℝ (T x) (T y)) :</span>
+<span id="L523"><a href="#L523">523</a>     ∀ x y, T (midpoint ℝ x y) = midpoint ℝ (T x) (T y) := by</span>
+<span id="L524"><a href="#L524">524</a>   intro x y</span>
+<span id="L525"><a href="#L525">525</a>   let d : ℝ := ‖x‖ + ‖y‖ + 1</span>
+<span id="L526"><a href="#L526">526</a>   let q : ℝ := r / d</span>
+<span id="L527"><a href="#L527">527</a>   have hd : 0 &lt; d := by dsimp [d]; positivity</span>
+<span id="L528"><a href="#L528">528</a>   have hq : 0 &lt; q := div_pos hr hd</span>
+<span id="L529"><a href="#L529">529</a>   have hqx : ‖q • x‖ &lt; r := by</span>
+<span id="L530"><a href="#L530">530</a>     rw [norm_smul, Real.norm_eq_abs, abs_of_pos hq]</span>
+<span id="L531"><a href="#L531">531</a>     have hxlt : ‖x‖ &lt; d := by dsimp [d]; linarith [norm_nonneg y]</span>
+<span id="L532"><a href="#L532">532</a>     calc</span>
+<span id="L533"><a href="#L533">533</a>       q * ‖x‖ &lt; q * d := mul_lt_mul_of_pos_left hxlt hq</span>
+<span id="L534"><a href="#L534">534</a>       _ = r := by dsimp [q]; field_simp</span>
+<span id="L535"><a href="#L535">535</a>   have hqy : ‖q • y‖ &lt; r := by</span>
+<span id="L536"><a href="#L536">536</a>     rw [norm_smul, Real.norm_eq_abs, abs_of_pos hq]</span>
+<span id="L537"><a href="#L537">537</a>     have hylt : ‖y‖ &lt; d := by dsimp [d]; linarith [norm_nonneg x]</span>
+<span id="L538"><a href="#L538">538</a>     calc</span>
+<span id="L539"><a href="#L539">539</a>       q * ‖y‖ &lt; q * d := mul_lt_mul_of_pos_left hylt hq</span>
+<span id="L540"><a href="#L540">540</a>       _ = r := by dsimp [q]; field_simp</span>
+<span id="L541"><a href="#L541">541</a>   have h := hlocal (q • x) (q • y) hqx hqy</span>
+<span id="L542"><a href="#L542">542</a>   have hmid : midpoint ℝ (q • x) (q • y) = q • midpoint ℝ x y := by</span>
+<span id="L543"><a href="#L543">543</a>     simp only [midpoint_eq_smul_add, invOf_eq_inv, smul_add, smul_smul]</span>
+<span id="L544"><a href="#L544">544</a>     module</span>
+<span id="L545"><a href="#L545">545</a>   rw [hmid, hsmul q hq, hsmul q hq, hsmul q hq] at h</span>
+<span id="L546"><a href="#L546">546</a>   have hc := congrArg (fun z : F ↦ q⁻¹ • z) h</span>
+<span id="L547"><a href="#L547">547</a>   have hcoeff : q⁻¹ * ((2 : ℝ)⁻¹ * q) = (2 : ℝ)⁻¹ := by field_simp</span>
+<span id="L548"><a href="#L548">548</a>   simpa only [smul_smul, inv_mul_cancel₀ hq.ne&#x27;, one_smul,</span>
+<span id="L549"><a href="#L549">549</a>     midpoint_eq_smul_add, invOf_eq_inv, smul_add, hcoeff] using hc</span>
+<span id="L550"><a href="#L550">550</a> </span>
+<span id="L551"><a href="#L551">551</a> private def midpointAddMonoidHom (T : E → F) (h0 : T 0 = 0)</span>
+<span id="L552"><a href="#L552">552</a>     (hm : ∀ x y, T (midpoint ℝ x y) = midpoint ℝ (T x) (T y)) : E →+ F :=</span>
+<span id="L553"><a href="#L553">553</a>   AddMonoidHom.ofMapMidpoint ℝ ℝ T h0 hm</span>
+<span id="L554"><a href="#L554">554</a> </span>
+<span id="L555"><a href="#L555">555</a> @[simp] private theorem coe_midpointAddMonoidHom (T : E → F) (h0) (hm) :</span>
+<span id="L556"><a href="#L556">556</a>     ⇑(midpointAddMonoidHom T h0 hm) = T := rfl</span>
+<span id="L557"><a href="#L557">557</a> </span>
+<span id="L558"><a href="#L558">558</a> private theorem isometry_midpointAddMonoidHom (T : E → F) (h0 : T 0 = 0)</span>
+<span id="L559"><a href="#L559">559</a>     (hm : ∀ x y, T (midpoint ℝ x y) = midpoint ℝ (T x) (T y))</span>
+<span id="L560"><a href="#L560">560</a>     (hnorm : ∀ x, ‖T x‖ = ‖x‖) : Isometry T := by</span>
+<span id="L561"><a href="#L561">561</a>   rw [isometry_iff_dist_eq]</span>
+<span id="L562"><a href="#L562">562</a>   intro x y</span>
+<span id="L563"><a href="#L563">563</a>   rw [dist_eq_norm]</span>
+<span id="L564"><a href="#L564">564</a>   have hsub := (midpointAddMonoidHom T h0 hm).map_sub x y</span>
+<span id="L565"><a href="#L565">565</a>   change T (x - y) = T x - T y at hsub</span>
+<span id="L566"><a href="#L566">566</a>   rw [← hsub, hnorm, ← dist_eq_norm]</span>
+<span id="L567"><a href="#L567">567</a> </span>
+<span id="L568"><a href="#L568">568</a> private noncomputable def midpointLinearIsometry (T : E → F) (h0 : T 0 = 0)</span>
+<span id="L569"><a href="#L569">569</a>     (hm : ∀ x y, T (midpoint ℝ x y) = midpoint ℝ (T x) (T y))</span>
+<span id="L570"><a href="#L570">570</a>     (hnorm : ∀ x, ‖T x‖ = ‖x‖) : E →ₗᵢ[ℝ] F :=</span>
+<span id="L571"><a href="#L571">571</a>   { (midpointAddMonoidHom T h0 hm).toRealLinearMap</span>
+<span id="L572"><a href="#L572">572</a>       (isometry_midpointAddMonoidHom T h0 hm hnorm).continuous with</span>
+<span id="L573"><a href="#L573">573</a>     norm_map&#x27; := hnorm }</span>
+<span id="L574"><a href="#L574">574</a> </span>
+<span id="L575"><a href="#L575">575</a> @[simp] private theorem coe_midpointLinearIsometry (T : E → F) (h0) (hm) (hnorm) :</span>
+<span id="L576"><a href="#L576">576</a>     ⇑(midpointLinearIsometry T h0 hm hnorm) = T := rfl</span>
+<span id="L577"><a href="#L577">577</a> </span>
+<span id="L578"><a href="#L578">578</a> private theorem radialMap_eq_sub_of_norm_lt</span>
+<span id="L579"><a href="#L579">579</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) (r R : ℝ)</span>
+<span id="L580"><a href="#L580">580</a>     (hr : 0 &lt; r) (hrR : r &lt; R) (hR : 0 &lt; R) (hrq : r &lt; R / 4)</span>
+<span id="L581"><a href="#L581">581</a>     (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L582"><a href="#L582">582</a>     (htball : ball ((f c : t) : F) R ⊆ t)</span>
+<span id="L583"><a href="#L583">583</a>     (x : E) (hxnorm : ‖x‖ &lt; r) :</span>
+<span id="L584"><a href="#L584">584</a>     radialMap f c r R hr hrR hsball x =</span>
+<span id="L585"><a href="#L585">585</a>       ((f ⟨(c : E) + x, hsball (by</span>
+<span id="L586"><a href="#L586">586</a>         rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L587"><a href="#L587">587</a>         exact hxnorm.trans hrR)⟩ : t) : F) - ((f c : t) : F) := by</span>
+<span id="L588"><a href="#L588">588</a>   let cx : s := ⟨(c : E) + x, hsball (by</span>
+<span id="L589"><a href="#L589">589</a>     rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L590"><a href="#L590">590</a>     exact hxnorm.trans hrR)⟩</span>
+<span id="L591"><a href="#L591">591</a>   by_cases hx : x = 0</span>
+<span id="L592"><a href="#L592">592</a>   · subst x</span>
+<span id="L593"><a href="#L593">593</a>     simp</span>
+<span id="L594"><a href="#L594">594</a>   let p : s := ⟨radialSourcePoint (c : E) r x,</span>
+<span id="L595"><a href="#L595">595</a>     hsball (radialSourcePoint_mem_ball hr hrR hx)⟩</span>
+<span id="L596"><a href="#L596">596</a>   have hcq : (c : E) ∈ ball (c : E) (R / 4) := by</span>
+<span id="L597"><a href="#L597">597</a>     rw [mem_ball, dist_self]</span>
+<span id="L598"><a href="#L598">598</a>     linarith</span>
+<span id="L599"><a href="#L599">599</a>   have hpq : (p : E) ∈ ball (c : E) (R / 4) := by</span>
+<span id="L600"><a href="#L600">600</a>     rw [mem_ball]</span>
+<span id="L601"><a href="#L601">601</a>     exact (dist_radialSourcePoint hr hx).trans_lt hrq</span>
+<span id="L602"><a href="#L602">602</a>   let a : ℝ := ‖x‖ / r</span>
+<span id="L603"><a href="#L603">603</a>   have ha : a ∈ Icc (0 : ℝ) 1 := by</span>
+<span id="L604"><a href="#L604">604</a>     constructor</span>
+<span id="L605"><a href="#L605">605</a>     · exact div_nonneg (norm_nonneg x) hr.le</span>
+<span id="L606"><a href="#L606">606</a>     · rw [div_le_one hr]</span>
+<span id="L607"><a href="#L607">607</a>       exact hxnorm.le</span>
+<span id="L608"><a href="#L608">608</a>   have hcoef : a * (r / ‖x‖) = 1 := by</span>
+<span id="L609"><a href="#L609">609</a>     dsimp [a]</span>
+<span id="L610"><a href="#L610">610</a>     field_simp [hr.ne&#x27;, (norm_pos_iff.mpr hx).ne&#x27;]</span>
+<span id="L611"><a href="#L611">611</a>   have harg : AffineMap.lineMap (c : E) (p : E) a = (cx : E) := by</span>
+<span id="L612"><a href="#L612">612</a>     change AffineMap.lineMap (c : E) (radialSourcePoint (c : E) r x) a =</span>
+<span id="L613"><a href="#L613">613</a>       (c : E) + x</span>
+<span id="L614"><a href="#L614">614</a>     rw [AffineMap.lineMap_apply_module, radialSourcePoint, smul_add, smul_smul,</span>
+<span id="L615"><a href="#L615">615</a>       hcoef, one_smul]</span>
+<span id="L616"><a href="#L616">616</a>     module</span>
+<span id="L617"><a href="#L617">617</a>   have hline := map_lineMap_of_mem_ball f c hR hsball htball</span>
+<span id="L618"><a href="#L618">618</a>     c p hcq hpq a ha</span>
+<span id="L619"><a href="#L619">619</a>   have hinput :</span>
+<span id="L620"><a href="#L620">620</a>       (⟨AffineMap.lineMap (c : E) (p : E) a,</span>
+<span id="L621"><a href="#L621">621</a>         hsball (ball_subset_ball (by linarith : R / 4 ≤ R)</span>
+<span id="L622"><a href="#L622">622</a>           ((convex_ball (c : E) (R / 4)).lineMap_mem hcq hpq ha))⟩ : s) = cx := by</span>
+<span id="L623"><a href="#L623">623</a>     apply Subtype.ext</span>
+<span id="L624"><a href="#L624">624</a>     exact harg</span>
+<span id="L625"><a href="#L625">625</a>   rw [hinput] at hline</span>
+<span id="L626"><a href="#L626">626</a>   simp only [radialMap, dif_neg hx]</span>
+<span id="L627"><a href="#L627">627</a>   change a • (((f p : t) : F) - ((f c : t) : F)) =</span>
+<span id="L628"><a href="#L628">628</a>     ((f cx : t) : F) - ((f c : t) : F)</span>
+<span id="L629"><a href="#L629">629</a>   rw [hline, AffineMap.lineMap_apply_module]</span>
+<span id="L630"><a href="#L630">630</a>   module</span>
+<span id="L631"><a href="#L631">631</a> </span>
+<span id="L632"><a href="#L632">632</a> private theorem radialMap_midpoint_of_norm_lt</span>
+<span id="L633"><a href="#L633">633</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) (r R : ℝ)</span>
+<span id="L634"><a href="#L634">634</a>     (hr : 0 &lt; r) (hrR : r &lt; R) (hR : 0 &lt; R) (hrq : r &lt; R / 4)</span>
+<span id="L635"><a href="#L635">635</a>     (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L636"><a href="#L636">636</a>     (htball : ball ((f c : t) : F) R ⊆ t)</span>
+<span id="L637"><a href="#L637">637</a>     (x y : E) (hx : ‖x‖ &lt; r) (hy : ‖y‖ &lt; r) :</span>
+<span id="L638"><a href="#L638">638</a>     radialMap f c r R hr hrR hsball (midpoint ℝ x y) =</span>
+<span id="L639"><a href="#L639">639</a>       midpoint ℝ (radialMap f c r R hr hrR hsball x)</span>
+<span id="L640"><a href="#L640">640</a>         (radialMap f c r R hr hrR hsball y) := by</span>
+<span id="L641"><a href="#L641">641</a>   have hxb : x ∈ ball (0 : E) r := by simpa [mem_ball] using hx</span>
+<span id="L642"><a href="#L642">642</a>   have hyb : y ∈ ball (0 : E) r := by simpa [mem_ball] using hy</span>
+<span id="L643"><a href="#L643">643</a>   have hmb : midpoint ℝ x y ∈ ball (0 : E) r :=</span>
+<span id="L644"><a href="#L644">644</a>     (convex_ball (0 : E) r).midpoint_mem hxb hyb</span>
+<span id="L645"><a href="#L645">645</a>   have hmnorm : ‖midpoint ℝ x y‖ &lt; r := by simpa [mem_ball] using hmb</span>
+<span id="L646"><a href="#L646">646</a>   let xs : s := ⟨(c : E) + x, hsball (by</span>
+<span id="L647"><a href="#L647">647</a>     rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L648"><a href="#L648">648</a>     exact hx.trans hrR)⟩</span>
+<span id="L649"><a href="#L649">649</a>   let ys : s := ⟨(c : E) + y, hsball (by</span>
+<span id="L650"><a href="#L650">650</a>     rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L651"><a href="#L651">651</a>     exact hy.trans hrR)⟩</span>
+<span id="L652"><a href="#L652">652</a>   let ms : s := ⟨(c : E) + midpoint ℝ x y, hsball (by</span>
+<span id="L653"><a href="#L653">653</a>     rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L654"><a href="#L654">654</a>     exact hmnorm.trans hrR)⟩</span>
+<span id="L655"><a href="#L655">655</a>   have hxsq : (xs : E) ∈ ball (c : E) (R / 4) := by</span>
+<span id="L656"><a href="#L656">656</a>     rw [mem_ball]</span>
+<span id="L657"><a href="#L657">657</a>     change dist ((c : E) + x) (c : E) &lt; R / 4</span>
+<span id="L658"><a href="#L658">658</a>     rw [dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L659"><a href="#L659">659</a>     exact hx.trans hrq</span>
+<span id="L660"><a href="#L660">660</a>   have hysq : (ys : E) ∈ ball (c : E) (R / 4) := by</span>
+<span id="L661"><a href="#L661">661</a>     rw [mem_ball]</span>
+<span id="L662"><a href="#L662">662</a>     change dist ((c : E) + y) (c : E) &lt; R / 4</span>
+<span id="L663"><a href="#L663">663</a>     rw [dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L664"><a href="#L664">664</a>     exact hy.trans hrq</span>
+<span id="L665"><a href="#L665">665</a>   have hfm := map_midpoint_of_mem_ball f c hR hsball htball</span>
+<span id="L666"><a href="#L666">666</a>     xs ys hxsq hysq</span>
+<span id="L667"><a href="#L667">667</a>   have hsource : midpoint ℝ (xs : E) (ys : E) = (ms : E) := by</span>
+<span id="L668"><a href="#L668">668</a>     change midpoint ℝ ((c : E) + x) ((c : E) + y) =</span>
+<span id="L669"><a href="#L669">669</a>       (c : E) + midpoint ℝ x y</span>
+<span id="L670"><a href="#L670">670</a>     simp only [midpoint_eq_smul_add, invOf_eq_inv, smul_add]</span>
+<span id="L671"><a href="#L671">671</a>     module</span>
+<span id="L672"><a href="#L672">672</a>   have hinput :</span>
+<span id="L673"><a href="#L673">673</a>       (⟨midpoint ℝ (xs : E) (ys : E), hsball (by</span>
+<span id="L674"><a href="#L674">674</a>         rw [mem_ball]</span>
+<span id="L675"><a href="#L675">675</a>         calc</span>
+<span id="L676"><a href="#L676">676</a>           dist (midpoint ℝ (xs : E) (ys : E)) (c : E) ≤</span>
+<span id="L677"><a href="#L677">677</a>               (dist (xs : E) (c : E) + dist (ys : E) (c : E)) / 2 := by</span>
+<span id="L678"><a href="#L678">678</a>                 simpa [dist_comm] using</span>
+<span id="L679"><a href="#L679">679</a>                   dist_midpoint_midpoint_le (xs : E) (ys : E) (c : E) (c : E)</span>
+<span id="L680"><a href="#L680">680</a>           _ &lt; R := by rw [mem_ball] at hxsq hysq; linarith)⟩ : s) = ms := by</span>
+<span id="L681"><a href="#L681">681</a>     apply Subtype.ext</span>
+<span id="L682"><a href="#L682">682</a>     exact hsource</span>
+<span id="L683"><a href="#L683">683</a>   rw [hinput] at hfm</span>
+<span id="L684"><a href="#L684">684</a>   rw [radialMap_eq_sub_of_norm_lt f c r R hr hrR hR hrq hsball htball</span>
+<span id="L685"><a href="#L685">685</a>       (midpoint ℝ x y) hmnorm,</span>
+<span id="L686"><a href="#L686">686</a>     radialMap_eq_sub_of_norm_lt f c r R hr hrR hR hrq hsball htball x hx,</span>
+<span id="L687"><a href="#L687">687</a>     radialMap_eq_sub_of_norm_lt f c r R hr hrR hR hrq hsball htball y hy]</span>
+<span id="L688"><a href="#L688">688</a>   change ((f ms : t) : F) - ((f c : t) : F) =</span>
+<span id="L689"><a href="#L689">689</a>     midpoint ℝ (((f xs : t) : F) - ((f c : t) : F))</span>
+<span id="L690"><a href="#L690">690</a>       (((f ys : t) : F) - ((f c : t) : F))</span>
+<span id="L691"><a href="#L691">691</a>   rw [hfm]</span>
+<span id="L692"><a href="#L692">692</a>   simp only [midpoint_eq_smul_add, invOf_eq_inv]</span>
+<span id="L693"><a href="#L693">693</a>   module</span>
+<span id="L694"><a href="#L694">694</a> </span>
+<span id="L695"><a href="#L695">695</a> /-- An isometry between subsets that contain corresponding ambient balls has</span>
+<span id="L696"><a href="#L696">696</a> an ambient affine-isometry extension on a smaller concentric ball. -/</span>
+<span id="L697"><a href="#L697">697</a> theorem exists_affineExtension_eqOn_ball</span>
+<span id="L698"><a href="#L698">698</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) {R : ℝ} (hR : 0 &lt; R)</span>
+<span id="L699"><a href="#L699">699</a>     (hsball : ball (c : E) R ⊆ s)</span>
+<span id="L700"><a href="#L700">700</a>     (htball : ball ((f c : t) : F) R ⊆ t) :</span>
+<span id="L701"><a href="#L701">701</a>     ∃ A : E ≃ᵃⁱ[ℝ] F, ∀ x : s,</span>
+<span id="L702"><a href="#L702">702</a>       (x : E) ∈ ball (c : E) (R / 8) → A (x : E) = ((f x : t) : F) := by</span>
+<span id="L703"><a href="#L703">703</a>   let r : ℝ := R / 8</span>
+<span id="L704"><a href="#L704">704</a>   have hr : 0 &lt; r := by dsimp [r]; linarith</span>
+<span id="L705"><a href="#L705">705</a>   have hrR : r &lt; R := by dsimp [r]; linarith</span>
+<span id="L706"><a href="#L706">706</a>   have hrq : r &lt; R / 4 := by dsimp [r]; linarith</span>
+<span id="L707"><a href="#L707">707</a>   let T : E → F := radialMap f c r R hr hrR hsball</span>
+<span id="L708"><a href="#L708">708</a>   have hT0 : T 0 = 0 := by simp [T]</span>
+<span id="L709"><a href="#L709">709</a>   have hTnorm : ∀ x, ‖T x‖ = ‖x‖ := by</span>
+<span id="L710"><a href="#L710">710</a>     intro x</span>
+<span id="L711"><a href="#L711">711</a>     exact norm_radialMap f c r R hr hrR hsball x</span>
+<span id="L712"><a href="#L712">712</a>   have hTmid : ∀ x y, T (midpoint ℝ x y) = midpoint ℝ (T x) (T y) :=</span>
+<span id="L713"><a href="#L713">713</a>     map_midpoint_of_local_of_smul_pos T hr</span>
+<span id="L714"><a href="#L714">714</a>       (fun a ha x ↦ radialMap_smul_of_pos f c r R hr hrR hsball ha x)</span>
+<span id="L715"><a href="#L715">715</a>       (fun x y hx hy ↦</span>
+<span id="L716"><a href="#L716">716</a>         radialMap_midpoint_of_norm_lt f c r R hr hrR hR hrq hsball htball</span>
+<span id="L717"><a href="#L717">717</a>           x y hx hy)</span>
+<span id="L718"><a href="#L718">718</a>   let L : E →ₗᵢ[ℝ] F := midpointLinearIsometry T hT0 hTmid hTnorm</span>
+<span id="L719"><a href="#L719">719</a>   have hball_range : ball (0 : F) r ⊆</span>
+<span id="L720"><a href="#L720">720</a>       ((LinearMap.range L.toLinearMap : Submodule ℝ F) : Set F) := by</span>
+<span id="L721"><a href="#L721">721</a>     intro y hy</span>
+<span id="L722"><a href="#L722">722</a>     rw [mem_ball] at hy</span>
+<span id="L723"><a href="#L723">723</a>     have hynorm : ‖y‖ &lt; r := by simpa using hy</span>
+<span id="L724"><a href="#L724">724</a>     let yt : t := ⟨((f c : t) : F) + y, htball (by</span>
+<span id="L725"><a href="#L725">725</a>       rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L726"><a href="#L726">726</a>       exact hynorm.trans hrR)⟩</span>
+<span id="L727"><a href="#L727">727</a>     let xs : s := f.symm yt</span>
+<span id="L728"><a href="#L728">728</a>     let z : E := (xs : E) - (c : E)</span>
+<span id="L729"><a href="#L729">729</a>     have hz : ‖z‖ &lt; r := by</span>
+<span id="L730"><a href="#L730">730</a>       change ‖(xs : E) - (c : E)‖ &lt; r</span>
+<span id="L731"><a href="#L731">731</a>       rw [← dist_eq_norm, ← Subtype.dist_eq, ← f.dist_eq, f.apply_symm_apply,</span>
+<span id="L732"><a href="#L732">732</a>         Subtype.dist_eq]</span>
+<span id="L733"><a href="#L733">733</a>       change dist (((f c : t) : F) + y) ((f c : t) : F) &lt; r</span>
+<span id="L734"><a href="#L734">734</a>       simpa [dist_eq_norm] using hynorm</span>
+<span id="L735"><a href="#L735">735</a>     have hlocal := radialMap_eq_sub_of_norm_lt f c r R hr hrR hR hrq</span>
+<span id="L736"><a href="#L736">736</a>       hsball htball z hz</span>
+<span id="L737"><a href="#L737">737</a>     have hpoint :</span>
+<span id="L738"><a href="#L738">738</a>         (⟨(c : E) + z, hsball (by</span>
+<span id="L739"><a href="#L739">739</a>           rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L740"><a href="#L740">740</a>           exact hz.trans hrR)⟩ : s) = xs := by</span>
+<span id="L741"><a href="#L741">741</a>       apply Subtype.ext</span>
+<span id="L742"><a href="#L742">742</a>       dsimp [z]</span>
+<span id="L743"><a href="#L743">743</a>       abel</span>
+<span id="L744"><a href="#L744">744</a>     rw [hpoint, show f xs = yt from f.apply_symm_apply yt] at hlocal</span>
+<span id="L745"><a href="#L745">745</a>     have hTy : T z = y := by</span>
+<span id="L746"><a href="#L746">746</a>       change radialMap f c r R hr hrR hsball z = y</span>
+<span id="L747"><a href="#L747">747</a>       change radialMap f c r R hr hrR hsball z =</span>
+<span id="L748"><a href="#L748">748</a>         (((f c : t) : F) + y) - ((f c : t) : F) at hlocal</span>
+<span id="L749"><a href="#L749">749</a>       simpa using hlocal</span>
+<span id="L750"><a href="#L750">750</a>     refine ⟨z, ?_⟩</span>
+<span id="L751"><a href="#L751">751</a>     change L z = y</span>
+<span id="L752"><a href="#L752">752</a>     rw [coe_midpointLinearIsometry]</span>
+<span id="L753"><a href="#L753">753</a>     exact hTy</span>
+<span id="L754"><a href="#L754">754</a>   have hrange_interior :</span>
+<span id="L755"><a href="#L755">755</a>       (interior ((LinearMap.range L.toLinearMap : Submodule ℝ F) : Set F)).Nonempty := by</span>
+<span id="L756"><a href="#L756">756</a>     refine ⟨0, mem_interior_iff_mem_nhds.2 ?_⟩</span>
+<span id="L757"><a href="#L757">757</a>     exact Filter.mem_of_superset (ball_mem_nhds (0 : F) hr) hball_range</span>
+<span id="L758"><a href="#L758">758</a>   have hrange_top : LinearMap.range L.toLinearMap = ⊤ :=</span>
+<span id="L759"><a href="#L759">759</a>     Submodule.eq_top_of_nonempty_interior&#x27; (LinearMap.range L.toLinearMap) hrange_interior</span>
+<span id="L760"><a href="#L760">760</a>   have hsurj : Function.Surjective L := LinearMap.range_eq_top.mp hrange_top</span>
+<span id="L761"><a href="#L761">761</a>   let e : E ≃ₗᵢ[ℝ] F := LinearIsometryEquiv.ofSurjective L hsurj</span>
+<span id="L762"><a href="#L762">762</a>   let A : E ≃ᵃⁱ[ℝ] F := AffineIsometryEquiv.mk&#x27;</span>
+<span id="L763"><a href="#L763">763</a>     (fun x : E ↦ e (x - (c : E)) + ((f c : t) : F)) e (c : E) (by</span>
+<span id="L764"><a href="#L764">764</a>       intro x</span>
+<span id="L765"><a href="#L765">765</a>       simp)</span>
+<span id="L766"><a href="#L766">766</a>   refine ⟨A, ?_⟩</span>
+<span id="L767"><a href="#L767">767</a>   intro x hx</span>
+<span id="L768"><a href="#L768">768</a>   have hxnorm : ‖(x : E) - (c : E)‖ &lt; r := by</span>
+<span id="L769"><a href="#L769">769</a>     rw [mem_ball, dist_eq_norm] at hx</span>
+<span id="L770"><a href="#L770">770</a>     exact hx</span>
+<span id="L771"><a href="#L771">771</a>   have hlocal := radialMap_eq_sub_of_norm_lt f c r R hr hrR hR hrq</span>
+<span id="L772"><a href="#L772">772</a>     hsball htball ((x : E) - (c : E)) hxnorm</span>
+<span id="L773"><a href="#L773">773</a>   have hpoint :</span>
+<span id="L774"><a href="#L774">774</a>       (⟨(c : E) + ((x : E) - (c : E)), hsball (by</span>
+<span id="L775"><a href="#L775">775</a>         rw [mem_ball, dist_eq_norm, add_sub_cancel_left]</span>
+<span id="L776"><a href="#L776">776</a>         exact hxnorm.trans hrR)⟩ : s) = x := by</span>
+<span id="L777"><a href="#L777">777</a>     apply Subtype.ext</span>
+<span id="L778"><a href="#L778">778</a>     abel_nf</span>
+<span id="L779"><a href="#L779">779</a>   rw [hpoint] at hlocal</span>
+<span id="L780"><a href="#L780">780</a>   change e ((x : E) - (c : E)) + ((f c : t) : F) = ((f x : t) : F)</span>
+<span id="L781"><a href="#L781">781</a>   change L ((x : E) - (c : E)) + ((f c : t) : F) = ((f x : t) : F)</span>
+<span id="L782"><a href="#L782">782</a>   rw [coe_midpointLinearIsometry]</span>
+<span id="L783"><a href="#L783">783</a>   change radialMap f c r R hr hrR hsball ((x : E) - (c : E)) +</span>
+<span id="L784"><a href="#L784">784</a>     ((f c : t) : F) = ((f x : t) : F)</span>
+<span id="L785"><a href="#L785">785</a>   rw [hlocal]</span>
+<span id="L786"><a href="#L786">786</a>   abel</span>
+<span id="L787"><a href="#L787">787</a> </span>
+<span id="L788"><a href="#L788">788</a> end IsometryEquiv</span>
+<span id="L789"><a href="#L789">789</a> </span>
+<span id="L790"><a href="#L790">790</a> end</span>
+<span id="L791"><a href="#L791">791</a> </span>
+<span id="L792"><a href="#L792">792</a> end MathlibAnnex</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

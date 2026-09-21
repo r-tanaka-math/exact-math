@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "44bba6f5d3c960a8a54263fc9244309c560789107cbc6729a6ffbdf6af05ddc8",
+  "approved_card_model_sha256": "01932acb39b143ea87cd7aa94f864622ab331ce5127766c96eda1faf9d144e65",
+  "assumptions": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a separable complex Hilbert space; let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A; and let D be a closed unital star subalgebra of Unitization ℂ A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "22237a1d60bd1b4dae08a2f0dfe2cc4ccdc6f96f85b6be11b110839d3e1671f9",
+    "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_unit_eigenvector_of_character_ne_infinity",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "66362986cb8e27b76374628c9b58a049b33fc3ce262e58e3e38d04a93a47ed08",
+        "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "The entire character space of D is countable, including the distinguished scalar character.",
+  "declaration_kind": "theorem",
+  "definition_equation": "Countable (WeakDual.characterSpace ℂ D).",
+  "definition_explanation": "Countable (WeakDual.characterSpace ℂ D).",
+  "display_title": "Countability of the full character space",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (D : StarSubalgebra ℂ (Unitization ℂ A)) [inst_8 : IsClosed ↑D], Countable ↑(WeakDual.characterSpace ℂ ↥D)",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "7b776aba3a7c6f586aa065a772ec1bce99bedc1fe5993759ef7c1987de61bc69",
+    "uid": "lfh:lfh-card-exposition:sha256:359f0e90b5c3795e222e12bd62309fb22d336eec559b6b3de3fd7f48059ccca9"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "02e05a11c35bab5f4d7b417410da8d1974f048212c38eb82cbdbfd8485087f2a",
+    "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "7b776aba3a7c6f586aa065a772ec1bce99bedc1fe5993759ef7c1987de61bc69",
+    "uid": "lfh:lfh-card-exposition:sha256:359f0e90b5c3795e222e12bd62309fb22d336eec559b6b3de3fd7f48059ccca9"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "02e05a11c35bab5f4d7b417410da8d1974f048212c38eb82cbdbfd8485087f2a",
+      "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.countable_characterSpace_of_nonUnital_singleton",
+  "natural_language_statement": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a separable complex Hilbert space; let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A; and let D be a closed unital star subalgebra of Unitization ℂ A. The entire character space of D is countable, including the distinguished scalar character.",
+  "one_sentence_role": "Shows that the full character space of a closed unitization subalgebra is countable when π is a separably acting representative of the unique irreducible-representation class.",
+  "owner_review_item_sha256": "0f4af09fd7c4e2c8b077f9f6b72ea51aaf005e5b22c710eaff12b2585671b82a",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (D : StarSubalgebra ℂ (Unitization ℂ A)) [inst_8 : IsClosed ↑D], Countable ↑(WeakDual.characterSpace ℂ ↥D)"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "Countable (WeakDual.characterSpace ℂ D)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "For each character other than infinityCharacterOn D, the prior source theorem supplies a joint unit eigenvector. Distinct characters give orthogonal vectors, so separability of H makes that complement countable. The source then maps the disjoint sum of the complement and one Unit onto the entire character space."
+    }
+  ],
+  "proof_summary": "For each character other than infinityCharacterOn D, the prior source theorem supplies a joint unit eigenvector. Distinct characters give orthogonal vectors, so separability of H makes that complement countable. The source then maps the disjoint sum of the complement and one Unit onto the entire character space.",
+  "source_excerpt": {
+    "bytes": 991,
+    "sha256": "4bb50850d4c04d909d073635dae7b18e8c537cb19674a84e12634f51c1240153"
+  },
+  "source_locator": {
+    "end_column": 21,
+    "end_line": 114,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean",
+    "source_sha256": "4f8b4d41bb6f0723a340a47c54a547add543149ad3cb0b046ab691233676d396",
+    "start_column": 1,
+    "start_line": 93
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "44cab0ce366ba6d7c146d0b7d0d80d4c596e78142f056519bd1c2a60a8b0595b",
+    "uid": "lfh:lfh-source-build-binding:sha256:016b645d4c0437574fe1f39d3c257169f1e7fca9ee27efbfb2210a6034bf959b"
+  },
+  "source_sha256": "4f8b4d41bb6f0723a340a47c54a547add543149ad3cb0b046ab691233676d396",
+  "source_signature": {
+    "end_byte": 4197,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "335bfb36cede365df651ec44301bd81c19d6829f3a4969fe0e6b1b00348c5ef2",
+    "source_command_range": {
+      "end_column": 21,
+      "end_line": 114,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean",
+      "source_sha256": "4f8b4d41bb6f0723a340a47c54a547add543149ad3cb0b046ab691233676d396",
+      "start_column": 1,
+      "start_line": 93
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean",
+    "source_sha256": "4f8b4d41bb6f0723a340a47c54a547add543149ad3cb0b046ab691233676d396",
+    "start_byte": 3844,
+    "text": "theorem countable_characterSpace_of_nonUnital_singleton [Nontrivial A]\n    [TopologicalSpace.SeparableSpace H]\n    (pi : NonUnitalCStarRepresentation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)\n    (D : StarSubalgebra ℂ (Unitization ℂ A))\n    [IsClosed (D : Set (Unitization ℂ A))] :\n    Countable (WeakDual.characterSpace ℂ D)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean#L93-L114",
+  "stable_card_id": "ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

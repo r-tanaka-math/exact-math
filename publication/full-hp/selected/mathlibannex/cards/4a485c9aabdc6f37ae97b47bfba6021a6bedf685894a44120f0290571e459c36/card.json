@@ -1,0 +1,159 @@
+{
+  "assumptions": "Real normed vector spaces; an isometry equivalence between symmetric lenses of the same radius r; both half-distances between the respective foci are at most r.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "aa07f5efc7a9d59552a046091c57dfad6548ee065751704b012ec1f00954522b",
+    "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+  },
+  "citations": [
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.mapsTo_pointReflection_symmetricLens",
+      "source_locator": {
+        "end_column": 19,
+        "end_line": 62,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 40
+      },
+      "text": "The proof or construction of Midpoint preservation on a symmetric lens uses the project declaration “A symmetric lens is invariant under reflection about its midpoint” at the indicated step."
+    },
+    {
+      "label": "MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "87c6848b90700ef729e5e4c337c08137c9495291a3155b705a5ad63663287d77",
+        "uid": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0"
+      },
+      "text": "The proof or construction of Midpoint preservation on a symmetric lens uses the project declaration “Center transport under bounded point-reflection symmetry” at the indicated step."
+    },
+    {
+      "label": "MathlibAnnex.symmetricLens",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3935024dd76f1c0d54f0ff1aa13a35e31d2a4b7ebce1fae22ae01e793e6eba20",
+        "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+      },
+      "text": "The proof or construction of Midpoint preservation on a symmetric lens uses the project declaration “Symmetric lens” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.midpoint_mem_symmetricLens",
+      "source_locator": {
+        "end_column": 70,
+        "end_line": 38,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 34
+      },
+      "text": "The proof or construction of Midpoint preservation on a symmetric lens uses the project declaration “The midpoint belongs to a sufficiently large symmetric lens” at the indicated step."
+    }
+  ],
+  "conclusion": "The isometry maps the midpoint of the source foci to the midpoint of the target foci.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Midpoint preservation on a symmetric lens",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "d744bad64277ccb9a4d5ef0cf4fc1fb458eb1342e95462e63c0e9c74f4af8602",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:e79dd07bbe873623d99f2468120900f0dc06ae5669fffce2833a9e40c1784308"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "21daf8652777c81a08e94a4a7a3eff63eef5bfd09483b15da2b62d60227b0e87",
+    "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "d744bad64277ccb9a4d5ef0cf4fc1fb458eb1342e95462e63c0e9c74f4af8602",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:e79dd07bbe873623d99f2468120900f0dc06ae5669fffce2833a9e40c1784308"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "21daf8652777c81a08e94a4a7a3eff63eef5bfd09483b15da2b62d60227b0e87",
+      "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+  "natural_language_statement": "Assume the midpoint of x,y belongs to symmetricLens(x,y,r), and likewise the midpoint of x′,y′ belongs to symmetricLens(x′,y′,r), as expressed by the two half-distance inequalities. Any isometry equivalence between these lenses maps midpoint(x,y) to midpoint(x′,y′).",
+  "one_sentence_role": "Turns bounded reflection symmetry of equal-radius lenses into midpoint preservation.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Use the half-distance inequalities to place both midpoints in their respective lenses."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Bound the source lens by one of its defining closed balls."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Use reflection invariance of each lens about the corresponding midpoint."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Apply center transport to the lens isometry and erase the subtype wrapper."
+    }
+  ],
+  "proof_summary": "A symmetric lens is bounded and invariant under point reflection about the midpoint of its foci. The center-transport theorem therefore sends the source midpoint to the target midpoint.",
+  "source_locator": {
+    "end_column": 31,
+    "end_line": 80,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_column": 1,
+    "start_line": 66
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "80b5d17ff0d0007cfa7acf0f82de1f97bb660ac2bfa639891c8cc9bc72ada613",
+    "uid": "lfh:lfh-source-build-binding:sha256:38c0b65aeacdb1900e79be73757e8517c193b885077790109517bd64e6e7b424"
+  },
+  "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+  "source_signature": {
+    "end_byte": 2914,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "c1a93ec73de0de2cab77dc0c341e5a1f6344fd0ddf572ea92b1110b642463813",
+    "source_command_range": {
+      "end_column": 31,
+      "end_line": 80,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+      "start_column": 1,
+      "start_line": 66
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_byte": 2587,
+    "text": "theorem map_midpoint_of_symmetricLens\n    {x y : E} {x' y' : F} {r : ℝ}\n    (hxy : 2⁻¹ * dist x y ≤ r) (hxy' : 2⁻¹ * dist x' y' ≤ r)\n    (f : symmetricLens x y r ≃ᵢ symmetricLens x' y' r) :\n    ((f ⟨midpoint ℝ x y, midpoint_mem_symmetricLens hxy⟩ :\n        symmetricLens x' y' r) : F) = midpoint ℝ x' y'"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L66-L80",
+  "stable_card_id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.Representation.surjective_of_irreducible_of_finiteDimensional</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/cards/a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00/"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a><span> · Public edition</span></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.Representation.surjective_of_irreducible_of_finiteDimensional</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem surjective_of_irreducible_of_finiteDimensional [Nontrivial H]
+    [FiniteDimensional ℂ H]
+    (pi : Representation A H) (hirr : pi.IsIrreducible) :
+    Function.Surjective pi</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import Mathlib.LinearAlgebra.Complex.Module</span>
+<span id="L2"><a href="#L2">2</a> import MathlibAnnex.Analysis.CStarAlgebra.ExactInterpolation</span>
+<span id="L3"><a href="#L3">3</a> import MathlibAnnex.Analysis.CStarAlgebra.Representation.FiniteDimension</span>
+<span id="L4"><a href="#L4">4</a> </span>
+<span id="L5"><a href="#L5">5</a> /-!</span>
+<span id="L6"><a href="#L6">6</a> # Full operator image in finite dimension</span>
+<span id="L7"><a href="#L7">7</a> -/</span>
+<span id="L8"><a href="#L8">8</a> </span>
+<span id="L9"><a href="#L9">9</a> set_option autoImplicit false</span>
+<span id="L10"><a href="#L10">10</a> </span>
+<span id="L11"><a href="#L11">11</a> open scoped ComplexOrder ComplexStarModule</span>
+<span id="L12"><a href="#L12">12</a> </span>
+<span id="L13"><a href="#L13">13</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L14"><a href="#L14">14</a> </span>
+<span id="L15"><a href="#L15">15</a> universe u v</span>
+<span id="L16"><a href="#L16">16</a> </span>
+<span id="L17"><a href="#L17">17</a> variable {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L18"><a href="#L18">18</a> variable {H : Type v}</span>
+<span id="L19"><a href="#L19">19</a> variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L20"><a href="#L20">20</a> </span>
+<span id="L21"><a href="#L21">21</a> namespace Representation</span>
+<span id="L22"><a href="#L22">22</a> </span>
+<span id="L23"><a href="#L23">23</a> /-- Exact interpolation on the whole finite-dimensional Hilbert space gives</span>
+<span id="L24"><a href="#L24">24</a> an algebra preimage of every self-adjoint operator. -/</span>
+<span id="L25"><a href="#L25">25</a> theorem exists_preimage_of_isSelfAdjoint [Nontrivial H]</span>
+<span id="L26"><a href="#L26">26</a>     [FiniteDimensional ℂ H]</span>
+<span id="L27"><a href="#L27">27</a>     (pi : Representation A H) (hirr : pi.IsIrreducible)</span>
+<span id="L28"><a href="#L28">28</a>     (T : H →L[ℂ] H) (hT : IsSelfAdjoint T) :</span>
+<span id="L29"><a href="#L29">29</a>     ∃ a : A, pi a = T := by</span>
+<span id="L30"><a href="#L30">30</a>   obtain ⟨a, _ha, _hanorm, hexact⟩ :=</span>
+<span id="L31"><a href="#L31">31</a>     exists_selfAdjoint_norm_le_two_mul_and_eq_on pi</span>
+<span id="L32"><a href="#L32">32</a>       (isIrreducible_starAlgHom pi hirr) (⊤ : Submodule ℂ H) T hT</span>
+<span id="L33"><a href="#L33">33</a>   refine ⟨a, ContinuousLinearMap.ext fun x =&gt; ?_⟩</span>
+<span id="L34"><a href="#L34">34</a>   exact hexact x (by trivial)</span>
+<span id="L35"><a href="#L35">35</a> </span>
+<span id="L36" class="source-highlight"><a href="#L36">36</a> /-- An irreducible representation on a nonzero finite-dimensional Hilbert</span>
+<span id="L37" class="source-highlight"><a href="#L37">37</a> space has full operator image. -/</span>
+<span id="L38" class="source-highlight"><a href="#L38">38</a> theorem surjective_of_irreducible_of_finiteDimensional [Nontrivial H]</span>
+<span id="L39" class="source-highlight"><a href="#L39">39</a>     [FiniteDimensional ℂ H]</span>
+<span id="L40" class="source-highlight"><a href="#L40">40</a>     (pi : Representation A H) (hirr : pi.IsIrreducible) :</span>
+<span id="L41" class="source-highlight"><a href="#L41">41</a>     Function.Surjective pi := by</span>
+<span id="L42" class="source-highlight"><a href="#L42">42</a>   intro T</span>
+<span id="L43" class="source-highlight"><a href="#L43">43</a>   obtain ⟨a, ha⟩ :=</span>
+<span id="L44" class="source-highlight"><a href="#L44">44</a>     exists_preimage_of_isSelfAdjoint pi hirr</span>
+<span id="L45" class="source-highlight"><a href="#L45">45</a>       (ℜ T : H →L[ℂ] H) (ℜ T).prop</span>
+<span id="L46" class="source-highlight"><a href="#L46">46</a>   obtain ⟨b, hb⟩ :=</span>
+<span id="L47" class="source-highlight"><a href="#L47">47</a>     exists_preimage_of_isSelfAdjoint pi hirr</span>
+<span id="L48" class="source-highlight"><a href="#L48">48</a>       (ℑ T : H →L[ℂ] H) (ℑ T).prop</span>
+<span id="L49" class="source-highlight"><a href="#L49">49</a>   refine ⟨a + Complex.I • b, ?_⟩</span>
+<span id="L50" class="source-highlight"><a href="#L50">50</a>   calc</span>
+<span id="L51" class="source-highlight"><a href="#L51">51</a>     pi (a + Complex.I • b) = pi a + Complex.I • pi b := by simp</span>
+<span id="L52" class="source-highlight"><a href="#L52">52</a>     _ = (ℜ T : H →L[ℂ] H) + Complex.I • (ℑ T : H →L[ℂ] H) := by</span>
+<span id="L53" class="source-highlight"><a href="#L53">53</a>       rw [ha, hb]</span>
+<span id="L54" class="source-highlight"><a href="#L54">54</a>     _ = T := realPart_add_I_smul_imaginaryPart T</span>
+<span id="L55"><a href="#L55">55</a> </span>
+<span id="L56"><a href="#L56">56</a> /-- For a separable singleton irreducible model, the represented operators</span>
+<span id="L57"><a href="#L57">57</a> are exactly the compact operators.  In fact the Hilbert space is finite-</span>
+<span id="L58"><a href="#L58">58</a> dimensional and the represented image is all bounded operators. -/</span>
+<span id="L59"><a href="#L59">59</a> theorem isCompactOperatorModel_of_singleton [Nontrivial A]</span>
+<span id="L60"><a href="#L60">60</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L61"><a href="#L61">61</a>     (pi : Representation A H)</span>
+<span id="L62"><a href="#L62">62</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L63"><a href="#L63">63</a>     IsCompactOperatorModel pi.toNonUnitalStarAlgHom := by</span>
+<span id="L64"><a href="#L64">64</a>   letI : Nontrivial H := nontrivial_of_isNonzero pi hsingle.1.1</span>
+<span id="L65"><a href="#L65">65</a>   letI : FiniteDimensional ℂ H :=</span>
+<span id="L66"><a href="#L66">66</a>     finiteDimensional_space_of_singleton pi hsingle</span>
+<span id="L67"><a href="#L67">67</a>   refine ⟨injective_of_singleton pi hsingle, ?_, ?_⟩</span>
+<span id="L68"><a href="#L68">68</a>   · intro a</span>
+<span id="L69"><a href="#L69">69</a>     change IsCompactOperator (pi a)</span>
+<span id="L70"><a href="#L70">70</a>     exact isCompactOperator_of_locallyCompactSpace_rng (pi a)</span>
+<span id="L71"><a href="#L71">71</a>   · intro T _hT</span>
+<span id="L72"><a href="#L72">72</a>     exact surjective_of_irreducible_of_finiteDimensional pi hsingle.1 T</span>
+<span id="L73"><a href="#L73">73</a> </span>
+<span id="L74"><a href="#L74">74</a> /-- The faithful/full-compact-image conclusion for a separable singleton</span>
+<span id="L75"><a href="#L75">75</a> irreducible model of a nonzero unital C-star algebra. -/</span>
+<span id="L76"><a href="#L76">76</a> theorem faithful_and_compactOperatorModel_of_singleton [Nontrivial A]</span>
+<span id="L77"><a href="#L77">77</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L78"><a href="#L78">78</a>     (pi : Representation A H)</span>
+<span id="L79"><a href="#L79">79</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L80"><a href="#L80">80</a>     Function.Injective pi ∧</span>
+<span id="L81"><a href="#L81">81</a>       IsCompactOperatorModel pi.toNonUnitalStarAlgHom :=</span>
+<span id="L82"><a href="#L82">82</a>   ⟨injective_of_singleton pi hsingle,</span>
+<span id="L83"><a href="#L83">83</a>     isCompactOperatorModel_of_singleton pi hsingle⟩</span>
+<span id="L84"><a href="#L84">84</a> </span>
+<span id="L85"><a href="#L85">85</a> end Representation</span>
+<span id="L86"><a href="#L86">86</a> </span>
+<span id="L87"><a href="#L87">87</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

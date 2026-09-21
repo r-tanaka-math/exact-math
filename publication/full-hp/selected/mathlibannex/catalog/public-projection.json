@@ -1,0 +1,1256 @@
+{
+  "card_count": 44,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5b6417ca84b7f238af19c451492ddf07d9960d3c2b4eae863704a3ad8e7ad3ce",
+        "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+      },
+      "display_title": "Unbundled compact-operator model",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "f43437a5550cb3475eccb96f704a175c4c2754875e439729dfbd3de3bc52bbf8",
+          "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.IsCompactOperatorModel",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "5b2f684516cf3fdfdc06b76b3b80b7646327b9938f05265d50569160ec1f8fe0",
+        "uid": "lfh:lfh-source-build-binding:sha256:263cd2affc1e91d7a31fcc92136f7c6572add41befbc9064a0f6622aeed1c61f"
+      },
+      "stable_card_id": "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "6ecd9d4cd166a51597108ebc647b9591f3f695086b94c6969a58bccef565a979",
+        "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+      },
+      "display_title": "Maximal abelian star subalgebra",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "f830f627c6907964206109bd4182cbe0f7c1693ca9fda1d2aa89b88f8cb10731",
+          "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.IsMaximalAbelian",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "9afa42deaa36f53d0f06356dd477c6e6af230d267a1a30f9d3aaea67e2e7d2d5",
+        "uid": "lfh:lfh-source-build-binding:sha256:b63e6e5e47091fdab51529ea3cd343208e4469dcfffeab25bce20a13eeccba43"
+      },
+      "stable_card_id": "005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ab3cc7055573144f26c2ee004138fc8a252ae8b2fbc21ba53cbcfc4e5337a997",
+        "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+      },
+      "display_title": "Pure state as an extreme point",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "bd662ee5c7c8f54f4c39f397c0b9dcb9cd567f2a26af4347961804fdffca0321",
+          "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.IsPureState",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "81a4ab904ca5fbfd345c9451fea869ecf593f90a506f5b199048d44b0aff7fd9",
+        "uid": "lfh:lfh-source-build-binding:sha256:6e0195335cab6dce6ff4fbd5c7e97832791eb8b11e880a07ebf035b142234067"
+      },
+      "stable_card_id": "2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5f6518c19b7ddf2cefa410727daa089f8bcd028d40af5d7507d33d3490084f9c",
+        "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+      },
+      "display_title": "Possibly nonunital representation",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "b2aa767e7e85af3303a011a55aae3db93675da34615cda0b89fee35a254b06d4",
+          "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "f6d88bc048ef5fdc3f420370f97e310a31e6bb8eba30c2eac34faddcd3718b19",
+        "uid": "lfh:lfh-source-build-binding:sha256:d10de03d86f92a30d6272993cf10865905be8ead51354ad52d0ea3184d60dfb2"
+      },
+      "stable_card_id": "fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "bc9645084bd34c210153e9a1ceb61fa2f603b776edf5ab668678f9356e023b96",
+        "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+      },
+      "display_title": "Nonunital irreducibility",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "4d15da98d9d54e36b6911405aa170288a8ff8783eb736564c3e50f5f863670c6",
+          "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsIrreducible",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "59e8821fd3eecaca82b9c0a3eff78db2d717f4a7eace5aeb0b4da88fb8e5b64e",
+        "uid": "lfh:lfh-source-build-binding:sha256:2bd6e9ed6e4a4046de7d282d86fa874e2d3dda7cc424711f9ba24675bdc1d948"
+      },
+      "stable_card_id": "c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "c089732cc79ef2a1a463e42c0bd496ccda8b2525b493dc8bcde5e4da70950bdb",
+        "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+      },
+      "display_title": "Representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "5553da7b5d1552857c513a050d63babbc8218f58ae95bb7b5ea08befeba4f6d2",
+          "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsSingletonIrreducibleModel",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "9b7bb56ec602001e65f02c21312dadbab4ca79d90caaef3403f0e45ac6d07978",
+        "uid": "lfh:lfh-source-build-binding:sha256:8f98697270abb8d0332c3fbf4ca967d3e2ee30d5b7996effd5fc859e55bcf94d"
+      },
+      "stable_card_id": "15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "a8e25386a77ea847a8782daf3e66b3684a80f4986143acac07d0377f2fbd2dff",
+        "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+      },
+      "display_title": "Unitary equivalence of nonunital representations",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "dd91944fd4f817b177b2d06252d7f72f38b83f18e143f45635d33e5b926d38ff",
+          "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.UnitaryEquivalent",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "6718f1bae5ed76b5f6475e186e688034d065c4d6a8182306b516c69852a111d5",
+        "uid": "lfh:lfh-source-build-binding:sha256:609d0361705849bd5dd96bf10a1a8f32b908de2f704a0405eb88cd65e184874c"
+      },
+      "stable_card_id": "caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "22237a1d60bd1b4dae08a2f0dfe2cc4ccdc6f96f85b6be11b110839d3e1671f9",
+        "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+      },
+      "display_title": "Countability of the full character space",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "02e05a11c35bab5f4d7b417410da8d1974f048212c38eb82cbdbfd8485087f2a",
+          "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.countable_characterSpace_of_nonUnital_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "44cab0ce366ba6d7c146d0b7d0d80d4c596e78142f056519bd1c2a60a8b0595b",
+        "uid": "lfh:lfh-source-build-binding:sha256:016b645d4c0437574fe1f39d3c257169f1e7fca9ee27efbfb2210a6034bf959b"
+      },
+      "stable_card_id": "ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "86c77d8996979dd6453b5b81a6f1314b1a2a146adc1a437fd80d77e3a94c0ee0",
+        "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+      },
+      "display_title": "Isolated character away from infinity",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "537d6569b1dba3d3d4e7b68b9ca2771dc001ee34ab603793c0c5b52211804363",
+          "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_isolated_character_ne_infinity",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "c7a2faab5cca15f9debddeffe8caefcd36e24c46502edd84add7753f2cb745ed",
+        "uid": "lfh:lfh-source-build-binding:sha256:f5ddee6b47cd549c2c4fb02ea750ef1a12ee2e8f4a0be137f35e76f7bb5c8610"
+      },
+      "stable_card_id": "f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "0f8e7968c7269244dff3347b8dd04824dd6f183f487dc52919fbc4e7b19ca3c9",
+        "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+      },
+      "display_title": "A represented rank-one projection from a representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "df1f74ea4614865ac353697213b7fb2a3f742d7cffdd0628480489b8bbf02ef8",
+          "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_rankOne_map",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "0916762b2a87380fcbfa86296bee3e823060a31cc63f14775f0604d340a3918d",
+        "uid": "lfh:lfh-source-build-binding:sha256:cb822c8e183011bad8d81466ea96832748da31f32b6355f9bb9901387e654be9"
+      },
+      "stable_card_id": "c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5b07a7c7de32145f121f2a50d936d721f077b048bca799b7e2852db18b512bba",
+        "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+      },
+      "display_title": "Scalar corner from a representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "f9aee03042ede29cf81434cfda079e454c03b6ccde844be75e8fce9656c92d84",
+          "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_scalar_corner",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "0da2906b1ba8a41c38554c3b8aeff8dbc36327daa642ec842627b93c74feb5ce",
+        "uid": "lfh:lfh-source-build-binding:sha256:07d6597c69f1c0e9fd07a5bd3a0930de3d57ed8bc9288053908849e61f0a1b57"
+      },
+      "stable_card_id": "964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ef9634a120bc677817374b923a401e6b48677300dcbed8bfe81cb3c9b001d2c0",
+        "uid": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8"
+      },
+      "display_title": "Preimages of every compact operator",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "355fdc74e9c42ab927cae65926bb22ed50c733e84a2f58412c73060a6d92ebe6",
+          "uid": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_of_compact_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "0f6e866d38f3a9f02894774996f83b547ba8c9a461b18326f6356e54c048d5b0",
+        "uid": "lfh:lfh-source-build-binding:sha256:407e584c280a977b71206566dbae6c72320eeae9cea8fc1b654b42547e966454"
+      },
+      "stable_card_id": "0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "a1c2ac8a3243c4697c1d5133870dfbda664c5a4e32cfba5f403fe5d6f387df5a",
+        "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+      },
+      "display_title": "Preimages for all operators of the form rankOne",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "4070a659493df7373c0494197c1eaf7bb76535cf97cc61a4ffecab5f7f77ac0e",
+          "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_rankOne_of_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "b54efc338d43e8d21036eb262d792f8321d60cc956b7c9f6e97f816512a82ff0",
+        "uid": "lfh:lfh-source-build-binding:sha256:ff0a74bf66b234c09a12ecb5c3e69d64b09f5ad5cb1d5463f14cd69a5f87dc98"
+      },
+      "stable_card_id": "155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "66362986cb8e27b76374628c9b58a049b33fc3ce262e58e3e38d04a93a47ed08",
+        "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+      },
+      "display_title": "Eigenvector for a character distinct from the scalar character",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "d4d2d1ee9863e4b95490856a93a8853163f96a349cc22c8f95e42cb79299196d",
+          "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_unit_eigenvector_of_character_ne_infinity",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "363979950bbe2fa1abba11303619f8f00309e79e6f04bc4ff3aa41c2fa008235",
+        "uid": "lfh:lfh-source-build-binding:sha256:7bb72d0717c4e559c1a2009785dd8bf1483c1f4981d681a730bd5360c813fd55"
+      },
+      "stable_card_id": "7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "f98a893acfc2db2d884a3079ff3eb5aa5de2a9cdd0e9a5e0ae65b26cb3ac687f",
+        "uid": "lfh:lfh-declaration-card:sha256:4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537"
+      },
+      "display_title": "Compact-operator model from a representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "e73ccdb9bff2c5fe186ef71a48b0ef1e30404cce9a498ee43cf6b2a668715dd0",
+          "uid": "lfh:lfh-declaration-card:sha256:4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.faithful_and_compactOperatorModel_of_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "6ffa0e58003c89a6549f45adbed3068815ed9a1fdba4737261c4ae364a26fcf8",
+        "uid": "lfh:lfh-source-build-binding:sha256:2dc71999fe00123a26b7b7d226767ef10188a8b7cbe88fe8fa74d01590ddac37"
+      },
+      "stable_card_id": "4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "518aa200681b91f3c30151862209af278c02422d54f77469f2eacb9dd43de6f9",
+        "uid": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f"
+      },
+      "display_title": "Scalar character of the minimal unitization",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "99c7f0e4e348a522d96f6265ef620b682ee5bf1cdbba5a6803d3cb43c991bc0a",
+          "uid": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacter",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "3646bd8c1dee5c3d41f2c0de1ec012bdf0de0a04ac631baf49e0fd55ced9b7c7",
+        "uid": "lfh:lfh-source-build-binding:sha256:de56fecd676715116f68267629efd7daa2cba08a91ec951e07c64f2e66143d7a"
+      },
+      "stable_card_id": "6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3753106ba648e2a30ddde2adad74dbe93df42d065d9a8b9d3790136458806884",
+        "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+      },
+      "display_title": "Faithfulness of a representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "543da800097f78e8677d803a2dfca3da948166abe12924d6d290d864dcdac4ae",
+          "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.injective_of_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "60b07e694e523e06a448215f6a8fe36dfbd0dcc2dbf232b5771a2757a3258b00",
+        "uid": "lfh:lfh-source-build-binding:sha256:062df5b36de9660b645d326e9f96033d152c57240b553b83dea495ad778a4e73"
+      },
+      "stable_card_id": "66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "9c84c41fbd329d019a48250459bbaa298670bcb68317e4f2c154f1c9e5144ac3",
+        "uid": "lfh:lfh-declaration-card:sha256:be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85"
+      },
+      "display_title": "Compact image of a representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "DISTINCT_UID_REVISION_ONE_RENAMED_TO",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "c1a0d4bdcf857802f724dc08c62ac72a2889783ae34ce8fec2291ce05f9a86f6",
+          "uid": "lfh:lfh-declaration-card:sha256:94b7f2220243cb53c84a521c24f6eb1f35bc8222d4162b9ea134b4c10e9ea7b4"
+        },
+        "renamed_to_relation_ref": {
+          "record_type": "LFH_DECLARATION_RELATION",
+          "revision": 1,
+          "sha256": "c0bcad8bba782a98b79c3c4aa0d946f30e88e62e4b99d82f6263f09a89c35e2c",
+          "uid": "lfh:lfh-declaration-relation:sha256:d7f8237da04ff9414301e3feff015fb016a23283ce8ff66bc99438ef7f427207"
+        }
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.isCompactOperator_map_of_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "f805d9fc741af5f4946cfea40e453fa231b982558fc4868e7dfb2de11e435d8f",
+        "uid": "lfh:lfh-source-build-binding:sha256:9fbc6221605e13d19d23fa06a27fa2341871bbc8e2716d3b5d3a56486e6cfea1"
+      },
+      "stable_card_id": "be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "70bf38775c890eefb79631d1b6c0acb1310662f238112198f657a426c9c0edd2",
+        "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+      },
+      "display_title": "Unital representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "81030ed77ecc2d64bed6cae1d4ff01eb30737a09ac82256102d16be2cadb732c",
+          "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "f1716d57decb298d7f44f9c42f716d5b9f6075abe4e2925f8d04675f65ae8039",
+        "uid": "lfh:lfh-source-build-binding:sha256:5ee0ec1f15d01e6b65028a243a73e843e3b603c712ca86267bcc14db49329cf0"
+      },
+      "stable_card_id": "637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "16bca310f77405e367eea080da63ce9a180e242a66c01b35672b2def0606a50d",
+        "uid": "lfh:lfh-declaration-card:sha256:8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141"
+      },
+      "display_title": "Compact-operator model from a unital representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "cc12b46cccf7cbe321e814a91e2530e5722eb64fe6b64e06e19e5d2e16bcf0bf",
+          "uid": "lfh:lfh-declaration-card:sha256:8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.faithful_and_compactOperatorModel_of_singleton_amongNonUnital",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "f51048915602e90bc8577b8ec07b7b4548207ac774312d5adac4f1fe34cf0afc",
+        "uid": "lfh:lfh-source-build-binding:sha256:7fbe3ca4c22b69c677f843724b7bf6da49f5de328a67b03a0faabdb04e9872fc"
+      },
+      "stable_card_id": "8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ecc79438064f62aae0bbacb681b74e61a1bdf6907db81f63936cc28abaaa4b2d",
+        "uid": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9"
+      },
+      "display_title": "Finite-dimensional algebra from a separable representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "c88e7fbae407944a57c817e2022d132425778d810eefaf88bc5c8c3783492766",
+          "uid": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "5abd3dd3365f07e1caf6b8cefd7a5911fc52699cb7ff2b09706f2a5c06ed31df",
+        "uid": "lfh:lfh-source-build-binding:sha256:b955e6a0df894f411846a58335b611300a6a25a6fd0c55fda3fe7ce693be9e90"
+      },
+      "stable_card_id": "f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "88f0d99a8e018be7d631ec67a0b283306e74549bc5526e3185861f3927db6411",
+        "uid": "lfh:lfh-declaration-card:sha256:956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298"
+      },
+      "display_title": "Finite-dimensional space for a unital representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "54518a285815a31d344d54b1c78c64d1995896ad5033ca89f0775795ea6249cf",
+          "uid": "lfh:lfh-declaration-card:sha256:956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "2a43a51b63fecf9dc09c0c5de8247a6fdc4f2c10c6d388ae74e72d4b03d8e944",
+        "uid": "lfh:lfh-source-build-binding:sha256:6570c72738ac920e7840172e19cd0d4daaf0e7441cb3a9146bd7a77c1cfa272a"
+      },
+      "stable_card_id": "956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "6c39a0335bae06c780f4d6169369e5075367719237ff4ec7c2428f09aff37038",
+        "uid": "lfh:lfh-declaration-card:sha256:fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d"
+      },
+      "display_title": "Finite-dimensional space for a separable representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "9cca669406bb8974c16d2dda2a0998e0d2f8a03a35dc062c1dc00148d942b3f3",
+          "uid": "lfh:lfh-declaration-card:sha256:fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton_amongNonUnital",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "42030fe825abab47b0df6566f22bd8533b8f7c6331226ff183709e60c3ee7642",
+        "uid": "lfh:lfh-source-build-binding:sha256:6b9e494ac529b88d46c3c9e879a83aa5e4476026a731732386af12ac8b2585ca"
+      },
+      "stable_card_id": "fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3e840be62b2cd37be2177465ee59017e1bba2f722c38e1e8234b5ca2f888b123",
+        "uid": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03"
+      },
+      "display_title": "Simplicity from a faithful representative of the unique irreducible-representation class",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "bd331ad47e6f8abbe054a5fce0c2821304d5be5ab8eed6641e8e9a0a5dd9bd17",
+          "uid": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.isSimpleCStarAlgebra_of_singleton_of_injective",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "f74f605b86766bd291eb85bd87f53ab0f53d8dba73c17d58a650d1d104cc473e",
+        "uid": "lfh:lfh-source-build-binding:sha256:17e93a2b44447975345f6a14b42cc2785366b3a716233491fbadcff1e14b489e"
+      },
+      "stable_card_id": "106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "f21cea9af3dce8c0c987722a576294b1d5d1053d1a5473e2956074cae45cb850",
+        "uid": "lfh:lfh-declaration-card:sha256:f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467"
+      },
+      "display_title": "No separably acting representative of all nonzero irreducible representations",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "791560fc9d8c1ac6cb9daf732537a526fc745092e60e9b4d91c6b50682ebb554",
+          "uid": "lfh:lfh-declaration-card:sha256:f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.not_singleton_amongNonUnital_of_infiniteDimensional",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "aeb25358c6769d7cbfab70c41c5164f1be40044f4192128e7be08fbe62bfd958",
+        "uid": "lfh:lfh-source-build-binding:sha256:9d84ccb9f4bb928d05596fcf3bb38d3ba9085b5791b344d97365e2e344c14ed3"
+      },
+      "stable_card_id": "f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "cdaca830d65c48ca1059ea14c788eaeafa21d27eaa3c998721e82809414d3690",
+        "uid": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00"
+      },
+      "display_title": "Full operator image in finite dimension",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "324770624f548d09cdbcfadb6c988538d24e2b22dc1f9e9992d419c369a14ee9",
+          "uid": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.surjective_of_irreducible_of_finiteDimensional",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "3536e9023e6c91366bb07bbde1ffaa36bf6b8ead1282a6e0754e7b69ef1340bf",
+        "uid": "lfh:lfh-source-build-binding:sha256:5ed199d249734093254547eb18a2b905943a900a94e2acbe76a12057d527402b"
+      },
+      "stable_card_id": "a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "6478c2932ffa998eda8ac724e6df08a7c18971e943cf48ac511aa19e7793261a",
+        "uid": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f"
+      },
+      "display_title": "A character separates a closed ideal",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "69d5f9588e927acae641d21368c2568eaa01b6f21a3840dd3f708a0240e1d5aa",
+          "uid": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_character_annihilating_closedIdeal_of_not_mem",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "e5ac0fa1d6c617853e28970459ff576efb23ce124e35f748c569502f126d385a",
+        "uid": "lfh:lfh-source-build-binding:sha256:19afda9308f13f1dbfd03af33496d0359fe3194989a490eef9a1541265b0a5b7"
+      },
+      "stable_card_id": "1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3b716c28ce2e856618761c6501f718c76cf15bc712d79bcac94e6f1d09befae4",
+        "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+      },
+      "display_title": "Maximal abelian subalgebra containing a self-adjoint element",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "75c2a8b27ccf5ce7464594f60bfb3f9b46e8da65633b714d95fb1e75ef95f2a6",
+          "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_maximalAbelian_containing_isSelfAdjoint",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "b1f8a6ee1ae1fe9f77bbf331d8a5e934c84bfb660fc248b806d1254f7043baf6",
+        "uid": "lfh:lfh-source-build-binding:sha256:f62bd16bdea69f65ec2c8a64bf27f39435347e500440a3a6031a4aa57c3651d4"
+      },
+      "stable_card_id": "d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "b491c2ef82049b88e4d26e38eab76305c842ad0185cc3edeb40f129127bbe887",
+        "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+      },
+      "display_title": "Pure-state extension of a character",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "e1370618fb420d2435c8c2da67b6b07a580094cc999b29208ca0769e348c9312",
+          "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_extension",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "23cd9d1e484b1dcb774d70dbc8d2fd1e442040fe682343f44848c3df0356e393",
+        "uid": "lfh:lfh-source-build-binding:sha256:1f72e6a30f9dc0beb6efa727f49956e3a22122ec7ac2fc50f3d3a2878c2d929b"
+      },
+      "stable_card_id": "f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "80afe23433c02265252a97ff93dd683f25f5d0dbab62a98400823808de83329a",
+        "uid": "lfh:lfh-declaration-card:sha256:23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013"
+      },
+      "display_title": "Pure state detecting a nonzero square",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "dec9ef1e416c333012328ddf4b97c44a2c6f139fe21d0b2d9d633ead9afb2647",
+          "uid": "lfh:lfh-declaration-card:sha256:23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_nonzero_on_star_mul_self",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "dcd97eef187e1e8a35cfb7668d5fbcfc7256cc058c104f89fef8268d2b1c12c2",
+        "uid": "lfh:lfh-source-build-binding:sha256:e2cc404e17820ea3740eb2c8a3781231122272fff05ee83106490f5337a30cc8"
+      },
+      "stable_card_id": "23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "54d38276b2624f4bbb831bdcdc75bbba5ee6d940ee1923e2674d469c88464230",
+        "uid": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a"
+      },
+      "display_title": "Pure-state GNS irreducibility",
+      "lineage": {
+        "classification": "DISTINCT_UID_REVISION_ONE_RENAMED_TO",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "4ee9892dc2e1ec27668b7926e87efea81b7d94ebfbf6be46c9eecb53f65a2d56",
+          "uid": "lfh:lfh-declaration-card:sha256:9739356612e228954ac5a7eda9eacad58edcc6c064c06a3df7680ce87004f11b"
+        },
+        "renamed_to_relation_ref": {
+          "record_type": "LFH_DECLARATION_RELATION",
+          "revision": 1,
+          "sha256": "fe2584419283c6a72f95e3cf525f0e2728610ee482b6980cea919ce619f6c0d1",
+          "uid": "lfh:lfh-declaration-relation:sha256:0e38d383402e870ee9332452085a478aa0e4d9e847431ee2699fe6dc3f85fcc4"
+        }
+      },
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.isIrreducible_pureState_gnsStarAlgHom",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "0a756eb38075f73536c9b19ed21839f0d5584ecd958c960c2b6c3da484e0804c",
+        "uid": "lfh:lfh-source-build-binding:sha256:e1835304e98001b5bda52b3497fa574dd152e675bbf1cc066ebc4aa1c64c1971"
+      },
+      "stable_card_id": "68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ee21384769079014e7f0b83108c683e777408b5e63149385e2931aa44db2b8b1",
+        "uid": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6"
+      },
+      "display_title": "Algebraic compact-preimage ideal",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "7396571be9d1bba4849c993fdadff051a6f46ee2aabaf13064b2a79b92aabc36",
+          "uid": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.CStarAlgebra.compactPreimageIdeal",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "8bf8310553b24e2f6be6bb025408e3ac8dde3c4b4d437acd3050f1dbae3c5ddb",
+        "uid": "lfh:lfh-source-build-binding:sha256:d66b2997f277bf1968983e2e6826c184c7722fb127d1a4deac0d744b645ec5d1"
+      },
+      "stable_card_id": "9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "1263484c712e461a6802349daed7936b3d5bc3f619a4670a7d5bc843f8a3263f",
+        "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+      },
+      "display_title": "Mankiewicz extension on open connected domains",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "ffd0c21c4c389feaa7abe9e5ca64bc9546fb5736d9768da63c049de11648ba84",
+          "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "98e6a600afbb9b7c8bf34a3e38593d357e056eb604a19ae97bfe76bccc4848f7",
+        "uid": "lfh:lfh-source-build-binding:sha256:44923ff30b79b845a0fe2718b14a05fc2b5540bbed7e001d3513df1151e0b68e"
+      },
+      "stable_card_id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "cc4454a6e59885d550f36925cf51555be4156dabe1f9ec84bd6dbcd8ed269233",
+        "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+      },
+      "display_title": "Affine extension from open balls",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "0010c8ccb8965671842243a51487d560ec2424c0e83c8ce493dd7a161cdd859c",
+          "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_ball",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "13245cdda38411f3bfe9955218444f86b189981cf16f05c8eba59ef2bfef2733",
+        "uid": "lfh:lfh-source-build-binding:sha256:e600edd161b26df18cb50e9f4061b19f1d59c8a28f6b609b8c7479a9221d7418"
+      },
+      "stable_card_id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "8f8f74883b3320a2f4b6f780cbbf954685b42419f699eb7498b3a5f62286e6f5",
+        "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+      },
+      "display_title": "Affine extension from equal-radius closed balls",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "17f27f1cddaac7817c4669469925411815ac3e0475b586fd47b2e04f5d14e0d3",
+          "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "bd293a5bb342a957f5be76bdae5b83576b3cbb2320529f61b585267c8044e3e9",
+        "uid": "lfh:lfh-source-build-binding:sha256:42971f096a71e5c1278f3391af26602e8e0baaa7a5237faaed231aa1defec457"
+      },
+      "stable_card_id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "e9a5e15ee95ad76de6435c37a4fee43c4bdda17836534bf186964da0c62a9c4f",
+        "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+      },
+      "display_title": "Convex-set extension via ambient interiors",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "7dc5136edabd6e33db77b7a9f9a2122488e5b12c078056cb01de6e0ab95ce426",
+          "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "663e35e00c2ca43a918c2d7698f640941fb8d2b824603b5321a1c5d3f82e79d6",
+        "uid": "lfh:lfh-source-build-binding:sha256:ed26b1fb41768b9b479899dc0042adac1db4f20718efd5af18b6bc250b8cafcf"
+      },
+      "stable_card_id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "b4ef8d7f9913ca0a211b548805d49160070e9f0bf268e84724d67c5b53d3412e",
+        "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+      },
+      "display_title": "Local affine-isometry chart on a smaller ball",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "57980774b7bb9d703dad9b73dc930e03203d182af996346c7408eb373b1e0322",
+          "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "98a10d3792e8d61d995ca428c03b67dab3227557f59acee55468182d2b5e859a",
+        "uid": "lfh:lfh-source-build-binding:sha256:6c0f184a187489f6bf8106de11df519af0cc616af3f96cbdd3b4f02546d73d48"
+      },
+      "stable_card_id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "87c6848b90700ef729e5e4c337c08137c9495291a3155b705a5ad63663287d77",
+        "uid": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0"
+      },
+      "display_title": "Center transport under bounded point-reflection symmetry",
+      "lineage": {
+        "classification": "DISTINCT_UID_REVISION_ONE_RENAMED_TO",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "a97a1976b14207fc263907ee8fef3f37bda326fe215a2ac5516026cc01017806",
+          "uid": "lfh:lfh-declaration-card:sha256:078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+        },
+        "renamed_to_relation_ref": {
+          "record_type": "LFH_DECLARATION_RELATION",
+          "revision": 1,
+          "sha256": "a044bb06356545b9f01b7a35f982a64131c39375b61cd5417ec83bc1abb7e60b",
+          "uid": "lfh:lfh-declaration-relation:sha256:c3d521a363facb13c73dd00dde8ddb23f1adfbb5db3a214476dfc40ae4367b2b"
+        }
+      },
+      "name": "MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "534abba30e671c3ff91e0abd0f4fbdca305b4969931e9ce0bd1a760b0ded6f65",
+        "uid": "lfh:lfh-source-build-binding:sha256:00c3cce3a9e272cb2ef6e5ab888d4cdbbe9c171c97deeba29a044f5e49147a90"
+      },
+      "stable_card_id": "e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "4b0e889e2a2710f6ce882d742e637066a12e3e43cdc4a99d90b6e3fa9a47cb1e",
+        "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+      },
+      "display_title": "Affine-segment preservation on a quarter ball",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "4efc62d8a56c8dfa3372c385987153dc2be7eb7c3e7d7266df28cec985605db0",
+          "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.map_lineMap_of_mem_ball",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "dc7b7da45c5a5f5878e424334d95ba5da15032586a7ff8805a650ca48de21132",
+        "uid": "lfh:lfh-source-build-binding:sha256:11a0ef28c89dc01752dc5a3c682cda24a6e8c169dd0bf23cc63bc9dba729d455"
+      },
+      "stable_card_id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ce8bfa95660d8de634aced4f54406ab9e2fd70c17a7ce374fa8a0d30cd90822e",
+        "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+      },
+      "display_title": "Midpoint preservation on a quarter ball",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "81c408d08caad98e784a6f6c6f5aaacbe2736834dee2eb84cce9af3ab14ccf02",
+          "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "eea43f2b97bf136381c39a01c91a8833d0722d43592436814ffc21fa445a72b9",
+        "uid": "lfh:lfh-source-build-binding:sha256:7bcd7b6744ceaefeeb258b665e8bba4c55f9cbf07eb6bbbc63490c72c408741a"
+      },
+      "stable_card_id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "aa07f5efc7a9d59552a046091c57dfad6548ee065751704b012ec1f00954522b",
+        "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+      },
+      "display_title": "Midpoint preservation on a symmetric lens",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "21daf8652777c81a08e94a4a7a3eff63eef5bfd09483b15da2b62d60227b0e87",
+          "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "80b5d17ff0d0007cfa7acf0f82de1f97bb660ac2bfa639891c8cc9bc72ada613",
+        "uid": "lfh:lfh-source-build-binding:sha256:38c0b65aeacdb1900e79be73757e8517c193b885077790109517bd64e6e7b424"
+      },
+      "stable_card_id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "8d98a636a7e168433d5141c38866083e4d514bbd9a686b436317cdeb3c85a05e",
+        "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+      },
+      "display_title": "Midpoint preservation under lens containment",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "b8c28fe867604d317c6bb50248b4684deb39c56fb6fcd964b2329c93e42d14b6",
+          "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "2b6229aa8b784fa92feef681c114daa574bc94435209e3c8cb89783fbff314f2",
+        "uid": "lfh:lfh-source-build-binding:sha256:a323b5c69f3d9d1e8adc0bdd7d6661bc6e471ad4f71c19220be1a5f57c175959"
+      },
+      "stable_card_id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "819701b501957cdcf19003e34a0cad05ad728f597d7dc5224d359463cbf86461",
+        "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+      },
+      "display_title": "An isolated point in a countable Baire space",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "4ecf52facbfa192694b2ab029ccd63d65033842d10f07f66e6252dfaf9e0e7fb",
+          "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.Topology.exists_isOpen_singleton",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "6e00e9ccaf8c1e06467724b8ed39d2e1d876f6483f87438b6518643a579580a2",
+        "uid": "lfh:lfh-source-build-binding:sha256:a1061a89c137fc55162426648f478b9a9d1ee80476e28fa254ce56f7a428cc72"
+      },
+      "stable_card_id": "9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3935024dd76f1c0d54f0ff1aa13a35e31d2a4b7ebce1fae22ae01e793e6eba20",
+        "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+      },
+      "display_title": "Symmetric lens",
+      "lineage": {
+        "classification": "SAME_UID_REVISION_INCREMENT",
+        "predecessor_card_ref": {
+          "record_type": "LFH_DECLARATION_CARD",
+          "revision": 1,
+          "sha256": "8ec9c339586d12c353b6eeece0fed3c279aef6a9933e7bea978a68d85a9c2ca7",
+          "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+        },
+        "renamed_to_relation_ref": null
+      },
+      "name": "MathlibAnnex.symmetricLens",
+      "source_realization_ref": {
+        "record_type": "LFH_SOURCE_BUILD_BINDING",
+        "revision": 1,
+        "sha256": "bcfa7ac52df6fd658acdd4495d317afceabe47e59f1ad505bebe5b622ac91856",
+        "uid": "lfh:lfh-source-build-binding:sha256:a692396de8b8b629e15004f9a0b795aa2dc6866722b2e00d1772f631d0802abd"
+      },
+      "stable_card_id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+      "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+    }
+  ],
+  "schema": "exact.lfh.public-catalog.v1",
+  "state": "PUBLIC_CURRENT",
+  "publication_date": "2026-09-21",
+  "publication_batch": "EM_FULL_HP_PUBLICATION_R1"
+}

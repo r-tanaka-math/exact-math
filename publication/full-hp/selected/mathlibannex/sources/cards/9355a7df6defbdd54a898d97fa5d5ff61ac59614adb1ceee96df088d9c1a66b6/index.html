@@ -1,0 +1,129 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.CStarAlgebra.compactPreimageIdeal</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/cards/9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6/"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a><span> · Public edition</span></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.CStarAlgebra.compactPreimageIdeal</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">def compactPreimageIdeal [NonUnitalCStarAlgebra A]
+    (rho : A →⋆ₙₐ[ℂ] (H →L[ℂ] H)) : TwoSidedIdeal A</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import Mathlib.Analysis.CStarAlgebra.ContinuousLinearMap</span>
+<span id="L2"><a href="#L2">2</a> import Mathlib.Analysis.CStarAlgebra.Hom</span>
+<span id="L3"><a href="#L3">3</a> import Mathlib.Analysis.InnerProductSpace.LinearMap</span>
+<span id="L4"><a href="#L4">4</a> import Mathlib.Analysis.Normed.Operator.Compact.FiniteDimension</span>
+<span id="L5"><a href="#L5">5</a> import Mathlib.RingTheory.TwoSidedIdeal.Basic</span>
+<span id="L6"><a href="#L6">6</a> import Mathlib.Topology.Algebra.Module.FiniteDimension</span>
+<span id="L7"><a href="#L7">7</a> </span>
+<span id="L8"><a href="#L8">8</a> /-!</span>
+<span id="L9"><a href="#L9">9</a> # The ideal pulled back from the compact operators</span>
+<span id="L10"><a href="#L10">10</a> </span>
+<span id="L11"><a href="#L11">11</a> For a star representation on a Hilbert space, the elements represented by</span>
+<span id="L12"><a href="#L12">12</a> compact operators form a norm-closed two-sided ideal.  Consequently an</span>
+<span id="L13"><a href="#L13">13</a> injective representation of an infinite-dimensional simple unital C-star</span>
+<span id="L14"><a href="#L14">14</a> algebra contains no nonzero compact operator.</span>
+<span id="L15"><a href="#L15">15</a> -/</span>
+<span id="L16"><a href="#L16">16</a> </span>
+<span id="L17"><a href="#L17">17</a> set_option autoImplicit false</span>
+<span id="L18"><a href="#L18">18</a> </span>
+<span id="L19"><a href="#L19">19</a> open scoped CStarAlgebra</span>
+<span id="L20"><a href="#L20">20</a> </span>
+<span id="L21"><a href="#L21">21</a> namespace MathlibAnnex.CStarAlgebra</span>
+<span id="L22"><a href="#L22">22</a> </span>
+<span id="L23"><a href="#L23">23</a> universe u v</span>
+<span id="L24"><a href="#L24">24</a> </span>
+<span id="L25"><a href="#L25">25</a> variable {A : Type u}</span>
+<span id="L26"><a href="#L26">26</a> variable {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L27"><a href="#L27">27</a> </span>
+<span id="L28" class="source-highlight"><a href="#L28">28</a> /-- The inverse image of the compact operators under a star representation,</span>
+<span id="L29" class="source-highlight"><a href="#L29">29</a> as an algebraic two-sided ideal. -/</span>
+<span id="L30" class="source-highlight"><a href="#L30">30</a> def compactPreimageIdeal [NonUnitalCStarAlgebra A]</span>
+<span id="L31" class="source-highlight"><a href="#L31">31</a>     (rho : A →⋆ₙₐ[ℂ] (H →L[ℂ] H)) : TwoSidedIdeal A :=</span>
+<span id="L32" class="source-highlight"><a href="#L32">32</a>   TwoSidedIdeal.mk&#x27; {a | rho a ∈ compactOperator (RingHom.id ℂ) H H}</span>
+<span id="L33" class="source-highlight"><a href="#L33">33</a>     (by</span>
+<span id="L34" class="source-highlight"><a href="#L34">34</a>       change rho 0 ∈ compactOperator (RingHom.id ℂ) H H</span>
+<span id="L35" class="source-highlight"><a href="#L35">35</a>       rw [map_zero]</span>
+<span id="L36" class="source-highlight"><a href="#L36">36</a>       exact Submodule.zero_mem _)</span>
+<span id="L37" class="source-highlight"><a href="#L37">37</a>     (fun {x y} hx hy =&gt; by</span>
+<span id="L38" class="source-highlight"><a href="#L38">38</a>       change rho x ∈ compactOperator (RingHom.id ℂ) H H at hx</span>
+<span id="L39" class="source-highlight"><a href="#L39">39</a>       change rho y ∈ compactOperator (RingHom.id ℂ) H H at hy</span>
+<span id="L40" class="source-highlight"><a href="#L40">40</a>       change rho (x + y) ∈ compactOperator (RingHom.id ℂ) H H</span>
+<span id="L41" class="source-highlight"><a href="#L41">41</a>       rw [map_add]</span>
+<span id="L42" class="source-highlight"><a href="#L42">42</a>       exact Submodule.add_mem _ hx hy)</span>
+<span id="L43" class="source-highlight"><a href="#L43">43</a>     (fun {x} hx =&gt; by</span>
+<span id="L44" class="source-highlight"><a href="#L44">44</a>       change rho x ∈ compactOperator (RingHom.id ℂ) H H at hx</span>
+<span id="L45" class="source-highlight"><a href="#L45">45</a>       change rho (-x) ∈ compactOperator (RingHom.id ℂ) H H</span>
+<span id="L46" class="source-highlight"><a href="#L46">46</a>       rw [map_neg]</span>
+<span id="L47" class="source-highlight"><a href="#L47">47</a>       exact Submodule.neg_mem _ hx)</span>
+<span id="L48" class="source-highlight"><a href="#L48">48</a>     (fun {x y} hy =&gt; by</span>
+<span id="L49" class="source-highlight"><a href="#L49">49</a>       change rho y ∈ compactOperator (RingHom.id ℂ) H H at hy</span>
+<span id="L50" class="source-highlight"><a href="#L50">50</a>       change rho (x * y) ∈ compactOperator (RingHom.id ℂ) H H</span>
+<span id="L51" class="source-highlight"><a href="#L51">51</a>       rw [map_mul]</span>
+<span id="L52" class="source-highlight"><a href="#L52">52</a>       have hxy : (rho x).comp (rho y) ∈ compactOperator (RingHom.id ℂ) H H := by</span>
+<span id="L53" class="source-highlight"><a href="#L53">53</a>         change IsCompactOperator ⇑((rho x).comp (rho y))</span>
+<span id="L54" class="source-highlight"><a href="#L54">54</a>         exact hy.clm_comp (rho x)</span>
+<span id="L55" class="source-highlight"><a href="#L55">55</a>       exact hxy)</span>
+<span id="L56" class="source-highlight"><a href="#L56">56</a>     (fun {x y} hx =&gt; by</span>
+<span id="L57" class="source-highlight"><a href="#L57">57</a>       change rho x ∈ compactOperator (RingHom.id ℂ) H H at hx</span>
+<span id="L58" class="source-highlight"><a href="#L58">58</a>       change rho (x * y) ∈ compactOperator (RingHom.id ℂ) H H</span>
+<span id="L59" class="source-highlight"><a href="#L59">59</a>       rw [map_mul]</span>
+<span id="L60" class="source-highlight"><a href="#L60">60</a>       have hxy : (rho x).comp (rho y) ∈ compactOperator (RingHom.id ℂ) H H := by</span>
+<span id="L61" class="source-highlight"><a href="#L61">61</a>         change IsCompactOperator ⇑((rho x).comp (rho y))</span>
+<span id="L62" class="source-highlight"><a href="#L62">62</a>         exact hx.comp_clm (rho y)</span>
+<span id="L63" class="source-highlight"><a href="#L63">63</a>       exact hxy)</span>
+<span id="L64"><a href="#L64">64</a> </span>
+<span id="L65"><a href="#L65">65</a> @[simp] theorem mem_compactPreimageIdeal [NonUnitalCStarAlgebra A]</span>
+<span id="L66"><a href="#L66">66</a>     (rho : A →⋆ₙₐ[ℂ] (H →L[ℂ] H)) (a : A) :</span>
+<span id="L67"><a href="#L67">67</a>     a ∈ compactPreimageIdeal rho ↔ IsCompactOperator (rho a) := by</span>
+<span id="L68"><a href="#L68">68</a>   unfold compactPreimageIdeal</span>
+<span id="L69"><a href="#L69">69</a>   rw [TwoSidedIdeal.mem_mk&#x27;]</span>
+<span id="L70"><a href="#L70">70</a>   rfl</span>
+<span id="L71"><a href="#L71">71</a> </span>
+<span id="L72"><a href="#L72">72</a> /-- The compact-operator preimage is norm closed. -/</span>
+<span id="L73"><a href="#L73">73</a> theorem isClosed_compactPreimageIdeal [NonUnitalCStarAlgebra A]</span>
+<span id="L74"><a href="#L74">74</a>     (rho : A →⋆ₙₐ[ℂ] (H →L[ℂ] H)) :</span>
+<span id="L75"><a href="#L75">75</a>     IsClosed (compactPreimageIdeal rho : Set A) := by</span>
+<span id="L76"><a href="#L76">76</a>   let rhoL : A →L[ℂ] (H →L[ℂ] H) :=</span>
+<span id="L77"><a href="#L77">77</a>     (LinearMapClass.linearMap rho).mkContinuous 1 fun a =&gt; by</span>
+<span id="L78"><a href="#L78">78</a>       change ‖rho a‖ ≤ 1 * ‖a‖</span>
+<span id="L79"><a href="#L79">79</a>       simpa only [one_mul] using NonUnitalStarAlgHom.norm_apply_le rho a</span>
+<span id="L80"><a href="#L80">80</a>   have hcarrier : (compactPreimageIdeal rho : Set A) =</span>
+<span id="L81"><a href="#L81">81</a>       rhoL ⁻¹&#x27; (compactOperator (RingHom.id ℂ) H H : Set (H →L[ℂ] H)) := by</span>
+<span id="L82"><a href="#L82">82</a>     ext a</span>
+<span id="L83"><a href="#L83">83</a>     rw [Set.mem_preimage, SetLike.mem_coe, mem_compactPreimageIdeal]</span>
+<span id="L84"><a href="#L84">84</a>     change IsCompactOperator ⇑(rho a) ↔ IsCompactOperator ⇑(rhoL a)</span>
+<span id="L85"><a href="#L85">85</a>     rfl</span>
+<span id="L86"><a href="#L86">86</a>   have hclosed : IsClosed</span>
+<span id="L87"><a href="#L87">87</a>       (compactOperator (RingHom.id ℂ) H H : Set (H →L[ℂ] H)) := by</span>
+<span id="L88"><a href="#L88">88</a>     change IsClosed {T : H →L[ℂ] H | IsCompactOperator T}</span>
+<span id="L89"><a href="#L89">89</a>     exact isClosed_setOf_isCompactOperator</span>
+<span id="L90"><a href="#L90">90</a>   rw [hcarrier]</span>
+<span id="L91"><a href="#L91">91</a>   exact hclosed.preimage rhoL.continuous</span>
+<span id="L92"><a href="#L92">92</a> </span>
+<span id="L93"><a href="#L93">93</a> /-- In an injective representation of an infinite-dimensional algebra with</span>
+<span id="L94"><a href="#L94">94</a> no nontrivial closed two-sided ideals, every compact image is zero.  The</span>
+<span id="L95"><a href="#L95">95</a> finite-dimensional target contradiction is proved here rather than hidden in</span>
+<span id="L96"><a href="#L96">96</a> a `no-compacts` premise. -/</span>
+<span id="L97"><a href="#L97">97</a> theorem eq_zero_of_isCompactOperator_of_injective</span>
+<span id="L98"><a href="#L98">98</a>     [CStarAlgebra A] [Nontrivial A] (hA : ¬ FiniteDimensional ℂ A)</span>
+<span id="L99"><a href="#L99">99</a>     (hsimple : ∀ I : TwoSidedIdeal A, IsClosed (I : Set A) → I = ⊥ ∨ I = ⊤)</span>
+<span id="L100"><a href="#L100">100</a>     (rho : A →⋆ₐ[ℂ] (H →L[ℂ] H)) (hrho : Function.Injective rho)</span>
+<span id="L101"><a href="#L101">101</a>     {a : A} (ha : IsCompactOperator (rho a)) : a = 0 := by</span>
+<span id="L102"><a href="#L102">102</a>   let rhoNU := rho.toNonUnitalStarAlgHom</span>
+<span id="L103"><a href="#L103">103</a>   let I := compactPreimageIdeal rhoNU</span>
+<span id="L104"><a href="#L104">104</a>   have haI : a ∈ I := (mem_compactPreimageIdeal rhoNU a).2 ha</span>
+<span id="L105"><a href="#L105">105</a>   rcases hsimple I (isClosed_compactPreimageIdeal rhoNU) with hI | hI</span>
+<span id="L106"><a href="#L106">106</a>   · rw [hI] at haI</span>
+<span id="L107"><a href="#L107">107</a>     simpa using haI</span>
+<span id="L108"><a href="#L108">108</a>   · have hH : ¬ Subsingleton H := by</span>
+<span id="L109"><a href="#L109">109</a>       intro hsub</span>
+<span id="L110"><a href="#L110">110</a>       letI : Subsingleton H := hsub</span>
+<span id="L111"><a href="#L111">111</a>       have : (1 : A) = 0 := hrho (Subsingleton.elim _ _)</span>
+<span id="L112"><a href="#L112">112</a>       exact one_ne_zero this</span>
+<span id="L113"><a href="#L113">113</a>     letI : Nontrivial H := not_subsingleton_iff_nontrivial.mp hH</span>
+<span id="L114"><a href="#L114">114</a>     have honeI : (1 : A) ∈ I := by rw [hI]; exact Set.mem_univ 1</span>
+<span id="L115"><a href="#L115">115</a>     have hcompactOne : IsCompactOperator ((1 : H →L[ℂ] H) : H → H) := by</span>
+<span id="L116"><a href="#L116">116</a>       have : IsCompactOperator (rho (1 : A)) :=</span>
+<span id="L117"><a href="#L117">117</a>         (mem_compactPreimageIdeal rhoNU 1).1 honeI</span>
+<span id="L118"><a href="#L118">118</a>       simpa only [map_one, one_apply_eq_self] using this</span>
+<span id="L119"><a href="#L119">119</a>     letI : FiniteDimensional ℂ H := by</span>
+<span id="L120"><a href="#L120">120</a>       apply FiniteDimensional.of_isCompactOperator_id</span>
+<span id="L121"><a href="#L121">121</a>       change IsCompactOperator (fun x : H =&gt; x)</span>
+<span id="L122"><a href="#L122">122</a>       exact hcompactOne</span>
+<span id="L123"><a href="#L123">123</a>     letI : FiniteDimensional ℂ (H →L[ℂ] H) :=</span>
+<span id="L124"><a href="#L124">124</a>       ContinuousLinearMap.finiteDimensional</span>
+<span id="L125"><a href="#L125">125</a>     exact (hA (FiniteDimensional.of_injective</span>
+<span id="L126"><a href="#L126">126</a>       (LinearMapClass.linearMap rho) hrho)).elim</span>
+<span id="L127"><a href="#L127">127</a> </span>
+<span id="L128"><a href="#L128">128</a> end MathlibAnnex.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

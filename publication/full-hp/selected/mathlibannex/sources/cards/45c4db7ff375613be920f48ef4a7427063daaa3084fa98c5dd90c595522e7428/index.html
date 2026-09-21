@@ -1,0 +1,107 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a><span> · Public edition</span></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex</h1><p><a href="../../../raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem existsUnique_affineExtension_of_convex
+    {s : Set E} {t : Set F} (f : s ≃ᵢ t)
+    (hs : Convex ℝ s) (hsint : (interior s).Nonempty)
+    (hfi : ∀ x : s,
+      (x : E) ∈ interior s ↔ ((f x : t) : F) ∈ interior t) :
+    ∃! A : E ≃ᵃⁱ[ℝ] F,
+      ∀ x : s, A (x : E) = ((f x : t) : F)</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.OpenConnected</span>
+<span id="L2"><a href="#L2">2</a> import Mathlib.Analysis.Convex.Topology</span>
+<span id="L3"><a href="#L3">3</a> </span>
+<span id="L4"><a href="#L4">4</a> /-!</span>
+<span id="L5"><a href="#L5">5</a> # Convex-set extension corollary</span>
+<span id="L6"><a href="#L6">6</a> </span>
+<span id="L7"><a href="#L7">7</a> The theorem in this module applies the open-connected extension theorem to</span>
+<span id="L8"><a href="#L8">8</a> ambient interiors, then extends the agreement to the whole convex sets by</span>
+<span id="L9"><a href="#L9">9</a> continuity and density.</span>
+<span id="L10"><a href="#L10">10</a> -/</span>
+<span id="L11"><a href="#L11">11</a> </span>
+<span id="L12"><a href="#L12">12</a> open Metric Set</span>
+<span id="L13"><a href="#L13">13</a> </span>
+<span id="L14"><a href="#L14">14</a> namespace MathlibAnnex</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> noncomputable section</span>
+<span id="L17"><a href="#L17">17</a> </span>
+<span id="L18"><a href="#L18">18</a> variable {E F : Type*}</span>
+<span id="L19"><a href="#L19">19</a>   [NormedAddCommGroup E] [NormedSpace ℝ E]</span>
+<span id="L20"><a href="#L20">20</a>   [NormedAddCommGroup F] [NormedSpace ℝ F]</span>
+<span id="L21"><a href="#L21">21</a> </span>
+<span id="L22"><a href="#L22">22</a> namespace IsometryEquiv</span>
+<span id="L23"><a href="#L23">23</a> </span>
+<span id="L24"><a href="#L24">24</a> private def interiorRestriction</span>
+<span id="L25"><a href="#L25">25</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t)</span>
+<span id="L26"><a href="#L26">26</a>     (hfi : ∀ x : s, (x : E) ∈ interior s ↔ ((f x : t) : F) ∈ interior t) :</span>
+<span id="L27"><a href="#L27">27</a>     interior s ≃ᵢ interior t where</span>
+<span id="L28"><a href="#L28">28</a>   toFun x :=</span>
+<span id="L29"><a href="#L29">29</a>     ⟨((f ⟨x, interior_subset x.property⟩ : t) : F),</span>
+<span id="L30"><a href="#L30">30</a>       (hfi ⟨x, interior_subset x.property⟩).mp x.property⟩</span>
+<span id="L31"><a href="#L31">31</a>   invFun y := by</span>
+<span id="L32"><a href="#L32">32</a>     let yt : t := ⟨y, interior_subset y.property⟩</span>
+<span id="L33"><a href="#L33">33</a>     let xs : s := f.symm yt</span>
+<span id="L34"><a href="#L34">34</a>     refine ⟨(xs : E), ?_⟩</span>
+<span id="L35"><a href="#L35">35</a>     apply (hfi xs).mpr</span>
+<span id="L36"><a href="#L36">36</a>     rw [show f xs = yt from f.apply_symm_apply yt]</span>
+<span id="L37"><a href="#L37">37</a>     exact y.property</span>
+<span id="L38"><a href="#L38">38</a>   left_inv x := by</span>
+<span id="L39"><a href="#L39">39</a>     apply Subtype.ext</span>
+<span id="L40"><a href="#L40">40</a>     change ((f.symm (f ⟨x, interior_subset x.property⟩) : s) : E) = (x : E)</span>
+<span id="L41"><a href="#L41">41</a>     exact congrArg Subtype.val (f.symm_apply_apply ⟨x, interior_subset x.property⟩)</span>
+<span id="L42"><a href="#L42">42</a>   right_inv y := by</span>
+<span id="L43"><a href="#L43">43</a>     apply Subtype.ext</span>
+<span id="L44"><a href="#L44">44</a>     change ((f (f.symm ⟨y, interior_subset y.property⟩) : t) : F) = (y : F)</span>
+<span id="L45"><a href="#L45">45</a>     exact congrArg Subtype.val (f.apply_symm_apply ⟨y, interior_subset y.property⟩)</span>
+<span id="L46"><a href="#L46">46</a>   isometry_toFun := Isometry.of_dist_eq fun x y =&gt; by</span>
+<span id="L47"><a href="#L47">47</a>     change dist (f ⟨x, interior_subset x.property⟩)</span>
+<span id="L48"><a href="#L48">48</a>       (f ⟨y, interior_subset y.property⟩) = dist x y</span>
+<span id="L49"><a href="#L49">49</a>     rw [f.dist_eq, Subtype.dist_eq, Subtype.dist_eq]</span>
+<span id="L50"><a href="#L50">50</a> </span>
+<span id="L51" class="source-highlight"><a href="#L51">51</a> /-- An isometry equivalence from a convex set with nonempty ambient interior</span>
+<span id="L52" class="source-highlight"><a href="#L52">52</a> extends uniquely if it preserves membership in the ambient interiors.</span>
+<span id="L53" class="source-highlight"><a href="#L53">53</a> The target set is not separately assumed convex. -/</span>
+<span id="L54" class="source-highlight"><a href="#L54">54</a> theorem existsUnique_affineExtension_of_convex</span>
+<span id="L55" class="source-highlight"><a href="#L55">55</a>     {s : Set E} {t : Set F} (f : s ≃ᵢ t)</span>
+<span id="L56" class="source-highlight"><a href="#L56">56</a>     (hs : Convex ℝ s) (hsint : (interior s).Nonempty)</span>
+<span id="L57" class="source-highlight"><a href="#L57">57</a>     (hfi : ∀ x : s,</span>
+<span id="L58" class="source-highlight"><a href="#L58">58</a>       (x : E) ∈ interior s ↔ ((f x : t) : F) ∈ interior t) :</span>
+<span id="L59" class="source-highlight"><a href="#L59">59</a>     ∃! A : E ≃ᵃⁱ[ℝ] F,</span>
+<span id="L60" class="source-highlight"><a href="#L60">60</a>       ∀ x : s, A (x : E) = ((f x : t) : F) := by</span>
+<span id="L61" class="source-highlight"><a href="#L61">61</a>   let fi : interior s ≃ᵢ interior t := interiorRestriction f hfi</span>
+<span id="L62" class="source-highlight"><a href="#L62">62</a>   rcases MathlibAnnex.IsometryEquiv.existsUnique_affineExtension</span>
+<span id="L63" class="source-highlight"><a href="#L63">63</a>       fi isOpen_interior ((hs.interior).isConnected hsint) isOpen_interior with</span>
+<span id="L64" class="source-highlight"><a href="#L64">64</a>     ⟨A, hAi, hAuniq⟩</span>
+<span id="L65" class="source-highlight"><a href="#L65">65</a>   let u : Set s := {x | (x : E) ∈ interior s}</span>
+<span id="L66" class="source-highlight"><a href="#L66">66</a>   have hu_image : Subtype.val &#x27;&#x27; u = interior s := by</span>
+<span id="L67" class="source-highlight"><a href="#L67">67</a>     ext z</span>
+<span id="L68" class="source-highlight"><a href="#L68">68</a>     constructor</span>
+<span id="L69" class="source-highlight"><a href="#L69">69</a>     · rintro ⟨w, hw, rfl⟩</span>
+<span id="L70" class="source-highlight"><a href="#L70">70</a>       exact hw</span>
+<span id="L71" class="source-highlight"><a href="#L71">71</a>     · intro hz</span>
+<span id="L72" class="source-highlight"><a href="#L72">72</a>       exact ⟨⟨z, interior_subset hz⟩, hz, rfl⟩</span>
+<span id="L73" class="source-highlight"><a href="#L73">73</a>   have hu_dense : Dense u := by</span>
+<span id="L74" class="source-highlight"><a href="#L74">74</a>     rw [Subtype.dense_iff, hu_image,</span>
+<span id="L75" class="source-highlight"><a href="#L75">75</a>       hs.closure_interior_eq_closure_of_nonempty_interior hsint]</span>
+<span id="L76" class="source-highlight"><a href="#L76">76</a>     exact subset_closure</span>
+<span id="L77" class="source-highlight"><a href="#L77">77</a>   have hAall : ∀ x : s, A (x : E) = ((f x : t) : F) := by</span>
+<span id="L78" class="source-highlight"><a href="#L78">78</a>     have hcontA : Continuous (fun x : s ↦ A (x : E)) :=</span>
+<span id="L79" class="source-highlight"><a href="#L79">79</a>       A.continuous.comp continuous_subtype_val</span>
+<span id="L80" class="source-highlight"><a href="#L80">80</a>     have hcontf : Continuous (fun x : s ↦ ((f x : t) : F)) :=</span>
+<span id="L81" class="source-highlight"><a href="#L81">81</a>       continuous_subtype_val.comp f.continuous</span>
+<span id="L82" class="source-highlight"><a href="#L82">82</a>     have heq : u.EqOn (fun x : s ↦ A (x : E))</span>
+<span id="L83" class="source-highlight"><a href="#L83">83</a>         (fun x : s ↦ ((f x : t) : F)) := by</span>
+<span id="L84" class="source-highlight"><a href="#L84">84</a>       intro x hx</span>
+<span id="L85" class="source-highlight"><a href="#L85">85</a>       let xi : interior s := ⟨(x : E), hx⟩</span>
+<span id="L86" class="source-highlight"><a href="#L86">86</a>       have h := hAi xi</span>
+<span id="L87" class="source-highlight"><a href="#L87">87</a>       exact h</span>
+<span id="L88" class="source-highlight"><a href="#L88">88</a>     exact fun x ↦ congrFun (Continuous.ext_on hu_dense hcontA hcontf heq) x</span>
+<span id="L89" class="source-highlight"><a href="#L89">89</a>   refine ⟨A, hAall, ?_⟩</span>
+<span id="L90" class="source-highlight"><a href="#L90">90</a>   intro B hB</span>
+<span id="L91" class="source-highlight"><a href="#L91">91</a>   apply hAuniq</span>
+<span id="L92" class="source-highlight"><a href="#L92">92</a>   intro x</span>
+<span id="L93" class="source-highlight"><a href="#L93">93</a>   let xs : s := ⟨(x : E), interior_subset x.property⟩</span>
+<span id="L94" class="source-highlight"><a href="#L94">94</a>   have h := hB xs</span>
+<span id="L95" class="source-highlight"><a href="#L95">95</a>   exact h</span>
+<span id="L96"><a href="#L96">96</a> </span>
+<span id="L97"><a href="#L97">97</a> end IsometryEquiv</span>
+<span id="L98"><a href="#L98">98</a> </span>
+<span id="L99"><a href="#L99">99</a> end</span>
+<span id="L100"><a href="#L100">100</a> </span>
+<span id="L101"><a href="#L101">101</a> end MathlibAnnex</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

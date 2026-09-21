@@ -1,7 +1,7 @@
 import pending from '../data/license-boundary.json';
-import {publicWording} from './build-profile';
+import {publicWording,fullHP} from './build-profile';
 
-export const termsActive = publicWording;
+export const termsActive = publicWording || fullHP;
 // The initial 17 September 2026 terms are already effective on the live site.
 // This child commit neither re-enacts nor changes that publication.
 const date = '2026-09-17';

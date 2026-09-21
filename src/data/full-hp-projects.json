@@ -1,0 +1,334 @@
+{
+  "sr": {
+    "schema": "exact.project-preview.v2",
+    "id": "sr",
+    "title": "Sphere Rigidity",
+    "long_title": "Rigidity of unit spheres in finite-dimensional real normed spaces",
+    "category": "Geometry of normed spaces",
+    "short_description": "A study of how the metric structure of a unit sphere determines its ambient real normed space, with a separate route toward reusable proof tools.",
+    "visibility": "PRIVATE_PREVIEW",
+    "website_revision": "RC5",
+    "website_updated": "2026-09-16",
+    "first_publication": null,
+    "briefing_version": "draft-r2",
+    "mathematical_review_date": null,
+    "stage": {
+      "code": "BRIEFING_PREVIEW_READY",
+      "label": "Brief report ready"
+    },
+    "summary": "The preliminary Brief Report presents the mathematical statements and proofs. Draft R2 refines citations and attribution and clarifies notation. No mathematical statement, hypothesis, conclusion, or proof argument was changed.",
+    "claim": {
+      "label": "CLAIM PRESENTED IN THE BRIEF REPORT",
+      "text": "Finite-dimensional real normed spaces with isometric unit spheres are linearly isometric as normed spaces.",
+      "qualifier": "This is an existence statement about the two spaces. It is not a claim that a prescribed sphere isometry extends to a linear isometry.",
+      "preview_note": "This is a preliminary, AI-assisted manuscript. Full human verification of this report version has not been completed.",
+      "source_refs": [
+        "sr-boundaries",
+        "sr-lineage"
+      ],
+      "status": "PRELIMINARY_MANUSCRIPT_CLAIM"
+    },
+    "statuses": [
+      {
+        "id": "novelty",
+        "label": "Prior-art search",
+        "code": "DOCUMENTED_BOUNDED_SEARCH",
+        "value": "Documented through 15 September 2026",
+        "detail": "No equivalent result was identified in the sources examined through 15 September 2026. This is not a novelty certificate or a guarantee that no earlier result exists.",
+        "tone": "neutral"
+      },
+      {
+        "id": "human",
+        "label": "Human mathematical review",
+        "code": "HUMAN_VERIFICATION_INCOMPLETE",
+        "value": "Human verification incomplete",
+        "detail": "Full independent human verification of Draft R2 has not been completed. Earlier review records are preserved with their original scope.",
+        "tone": "pending"
+      },
+      {
+        "id": "lean",
+        "label": "Lean formalization",
+        "code": "PUBLIC_SOURCE_V0_2_0",
+        "value": "MathlibAnnex v0.4.0 source public",
+        "detail": "The public MathlibAnnex v0.4.0 source includes this Project. Its recorded qualification is separate from human review and Brief Report correspondence.",
+        "tone": "recorded",
+        "source_refs": [
+          "sr-formal",
+          "sr-lineage"
+        ]
+      },
+      {
+        "id": "alignment",
+        "label": "Text ↔ formal source",
+        "code": "REPORT_ALIGNMENT_PENDING",
+        "value": "Report correspondence pending",
+        "detail": "The supplied document mapping is mechanical and does not establish whole-document correspondence approval.",
+        "tone": "pending",
+        "source_refs": [
+          "sr-boundaries"
+        ]
+      },
+      {
+        "id": "exposition",
+        "label": "LFH reading materials",
+        "code": "LOCAL_COMPANION_REVIEW",
+        "value": "Research Companion available",
+        "detail": "467 exact declaration tiles with source, graph and reading routes; zero canonical Cards.",
+        "tone": "neutral"
+      },
+      {
+        "id": "publication",
+        "label": "Paper / public release",
+        "code": "PRIVATE_BRIEFING_PREVIEW",
+        "value": "Draft R2 candidate",
+        "detail": "Draft R1 was first published on 17 September 2026. Draft R2 is the next-version candidate; its publication date is pending.",
+        "tone": "neutral"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "briefing",
+        "label": "Brief Report",
+        "kind": "PDF",
+        "state": "Available in this private candidate",
+        "url": "/reports/sphere-rigidity/draft-r2/sphere-rigidity-brief-report.pdf",
+        "version": "draft-r2",
+        "sha256": "0313f6e5f7155da28d0af71d213d22878045664c356a8789180acf01f31e01f3",
+        "bytes": 440028,
+        "pages": 23,
+        "mime": "application/pdf",
+        "prepared_date": "2026-09-21",
+        "exposure": "PRIVATE_PREVIEW",
+        "action_label": "Read brief report (PDF)"
+      },
+      {
+        "id": "paper",
+        "label": "Conventional paper",
+        "kind": "arXiv / DOI",
+        "state": "No public link yet",
+        "url": null,
+        "version": null
+      },
+      {
+        "id": "formal",
+        "label": "Formal source",
+        "kind": "Lean repository",
+        "state": "MathlibAnnex v0.4.0 source public; see Formalization and LFH below",
+        "url": null,
+        "version": null
+      },
+      {
+        "id": "reading",
+        "label": "Reading materials",
+        "kind": "LFH HTML / PDF",
+        "state": "Companion HTML, PDF and JSON available below for local review",
+        "url": null,
+        "version": null
+      },
+      {
+        "id": "prior-art",
+        "label": "Prior-Art Search Note",
+        "kind": "PDF",
+        "state": "Search documented through 15 September 2026",
+        "exposure": "PRIVATE_PREVIEW",
+        "action_label": "Read prior-art search note (PDF)",
+        "url": "/reports/sphere-rigidity/prior-art/r2/sphere-rigidity-prior-art-search.pdf",
+        "bytes": 192068,
+        "sha256": "00fe9df433dc0ca5c20824f5fb688555ec6206d3b66a3a52789eb085d4321221",
+        "mime": "application/pdf",
+        "version": "r2",
+        "prepared_date": "2026-09-15",
+        "pages": 2
+      }
+    ],
+    "notes": [
+      {
+        "title": "A standalone mathematical record.",
+        "text": "The brief report contains the statements, proofs, necessary notation, and references. Its footer reads “AI-assisted manuscript · Human verification incomplete”. Subsequent Lean, library, and paper milestones belong to this project record; they do not require a new report edition unless the report itself changes."
+      },
+      {
+        "title": "AI assistance and human direction.",
+        "text": "The research direction and revisions were developed through human–AI dialogue. AI contributed substantially to proof development and manuscript preparation. This description does not imply that full human verification has been completed."
+      },
+      {
+        "title": "Reusable tools on a separate path.",
+        "text": "MathlibAnnex v0.4.0 is public. Its Research Companion records the exact formal source structure separately from Brief Report correspondence."
+      },
+      {
+        "title": "Comments and collaborative verification.",
+        "text": "Comments, corrections, and proposals for collaborative verification are welcome. Editable manuscript files may be shared individually by agreement."
+      }
+    ],
+    "updates": [
+      {
+        "date": "2026-09-21",
+        "kind": "DOCUMENT_PREPARED",
+        "title": "Draft R2 prepared for next update",
+        "text": "Draft R2 refines citations and attribution and clarifies notation. No mathematical statement, hypothesis, conclusion, or proof argument was changed. Revision publication date pending."
+      },
+      {
+        "date": "2026-09-10",
+        "kind": "WEBSITE_EDIT",
+        "title": "PDF-only report distribution",
+        "text": "The website provides the report as a PDF. Editable manuscript sources are retained privately. The report bytes and mathematical review status are unchanged."
+      },
+      {
+        "date": "2026-09-10",
+        "kind": "DOCUMENT_PREPARED",
+        "title": "Brief report draft-r1 prepared",
+        "text": "The 22-page brief report was prepared for private preview. The conventional manuscript contains the same local corrections. This is not a public release."
+      },
+      {
+        "date": "2026-09-10",
+        "kind": "AI_TEXTUAL_REVIEW",
+        "title": "AI textual review recorded",
+        "text": "Statements and proof applications were re-examined, with eight groups of local corrections recorded. Full human verification and a new Lean build were not performed."
+      },
+      {
+        "date": "2026-09-09",
+        "kind": "WEBSITE_EDIT",
+        "title": "Private website record prepared",
+        "text": "Initial presentation and status fields only. This entry is not a mathematical review, a new Lean build, or a public release."
+      }
+    ],
+    "ai_textual_review": {
+      "kind": "AI_TEXTUAL_REVIEW",
+      "date": "2026-09-10",
+      "scope": "SR / draft-r1 and its synchronized conventional manuscript",
+      "full_human_verification": false,
+      "new_lean_build": false,
+      "full_formal_alignment_audit": false,
+      "mathematical_certification": false
+    }
+  },
+  "naimark-problem": {
+    "schema": "exact.project-preview.v2",
+    "id": "naimark-problem",
+    "title": "Naimark's problem",
+    "long_title": "A proposed ZFC construction and its formal-source record",
+    "category": "Operator algebras",
+    "short_description": "A proposed ZFC construction of a single C*-algebra with one irreducible equivalence class and a faithful separable tracial representation.",
+    "visibility": "PRIVATE_PREVIEW",
+    "website_revision": "RC5",
+    "website_updated": "2026-09-16",
+    "first_publication": null,
+    "briefing_version": "draft-r1",
+    "mathematical_review_date": null,
+    "stage": {
+      "code": "BRIEFING_PREVIEW_READY",
+      "label": "Brief report ready"
+    },
+    "summary": "The Brief Report presents a proposed ZFC construction of a unital, simple, infinite-dimensional C*-algebra whose nonzero irreducible representations are all unitarily equivalent, yet which admits a faithful tracial representation on a separable Hilbert space. Its two principal arguments classify the irreducible representations of one concrete generated algebra and show that extending the trace of its CAR subalgebra does not enlarge the cyclic GNS space. The manuscript includes proofs, point-of-use references, and cardinality consequences. Its formal-source and human-verification records must be displayed separately.",
+    "claim": {
+      "label": "CLAIM PRESENTED IN THE BRIEF REPORT",
+      "text": "The Brief Report presents a proposed ZFC construction of a unital, simple, infinite-dimensional C*-algebra whose nonzero irreducible representations are all unitarily equivalent, yet which admits a faithful tracial representation on a separable Hilbert space. Its two principal arguments classify the irreducible representations of one concrete generated algebra and show that extending the trace of its CAR subalgebra does not enlarge the cyclic GNS space. The manuscript includes proofs, point-of-use references, and cardinality consequences. Its formal-source and human-verification records must be displayed separately.",
+      "qualifier": "The proposed construction and its human-verification, formal-source and correspondence records are distinct.",
+      "preview_note": "This is a preliminary, AI-assisted manuscript. Full human verification of this report version has not been completed.",
+      "source_refs": [],
+      "status": "PRELIMINARY_MANUSCRIPT_CLAIM"
+    },
+    "statuses": [
+      {
+        "id": "novelty",
+        "label": "Prior-art search",
+        "code": "DOCUMENTED_BOUNDED_SEARCH",
+        "value": "Documented through 20 September 2026",
+        "detail": "No equivalent result identified in the sources examined. This bounded finding is neither a novelty guarantee nor a verification of the proposed proof.",
+        "tone": "neutral"
+      },
+      {
+        "id": "human",
+        "label": "Human mathematical review",
+        "code": "HUMAN_VERIFICATION_INCOMPLETE",
+        "value": "Human verification incomplete",
+        "detail": "Full independent human verification of this manuscript has not been completed.",
+        "tone": "pending"
+      },
+      {
+        "id": "lean",
+        "label": "Lean formalization",
+        "code": "PUBLIC_SOURCE_V0_2_0",
+        "value": "MathlibAnnex v0.4.0 source public",
+        "detail": "The public MathlibAnnex v0.4.0 source includes this Project. Its recorded qualification is separate from human review and Brief Report correspondence.",
+        "tone": "recorded",
+        "source_refs": [
+          "sr-formal",
+          "sr-lineage"
+        ]
+      },
+      {
+        "id": "alignment",
+        "label": "Text ↔ formal source",
+        "code": "REPORT_ALIGNMENT_PENDING",
+        "value": "Targeted correspondence recorded",
+        "detail": "Corollary 6.2 has a targeted accepted mapping to five formal endpoints and a standard Hilbert-space consequence. This does not approve the other 13 correspondence groups. Orthonormal-basis cardinality is not a direct Lean endpoint or a Hamel-dimension statement.",
+        "tone": "pending",
+        "source_refs": [
+          "sr-boundaries"
+        ]
+      },
+      {
+        "id": "exposition",
+        "label": "LFH reading materials",
+        "code": "LOCAL_COMPANION_REVIEW",
+        "value": "Research Companion available",
+        "detail": "466 exact declaration tiles with source, graph and reading routes; zero canonical Cards.",
+        "tone": "neutral"
+      },
+      {
+        "id": "publication",
+        "label": "Paper / public release",
+        "code": "PRIVATE_BRIEFING_PREVIEW",
+        "value": "Draft R1 candidate",
+        "detail": "The first public labels are proposed as Brief Report Draft R1 and Prior-Art Search R1. First-publication dates remain pending.",
+        "tone": "neutral"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "briefing",
+        "label": "Brief Report",
+        "kind": "PDF",
+        "state": "Available in this private candidate",
+        "url": "/reports/naimark-problem/draft-r1/naimark-brief-report.pdf",
+        "version": "draft-r1",
+        "sha256": "f629e75b819adba69c7f3c084ce0b8dfedd7fbdbc77f21ab5292a5ce19f64f48",
+        "bytes": 328151,
+        "pages": 9,
+        "mime": "application/pdf",
+        "prepared_date": "2026-09-21",
+        "exposure": "PRIVATE_PREVIEW",
+        "action_label": "Read brief report (PDF)"
+      },
+      {
+        "id": "prior-art",
+        "label": "Prior-Art Search Note",
+        "kind": "PDF",
+        "state": "Available in this private candidate",
+        "url": "/reports/naimark-problem/prior-art/r1/naimark-prior-art-search.pdf",
+        "version": "r1",
+        "sha256": "1e8f4d9512e48be160e8df29bf5f3d4b74858f67e41fe75229861f676ca65951",
+        "bytes": 255091,
+        "pages": 4,
+        "mime": "application/pdf",
+        "prepared_date": "2026-09-21",
+        "exposure": "PRIVATE_PREVIEW",
+        "action_label": "Read prior-art search note (PDF)"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Publication responsibility",
+        "text": "Responsible for publication: Ryotaro Tanaka. This covers release, versioning, corrections and withdrawal, and does not imply mathematical authorship or independent verification."
+      }
+    ],
+    "updates": [
+      {
+        "date": "2026-09-21",
+        "kind": "DOCUMENT_PREPARED",
+        "title": "First public editions prepared for review",
+        "text": "Brief Report Draft R1 and Prior-Art Search R1 are private candidates. The search cutoff remains 20 September 2026; publication dates are pending."
+      }
+    ]
+  }
+}

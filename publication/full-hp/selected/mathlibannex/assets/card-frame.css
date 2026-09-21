@@ -1,0 +1,16 @@
+/* Website-owned frame only; accepted Card article and Workbench CSS stay exact. */
+.project-header .exact-site-context{max-width:1120px;margin:-16px auto 0;padding:0 20px 20px;font-size:14px;line-height:1.8}
+.exact-site-context a{color:#e0d8b5}
+.exact-back{max-width:1100px;margin:12px auto 0;padding:16px 20px 26px;text-align:right;font-size:14px}
+@media(max-width:420px){.project-header .exact-site-context{padding-inline:16px;font-size:13px}.exact-back{padding-inline:16px}}
+#site-top{height:1px;margin-bottom:-1px}
+#site-top:focus{outline:none}
+.back-to-top{position:fixed;z-index:20;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;min-width:46px;min-height:46px;padding:10px 14px;color:#fff;background:#245c4b;border:1px solid #fff;border-radius:5px;box-shadow:0 2px 8px #0002;text-decoration:none;font:13px/1.4 'Segoe UI',Arial,sans-serif}
+.back-to-top[hidden]{display:none}
+.back-to-top.is-obstructed{visibility:hidden}
+.back-to-top:focus-visible{outline:3px solid #1c302b;outline-offset:3px}
+.back-to-top-label{white-space:nowrap}
+@media(max-width:1100px){.back-to-top-label{display:none}.back-to-top{padding:10px;justify-content:center;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));font-size:20px}}
+@media print{.back-to-top{display:none!important}}
+
+.exact-site-context{padding:12px 20px;font:14px/1.8 sans-serif}.exact-site-context a{color:inherit}.project-header .exact-site-context a{color:#e0d8b5}.tile-actions{gap:12px}.source-index{font-size:14px}.source-lines span:target{background:#fff1b8;outline:1px solid #ae8b34}.source-lines span{scroll-margin-top:30px}

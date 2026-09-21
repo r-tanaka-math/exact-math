@@ -1,0 +1,209 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_unit_eigenvector_of_character_ne_infinity</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/cards/7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a/"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a><span> · Public edition</span></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_unit_eigenvector_of_character_ne_infinity</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem exists_unit_eigenvector_of_character_ne_infinity [Nontrivial A]
+    (pi : NonUnitalCStarRepresentation A H)
+    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)
+    (D : StarSubalgebra ℂ (Unitization ℂ A))
+    [IsClosed (D : Set (Unitization ℂ A))]
+    (chi : WeakDual.characterSpace ℂ D)
+    (hchi : chi ≠ infinityCharacterOn (A := A) D) :
+    ∃ eta : H, ‖eta‖ = 1 ∧
+      ∀ d : D, pi.unitization (d : Unitization ℂ A) eta = chi d • eta</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import Mathlib.Analysis.CStarAlgebra.GelfandDuality</span>
+<span id="L2"><a href="#L2">2</a> import MathlibAnnex.Analysis.CStarAlgebra.NonUnital.Singleton</span>
+<span id="L3"><a href="#L3">3</a> import MathlibAnnex.Analysis.CStarAlgebra.State.Extension</span>
+<span id="L4"><a href="#L4">4</a> </span>
+<span id="L5"><a href="#L5">5</a> /-!</span>
+<span id="L6"><a href="#L6">6</a> # Non-scalar unitization characters as eigenvectors</span>
+<span id="L7"><a href="#L7">7</a> -/</span>
+<span id="L8"><a href="#L8">8</a> </span>
+<span id="L9"><a href="#L9">9</a> set_option autoImplicit false</span>
+<span id="L10"><a href="#L10">10</a> </span>
+<span id="L11"><a href="#L11">11</a> open Set</span>
+<span id="L12"><a href="#L12">12</a> open scoped ComplexOrder InnerProduct</span>
+<span id="L13"><a href="#L13">13</a> </span>
+<span id="L14"><a href="#L14">14</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> universe u v</span>
+<span id="L17"><a href="#L17">17</a> </span>
+<span id="L18"><a href="#L18">18</a> variable {A : Type u} [NonUnitalCStarAlgebra A]</span>
+<span id="L19"><a href="#L19">19</a>   [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L20"><a href="#L20">20</a> variable {H : Type v}</span>
+<span id="L21"><a href="#L21">21</a> variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L22"><a href="#L22">22</a> </span>
+<span id="L23"><a href="#L23">23</a> namespace NonUnitalCStarRepresentation</span>
+<span id="L24"><a href="#L24">24</a> </span>
+<span id="L25"><a href="#L25">25</a> /-- The scalar character of the minimal unitization. -/</span>
+<span id="L26"><a href="#L26">26</a> noncomputable def infinityCharacter :</span>
+<span id="L27"><a href="#L27">27</a>     WeakDual.characterSpace ℂ (Unitization ℂ A) :=</span>
+<span id="L28"><a href="#L28">28</a>   WeakDual.CharacterSpace.equivAlgHom.symm (Unitization.fstHom (R := ℂ) (A := A))</span>
+<span id="L29"><a href="#L29">29</a> </span>
+<span id="L30"><a href="#L30">30</a> @[simp]</span>
+<span id="L31"><a href="#L31">31</a> theorem infinityCharacter_apply (z : Unitization ℂ A) :</span>
+<span id="L32"><a href="#L32">32</a>     infinityCharacter (A := A) z = z.fst := by</span>
+<span id="L33"><a href="#L33">33</a>   simp [infinityCharacter]</span>
+<span id="L34"><a href="#L34">34</a> </span>
+<span id="L35"><a href="#L35">35</a> /-- The restriction of the scalar character to a unital star subalgebra of</span>
+<span id="L36"><a href="#L36">36</a> the unitization. -/</span>
+<span id="L37"><a href="#L37">37</a> noncomputable def infinityCharacterOn</span>
+<span id="L38"><a href="#L38">38</a>     (D : StarSubalgebra ℂ (Unitization ℂ A))</span>
+<span id="L39"><a href="#L39">39</a>     [IsClosed (D : Set (Unitization ℂ A))] :</span>
+<span id="L40"><a href="#L40">40</a>     WeakDual.characterSpace ℂ D :=</span>
+<span id="L41"><a href="#L41">41</a>   WeakDual.CharacterSpace.equivAlgHom.symm</span>
+<span id="L42"><a href="#L42">42</a>     ((Unitization.fstHom (R := ℂ) (A := A)).comp D.subtype.toAlgHom)</span>
+<span id="L43"><a href="#L43">43</a> </span>
+<span id="L44"><a href="#L44">44</a> @[simp]</span>
+<span id="L45"><a href="#L45">45</a> theorem infinityCharacterOn_apply</span>
+<span id="L46"><a href="#L46">46</a>     (D : StarSubalgebra ℂ (Unitization ℂ A))</span>
+<span id="L47"><a href="#L47">47</a>     [IsClosed (D : Set (Unitization ℂ A))] (d : D) :</span>
+<span id="L48"><a href="#L48">48</a>     infinityCharacterOn (A := A) D d = (d : Unitization ℂ A).fst := by</span>
+<span id="L49"><a href="#L49">49</a>   change (d : Unitization ℂ A).fst = (d : Unitization ℂ A).fst</span>
+<span id="L50"><a href="#L50">50</a>   rfl</span>
+<span id="L51"><a href="#L51">51</a> </span>
+<span id="L52"><a href="#L52">52</a> /-- If the GNS representation of a state of the unitization vanishes on the</span>
+<span id="L53"><a href="#L53">53</a> original algebra, then the state is the scalar character. -/</span>
+<span id="L54"><a href="#L54">54</a> theorem state_eq_infinity_of_gns_restriction_zero</span>
+<span id="L55"><a href="#L55">55</a>     (phi : Unitization ℂ A →L[ℂ] ℂ)</span>
+<span id="L56"><a href="#L56">56</a>     (hphi : phi ∈ stateSpace (Unitization ℂ A))</span>
+<span id="L57"><a href="#L57">57</a>     (hzero : ∀ a : A,</span>
+<span id="L58"><a href="#L58">58</a>       (positiveLinearMapOfMemStateSpace phi hphi).gnsStarAlgHom</span>
+<span id="L59"><a href="#L59">59</a>         (Unitization.inr a) = 0) :</span>
+<span id="L60"><a href="#L60">60</a>     phi = (Unitization.fstHom (R := ℂ) (A := A)).toContinuousLinearMap := by</span>
+<span id="L61"><a href="#L61">61</a>   let f : Unitization ℂ A →ₚ[ℂ] ℂ :=</span>
+<span id="L62"><a href="#L62">62</a>     positiveLinearMapOfMemStateSpace phi hphi</span>
+<span id="L63"><a href="#L63">63</a>   apply ContinuousLinearMap.ext</span>
+<span id="L64"><a href="#L64">64</a>   intro z</span>
+<span id="L65"><a href="#L65">65</a>   induction z using Unitization.ind with</span>
+<span id="L66"><a href="#L66">66</a>   | inl_add_inr c a =&gt;</span>
+<span id="L67"><a href="#L67">67</a>       have hinr : phi (Unitization.inr a) = 0 := by</span>
+<span id="L68"><a href="#L68">68</a>         calc</span>
+<span id="L69"><a href="#L69">69</a>           phi (Unitization.inr a) = f (Unitization.inr a) := rfl</span>
+<span id="L70"><a href="#L70">70</a>           _ = inner ℂ f.gnsCyclicVector</span>
+<span id="L71"><a href="#L71">71</a>               (f.gnsStarAlgHom (Unitization.inr a) f.gnsCyclicVector) :=</span>
+<span id="L72"><a href="#L72">72</a>             (PositiveLinearMap.inner_gnsCyclicVector_gnsStarAlgHom f _).symm</span>
+<span id="L73"><a href="#L73">73</a>           _ = 0 := by rw [hzero a]; simp</span>
+<span id="L74"><a href="#L74">74</a>       have hinl : phi (Unitization.inl c) = c := by</span>
+<span id="L75"><a href="#L75">75</a>         calc</span>
+<span id="L76"><a href="#L76">76</a>           phi (Unitization.inl c) = phi (c • (1 : Unitization ℂ A)) := by</span>
+<span id="L77"><a href="#L77">77</a>             congr 1</span>
+<span id="L78"><a href="#L78">78</a>             simpa using</span>
+<span id="L79"><a href="#L79">79</a>               (Unitization.inl_smul (A := A) c (1 : ℂ))</span>
+<span id="L80"><a href="#L80">80</a>           _ = c • phi (1 : Unitization ℂ A) := map_smul phi c 1</span>
+<span id="L81"><a href="#L81">81</a>           _ = c := by rw [hphi.2]; simp</span>
+<span id="L82"><a href="#L82">82</a>       simp only [map_add, hinl, hinr, add_zero]</span>
+<span id="L83"><a href="#L83">83</a>       simp [Unitization.fstHom]</span>
+<span id="L84"><a href="#L84">84</a> </span>
+<span id="L85" class="source-highlight"><a href="#L85">85</a> /-- Every character of a closed unital star subalgebra of the unitization,</span>
+<span id="L86" class="source-highlight"><a href="#L86">86</a> except the scalar character, occurs as a joint unit eigenvector for the</span>
+<span id="L87" class="source-highlight"><a href="#L87">87</a> unitized singleton model. -/</span>
+<span id="L88" class="source-highlight"><a href="#L88">88</a> theorem exists_unit_eigenvector_of_character_ne_infinity [Nontrivial A]</span>
+<span id="L89" class="source-highlight"><a href="#L89">89</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L90" class="source-highlight"><a href="#L90">90</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)</span>
+<span id="L91" class="source-highlight"><a href="#L91">91</a>     (D : StarSubalgebra ℂ (Unitization ℂ A))</span>
+<span id="L92" class="source-highlight"><a href="#L92">92</a>     [IsClosed (D : Set (Unitization ℂ A))]</span>
+<span id="L93" class="source-highlight"><a href="#L93">93</a>     (chi : WeakDual.characterSpace ℂ D)</span>
+<span id="L94" class="source-highlight"><a href="#L94">94</a>     (hchi : chi ≠ infinityCharacterOn (A := A) D) :</span>
+<span id="L95" class="source-highlight"><a href="#L95">95</a>     ∃ eta : H, ‖eta‖ = 1 ∧</span>
+<span id="L96" class="source-highlight"><a href="#L96">96</a>       ∀ d : D, pi.unitization (d : Unitization ℂ A) eta = chi d • eta := by</span>
+<span id="L97" class="source-highlight"><a href="#L97">97</a>   obtain ⟨phi, hphi, hpure, hext⟩ :=</span>
+<span id="L98" class="source-highlight"><a href="#L98">98</a>     exists_pureState_extension D chi</span>
+<span id="L99" class="source-highlight"><a href="#L99">99</a>   let f : Unitization ℂ A →ₚ[ℂ] ℂ :=</span>
+<span id="L100" class="source-highlight"><a href="#L100">100</a>     positiveLinearMapOfMemStateSpace phi hphi</span>
+<span id="L101" class="source-highlight"><a href="#L101">101</a>   let rhoU : Representation (Unitization ℂ A) f.GNS := f.gnsStarAlgHom</span>
+<span id="L102" class="source-highlight"><a href="#L102">102</a>   let rho : NonUnitalCStarRepresentation A f.GNS :=</span>
+<span id="L103" class="source-highlight"><a href="#L103">103</a>     rhoU.toNonUnitalStarAlgHom.comp</span>
+<span id="L104" class="source-highlight"><a href="#L104">104</a>       (Unitization.inrNonUnitalStarAlgHom ℂ A)</span>
+<span id="L105" class="source-highlight"><a href="#L105">105</a>   have hrho_nonzero : rho.IsNonzero := by</span>
+<span id="L106" class="source-highlight"><a href="#L106">106</a>     by_contra hnz</span>
+<span id="L107" class="source-highlight"><a href="#L107">107</a>     have hzero : ∀ a : A, rhoU (Unitization.inr a) = 0 := by</span>
+<span id="L108" class="source-highlight"><a href="#L108">108</a>       intro a</span>
+<span id="L109" class="source-highlight"><a href="#L109">109</a>       have : rho a = 0 := by</span>
+<span id="L110" class="source-highlight"><a href="#L110">110</a>         by_contra ha</span>
+<span id="L111" class="source-highlight"><a href="#L111">111</a>         exact hnz ⟨a, ha⟩</span>
+<span id="L112" class="source-highlight"><a href="#L112">112</a>       simpa [rho] using this</span>
+<span id="L113" class="source-highlight"><a href="#L113">113</a>     have hphi_inf :=</span>
+<span id="L114" class="source-highlight"><a href="#L114">114</a>       state_eq_infinity_of_gns_restriction_zero phi hphi hzero</span>
+<span id="L115" class="source-highlight"><a href="#L115">115</a>     apply hchi</span>
+<span id="L116" class="source-highlight"><a href="#L116">116</a>     apply WeakDual.CharacterSpace.ext</span>
+<span id="L117" class="source-highlight"><a href="#L117">117</a>     intro d</span>
+<span id="L118" class="source-highlight"><a href="#L118">118</a>     calc</span>
+<span id="L119" class="source-highlight"><a href="#L119">119</a>       chi d = phi (d : Unitization ℂ A) := (hext d).symm</span>
+<span id="L120" class="source-highlight"><a href="#L120">120</a>       _ = (Unitization.fstHom (R := ℂ) (A := A)).toContinuousLinearMap</span>
+<span id="L121" class="source-highlight"><a href="#L121">121</a>           (d : Unitization ℂ A) := by rw [hphi_inf]</span>
+<span id="L122" class="source-highlight"><a href="#L122">122</a>       _ = infinityCharacterOn (A := A) D d := by</span>
+<span id="L123" class="source-highlight"><a href="#L123">123</a>         simp</span>
+<span id="L124" class="source-highlight"><a href="#L124">124</a>   have hxi : ‖f.gnsCyclicVector‖ = 1 :=</span>
+<span id="L125" class="source-highlight"><a href="#L125">125</a>     PositiveLinearMap.norm_gnsCyclicVector f</span>
+<span id="L126" class="source-highlight"><a href="#L126">126</a>       (positiveLinearMapOfMemStateSpace_one phi hphi)</span>
+<span id="L127" class="source-highlight"><a href="#L127">127</a>   have hxi_ne : f.gnsCyclicVector ≠ 0 := by</span>
+<span id="L128" class="source-highlight"><a href="#L128">128</a>     intro hzero</span>
+<span id="L129" class="source-highlight"><a href="#L129">129</a>     simp [hzero] at hxi</span>
+<span id="L130" class="source-highlight"><a href="#L130">130</a>   letI : Nontrivial f.GNS :=</span>
+<span id="L131" class="source-highlight"><a href="#L131">131</a>     nontrivial_of_ne f.gnsCyclicVector 0 hxi_ne</span>
+<span id="L132" class="source-highlight"><a href="#L132">132</a>   have hirrU : rhoU.IsIrreducible :=</span>
+<span id="L133" class="source-highlight"><a href="#L133">133</a>     (Representation.isIrreducible_iff_starAlgHom rhoU).2</span>
+<span id="L134" class="source-highlight"><a href="#L134">134</a>       (isIrreducible_pureState_gnsStarAlgHom phi hphi hpure)</span>
+<span id="L135" class="source-highlight"><a href="#L135">135</a>   have hirr : rho.IsIrreducible :=</span>
+<span id="L136" class="source-highlight"><a href="#L136">136</a>     isIrreducible_restriction_of_isIrreducible_unitization rhoU hirrU</span>
+<span id="L137" class="source-highlight"><a href="#L137">137</a>       hrho_nonzero</span>
+<span id="L138" class="source-highlight"><a href="#L138">138</a>   obtain ⟨U, hU⟩ := hsingle.2 f.GNS rho hirr</span>
+<span id="L139" class="source-highlight"><a href="#L139">139</a>   have hUunit := unitization_unitaryEquivalent (pi := pi) (rho := rho) ⟨U, hU⟩</span>
+<span id="L140" class="source-highlight"><a href="#L140">140</a>   obtain ⟨V, hV⟩ := hUunit</span>
+<span id="L141" class="source-highlight"><a href="#L141">141</a>   have hrhoeq : rho.unitization = rhoU := by</span>
+<span id="L142" class="source-highlight"><a href="#L142">142</a>     apply Unitization.starAlgHom_ext</span>
+<span id="L143" class="source-highlight"><a href="#L143">143</a>     ext a</span>
+<span id="L144" class="source-highlight"><a href="#L144">144</a>     simp [rho, unitization]</span>
+<span id="L145" class="source-highlight"><a href="#L145">145</a>   have heigen (d : D) :</span>
+<span id="L146" class="source-highlight"><a href="#L146">146</a>       rhoU (d : Unitization ℂ A) f.gnsCyclicVector =</span>
+<span id="L147" class="source-highlight"><a href="#L147">147</a>         chi d • f.gnsCyclicVector := by</span>
+<span id="L148" class="source-highlight"><a href="#L148">148</a>     let q : D := d - algebraMap ℂ D (chi d)</span>
+<span id="L149" class="source-highlight"><a href="#L149">149</a>     have hchiq : chi q = 0 := by</span>
+<span id="L150" class="source-highlight"><a href="#L150">150</a>       dsimp [q]</span>
+<span id="L151" class="source-highlight"><a href="#L151">151</a>       rw [map_sub, AlgHomClass.commutes]</span>
+<span id="L152" class="source-highlight"><a href="#L152">152</a>       simp</span>
+<span id="L153" class="source-highlight"><a href="#L153">153</a>     have hchiqq : chi (star q * q) = 0 := by</span>
+<span id="L154" class="source-highlight"><a href="#L154">154</a>       rw [map_mul, map_star, hchiq]</span>
+<span id="L155" class="source-highlight"><a href="#L155">155</a>       simp</span>
+<span id="L156" class="source-highlight"><a href="#L156">156</a>     have hphiqq : phi (star (q : Unitization ℂ A) *</span>
+<span id="L157" class="source-highlight"><a href="#L157">157</a>         (q : Unitization ℂ A)) = 0 := by</span>
+<span id="L158" class="source-highlight"><a href="#L158">158</a>       have hvalue := hext (star q * q)</span>
+<span id="L159" class="source-highlight"><a href="#L159">159</a>       change phi (star (q : Unitization ℂ A) *</span>
+<span id="L160" class="source-highlight"><a href="#L160">160</a>         (q : Unitization ℂ A)) = chi (star q * q) at hvalue</span>
+<span id="L161" class="source-highlight"><a href="#L161">161</a>       exact hvalue.trans hchiqq</span>
+<span id="L162" class="source-highlight"><a href="#L162">162</a>     have hinner : inner ℂ</span>
+<span id="L163" class="source-highlight"><a href="#L163">163</a>         (rhoU (q : Unitization ℂ A) f.gnsCyclicVector)</span>
+<span id="L164" class="source-highlight"><a href="#L164">164</a>         (rhoU (q : Unitization ℂ A) f.gnsCyclicVector) = 0 := by</span>
+<span id="L165" class="source-highlight"><a href="#L165">165</a>       calc</span>
+<span id="L166" class="source-highlight"><a href="#L166">166</a>         _ = Representation.vectorFunctional rhoU f.gnsCyclicVector</span>
+<span id="L167" class="source-highlight"><a href="#L167">167</a>             (star (q : Unitization ℂ A) * (q : Unitization ℂ A)) := by</span>
+<span id="L168" class="source-highlight"><a href="#L168">168</a>           simpa using</span>
+<span id="L169" class="source-highlight"><a href="#L169">169</a>             (Representation.vectorFunctional_star_mul rhoU f.gnsCyclicVector</span>
+<span id="L170" class="source-highlight"><a href="#L170">170</a>               (q : Unitization ℂ A) (q : Unitization ℂ A)).symm</span>
+<span id="L171" class="source-highlight"><a href="#L171">171</a>         _ = f (star (q : Unitization ℂ A) *</span>
+<span id="L172" class="source-highlight"><a href="#L172">172</a>             (q : Unitization ℂ A)) :=</span>
+<span id="L173" class="source-highlight"><a href="#L173">173</a>           PositiveLinearMap.inner_gnsCyclicVector_gnsStarAlgHom f _</span>
+<span id="L174" class="source-highlight"><a href="#L174">174</a>         _ = phi (star (q : Unitization ℂ A) *</span>
+<span id="L175" class="source-highlight"><a href="#L175">175</a>             (q : Unitization ℂ A)) := rfl</span>
+<span id="L176" class="source-highlight"><a href="#L176">176</a>         _ = 0 := hphiqq</span>
+<span id="L177" class="source-highlight"><a href="#L177">177</a>     have hqzero : rhoU (q : Unitization ℂ A) f.gnsCyclicVector = 0 :=</span>
+<span id="L178" class="source-highlight"><a href="#L178">178</a>       inner_self_eq_zero.mp hinner</span>
+<span id="L179" class="source-highlight"><a href="#L179">179</a>     have hsub : rhoU (d : Unitization ℂ A) f.gnsCyclicVector -</span>
+<span id="L180" class="source-highlight"><a href="#L180">180</a>         chi d • f.gnsCyclicVector = 0 := by</span>
+<span id="L181" class="source-highlight"><a href="#L181">181</a>       calc</span>
+<span id="L182" class="source-highlight"><a href="#L182">182</a>         _ = rhoU (q : Unitization ℂ A) f.gnsCyclicVector := by</span>
+<span id="L183" class="source-highlight"><a href="#L183">183</a>           simp [q, Algebra.algebraMap_eq_smul_one]</span>
+<span id="L184" class="source-highlight"><a href="#L184">184</a>         _ = 0 := hqzero</span>
+<span id="L185" class="source-highlight"><a href="#L185">185</a>     exact sub_eq_zero.mp hsub</span>
+<span id="L186" class="source-highlight"><a href="#L186">186</a>   refine ⟨V.symm f.gnsCyclicVector,</span>
+<span id="L187" class="source-highlight"><a href="#L187">187</a>     (V.symm.norm_map f.gnsCyclicVector).trans hxi, ?_⟩</span>
+<span id="L188" class="source-highlight"><a href="#L188">188</a>   intro d</span>
+<span id="L189" class="source-highlight"><a href="#L189">189</a>   apply V.injective</span>
+<span id="L190" class="source-highlight"><a href="#L190">190</a>   calc</span>
+<span id="L191" class="source-highlight"><a href="#L191">191</a>     V (pi.unitization (d : Unitization ℂ A)</span>
+<span id="L192" class="source-highlight"><a href="#L192">192</a>         (V.symm f.gnsCyclicVector)) =</span>
+<span id="L193" class="source-highlight"><a href="#L193">193</a>         rho.unitization (d : Unitization ℂ A) f.gnsCyclicVector := by</span>
+<span id="L194" class="source-highlight"><a href="#L194">194</a>       simpa using hV (d : Unitization ℂ A) (V.symm f.gnsCyclicVector)</span>
+<span id="L195" class="source-highlight"><a href="#L195">195</a>     _ = rhoU (d : Unitization ℂ A) f.gnsCyclicVector := by rw [hrhoeq]</span>
+<span id="L196" class="source-highlight"><a href="#L196">196</a>     _ = chi d • f.gnsCyclicVector := heigen d</span>
+<span id="L197" class="source-highlight"><a href="#L197">197</a>     _ = V (chi d • V.symm f.gnsCyclicVector) := by simp</span>
+<span id="L198"><a href="#L198">198</a> </span>
+<span id="L199"><a href="#L199">199</a> end NonUnitalCStarRepresentation</span>
+<span id="L200"><a href="#L200">200</a> </span>
+<span id="L201"><a href="#L201">201</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

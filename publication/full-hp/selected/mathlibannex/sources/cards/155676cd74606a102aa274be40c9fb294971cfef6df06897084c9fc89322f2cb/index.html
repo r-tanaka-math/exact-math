@@ -1,0 +1,231 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_rankOne_of_singleton</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/cards/155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb/"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a><span> · Public edition</span></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_rankOne_of_singleton</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem exists_preimage_rankOne_of_singleton [Nontrivial A]
+    [PartialOrder A] [StarOrderedRing A]
+    [TopologicalSpace.SeparableSpace H]
+    (pi : NonUnitalCStarRepresentation A H)
+    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :
+    ∀ x y : H, ∃ a : A, pi a = InnerProductSpace.rankOne ℂ x y</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import Mathlib.Analysis.CStarAlgebra.Hom</span>
+<span id="L2"><a href="#L2">2</a> import Mathlib.Analysis.InnerProductSpace.Adjoint</span>
+<span id="L3"><a href="#L3">3</a> import Mathlib.Analysis.InnerProductSpace.PiL2</span>
+<span id="L4"><a href="#L4">4</a> import Mathlib.Topology.MetricSpace.Cover</span>
+<span id="L5"><a href="#L5">5</a> import MathlibAnnex.Analysis.CStarAlgebra.NonUnital.RankOneProjection</span>
+<span id="L6"><a href="#L6">6</a> </span>
+<span id="L7"><a href="#L7">7</a> /-!</span>
+<span id="L8"><a href="#L8">8</a> # Rank-one operators in the range of a non-unital representation</span>
+<span id="L9"><a href="#L9">9</a> </span>
+<span id="L10"><a href="#L10">10</a> Once an irreducible representation contains one rank-one projection, dense</span>
+<span id="L11"><a href="#L11">11</a> orbits and closedness of an injective C-star homomorphism put every rank-one</span>
+<span id="L12"><a href="#L12">12</a> operator in its range.</span>
+<span id="L13"><a href="#L13">13</a> -/</span>
+<span id="L14"><a href="#L14">14</a> </span>
+<span id="L15"><a href="#L15">15</a> set_option autoImplicit false</span>
+<span id="L16"><a href="#L16">16</a> </span>
+<span id="L17"><a href="#L17">17</a> open Function Set</span>
+<span id="L18"><a href="#L18">18</a> open scoped InnerProduct</span>
+<span id="L19"><a href="#L19">19</a> </span>
+<span id="L20"><a href="#L20">20</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L21"><a href="#L21">21</a> </span>
+<span id="L22"><a href="#L22">22</a> universe u v</span>
+<span id="L23"><a href="#L23">23</a> </span>
+<span id="L24"><a href="#L24">24</a> variable {A : Type u} [NonUnitalCStarAlgebra A]</span>
+<span id="L25"><a href="#L25">25</a> variable {H : Type v}</span>
+<span id="L26"><a href="#L26">26</a> variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L27"><a href="#L27">27</a> </span>
+<span id="L28"><a href="#L28">28</a> namespace NonUnitalCStarRepresentation</span>
+<span id="L29"><a href="#L29">29</a> </span>
+<span id="L30"><a href="#L30">30</a> /-- A vector fixed by a represented projection has dense orbit under the</span>
+<span id="L31"><a href="#L31">31</a> original non-unital algebra, not merely under its unitization. -/</span>
+<span id="L32"><a href="#L32">32</a> theorem denseRange_apply_of_isIrreducible_of_fixed</span>
+<span id="L33"><a href="#L33">33</a>     (pi : NonUnitalCStarRepresentation A H) (hirr : pi.IsIrreducible)</span>
+<span id="L34"><a href="#L34">34</a>     {p : A} {e : H} (he : e ≠ 0) (hpe : pi p e = e) :</span>
+<span id="L35"><a href="#L35">35</a>     DenseRange (fun a : A =&gt; pi a e) := by</span>
+<span id="L36"><a href="#L36">36</a>   have hirrU := isIrreducible_unitization pi hirr</span>
+<span id="L37"><a href="#L37">37</a>   have horbitU : DenseRange (fun z : Unitization ℂ A =&gt; pi.unitization z e) :=</span>
+<span id="L38"><a href="#L38">38</a>     Representation.denseRange_orbitMap_of_isIrreducible pi.unitization hirrU he</span>
+<span id="L39"><a href="#L39">39</a>   rw [Metric.denseRange_iff] at horbitU ⊢</span>
+<span id="L40"><a href="#L40">40</a>   intro y epsilon hepsilon</span>
+<span id="L41"><a href="#L41">41</a>   obtain ⟨z, hz⟩ := horbitU y epsilon hepsilon</span>
+<span id="L42"><a href="#L42">42</a>   induction z using Unitization.ind with</span>
+<span id="L43"><a href="#L43">43</a>   | inl_add_inr c a =&gt;</span>
+<span id="L44"><a href="#L44">44</a>       refine ⟨c • p + a, ?_⟩</span>
+<span id="L45"><a href="#L45">45</a>       simpa [unitization, hpe] using hz</span>
+<span id="L46"><a href="#L46">46</a> </span>
+<span id="L47"><a href="#L47">47</a> /-- Algebraic rank-one links obtained from one represented rank-one</span>
+<span id="L48"><a href="#L48">48</a> projection. -/</span>
+<span id="L49"><a href="#L49">49</a> theorem map_mul_projection_mul_star_eq_rankOne</span>
+<span id="L50"><a href="#L50">50</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L51"><a href="#L51">51</a>     {p a b : A} {e : H}</span>
+<span id="L52"><a href="#L52">52</a>     (hmap : pi p = InnerProductSpace.rankOne ℂ e e) :</span>
+<span id="L53"><a href="#L53">53</a>     pi (a * p * star b) =</span>
+<span id="L54"><a href="#L54">54</a>       InnerProductSpace.rankOne ℂ (pi a e) (pi b e) := by</span>
+<span id="L55"><a href="#L55">55</a>   apply ContinuousLinearMap.ext</span>
+<span id="L56"><a href="#L56">56</a>   intro x</span>
+<span id="L57"><a href="#L57">57</a>   simp only [map_mul, map_star, mul_apply_eq_comp, ContinuousLinearMap.comp_apply,</span>
+<span id="L58"><a href="#L58">58</a>     hmap, InnerProductSpace.rankOne_apply, map_smul]</span>
+<span id="L59"><a href="#L59">59</a>   congr 1</span>
+<span id="L60"><a href="#L60">60</a>   rw [ContinuousLinearMap.star_eq_adjoint]</span>
+<span id="L61"><a href="#L61">61</a>   exact ContinuousLinearMap.adjoint_inner_right (pi b) e x</span>
+<span id="L62"><a href="#L62">62</a> </span>
+<span id="L63"><a href="#L63">63</a> /-- If an injective irreducible representation contains one rank-one</span>
+<span id="L64"><a href="#L64">64</a> projection, then every rank-one operator belongs to its range. -/</span>
+<span id="L65"><a href="#L65">65</a> theorem exists_preimage_rankOne_of_rankOne_projection</span>
+<span id="L66"><a href="#L66">66</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L67"><a href="#L67">67</a>     (hirr : pi.IsIrreducible) (hinj : Function.Injective pi)</span>
+<span id="L68"><a href="#L68">68</a>     {p : A} {e : H} (he : ‖e‖ = 1)</span>
+<span id="L69"><a href="#L69">69</a>     (hmap : pi p = InnerProductSpace.rankOne ℂ e e) :</span>
+<span id="L70"><a href="#L70">70</a>     ∀ x y : H, ∃ a : A, pi a = InnerProductSpace.rankOne ℂ x y := by</span>
+<span id="L71"><a href="#L71">71</a>   have hene : e ≠ 0 := by</span>
+<span id="L72"><a href="#L72">72</a>     intro hzero</span>
+<span id="L73"><a href="#L73">73</a>     simp [hzero] at he</span>
+<span id="L74"><a href="#L74">74</a>   have hpe : pi p e = e := by</span>
+<span id="L75"><a href="#L75">75</a>     rw [hmap]</span>
+<span id="L76"><a href="#L76">76</a>     simp [InnerProductSpace.rankOne_apply,</span>
+<span id="L77"><a href="#L77">77</a>       inner_self_eq_norm_sq_to_K, he]</span>
+<span id="L78"><a href="#L78">78</a>   have horbit : DenseRange (fun a : A =&gt; pi a e) :=</span>
+<span id="L79"><a href="#L79">79</a>     denseRange_apply_of_isIrreducible_of_fixed pi hirr hene hpe</span>
+<span id="L80"><a href="#L80">80</a>   have hclosed : IsClosed (Set.range pi) :=</span>
+<span id="L81"><a href="#L81">81</a>     (NonUnitalStarAlgHom.isometry pi hinj).isClosedEmbedding.isClosed_range</span>
+<span id="L82"><a href="#L82">82</a>   have hright (a : A) (y : H) :</span>
+<span id="L83"><a href="#L83">83</a>       InnerProductSpace.rankOne ℂ (pi a e) y ∈ Set.range pi := by</span>
+<span id="L84"><a href="#L84">84</a>     exact horbit.induction_on y</span>
+<span id="L85"><a href="#L85">85</a>       (hclosed.preimage (by fun_prop)) fun b =&gt; by</span>
+<span id="L86"><a href="#L86">86</a>         refine ⟨a * p * star b, ?_⟩</span>
+<span id="L87"><a href="#L87">87</a>         exact map_mul_projection_mul_star_eq_rankOne pi hmap</span>
+<span id="L88"><a href="#L88">88</a>   intro x y</span>
+<span id="L89"><a href="#L89">89</a>   have hx : InnerProductSpace.rankOne ℂ x y ∈ Set.range pi := by</span>
+<span id="L90"><a href="#L90">90</a>     exact horbit.induction_on x</span>
+<span id="L91"><a href="#L91">91</a>       (hclosed.preimage (by fun_prop)) fun a =&gt; hright a y</span>
+<span id="L92"><a href="#L92">92</a>   exact hx</span>
+<span id="L93"><a href="#L93">93</a> </span>
+<span id="L94" class="source-highlight"><a href="#L94">94</a> /-- Under the genuinely non-unital singleton hypothesis, every rank-one</span>
+<span id="L95" class="source-highlight"><a href="#L95">95</a> operator has a preimage in the original algebra. -/</span>
+<span id="L96" class="source-highlight"><a href="#L96">96</a> theorem exists_preimage_rankOne_of_singleton [Nontrivial A]</span>
+<span id="L97" class="source-highlight"><a href="#L97">97</a>     [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L98" class="source-highlight"><a href="#L98">98</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L99" class="source-highlight"><a href="#L99">99</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L100" class="source-highlight"><a href="#L100">100</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L101" class="source-highlight"><a href="#L101">101</a>     ∀ x y : H, ∃ a : A, pi a = InnerProductSpace.rankOne ℂ x y := by</span>
+<span id="L102" class="source-highlight"><a href="#L102">102</a>   obtain ⟨p, _hp, _hpne, ⟨e, he, hmap⟩, _hcompact⟩ :=</span>
+<span id="L103" class="source-highlight"><a href="#L103">103</a>     exists_nonzero_projection_rankOne_map pi hsingle</span>
+<span id="L104" class="source-highlight"><a href="#L104">104</a>   exact exists_preimage_rankOne_of_rankOne_projection pi hsingle.1</span>
+<span id="L105" class="source-highlight"><a href="#L105">105</a>     (injective_of_singleton pi hsingle) he hmap</span>
+<span id="L106"><a href="#L106">106</a> </span>
+<span id="L107"><a href="#L107">107</a> /-- A finite sum of rank-one operators has a preimage whenever each</span>
+<span id="L108"><a href="#L108">108</a> rank-one operator does. -/</span>
+<span id="L109"><a href="#L109">109</a> theorem exists_preimage_sum_rankOne</span>
+<span id="L110"><a href="#L110">110</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L111"><a href="#L111">111</a>     {I : Type*} [Fintype I]</span>
+<span id="L112"><a href="#L112">112</a>     (hpre : ∀ x y : H, ∃ a : A,</span>
+<span id="L113"><a href="#L113">113</a>       pi a = InnerProductSpace.rankOne ℂ x y)</span>
+<span id="L114"><a href="#L114">114</a>     (x y : I → H) :</span>
+<span id="L115"><a href="#L115">115</a>     ∃ a : A, pi a = ∑ i, InnerProductSpace.rankOne ℂ (x i) (y i) := by</span>
+<span id="L116"><a href="#L116">116</a>   choose a ha using fun i =&gt; hpre (x i) (y i)</span>
+<span id="L117"><a href="#L117">117</a>   refine ⟨∑ i, a i, ?_⟩</span>
+<span id="L118"><a href="#L118">118</a>   rw [map_sum]</span>
+<span id="L119"><a href="#L119">119</a>   exact Finset.sum_congr rfl fun i _ =&gt; ha i</span>
+<span id="L120"><a href="#L120">120</a> </span>
+<span id="L121"><a href="#L121">121</a> /-- Compact operators on a Hilbert space are norm limits of finite sums of</span>
+<span id="L122"><a href="#L122">122</a> rank-one operators.  This local formulation targets the closed range of an</span>
+<span id="L123"><a href="#L123">123</a> injective representation directly. -/</span>
+<span id="L124"><a href="#L124">124</a> theorem exists_preimage_of_isCompactOperator_of_rankOne_preimages</span>
+<span id="L125"><a href="#L125">125</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L126"><a href="#L126">126</a>     (hinj : Function.Injective pi)</span>
+<span id="L127"><a href="#L127">127</a>     (hpre : ∀ x y : H, ∃ a : A,</span>
+<span id="L128"><a href="#L128">128</a>       pi a = InnerProductSpace.rankOne ℂ x y)</span>
+<span id="L129"><a href="#L129">129</a>     (T : H →L[ℂ] H) (hT : IsCompactOperator T) :</span>
+<span id="L130"><a href="#L130">130</a>     ∃ a : A, pi a = T := by</span>
+<span id="L131"><a href="#L131">131</a>   classical</span>
+<span id="L132"><a href="#L132">132</a>   have hclosed : IsClosed (Set.range pi) :=</span>
+<span id="L133"><a href="#L133">133</a>     (NonUnitalStarAlgHom.isometry pi hinj).isClosedEmbedding.isClosed_range</span>
+<span id="L134"><a href="#L134">134</a>   have hclosure : T ∈ closure (Set.range pi) := by</span>
+<span id="L135"><a href="#L135">135</a>     rw [Metric.mem_closure_iff]</span>
+<span id="L136"><a href="#L136">136</a>     intro epsilon hepsilon</span>
+<span id="L137"><a href="#L137">137</a>     let delta : ℝ := epsilon / 2</span>
+<span id="L138"><a href="#L138">138</a>     have hdelta : 0 &lt; delta := by dsimp [delta]; positivity</span>
+<span id="L139"><a href="#L139">139</a>     let K : Set H := closure (T &#x27;&#x27; Metric.closedBall 0 1)</span>
+<span id="L140"><a href="#L140">140</a>     have hK : IsCompact K := by</span>
+<span id="L141"><a href="#L141">141</a>       exact hT.isCompact_closure_image_closedBall 1</span>
+<span id="L142"><a href="#L142">142</a>     obtain ⟨N, hNK, hNfinite, hNcover⟩ :=</span>
+<span id="L143"><a href="#L143">143</a>       hK.finite_cover_balls hdelta</span>
+<span id="L144"><a href="#L144">144</a>     let E : Submodule ℂ H := Submodule.span ℂ N</span>
+<span id="L145"><a href="#L145">145</a>     letI : FiniteDimensional ℂ E :=</span>
+<span id="L146"><a href="#L146">146</a>       FiniteDimensional.span_of_finite ℂ hNfinite</span>
+<span id="L147"><a href="#L147">147</a>     letI : E.HasOrthogonalProjection := inferInstance</span>
+<span id="L148"><a href="#L148">148</a>     let P : H →L[ℂ] H := E.starProjection</span>
+<span id="L149"><a href="#L149">149</a>     let S : H →L[ℂ] H := P * T</span>
+<span id="L150"><a href="#L150">150</a>     let b : OrthonormalBasis (Fin (Module.finrank ℂ E)) ℂ E :=</span>
+<span id="L151"><a href="#L151">151</a>       stdOrthonormalBasis ℂ E</span>
+<span id="L152"><a href="#L152">152</a>     have hSsum : S = ∑ i,</span>
+<span id="L153"><a href="#L153">153</a>         InnerProductSpace.rankOne ℂ ((b i : E) : H)</span>
+<span id="L154"><a href="#L154">154</a>           (ContinuousLinearMap.adjoint T ((b i : E) : H)) := by</span>
+<span id="L155"><a href="#L155">155</a>       dsimp [S, P]</span>
+<span id="L156"><a href="#L156">156</a>       rw [b.starProjection_eq_sum_rankOne, Finset.sum_mul]</span>
+<span id="L157"><a href="#L157">157</a>       apply Finset.sum_congr rfl</span>
+<span id="L158"><a href="#L158">158</a>       intro i _</span>
+<span id="L159"><a href="#L159">159</a>       exact InnerProductSpace.rankOne_comp</span>
+<span id="L160"><a href="#L160">160</a>         ((b i : E) : H) ((b i : E) : H) T</span>
+<span id="L161"><a href="#L161">161</a>     obtain ⟨a, ha⟩ := exists_preimage_sum_rankOne pi hpre</span>
+<span id="L162"><a href="#L162">162</a>       (fun i =&gt; ((b i : E) : H))</span>
+<span id="L163"><a href="#L163">163</a>       (fun i =&gt; ContinuousLinearMap.adjoint T ((b i : E) : H))</span>
+<span id="L164"><a href="#L164">164</a>     have hSrange : S ∈ Set.range pi := by</span>
+<span id="L165"><a href="#L165">165</a>       refine ⟨a, ?_⟩</span>
+<span id="L166"><a href="#L166">166</a>       exact ha.trans hSsum.symm</span>
+<span id="L167"><a href="#L167">167</a>     have hunit (x : H) (hx : ‖x‖ ≤ 1) :</span>
+<span id="L168"><a href="#L168">168</a>         ‖T x - P (T x)‖ &lt; delta := by</span>
+<span id="L169"><a href="#L169">169</a>       have hTxK : T x ∈ K := by</span>
+<span id="L170"><a href="#L170">170</a>         apply subset_closure</span>
+<span id="L171"><a href="#L171">171</a>         exact ⟨x, by simpa using hx, rfl⟩</span>
+<span id="L172"><a href="#L172">172</a>       have hcovered := hNcover hTxK</span>
+<span id="L173"><a href="#L173">173</a>       simp only [Set.mem_iUnion, exists_prop, Metric.mem_ball] at hcovered</span>
+<span id="L174"><a href="#L174">174</a>       obtain ⟨n, hnN, hn⟩ := hcovered</span>
+<span id="L175"><a href="#L175">175</a>       rw [E.starProjection_minimal]</span>
+<span id="L176"><a href="#L176">176</a>       refine lt_of_le_of_lt</span>
+<span id="L177"><a href="#L177">177</a>         (ciInf_le ⟨0, Set.forall_mem_range.mpr fun _ =&gt; norm_nonneg _⟩</span>
+<span id="L178"><a href="#L178">178</a>           (⟨n, Submodule.subset_span hnN⟩ : E)) ?_</span>
+<span id="L179"><a href="#L179">179</a>       simpa [dist_eq_norm] using hn</span>
+<span id="L180"><a href="#L180">180</a>     have hnorm : ‖T - S‖ ≤ delta := by</span>
+<span id="L181"><a href="#L181">181</a>       apply ContinuousLinearMap.opNorm_le_bound&#x27; (T - S) hdelta.le</span>
+<span id="L182"><a href="#L182">182</a>       intro x hxne</span>
+<span id="L183"><a href="#L183">183</a>       let z : H := ((‖x‖⁻¹ : ℝ) : ℂ) • x</span>
+<span id="L184"><a href="#L184">184</a>       have hxpos : 0 &lt; ‖x‖ :=</span>
+<span id="L185"><a href="#L185">185</a>         norm_pos_iff.mpr (norm_ne_zero_iff.mp hxne)</span>
+<span id="L186"><a href="#L186">186</a>       have hz : ‖z‖ = 1 := by</span>
+<span id="L187"><a href="#L187">187</a>         simp [z, norm_smul, hxpos.ne&#x27;]</span>
+<span id="L188"><a href="#L188">188</a>       have hzbound : ‖T z - P (T z)‖ &lt; delta := hunit z hz.le</span>
+<span id="L189"><a href="#L189">189</a>       have hxrepr : x = ((‖x‖ : ℝ) : ℂ) • z := by</span>
+<span id="L190"><a href="#L190">190</a>         simp [z, hxpos.ne&#x27;]</span>
+<span id="L191"><a href="#L191">191</a>       change ‖(T - P * T) x‖ ≤ delta * ‖x‖</span>
+<span id="L192"><a href="#L192">192</a>       have hmaprepr : (T - P * T) x =</span>
+<span id="L193"><a href="#L193">193</a>           ((‖x‖ : ℝ) : ℂ) • (T - P * T) z := by</span>
+<span id="L194"><a href="#L194">194</a>         calc</span>
+<span id="L195"><a href="#L195">195</a>           (T - P * T) x =</span>
+<span id="L196"><a href="#L196">196</a>               (T - P * T) (((‖x‖ : ℝ) : ℂ) • z) :=</span>
+<span id="L197"><a href="#L197">197</a>             congrArg (T - P * T) hxrepr</span>
+<span id="L198"><a href="#L198">198</a>           _ = ((‖x‖ : ℝ) : ℂ) • (T - P * T) z := map_smul _ _ _</span>
+<span id="L199"><a href="#L199">199</a>       rw [hmaprepr, norm_smul, Complex.norm_real,</span>
+<span id="L200"><a href="#L200">200</a>         Real.norm_eq_abs, abs_of_nonneg (norm_nonneg x)]</span>
+<span id="L201"><a href="#L201">201</a>       have herr : ‖(T - P * T) z‖ &lt; delta := by</span>
+<span id="L202"><a href="#L202">202</a>         simpa [mul_apply_eq_comp] using hzbound</span>
+<span id="L203"><a href="#L203">203</a>       simpa [mul_comm] using</span>
+<span id="L204"><a href="#L204">204</a>         mul_le_mul_of_nonneg_left herr.le (norm_nonneg x)</span>
+<span id="L205"><a href="#L205">205</a>     refine ⟨S, hSrange, ?_⟩</span>
+<span id="L206"><a href="#L206">206</a>     rw [dist_eq_norm]</span>
+<span id="L207"><a href="#L207">207</a>     exact hnorm.trans_lt (by dsimp [delta]; linarith)</span>
+<span id="L208"><a href="#L208">208</a>   rw [hclosed.closure_eq] at hclosure</span>
+<span id="L209"><a href="#L209">209</a>   exact hclosure</span>
+<span id="L210"><a href="#L210">210</a> </span>
+<span id="L211"><a href="#L211">211</a> /-- The compact operators are contained in the range of a genuinely</span>
+<span id="L212"><a href="#L212">212</a> non-unital singleton model. -/</span>
+<span id="L213"><a href="#L213">213</a> theorem exists_preimage_of_compact_singleton [Nontrivial A]</span>
+<span id="L214"><a href="#L214">214</a>     [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L215"><a href="#L215">215</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L216"><a href="#L216">216</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L217"><a href="#L217">217</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)</span>
+<span id="L218"><a href="#L218">218</a>     (T : H →L[ℂ] H) (hT : IsCompactOperator T) :</span>
+<span id="L219"><a href="#L219">219</a>     ∃ a : A, pi a = T := by</span>
+<span id="L220"><a href="#L220">220</a>   apply exists_preimage_of_isCompactOperator_of_rankOne_preimages pi</span>
+<span id="L221"><a href="#L221">221</a>     (injective_of_singleton pi hsingle)</span>
+<span id="L222"><a href="#L222">222</a>     (exists_preimage_rankOne_of_singleton pi hsingle) T hT</span>
+<span id="L223"><a href="#L223">223</a> </span>
+<span id="L224"><a href="#L224">224</a> end NonUnitalCStarRepresentation</span>
+<span id="L225"><a href="#L225">225</a> </span>
+<span id="L226"><a href="#L226">226</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

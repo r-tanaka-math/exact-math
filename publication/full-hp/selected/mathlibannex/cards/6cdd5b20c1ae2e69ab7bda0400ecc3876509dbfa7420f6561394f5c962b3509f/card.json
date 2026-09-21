@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "bb5ebece47b94fdaa8942bd69170e1d93f9d31da9f92b408ef247f7ed10babe0",
+  "approved_card_model_sha256": "32d7a717ba89784c99e9585b58bb7a7f2351c638d213425acfa2f8b13b42a116",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital, and form its minimal unitization Unitization ℂ A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "518aa200681b91f3c30151862209af278c02422d54f77469f2eacb9dd43de6f9",
+    "uid": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f"
+  },
+  "citations": [],
+  "conclusion": "The infinity character is the character induced by projection onto the scalar coordinate: it evaluates a unitization element at its ℂ component. It is a character of Unitization ℂ A, not of A itself.",
+  "declaration_kind": "def",
+  "definition_equation": "infinityCharacter = CharacterSpace.equivAlgHom.symm (Unitization.fstHom ℂ A); infinityCharacter(c,a)=c.",
+  "definition_explanation": "infinityCharacter = CharacterSpace.equivAlgHom.symm (Unitization.fstHom ℂ A); infinityCharacter(c,a)=c.",
+  "display_title": "Scalar character of the minimal unitization",
+  "exact_elaborated_lean_type": "{A : Type u} → [inst : NonUnitalCStarAlgebra A] → ↑(WeakDual.characterSpace ℂ (Unitization ℂ A))",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "942392032b1be09433a69b59b25e7c16f8d30960be05eec104b0a822354a1498",
+    "uid": "lfh:lfh-card-exposition:sha256:f8f360c047dfdcbc20d75ad7a7fe0604a0ce6cad757dee87f4a486964855f076"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "99c7f0e4e348a522d96f6265ef620b682ee5bf1cdbba5a6803d3cb43c991bc0a",
+    "uid": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "942392032b1be09433a69b59b25e7c16f8d30960be05eec104b0a822354a1498",
+    "uid": "lfh:lfh-card-exposition:sha256:f8f360c047dfdcbc20d75ad7a7fe0604a0ce6cad757dee87f4a486964855f076"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "99c7f0e4e348a522d96f6265ef620b682ee5bf1cdbba5a6803d3cb43c991bc0a",
+      "uid": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacter",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital, and form its minimal unitization Unitization ℂ A. The infinity character is the character induced by projection onto the scalar coordinate: it evaluates a unitization element at its ℂ component. It is a character of Unitization ℂ A, not of A itself.",
+  "one_sentence_role": "Defines the distinguished scalar-coordinate character of the minimal unitization.",
+  "owner_review_item_sha256": "ed54574856061330a9abc1540d683d17e902e7e60a211cc4cfd587dd9999052c",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → [inst : NonUnitalCStarAlgebra A] → ↑(WeakDual.characterSpace ℂ (Unitization ℂ A))"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "infinityCharacter = CharacterSpace.equivAlgHom.symm (Unitization.fstHom ℂ A); infinityCharacter(c,a)=c."
+    },
+    {
+      "step_id": "source_route",
+      "text": "This is a definition by the scalar-coordinate algebra homomorphism. The later infinityCharacterOn D is its restriction to a chosen star subalgebra D of the unitization."
+    }
+  ],
+  "proof_summary": "This is a definition by the scalar-coordinate algebra homomorphism. The later infinityCharacterOn D is its restriction to a chosen star subalgebra D of the unitization.",
+  "source_excerpt": {
+    "bytes": 233,
+    "sha256": "e5a57b5d7dea6dc56d85ad0aff192baeebe3c680cf5bce7c7a2f9efa2773d11c"
+  },
+  "source_locator": {
+    "end_column": 82,
+    "end_line": 28,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+    "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+    "start_column": 1,
+    "start_line": 25
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "3646bd8c1dee5c3d41f2c0de1ec012bdf0de0a04ac631baf49e0fd55ced9b7c7",
+    "uid": "lfh:lfh-source-build-binding:sha256:de56fecd676715116f68267629efd7daa2cba08a91ec951e07c64f2e66143d7a"
+  },
+  "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+  "source_signature": {
+    "end_byte": 743,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "0c0124488578eb2a1eadaa731eccd6cd8f156827d871f4d1a7d0524134743e9c",
+    "source_command_range": {
+      "end_column": 82,
+      "end_line": 28,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+      "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+      "start_column": 1,
+      "start_line": 25
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+    "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+    "start_byte": 654,
+    "text": "noncomputable def infinityCharacter :\n    WeakDual.characterSpace ℂ (Unitization ℂ A)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean#L25-L28",
+  "stable_card_id": "6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

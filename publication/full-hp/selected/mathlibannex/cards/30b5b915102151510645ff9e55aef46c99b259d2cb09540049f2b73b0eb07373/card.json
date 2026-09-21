@@ -1,0 +1,137 @@
+{
+  "assumptions": "Real normed vector spaces E and F; s is open and connected; t is open; f is a surjective isometry from s to t.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "1263484c712e461a6802349daed7936b3d5bc3f619a4670a7d5bc843f8a3263f",
+    "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+  },
+  "citations": [
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.OpenConnected.0.MathlibAnnex.IsometryEquiv.existsUnique_affineIsometryEquiv_of_local",
+      "source_locator": {
+        "end_column": 44,
+        "end_line": 118,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+        "source_sha256": "310c616b8fddb9564dada72f3eab8550634db706e2b85ada8feee63ab7b83d0a",
+        "start_column": 1,
+        "start_line": 74
+      },
+      "text": "The proof or construction of Mankiewicz extension on open connected domains uses the project declaration “Gluing locally defined affine isometries on a connected open set” at the indicated step."
+    },
+    {
+      "label": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "b4ef8d7f9913ca0a211b548805d49160070e9f0bf268e84724d67c5b53d3412e",
+        "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+      },
+      "text": "The proof or construction of Mankiewicz extension on open connected domains uses the project declaration “Local affine-isometry chart on a smaller ball” at the indicated step."
+    }
+  ],
+  "conclusion": "There is a unique ambient real affine isometry equivalence whose restriction to s is f.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Mankiewicz extension on open connected domains",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "3848b6e912d9622d5090b9a463ba5848330b11d39bfb99021a10d6facf0908ec",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:9cebcddab6fd7891cd78c4e3896dc1736fcff6be1b38b36c3e205e36e594118d"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "ffd0c21c4c389feaa7abe9e5ca64bc9546fb5736d9768da63c049de11648ba84",
+    "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "3848b6e912d9622d5090b9a463ba5848330b11d39bfb99021a10d6facf0908ec",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:9cebcddab6fd7891cd78c4e3896dc1736fcff6be1b38b36c3e205e36e594118d"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "ffd0c21c4c389feaa7abe9e5ca64bc9546fb5736d9768da63c049de11648ba84",
+      "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+  "natural_language_statement": "Let f be a surjective isometry from an open connected subset s of a real normed space onto an open subset t of another real normed space. Then there exists a unique ambient real affine isometry equivalence A agreeing with f on all of s. Target connectedness is not a separate assumption.",
+  "one_sentence_role": "Glues local affine-isometry charts to obtain the principal open-domain extension theorem.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "For each x∈s, choose positive source and target ball radii from openness and take their minimum R."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Apply the local affine-chart theorem to obtain an ambient affine isometry agreeing with f on ball(x,R/8)."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Feed these pointwise local charts into the connected gluing lemma."
+    },
+    {
+      "step_id": "step-4",
+      "text": "The gluing lemma returns one affine isometry agreeing with f everywhere on s and proves uniqueness from agreement on the nonempty open source."
+    }
+  ],
+  "proof_summary": "At each source point, openness of s and t supplies matching small ambient balls. The local chart theorem gives an affine isometry agreeing with f on a smaller ball around that point. These local charts agree on overlaps and therefore form a locally constant chart-valued map; connectedness of s makes it constant. The resulting global chart is the unique extension.",
+  "source_locator": {
+    "end_column": 37,
+    "end_line": 147,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+    "source_sha256": "310c616b8fddb9564dada72f3eab8550634db706e2b85ada8feee63ab7b83d0a",
+    "start_column": 1,
+    "start_line": 120
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "98e6a600afbb9b7c8bf34a3e38593d357e056eb604a19ae97bfe76bccc4848f7",
+    "uid": "lfh:lfh-source-build-binding:sha256:44923ff30b79b845a0fe2718b14a05fc2b5540bbed7e001d3513df1151e0b68e"
+  },
+  "source_sha256": "310c616b8fddb9564dada72f3eab8550634db706e2b85ada8feee63ab7b83d0a",
+  "source_signature": {
+    "end_byte": 4986,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "b22c3cacae7bebc98f7faec2113392af6797bc65b527361b314ff3d1fcfe07eb",
+    "source_command_range": {
+      "end_column": 37,
+      "end_line": 147,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+      "source_sha256": "310c616b8fddb9564dada72f3eab8550634db706e2b85ada8feee63ab7b83d0a",
+      "start_column": 1,
+      "start_line": 120
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+    "source_sha256": "310c616b8fddb9564dada72f3eab8550634db706e2b85ada8feee63ab7b83d0a",
+    "start_byte": 4767,
+    "text": "theorem existsUnique_affineExtension\n    {s : Set E} {t : Set F} (f : s ≃ᵢ t)\n    (hs : IsOpen s) (hsc : IsConnected s) (ht : IsOpen t) :\n    ∃! A : E ≃ᵃⁱ[ℝ] F,\n      ∀ x : s, A (x : E) = ((f x : t) : F)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean#L120-L147",
+  "stable_card_id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "exact.report-citation.public.v1",
+  "documents": [
+    {
+      "document": "sphere",
+      "title": "Sphere Rigidity",
+      "version": "Draft R2",
+      "path": "reports/sphere-rigidity/draft-r2/sphere-rigidity-brief-report.pdf",
+      "bytes": 438927,
+      "sha256": "23a5557657143c9c8a613f2c388c121fceb4a59e8fd54ff22a60abce244c0c62",
+      "pages": 23,
+      "prepared_date": "2026-09-21",
+      "first_publication_date": "2026-09-17",
+      "this_version_publication_date": "2026-09-21",
+      "accepted_pdf_sha256": "0313f6e5f7155da28d0af71d213d22878045664c356a8789180acf01f31e01f3",
+      "authors": [],
+      "responsible_for_publication": "Ryotaro Tanaka",
+      "url": "/reports/sphere-rigidity/draft-r2/sphere-rigidity-brief-report.pdf",
+      "canonical_url": "https://exactmathematics.org/reports/sphere-rigidity/draft-r2/sphere-rigidity-brief-report.pdf",
+      "publication_authorized": true,
+      "publication_batch": "EM_FULL_HP_PUBLICATION_R1"
+    }
+  ]
+}
