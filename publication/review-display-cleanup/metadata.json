@@ -11,7 +11,7 @@
   "new_mathematical_review": false,
   "base_metadata_sha256": "142552379f2731bf99117bd0eb6774b3d4e6139e6fa436bf7fc993461fedefe4",
   "base_selection_sha256": "4a8b22ba30d49ebe218a8d0422e5d138159cd54724ceff06d9736d09dbc3b23f",
-  "plan_sha256": "290ac761896bbca7dafc0b0e85ded949ee2cbf8df53a1e251b5e2060816ae68b",
+  "plan_sha256": "b7e347e5665e91caf79d16a5d840a392697af053c73ab43ee0cb5d44418213bb",
   "paper_record_sha256": "081fc6d75afd25545142a544d3b0a339b9bd91115f25c7c34af2a0461b7bcd20",
   "source_release": {
     "tag": "v0.4.0",

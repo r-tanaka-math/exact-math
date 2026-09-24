@@ -46,13 +46,13 @@
   },
   {
     "path": "publication/review-display-cleanup/metadata.json",
-    "bytes": 1346,
-    "sha256": "1e3b56bba0f9d2a6ddc9ec5139a6b5edf7b7773e10f441f62f638f19c1b732f5"
+    "bytes": 1323,
+    "sha256": "c1255a6a866c99fe226aa68cbef85512814b75f6e8572c29c3af4de213002416"
   },
   {
     "path": "publication/review-display-cleanup/plan.json",
-    "bytes": 14747,
-    "sha256": "290ac761896bbca7dafc0b0e85ded949ee2cbf8df53a1e251b5e2060816ae68b"
+    "bytes": 14516,
+    "sha256": "b7e347e5665e91caf79d16a5d840a392697af053c73ab43ee0cb5d44418213bb"
   },
   {
     "path": "publication/review-display-cleanup/selected/about/index.html",
@@ -96,8 +96,8 @@
   },
   {
     "path": "publication/review-display-cleanup/selection.json",
-    "bytes": 1424,
-    "sha256": "8b77a5b5a4ad4c7f75ba67f6863c3260aebabbfe233bca95fe70385536b4967e"
+    "bytes": 1379,
+    "sha256": "489d0aa8892e5a024ae991584e44f70cf9888eb3e1aa7a161ad2e946e27287fd"
   },
   {
     "path": "scripts/naimark-arxiv-public-adapter.mjs",
