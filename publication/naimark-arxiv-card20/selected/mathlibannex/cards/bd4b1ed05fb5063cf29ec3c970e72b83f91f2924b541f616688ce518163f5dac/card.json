@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "bd4b1ed05fb5063cf29ec3c970e72b83f91f2924b541f616688ce518163f5dac",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Let ρ be the specified representation on Hτ, and let τ be the distinguished extension of the CAR trace to A. No extra assumptions of faithfulness, traciality, simplicity, or CH are made.",
+    "conclusion": "The ordinary counterexample assertion holds for this A, including the faithful atomic irreducible model and uniqueness among all nonzero irreducible comparison representations. In addition: Hτ is nontrivial and separable; ρ is injective and isometric; ρ is not nonzero irreducible; τ is a state; τ(ab) = τ(ba) for all a, b ∈ A; τ(a*a) = 0 if and only if a = 0; and every tracial state of A equals τ.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The counterexample with its faithful separable tracial model",
+    "language_tag": "en",
+    "lean_realization_notes": "Faithfulness of τ means its explicit square-vanishing criterion and is distinct from injectivity of ρ. The theorem does not infer faithfulness from uniqueness alone. The atomic irreducible model acts on Hₐₜ, not Hτ. The GNS interpretation is supported by the cyclic-vector and pointed-unitary results; the exact conjunction is displayed separately below. This declaration has no assigned level in the pinned Project scope.",
+    "natural_language_statement": "The fixed CAR-based C*-algebra A satisfies the complete ordinary counterexample assertion and has a faithful isometric representation ρ on a nonzero separable Hilbert space Hτ. This representation is not irreducible. The distinguished state τ on A is a faithful trace and is the unique tracial state of A.",
+    "one_sentence_role": "Collects the ordinary counterexample, its separable representation, and its faithful unique trace without changing the algebra.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use the complete ordinary assertion and nontriviality and separability of Hτ."
+      },
+      {
+        "step_id": "2",
+        "text": "Insert injectivity and isometry of ρ and its failure of irreducibility."
+      },
+      {
+        "step_id": "3",
+        "text": "Insert positivity and normalization of τ, the trace identity, faithfulness, and uniqueness among tracial states."
+      }
+    ],
+    "proof_summary": "Assemble the independently proved ordinary, representation, and trace statements for the fixed homogeneity family."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "4781b2a183efdb30b33f8d73b2423360cd38cdb807c6f9b7ddaa3746770023b2",
+    "uid": "lfh:lfh-declaration-card:sha256:bd4b1ed05fb5063cf29ec3c970e72b83f91f2924b541f616688ce518163f5dac"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "9a8b444d9c243ea97df0378601a6864335b6504d32ca2900fc21f8bdcaa6a4f4",
+    "uid": "lfh:lfh-card-exposition:sha256:8a836149ea04c714d7ef9e4541d7058f9a349b6e28d8963a779fbd67a59478b2"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_separable_tracial_representation",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      127,
+      150
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L127-L150"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.SeparableFaithful",
+        "provider": "PROJECT",
+        "provider_source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleTrace_star_mul_self_eq_zero_iff"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.SeparableFaithful",
+        "provider": "PROJECT",
+        "provider_source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.eq_atomicCounterexampleTrace_of_mem_stateSpace_of_mul_comm"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Let ρ be the specified representation on Hτ, and let τ be the distinguished extension of the CAR trace to A. No extra assumptions of faithfulness, traciality, simplicity, or CH are made.",
+    "conclusion": "The ordinary counterexample assertion holds for this A, including the faithful atomic irreducible model and uniqueness among all nonzero irreducible comparison representations. In addition: Hτ is nontrivial and separable; ρ is injective and isometric; ρ is not nonzero irreducible; τ is a state; τ(ab) = τ(ba) for all a, b ∈ A; τ(a*a) = 0 if and only if a = 0; and every tracial state of A equals τ.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The counterexample with its faithful separable tracial model",
+    "language_tag": "en",
+    "lean_realization_notes": "Faithfulness of τ means its explicit square-vanishing criterion and is distinct from injectivity of ρ. The theorem does not infer faithfulness from uniqueness alone. The atomic irreducible model acts on Hₐₜ, not Hτ. The GNS interpretation is supported by the cyclic-vector and pointed-unitary results; the exact conjunction is displayed separately below. This declaration has no assigned level in the pinned Project scope.",
+    "natural_language_statement": "The fixed CAR-based C*-algebra A satisfies the complete ordinary counterexample assertion and has a faithful isometric representation ρ on a nonzero separable Hilbert space Hτ. This representation is not irreducible. The distinguished state τ on A is a faithful trace and is the unique tracial state of A.",
+    "one_sentence_role": "Collects the ordinary counterexample, its separable representation, and its faithful unique trace without changing the algebra.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use the complete ordinary assertion and nontriviality and separability of Hτ."
+      },
+      {
+        "step_id": "2",
+        "text": "Insert injectivity and isometry of ρ and its failure of irreducibility."
+      },
+      {
+        "step_id": "3",
+        "text": "Insert positivity and normalization of τ, the trace identity, faithfulness, and uniqueness among tracial states."
+      }
+    ],
+    "proof_summary": "Assemble the independently proved ordinary, representation, and trace statements for the fixed homogeneity family.",
+    "stable_card_id": "bd4b1ed05fb5063cf29ec3c970e72b83f91f2924b541f616688ce518163f5dac",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_separable_tracial_representation",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_locator": {
+      "start_line": 127,
+      "end_line": 150
+    },
+    "source_signature": {
+      "text": "theorem atomicCounterexampleEndpoint_and_separable_tracial_representation :\n    AtomicCounterexampleEndpoint.{v} ∧\n    Nontrivial SeparableCounterexampleHilbertSpace ∧\n    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace ∧\n    Function.Injective separableCounterexampleRepresentation ∧\n    Isometry separableCounterexampleRepresentation ∧\n    ¬ Representation.IsIrreducible separableCounterexampleRepresentation ∧\n    atomicCounterexampleTrace ∈\n      MathlibAnnex.Analysis.CStarAlgebra.stateSpace AtomicCounterexampleAlgebra ∧\n    (∀ a b, atomicCounterexampleTrace (a * b) = atomicCounterexampleTrace (b * a)) ∧\n    (∀ a, atomicCounterexampleTrace (star a * a) = 0 ↔ a = 0) ∧\n    (∀ φ : AtomicCounterexampleAlgebra →L[ℂ] ℂ,\n      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace AtomicCounterexampleAlgebra →\n      (∀ a b, φ (a * b) = φ (b * a)) → φ = atomicCounterexampleTrace) :=\n  ⟨shellFamilyEndpoint homogeneityShellFamily,\n    nontrivial_traceHilbertSpace,\n    separableSpace_separableCounterexampleHilbertSpace,\n    separableCounterexampleRepresentation_injective,\n    isometry_separableCounterexampleRepresentation,\n    not_isIrreducible_separableCounterexampleRepresentation,\n    atomicCounterexampleTrace_mem_stateSpace,\n    atomicCounterexampleTrace_mul_comm,\n    atomicCounterexampleTrace_star_mul_self_eq_zero_iff,\n    eq_atomicCounterexampleTrace_of_mem_stateSpace_of_mul_comm⟩"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "4781b2a183efdb30b33f8d73b2423360cd38cdb807c6f9b7ddaa3746770023b2",
+      "uid": "lfh:lfh-declaration-card:sha256:bd4b1ed05fb5063cf29ec3c970e72b83f91f2924b541f616688ce518163f5dac"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "9a8b444d9c243ea97df0378601a6864335b6504d32ca2900fc21f8bdcaa6a4f4",
+      "uid": "lfh:lfh-card-exposition:sha256:8a836149ea04c714d7ef9e4541d7058f9a349b6e28d8963a779fbd67a59478b2"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleTrace_star_mul_self_eq_zero_iff",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/f9ed082e7528aa8d340279f1/index.html#L104"
+      },
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.eq_atomicCounterexampleTrace_of_mem_stateSpace_of_mul_comm",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/8a46a64eda8dda072d06cd56/index.html#L118"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/bd4b1ed05fb5063cf29ec3c970e72b83f91f2924b541f616688ce518163f5dac/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

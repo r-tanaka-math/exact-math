@@ -1,0 +1,25 @@
+/* Additive controls only. The pinned public Project grammar is the base. */
+@font-face{font-family:Lean;src:url(lean-main-4bee0719801e.woff2);unicode-range:U+0000-2A05,U+2A07-10FFFF}
+@font-face{font-family:Lean;src:url(lean-nary-6b21e0df2fbc.woff2);unicode-range:U+2A06}
+pre,.signature,.source-code{font-family:Lean,Project,monospace;font-synthesis:none;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+[hidden]{display:none!important}
+button{font:inherit;color:var(--blue);cursor:pointer;overflow-wrap:anywhere}
+button:disabled{cursor:not-allowed;opacity:.65}
+button:focus-visible,.tile:focus-visible{outline:3px solid #b95f00;outline-offset:3px}
+.filters button,.route-presets button,.architecture-links button{font:12px Project,sans-serif;padding:6px 9px;border:1px solid #a5b7b2;border-radius:4px;background:#fff}
+.route-presets{display:flex;flex-wrap:wrap;gap:7px;flex:1 1 100%}
+#focus-bar{flex:1 1 100%;padding:10px 12px;border-left:3px solid #52636b;background:#f7f6f2;font-size:12px}
+#focus-bar p{margin:8px 0 0}#copy-status{font-size:11px}#focus-bar textarea{width:100%;min-height:80px;font:12px Project,sans-serif}
+.tile-actions button,.outside-used-by-action{border:0;padding:0;background:transparent;text-align:left;text-decoration:underline;text-underline-offset:3px}
+.outside-used-by{padding:8px 0;font-size:11px}
+.focus-target-badge{display:none;font-size:10px;color:var(--muted);font-weight:700}
+.tile.is-focus-target .focus-target-badge{display:inline}
+.tile.is-focus-target{border-color:#52636b}
+/* A URL fragment remains permanent, but the locate colour does not. */
+.tile:target{border-color:var(--line);background:white;box-shadow:0 1px 0 #e5e8e5}
+.tile.is-focus-target:target{border-color:#52636b}
+.tile.is-located,.tile.is-located:target{border-color:#b66b15;background:#fff7dd;box-shadow:0 0 0 4px #ebc873}
+.preview-notice{background:#fff7dd;border-left:4px solid #b66b15;padding:10px 16px;font-size:12px;max-width:910px}
+.technical pre{font-size:11px}.boundary-inputs-list{font-size:12px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tile{transition:none;animation:none}}
+@media print{.route-presets,#focus-bar,.tile-actions button,.outside-used-by,.preview-controls{display:none!important}.tile.is-located,.tile:target{background:white;box-shadow:none}}

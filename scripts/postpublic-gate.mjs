@@ -1,3 +1,4 @@
+import {validateNaimarkArxivAct} from './naimark-arxiv-public-adapter.mjs';
 import fs from 'node:fs';
 import {validateFullHPAct} from './full-hp-public-adapter.mjs';
 import path from 'node:path';
@@ -166,7 +167,8 @@ export function postPublicUpdateGate(deployment){
   const identity=gitIdentity('FULL_LAUNCH');
   need(process.env.EXACT_UPDATE_ACT,'EXACT_UPDATE_ACT must identify a separate owner act');
   const act=JSON.parse(fs.readFileSync(path.resolve(process.env.EXACT_UPDATE_ACT),'utf8'));
-  if(act.update_kind==='EM_FULL_HP_PUBLICATION_R1'){
+  if(act.update_kind==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1')validateNaimarkArxivAct(act,identity,deployment,tokyoDate());
+ else if(act.update_kind==='EM_FULL_HP_PUBLICATION_R1'){
     validateFullHPAct(act,identity,deployment,tokyoDate());
   }else if(act.update_kind===combinedKind){
     need(git('rev-list','--count','HEAD')==='6'&&git('rev-parse','HEAD^')===homeCandidate&&git('rev-parse','HEAD^^')===combinedPublicParent&&git('rev-parse',homeCandidate+'^{tree}')===homeCandidateTree&&git('rev-parse',combinedPublicParent+'^{tree}')===combinedPublicTree&&git('rev-parse','HEAD^^^')===readerParent,'normal six-commit combined history');

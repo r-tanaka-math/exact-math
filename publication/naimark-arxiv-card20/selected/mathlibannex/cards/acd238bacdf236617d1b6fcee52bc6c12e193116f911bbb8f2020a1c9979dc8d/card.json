@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "acd238bacdf236617d1b6fcee52bc6c12e193116f911bbb8f2020a1c9979dc8d",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Use the established faithful representation ρ: A → B(Hτ). No finite-dimensionality or CH hypothesis is assumed.",
+    "conclusion": "Hτ is not finite-dimensional over ℂ. Together with the separate separability and nontriviality results, it is a nonzero separable infinite-dimensional complex Hilbert space.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The separable trace-GNS space is infinite-dimensional",
+    "language_tag": "en",
+    "lean_realization_notes": "The exact conclusion is ¬ FiniteDimensional ℂ Hτ. A countably infinite orthonormal basis follows by standard Hilbert-space theory from this and separability, not by a new basis-cardinality theorem in the cited declaration. FiniteDimensional here is the ordinary finite-dimensional vector-space predicate.",
+    "natural_language_statement": "The CAR trace-GNS Hilbert space Hτ carrying the specified faithful representation of the fixed algebra A is infinite-dimensional over ℂ.",
+    "one_sentence_role": "Rules out a finite-dimensional Hilbert space for the faithful tracial model.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Assume finite-dimensionality of Hτ and obtain the corresponding instance for B(Hτ)."
+      },
+      {
+        "step_id": "2",
+        "text": "Apply the finite-dimensional-subspace argument to the injective representation ρ."
+      },
+      {
+        "step_id": "3",
+        "text": "Contradict the established infinite-dimensionality of A."
+      }
+    ],
+    "proof_summary": "If Hτ were finite-dimensional, B(Hτ) would be finite-dimensional. The injective linear map underlying ρ would then make A finite-dimensional, contradicting the counterexample theorem for A."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "976996c043914f314b6f3313626b811ee061277d9a483edae58ea15a2eea8087",
+    "uid": "lfh:lfh-declaration-card:sha256:acd238bacdf236617d1b6fcee52bc6c12e193116f911bbb8f2020a1c9979dc8d"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "feefb81846f4de117e972f97462a3312bc2e21f310488d4562ac12ccd01c2a97",
+    "uid": "lfh:lfh-card-exposition:sha256:7888fe82c88975940a966b4a9b1c5b140af555c08281f635f94cf4b1281e57a3"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional_separableCounterexampleHilbertSpace",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      92,
+      102
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean#L92-L102"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.AtomicEndpoint",
+        "provider": "PROJECT",
+        "provider_source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional_shellFamilyTarget"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.SeparableFaithful",
+        "provider": "PROJECT",
+        "provider_source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Use the established faithful representation ρ: A → B(Hτ). No finite-dimensionality or CH hypothesis is assumed.",
+    "conclusion": "Hτ is not finite-dimensional over ℂ. Together with the separate separability and nontriviality results, it is a nonzero separable infinite-dimensional complex Hilbert space.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The separable trace-GNS space is infinite-dimensional",
+    "language_tag": "en",
+    "lean_realization_notes": "The exact conclusion is ¬ FiniteDimensional ℂ Hτ. A countably infinite orthonormal basis follows by standard Hilbert-space theory from this and separability, not by a new basis-cardinality theorem in the cited declaration. FiniteDimensional here is the ordinary finite-dimensional vector-space predicate.",
+    "natural_language_statement": "The CAR trace-GNS Hilbert space Hτ carrying the specified faithful representation of the fixed algebra A is infinite-dimensional over ℂ.",
+    "one_sentence_role": "Rules out a finite-dimensional Hilbert space for the faithful tracial model.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Assume finite-dimensionality of Hτ and obtain the corresponding instance for B(Hτ)."
+      },
+      {
+        "step_id": "2",
+        "text": "Apply the finite-dimensional-subspace argument to the injective representation ρ."
+      },
+      {
+        "step_id": "3",
+        "text": "Contradict the established infinite-dimensionality of A."
+      }
+    ],
+    "proof_summary": "If Hτ were finite-dimensional, B(Hτ) would be finite-dimensional. The injective linear map underlying ρ would then make A finite-dimensional, contradicting the counterexample theorem for A.",
+    "stable_card_id": "acd238bacdf236617d1b6fcee52bc6c12e193116f911bbb8f2020a1c9979dc8d",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional_separableCounterexampleHilbertSpace",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_locator": {
+      "start_line": 92,
+      "end_line": 102
+    },
+    "source_signature": {
+      "text": "theorem not_finiteDimensional_separableCounterexampleHilbertSpace :\n    ¬ FiniteDimensional ℂ SeparableCounterexampleHilbertSpace := by\n  intro hfinite\n  letI : FiniteDimensional ℂ SeparableCounterexampleHilbertSpace := hfinite\n  letI : FiniteDimensional ℂ\n      (SeparableCounterexampleHilbertSpace →L[ℂ] SeparableCounterexampleHilbertSpace) :=\n    ContinuousLinearMap.finiteDimensional\n  exact (not_finiteDimensional_shellFamilyTarget homogeneityShellFamily)\n    (FiniteDimensional.of_injective\n      (LinearMapClass.linearMap separableCounterexampleRepresentation)\n      separableCounterexampleRepresentation_injective)"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "976996c043914f314b6f3313626b811ee061277d9a483edae58ea15a2eea8087",
+      "uid": "lfh:lfh-declaration-card:sha256:acd238bacdf236617d1b6fcee52bc6c12e193116f911bbb8f2020a1c9979dc8d"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "feefb81846f4de117e972f97462a3312bc2e21f310488d4562ac12ccd01c2a97",
+      "uid": "lfh:lfh-card-exposition:sha256:7888fe82c88975940a966b4a9b1c5b140af555c08281f635f94cf4b1281e57a3"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional_shellFamilyTarget",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/87522139b86732119d69aa08/index.html#L118"
+      },
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+        "text": "Exact source attribution.",
+        "website_href": "../d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09/index.html"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/acd238bacdf236617d1b6fcee52bc6c12e193116f911bbb8f2020a1c9979dc8d/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

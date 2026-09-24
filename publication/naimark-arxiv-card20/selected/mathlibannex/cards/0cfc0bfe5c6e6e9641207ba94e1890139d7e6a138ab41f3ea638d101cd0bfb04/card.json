@@ -1,0 +1,141 @@
+{
+  "assumptions": "Real normed vector spaces; radius-R balls about c and f(c) lie in the source and target; R > 0; x,y lie in the radius-R/4 source ball; a lies in [0,1].",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "4b0e889e2a2710f6ce882d742e637066a12e3e43cdc4a99d90b6e3fa9a47cb1e",
+    "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+  },
+  "citations": [
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.map_lineMap_of_map_midpoint",
+      "source_locator": {
+        "end_column": 25,
+        "end_line": 351,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 194
+      },
+      "text": "The proof or construction of Affine-segment preservation on a quarter ball uses the project declaration “Continuous midpoint maps preserve affine segments” at the indicated step."
+    },
+    {
+      "label": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ce8bfa95660d8de634aced4f54406ab9e2fd70c17a7ce374fa8a0d30cd90822e",
+        "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+      },
+      "text": "The proof or construction of Affine-segment preservation on a quarter ball uses the project declaration “Midpoint preservation on a quarter ball” at the indicated step."
+    }
+  ],
+  "conclusion": "f preserves the affine combination (1-a)x + ay, with the exact subtype membership witnesses supplied in Lean.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Affine-segment preservation on a quarter ball",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "a0b1cd8f07e2ab200e5ad977cd661412712060d12dff543f6f52eee2aeeac10a",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:ede4f2983b85b3974286c9d652a2f347fd44998d5248089dfd4a07527f6c1667"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "4efc62d8a56c8dfa3372c385987153dc2be7eb7c3e7d7266df28cec985605db0",
+    "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "a0b1cd8f07e2ab200e5ad977cd661412712060d12dff543f6f52eee2aeeac10a",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:ede4f2983b85b3974286c9d652a2f347fd44998d5248089dfd4a07527f6c1667"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "4efc62d8a56c8dfa3372c385987153dc2be7eb7c3e7d7266df28cec985605db0",
+      "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.map_lineMap_of_mem_ball",
+  "natural_language_statement": "Under the same ambient-ball hypotheses as the local midpoint theorem, if x and y lie in ball(c,R/4), then for every a in [0,1], f sends the affine point lineMap(x,y,a) to lineMap(f(x),f(y),a).",
+  "one_sentence_role": "Upgrades local midpoint preservation to preservation of every affine segment parameter inside the quarter-ball chart.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Define the inclusion of the quarter ball into s and the ambient-valued restriction g of f."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Use continuity of the inclusion and of the isometry to prove continuity of g."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Apply the quarter-ball midpoint theorem to obtain midpoint preservation for every pair of points in the restricted ball."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Invoke the continuous convex-set lemma that upgrades midpoint preservation to affine-line-map preservation on [0,1]."
+    },
+    {
+      "step_id": "step-5",
+      "text": "Unfold the local definitions to obtain the stated equality for f."
+    }
+  ],
+  "proof_summary": "Restrict the domain to the convex quarter ball and view f there as a continuous map into the ambient target space. The preceding local midpoint theorem supplies midpoint preservation on that convex set. A general midpoint-to-line-map lemma then gives preservation of every segment parameter.",
+  "source_locator": {
+    "end_column": 36,
+    "end_line": 386,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_column": 1,
+    "start_line": 353
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "dc7b7da45c5a5f5878e424334d95ba5da15032586a7ff8805a650ca48de21132",
+    "uid": "lfh:lfh-source-build-binding:sha256:11a0ef28c89dc01752dc5a3c682cda24a6e8c169dd0bf23cc63bc9dba729d455"
+  },
+  "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+  "source_signature": {
+    "end_byte": 15350,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "957f6f46d627ba94d831620e28a0082444ee749f8adfe7119b2dfeed3e1714e4",
+    "source_command_range": {
+      "end_column": 36,
+      "end_line": 386,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+      "start_column": 1,
+      "start_line": 353
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_byte": 14770,
+    "text": "theorem map_lineMap_of_mem_ball\n    {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) {R : ℝ} (hR : 0 < R)\n    (hsball : ball (c : E) R ⊆ s)\n    (htball : ball ((f c : t) : F) R ⊆ t)\n    (x y : s) (hx : (x : E) ∈ ball (c : E) (R / 4))\n    (hy : (y : E) ∈ ball (c : E) (R / 4))\n    (a : ℝ) (ha : a ∈ Icc (0 : ℝ) 1) :\n    ((f ⟨AffineMap.lineMap (x : E) (y : E) a,\n          hsball (ball_subset_ball (by linarith : R / 4 ≤ R)\n            ((convex_ball (c : E) (R / 4)).lineMap_mem hx hy ha))⟩ : t) : F) =\n      AffineMap.lineMap ((f x : t) : F) ((f y : t) : F) a"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L353-L386",
+  "stable_card_id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

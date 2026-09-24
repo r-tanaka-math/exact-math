@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace</code></p><p>MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean · lines 18–50</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TracialRepresentation</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TracialTransport</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Uniqueness of the extension of the CAR trace</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>This is uniqueness among all state extensions, not merely among traces.</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>-/</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a></span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>set_option autoImplicit false</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a></span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>open scoped InnerProduct</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line selected" id="L18"><a class="line-no" href="#L18">18</a>/-- Any state extending the original CAR trace is the chosen extension. -/</span>
+<span class="source-line selected" id="L19"><a class="line-no" href="#L19">19</a>theorem eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace</span>
+<span class="source-line selected" id="L20"><a class="line-no" href="#L20">20</a>    (family : RepresentativeShellFamily) (φ : ShellFamilyTarget family →L[ℂ] ℂ)</span>
+<span class="source-line selected" id="L21"><a class="line-no" href="#L21">21</a>    (hφ : φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family))</span>
+<span class="source-line selected" id="L22"><a class="line-no" href="#L22">22</a>    (hφB : ∀ b, φ (shellFamilySourceHom family b) = trace b) :</span>
+<span class="source-line selected" id="L23"><a class="line-no" href="#L23">23</a>    φ = traceExtension family := by</span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a>  let f := positiveLinearMapOfMemStateSpace φ hφ</span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>  let ρ : Representation (ShellFamilyTarget family) f.GNS := f.gnsStarAlgHom</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>  let ξ : f.GNS := f.gnsCyclicVector</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a>  have hξ (b : Limit) : Representation.vectorFunctional</span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>      (ρ.comp (shellFamilySourceHom family)) ξ b = trace b := by</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>    change inner ℂ f.gnsCyclicVector (f.gnsStarAlgHom _ f.gnsCyclicVector) = _</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>    rw [PositiveLinearMap.inner_gnsCyclicVector_gnsStarAlgHom]</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>    exact hφB b</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>  have hcyclic : DenseRange (fun a ↦ ρ a ξ) :=</span>
+<span class="source-line selected" id="L33"><a class="line-no" href="#L33">33</a>    f.denseRange_gnsStarAlgHom_apply_gnsCyclicVector</span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>  obtain ⟨e, heξ, he⟩ := exists_pointed_unitary_of_trace_of_cyclic family</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>    ρ (tracialRepresentation family) ξ (tracialVector family) hξ</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>    (vectorFunctional_tracialRepresentation_source family) hcyclic</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>    (denseRange_tracialRepresentation_orbit family)</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>  intro a</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>  calc</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>    φ a = inner ℂ ξ (ρ a ξ) := (f.inner_gnsCyclicVector_gnsStarAlgHom a).symm</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>    _ = inner ℂ (e ξ) (e (ρ a ξ)) := (e.inner_map_map ξ (ρ a ξ)).symm</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>    _ = inner ℂ (tracialVector family)</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>        (tracialRepresentation family a (tracialVector family)) := by</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>      have hcoe (y : f.GNS) :</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>          (e : f.GNS →L[ℂ] TracialHilbertSpace family) y = e y := rfl</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a>      have h := congrArg (fun T : f.GNS →L[ℂ] TracialHilbertSpace family ↦ T ξ) (he a)</span>
+<span class="source-line selected" id="L48"><a class="line-no" href="#L48">48</a>      simpa only [ContinuousLinearMap.comp_apply, hcoe, heξ] using</span>
+<span class="source-line selected" id="L49"><a class="line-no" href="#L49">49</a>        congrArg (fun y ↦ inner ℂ (e ξ) y) h</span>
+<span class="source-line selected" id="L50"><a class="line-no" href="#L50">50</a>    _ = traceExtension family a := inner_tracialVector_tracialRepresentation family a</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a></span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>/-- Existence and uniqueness are on the actual fixed target. -/</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>theorem existsUnique_state_extension_trace (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    ∃! φ : ShellFamilyTarget family →L[ℂ] ℂ,</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) ∧</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>        ∀ b, φ (shellFamilySourceHom family b) = trace b := by</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  refine ⟨traceExtension family,</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    ⟨traceExtension_mem_stateSpace family, traceExtension_shellFamilySourceHom family⟩, ?_⟩</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>  intro φ hφ</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  exact eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace family φ hφ.1 hφ.2</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a></span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

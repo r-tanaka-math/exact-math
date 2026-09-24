@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Exact Mathematics with AI"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><meta name="robots" content="noindex,nofollow,noarchive"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall</h1><p><a href="../../../raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem existsUnique_affineExtension_closedBall
+    {c : E} {d : F} {r : ℝ} (f : closedBall c r ≃ᵢ closedBall d r)
+    (hr : 0 &lt; r) :
+    ∃! A : E ≃ᵃⁱ[ℝ] F,
+      ∀ x : closedBall c r,
+        A (x : E) = ((f x : closedBall d r) : F)</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Convex</span>
+<span id="L2"><a href="#L2">2</a> import Mathlib.Analysis.Normed.Module.Connected</span>
+<span id="L3"><a href="#L3">3</a> import Mathlib.Analysis.Normed.Module.RCLike.Real</span>
+<span id="L4"><a href="#L4">4</a> </span>
+<span id="L5"><a href="#L5">5</a> /-!</span>
+<span id="L6"><a href="#L6">6</a> # Ball extension corollaries</span>
+<span id="L7"><a href="#L7">7</a> </span>
+<span id="L8"><a href="#L8">8</a> The closed-ball theorem first transports the center using the bounded</span>
+<span id="L9"><a href="#L9">9</a> point-reflection theorem, then applies the convex ambient-interior corollary.</span>
+<span id="L10"><a href="#L10">10</a> -/</span>
+<span id="L11"><a href="#L11">11</a> </span>
+<span id="L12"><a href="#L12">12</a> open Metric Set AffineIsometryEquiv Bornology</span>
+<span id="L13"><a href="#L13">13</a> </span>
+<span id="L14"><a href="#L14">14</a> namespace MathlibAnnex</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> noncomputable section</span>
+<span id="L17"><a href="#L17">17</a> </span>
+<span id="L18"><a href="#L18">18</a> variable {E F : Type*}</span>
+<span id="L19"><a href="#L19">19</a>   [NormedAddCommGroup E] [NormedSpace ℝ E]</span>
+<span id="L20"><a href="#L20">20</a>   [NormedAddCommGroup F] [NormedSpace ℝ F]</span>
+<span id="L21"><a href="#L21">21</a> </span>
+<span id="L22"><a href="#L22">22</a> namespace IsometryEquiv</span>
+<span id="L23"><a href="#L23">23</a> </span>
+<span id="L24"><a href="#L24">24</a> /-- A surjective isometry between positive-radius open balls extends to a</span>
+<span id="L25"><a href="#L25">25</a> unique ambient real affine isometry equivalence. -/</span>
+<span id="L26"><a href="#L26">26</a> theorem existsUnique_affineExtension_ball</span>
+<span id="L27"><a href="#L27">27</a>     {c : E} {d : F} {r R : ℝ} (f : ball c r ≃ᵢ ball d R)</span>
+<span id="L28"><a href="#L28">28</a>     (hr : 0 &lt; r) (hR : 0 &lt; R) :</span>
+<span id="L29"><a href="#L29">29</a>     ∃! A : E ≃ᵃⁱ[ℝ] F,</span>
+<span id="L30"><a href="#L30">30</a>       ∀ x : ball c r, A (x : E) = ((f x : ball d R) : F) := by</span>
+<span id="L31"><a href="#L31">31</a>   have _htc : IsConnected (ball d R) := isConnected_ball hR</span>
+<span id="L32"><a href="#L32">32</a>   exact MathlibAnnex.IsometryEquiv.existsUnique_affineExtension</span>
+<span id="L33"><a href="#L33">33</a>     f isOpen_ball (isConnected_ball hr) isOpen_ball</span>
+<span id="L34"><a href="#L34">34</a> </span>
+<span id="L35"><a href="#L35">35</a> private theorem mapsTo_pointReflection_closedBall (c : E) (r : ℝ) :</span>
+<span id="L36"><a href="#L36">36</a>     MapsTo (pointReflection ℝ c) (closedBall c r) (closedBall c r) := by</span>
+<span id="L37"><a href="#L37">37</a>   intro x hx</span>
+<span id="L38"><a href="#L38">38</a>   rw [mem_closedBall, dist_pointReflection_fixed]</span>
+<span id="L39"><a href="#L39">39</a>   exact hx</span>
+<span id="L40"><a href="#L40">40</a> </span>
+<span id="L41" class="source-highlight"><a href="#L41">41</a> /-- A surjective isometry between closed balls of the same positive radius</span>
+<span id="L42" class="source-highlight"><a href="#L42">42</a> extends to a unique ambient real affine isometry equivalence. -/</span>
+<span id="L43" class="source-highlight"><a href="#L43">43</a> theorem existsUnique_affineExtension_closedBall</span>
+<span id="L44" class="source-highlight"><a href="#L44">44</a>     {c : E} {d : F} {r : ℝ} (f : closedBall c r ≃ᵢ closedBall d r)</span>
+<span id="L45" class="source-highlight"><a href="#L45">45</a>     (hr : 0 &lt; r) :</span>
+<span id="L46" class="source-highlight"><a href="#L46">46</a>     ∃! A : E ≃ᵃⁱ[ℝ] F,</span>
+<span id="L47" class="source-highlight"><a href="#L47">47</a>       ∀ x : closedBall c r,</span>
+<span id="L48" class="source-highlight"><a href="#L48">48</a>         A (x : E) = ((f x : closedBall d r) : F) := by</span>
+<span id="L49" class="source-highlight"><a href="#L49">49</a>   let cc : closedBall c r := ⟨c, mem_closedBall_self hr.le⟩</span>
+<span id="L50" class="source-highlight"><a href="#L50">50</a>   let dd : closedBall d r := ⟨d, mem_closedBall_self hr.le⟩</span>
+<span id="L51" class="source-highlight"><a href="#L51">51</a>   have hcenter : f cc = dd :=</span>
+<span id="L52" class="source-highlight"><a href="#L52">52</a>     MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection</span>
+<span id="L53" class="source-highlight"><a href="#L53">53</a>       f cc.property dd.property isBounded_closedBall</span>
+<span id="L54" class="source-highlight"><a href="#L54">54</a>       (mapsTo_pointReflection_closedBall c r)</span>
+<span id="L55" class="source-highlight"><a href="#L55">55</a>       (mapsTo_pointReflection_closedBall d r)</span>
+<span id="L56" class="source-highlight"><a href="#L56">56</a>   have hcenter_val : ((f cc : closedBall d r) : F) = d :=</span>
+<span id="L57" class="source-highlight"><a href="#L57">57</a>     congrArg Subtype.val hcenter</span>
+<span id="L58" class="source-highlight"><a href="#L58">58</a>   have hfi : ∀ x : closedBall c r,</span>
+<span id="L59" class="source-highlight"><a href="#L59">59</a>       (x : E) ∈ interior (closedBall c r) ↔</span>
+<span id="L60" class="source-highlight"><a href="#L60">60</a>         ((f x : closedBall d r) : F) ∈ interior (closedBall d r) := by</span>
+<span id="L61" class="source-highlight"><a href="#L61">61</a>     intro x</span>
+<span id="L62" class="source-highlight"><a href="#L62">62</a>     rw [interior_closedBall c hr.ne&#x27;, interior_closedBall d hr.ne&#x27;,</span>
+<span id="L63" class="source-highlight"><a href="#L63">63</a>       mem_ball, mem_ball]</span>
+<span id="L64" class="source-highlight"><a href="#L64">64</a>     have hdist : dist ((f x : closedBall d r) : F) d = dist (x : E) c := by</span>
+<span id="L65" class="source-highlight"><a href="#L65">65</a>       calc</span>
+<span id="L66" class="source-highlight"><a href="#L66">66</a>         dist ((f x : closedBall d r) : F) d =</span>
+<span id="L67" class="source-highlight"><a href="#L67">67</a>             dist ((f x : closedBall d r) : F)</span>
+<span id="L68" class="source-highlight"><a href="#L68">68</a>               ((f cc : closedBall d r) : F) := by rw [hcenter_val]</span>
+<span id="L69" class="source-highlight"><a href="#L69">69</a>         _ = dist (f x) (f cc) := rfl</span>
+<span id="L70" class="source-highlight"><a href="#L70">70</a>         _ = dist x cc := f.dist_eq x cc</span>
+<span id="L71" class="source-highlight"><a href="#L71">71</a>         _ = dist (x : E) c := rfl</span>
+<span id="L72" class="source-highlight"><a href="#L72">72</a>     rw [hdist]</span>
+<span id="L73" class="source-highlight"><a href="#L73">73</a>   have hsint : (interior (closedBall c r)).Nonempty := by</span>
+<span id="L74" class="source-highlight"><a href="#L74">74</a>     rw [interior_closedBall c hr.ne&#x27;]</span>
+<span id="L75" class="source-highlight"><a href="#L75">75</a>     exact nonempty_ball.mpr hr</span>
+<span id="L76" class="source-highlight"><a href="#L76">76</a>   exact</span>
+<span id="L77" class="source-highlight"><a href="#L77">77</a>     MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex</span>
+<span id="L78" class="source-highlight"><a href="#L78">78</a>       f (convex_closedBall c r) hsint hfi</span>
+<span id="L79"><a href="#L79">79</a> </span>
+<span id="L80"><a href="#L80">80</a> end IsometryEquiv</span>
+<span id="L81"><a href="#L81">81</a> </span>
+<span id="L82"><a href="#L82">82</a> end</span>
+<span id="L83"><a href="#L83">83</a> </span>
+<span id="L84"><a href="#L84">84</a> end MathlibAnnex</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

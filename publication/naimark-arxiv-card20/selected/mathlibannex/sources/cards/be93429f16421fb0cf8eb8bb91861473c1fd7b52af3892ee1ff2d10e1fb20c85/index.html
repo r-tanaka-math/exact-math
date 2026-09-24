@@ -1,0 +1,190 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.isCompactOperator_map_of_singleton</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Exact Mathematics with AI"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/cards/be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><meta name="robots" content="noindex,nofollow,noarchive"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.isCompactOperator_map_of_singleton</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactExclusion.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem isCompactOperator_map_of_singleton [Nontrivial A]
+    [TopologicalSpace.SeparableSpace H]
+    (pi : NonUnitalCStarRepresentation A H)
+    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :
+    ∀ a : A, IsCompactOperator (pi a)</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import Mathlib.RingTheory.TwoSidedIdeal.Operations</span>
+<span id="L2"><a href="#L2">2</a> import MathlibAnnex.Analysis.CStarAlgebra.ClosedIdealCharacter</span>
+<span id="L3"><a href="#L3">3</a> import MathlibAnnex.Analysis.CStarAlgebra.CompactPreimage</span>
+<span id="L4"><a href="#L4">4</a> import MathlibAnnex.Analysis.CStarAlgebra.MaximalAbelianContaining</span>
+<span id="L5"><a href="#L5">5</a> import MathlibAnnex.Analysis.CStarAlgebra.NonUnital.CompactRange</span>
+<span id="L6"><a href="#L6">6</a> import MathlibAnnex.Analysis.InnerProductSpace.RankOne</span>
+<span id="L7"><a href="#L7">7</a> </span>
+<span id="L8"><a href="#L8">8</a> /-!</span>
+<span id="L9"><a href="#L9">9</a> # Excluding noncompact elements from a non-unital singleton model</span>
+<span id="L10"><a href="#L10">10</a> </span>
+<span id="L11"><a href="#L11">11</a> If a represented self-adjoint element were noncompact, put it in a maximal</span>
+<span id="L12"><a href="#L12">12</a> abelian subalgebra of the unitization.  The compact-preimage ideal in that</span>
+<span id="L13"><a href="#L13">13</a> subalgebra is closed.  A character separating the element from this ideal is</span>
+<span id="L14"><a href="#L14">14</a> non-scalar, hence is realized by a unit eigenvector.  The corresponding</span>
+<span id="L15"><a href="#L15">15</a> rank-one projection is already in the range of the original algebra.  Its</span>
+<span id="L16"><a href="#L16">16</a> operator commutes with the maximal abelian subalgebra, so faithfulness puts</span>
+<span id="L17"><a href="#L17">17</a> the projection itself in that subalgebra.  The separating character must</span>
+<span id="L18"><a href="#L18">18</a> then take both values zero and one on it, a contradiction.</span>
+<span id="L19"><a href="#L19">19</a> -/</span>
+<span id="L20"><a href="#L20">20</a> </span>
+<span id="L21"><a href="#L21">21</a> set_option autoImplicit false</span>
+<span id="L22"><a href="#L22">22</a> </span>
+<span id="L23"><a href="#L23">23</a> open Set</span>
+<span id="L24"><a href="#L24">24</a> open scoped ComplexOrder ComplexStarModule InnerProduct IsMulCommutative</span>
+<span id="L25"><a href="#L25">25</a> </span>
+<span id="L26"><a href="#L26">26</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L27"><a href="#L27">27</a> </span>
+<span id="L28"><a href="#L28">28</a> universe u v</span>
+<span id="L29"><a href="#L29">29</a> </span>
+<span id="L30"><a href="#L30">30</a> variable {A : Type u} [NonUnitalCStarAlgebra A]</span>
+<span id="L31"><a href="#L31">31</a>   [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L32"><a href="#L32">32</a> variable {H : Type v}</span>
+<span id="L33"><a href="#L33">33</a> variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L34"><a href="#L34">34</a> </span>
+<span id="L35"><a href="#L35">35</a> namespace NonUnitalCStarRepresentation</span>
+<span id="L36"><a href="#L36">36</a> </span>
+<span id="L37"><a href="#L37">37</a> /-- If an operator-valued complex-linear map sends both real and imaginary</span>
+<span id="L38"><a href="#L38">38</a> parts of an element to compact operators, it sends the element itself to a</span>
+<span id="L39"><a href="#L39">39</a> compact operator. -/</span>
+<span id="L40"><a href="#L40">40</a> private theorem isCompactOperator_of_realPart_of_imaginaryPart</span>
+<span id="L41"><a href="#L41">41</a>     (pi : NonUnitalCStarRepresentation A H) (a : A)</span>
+<span id="L42"><a href="#L42">42</a>     (hre : IsCompactOperator (pi (ℜ a : A)))</span>
+<span id="L43"><a href="#L43">43</a>     (him : IsCompactOperator (pi (ℑ a : A))) :</span>
+<span id="L44"><a href="#L44">44</a>     IsCompactOperator (pi a) := by</span>
+<span id="L45"><a href="#L45">45</a>   have hsum : IsCompactOperator</span>
+<span id="L46"><a href="#L46">46</a>       (pi (ℜ a : A) + Complex.I • pi (ℑ a : A)) :=</span>
+<span id="L47"><a href="#L47">47</a>     hre.add (him.smul Complex.I)</span>
+<span id="L48"><a href="#L48">48</a>   have hop : pi a = pi (ℜ a : A) + Complex.I • pi (ℑ a : A) := by</span>
+<span id="L49"><a href="#L49">49</a>     calc</span>
+<span id="L50"><a href="#L50">50</a>       pi a = pi ((ℜ a : A) + Complex.I • (ℑ a : A)) := by</span>
+<span id="L51"><a href="#L51">51</a>         rw [realPart_add_I_smul_imaginaryPart]</span>
+<span id="L52"><a href="#L52">52</a>       _ = pi (ℜ a : A) + Complex.I • pi (ℑ a : A) := by simp</span>
+<span id="L53"><a href="#L53">53</a>   rw [hop]</span>
+<span id="L54"><a href="#L54">54</a>   exact hsum</span>
+<span id="L55"><a href="#L55">55</a> </span>
+<span id="L56"><a href="#L56">56</a> /-- A noncompact represented element has a self-adjoint part whose image is</span>
+<span id="L57"><a href="#L57">57</a> still noncompact. -/</span>
+<span id="L58"><a href="#L58">58</a> private theorem exists_selfAdjoint_not_isCompactOperator</span>
+<span id="L59"><a href="#L59">59</a>     (pi : NonUnitalCStarRepresentation A H) {a : A}</span>
+<span id="L60"><a href="#L60">60</a>     (ha : ¬ IsCompactOperator (pi a)) :</span>
+<span id="L61"><a href="#L61">61</a>     ∃ b : A, IsSelfAdjoint b ∧ ¬ IsCompactOperator (pi b) := by</span>
+<span id="L62"><a href="#L62">62</a>   by_cases hre : IsCompactOperator (pi (ℜ a : A))</span>
+<span id="L63"><a href="#L63">63</a>   · refine ⟨(ℑ a : A), (ℑ a).property, ?_⟩</span>
+<span id="L64"><a href="#L64">64</a>     intro him</span>
+<span id="L65"><a href="#L65">65</a>     exact ha (isCompactOperator_of_realPart_of_imaginaryPart pi a hre him)</span>
+<span id="L66"><a href="#L66">66</a>   · exact ⟨(ℜ a : A), (ℜ a).property, hre⟩</span>
+<span id="L67"><a href="#L67">67</a> </span>
+<span id="L68" class="source-highlight"><a href="#L68">68</a> /-- In a genuinely non-unital separable singleton irreducible model every</span>
+<span id="L69" class="source-highlight"><a href="#L69">69</a> represented operator is compact.  No simplicity assumption is used. -/</span>
+<span id="L70" class="source-highlight"><a href="#L70">70</a> theorem isCompactOperator_map_of_singleton [Nontrivial A]</span>
+<span id="L71" class="source-highlight"><a href="#L71">71</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L72" class="source-highlight"><a href="#L72">72</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L73" class="source-highlight"><a href="#L73">73</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L74" class="source-highlight"><a href="#L74">74</a>     ∀ a : A, IsCompactOperator (pi a) := by</span>
+<span id="L75" class="source-highlight"><a href="#L75">75</a>   intro a</span>
+<span id="L76" class="source-highlight"><a href="#L76">76</a>   by_contra ha</span>
+<span id="L77" class="source-highlight"><a href="#L77">77</a>   obtain ⟨b, hbself, hbcompact⟩ :=</span>
+<span id="L78" class="source-highlight"><a href="#L78">78</a>     exists_selfAdjoint_not_isCompactOperator pi ha</span>
+<span id="L79" class="source-highlight"><a href="#L79">79</a>   have hbinrself : IsSelfAdjoint (b : Unitization ℂ A) := hbself.inr ℂ</span>
+<span id="L80" class="source-highlight"><a href="#L80">80</a>   obtain ⟨D, hD, hbD⟩ :=</span>
+<span id="L81" class="source-highlight"><a href="#L81">81</a>     exists_maximalAbelian_containing_isSelfAdjoint</span>
+<span id="L82" class="source-highlight"><a href="#L82">82</a>       (b : Unitization ℂ A) hbinrself</span>
+<span id="L83" class="source-highlight"><a href="#L83">83</a>   letI : IsClosed (D : Set (Unitization ℂ A)) := hD.isClosed</span>
+<span id="L84" class="source-highlight"><a href="#L84">84</a>   letI : IsMulCommutative D := hD.1</span>
+<span id="L85" class="source-highlight"><a href="#L85">85</a>   letI : CommCStarAlgebra D := {}</span>
+<span id="L86" class="source-highlight"><a href="#L86">86</a>   let rhoD : Representation D H := pi.unitization.comp D.subtype</span>
+<span id="L87" class="source-highlight"><a href="#L87">87</a>   let Jtwo : TwoSidedIdeal D :=</span>
+<span id="L88" class="source-highlight"><a href="#L88">88</a>     MathlibAnnex.CStarAlgebra.compactPreimageIdeal</span>
+<span id="L89" class="source-highlight"><a href="#L89">89</a>       rhoD.toNonUnitalStarAlgHom</span>
+<span id="L90" class="source-highlight"><a href="#L90">90</a>   let J : Ideal D := Jtwo.asIdeal</span>
+<span id="L91" class="source-highlight"><a href="#L91">91</a>   have hJclosed : IsClosed (J : Set D) := by</span>
+<span id="L92" class="source-highlight"><a href="#L92">92</a>     change IsClosed (Jtwo : Set D)</span>
+<span id="L93" class="source-highlight"><a href="#L93">93</a>     exact MathlibAnnex.CStarAlgebra.isClosed_compactPreimageIdeal</span>
+<span id="L94" class="source-highlight"><a href="#L94">94</a>       rhoD.toNonUnitalStarAlgHom</span>
+<span id="L95" class="source-highlight"><a href="#L95">95</a>   let d : D := ⟨(b : Unitization ℂ A), hbD⟩</span>
+<span id="L96" class="source-highlight"><a href="#L96">96</a>   have hdnot : d ∉ J := by</span>
+<span id="L97" class="source-highlight"><a href="#L97">97</a>     intro hd</span>
+<span id="L98" class="source-highlight"><a href="#L98">98</a>     have hdTwo : d ∈ Jtwo := hd</span>
+<span id="L99" class="source-highlight"><a href="#L99">99</a>     have hcompact : IsCompactOperator (rhoD d) :=</span>
+<span id="L100" class="source-highlight"><a href="#L100">100</a>       (MathlibAnnex.CStarAlgebra.mem_compactPreimageIdeal</span>
+<span id="L101" class="source-highlight"><a href="#L101">101</a>         rhoD.toNonUnitalStarAlgHom d).1 hdTwo</span>
+<span id="L102" class="source-highlight"><a href="#L102">102</a>     apply hbcompact</span>
+<span id="L103" class="source-highlight"><a href="#L103">103</a>     simpa [rhoD, d] using hcompact</span>
+<span id="L104" class="source-highlight"><a href="#L104">104</a>   obtain ⟨chi, hchiJ, hchid⟩ :=</span>
+<span id="L105" class="source-highlight"><a href="#L105">105</a>     exists_character_annihilating_closedIdeal_of_not_mem J hJclosed hdnot</span>
+<span id="L106" class="source-highlight"><a href="#L106">106</a>   have hchiInf : chi ≠ infinityCharacterOn (A := A) D := by</span>
+<span id="L107" class="source-highlight"><a href="#L107">107</a>     intro heq</span>
+<span id="L108" class="source-highlight"><a href="#L108">108</a>     apply hchid</span>
+<span id="L109" class="source-highlight"><a href="#L109">109</a>     rw [heq]</span>
+<span id="L110" class="source-highlight"><a href="#L110">110</a>     simp [d]</span>
+<span id="L111" class="source-highlight"><a href="#L111">111</a>   obtain ⟨eta, heta, heigen⟩ :=</span>
+<span id="L112" class="source-highlight"><a href="#L112">112</a>     exists_unit_eigenvector_of_character_ne_infinity</span>
+<span id="L113" class="source-highlight"><a href="#L113">113</a>       pi hsingle D chi hchiInf</span>
+<span id="L114" class="source-highlight"><a href="#L114">114</a>   obtain ⟨q, hq⟩ :=</span>
+<span id="L115" class="source-highlight"><a href="#L115">115</a>     exists_preimage_rankOne_of_singleton pi hsingle eta eta</span>
+<span id="L116" class="source-highlight"><a href="#L116">116</a>   have hinj : Function.Injective pi := injective_of_singleton pi hsingle</span>
+<span id="L117" class="source-highlight"><a href="#L117">117</a>   have heta_ne : eta ≠ 0 := by</span>
+<span id="L118" class="source-highlight"><a href="#L118">118</a>     intro hzero</span>
+<span id="L119" class="source-highlight"><a href="#L119">119</a>     simp [hzero] at heta</span>
+<span id="L120" class="source-highlight"><a href="#L120">120</a>   have hcommute (x : D) :</span>
+<span id="L121" class="source-highlight"><a href="#L121">121</a>       (q : Unitization ℂ A) * (x : Unitization ℂ A) =</span>
+<span id="L122" class="source-highlight"><a href="#L122">122</a>         (x : Unitization ℂ A) * (q : Unitization ℂ A) := by</span>
+<span id="L123" class="source-highlight"><a href="#L123">123</a>     have hadj : ContinuousLinearMap.adjoint (rhoD x) eta =</span>
+<span id="L124" class="source-highlight"><a href="#L124">124</a>         star (chi x) • eta := by</span>
+<span id="L125" class="source-highlight"><a href="#L125">125</a>       have hadjmap : ContinuousLinearMap.adjoint (rhoD x) = rhoD (star x) := by</span>
+<span id="L126" class="source-highlight"><a href="#L126">126</a>         rw [← ContinuousLinearMap.star_eq_adjoint, ← map_star]</span>
+<span id="L127" class="source-highlight"><a href="#L127">127</a>       rw [hadjmap]</span>
+<span id="L128" class="source-highlight"><a href="#L128">128</a>       exact heigen (star x) |&gt;.trans (by rw [map_star])</span>
+<span id="L129" class="source-highlight"><a href="#L129">129</a>     have hoperator :</span>
+<span id="L130" class="source-highlight"><a href="#L130">130</a>         rhoD x * InnerProductSpace.rankOne ℂ eta eta =</span>
+<span id="L131" class="source-highlight"><a href="#L131">131</a>           InnerProductSpace.rankOne ℂ eta eta * rhoD x :=</span>
+<span id="L132" class="source-highlight"><a href="#L132">132</a>       MathlibAnnex.Analysis.InnerProductSpace.commute_rankOne_self_of_apply_eq_smul_of_adjoint_apply_eq_star_smul</span>
+<span id="L133" class="source-highlight"><a href="#L133">133</a>           (rhoD x) eta (chi x) (heigen x) hadj</span>
+<span id="L134" class="source-highlight"><a href="#L134">134</a>     have hrhoD : rhoD x =</span>
+<span id="L135" class="source-highlight"><a href="#L135">135</a>         (x : Unitization ℂ A).fst • (1 : H →L[ℂ] H) +</span>
+<span id="L136" class="source-highlight"><a href="#L136">136</a>           pi (x : Unitization ℂ A).snd := by</span>
+<span id="L137" class="source-highlight"><a href="#L137">137</a>       change pi.unitization (x : Unitization ℂ A) = _</span>
+<span id="L138" class="source-highlight"><a href="#L138">138</a>       induction (x : Unitization ℂ A) using Unitization.ind with</span>
+<span id="L139" class="source-highlight"><a href="#L139">139</a>       | inl_add_inr c y =&gt; simp [unitization, Algebra.algebraMap_eq_smul_one]</span>
+<span id="L140" class="source-highlight"><a href="#L140">140</a>     have hpiComm :</span>
+<span id="L141" class="source-highlight"><a href="#L141">141</a>         pi (x : Unitization ℂ A).snd *</span>
+<span id="L142" class="source-highlight"><a href="#L142">142</a>             InnerProductSpace.rankOne ℂ eta eta =</span>
+<span id="L143" class="source-highlight"><a href="#L143">143</a>           InnerProductSpace.rankOne ℂ eta eta *</span>
+<span id="L144" class="source-highlight"><a href="#L144">144</a>             pi (x : Unitization ℂ A).snd := by</span>
+<span id="L145" class="source-highlight"><a href="#L145">145</a>       apply add_left_cancel (a :=</span>
+<span id="L146" class="source-highlight"><a href="#L146">146</a>         (x : Unitization ℂ A).fst •</span>
+<span id="L147" class="source-highlight"><a href="#L147">147</a>           InnerProductSpace.rankOne ℂ eta eta)</span>
+<span id="L148" class="source-highlight"><a href="#L148">148</a>       simpa [hrhoD, add_mul, mul_add, smul_mul_assoc, mul_smul_comm] using</span>
+<span id="L149" class="source-highlight"><a href="#L149">149</a>         hoperator</span>
+<span id="L150" class="source-highlight"><a href="#L150">150</a>     have hqCommA : q * (x : Unitization ℂ A).snd =</span>
+<span id="L151" class="source-highlight"><a href="#L151">151</a>         (x : Unitization ℂ A).snd * q := by</span>
+<span id="L152" class="source-highlight"><a href="#L152">152</a>       apply hinj</span>
+<span id="L153" class="source-highlight"><a href="#L153">153</a>       simpa [map_mul, hq] using hpiComm.symm</span>
+<span id="L154" class="source-highlight"><a href="#L154">154</a>     apply Unitization.ext</span>
+<span id="L155" class="source-highlight"><a href="#L155">155</a>     · simp</span>
+<span id="L156" class="source-highlight"><a href="#L156">156</a>     · simpa [hqCommA]</span>
+<span id="L157" class="source-highlight"><a href="#L157">157</a>   have hqDmem : (q : Unitization ℂ A) ∈ D :=</span>
+<span id="L158" class="source-highlight"><a href="#L158">158</a>     hD.mem_of_commute hcommute</span>
+<span id="L159" class="source-highlight"><a href="#L159">159</a>   let r : D := ⟨(q : Unitization ℂ A), hqDmem⟩</span>
+<span id="L160" class="source-highlight"><a href="#L160">160</a>   have hrJ : r ∈ J := by</span>
+<span id="L161" class="source-highlight"><a href="#L161">161</a>     have hcompactr : IsCompactOperator (rhoD r) := by</span>
+<span id="L162" class="source-highlight"><a href="#L162">162</a>       rw [show rhoD r = pi q by simp [rhoD, r], hq]</span>
+<span id="L163" class="source-highlight"><a href="#L163">163</a>       exact isCompactOperator_rankOne eta eta</span>
+<span id="L164" class="source-highlight"><a href="#L164">164</a>     have hrTwo : r ∈ Jtwo :=</span>
+<span id="L165" class="source-highlight"><a href="#L165">165</a>       (MathlibAnnex.CStarAlgebra.mem_compactPreimageIdeal</span>
+<span id="L166" class="source-highlight"><a href="#L166">166</a>         rhoD.toNonUnitalStarAlgHom r).2 hcompactr</span>
+<span id="L167" class="source-highlight"><a href="#L167">167</a>     exact hrTwo</span>
+<span id="L168" class="source-highlight"><a href="#L168">168</a>   have hchirZero : chi r = 0 := hchiJ r hrJ</span>
+<span id="L169" class="source-highlight"><a href="#L169">169</a>   have hmapr : rhoD r = InnerProductSpace.rankOne ℂ eta eta := by</span>
+<span id="L170" class="source-highlight"><a href="#L170">170</a>     simpa [rhoD, r] using hq</span>
+<span id="L171" class="source-highlight"><a href="#L171">171</a>   have hprojectionEta :</span>
+<span id="L172" class="source-highlight"><a href="#L172">172</a>       InnerProductSpace.rankOne ℂ eta eta eta = eta := by</span>
+<span id="L173" class="source-highlight"><a href="#L173">173</a>     simp [InnerProductSpace.rankOne_apply,</span>
+<span id="L174" class="source-highlight"><a href="#L174">174</a>       inner_self_eq_norm_sq_to_K, heta]</span>
+<span id="L175" class="source-highlight"><a href="#L175">175</a>   have hchirOne : chi r = 1 := by</span>
+<span id="L176" class="source-highlight"><a href="#L176">176</a>     apply smul_left_injective ℂ heta_ne</span>
+<span id="L177" class="source-highlight"><a href="#L177">177</a>     calc</span>
+<span id="L178" class="source-highlight"><a href="#L178">178</a>       chi r • eta = rhoD r eta := (heigen r).symm</span>
+<span id="L179" class="source-highlight"><a href="#L179">179</a>       _ = InnerProductSpace.rankOne ℂ eta eta eta := by rw [hmapr]</span>
+<span id="L180" class="source-highlight"><a href="#L180">180</a>       _ = eta := hprojectionEta</span>
+<span id="L181" class="source-highlight"><a href="#L181">181</a>       _ = (1 : ℂ) • eta := (one_smul ℂ eta).symm</span>
+<span id="L182" class="source-highlight"><a href="#L182">182</a>   exact one_ne_zero (hchirOne ▸ hchirZero)</span>
+<span id="L183"><a href="#L183">183</a> </span>
+<span id="L184"><a href="#L184">184</a> end NonUnitalCStarRepresentation</span>
+<span id="L185"><a href="#L185">185</a> </span>
+<span id="L186"><a href="#L186">186</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

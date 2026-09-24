@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "25d07612085386e19888fc3bf1085098954bb4644bd22f828c6a56fc4cd1b64f",
+  "approved_card_model_sha256": "dd8f8cf8228f73a201504c29822a17b5e7d82271a88915202bc617fef4d6e672",
+  "assumptions": "Let A be a nonzero unital complex C*-algebra, D a closed unital star subalgebra of A, and χ a character of D.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "b491c2ef82049b88e4d26e38eab76305c842ad0185cc3edeb40f129127bbe887",
+    "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.IsPureState",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ab3cc7055573144f26c2ee004138fc8a252ae8b2fbc21ba53cbcfc4e5337a997",
+        "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "There is a continuous complex-linear functional φ on A in stateSpace A that is pure and restricts to χ: for every d in D, φ(d)=χ(d).",
+  "declaration_kind": "theorem",
+  "definition_equation": "∃ φ : A →L[ℂ] ℂ, φ ∈ stateSpace A ∧ IsPureState A φ ∧ ∀ d : D, φ d = χ d.",
+  "definition_explanation": "∃ φ : A →L[ℂ] ℂ, φ ∈ stateSpace A ∧ IsPureState A φ ∧ ∀ d : D, φ d = χ d.",
+  "display_title": "Pure-state extension of a character",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [inst_2 : StarOrderedRing A] [Nontrivial A] (D : StarSubalgebra ℂ A) [inst_4 : IsClosed ↑D] (chi : ↑(WeakDual.characterSpace ℂ ↥D)), ∃ phi ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace A, MathlibAnnex.Analysis.CStarAlgebra.IsPureState A phi ∧ ∀ (d : ↥D), phi ↑d = chi d",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "c07e120211e22943c73dc406c3dcd09263d2397d305a830ae7935ae0f479fa4d",
+    "uid": "lfh:lfh-card-exposition:sha256:73962a57a1e621b6358a99b675c3391a22583164575989d64379fa08842934a0"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "e1370618fb420d2435c8c2da67b6b07a580094cc999b29208ca0769e348c9312",
+    "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "c07e120211e22943c73dc406c3dcd09263d2397d305a830ae7935ae0f479fa4d",
+    "uid": "lfh:lfh-card-exposition:sha256:73962a57a1e621b6358a99b675c3391a22583164575989d64379fa08842934a0"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "e1370618fb420d2435c8c2da67b6b07a580094cc999b29208ca0769e348c9312",
+      "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_extension",
+  "natural_language_statement": "Let A be a nonzero unital complex C*-algebra, D a closed unital star subalgebra of A, and χ a character of D. There is a continuous complex-linear functional φ on A in stateSpace A that is pure and restricts to χ: for every d in D, φ(d)=χ(d).",
+  "one_sentence_role": "Extends a character of a closed unital star subalgebra to a pure state of the ambient algebra.",
+  "owner_review_item_sha256": "489596a4dd8cc4c04d264fbb42501db3435d226c83032330673212a4457430f3",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [inst_2 : StarOrderedRing A] [Nontrivial A] (D : StarSubalgebra ℂ A) [inst_4 : IsClosed ↑D] (chi : ↑(WeakDual.characterSpace ℂ ↥D)), ∃ phi ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace A, MathlibAnnex.Analysis.CStarAlgebra.IsPureState A phi ∧ ∀ (d : ↥D), phi ↑d = chi d"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∃ φ : A →L[ℂ] ℂ, φ ∈ stateSpace A ∧ IsPureState A φ ∧ ∀ d : D, φ d = χ d."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source obtains an extreme point of the compact weak state-extension face. It maps that weak functional to the strong dual, preserves its restriction to D, and transports extremality to show purity. Closedness of D is used by the extension-face construction."
+    }
+  ],
+  "proof_summary": "The source obtains an extreme point of the compact weak state-extension face. It maps that weak functional to the strong dual, preserves its restriction to D, and transports extremality to show purity. Closedness of D is used by the extension-face construction.",
+  "source_excerpt": {
+    "bytes": 1416,
+    "sha256": "89120ac81fdfb034bcbd332162b9b98885b4ea884d9d947fbd062aac6d9cb850"
+  },
+  "source_locator": {
+    "end_column": 51,
+    "end_line": 258,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean",
+    "source_sha256": "e87160cb5331aadba28f4fe599179671b019a2056bc0ff45052cfb9696a642e1",
+    "start_column": 1,
+    "start_line": 231
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "23cd9d1e484b1dcb774d70dbc8d2fd1e442040fe682343f44848c3df0356e393",
+    "uid": "lfh:lfh-source-build-binding:sha256:1f72e6a30f9dc0beb6efa727f49956e3a22122ec7ac2fc50f3d3a2878c2d929b"
+  },
+  "source_sha256": "e87160cb5331aadba28f4fe599179671b019a2056bc0ff45052cfb9696a642e1",
+  "source_signature": {
+    "end_byte": 10192,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "857238d0eb8ad33427f8c5db4c5102cd9aeb9edaecfd60b7b05dfe3db1b2b100",
+    "source_command_range": {
+      "end_column": 51,
+      "end_line": 258,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean",
+      "source_sha256": "e87160cb5331aadba28f4fe599179671b019a2056bc0ff45052cfb9696a642e1",
+      "start_column": 1,
+      "start_line": 231
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean",
+    "source_sha256": "e87160cb5331aadba28f4fe599179671b019a2056bc0ff45052cfb9696a642e1",
+    "start_byte": 9955,
+    "text": "theorem exists_pureState_extension (D : StarSubalgebra ℂ A) [IsClosed (D : Set A)]\n    (chi : WeakDual.characterSpace ℂ D) :\n    ∃ phi : A →L[ℂ] ℂ,\n      phi ∈ stateSpace A ∧ IsPureState A phi ∧ ∀ d : D, phi d = chi d"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean#L231-L258",
+  "stable_card_id": "f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

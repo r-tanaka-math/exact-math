@@ -1,0 +1,140 @@
+{
+  "accepted_type_fingerprint_sha256": "7f0727fd92ec3c24d1f44c4ef03fd02ee4fbae085c281707dab847af21f48a39",
+  "approved_card_model_sha256": "cb2062df4f66a7c3e27e9934f988abdc0ef365b77bf585fbb11446e64deb4de8",
+  "assumptions": "Let A be a nonzero unital complex C*-algebra, H a separable complex Hilbert space, and π a unital representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "ecc79438064f62aae0bbacb681b74e61a1bdf6907db81f63936cc28abaaa4b2d",
+    "uid": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "70bf38775c890eefb79631d1b6c0acb1310662f238112198f657a426c9c0edd2",
+        "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "88f0d99a8e018be7d631ec67a0b283306e74549bc5526e3185861f3927db6411",
+        "uid": "lfh:lfh-declaration-card:sha256:956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "A itself is finite-dimensional over ℂ; finite dimension of A is the conclusion, not an initial hypothesis.",
+  "declaration_kind": "theorem",
+  "definition_equation": "FiniteDimensional ℂ A.",
+  "definition_explanation": "FiniteDimensional ℂ A.",
+  "display_title": "Finite-dimensional algebra from a separable representative of the unique irreducible-representation class",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.Representation A H), pi.IsSingletonIrreducibleModelAmongNonUnital → FiniteDimensional ℂ A",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "3910c52590590990ffd018d67dee9f0baf1b08920998b22a4402c0781b9282db",
+    "uid": "lfh:lfh-card-exposition:sha256:f26add7af5cd6a6c2bb6ce65724278016fedd9ff092826e9a5322bc741b7a4f7"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "c88e7fbae407944a57c817e2022d132425778d810eefaf88bc5c8c3783492766",
+    "uid": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "3910c52590590990ffd018d67dee9f0baf1b08920998b22a4402c0781b9282db",
+    "uid": "lfh:lfh-card-exposition:sha256:f26add7af5cd6a6c2bb6ce65724278016fedd9ff092826e9a5322bc741b7a4f7"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "c88e7fbae407944a57c817e2022d132425778d810eefaf88bc5c8c3783492766",
+      "uid": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital",
+  "natural_language_statement": "Let A be a nonzero unital complex C*-algebra, H a separable complex Hilbert space, and π a unital representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. Then A is finite-dimensional over ℂ; finite dimension of A is the conclusion, not an initial hypothesis.",
+  "one_sentence_role": "Shows that a nonzero unital C*-algebra is finite-dimensional when it has a representative of its unique irreducible-representation class on a separable Hilbert space.",
+  "owner_review_item_sha256": "af2e2cc95edc4a8f3f17a177e1d2b045609f76a3735e78de8e6e4ab4a206e93a",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.Representation A H), pi.IsSingletonIrreducibleModelAmongNonUnital → FiniteDimensional ℂ A"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "FiniteDimensional ℂ A."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source converts the quantifier and applies the unital algebra-finiteness theorem. The underlying argument first makes H finite-dimensional and π injective, then embeds A into the finite-dimensional bounded-operator space on H."
+    }
+  ],
+  "proof_summary": "The source converts the quantifier and applies the unital algebra-finiteness theorem. The underlying argument first makes H finite-dimensional and π injective, then embeds A into the finite-dimensional bounded-operator space on H.",
+  "source_excerpt": {
+    "bytes": 429,
+    "sha256": "8d05bc89209c367c3f64b5a1dc485d9a386c7af6ddefe15526f0bbf632321cbe"
+  },
+  "source_locator": {
+    "end_column": 80,
+    "end_line": 103,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+    "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+    "start_column": 1,
+    "start_line": 96
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "5abd3dd3365f07e1caf6b8cefd7a5911fc52699cb7ff2b09706f2a5c06ed31df",
+    "uid": "lfh:lfh-source-build-binding:sha256:b955e6a0df894f411846a58335b611300a6a25a6fd0c55fda3fe7ce693be9e90"
+  },
+  "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+  "source_signature": {
+    "end_byte": 4169,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "bebbcc2a9d3c00da33bb0ed89efbd8a31c747dcc07468317e1a78454489f8aa1",
+    "source_command_range": {
+      "end_column": 80,
+      "end_line": 103,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+      "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+      "start_column": 1,
+      "start_line": 96
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+    "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+    "start_byte": 3922,
+    "text": "theorem finiteDimensional_algebra_of_singleton_amongNonUnital\n    [Nontrivial A] [TopologicalSpace.SeparableSpace H]\n    (pi : Representation A H)\n    (hsingle : IsSingletonIrreducibleModelAmongNonUnital.{u, v, u} pi) :\n    FiniteDimensional ℂ A"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean#L96-L103",
+  "stable_card_id": "f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

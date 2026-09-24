@@ -1,0 +1,173 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation</code></p><p>MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean · lines 28–32</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceGNSModel</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceState</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.SeparableIrreducible</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.CyclicRestriction</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a></span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>/-!</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a># The separably represented ordinary Naimark endpoint</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>The carrier remains exactly `AtomicCounterexampleAlgebra`. Its faithful</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>separable representation is reducible and has no nonzero irreducible closed</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>subrepresentation. These are separate conclusions from uniqueness of the</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>abstract irreducible representation class.</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>-/</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>set_option autoImplicit false</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>open scoped InnerProduct</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a></span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>universe v</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a></span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>/-- The separable Hilbert space for the single previously selected target. -/</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>abbrev SeparableCounterexampleHilbertSpace := TraceHilbertSpace</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a></span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>/-- A faithful representation of exactly the existing atomic counterexample</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>on a separable Hilbert space. -/</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>noncomputable def separableCounterexampleRepresentation :</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>    Representation AtomicCounterexampleAlgebra SeparableCounterexampleHilbertSpace :=</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>  traceModelRepresentation homogeneityShellFamily</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a></span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>theorem separableSpace_separableCounterexampleHilbertSpace :</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace :=</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>  separableSpace_traceHilbertSpace</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a></span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>theorem separableCounterexampleRepresentation_injective :</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>    Function.Injective separableCounterexampleRepresentation :=</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>  traceModelRepresentation_injective homogeneityShellFamily</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a></span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>theorem isometry_separableCounterexampleRepresentation :</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    Isometry separableCounterexampleRepresentation :=</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>  isometry_traceModelRepresentation homogeneityShellFamily</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a></span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>theorem not_isIrreducible_separableCounterexampleRepresentation :</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    ¬ Representation.IsIrreducible separableCounterexampleRepresentation := by</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  letI : TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace :=</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    separableSpace_separableCounterexampleHilbertSpace</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  exact not_isIrreducible_of_separable</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    separableCounterexampleRepresentation.toNonUnitalStarAlgHom</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a></span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>/-- Even passing to an arbitrary closed reducing subspace does not yield a</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>nonzero irreducible subrepresentation. -/</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>theorem not_isIrreducible_restrictToReducing_separableCounterexampleRepresentation</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    (M : Submodule ℂ SeparableCounterexampleHilbertSpace)</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    (hM : separableCounterexampleRepresentation.Reduces M) :</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    letI : CompleteSpace M := hM.1.completeSpace_coe</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    ¬ Representation.IsIrreducible</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>      (Representation.restrictToReducing separableCounterexampleRepresentation M hM) := by</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  letI : CompleteSpace M := hM.1.completeSpace_coe</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>  letI : TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace :=</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    separableSpace_separableCounterexampleHilbertSpace</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>  letI : TopologicalSpace.SeparableSpace M := inferInstance</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>  exact not_isIrreducible_of_separable</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    (Representation.restrictToReducing</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>      separableCounterexampleRepresentation M hM).toNonUnitalStarAlgHom</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a></span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>/-- A closed, fully specified existence statement for the same target;</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>separability is concluded, not passed as an additional premise. -/</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>theorem exists_separable_faithful_representation :</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace ∧</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>    ∃ ρ : Representation AtomicCounterexampleAlgebra SeparableCounterexampleHilbertSpace,</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>      Function.Injective ρ ∧ ¬ ρ.IsIrreducible :=</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>  ⟨separableSpace_separableCounterexampleHilbertSpace,</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    separableCounterexampleRepresentation,</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    separableCounterexampleRepresentation_injective,</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>    not_isIrreducible_separableCounterexampleRepresentation⟩</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a></span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>/-- The stronger conclusion preserves the entire previously proved</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>ordinary endpoint, including its independent comparison universe. -/</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>theorem atomicCounterexampleEndpoint_and_separable_faithful_representation :</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>    AtomicCounterexampleEndpoint.{v} ∧</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace ∧</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>    Function.Injective separableCounterexampleRepresentation ∧</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>    ¬ Representation.IsIrreducible separableCounterexampleRepresentation :=</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>  ⟨shellFamilyEndpoint homogeneityShellFamily, separableSpace_separableCounterexampleHilbertSpace,</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    separableCounterexampleRepresentation_injective,</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>    not_isIrreducible_separableCounterexampleRepresentation⟩</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a></span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>/-- The unique trace of the unchanged atomic counterexample. -/</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>noncomputable def atomicCounterexampleTrace : AtomicCounterexampleAlgebra →L[ℂ] ℂ :=</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>  traceExtension homogeneityShellFamily</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a></span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>theorem atomicCounterexampleTrace_mem_stateSpace :</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    atomicCounterexampleTrace ∈</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>      MathlibAnnex.Analysis.CStarAlgebra.stateSpace AtomicCounterexampleAlgebra :=</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  traceExtension_mem_stateSpace homogeneityShellFamily</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a></span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>theorem atomicCounterexampleTrace_mul_comm (a b : AtomicCounterexampleAlgebra) :</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>    atomicCounterexampleTrace (a * b) = atomicCounterexampleTrace (b * a) :=</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>  traceExtension_mul_comm homogeneityShellFamily a b</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a></span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>theorem atomicCounterexampleTrace_star_mul_self_eq_zero_iff</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>    (a : AtomicCounterexampleAlgebra) :</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>    atomicCounterexampleTrace (star a * a) = 0 ↔ a = 0 :=</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>  traceExtension_star_mul_self_eq_zero_iff homogeneityShellFamily a</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a></span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>/-- The trace is implemented by the original CAR trace vector in the</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>separable faithful model. -/</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>@[simp]</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>theorem inner_traceVector_separableCounterexampleRepresentation</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>    (a : AtomicCounterexampleAlgebra) :</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    inner ℂ traceVector (separableCounterexampleRepresentation a traceVector) =</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>      atomicCounterexampleTrace a :=</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>  inner_traceVector_traceModelRepresentation homogeneityShellFamily a</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a></span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>theorem eq_atomicCounterexampleTrace_of_mem_stateSpace_of_mul_comm</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>    (φ : AtomicCounterexampleAlgebra →L[ℂ] ℂ)</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>    (hφ : φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace AtomicCounterexampleAlgebra)</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>    (hφtrace : ∀ a b, φ (a * b) = φ (b * a)) : φ = atomicCounterexampleTrace :=</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>  eq_traceExtension_of_mem_stateSpace_of_mul_comm homogeneityShellFamily φ hφ hφtrace</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a></span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>/-- The final strengthened endpoint uses only previously separated proof</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>constants. It retains the ordinary endpoint at any comparison universe and</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>adds the fixed separable faithful model and the faithful unique trace. -/</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>theorem atomicCounterexampleEndpoint_and_separable_tracial_representation :</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>    AtomicCounterexampleEndpoint.{v} ∧</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>    Nontrivial SeparableCounterexampleHilbertSpace ∧</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace ∧</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>    Function.Injective separableCounterexampleRepresentation ∧</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>    Isometry separableCounterexampleRepresentation ∧</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>    ¬ Representation.IsIrreducible separableCounterexampleRepresentation ∧</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>    atomicCounterexampleTrace ∈</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>      MathlibAnnex.Analysis.CStarAlgebra.stateSpace AtomicCounterexampleAlgebra ∧</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    (∀ a b, atomicCounterexampleTrace (a * b) = atomicCounterexampleTrace (b * a)) ∧</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>    (∀ a, atomicCounterexampleTrace (star a * a) = 0 ↔ a = 0) ∧</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>    (∀ φ : AtomicCounterexampleAlgebra →L[ℂ] ℂ,</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace AtomicCounterexampleAlgebra →</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>      (∀ a b, φ (a * b) = φ (b * a)) → φ = atomicCounterexampleTrace) :=</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>  ⟨shellFamilyEndpoint homogeneityShellFamily,</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>    nontrivial_traceHilbertSpace,</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>    separableSpace_separableCounterexampleHilbertSpace,</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>    separableCounterexampleRepresentation_injective,</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>    isometry_separableCounterexampleRepresentation,</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>    not_isIrreducible_separableCounterexampleRepresentation,</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>    atomicCounterexampleTrace_mem_stateSpace,</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>    atomicCounterexampleTrace_mul_comm,</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>    atomicCounterexampleTrace_star_mul_self_eq_zero_iff,</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>    eq_atomicCounterexampleTrace_of_mem_stateSpace_of_mul_comm⟩</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a></span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>/-- The same fixed algebra has a faithful representation on a nontrivial separable</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>Hilbert space, but has no nonzero irreducible representation on any separable</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>Hilbert space in the arbitrary comparison universe. This does not assert that</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>the algebra is nonprimitive: the original irreducible model is retained. -/</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>theorem atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation :</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>    AtomicCounterexampleEndpoint.{v} ∧</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    Nontrivial SeparableCounterexampleHilbertSpace ∧</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace ∧</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>    (∃ ρ : Representation AtomicCounterexampleAlgebra SeparableCounterexampleHilbertSpace,</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>      Function.Injective ρ) ∧</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>    (∀ (H : Type v) [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>        [CompleteSpace H] [TopologicalSpace.SeparableSpace H],</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>      ∀ ρ : NonUnitalRepresentation (A := AtomicCounterexampleAlgebra) (H := H),</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>        ¬ ρ.IsIrreducible) := by</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>  refine ⟨shellFamilyEndpoint homogeneityShellFamily, nontrivial_traceHilbertSpace,</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>    separableSpace_separableCounterexampleHilbertSpace,</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>    ⟨separableCounterexampleRepresentation,</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>      separableCounterexampleRepresentation_injective⟩, ?_⟩</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>  intro H _ _ _ _ ρ</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>  exact not_isIrreducible_of_separable ρ</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a></span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

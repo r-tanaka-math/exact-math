@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "8f6080ffedd7a05589c15beb77da0914b520154a8e6de93f7d47d064cf365ca0",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. This is an unconditional theorem about that fixed construction, with no CH assumption.",
+    "conclusion": "|A| = 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The underlying set of A has cardinality continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "This declaration concerns carrier cardinality. The exact norm-density theorem for A is a separate result; neither is a statement about Hamel dimension.",
+    "natural_language_statement": "The underlying set of the fixed CAR-based C*-algebra A has cardinality exactly 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Identifies the exact cardinality of the same fixed algebra.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use the upper bound for the cardinality of A to obtain |A| ≤ 𝔠."
+      },
+      {
+        "step_id": "2",
+        "text": "The whole carrier is norm dense in itself, so the lower bound for all norm-dense subsets of A gives 𝔠 ≤ |A|."
+      },
+      {
+        "step_id": "3",
+        "text": "Conclude equality by antisymmetry."
+      }
+    ],
+    "proof_summary": "Combine the upper bound from the faithful separable representation with the dense-set lower bound applied to the whole space A."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "75a7668379333ad8738557c1da68955398f298726394d3d716d30ce59bcf1ad3",
+    "uid": "lfh:lfh-declaration-card:sha256:8f6080ffedd7a05589c15beb77da0914b520154a8e6de93f7d47d064cf365ca0"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "03204453e9983c2017334f0751a568be13220a47231adfbbf104e8d089a2093a",
+    "uid": "lfh:lfh-card-exposition:sha256:3bb16638d531d4aadbc4a013c39b7fb9d1ff5dd0f572d5a9132650a536e5199a"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.cardinalMk_atomicCounterexampleAlgebra",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      36,
+      40
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean#L36-L40"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.Cardinality",
+        "provider": "PROJECT",
+        "provider_source_sha256": "d5b1b23f7a2e7c7a62a414d7872ff382b5bcfa8932b49cecefbdb0603ce395d8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.cardinalMk_atomicCounterexampleAlgebra_le_continuum"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.Cardinality",
+        "provider": "PROJECT",
+        "provider_source_sha256": "d5b1b23f7a2e7c7a62a414d7872ff382b5bcfa8932b49cecefbdb0603ce395d8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.continuum_le_cardinalMk_dense_atomicCounterexampleAlgebra"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. This is an unconditional theorem about that fixed construction, with no CH assumption.",
+    "conclusion": "|A| = 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The underlying set of A has cardinality continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "This declaration concerns carrier cardinality. The exact norm-density theorem for A is a separate result; neither is a statement about Hamel dimension.",
+    "natural_language_statement": "The underlying set of the fixed CAR-based C*-algebra A has cardinality exactly 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Identifies the exact cardinality of the same fixed algebra.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use the upper bound for the cardinality of A to obtain |A| ≤ 𝔠."
+      },
+      {
+        "step_id": "2",
+        "text": "The whole carrier is norm dense in itself, so the lower bound for all norm-dense subsets of A gives 𝔠 ≤ |A|."
+      },
+      {
+        "step_id": "3",
+        "text": "Conclude equality by antisymmetry."
+      }
+    ],
+    "proof_summary": "Combine the upper bound from the faithful separable representation with the dense-set lower bound applied to the whole space A.",
+    "stable_card_id": "8f6080ffedd7a05589c15beb77da0914b520154a8e6de93f7d47d064cf365ca0",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.cardinalMk_atomicCounterexampleAlgebra",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_locator": {
+      "start_line": 36,
+      "end_line": 40
+    },
+    "source_signature": {
+      "text": "/-- The cardinality of the underlying set of the fixed algebra is continuum. -/\ntheorem cardinalMk_atomicCounterexampleAlgebra :\n    #AtomicCounterexampleAlgebra = Cardinal.continuum := by\n  apply le_antisymm cardinalMk_atomicCounterexampleAlgebra_le_continuum\n  simpa using continuum_le_cardinalMk_dense_atomicCounterexampleAlgebra Set.univ dense_univ"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "75a7668379333ad8738557c1da68955398f298726394d3d716d30ce59bcf1ad3",
+      "uid": "lfh:lfh-declaration-card:sha256:8f6080ffedd7a05589c15beb77da0914b520154a8e6de93f7d47d064cf365ca0"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "03204453e9983c2017334f0751a568be13220a47231adfbbf104e8d089a2093a",
+      "uid": "lfh:lfh-card-exposition:sha256:3bb16638d531d4aadbc4a013c39b7fb9d1ff5dd0f572d5a9132650a536e5199a"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.cardinalMk_atomicCounterexampleAlgebra_le_continuum",
+        "text": "Exact source attribution.",
+        "website_href": "../2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b/index.html"
+      },
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.continuum_le_cardinalMk_dense_atomicCounterexampleAlgebra",
+        "text": "Exact source attribution.",
+        "website_href": "../4e9f1fd1b5609f4b4591912d2f2f242e022b38ef13ae18ba179ad2c30a17835f/index.html"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/8f6080ffedd7a05589c15beb77da0914b520154a8e6de93f7d47d064cf365ca0/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

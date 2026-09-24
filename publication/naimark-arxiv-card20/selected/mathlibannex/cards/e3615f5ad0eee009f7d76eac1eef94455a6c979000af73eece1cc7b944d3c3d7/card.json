@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "e3615f5ad0eee009f7d76eac1eef94455a6c979000af73eece1cc7b944d3c3d7",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let πₐₜ be its distinguished atomic inclusion on Hₐₜ. This theorem concerns Hₐₜ, not the separable trace-GNS space Hτ.",
+    "conclusion": "There is a norm-dense subset D ⊆ Hₐₜ of cardinality 𝔠, and every norm-dense E ⊆ Hₐₜ satisfies 𝔠 ≤ |E|. Thus dens(Hₐₜ) = 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The atomic Hilbert space has norm density continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "This is a norm-density statement, not a carrier-cardinality or Hamel-rank computation. The usual infinite-dimensional Hilbert-space theorem then identifies the cardinality of an orthonormal basis with 𝔠; that consequence is not a dedicated Lean endpoint of this declaration. No Project level is fabricated for this scope-external declaration.",
+    "natural_language_statement": "The Hilbert space Hₐₜ of the atomic inclusion of the fixed CAR-based algebra A has norm density character exactly 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Determines the size of a smallest norm-dense set in the irreducible Hilbert model.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Choose a nonzero vector in the nonzero irreducible atomic representation."
+      },
+      {
+        "step_id": "2",
+        "text": "Its A-orbit is dense and has cardinality at most |A| = 𝔠."
+      },
+      {
+        "step_id": "3",
+        "text": "The lower bound for every dense subset makes that witness exact and proves minimality."
+      }
+    ],
+    "proof_summary": "The representation-space density obstruction supplies the lower bound. For the upper bound, take the cyclic orbit of a nonzero vector under A and use |A| = 𝔠."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "79f1cbd6ad329c3e3023830d3ad3cca58491bc0bea89f63173261c36d58a54e7",
+    "uid": "lfh:lfh-declaration-card:sha256:e3615f5ad0eee009f7d76eac1eef94455a6c979000af73eece1cc7b944d3c3d7"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "5dc44e2fea087f3d587ec430ebd43d7ec6096adafcec24e2ae2aeb3578eb30b1",
+    "uid": "lfh:lfh-card-exposition:sha256:57eb140d2146559dc2d51e6b45fe51a5bc4791bd971114be326726cfd105276a"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleHilbert",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      69,
+      88
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean#L69-L88"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.Cardinality",
+        "provider": "PROJECT",
+        "provider_source_sha256": "d5b1b23f7a2e7c7a62a414d7872ff382b5bcfa8932b49cecefbdb0603ce395d8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.continuum_le_cardinalMk_dense_atomicCounterexampleHilbert"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.Adapters",
+        "provider": "PROJECT",
+        "provider_source_sha256": "80379684dcb688eb10d7c31c71ef7eab2378ce73893cf151b0b85015fc0be9aa",
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.denseRange_orbitMap_of_isIrreducible"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let πₐₜ be its distinguished atomic inclusion on Hₐₜ. This theorem concerns Hₐₜ, not the separable trace-GNS space Hτ.",
+    "conclusion": "There is a norm-dense subset D ⊆ Hₐₜ of cardinality 𝔠, and every norm-dense E ⊆ Hₐₜ satisfies 𝔠 ≤ |E|. Thus dens(Hₐₜ) = 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The atomic Hilbert space has norm density continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "This is a norm-density statement, not a carrier-cardinality or Hamel-rank computation. The usual infinite-dimensional Hilbert-space theorem then identifies the cardinality of an orthonormal basis with 𝔠; that consequence is not a dedicated Lean endpoint of this declaration. No Project level is fabricated for this scope-external declaration.",
+    "natural_language_statement": "The Hilbert space Hₐₜ of the atomic inclusion of the fixed CAR-based algebra A has norm density character exactly 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Determines the size of a smallest norm-dense set in the irreducible Hilbert model.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Choose a nonzero vector in the nonzero irreducible atomic representation."
+      },
+      {
+        "step_id": "2",
+        "text": "Its A-orbit is dense and has cardinality at most |A| = 𝔠."
+      },
+      {
+        "step_id": "3",
+        "text": "The lower bound for every dense subset makes that witness exact and proves minimality."
+      }
+    ],
+    "proof_summary": "The representation-space density obstruction supplies the lower bound. For the upper bound, take the cyclic orbit of a nonzero vector under A and use |A| = 𝔠.",
+    "stable_card_id": "e3615f5ad0eee009f7d76eac1eef94455a6c979000af73eece1cc7b944d3c3d7",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleHilbert",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_locator": {
+      "start_line": 69,
+      "end_line": 88
+    },
+    "source_signature": {
+      "text": "theorem hasDensityCharacter_atomicCounterexampleHilbert :\n    HasDensityCharacter\n      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState)\n      Cardinal.continuum := by\n  let H := MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState\n  let pi : Representation AtomicCounterexampleAlgebra H :=\n    shellFamilyInclusion homogeneityShellFamily\n  have hirr : Representation.IsIrreducible pi :=\n    isIrreducible_shellFamilyInclusion homogeneityShellFamily\n  letI : Nontrivial H := Representation.nontrivial_of_isNonzero pi hirr.1\n  obtain ⟨x, hx⟩ : ∃ x : H, x ≠ 0 := exists_ne 0\n  let s : Set H := Set.range (fun a : AtomicCounterexampleAlgebra => pi a x)\n  have hs : Dense s := Representation.denseRange_orbitMap_of_isIrreducible pi hirr hx\n  have hupper' : Cardinal.lift.{0} (#s) ≤\n      Cardinal.lift.{0} (#AtomicCounterexampleAlgebra) := Cardinal.mk_range_le_lift\n  have hupper : #s ≤ Cardinal.continuum := by\n    simpa [cardinalMk_atomicCounterexampleAlgebra] using hupper'\n  refine ⟨⟨s, hs, le_antisymm hupper\n    (continuum_le_cardinalMk_dense_atomicCounterexampleHilbert s hs)⟩,\n    continuum_le_cardinalMk_dense_atomicCounterexampleHilbert⟩"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "79f1cbd6ad329c3e3023830d3ad3cca58491bc0bea89f63173261c36d58a54e7",
+      "uid": "lfh:lfh-declaration-card:sha256:e3615f5ad0eee009f7d76eac1eef94455a6c979000af73eece1cc7b944d3c3d7"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "5dc44e2fea087f3d587ec430ebd43d7ec6096adafcec24e2ae2aeb3578eb30b1",
+      "uid": "lfh:lfh-card-exposition:sha256:57eb140d2146559dc2d51e6b45fe51a5bc4791bd971114be326726cfd105276a"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.continuum_le_cardinalMk_dense_atomicCounterexampleHilbert",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/0099b00bcd0572ed836c0df1/index.html#L59"
+      },
+      {
+        "label": "MathlibAnnex.Analysis.CStarAlgebra.Representation.denseRange_orbitMap_of_isIrreducible",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/f351c0cabfdb1939d5ede0cb/index.html#L81"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/e3615f5ad0eee009f7d76eac1eef94455a6c979000af73eece1cc7b944d3c3d7/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

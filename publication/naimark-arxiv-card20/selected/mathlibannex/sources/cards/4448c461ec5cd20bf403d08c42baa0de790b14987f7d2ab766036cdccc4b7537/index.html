@@ -1,0 +1,109 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.faithful_and_compactOperatorModel_of_singleton</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Exact Mathematics with AI"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/cards/4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><meta name="robots" content="noindex,nofollow,noarchive"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.faithful_and_compactOperatorModel_of_singleton</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactModel.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem faithful_and_compactOperatorModel_of_singleton [Nontrivial A]
+    [TopologicalSpace.SeparableSpace H]
+    (pi : NonUnitalCStarRepresentation A H)
+    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :
+    Function.Injective pi ∧ IsCompactOperatorModel pi</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import MathlibAnnex.Analysis.CStarAlgebra.CompactPreimage</span>
+<span id="L2"><a href="#L2">2</a> import MathlibAnnex.Analysis.CStarAlgebra.NonUnital.CompactExclusion</span>
+<span id="L3"><a href="#L3">3</a> import MathlibAnnex.Analysis.CStarAlgebra.NonUnital.CompactRange</span>
+<span id="L4"><a href="#L4">4</a> import MathlibAnnex.Analysis.CStarAlgebra.State.Ideal</span>
+<span id="L5"><a href="#L5">5</a> </span>
+<span id="L6"><a href="#L6">6</a> /-!</span>
+<span id="L7"><a href="#L7">7</a> # Compact-operator models for genuinely non-unital C-star algebras</span>
+<span id="L8"><a href="#L8">8</a> </span>
+<span id="L9"><a href="#L9">9</a> This file assembles the non-unital Rosenberg conclusion.  No unit is assumed</span>
+<span id="L10"><a href="#L10">10</a> on the source algebra.  `NonUnital.CompactExclusion` proves directly that</span>
+<span id="L11"><a href="#L11">11</a> every represented operator is compact, while `NonUnital.CompactRange` proves</span>
+<span id="L12"><a href="#L12">12</a> the reverse range inclusion.  The older simplicity-based closure is retained</span>
+<span id="L13"><a href="#L13">13</a> below as an independent conditional route.</span>
+<span id="L14"><a href="#L14">14</a> -/</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> set_option autoImplicit false</span>
+<span id="L17"><a href="#L17">17</a> </span>
+<span id="L18"><a href="#L18">18</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L19"><a href="#L19">19</a> </span>
+<span id="L20"><a href="#L20">20</a> universe u v</span>
+<span id="L21"><a href="#L21">21</a> </span>
+<span id="L22"><a href="#L22">22</a> variable {A : Type u} [NonUnitalCStarAlgebra A]</span>
+<span id="L23"><a href="#L23">23</a>   [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L24"><a href="#L24">24</a> variable {H : Type v}</span>
+<span id="L25"><a href="#L25">25</a> variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L26"><a href="#L26">26</a> </span>
+<span id="L27"><a href="#L27">27</a> namespace NonUnitalCStarRepresentation</span>
+<span id="L28"><a href="#L28">28</a> </span>
+<span id="L29"><a href="#L29">29</a> /-- A separable singleton irreducible representation of a nonzero possibly</span>
+<span id="L30"><a href="#L30">30</a> non-unital complex C-star algebra is an exact model of the compact operators.</span>
+<span id="L31"><a href="#L31">31</a> Neither simplicity nor faithfulness is assumed. -/</span>
+<span id="L32"><a href="#L32">32</a> theorem isCompactOperatorModel_of_singleton [Nontrivial A]</span>
+<span id="L33"><a href="#L33">33</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L34"><a href="#L34">34</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L35"><a href="#L35">35</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L36"><a href="#L36">36</a>     IsCompactOperatorModel pi := by</span>
+<span id="L37"><a href="#L37">37</a>   exact ⟨injective_of_singleton pi hsingle,</span>
+<span id="L38"><a href="#L38">38</a>     isCompactOperator_map_of_singleton pi hsingle,</span>
+<span id="L39"><a href="#L39">39</a>     exists_preimage_of_compact_singleton pi hsingle⟩</span>
+<span id="L40"><a href="#L40">40</a> </span>
+<span id="L41" class="source-highlight"><a href="#L41">41</a> /-- Faithfulness and equality of the represented range with all compact</span>
+<span id="L42" class="source-highlight"><a href="#L42">42</a> operators for a genuinely non-unital singleton model. -/</span>
+<span id="L43" class="source-highlight"><a href="#L43">43</a> theorem faithful_and_compactOperatorModel_of_singleton [Nontrivial A]</span>
+<span id="L44" class="source-highlight"><a href="#L44">44</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L45" class="source-highlight"><a href="#L45">45</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L46" class="source-highlight"><a href="#L46">46</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L47" class="source-highlight"><a href="#L47">47</a>     Function.Injective pi ∧ IsCompactOperatorModel pi :=</span>
+<span id="L48" class="source-highlight"><a href="#L48">48</a>   ⟨injective_of_singleton pi hsingle,</span>
+<span id="L49" class="source-highlight"><a href="#L49">49</a>     isCompactOperatorModel_of_singleton pi hsingle⟩</span>
+<span id="L50"><a href="#L50">50</a> </span>
+<span id="L51"><a href="#L51">51</a> /-- Closed-ideal simplicity turns the one nonzero compact image supplied by</span>
+<span id="L52"><a href="#L52">52</a> the singleton argument into compactness of the entire represented image. -/</span>
+<span id="L53"><a href="#L53">53</a> theorem isCompactOperator_map_of_singleton_of_isSimple [Nontrivial A]</span>
+<span id="L54"><a href="#L54">54</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L55"><a href="#L55">55</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L56"><a href="#L56">56</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)</span>
+<span id="L57"><a href="#L57">57</a>     (hsimple : IsSimpleCStarAlgebra A) :</span>
+<span id="L58"><a href="#L58">58</a>     ∀ a : A, IsCompactOperator (pi a) := by</span>
+<span id="L59"><a href="#L59">59</a>   obtain ⟨p, _hp, hpne, _hrankOne, hpcompact⟩ :=</span>
+<span id="L60"><a href="#L60">60</a>     exists_nonzero_projection_rankOne_map pi hsingle</span>
+<span id="L61"><a href="#L61">61</a>   let I : TwoSidedIdeal A :=</span>
+<span id="L62"><a href="#L62">62</a>     MathlibAnnex.CStarAlgebra.compactPreimageIdeal pi</span>
+<span id="L63"><a href="#L63">63</a>   have hpI : p ∈ I :=</span>
+<span id="L64"><a href="#L64">64</a>     (MathlibAnnex.CStarAlgebra.mem_compactPreimageIdeal pi p).2 hpcompact</span>
+<span id="L65"><a href="#L65">65</a>   have hIne : I ≠ ⊥ := by</span>
+<span id="L66"><a href="#L66">66</a>     intro hbot</span>
+<span id="L67"><a href="#L67">67</a>     have hpzero : p = 0 := by</span>
+<span id="L68"><a href="#L68">68</a>       rw [hbot] at hpI</span>
+<span id="L69"><a href="#L69">69</a>       simpa using hpI</span>
+<span id="L70"><a href="#L70">70</a>     exact hpne hpzero</span>
+<span id="L71"><a href="#L71">71</a>   have hItop : I = ⊤ :=</span>
+<span id="L72"><a href="#L72">72</a>     (hsimple.2 I</span>
+<span id="L73"><a href="#L73">73</a>       (MathlibAnnex.CStarAlgebra.isClosed_compactPreimageIdeal pi)).resolve_left hIne</span>
+<span id="L74"><a href="#L74">74</a>   intro a</span>
+<span id="L75"><a href="#L75">75</a>   have haI : a ∈ I := by</span>
+<span id="L76"><a href="#L76">76</a>     rw [hItop]</span>
+<span id="L77"><a href="#L77">77</a>     trivial</span>
+<span id="L78"><a href="#L78">78</a>   exact (MathlibAnnex.CStarAlgebra.mem_compactPreimageIdeal pi a).1 haI</span>
+<span id="L79"><a href="#L79">79</a> </span>
+<span id="L80"><a href="#L80">80</a> /-- Conditional closure of the genuinely non-unital compact-operator model:</span>
+<span id="L81"><a href="#L81">81</a> the only extra input is norm-closed two-sided simplicity of `A`. -/</span>
+<span id="L82"><a href="#L82">82</a> theorem isCompactOperatorModel_of_singleton_of_isSimple [Nontrivial A]</span>
+<span id="L83"><a href="#L83">83</a>     [TopologicalSpace.SeparableSpace H]</span>
+<span id="L84"><a href="#L84">84</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L85"><a href="#L85">85</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)</span>
+<span id="L86"><a href="#L86">86</a>     (hsimple : IsSimpleCStarAlgebra A) :</span>
+<span id="L87"><a href="#L87">87</a>     IsCompactOperatorModel pi := by</span>
+<span id="L88"><a href="#L88">88</a>   refine ⟨injective_of_singleton pi hsingle,</span>
+<span id="L89"><a href="#L89">89</a>     isCompactOperator_map_of_singleton_of_isSimple pi hsingle hsimple, ?_⟩</span>
+<span id="L90"><a href="#L90">90</a>   exact exists_preimage_of_compact_singleton pi hsingle</span>
+<span id="L91"><a href="#L91">91</a> </span>
+<span id="L92"><a href="#L92">92</a> /-- Faithfulness and exact compact range, conditionally on the generic</span>
+<span id="L93"><a href="#L93">93</a> non-unital simplicity bridge. -/</span>
+<span id="L94"><a href="#L94">94</a> theorem faithful_and_compactOperatorModel_of_singleton_of_isSimple</span>
+<span id="L95"><a href="#L95">95</a>     [Nontrivial A] [TopologicalSpace.SeparableSpace H]</span>
+<span id="L96"><a href="#L96">96</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L97"><a href="#L97">97</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)</span>
+<span id="L98"><a href="#L98">98</a>     (hsimple : IsSimpleCStarAlgebra A) :</span>
+<span id="L99"><a href="#L99">99</a>     Function.Injective pi ∧ IsCompactOperatorModel pi :=</span>
+<span id="L100"><a href="#L100">100</a>   ⟨injective_of_singleton pi hsingle,</span>
+<span id="L101"><a href="#L101">101</a>     isCompactOperatorModel_of_singleton_of_isSimple pi hsingle hsimple⟩</span>
+<span id="L102"><a href="#L102">102</a> </span>
+<span id="L103"><a href="#L103">103</a> end NonUnitalCStarRepresentation</span>
+<span id="L104"><a href="#L104">104</a> </span>
+<span id="L105"><a href="#L105">105</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

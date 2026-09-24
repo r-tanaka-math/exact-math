@@ -1,0 +1,97 @@
+{
+  "assumptions": "A normed additive commutative group E; points x and y; a real radius r.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "3935024dd76f1c0d54f0ff1aa13a35e31d2a4b7ebce1fae22ae01e793e6eba20",
+    "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+  },
+  "citations": [],
+  "conclusion": "The symmetric lens is the intersection of the closed radius-r balls centered at x and y. This definition needs no positivity assumption.",
+  "declaration_kind": "def",
+  "definition_explanation": "A point lies in the symmetric lens exactly when its distance from each focus is at most r. The common midpoint is the center of the point-reflection symmetry that exchanges the two foci.",
+  "display_title": "Symmetric lens",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "88e659789bb029e6bbfef033cf263f4258b519e3058ebc9910cd86e2021b7197",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:db919a78476f84729023042a48b0aa57d9c49c77336d015238be1e0b05e8f571"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "8ec9c339586d12c353b6eeece0fed3c279aef6a9933e7bea978a68d85a9c2ca7",
+    "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "88e659789bb029e6bbfef033cf263f4258b519e3058ebc9910cd86e2021b7197",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:db919a78476f84729023042a48b0aa57d9c49c77336d015238be1e0b05e8f571"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "8ec9c339586d12c353b6eeece0fed3c279aef6a9933e7bea978a68d85a9c2ca7",
+      "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.symmetricLens",
+  "natural_language_statement": "`symmetricLens x y r` is the intersection of the two closed balls of radius r centered at x and y.",
+  "one_sentence_role": "Names the reflection-symmetric bounded region used to force preservation of a midpoint.",
+  "proof_steps": [],
+  "proof_summary": null,
+  "source_locator": {
+    "end_column": 34,
+    "end_line": 32,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_column": 1,
+    "start_line": 30
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "bcfa7ac52df6fd658acdd4495d317afceabe47e59f1ad505bebe5b622ac91856",
+    "uid": "lfh:lfh-source-build-binding:sha256:a692396de8b8b629e15004f9a0b795aa2dc6866722b2e00d1772f631d0802abd"
+  },
+  "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+  "source_signature": {
+    "end_byte": 928,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "20242e503438b61fd3e9b262cd0d1637a4e4539ba160182d31691065fd277cad",
+    "source_command_range": {
+      "end_column": 34,
+      "end_line": 32,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+      "start_column": 1,
+      "start_line": 30
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_byte": 883,
+    "text": "def symmetricLens (x y : E) (r : ℝ) : Set E"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L30-L32",
+  "stable_card_id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

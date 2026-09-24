@@ -1,0 +1,16 @@
+{
+  "schema": "exact.publication-build-plan.v1",
+  "state": "OWNER_AUTHORIZED_PENDING_DEPLOYMENT",
+  "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1",
+  "planned_publication_date": "2026-09-24",
+  "public_cards": 64,
+  "project_card_counts": {
+    "mankiewicz": 11,
+    "sphere-rigidity": 0,
+    "rosenberg": 33,
+    "naimark-problem": 16
+  },
+  "catalog_only_naimark_cards": 4,
+  "historical_publication_record": "public-release-state.json",
+  "note": "The hosting adapter replaces this plan with the exact deployed commit/tree. Publication completion requires live readback."
+}

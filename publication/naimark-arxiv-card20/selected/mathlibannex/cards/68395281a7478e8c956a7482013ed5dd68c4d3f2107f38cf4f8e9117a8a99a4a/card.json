@@ -1,0 +1,135 @@
+{
+  "accepted_type_fingerprint_sha256": "5a1d00420a679c393cc6c4ccd3cb207a0bacfe369065a63d97e1b12fe8c720de",
+  "approved_card_model_sha256": "e858dafa1d2bbf0dad86d3163dc8ed135a99627f27460456fc8c842224afb55d",
+  "assumptions": "Let A be a unital complex C*-algebra and let φ be a pure state of A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "54d38276b2624f4bbb831bdcdc75bbba5ee6d940ee1923e2674d469c88464230",
+    "uid": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.IsPureState",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ab3cc7055573144f26c2ee004138fc8a252ae8b2fbc21ba53cbcfc4e5337a997",
+        "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "The canonical GNS star-algebra homomorphism built from the positive map associated to φ is irreducible.",
+  "declaration_kind": "theorem",
+  "definition_equation": "IsIrreducible ((positiveLinearMapOfMemStateSpace φ hφ).gnsStarAlgHom).",
+  "definition_explanation": "IsIrreducible ((positiveLinearMapOfMemStateSpace φ hφ).gnsStarAlgHom).",
+  "display_title": "Pure-state GNS irreducibility",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [inst_2 : StarOrderedRing A] (phi : A →L[ℂ] ℂ) (hphi : phi ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace A), MathlibAnnex.Analysis.CStarAlgebra.IsPureState A phi → (MathlibAnnex.Analysis.CStarAlgebra.positiveLinearMapOfMemStateSpace phi hphi).gnsStarAlgHom.IsIrreducible",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "40706299e81e72561e0a9ebb2439c8f4f6823ee47507f806c18df8cbf869788a",
+    "uid": "lfh:lfh-card-exposition:sha256:246465df6e827a296a850af7f124a644225807d78c0cba9f1f757cab8d9402b0"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "4ee9892dc2e1ec27668b7926e87efea81b7d94ebfbf6be46c9eecb53f65a2d56",
+    "uid": "lfh:lfh-declaration-card:sha256:9739356612e228954ac5a7eda9eacad58edcc6c064c06a3df7680ce87004f11b"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "40706299e81e72561e0a9ebb2439c8f4f6823ee47507f806c18df8cbf869788a",
+    "uid": "lfh:lfh-card-exposition:sha256:246465df6e827a296a850af7f124a644225807d78c0cba9f1f757cab8d9402b0"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "DISTINCT_UID_REVISION_ONE_RENAMED_TO",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "4ee9892dc2e1ec27668b7926e87efea81b7d94ebfbf6be46c9eecb53f65a2d56",
+      "uid": "lfh:lfh-declaration-card:sha256:9739356612e228954ac5a7eda9eacad58edcc6c064c06a3df7680ce87004f11b"
+    },
+    "renamed_to_relation_ref": {
+      "record_type": "LFH_DECLARATION_RELATION",
+      "revision": 1,
+      "sha256": "fe2584419283c6a72f95e3cf525f0e2728610ee482b6980cea919ce619f6c0d1",
+      "uid": "lfh:lfh-declaration-relation:sha256:0e38d383402e870ee9332452085a478aa0e4d9e847431ee2699fe6dc3f85fcc4"
+    }
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.isIrreducible_pureState_gnsStarAlgHom",
+  "natural_language_statement": "Let A be a unital complex C*-algebra and let φ be a pure state of A. The canonical GNS star-algebra homomorphism built from the positive map associated to φ is irreducible.",
+  "one_sentence_role": "Turns purity of a state into irreducibility of its canonical GNS representation.",
+  "owner_review_item_sha256": "db135317e85d4e2c6214283c0b73a6ee8104bbb6f0a7a4bde79ce373fabc541e",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [inst_2 : StarOrderedRing A] (phi : A →L[ℂ] ℂ) (hphi : phi ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace A), MathlibAnnex.Analysis.CStarAlgebra.IsPureState A phi → (MathlibAnnex.Analysis.CStarAlgebra.positiveLinearMapOfMemStateSpace phi hphi).gnsStarAlgHom.IsIrreducible"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsIrreducible ((positiveLinearMapOfMemStateSpace φ hφ).gnsStarAlgHom)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source invokes the cyclic-vector irreducibility criterion: the GNS cyclic vector has norm one and dense orbit, its vector functional equals φ by the GNS inner-product identity, and purity supplies the criterion's extremality premise."
+    }
+  ],
+  "proof_summary": "The source invokes the cyclic-vector irreducibility criterion: the GNS cyclic vector has norm one and dense orbit, its vector functional equals φ by the GNS inner-product identity, and purity supplies the criterion's extremality premise.",
+  "source_excerpt": {
+    "bytes": 837,
+    "sha256": "2f27d16a64eec94f361e8dee853e7b786a0b141a8abb1032eafa1bda8adc43e7"
+  },
+  "source_locator": {
+    "end_column": 14,
+    "end_line": 144,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean",
+    "source_sha256": "bf443f8eafa4b65a43f7538ad37d856d9e49a67e994338ce2bc6256099b7fd77",
+    "start_column": 1,
+    "start_line": 127
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "0a756eb38075f73536c9b19ed21839f0d5584ecd958c960c2b6c3da484e0804c",
+    "uid": "lfh:lfh-source-build-binding:sha256:e1835304e98001b5bda52b3497fa574dd152e675bbf1cc066ebc4aa1c64c1971"
+  },
+  "source_sha256": "bf443f8eafa4b65a43f7538ad37d856d9e49a67e994338ce2bc6256099b7fd77",
+  "source_signature": {
+    "end_byte": 5552,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "d886600d5b14a979b1dbbfd2356b4c4c21c7bae993d5b56e1c18d9c154031d97",
+    "source_command_range": {
+      "end_column": 14,
+      "end_line": 144,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean",
+      "source_sha256": "bf443f8eafa4b65a43f7538ad37d856d9e49a67e994338ce2bc6256099b7fd77",
+      "start_column": 1,
+      "start_line": 127
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean",
+    "source_sha256": "bf443f8eafa4b65a43f7538ad37d856d9e49a67e994338ce2bc6256099b7fd77",
+    "start_byte": 5326,
+    "text": "theorem isIrreducible_pureState_gnsStarAlgHom\n    (phi : A →L[ℂ] ℂ) (hphi : phi ∈ stateSpace A) (hpure : IsPureState A phi) :\n    StarAlgHom.IsIrreducible\n      (positiveLinearMapOfMemStateSpace phi hphi).gnsStarAlgHom"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean#L127-L144",
+  "stable_card_id": "68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

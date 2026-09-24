@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let K be any separable complex Hilbert space, and let σ: A → B(K) be any complex-linear multiplicative *-preserving map. It need not preserve the unit, and no faithfulness is assumed.",
+    "conclusion": "σ is not both nonzero and irreducible. Equivalently, no such K and σ give a nonzero irreducible representation of A.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "No nonzero irreducible representation on a separable Hilbert space",
+    "language_tag": "en",
+    "lean_realization_notes": "The source predicate IsIrreducible includes nonzeroness, so the zero map is no counterexample to this statement. K ranges over an arbitrary independent universe v. This is not a claim that A is nonprimitive: its faithful atomic irreducible representation remains available. The comma in ∀ σ, ¬ σ.IsIrreducible separates the quantified variable from the proposition; it is not a substitute for an implication arrow.",
+    "natural_language_statement": "The fixed CAR-based C*-algebra A has no nonzero irreducible representation on any separable complex Hilbert space.",
+    "one_sentence_role": "Distinguishes separable representability from separable irreducible representability.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Convert the assumed nonzero irreducible comparison map to a unital representation."
+      },
+      {
+        "step_id": "2",
+        "text": "Compare it and all other irreducible representations through the atomic model, obtaining the required singleton property."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the separable singleton finite-dimensionality theorem and contradict the infinite-dimensionality of A established by the counterexample theorem for A."
+      }
+    ],
+    "proof_summary": "If σ were nonzero and irreducible, it would be unital. The uniqueness of the atomic irreducible model would make it a separable singleton model, so the proved Rosenberg consequence would force A to be finite-dimensional, a contradiction."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "ad091ef1bdb46599561192f9b2e32004e2aa24220ab5bf053514f7acb52b56d2",
+    "uid": "lfh:lfh-declaration-card:sha256:a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "7cae6ae85cfa8d9830c5ec577b007152920d0fc6cce306be0afb5060d09ba7df",
+    "uid": "lfh:lfh-card-exposition:sha256:4158dd23cb48e0a2980e0c7de01b999be64f1c9610e1a99ac5c189dc95dd5170"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      24,
+      56
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean#L24-L56"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.AtomicCounterexample",
+        "provider": "PROJECT",
+        "provider_source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.OrdinarySingleton",
+        "provider": "PROJECT",
+        "provider_source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let K be any separable complex Hilbert space, and let σ: A → B(K) be any complex-linear multiplicative *-preserving map. It need not preserve the unit, and no faithfulness is assumed.",
+    "conclusion": "σ is not both nonzero and irreducible. Equivalently, no such K and σ give a nonzero irreducible representation of A.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "No nonzero irreducible representation on a separable Hilbert space",
+    "language_tag": "en",
+    "lean_realization_notes": "The source predicate IsIrreducible includes nonzeroness, so the zero map is no counterexample to this statement. K ranges over an arbitrary independent universe v. This is not a claim that A is nonprimitive: its faithful atomic irreducible representation remains available. The comma in ∀ σ, ¬ σ.IsIrreducible separates the quantified variable from the proposition; it is not a substitute for an implication arrow.",
+    "natural_language_statement": "The fixed CAR-based C*-algebra A has no nonzero irreducible representation on any separable complex Hilbert space.",
+    "one_sentence_role": "Distinguishes separable representability from separable irreducible representability.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Convert the assumed nonzero irreducible comparison map to a unital representation."
+      },
+      {
+        "step_id": "2",
+        "text": "Compare it and all other irreducible representations through the atomic model, obtaining the required singleton property."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the separable singleton finite-dimensionality theorem and contradict the infinite-dimensionality of A established by the counterexample theorem for A."
+      }
+    ],
+    "proof_summary": "If σ were nonzero and irreducible, it would be unital. The uniqueness of the atomic irreducible model would make it a separable singleton model, so the proved Rosenberg consequence would force A to be finite-dimensional, a contradiction.",
+    "stable_card_id": "a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+    "source_locator": {
+      "start_line": 24,
+      "end_line": 56
+    },
+    "source_signature": {
+      "text": "/-- The main target admits no nonzero irreducible ordinary representation on\na separable complete complex Hilbert space.  The input representation is not\nassumed to preserve the unit. -/\ntheorem not_isIrreducible_of_separable\n    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]\n    [CompleteSpace H] [TopologicalSpace.SeparableSpace H]\n    (rho : NonUnitalRepresentation (A := AtomicCounterexampleAlgebra) (H := H)) :\n    ¬ rho.IsIrreducible := by\n  intro hrho\n  let pi : Representation AtomicCounterexampleAlgebra H := rho.toUnital hrho\n  have hpi : Representation.IsIrreducible pi :=\n    NonUnitalRepresentation.isIrreducible_toUnital rho hrho\n  have hambient_pi : atomicCounterexampleRepresentation.UnitaryEquivalent pi := by\n    obtain ⟨U, hU⟩ := (atomicCounterexampleEndpoint.{v}).captures_nonunital H rho hrho\n    refine ⟨U, ?_⟩\n    intro a x\n    simpa [atomicCounterexampleRepresentation, pi] using hU a x\n  have hsingleton :\n      Representation.IsSingletonIrreducibleModelAmongNonUnital.{0, v, 0} pi := by\n    refine ⟨hpi, ?_⟩\n    intro K _ _ _ sigma hsigma\n    have hambient_sigma :\n        atomicCounterexampleRepresentation.UnitaryEquivalent (sigma.toUnital hsigma) := by\n      obtain ⟨U, hU⟩ := (atomicCounterexampleEndpoint.{0}).captures_nonunital K sigma hsigma\n      refine ⟨U, ?_⟩\n      intro a x\n      change U (atomicCounterexampleRepresentation a x) = sigma a (U x)\n      simpa [atomicCounterexampleRepresentation] using hU a x\n    exact Representation.unitaryEquivalent_trans\n      (Representation.unitaryEquivalent_symm hambient_pi) hambient_sigma\n  exact (atomicCounterexampleEndpoint.{v}).not_finiteDimensional_target\n    (Representation.finiteDimensional_algebra_of_singleton_amongNonUnital\n      pi hsingleton)"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ad091ef1bdb46599561192f9b2e32004e2aa24220ab5bf053514f7acb52b56d2",
+      "uid": "lfh:lfh-declaration-card:sha256:a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "7cae6ae85cfa8d9830c5ec577b007152920d0fc6cce306be0afb5060d09ba7df",
+      "uid": "lfh:lfh-card-exposition:sha256:4158dd23cb48e0a2980e0c7de01b999be64f1c9610e1a99ac5c189dc95dd5170"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+        "text": "Exact source attribution.",
+        "website_href": "../fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470/index.html"
+      },
+      {
+        "label": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/864b266d042477fabaee12ea/index.html#L96"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

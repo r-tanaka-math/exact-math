@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.CStarAlgebra.CAR.continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity</code></p><p>MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean · lines 34–44</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.Cardinality</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a></span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>/-!</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a># CH and a Naimark counterexample of norm density aleph one</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a></span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>The forward direction uses the same concrete algebra and faithful separable</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>representation as the existing endpoint. The reverse direction is the general</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>(possibly nonunital) density obstruction, without a separable-representation</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>assumption. This is a mathematical biconditional, not a metatheoretic forcing</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>or independence certificate.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>set_option autoImplicit false</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>open scoped Cardinal ComplexOrder</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>universe v</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open MathlibAnnex.Analysis.CStarAlgebra MathlibAnnex.Topology</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>/-- The fixed construction supplies an ordinary counterexample of exact</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>norm density continuum. This existence assertion has no CH premise. -/</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>theorem existsNaimarkCounterexampleOfDensity_continuum :</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>    ExistsNaimarkCounterexampleOfDensity (Cardinal.continuum : Cardinal.{0}) := by</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>  refine ⟨AtomicCounterexampleAlgebra, inferInstance, inferInstance, inferInstance,</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>    inferInstance,</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>    MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState,</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>    inferInstance, inferInstance, inferInstance,</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>    (shellFamilyInclusion homogeneityShellFamily).toNonUnitalStarAlgHom, ?_, ?_,</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>    hasDensityCharacter_atomicCounterexampleAlgebra⟩</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>  · exact</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>      Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>        (isUniqueIrreducibleModelAmongNonUnital_shellFamilyInclusion.{0}</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>          homogeneityShellFamily).2</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>  · exact not_isCompactOperatorModel_shellFamilyTarget homogeneityShellFamily _</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a></span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>/-- CH is equivalent to the existence of an ordinary possibly nonunital</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>Naimark counterexample of exact norm density aleph one. Carriers in this closed</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>existence statement lie in Type; the reverse obstruction is universe-polymorphic. -/</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>theorem continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity :</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>    (Cardinal.continuum : Cardinal.{0}) = Cardinal.aleph 1 ↔</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>      ExistsNaimarkCounterexampleOfDensity (Cardinal.aleph 1 : Cardinal.{0}) := by</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>  constructor</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>  · intro hCH</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>    rw [← hCH]</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>    exact existsNaimarkCounterexampleOfDensity_continuum</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>  · exact continuum_eq_aleph_one_of_existsNaimarkCounterexampleOfDensity</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a></span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>/-- Under not-CH no such aleph-one-density counterexample exists.</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>This is the contrapositive, not an independence claim. -/</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>theorem not_existsNaimarkCounterexampleOfDensity_aleph_one_of_continuum_ne_aleph_one</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    (hCH : (Cardinal.continuum : Cardinal.{0}) ≠ Cardinal.aleph 1) :</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>    ¬ ExistsNaimarkCounterexampleOfDensity (Cardinal.aleph 1 : Cardinal.{0}) := by</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  intro h</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>  exact hCH (continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity.mpr h)</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a></span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>/-- Cardinality and exact density augment the unchanged ordinary endpoint,</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>which still ranges over an arbitrary comparison universe. -/</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>theorem atomicCounterexampleEndpoint_and_cardinality_and_density :</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    AtomicCounterexampleEndpoint.{v} ∧</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    #AtomicCounterexampleAlgebra = Cardinal.continuum ∧</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    HasDensityCharacter AtomicCounterexampleAlgebra Cardinal.continuum :=</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  ⟨atomicCounterexampleEndpoint, cardinalMk_atomicCounterexampleAlgebra,</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    hasDensityCharacter_atomicCounterexampleAlgebra⟩</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a></span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

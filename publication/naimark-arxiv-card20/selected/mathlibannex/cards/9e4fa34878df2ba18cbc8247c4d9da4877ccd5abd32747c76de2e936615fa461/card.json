@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461",
+  "content": {
+    "assumptions": "No CH assumption is made. The existence predicate permits nonunital C*-algebras and nonunital complex *-representations. In this closed statement, the algebra carrier, displayed Hilbert space, and comparison Hilbert spaces lie in Type (universe zero).",
+    "conclusion": "The density-existence predicate holds at 𝔠. A witness is the fixed unital CAR-based algebra A with its atomic inclusion; its density is exactly 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A Naimark counterexample of norm density continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "The displayed predicate explicitly negates IsCompactOperatorModel of the displayed π. In ordinary C*-algebraic language this yields a counterexample; it is not a silently added quantified condition in the Lean definition. The predicate has no faithful-separable-representation requirement. Its witness here is nonetheless the same fixed A. This closed existence theorem is not being promoted to an all-universe statement.",
+    "natural_language_statement": "There exists a nontrivial complex C*-algebra D of exact norm density 𝔠 = 2^ℵ₀ with a nonzero irreducible representation π such that every nonzero irreducible representation of D is unitarily equivalent to π and π is not a model of the entire compact-operator algebra.",
+    "one_sentence_role": "Supplies an unconditional witness to the general density-existence statement.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use the atomic inclusion as a nonunital-API representation without changing its action."
+      },
+      {
+        "step_id": "2",
+        "text": "Convert the proved singleton property to the general nonunital representation predicate."
+      },
+      {
+        "step_id": "3",
+        "text": "Use the compact-model exclusion and dens(A) = 𝔠."
+      }
+    ],
+    "proof_summary": "Insert the fixed A and atomic representation into the general possibly nonunital existence predicate."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "228ba19d3e6f019d7447205532137a8eabdb20491d59bbae4fa507ce55cb654f",
+    "uid": "lfh:lfh-declaration-card:sha256:9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "b89acbcc403dac8b1137673529218f8b42524b5ad7731e35de2ef339db1fa604",
+    "uid": "lfh:lfh-card-exposition:sha256:1bdbbd0308459ba5504601d7e42f0cb8d4849f0b1f7c1f55f9be65d304ddbb14"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      18,
+      32
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean#L18-L32"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.Cardinality",
+        "provider": "PROJECT",
+        "provider_source_sha256": "d5b1b23f7a2e7c7a62a414d7872ff382b5bcfa8932b49cecefbdb0603ce395d8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.DensityCharacter",
+        "provider": "PROJECT",
+        "provider_source_sha256": "2c7894874f20caefdd4442114bccd0891ccf6d324f192583d852708df18568ae",
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "No CH assumption is made. The existence predicate permits nonunital C*-algebras and nonunital complex *-representations. In this closed statement, the algebra carrier, displayed Hilbert space, and comparison Hilbert spaces lie in Type (universe zero).",
+    "conclusion": "The density-existence predicate holds at 𝔠. A witness is the fixed unital CAR-based algebra A with its atomic inclusion; its density is exactly 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A Naimark counterexample of norm density continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "The displayed predicate explicitly negates IsCompactOperatorModel of the displayed π. In ordinary C*-algebraic language this yields a counterexample; it is not a silently added quantified condition in the Lean definition. The predicate has no faithful-separable-representation requirement. Its witness here is nonetheless the same fixed A. This closed existence theorem is not being promoted to an all-universe statement.",
+    "natural_language_statement": "There exists a nontrivial complex C*-algebra D of exact norm density 𝔠 = 2^ℵ₀ with a nonzero irreducible representation π such that every nonzero irreducible representation of D is unitarily equivalent to π and π is not a model of the entire compact-operator algebra.",
+    "one_sentence_role": "Supplies an unconditional witness to the general density-existence statement.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use the atomic inclusion as a nonunital-API representation without changing its action."
+      },
+      {
+        "step_id": "2",
+        "text": "Convert the proved singleton property to the general nonunital representation predicate."
+      },
+      {
+        "step_id": "3",
+        "text": "Use the compact-model exclusion and dens(A) = 𝔠."
+      }
+    ],
+    "proof_summary": "Insert the fixed A and atomic representation into the general possibly nonunital existence predicate.",
+    "stable_card_id": "9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+    "source_locator": {
+      "start_line": 18,
+      "end_line": 32
+    },
+    "source_signature": {
+      "text": "/-- The fixed construction supplies an ordinary counterexample of exact\nnorm density continuum. This existence assertion has no CH premise. -/\ntheorem existsNaimarkCounterexampleOfDensity_continuum :\n    ExistsNaimarkCounterexampleOfDensity (Cardinal.continuum : Cardinal.{0}) := by\n  refine ⟨AtomicCounterexampleAlgebra, inferInstance, inferInstance, inferInstance,\n    inferInstance,\n    MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState,\n    inferInstance, inferInstance, inferInstance,\n    (shellFamilyInclusion homogeneityShellFamily).toNonUnitalStarAlgHom, ?_, ?_,\n    hasDensityCharacter_atomicCounterexampleAlgebra⟩\n  · exact\n      Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom\n        (isUniqueIrreducibleModelAmongNonUnital_shellFamilyInclusion.{0}\n          homogeneityShellFamily).2\n  · exact not_isCompactOperatorModel_shellFamilyTarget homogeneityShellFamily _"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "228ba19d3e6f019d7447205532137a8eabdb20491d59bbae4fa507ce55cb654f",
+      "uid": "lfh:lfh-declaration-card:sha256:9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "b89acbcc403dac8b1137673529218f8b42524b5ad7731e35de2ef339db1fa604",
+      "uid": "lfh:lfh-card-exposition:sha256:1bdbbd0308459ba5504601d7e42f0cb8d4849f0b1f7c1f55f9be65d304ddbb14"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra",
+        "text": "Exact source attribution.",
+        "website_href": "../e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f/index.html"
+      },
+      {
+        "label": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/566d6d55dfc65db2d4ca7da0/index.html#L21"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

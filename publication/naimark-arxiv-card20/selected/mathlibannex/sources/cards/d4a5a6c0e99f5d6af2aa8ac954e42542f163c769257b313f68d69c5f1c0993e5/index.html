@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.exists_maximalAbelian_containing_isSelfAdjoint</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Exact Mathematics with AI"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/cards/d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><meta name="robots" content="noindex,nofollow,noarchive"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.exists_maximalAbelian_containing_isSelfAdjoint</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem exists_maximalAbelian_containing_isSelfAdjoint
+    (x : A) (hx : IsSelfAdjoint x) :
+    ∃ D : StarSubalgebra ℂ A, IsMaximalAbelian D ∧ x ∈ D</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import MathlibAnnex.Analysis.CStarAlgebra.MaximalAbelian</span>
+<span id="L2"><a href="#L2">2</a> </span>
+<span id="L3"><a href="#L3">3</a> /-!</span>
+<span id="L4"><a href="#L4">4</a> # Maximal abelian subalgebras containing a prescribed normal element</span>
+<span id="L5"><a href="#L5">5</a> -/</span>
+<span id="L6"><a href="#L6">6</a> </span>
+<span id="L7"><a href="#L7">7</a> set_option autoImplicit false</span>
+<span id="L8"><a href="#L8">8</a> </span>
+<span id="L9"><a href="#L9">9</a> open Set</span>
+<span id="L10"><a href="#L10">10</a> </span>
+<span id="L11"><a href="#L11">11</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L12"><a href="#L12">12</a> </span>
+<span id="L13"><a href="#L13">13</a> universe u</span>
+<span id="L14"><a href="#L14">14</a> </span>
+<span id="L15"><a href="#L15">15</a> variable {A : Type u} [CStarAlgebra A]</span>
+<span id="L16"><a href="#L16">16</a> </span>
+<span id="L17"><a href="#L17">17</a> /-- Every star-normal element of a unital C-star algebra belongs to a maximal</span>
+<span id="L18"><a href="#L18">18</a> abelian star subalgebra. -/</span>
+<span id="L19"><a href="#L19">19</a> theorem exists_maximalAbelian_containing (x : A) [IsStarNormal x] :</span>
+<span id="L20"><a href="#L20">20</a>     ∃ D : StarSubalgebra ℂ A, IsMaximalAbelian D ∧ x ∈ D := by</span>
+<span id="L21"><a href="#L21">21</a>   let E : StarSubalgebra ℂ A := StarAlgebra.elemental ℂ x</span>
+<span id="L22"><a href="#L22">22</a>   let S : Set (StarSubalgebra ℂ A) :=</span>
+<span id="L23"><a href="#L23">23</a>     {D | IsMulCommutative D ∧ E ≤ D}</span>
+<span id="L24"><a href="#L24">24</a>   have hE : E ∈ S := by</span>
+<span id="L25"><a href="#L25">25</a>     refine ⟨inferInstance, le_rfl⟩</span>
+<span id="L26"><a href="#L26">26</a>   obtain ⟨D, _hED, hD, hmax⟩ :=</span>
+<span id="L27"><a href="#L27">27</a>     zorn_le_nonempty₀ S (fun c hcS hc y hy =&gt; by</span>
+<span id="L28"><a href="#L28">28</a>       letI : Nonempty c := ⟨⟨y, hy⟩⟩</span>
+<span id="L29"><a href="#L29">29</a>       let F : c → StarSubalgebra ℂ A := fun d =&gt; d.1</span>
+<span id="L30"><a href="#L30">30</a>       have hdir : Directed (· ≤ ·) F := by</span>
+<span id="L31"><a href="#L31">31</a>         intro i j</span>
+<span id="L32"><a href="#L32">32</a>         by_cases hij&#x27; : i = j</span>
+<span id="L33"><a href="#L33">33</a>         · subst j</span>
+<span id="L34"><a href="#L34">34</a>           exact ⟨i, le_rfl, le_rfl⟩</span>
+<span id="L35"><a href="#L35">35</a>         have hcoe : (i.1 : StarSubalgebra ℂ A) ≠ j.1 :=</span>
+<span id="L36"><a href="#L36">36</a>           fun h =&gt; hij&#x27; (Subtype.ext h)</span>
+<span id="L37"><a href="#L37">37</a>         rcases hc i.2 j.2 hcoe with hij | hji</span>
+<span id="L38"><a href="#L38">38</a>         · exact ⟨j, hij, le_rfl⟩</span>
+<span id="L39"><a href="#L39">39</a>         · exact ⟨i, le_rfl, hji⟩</span>
+<span id="L40"><a href="#L40">40</a>       letI (d : c) : IsMulCommutative (F d) := (hcS d.2).1</span>
+<span id="L41"><a href="#L41">41</a>       refine ⟨⨆ d : c, F d, ?_, ?_⟩</span>
+<span id="L42"><a href="#L42">42</a>       · refine ⟨StarSubalgebra.isMulCommutative_iSup hdir, ?_⟩</span>
+<span id="L43"><a href="#L43">43</a>         exact (hcS hy).2.trans (le_iSup F ⟨y, hy⟩)</span>
+<span id="L44"><a href="#L44">44</a>       · intro z hz</span>
+<span id="L45"><a href="#L45">45</a>         exact le_iSup F ⟨z, hz⟩)</span>
+<span id="L46"><a href="#L46">46</a>       E hE</span>
+<span id="L47"><a href="#L47">47</a>   refine ⟨D, ?_, ?_⟩</span>
+<span id="L48"><a href="#L48">48</a>   · refine ⟨hD.1, ?_⟩</span>
+<span id="L49"><a href="#L49">49</a>     intro F hF hDF</span>
+<span id="L50"><a href="#L50">50</a>     exact hmax ⟨hF, hD.2.trans hDF⟩ hDF</span>
+<span id="L51"><a href="#L51">51</a>   · exact hD.2 (StarAlgebra.elemental.self_mem ℂ x)</span>
+<span id="L52"><a href="#L52">52</a> </span>
+<span id="L53" class="source-highlight"><a href="#L53">53</a> /-- Self-adjoint elements satisfy the normality hypothesis of</span>
+<span id="L54" class="source-highlight"><a href="#L54">54</a> `exists_maximalAbelian_containing`. -/</span>
+<span id="L55" class="source-highlight"><a href="#L55">55</a> theorem exists_maximalAbelian_containing_isSelfAdjoint</span>
+<span id="L56" class="source-highlight"><a href="#L56">56</a>     (x : A) (hx : IsSelfAdjoint x) :</span>
+<span id="L57" class="source-highlight"><a href="#L57">57</a>     ∃ D : StarSubalgebra ℂ A, IsMaximalAbelian D ∧ x ∈ D := by</span>
+<span id="L58" class="source-highlight"><a href="#L58">58</a>   letI : IsStarNormal x := hx.isStarNormal</span>
+<span id="L59" class="source-highlight"><a href="#L59">59</a>   exact exists_maximalAbelian_containing x</span>
+<span id="L60"><a href="#L60">60</a> </span>
+<span id="L61"><a href="#L61">61</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

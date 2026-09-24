@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "a2cf97abfba12f0d4ee067ecc7f17b08abe6ec262611e1f1881bb82dfb0dbae0",
+  "approved_card_model_sha256": "39d4c9508a75407d3a16f0ece9b8c359315e3bff8c56b0bee17d524474670cf5",
+  "assumptions": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a separable complex Hilbert space; let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A; and let T be a compact bounded operator on H.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "ef9634a120bc677817374b923a401e6b48677300dcbed8bfe81cb3c9b001d2c0",
+    "uid": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_rankOne_of_singleton",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "a1c2ac8a3243c4697c1d5133870dfbda664c5a4e32cfba5f403fe5d6f387df5a",
+        "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "There exists a∈A with π(a)=T. This is the inclusion K(H)⊆π(A); compactness of each π(a) is proved separately.",
+  "declaration_kind": "theorem",
+  "definition_equation": "IsCompactOperator T → ∃ a : A, π a = T.",
+  "definition_explanation": "IsCompactOperator T → ∃ a : A, π a = T.",
+  "display_title": "Preimages of every compact operator",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] {H : Type v} [inst_1 : NormedAddCommGroup H] [inst_2 : InnerProductSpace ℂ H] [inst_3 : CompleteSpace H] [Nontrivial A] [inst_5 : PartialOrder A] [StarOrderedRing A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (T : H →L[ℂ] H), IsCompactOperator ⇑T → ∃ a, pi a = T",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "f6c0409a3550536d77312da557022f12c334dc45ce9eda9d8af5f106baa8dfed",
+    "uid": "lfh:lfh-card-exposition:sha256:8a6d368a3bce0948d64a1c94b87e03c39c08853cbe58c0711e6ec9a983f552fa"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "355fdc74e9c42ab927cae65926bb22ed50c733e84a2f58412c73060a6d92ebe6",
+    "uid": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "f6c0409a3550536d77312da557022f12c334dc45ce9eda9d8af5f106baa8dfed",
+    "uid": "lfh:lfh-card-exposition:sha256:8a6d368a3bce0948d64a1c94b87e03c39c08853cbe58c0711e6ec9a983f552fa"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "355fdc74e9c42ab927cae65926bb22ed50c733e84a2f58412c73060a6d92ebe6",
+      "uid": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_of_compact_singleton",
+  "natural_language_statement": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a separable complex Hilbert space; let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A; and let T be a compact bounded operator on H. There exists a∈A with π(a)=T. This is the inclusion K(H)⊆π(A); compactness of each π(a) is proved separately.",
+  "one_sentence_role": "Establishes the inclusion K(H) ⊆ π(A) by giving a preimage for every compact operator.",
+  "owner_review_item_sha256": "cd9bdde3c0d829d9f4ece5db2c39bc549f021be76d1ae2058b1825d88f4f69e7",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] {H : Type v} [inst_1 : NormedAddCommGroup H] [inst_2 : InnerProductSpace ℂ H] [inst_3 : CompleteSpace H] [Nontrivial A] [inst_5 : PartialOrder A] [StarOrderedRing A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (T : H →L[ℂ] H), IsCompactOperator ⇑T → ∃ a, pi a = T"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsCompactOperator T → ∃ a : A, π a = T."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source combines injectivity of π with the preimages of every rank-one operator, then applies the closed-range/compact-operator generation lemma to obtain an exact preimage of T."
+    }
+  ],
+  "proof_summary": "The source combines injectivity of π with the preimages of every rank-one operator, then applies the closed-range/compact-operator generation lemma to obtain an exact preimage of T.",
+  "source_excerpt": {
+    "bytes": 592,
+    "sha256": "52c22df9850968a265c4776a7e2256689ddc6e271306893b2ca0924467a1e36a"
+  },
+  "source_locator": {
+    "end_column": 59,
+    "end_line": 222,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+    "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+    "start_column": 1,
+    "start_line": 211
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "0f6e866d38f3a9f02894774996f83b547ba8c9a461b18326f6356e54c048d5b0",
+    "uid": "lfh:lfh-source-build-binding:sha256:407e584c280a977b71206566dbae6c72320eeae9cea8fc1b654b42547e966454"
+  },
+  "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+  "source_signature": {
+    "end_byte": 9215,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "22b2f20fe2ccde2283c8e3095d96be734707e4fa99d96a37b11870a8aa89117a",
+    "source_command_range": {
+      "end_column": 59,
+      "end_line": 222,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+      "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+      "start_column": 1,
+      "start_line": 211
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+    "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+    "start_byte": 8897,
+    "text": "theorem exists_preimage_of_compact_singleton [Nontrivial A]\n    [PartialOrder A] [StarOrderedRing A]\n    [TopologicalSpace.SeparableSpace H]\n    (pi : NonUnitalCStarRepresentation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)\n    (T : H →L[ℂ] H) (hT : IsCompactOperator T) :\n    ∃ a : A, pi a = T"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean#L211-L222",
+  "stable_card_id": "0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

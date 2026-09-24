@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom</code></p><p>MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityCharacter.lean · lines 21–32</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityCharacter.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Topology.DensityCharacter</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.NonUnital.DensityLowerBound</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.OrdinarySingleton</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># Exact density and the continuum-hypothesis obstruction</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>The reverse implication is for an arbitrary ordinary singleton model, not just</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>the fixed CAR construction and not just separably represented algebras.</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>The algebra and displayed Hilbert universes are independent. The singleton</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>quantifier uses the algebra universe, as in its existing provider API.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>open scoped Cardinal ComplexOrder</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open MathlibAnnex.Topology</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>universe u v</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>/-- Translate the existing ordinary-competitor singleton predicate into the</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>genuinely nonunital-domain representation API without changing its quantifier. -/</span>
+<span class="source-line selected" id="L21"><a class="line-no" href="#L21">21</a>theorem Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom</span>
+<span class="source-line selected" id="L22"><a class="line-no" href="#L22">22</a>    {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line selected" id="L23"><a class="line-no" href="#L23">23</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a>    {pi : Representation A H}</span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>    (hpi : Representation.IsSingletonIrreducibleModelAmongNonUnital.{u, v, u} pi) :</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>    NonUnitalCStarRepresentation.IsSingletonIrreducibleModel.{u, v, u}</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a>      pi.toNonUnitalStarAlgHom := by</span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>  refine ⟨?_, ?_⟩</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>  · exact NonUnitalRepresentation.isIrreducible_toNonUnitalStarAlgHom pi hpi.1</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>  · intro K _ _ _ rho hrho</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>    obtain ⟨U, hU⟩ := hpi.2 K rho hrho</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>    exact ⟨U, fun a x =&gt; hU a x⟩</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a></span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>/-- Any possibly nonunital counterexample of exact norm density aleph one</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>forces the continuum hypothesis. No separable representation is assumed. -/</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>theorem NonUnitalCStarRepresentation.continuum_eq_aleph_one_of_singleton_of_not_isCompactOperatorModel_of_hasDensityCharacter</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    {A : Type u} [NonUnitalCStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    [Nontrivial A] {H : Type v} [NormedAddCommGroup H]</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>    [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>    (pi : NonUnitalCStarRepresentation A H)</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    (hpi : NonUnitalCStarRepresentation.IsSingletonIrreducibleModel.{u, v, u} pi)</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    (hnot : ¬ IsCompactOperatorModel pi)</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    (hd : HasDensityCharacter A (Cardinal.aleph 1)) :</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>    (Cardinal.continuum : Cardinal.{u}) = Cardinal.aleph 1 := by</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  obtain ⟨s, hs, hsc⟩ := hd.1</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>  have hle :=</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    NonUnitalCStarRepresentation.continuum_le_cardinalMk_dense_algebra_of_singleton_of_not_isCompactOperatorModel</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>      pi hpi hnot s hs</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  exact le_antisymm (hsc ▸ hle) Cardinal.aleph_one_le_continuum</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a></span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>/-- An ordinary Naimark counterexample with exact norm density κ.</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a></span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>The source algebra need not have a unit; irreducibility includes nonzeroness.</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>The statement ranges over carriers and competitors in the indicated universe,</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>following the existing singleton API. It includes no separability hypothesis. -/</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>def ExistsNaimarkCounterexampleOfDensity (κ : Cardinal.{u}) : Prop :=</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  ∃ (A : Type u) (iA : NonUnitalCStarAlgebra A),</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    letI := iA</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    ∃ (oA : PartialOrder A),</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>      letI := oA</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>      ∃ (sA : StarOrderedRing A) (nA : Nontrivial A),</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>        letI := sA</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>        letI := nA</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>        ∃ (H : Type u) (nH : NormedAddCommGroup H),</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>          letI := nH</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>          ∃ (iH : InnerProductSpace ℂ H),</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>            letI := iH</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>            ∃ (cH : CompleteSpace H),</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>              letI := cH</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>              ∃ pi : NonUnitalCStarRepresentation A H,</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>                NonUnitalCStarRepresentation.IsSingletonIrreducibleModel.{u, u, u} pi ∧</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>                (¬ IsCompactOperatorModel pi) ∧ HasDensityCharacter A κ</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a></span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>/-- The density-aleph-one existence statement implies CH in any carrier universe. -/</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>theorem continuum_eq_aleph_one_of_existsNaimarkCounterexampleOfDensity</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    (h : ExistsNaimarkCounterexampleOfDensity (Cardinal.aleph 1 : Cardinal.{u})) :</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    (Cardinal.continuum : Cardinal.{u}) = Cardinal.aleph 1 := by</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>  obtain ⟨A, iA, oA, sA, nA, H, nH, iH, cH, pi, hpi, hnot, hd⟩ := h</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>  letI := iA</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>  letI := oA</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>  letI := sA</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>  letI := nA</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  letI := nH</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>  letI := iH</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>  letI := cH</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>  exact NonUnitalCStarRepresentation.continuum_eq_aleph_one_of_singleton_of_not_isCompactOperatorModel_of_hasDensityCharacter</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>    pi hpi hnot hd</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a></span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

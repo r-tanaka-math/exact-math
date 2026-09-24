@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "20928e816ad611d5392737430cad9d348abd451e9e2dd1a44220713ad6a44af1",
+  "approved_card_model_sha256": "1386a51de2ba1423dff13e5e5ba26c84ca7e976fc04465849dbd594e5cca5758",
+  "assumptions": "Let A be a unital complex C*-algebra and let φ : A → ℂ be a continuous complex-linear functional.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "ab3cc7055573144f26c2ee004138fc8a252ae8b2fbc21ba53cbcfc4e5337a997",
+    "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+  },
+  "citations": [],
+  "conclusion": "φ is pure exactly when it belongs to the real extreme points of the normalized positive state space stateSpace A. Membership in that extreme-point set includes membership in the state space.",
+  "declaration_kind": "def",
+  "definition_equation": "IsPureState A φ ↔ φ ∈ (stateSpace A).extremePoints ℝ.",
+  "definition_explanation": "IsPureState A φ ↔ φ ∈ (stateSpace A).extremePoints ℝ.",
+  "display_title": "Pure state as an extreme point",
+  "exact_elaborated_lean_type": "(A : Type u) → [inst : CStarAlgebra A] → [inst_1 : PartialOrder A] → [StarOrderedRing A] → (A →L[ℂ] ℂ) → Prop",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "8d14298b599903dde2314c44a213c04fdb98831f12ef781c0a1dec5fbe72df2b",
+    "uid": "lfh:lfh-card-exposition:sha256:9f3cb23cf8013969fc82c1a5e155b84c0e493eed0831cdef1c22c0729260cb73"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "bd662ee5c7c8f54f4c39f397c0b9dcb9cd567f2a26af4347961804fdffca0321",
+    "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "8d14298b599903dde2314c44a213c04fdb98831f12ef781c0a1dec5fbe72df2b",
+    "uid": "lfh:lfh-card-exposition:sha256:9f3cb23cf8013969fc82c1a5e155b84c0e493eed0831cdef1c22c0729260cb73"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "bd662ee5c7c8f54f4c39f397c0b9dcb9cd567f2a26af4347961804fdffca0321",
+      "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.IsPureState",
+  "natural_language_statement": "Let A be a unital complex C*-algebra and let φ : A → ℂ be a continuous complex-linear functional. φ is pure exactly when it belongs to the real extreme points of the normalized positive state space stateSpace A. Membership in that extreme-point set includes membership in the state space.",
+  "one_sentence_role": "Defines pure states as the real extreme points of the state space.",
+  "owner_review_item_sha256": "f1787e870eaf9e63d24b9a1117a0139de627b2a8f3b454aba147823cde56df5e",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: (A : Type u) → [inst : CStarAlgebra A] → [inst_1 : PartialOrder A] → [StarOrderedRing A] → (A →L[ℂ] ℂ) → Prop"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsPureState A φ ↔ φ ∈ (stateSpace A).extremePoints ℝ."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source definition delegates positivity/normalization to stateSpace and purity to real convex extremality. The order instances are part of the exact Lean context."
+    }
+  ],
+  "proof_summary": "The source definition delegates positivity/normalization to stateSpace and purity to real convex extremality. The order instances are part of the exact Lean context.",
+  "source_excerpt": {
+    "bytes": 233,
+    "sha256": "9d0fc13cb47afcfff69926fb3e1182662a7024365d80c8ddd2ea9ef01af84a55"
+  },
+  "source_locator": {
+    "end_column": 39,
+    "end_line": 38,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Basic.lean",
+    "source_sha256": "494185e21da77c3a4b882fba7aeac7bbaa981e680469d66e74c801fc584391a9",
+    "start_column": 1,
+    "start_line": 35
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Basic.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "81a4ab904ca5fbfd345c9451fea869ecf593f90a506f5b199048d44b0aff7fd9",
+    "uid": "lfh:lfh-source-build-binding:sha256:6e0195335cab6dce6ff4fbd5c7e97832791eb8b11e880a07ebf035b142234067"
+  },
+  "source_sha256": "494185e21da77c3a4b882fba7aeac7bbaa981e680469d66e74c801fc584391a9",
+  "source_signature": {
+    "end_byte": 1398,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "5509001985c227fec93833d10bdf79dd4c5a4e7a98485d6550fb519e63f40af0",
+    "source_command_range": {
+      "end_column": 39,
+      "end_line": 38,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Basic.lean",
+      "source_sha256": "494185e21da77c3a4b882fba7aeac7bbaa981e680469d66e74c801fc584391a9",
+      "start_column": 1,
+      "start_line": 35
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/Basic.lean",
+    "source_sha256": "494185e21da77c3a4b882fba7aeac7bbaa981e680469d66e74c801fc584391a9",
+    "start_byte": 1281,
+    "text": "def IsPureState (A : Type u) [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]\n    (phi : A →L[ℂ] ℂ) : Prop"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Basic.lean#L35-L38",
+  "stable_card_id": "2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

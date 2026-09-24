@@ -1,0 +1,150 @@
+{
+  "accepted_type_fingerprint_sha256": "d50c93945cfa5b79531f0a880a6ca5ab1ec75a788c72c5857eb4c9615b067b4b",
+  "approved_card_model_sha256": "dcee12058158ec9c3493e56adcb04e8b864d6afbe5ccd160132d7f1e5c74d54d",
+  "assumptions": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a complex Hilbert space; let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A; let D be a closed unital star subalgebra of Unitization ℂ A; and let χ be a character of D distinct from infinityCharacterOn D. No separability assumption on H is required.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "66362986cb8e27b76374628c9b58a049b33fc3ce262e58e3e38d04a93a47ed08",
+    "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsSingletonIrreducibleModel",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "c089732cc79ef2a1a463e42c0bd496ccda8b2525b493dc8bcde5e4da70950bdb",
+        "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_extension",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "b491c2ef82049b88e4d26e38eab76305c842ad0185cc3edeb40f129127bbe887",
+        "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.isIrreducible_pureState_gnsStarAlgHom",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "54d38276b2624f4bbb831bdcdc75bbba5ee6d940ee1923e2674d469c88464230",
+        "uid": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "There is a unit vector η in H such that π.unitization(d)η=χ(d)η for every d in D.",
+  "declaration_kind": "theorem",
+  "definition_equation": "∃ η : H, ‖η‖=1 ∧ ∀ d : D, π.unitization d η = χ d • η.",
+  "definition_explanation": "∃ η : H, ‖η‖=1 ∧ ∀ d : D, π.unitization d η = χ d • η.",
+  "display_title": "Eigenvector for a character distinct from the scalar character",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (D : StarSubalgebra ℂ (Unitization ℂ A)) [inst_7 : IsClosed ↑D] (chi : ↑(WeakDual.characterSpace ℂ ↥D)), chi ≠ MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacterOn D → ∃ eta, ‖eta‖ = 1 ∧ ∀ (d : ↥D), (pi.unitization ↑d) eta = chi d • eta",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "2fa0f1907d615d98cb0abc7d5f710976c87fe7d6a46918c4932bba8991d17f25",
+    "uid": "lfh:lfh-card-exposition:sha256:9dd2938baa4bfd21c7f7de7bfcaac8dd3677bc05a1111698cd3724981de9c000"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "d4d2d1ee9863e4b95490856a93a8853163f96a349cc22c8f95e42cb79299196d",
+    "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "2fa0f1907d615d98cb0abc7d5f710976c87fe7d6a46918c4932bba8991d17f25",
+    "uid": "lfh:lfh-card-exposition:sha256:9dd2938baa4bfd21c7f7de7bfcaac8dd3677bc05a1111698cd3724981de9c000"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "d4d2d1ee9863e4b95490856a93a8853163f96a349cc22c8f95e42cb79299196d",
+      "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_unit_eigenvector_of_character_ne_infinity",
+  "natural_language_statement": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a complex Hilbert space; let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A; let D be a closed unital star subalgebra of Unitization ℂ A; and let χ be a character of D distinct from infinityCharacterOn D. No separability assumption on H is required. There is a unit vector η in H such that π.unitization(d)η=χ(d)η for every d in D.",
+  "one_sentence_role": "Produces a unit joint eigenvector whose eigenvalue character is the prescribed character distinct from the scalar character.",
+  "owner_review_item_sha256": "dc8f64ba1008c38fb0c7a038b8edc6c35796478ac78e1280d7691890a3a07f7f",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (D : StarSubalgebra ℂ (Unitization ℂ A)) [inst_7 : IsClosed ↑D] (chi : ↑(WeakDual.characterSpace ℂ ↥D)), chi ≠ MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacterOn D → ∃ eta, ‖eta‖ = 1 ∧ ∀ (d : ↥D), (pi.unitization ↑d) eta = chi d • eta"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∃ η : H, ‖η‖=1 ∧ ∀ d : D, π.unitization d η = χ d • η."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source extends χ to a pure state on the unitization, forms its GNS representation, and shows its restriction to A is nonzero because χ is distinct from the scalar character. The unique-class hypothesis gives unitary equivalence to π and transfers the normalized GNS cyclic vector to η, preserving the joint eigenvector equation."
+    }
+  ],
+  "proof_summary": "The source extends χ to a pure state on the unitization, forms its GNS representation, and shows its restriction to A is nonzero because χ is distinct from the scalar character. The unique-class hypothesis gives unitary equivalence to π and transfers the normalized GNS cyclic vector to η, preserving the joint eigenvector equation.",
+  "source_excerpt": {
+    "bytes": 4876,
+    "sha256": "06c4131840baee2175fc123a6007c2477b1a658ec16ec5345ec2f22ae506bab3"
+  },
+  "source_locator": {
+    "end_column": 56,
+    "end_line": 197,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+    "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+    "start_column": 1,
+    "start_line": 85
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "363979950bbe2fa1abba11303619f8f00309e79e6f04bc4ff3aa41c2fa008235",
+    "uid": "lfh:lfh-source-build-binding:sha256:7bb72d0717c4e559c1a2009785dd8bf1483c1f4981d681a730bd5360c813fd55"
+  },
+  "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+  "source_signature": {
+    "end_byte": 3777,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "099b41fa6356d7f94bf47ac19fbc2bcd3dfcb69fcf41459a3474e2936f094260",
+    "source_command_range": {
+      "end_column": 56,
+      "end_line": 197,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+      "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+      "start_column": 1,
+      "start_line": 85
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+    "source_sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f",
+    "start_byte": 3304,
+    "text": "theorem exists_unit_eigenvector_of_character_ne_infinity [Nontrivial A]\n    (pi : NonUnitalCStarRepresentation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)\n    (D : StarSubalgebra ℂ (Unitization ℂ A))\n    [IsClosed (D : Set (Unitization ℂ A))]\n    (chi : WeakDual.characterSpace ℂ D)\n    (hchi : chi ≠ infinityCharacterOn (A := A) D) :\n    ∃ eta : H, ‖eta‖ = 1 ∧\n      ∀ d : D, pi.unitization (d : Unitization ℂ A) eta = chi d • eta"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean#L85-L197",
+  "stable_card_id": "7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

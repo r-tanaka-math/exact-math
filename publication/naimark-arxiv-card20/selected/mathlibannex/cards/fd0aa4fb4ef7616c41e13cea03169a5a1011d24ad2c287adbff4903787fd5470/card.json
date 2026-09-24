@@ -1,0 +1,134 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. The map j: C → A and the atomic inclusion πₐₜ are the fixed maps from this construction. There are no additional theorem hypotheses. The comparison Hilbert spaces are arbitrary and need not be separable.",
+    "conclusion": "A is nontrivial and norm closed in B(Hₐₜ).\n\nThe CAR source map j: C → A is injective and satisfies j(1) = 1.\n\nA is infinite-dimensional over ℂ.\n\nThe inclusion πₐₜ: A → B(Hₐₜ) is faithful, nonzero, and irreducible.\n\nFor every complex Hilbert space K and every nonzero irreducible *-representation σ: A → B(K), not initially required to preserve the unit, there is a surjective complex-linear isometry U: Hₐₜ → K with U(πₐₜ(a)x) = σ(a)(Ux) for all a ∈ A and x ∈ Hₐₜ.\n\nEvery norm-closed two-sided ideal of A is either {0} or A.\n\nFor every complex Hilbert space K, there is no injective complex-linear *-homomorphism e: A → B(K), not required to preserve the unit, whose image consists of compact operators and contains every compact operator on K.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A fixed counterexample to Naimark’s problem",
+    "language_tag": "en",
+    "lean_realization_notes": "The exact proof is shellFamilyEndpoint homogeneityShellFamily. The comparison universe v is independent of the fixed carrier universe. Nonunital comparison maps are included. The result does not say that all irreducible representations are absent: πₐₜ is one. Later declarations add separable and tracial conclusions.",
+    "natural_language_statement": "The fixed CAR-based algebra A is a nontrivial unital simple infinite-dimensional C*-algebra. Its atomic inclusion is a faithful nonzero irreducible representation, every nonzero irreducible representation is unitarily equivalent to that inclusion, and A has no model as the algebra of all compact operators on a Hilbert space.",
+    "one_sentence_role": "Proves the ordinary counterexample properties for the source-defined algebra, with no additional homogeneity premise.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "The chosen shell model gives closedness, the CAR embedding, faithfulness of the ambient inclusion, and infinite-dimensionality."
+      },
+      {
+        "step_id": "2",
+        "text": "Its irreducibility and capture theorems supply a surjective isometric intertwiner for every nonzero irreducible comparison representation."
+      },
+      {
+        "step_id": "3",
+        "text": "The corresponding ideal and compact-model theorems give simplicity and the exclusion of every full compact-operator model."
+      }
+    ],
+    "proof_summary": "Apply the proved shell-family theorem to the one family selected by CAR homogeneity. This is a specialization of already established conclusions, not an assumption of those conclusions."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "d10f0a91f19a1e8ff87ebdfcdb4948f6e061fdea3cf835a3652348f1e8084674",
+    "uid": "lfh:lfh-declaration-card:sha256:fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "850c30f86813ebccfa903a1c13f7f97291f350c66870764a2b5f1cc14f6fa99d",
+    "uid": "lfh:lfh-card-exposition:sha256:7f17f8d967e6b6ca94bafca0e47433630d344b64c00d58db1ae6f8cd82bdc285"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      95,
+      98
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L95-L98"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.AtomicEndpoint",
+        "provider": "PROJECT",
+        "provider_source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyEndpoint"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. The map j: C → A and the atomic inclusion πₐₜ are the fixed maps from this construction. There are no additional theorem hypotheses. The comparison Hilbert spaces are arbitrary and need not be separable.",
+    "conclusion": "A is nontrivial and norm closed in B(Hₐₜ).\n\nThe CAR source map j: C → A is injective and satisfies j(1) = 1.\n\nA is infinite-dimensional over ℂ.\n\nThe inclusion πₐₜ: A → B(Hₐₜ) is faithful, nonzero, and irreducible.\n\nFor every complex Hilbert space K and every nonzero irreducible *-representation σ: A → B(K), not initially required to preserve the unit, there is a surjective complex-linear isometry U: Hₐₜ → K with U(πₐₜ(a)x) = σ(a)(Ux) for all a ∈ A and x ∈ Hₐₜ.\n\nEvery norm-closed two-sided ideal of A is either {0} or A.\n\nFor every complex Hilbert space K, there is no injective complex-linear *-homomorphism e: A → B(K), not required to preserve the unit, whose image consists of compact operators and contains every compact operator on K.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A fixed counterexample to Naimark’s problem",
+    "language_tag": "en",
+    "lean_realization_notes": "The exact proof is shellFamilyEndpoint homogeneityShellFamily. The comparison universe v is independent of the fixed carrier universe. Nonunital comparison maps are included. The result does not say that all irreducible representations are absent: πₐₜ is one. Later declarations add separable and tracial conclusions.",
+    "natural_language_statement": "The fixed CAR-based algebra A is a nontrivial unital simple infinite-dimensional C*-algebra. Its atomic inclusion is a faithful nonzero irreducible representation, every nonzero irreducible representation is unitarily equivalent to that inclusion, and A has no model as the algebra of all compact operators on a Hilbert space.",
+    "one_sentence_role": "Proves the ordinary counterexample properties for the source-defined algebra, with no additional homogeneity premise.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "The chosen shell model gives closedness, the CAR embedding, faithfulness of the ambient inclusion, and infinite-dimensionality."
+      },
+      {
+        "step_id": "2",
+        "text": "Its irreducibility and capture theorems supply a surjective isometric intertwiner for every nonzero irreducible comparison representation."
+      },
+      {
+        "step_id": "3",
+        "text": "The corresponding ideal and compact-model theorems give simplicity and the exclusion of every full compact-operator model."
+      }
+    ],
+    "proof_summary": "Apply the proved shell-family theorem to the one family selected by CAR homogeneity. This is a specialization of already established conclusions, not an assumption of those conclusions.",
+    "stable_card_id": "fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_locator": {
+      "start_line": 95,
+      "end_line": 98
+    },
+    "source_signature": {
+      "text": "/-- Closed ordinary Naimark main for the actual CAR construction.  It has no\ngeneric KOS, shell-data, rank-one, capture, simplicity, or compactness premise. -/\ntheorem atomicCounterexampleEndpoint : AtomicCounterexampleEndpoint.{v} :=\n  shellFamilyEndpoint homogeneityShellFamily"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "d10f0a91f19a1e8ff87ebdfcdb4948f6e061fdea3cf835a3652348f1e8084674",
+      "uid": "lfh:lfh-declaration-card:sha256:fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "850c30f86813ebccfa903a1c13f7f97291f350c66870764a2b5f1cc14f6fa99d",
+      "uid": "lfh:lfh-card-exposition:sha256:7f17f8d967e6b6ca94bafca0e47433630d344b64c00d58db1ae6f8cd82bdc285"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyEndpoint",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/9eea11a556f5decb12852d8d/index.html#L275"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

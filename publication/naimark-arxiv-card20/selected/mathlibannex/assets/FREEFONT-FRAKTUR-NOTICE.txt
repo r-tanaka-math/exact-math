@@ -1,0 +1,23 @@
+Glyph supplement for Naimark20 private staging, prepared 2026-09-24.
+
+The existing four fixed font assets remain byte-for-byte unchanged. The
+U+1D520 MATHEMATICAL FRAKTUR SMALL C glyph is supplied by unmodified
+FreeSerif.ttf from GNU FreeFont 20120503, the same GNU FreeFont release family
+as the existing FreeMono n-ary supplement. No primary typeface, mathematical
+character, renderer family, or layout template is replaced.
+
+Official binary archive:
+https://ftp.gnu.org/gnu/freefont/freefont-ttf-20120503.zip
+Source archive:
+https://ftp.gnu.org/gnu/freefont/freefont-src-20120503.tar.gz
+Project and licensing information:
+https://www.gnu.org/software/freefont/
+
+Copyright 2002-2012 GNU FreeFont contributors. GNU GPL version 3 or later,
+with the GNU FreeFont font embedding exception contained in the original
+font license metadata. The accompanying FREEMONO-COPYING.txt and
+FREEMONO-WEBFONT-NOTICE.txt describe the existing GNU FreeFont terms.
+The downloaded TTF is unmodified and retains its original name, version,
+copyright, license, and origin metadata. ReportLab's normal PDF font subset
+embedding is used for the one required character. Fonts are runtime assets,
+not standalone payloads in this private Return.

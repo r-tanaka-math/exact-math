@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Topology.HasDensityCharacter.of_cardinalMk_le_of_forall_dense | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Topology.HasDensityCharacter.of_cardinalMk_le_of_forall_dense</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.Topology.HasDensityCharacter.of_cardinalMk_le_of_forall_dense</code></p><p>MathlibAnnex/Topology/DensityCharacter.lean · lines 43–48</p><p><a href="../../../raw/MathlibAnnex/Topology/DensityCharacter.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import Mathlib.Topology.Bases</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import Mathlib.SetTheory.Cardinal.Continuum</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Exact density character</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>`HasDensityCharacter X κ` means that κ is the attained minimum of cardinalities</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>of dense subsets of X. In particular, it is not merely the existence of a dense</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>subset with κ elements. For a normed space, the inherited topology is the norm</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>topology. This interface avoids converting a generator-count statement into a</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>density statement without proof.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option autoImplicit false</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>open Set</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open scoped Cardinal</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>namespace MathlibAnnex.Topology</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>universe u</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>/-- The minimum cardinality of a dense subset of X is exactly κ. -/</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>def HasDensityCharacter (X : Type u) [TopologicalSpace X] (κ : Cardinal.{u}) : Prop :=</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>  (∃ s : Set X, Dense s ∧ #s = κ) ∧ ∀ s : Set X, Dense s → κ ≤ #s</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>namespace HasDensityCharacter</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>variable {X : Type u} [TopologicalSpace X] {κ μ : Cardinal.{u}}</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a></span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>/-- The witnessing dense subset realizes the specified cardinal. -/</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>theorem exists_dense (h : HasDensityCharacter X κ) :</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    ∃ s : Set X, Dense s ∧ #s = κ := h.1</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a></span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>/-- Every dense subset has cardinality at least the density character. -/</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>theorem le_cardinalMk (h : HasDensityCharacter X κ) (s : Set X) (hs : Dense s) :</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>    κ ≤ #s := h.2 s hs</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>/-- Exact density character is unique. -/</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>theorem unique (hκ : HasDensityCharacter X κ) (hμ : HasDensityCharacter X μ) : κ = μ := by</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>  obtain ⟨s, hs, hsc⟩ := hκ.1</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  obtain ⟨t, ht, htc⟩ := hμ.1</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  exact le_antisymm (htc ▸ hκ.2 t ht) (hsc ▸ hμ.2 s hs)</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a></span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>/-- A cardinal upper bound on X and the matching bound on every dense subset</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>identify both the cardinality and the density character. -/</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>theorem of_cardinalMk_le_of_forall_dense</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>    (hupper : #X ≤ κ) (hlower : ∀ s : Set X, Dense s → κ ≤ #s) :</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>    HasDensityCharacter X κ := by</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>  have hlow : κ ≤ #X := by simpa using hlower Set.univ dense_univ</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a>  have hcard : #X = κ := le_antisymm hupper hlow</span>
+<span class="source-line selected" id="L48"><a class="line-no" href="#L48">48</a>  exact ⟨⟨Set.univ, dense_univ, by simpa using hcard⟩, hlower⟩</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a></span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>end HasDensityCharacter</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>end MathlibAnnex.Topology</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital</code></p><p>MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean · lines 96–103</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.FullImage</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.NonUnital</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Singleton models quantified over ordinary possibly nonunital representations</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>The represented algebra in this file is unital, but competitors are ordinary</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>star-algebra maps which are not assumed to preserve the unit.  Nonzero</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>irreducibility forces such a competitor to preserve the unit.</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>-/</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a></span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>set_option autoImplicit false</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>open scoped ComplexOrder</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>universe u v w</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>variable {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>variable {H : Type v}</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>namespace NonUnitalRepresentation</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>/-- Forgetting unitality preserves the explicitly nonzero irreducibility</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>predicate. -/</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>theorem isIrreducible_toNonUnitalStarAlgHom</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    (pi : Representation A H) (hirr : pi.IsIrreducible) :</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>    IsIrreducible pi.toNonUnitalStarAlgHom := by</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>  exact ⟨hirr.1, hirr.2⟩</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a></span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>end NonUnitalRepresentation</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>namespace Representation</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a></span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>/-- Raw singleton-spectrum hypothesis for a unital algebra, with every</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>ordinary nonzero irreducible representation included and no faithfulness</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>built into the definition. -/</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>def IsSingletonIrreducibleModelAmongNonUnital</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    (pi : Representation A H) : Prop :=</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>  pi.IsIrreducible ∧</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    ∀ (K : Type w) [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>      [CompleteSpace K] (rho : NonUnitalRepresentation (A := A) (H := K)),</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>      ∀ hrho : rho.IsIrreducible,</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>        pi.UnitaryEquivalent (rho.toUnital hrho)</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a></span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>/-- Quantifying over possibly nonunital competitors implies the corresponding</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>raw singleton statement for unital representations. -/</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>theorem IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    {pi : Representation A H}</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    (hpi : IsSingletonIrreducibleModelAmongNonUnital.{u, v, w} pi) :</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    IsSingletonIrreducibleModel.{u, v, w} pi := by</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>  refine ⟨hpi.1, ?_⟩</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>  intro K _ _ _ rho hrho</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>  let rhoNU : NonUnitalRepresentation (A := A) (H := K) :=</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    rho.toNonUnitalStarAlgHom</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  have hrhoNU : rhoNU.IsIrreducible :=</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    NonUnitalRepresentation.isIrreducible_toNonUnitalStarAlgHom rho hrho</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  obtain ⟨U, hU⟩ := hpi.2 K rhoNU hrhoNU</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  refine ⟨U, ?_⟩</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>  intro a x</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>  simpa [rhoNU] using hU a x</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a></span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>/-- Conversely, a raw singleton statement for unital representations covers</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>all nonzero irreducible possibly nonunital competitors. -/</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>theorem IsSingletonIrreducibleModel.isSingletonIrreducibleModelAmongNonUnital</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    {pi : Representation A H}</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    (hpi : IsSingletonIrreducibleModel.{u, v, w} pi) :</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    IsSingletonIrreducibleModelAmongNonUnital.{u, v, w} pi := by</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  refine ⟨hpi.1, ?_⟩</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>  intro K _ _ _ rho hrho</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  exact hpi.2 K (rho.toUnital hrho)</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>    (NonUnitalRepresentation.isIrreducible_toUnital rho hrho)</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a></span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>/-- Unital Rosenberg conclusion with the quantifier ranging over ordinary</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>possibly nonunital nonzero irreducible representations. -/</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>theorem faithful_and_compactOperatorModel_of_singleton_amongNonUnital</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    [Nontrivial A] [TopologicalSpace.SeparableSpace H]</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>    (pi : Representation A H)</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>    (hsingle : IsSingletonIrreducibleModelAmongNonUnital.{u, v, u} pi) :</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>    Function.Injective pi ∧</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>      IsCompactOperatorModel pi.toNonUnitalStarAlgHom :=</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>  faithful_and_compactOperatorModel_of_singleton pi</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>    hsingle.isSingletonIrreducibleModel</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a></span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>/-- The representation space is finite-dimensional under the ordinary</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>possibly nonunital singleton quantifier. -/</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>theorem finiteDimensional_space_of_singleton_amongNonUnital</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>    [Nontrivial A] [TopologicalSpace.SeparableSpace H]</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    (pi : Representation A H)</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>    (hsingle : IsSingletonIrreducibleModelAmongNonUnital.{u, v, u} pi) :</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    FiniteDimensional ℂ H :=</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>  finiteDimensional_space_of_singleton pi hsingle.isSingletonIrreducibleModel</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a></span>
+<span class="source-line selected" id="L96"><a class="line-no" href="#L96">96</a>/-- The unital algebra is finite-dimensional under the ordinary possibly</span>
+<span class="source-line selected" id="L97"><a class="line-no" href="#L97">97</a>nonunital singleton quantifier. -/</span>
+<span class="source-line selected" id="L98"><a class="line-no" href="#L98">98</a>theorem finiteDimensional_algebra_of_singleton_amongNonUnital</span>
+<span class="source-line selected" id="L99"><a class="line-no" href="#L99">99</a>    [Nontrivial A] [TopologicalSpace.SeparableSpace H]</span>
+<span class="source-line selected" id="L100"><a class="line-no" href="#L100">100</a>    (pi : Representation A H)</span>
+<span class="source-line selected" id="L101"><a class="line-no" href="#L101">101</a>    (hsingle : IsSingletonIrreducibleModelAmongNonUnital.{u, v, u} pi) :</span>
+<span class="source-line selected" id="L102"><a class="line-no" href="#L102">102</a>    FiniteDimensional ℂ A :=</span>
+<span class="source-line selected" id="L103"><a class="line-no" href="#L103">103</a>  finiteDimensional_algebra_of_singleton pi hsingle.isSingletonIrreducibleModel</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a></span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>/-- A nonzero infinite-dimensional unital C-star algebra cannot have a</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>separable nonzero irreducible representation representing its only ordinary</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>unitary-equivalence class. -/</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>theorem not_singleton_amongNonUnital_of_infiniteDimensional</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>    [Nontrivial A] (hA : ¬ FiniteDimensional ℂ A)</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>    [TopologicalSpace.SeparableSpace H]</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>    (pi : Representation A H) :</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>    ¬ IsSingletonIrreducibleModelAmongNonUnital.{u, v, u} pi := by</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>  intro hsingle</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>  exact hA (finiteDimensional_algebra_of_singleton_amongNonUnital pi hsingle)</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a></span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>end Representation</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a></span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

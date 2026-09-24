@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable</code></p><p>MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean · lines 24–56</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.AtomicCounterexample</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.OrdinarySingleton</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Excluding separable irreducible representations of the CAR main target</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>The ordinary endpoint captures a representation on any independent Hilbert</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>universe.  Comparing two such captures through the fixed ambient inclusion</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>gives the raw singleton hypothesis needed by the finite-dimensionality</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>theorem, without assuming that an input nonunital representation preserves</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>the unit.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option autoImplicit false</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>noncomputable section</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>universe v</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a>/-- The main target admits no nonzero irreducible ordinary representation on</span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>a separable complete complex Hilbert space.  The input representation is not</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>assumed to preserve the unit. -/</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a>theorem not_isIrreducible_of_separable</span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>    [CompleteSpace H] [TopologicalSpace.SeparableSpace H]</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>    (rho : NonUnitalRepresentation (A := AtomicCounterexampleAlgebra) (H := H)) :</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>    ¬ rho.IsIrreducible := by</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>  intro hrho</span>
+<span class="source-line selected" id="L33"><a class="line-no" href="#L33">33</a>  let pi : Representation AtomicCounterexampleAlgebra H := rho.toUnital hrho</span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>  have hpi : Representation.IsIrreducible pi :=</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>    NonUnitalRepresentation.isIrreducible_toUnital rho hrho</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>  have hambient_pi : atomicCounterexampleRepresentation.UnitaryEquivalent pi := by</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>    obtain ⟨U, hU⟩ := (atomicCounterexampleEndpoint.{v}).captures_nonunital H rho hrho</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>    refine ⟨U, ?_⟩</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>    intro a x</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>    simpa [atomicCounterexampleRepresentation, pi] using hU a x</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>  have hsingleton :</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>      Representation.IsSingletonIrreducibleModelAmongNonUnital.{0, v, 0} pi := by</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>    refine ⟨hpi, ?_⟩</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>    intro K _ _ _ sigma hsigma</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>    have hambient_sigma :</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>        atomicCounterexampleRepresentation.UnitaryEquivalent (sigma.toUnital hsigma) := by</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a>      obtain ⟨U, hU⟩ := (atomicCounterexampleEndpoint.{0}).captures_nonunital K sigma hsigma</span>
+<span class="source-line selected" id="L48"><a class="line-no" href="#L48">48</a>      refine ⟨U, ?_⟩</span>
+<span class="source-line selected" id="L49"><a class="line-no" href="#L49">49</a>      intro a x</span>
+<span class="source-line selected" id="L50"><a class="line-no" href="#L50">50</a>      change U (atomicCounterexampleRepresentation a x) = sigma a (U x)</span>
+<span class="source-line selected" id="L51"><a class="line-no" href="#L51">51</a>      simpa [atomicCounterexampleRepresentation] using hU a x</span>
+<span class="source-line selected" id="L52"><a class="line-no" href="#L52">52</a>    exact Representation.unitaryEquivalent_trans</span>
+<span class="source-line selected" id="L53"><a class="line-no" href="#L53">53</a>      (Representation.unitaryEquivalent_symm hambient_pi) hambient_sigma</span>
+<span class="source-line selected" id="L54"><a class="line-no" href="#L54">54</a>  exact (atomicCounterexampleEndpoint.{v}).not_finiteDimensional_target</span>
+<span class="source-line selected" id="L55"><a class="line-no" href="#L55">55</a>    (Representation.finiteDimensional_algebra_of_singleton_amongNonUnital</span>
+<span class="source-line selected" id="L56"><a class="line-no" href="#L56">56</a>      pi hsingleton)</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a></span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a></nav></header><main id="main"><p class="preview-notice">Exact source view. Private integrated preview.</p><p>Exact declaration: <code>MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state</code></p><p>MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean · lines 70–79</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean.txt">Raw UTF-8 source</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceExtensionTracial</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceUnique</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.GNS.TracialFaithfulness</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># The faithful unique tracial state of the fixed shell-family target</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>Faithfulness uses the trace identity and the faithful cyclic representation.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>Uniqueness among all tracial states follows by restriction to the completed</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>CAR algebra and the stronger uniqueness theorem for state extensions.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>open scoped ComplexOrder InnerProduct</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>/-- The extended trace detects every nonzero square. This is faithfulness</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>of the state, not merely injectivity of its representation. -/</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>theorem traceExtension_star_mul_self_eq_zero_iff</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>    (family : RepresentativeShellFamily) (a : ShellFamilyTarget family) :</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>    traceExtension family (star a * a) = 0 ↔ a = 0 := by</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>  constructor</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>  · intro ha</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>    apply eq_zero_of_apply_star_mul_self_eq_zero_of_tracial</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>      (traceExtensionPositive family)</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>      (fun x y ↦ traceExtension_mul_comm family x y)</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>      (tracialRepresentation family) (tracialVector family)</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>      (fun x ↦ inner_tracialVector_tracialRepresentation family x)</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>      (denseRange_tracialRepresentation_orbit family)</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>      (tracialRepresentation_injective family)</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>    exact ha</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>  · rintro rfl</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    simp only [star_zero, zero_mul, map_zero]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a></span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>set_option maxHeartbeats 1000000 in</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>/-- Every normalized continuous trace on the target restricts to the</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>original normalized trace on CAR. -/</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>theorem apply_shellFamilySourceHom_eq_trace_of_apply_one_of_mul_comm</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>    (φ : ShellFamilyTarget family →L[ℂ] ℂ) (hφ1 : φ 1 = 1)</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>    (hφ : ∀ a b, φ (a * b) = φ (b * a)) (b : Limit) :</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>    φ (shellFamilySourceHom family b) = trace b := by</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>  let j := shellFamilySourceHom family</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  let ψ : Limit →L[ℂ] ℂ :=</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    { toLinearMap := φ.toLinearMap.comp j.toLinearMap</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>      cont := φ.continuous.comp (map_continuous j) }</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  have hψ1 : ψ 1 = 1 := by</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    change φ (j 1) = 1</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    rw [map_one, hφ1]</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>  have hψ (a b : Limit) : ψ (a * b) = ψ (b * a) := by</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    change φ (j (a * b)) = φ (j (b * a))</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    rw [map_mul j, map_mul j]</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    exact hφ _ _</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  have heq := eq_trace_of_apply_one_of_mul_comm ψ hψ1 hψ</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>  exact congrArg (fun f : Limit →L[ℂ] ℂ ↦ f b) heq</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a></span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>/-- There is no other tracial state of the target. -/</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>theorem eq_traceExtension_of_mem_stateSpace_of_mul_comm</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>    (φ : ShellFamilyTarget family →L[ℂ] ℂ)</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    (hφ : φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family))</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    (hφtrace : ∀ a b, φ (a * b) = φ (b * a)) : φ = traceExtension family := by</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>  apply eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace family φ hφ</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>  exact apply_shellFamilySourceHom_eq_trace_of_apply_one_of_mul_comm family φ hφ.2 hφtrace</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a></span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>/-- The existing target has exactly one tracial state. Faithfulness is proved</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>separately above; uniqueness ranges over all states, not just selected extensions. -/</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>theorem existsUnique_tracial_state (family : RepresentativeShellFamily) :</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>    ∃! φ : ShellFamilyTarget family →L[ℂ] ℂ,</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) ∧</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>        ∀ a b, φ (a * b) = φ (b * a) := by</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>  refine ⟨traceExtension family,</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>    ⟨traceExtension_mem_stateSpace family, traceExtension_mul_comm family⟩, ?_⟩</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>  intro φ hφ</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>  exact eq_traceExtension_of_mem_stateSpace_of_mul_comm family φ hφ.1 hφ.2</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a></span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

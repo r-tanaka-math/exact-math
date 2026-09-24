@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "504c64a6efd22b7d688e8734a7e3749ef21b20f352c0001b4b3a34c9d4385873",
+  "approved_card_model_sha256": "63b04ccb33e5cab130638c0b36660ed88441e6fafead914fdf9151968af7b99f",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital; let π and ρ be representations of A on complex Hilbert spaces H and K, respectively.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "a8e25386a77ea847a8782daf3e66b3684a80f4986143acac07d0377f2fbd2dff",
+    "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5f6518c19b7ddf2cefa410727daa089f8bcd028d40af5d7507d33d3490084f9c",
+        "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "They are unitarily equivalent when an onto complex-linear isometry U from H to K intertwines every represented operator at every vector.",
+  "declaration_kind": "def",
+  "definition_equation": "UnitaryEquivalent π ρ ↔ ∃ U : H ≃ₗᵢ[ℂ] K, ∀ a x, U (π a x) = ρ a (U x).",
+  "definition_explanation": "UnitaryEquivalent π ρ ↔ ∃ U : H ≃ₗᵢ[ℂ] K, ∀ a x, U (π a x) = ρ a (U x).",
+  "display_title": "Unitary equivalence of nonunital representations",
+  "exact_elaborated_lean_type": "{A : Type u} → [inst : NonUnitalCStarAlgebra A] → {H : Type v} → {K : Type w} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → [inst_4 : NormedAddCommGroup K] → [inst_5 : InnerProductSpace ℂ K] → [inst_6 : CompleteSpace K] → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A K → Prop",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "69547e5c774af471980f5a45f7594ac7a37320091897bf083acb383a97f9053c",
+    "uid": "lfh:lfh-card-exposition:sha256:5a332c6a2455ae8a4b4278828ccae5a310358410ae8fac3d337f9dfc67a807ac"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "dd91944fd4f817b177b2d06252d7f72f38b83f18e143f45635d33e5b926d38ff",
+    "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "69547e5c774af471980f5a45f7594ac7a37320091897bf083acb383a97f9053c",
+    "uid": "lfh:lfh-card-exposition:sha256:5a332c6a2455ae8a4b4278828ccae5a310358410ae8fac3d337f9dfc67a807ac"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "dd91944fd4f817b177b2d06252d7f72f38b83f18e143f45635d33e5b926d38ff",
+      "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.UnitaryEquivalent",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital; let π and ρ be representations of A on complex Hilbert spaces H and K, respectively. They are unitarily equivalent when an onto complex-linear isometry U from H to K intertwines every represented operator at every vector.",
+  "one_sentence_role": "Defines unitary equivalence by an onto complex-linear isometry intertwining the two representations.",
+  "owner_review_item_sha256": "9b6aa29e9227809a0bd52f66320054bcc19376add682e8f835d27e3347d36aa8",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → [inst : NonUnitalCStarAlgebra A] → {H : Type v} → {K : Type w} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → [inst_4 : NormedAddCommGroup K] → [inst_5 : InnerProductSpace ℂ K] → [inst_6 : CompleteSpace K] → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A K → Prop"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "UnitaryEquivalent π ρ ↔ ∃ U : H ≃ₗᵢ[ℂ] K, ∀ a x, U (π a x) = ρ a (U x)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source definition supplies an isometric linear equivalence, not merely an embedding, and the displayed equation is the entire intertwining condition."
+    }
+  ],
+  "proof_summary": "The source definition supplies an isometric linear equivalence, not merely an embedding, and the displayed equation is the entire intertwining condition.",
+  "source_excerpt": {
+    "bytes": 193,
+    "sha256": "b414e0058c7e69681b867033bbec92720e25d402ec93b9adf56a3529a456afe6"
+  },
+  "source_locator": {
+    "end_column": 64,
+    "end_line": 45,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+    "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+    "start_column": 1,
+    "start_line": 43
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "6718f1bae5ed76b5f6475e186e688034d065c4d6a8182306b516c69852a111d5",
+    "uid": "lfh:lfh-source-build-binding:sha256:609d0361705849bd5dd96bf10a1a8f32b908de2f704a0405eb88cd65e184874c"
+  },
+  "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+  "source_signature": {
+    "end_byte": 1548,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "280fb8c99d7bd76935a3cad9bb19b8fd64eb471d773f030fd6bd1f7a347b6fc0",
+    "source_command_range": {
+      "end_column": 64,
+      "end_line": 45,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+      "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+      "start_column": 1,
+      "start_line": 43
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+    "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+    "start_byte": 1435,
+    "text": "def UnitaryEquivalent (pi : NonUnitalCStarRepresentation A H)\n    (rho : NonUnitalCStarRepresentation A K) : Prop"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean#L43-L45",
+  "stable_card_id": "caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

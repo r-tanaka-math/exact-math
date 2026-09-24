@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Topology.exists_isOpen_singleton</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Exact Mathematics with AI"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/cards/9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><meta name="robots" content="noindex,nofollow,noarchive"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Topology.exists_isOpen_singleton</h1><p><a href="../../../raw/MathlibAnnex/Topology/CountableBaire.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem exists_isOpen_singleton [Nonempty X] [Countable X] [T1Space X]
+    [BaireSpace X] : ∃ x : X, IsOpen ({x} : Set X)</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import Mathlib.Topology.Baire.Lemmas</span>
+<span id="L2"><a href="#L2">2</a> import Mathlib.Topology.Separation.Basic</span>
+<span id="L3"><a href="#L3">3</a> </span>
+<span id="L4"><a href="#L4">4</a> /-!</span>
+<span id="L5"><a href="#L5">5</a> # Isolated points in countable Baire spaces</span>
+<span id="L6"><a href="#L6">6</a> -/</span>
+<span id="L7"><a href="#L7">7</a> </span>
+<span id="L8"><a href="#L8">8</a> set_option autoImplicit false</span>
+<span id="L9"><a href="#L9">9</a> </span>
+<span id="L10"><a href="#L10">10</a> open Set</span>
+<span id="L11"><a href="#L11">11</a> </span>
+<span id="L12"><a href="#L12">12</a> namespace MathlibAnnex.Topology</span>
+<span id="L13"><a href="#L13">13</a> </span>
+<span id="L14"><a href="#L14">14</a> universe u</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> variable {X : Type u} [TopologicalSpace X]</span>
+<span id="L17"><a href="#L17">17</a> </span>
+<span id="L18" class="source-highlight"><a href="#L18">18</a> /-- A nonempty countable T1 Baire space has an isolated point. -/</span>
+<span id="L19" class="source-highlight"><a href="#L19">19</a> theorem exists_isOpen_singleton [Nonempty X] [Countable X] [T1Space X]</span>
+<span id="L20" class="source-highlight"><a href="#L20">20</a>     [BaireSpace X] : ∃ x : X, IsOpen ({x} : Set X) := by</span>
+<span id="L21" class="source-highlight"><a href="#L21">21</a>   obtain ⟨x, y, hy⟩ := nonempty_interior_of_iUnion_of_closed</span>
+<span id="L22" class="source-highlight"><a href="#L22">22</a>     (f := fun x : X =&gt; ({x} : Set X))</span>
+<span id="L23" class="source-highlight"><a href="#L23">23</a>     (fun _ =&gt; isClosed_singleton)</span>
+<span id="L24" class="source-highlight"><a href="#L24">24</a>     (by ext y; simp)</span>
+<span id="L25" class="source-highlight"><a href="#L25">25</a>   have hyx : y = x := mem_singleton_iff.mp (interior_subset hy)</span>
+<span id="L26" class="source-highlight"><a href="#L26">26</a>   have hx : x ∈ interior ({x} : Set X) := hyx ▸ hy</span>
+<span id="L27" class="source-highlight"><a href="#L27">27</a>   refine ⟨x, interior_eq_iff_isOpen.mp ?_⟩</span>
+<span id="L28" class="source-highlight"><a href="#L28">28</a>   exact le_antisymm interior_subset (singleton_subset_iff.mpr hx)</span>
+<span id="L29"><a href="#L29">29</a> </span>
+<span id="L30"><a href="#L30">30</a> end MathlibAnnex.Topology</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>

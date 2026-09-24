@@ -1,0 +1,126 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Let ρ be the specified representation obtained by pointed unitary transport of the tracial model.",
+    "conclusion": "ρ is injective: for all a, b ∈ A, ρ(a) = ρ(b) implies a = b. In particular, ρ(a) = 0 implies a = 0.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Faithfulness of the separable tracial representation",
+    "language_tag": "en",
+    "lean_realization_notes": "The literal conclusion is Function.Injective separableCounterexampleRepresentation. Separability of Hτ is a separate established fact; the isometry property and the faithfulness of the scalar trace are separate statements as well. Injectivity does not imply irreducibility here.",
+    "natural_language_statement": "The tracial representation ρ: A → B(Hτ) of the fixed CAR-based algebra on the CAR trace-GNS space is faithful.",
+    "one_sentence_role": "Proves injectivity of the specified representation rather than introducing a new algebra or a new witness.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Take the established injectivity theorem for the trace model of a representative shell family."
+      },
+      {
+        "step_id": "2",
+        "text": "Apply it to the same family used to define A and ρ."
+      }
+    ],
+    "proof_summary": "Specialize injectivity of the family-parametric trace-model representation to the fixed homogeneity family."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "82dcb53f14784d8184619f6b558bae0a063457b36614f838624b46b2451cb4c8",
+    "uid": "lfh:lfh-declaration-card:sha256:d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "ffb7cff0b0cc32111ef358a7a8bebb19042f0c3a70e2ab2c54d971abaa5a60c4",
+    "uid": "lfh:lfh-card-exposition:sha256:dbde34fb1c82dee51ab6555deaedeaa3e4e43119462fe1dac98ae82b112c47c0"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      38,
+      40
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L38-L40"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceGNSModel",
+        "provider": "PROJECT",
+        "provider_source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Let ρ be the specified representation obtained by pointed unitary transport of the tracial model.",
+    "conclusion": "ρ is injective: for all a, b ∈ A, ρ(a) = ρ(b) implies a = b. In particular, ρ(a) = 0 implies a = 0.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Faithfulness of the separable tracial representation",
+    "language_tag": "en",
+    "lean_realization_notes": "The literal conclusion is Function.Injective separableCounterexampleRepresentation. Separability of Hτ is a separate established fact; the isometry property and the faithfulness of the scalar trace are separate statements as well. Injectivity does not imply irreducibility here.",
+    "natural_language_statement": "The tracial representation ρ: A → B(Hτ) of the fixed CAR-based algebra on the CAR trace-GNS space is faithful.",
+    "one_sentence_role": "Proves injectivity of the specified representation rather than introducing a new algebra or a new witness.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Take the established injectivity theorem for the trace model of a representative shell family."
+      },
+      {
+        "step_id": "2",
+        "text": "Apply it to the same family used to define A and ρ."
+      }
+    ],
+    "proof_summary": "Specialize injectivity of the family-parametric trace-model representation to the fixed homogeneity family.",
+    "stable_card_id": "d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_locator": {
+      "start_line": 38,
+      "end_line": 40
+    },
+    "source_signature": {
+      "text": "theorem separableCounterexampleRepresentation_injective :\n    Function.Injective separableCounterexampleRepresentation :=\n  traceModelRepresentation_injective homogeneityShellFamily"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "82dcb53f14784d8184619f6b558bae0a063457b36614f838624b46b2451cb4c8",
+      "uid": "lfh:lfh-declaration-card:sha256:d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "ffb7cff0b0cc32111ef358a7a8bebb19042f0c3a70e2ab2c54d971abaa5a60c4",
+      "uid": "lfh:lfh-card-exposition:sha256:dbde34fb1c82dee51ab6555deaedeaa3e4e43119462fe1dac98ae82b112c47c0"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/4a8050a597542a4dd91f4468/index.html#L130"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

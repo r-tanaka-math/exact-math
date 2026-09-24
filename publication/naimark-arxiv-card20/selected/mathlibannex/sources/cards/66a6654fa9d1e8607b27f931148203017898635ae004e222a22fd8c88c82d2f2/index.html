@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.injective_of_singleton</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="/mathlibannex/assets/card-frame.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Exact Mathematics with AI"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/cards/66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"><link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><meta name="robots" content="noindex,nofollow,noarchive"></head><body><div id="site-top" tabindex="-1"></div><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="/">Home</a> · <a href="/mathlibannex/">MathlibAnnex</a> · <a href="/mathlibannex/catalog/">Catalog</a> · <a href="/corrections/">Corrections</a></nav><main><p class="eyebrow">MATHLIBANNEX / EXACT SOURCE v0.4.0</p><h1>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.injective_of_singleton</h1><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean.txt">Raw UTF-8 source</a></p><pre class="lean-code signature">theorem injective_of_singleton [Nontrivial A]
+    (pi : NonUnitalCStarRepresentation A H)
+    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :
+    Function.Injective pi</pre><pre class="source-lines"><span id="L1"><a href="#L1">1</a> import MathlibAnnex.Analysis.CStarAlgebra.NonUnital.Representation</span>
+<span id="L2"><a href="#L2">2</a> import MathlibAnnex.Analysis.CStarAlgebra.Representation.Faithful</span>
+<span id="L3"><a href="#L3">3</a> </span>
+<span id="L4"><a href="#L4">4</a> /-!</span>
+<span id="L5"><a href="#L5">5</a> # Singleton irreducible models of genuinely nonunital C-star algebras</span>
+<span id="L6"><a href="#L6">6</a> -/</span>
+<span id="L7"><a href="#L7">7</a> </span>
+<span id="L8"><a href="#L8">8</a> set_option autoImplicit false</span>
+<span id="L9"><a href="#L9">9</a> </span>
+<span id="L10"><a href="#L10">10</a> open scoped ComplexOrder InnerProduct</span>
+<span id="L11"><a href="#L11">11</a> </span>
+<span id="L12"><a href="#L12">12</a> namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span id="L13"><a href="#L13">13</a> </span>
+<span id="L14"><a href="#L14">14</a> universe u v w</span>
+<span id="L15"><a href="#L15">15</a> </span>
+<span id="L16"><a href="#L16">16</a> variable {A : Type u} [NonUnitalCStarAlgebra A]</span>
+<span id="L17"><a href="#L17">17</a>   [PartialOrder A] [StarOrderedRing A]</span>
+<span id="L18"><a href="#L18">18</a> variable {H : Type v}</span>
+<span id="L19"><a href="#L19">19</a> variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span id="L20"><a href="#L20">20</a> </span>
+<span id="L21"><a href="#L21">21</a> namespace NonUnitalCStarRepresentation</span>
+<span id="L22"><a href="#L22">22</a> </span>
+<span id="L23"><a href="#L23">23</a> /-- A displayed nonzero irreducible representation representing every</span>
+<span id="L24"><a href="#L24">24</a> nonzero irreducible representation of a genuinely nonunital C-star algebra.</span>
+<span id="L25"><a href="#L25">25</a> Faithfulness is deliberately not part of this predicate. -/</span>
+<span id="L26"><a href="#L26">26</a> def IsSingletonIrreducibleModel</span>
+<span id="L27"><a href="#L27">27</a>     (pi : NonUnitalCStarRepresentation A H) : Prop :=</span>
+<span id="L28"><a href="#L28">28</a>   pi.IsIrreducible ∧</span>
+<span id="L29"><a href="#L29">29</a>     ∀ (K : Type w) [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span id="L30"><a href="#L30">30</a>       [CompleteSpace K] (rho : NonUnitalCStarRepresentation A K),</span>
+<span id="L31"><a href="#L31">31</a>       rho.IsIrreducible → pi.UnitaryEquivalent rho</span>
+<span id="L32"><a href="#L32">32</a> </span>
+<span id="L33" class="source-highlight"><a href="#L33">33</a> /-- Pure-state separation in the minimal unitization proves faithfulness of a</span>
+<span id="L34" class="source-highlight"><a href="#L34">34</a> singleton irreducible model without assuming that the original algebra has a</span>
+<span id="L35" class="source-highlight"><a href="#L35">35</a> unit. -/</span>
+<span id="L36" class="source-highlight"><a href="#L36">36</a> theorem injective_of_singleton [Nontrivial A]</span>
+<span id="L37" class="source-highlight"><a href="#L37">37</a>     (pi : NonUnitalCStarRepresentation A H)</span>
+<span id="L38" class="source-highlight"><a href="#L38">38</a>     (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :</span>
+<span id="L39" class="source-highlight"><a href="#L39">39</a>     Function.Injective pi := by</span>
+<span id="L40" class="source-highlight"><a href="#L40">40</a>   intro x y hxy</span>
+<span id="L41" class="source-highlight"><a href="#L41">41</a>   let a : A := x - y</span>
+<span id="L42" class="source-highlight"><a href="#L42">42</a>   have hpia : pi a = 0 := by</span>
+<span id="L43" class="source-highlight"><a href="#L43">43</a>     simp only [a, map_sub, hxy, sub_self]</span>
+<span id="L44" class="source-highlight"><a href="#L44">44</a>   have hazero : a = 0 := by</span>
+<span id="L45" class="source-highlight"><a href="#L45">45</a>     by_contra hane</span>
+<span id="L46" class="source-highlight"><a href="#L46">46</a>     let ainr : Unitization ℂ A := Unitization.inr a</span>
+<span id="L47" class="source-highlight"><a href="#L47">47</a>     have hainr : ainr ≠ 0 := by</span>
+<span id="L48" class="source-highlight"><a href="#L48">48</a>       intro hzero</span>
+<span id="L49" class="source-highlight"><a href="#L49">49</a>       apply hane</span>
+<span id="L50" class="source-highlight"><a href="#L50">50</a>       apply Unitization.inr_injective (R := ℂ)</span>
+<span id="L51" class="source-highlight"><a href="#L51">51</a>       simpa [ainr] using hzero</span>
+<span id="L52" class="source-highlight"><a href="#L52">52</a>     obtain ⟨phi, hphi, hpure, hdetect⟩ :=</span>
+<span id="L53" class="source-highlight"><a href="#L53">53</a>       exists_pureState_nonzero_on_star_mul_self (A := Unitization ℂ A) hainr</span>
+<span id="L54" class="source-highlight"><a href="#L54">54</a>     let f : Unitization ℂ A →ₚ[ℂ] ℂ :=</span>
+<span id="L55" class="source-highlight"><a href="#L55">55</a>       positiveLinearMapOfMemStateSpace phi hphi</span>
+<span id="L56" class="source-highlight"><a href="#L56">56</a>     let rhoU : Representation (Unitization ℂ A) f.GNS := f.gnsStarAlgHom</span>
+<span id="L57" class="source-highlight"><a href="#L57">57</a>     let rho : NonUnitalCStarRepresentation A f.GNS :=</span>
+<span id="L58" class="source-highlight"><a href="#L58">58</a>       rhoU.toNonUnitalStarAlgHom.comp</span>
+<span id="L59" class="source-highlight"><a href="#L59">59</a>         (Unitization.inrNonUnitalStarAlgHom ℂ A)</span>
+<span id="L60" class="source-highlight"><a href="#L60">60</a>     have hrhoa : rho a ≠ 0 := by</span>
+<span id="L61" class="source-highlight"><a href="#L61">61</a>       intro hzero</span>
+<span id="L62" class="source-highlight"><a href="#L62">62</a>       have hrhoUa : rhoU ainr = 0 := by</span>
+<span id="L63" class="source-highlight"><a href="#L63">63</a>         simpa [rho, rhoU, ainr] using hzero</span>
+<span id="L64" class="source-highlight"><a href="#L64">64</a>       apply hdetect</span>
+<span id="L65" class="source-highlight"><a href="#L65">65</a>       calc</span>
+<span id="L66" class="source-highlight"><a href="#L66">66</a>         phi (star ainr * ainr) = f (star ainr * ainr) := rfl</span>
+<span id="L67" class="source-highlight"><a href="#L67">67</a>         _ = inner ℂ f.gnsCyclicVector</span>
+<span id="L68" class="source-highlight"><a href="#L68">68</a>             (rhoU (star ainr * ainr) f.gnsCyclicVector) :=</span>
+<span id="L69" class="source-highlight"><a href="#L69">69</a>           (PositiveLinearMap.inner_gnsCyclicVector_gnsStarAlgHom f _).symm</span>
+<span id="L70" class="source-highlight"><a href="#L70">70</a>         _ = 0 := by rw [map_mul, map_star, hrhoUa]; simp</span>
+<span id="L71" class="source-highlight"><a href="#L71">71</a>     have hxi : ‖f.gnsCyclicVector‖ = 1 :=</span>
+<span id="L72" class="source-highlight"><a href="#L72">72</a>       PositiveLinearMap.norm_gnsCyclicVector f</span>
+<span id="L73" class="source-highlight"><a href="#L73">73</a>         (positiveLinearMapOfMemStateSpace_one phi hphi)</span>
+<span id="L74" class="source-highlight"><a href="#L74">74</a>     have hxi_ne : f.gnsCyclicVector ≠ 0 := by</span>
+<span id="L75" class="source-highlight"><a href="#L75">75</a>       intro hzero</span>
+<span id="L76" class="source-highlight"><a href="#L76">76</a>       simp [hzero] at hxi</span>
+<span id="L77" class="source-highlight"><a href="#L77">77</a>     letI : Nontrivial f.GNS :=</span>
+<span id="L78" class="source-highlight"><a href="#L78">78</a>       nontrivial_of_ne f.gnsCyclicVector 0 hxi_ne</span>
+<span id="L79" class="source-highlight"><a href="#L79">79</a>     have hirrU : rhoU.IsIrreducible :=</span>
+<span id="L80" class="source-highlight"><a href="#L80">80</a>       (Representation.isIrreducible_iff_starAlgHom rhoU).2</span>
+<span id="L81" class="source-highlight"><a href="#L81">81</a>         (isIrreducible_pureState_gnsStarAlgHom phi hphi hpure)</span>
+<span id="L82" class="source-highlight"><a href="#L82">82</a>     have hirr : rho.IsIrreducible :=</span>
+<span id="L83" class="source-highlight"><a href="#L83">83</a>       isIrreducible_restriction_of_isIrreducible_unitization rhoU hirrU</span>
+<span id="L84" class="source-highlight"><a href="#L84">84</a>         ⟨a, hrhoa⟩</span>
+<span id="L85" class="source-highlight"><a href="#L85">85</a>     obtain ⟨U, hU⟩ := hsingle.2 f.GNS rho hirr</span>
+<span id="L86" class="source-highlight"><a href="#L86">86</a>     have hrhozero : rho a = 0 := by</span>
+<span id="L87" class="source-highlight"><a href="#L87">87</a>       apply ContinuousLinearMap.ext</span>
+<span id="L88" class="source-highlight"><a href="#L88">88</a>       intro z</span>
+<span id="L89" class="source-highlight"><a href="#L89">89</a>       obtain ⟨q, rfl⟩ := U.surjective z</span>
+<span id="L90" class="source-highlight"><a href="#L90">90</a>       calc</span>
+<span id="L91" class="source-highlight"><a href="#L91">91</a>         rho a (U q) = U (pi a q) := (hU a q).symm</span>
+<span id="L92" class="source-highlight"><a href="#L92">92</a>         _ = 0 := by rw [hpia]; simp</span>
+<span id="L93" class="source-highlight"><a href="#L93">93</a>     exact hrhoa hrhozero</span>
+<span id="L94" class="source-highlight"><a href="#L94">94</a>   exact sub_eq_zero.mp hazero</span>
+<span id="L95"><a href="#L95">95</a> </span>
+<span id="L96"><a href="#L96">96</a> end NonUnitalCStarRepresentation</span>
+<span id="L97"><a href="#L97">97</a> </span>
+<span id="L98"><a href="#L98">98</a> end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><a class="back-to-top" data-exact-mounted href="#site-top" aria-label="Back to top" hidden><span aria-hidden="true">↑</span><span class="back-to-top-label">Back to top</span></a><script src="/mathlibannex/assets/mounted-back-to-top.js" defer></script></body></html>
