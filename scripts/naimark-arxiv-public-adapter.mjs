@@ -18,7 +18,7 @@ const git=(...a)=>execFileSync('git',['-C',root,...a],{encoding:'utf8'}).trim();
 const files=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>{need(!e.isSymbolicLink(),'linked file');return e.isDirectory()?files(path.join(d,e.name)):e.isFile()?[path.join(d,e.name)]:(need(false,'special file'),[])});
 const safe=p=>{need(typeof p==='string'&&!p.includes('\\')&&p.split('/').every(x=>/^[a-zA-Z0-9_.\[\]-]+$/.test(x)&&x!=='.'&&x!=='..'),'unsafe path');return p};
 export const fullPublicProfile=p=>['FULL_LAUNCH','PUBLIC_RELEASE_QUALIFICATION'].includes(p);
-function publicHTML(source,base,output){
+export function publicHTML(source,base,output){
  if(base==='/')return source;
  const assets=fs.readdirSync(path.join(output,'_astro'));
  const translated=source.replace(/((?:href|src|action)=")\/(?!\/)/g,'$1'+base).replace(/(https:\/\/exactmathematics\.org)\/(?!exact-mathematics\/)/g,'$1'+base);

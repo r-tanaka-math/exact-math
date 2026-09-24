@@ -1,0 +1,137 @@
+[
+  {
+    "path": "astro.config.mjs",
+    "bytes": 4237,
+    "sha256": "f0706e4425d3c790f90a38b1c572d2ddbadec6e23f2347eae3fa58e9712b7d32"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/about/index.html",
+    "bytes": 28434,
+    "sha256": "7e8139aa93449c8bd6464ee2a8af86088e76bf3d2af559c5c75c99a39be32705"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/index.html",
+    "bytes": 26460,
+    "sha256": "8392efa0149aa9ce1066a92fc5d64ac560c24cbab9ff4932ff8e144e143708e9"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/mathlibannex/verification/index.html",
+    "bytes": 4518,
+    "sha256": "c859c2c43ce00ea94ee45c4c675ac2c72f391c454b0ce46790f32616403043b2"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/research/index.html",
+    "bytes": 27815,
+    "sha256": "3e841c4fe916bbaa6284dcfceb23890ec10d5998aa0e3a963d3df1a65057f209"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/research/naimark-problem/index.html",
+    "bytes": 35314,
+    "sha256": "406f811c65dad7598e2ae398282427888b41c602efe040863e8bc29b1909342c"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/research/naimark-problem/paper-record.json",
+    "bytes": 1593,
+    "sha256": "bc228a2d45fde040d42af5b37a9d9e4a7302f340c101bcf3c5e2ff6722f38b09"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/research/sphere-rigidity/index.html",
+    "bytes": 35093,
+    "sha256": "aa1e8d4c197b9f35d0812e27224d3e72aab231b10f4ee259799937ef39b38407"
+  },
+  {
+    "path": "publication/review-display-cleanup/baseline/verification/index.html",
+    "bytes": 27114,
+    "sha256": "3465a16f74c567df403156acd0b8090eba9d376a6985b3d96556d226a04821ca"
+  },
+  {
+    "path": "publication/review-display-cleanup/metadata.json",
+    "bytes": 1346,
+    "sha256": "1e3b56bba0f9d2a6ddc9ec5139a6b5edf7b7773e10f441f62f638f19c1b732f5"
+  },
+  {
+    "path": "publication/review-display-cleanup/plan.json",
+    "bytes": 14747,
+    "sha256": "290ac761896bbca7dafc0b0e85ded949ee2cbf8df53a1e251b5e2060816ae68b"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/about/index.html",
+    "bytes": 28515,
+    "sha256": "a260d49decb8c6e871c5ef7bf49706883ef0bca7e1c69bb78faf220289957132"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/index.html",
+    "bytes": 26445,
+    "sha256": "db876041cac63ac1fcec240db36d607f32da6e11d29c1df1b553aeda9034f835"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/mathlibannex/verification/index.html",
+    "bytes": 4540,
+    "sha256": "22742d07c92e18f4a58a98eac0a9fda3aa4b2a149f1a4ded2f43ebb932c3e26e"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/research/index.html",
+    "bytes": 27800,
+    "sha256": "ce435572b1c5dccc7b5d397965b03a3577a3a40fc2c476ada65a44e190139572"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/research/naimark-problem/index.html",
+    "bytes": 34154,
+    "sha256": "b47564e3af46056962f31163a4d8e4367f7e747fb0b4052a29b8cf86639bac5f"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/research/naimark-problem/paper-record.json",
+    "bytes": 1360,
+    "sha256": "081fc6d75afd25545142a544d3b0a339b9bd91115f25c7c34af2a0461b7bcd20"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/research/sphere-rigidity/index.html",
+    "bytes": 34526,
+    "sha256": "5eebd374dfdf0ff6174bbb46945cf5cf9b52850020d72aba4d04b21a0871f00c"
+  },
+  {
+    "path": "publication/review-display-cleanup/selected/verification/index.html",
+    "bytes": 26988,
+    "sha256": "8a4728c21ae21b6bc1e1f3ac73b23fb3915e27c3dfaf61b58028fe2f5ea3a6e6"
+  },
+  {
+    "path": "publication/review-display-cleanup/selection.json",
+    "bytes": 1424,
+    "sha256": "8b77a5b5a4ad4c7f75ba67f6863c3260aebabbfe233bca95fe70385536b4967e"
+  },
+  {
+    "path": "scripts/naimark-arxiv-public-adapter.mjs",
+    "bytes": 13621,
+    "sha256": "8c85dcdeb5e8f2b2ad9ea13df3c9b7687021ebc0bd7f866147e989f623d7b5b2"
+  },
+  {
+    "path": "scripts/postpublic-gate.mjs",
+    "bytes": 15459,
+    "sha256": "09a8dad1e6e11ac7419ffad390a8d02211febef443f06cd7b5a45e8fe1d1392e"
+  },
+  {
+    "path": "scripts/review-display-cleanup.mjs",
+    "bytes": 10471,
+    "sha256": "dc1e543c6bb0d4f3102907237b71984f58bd0b0592165163ac7fc23efe3c0be1"
+  },
+  {
+    "path": "src/components/pages/Research.astro",
+    "bytes": 2293,
+    "sha256": "4e803d5dcdab104f4ad93f5f2e867a067d0b8ed9f8b5ef2557fb4fa17153a840"
+  },
+  {
+    "path": "src/config.ts",
+    "bytes": 2317,
+    "sha256": "122fdf1b68c8fdbaaf71dc1cf4b08ebc9cb02ca2f62789876094ba635a25f289"
+  },
+  {
+    "path": "src/lib/project-presentation.ts",
+    "bytes": 3065,
+    "sha256": "40e22b6de3462ea2625905510226dc267fd7bc1ba08e7d7195b290d512675816"
+  },
+  {
+    "path": "src/lib/review-display-projection.ts",
+    "bytes": 6447,
+    "sha256": "23f896f6ca062c818ef95c8c387d0180868ae5678ebb7507814f7649a644cf12"
+  }
+]

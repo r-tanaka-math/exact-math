@@ -1,9 +1,10 @@
 // Scholar-Lite's shared SITE configuration, adapted to the accepted Exact data.
 import input from './data/site.json';
+import {reviewDisplayProjection} from './lib/review-display-projection';
 import assets from './data/assets.json';
 import { assetRegistrySchema, siteSchema } from './data/schema';
 import {publicWording,exactSiteCommit,fullHP} from './lib/build-profile';
-const parsed = siteSchema.parse({...input,feedback:{...input.feedback,mode:process.env.EXACT_FEEDBACK_MODE || input.feedback.mode}});
+const parsed = reviewDisplayProjection(siteSchema.parse({...input,feedback:{...input.feedback,mode:process.env.EXACT_FEEDBACK_MODE || input.feedback.mode}}));
 export const SITE = {
   ...parsed,
   revision: publicWording ? exactSiteCommit : parsed.revision,

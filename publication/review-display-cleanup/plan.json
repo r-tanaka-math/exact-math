@@ -1,0 +1,231 @@
+{
+  "schema": "exact.review-display-cleanup.implementation-plan.v1",
+  "purpose": "Non-mathematical current presentation cleanup; these files are not a deployed website.",
+  "base_public_commit": "94a0b9528cd7455861564af4bde5f0b8b897f2ff",
+  "files": [
+    {
+      "path": "research/naimark-problem/index.html",
+      "before_sha256": "406f811c65dad7598e2ae398282427888b41c602efe040863e8bc29b1909342c",
+      "before_bytes": 35314,
+      "after_sha256": "b47564e3af46056962f31163a4d8e4367f7e747fb0b4052a29b8cf86639bac5f",
+      "after_bytes": 34154,
+      "operations": [
+        {
+          "before": "<div class=\"status-row\" data-axis=\"human\" data-status=\"AUTHOR_PROOF_REVIEW_RECORDED\"><div class=\"status-top\"><span class=\"status-title\">Human mathematical review</span><span class=\"badge recorded\">Author&#x27;s proof review recorded — 22 September 2026.</span></div><details><summary>Scope and evidence</summary><p>The author reports having worked through and understood the proof on 22 September 2026. This records the author&#x27;s review, not an independent review or a new line-by-line formal correspondence check.</p><p>This is not a peer-review or independent-verification claim. The earlier Brief Report record remains in the version history.</p></details></div>",
+          "after": "",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "The public MathlibAnnex v0.4.0 source includes this Project. Its recorded qualification is separate from human review and Brief Report correspondence.",
+          "after": "The public MathlibAnnex v0.4.0 source includes this Project. Its recorded qualification is separate from manuscript correspondence.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "Recorded source qualification is separate from manuscript correspondence and human review.",
+          "after": "Recorded source qualification is separate from manuscript correspondence.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "Its formal-source and human-verification records must be displayed separately.",
+          "after": "Its formal-source and manuscript-correspondence records are distinct.",
+          "expected_occurrences": 2
+        },
+        {
+          "before": "The proposed construction and its human-verification, formal-source and correspondence records are distinct.",
+          "after": "The proposed construction, its formal source, and manuscript-correspondence records are distinct.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "The earlier Brief Report is preserved as a preliminary, AI-assisted record. The subsequent arXiv paper and the author's proof-review record are listed separately below.",
+          "after": "The earlier Brief Report is preserved as a preliminary, AI-assisted record. The subsequent arXiv paper is listed below.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "<article><time datetime=\"2026-09-22\">22 Sept 2026 · Author review</time><h3>Author's proof review recorded</h3><p>The author reports having worked through and understood the proof on 22 September 2026. This records the author&#x27;s review, not an independent review or a new line-by-line formal correspondence check.</p></article>",
+          "after": "",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "Historical human-review record for Brief Report Draft R1: Human verification incomplete. The later author-review record does not retroactively certify every sentence of this Brief or all 14 correspondence groups.",
+          "after": "Brief Report Draft R1 remains available as a preliminary, AI-assisted record. Targeted correspondence records do not constitute approval of all 14 correspondence groups.",
+          "expected_occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "research/sphere-rigidity/index.html",
+      "before_sha256": "aa1e8d4c197b9f35d0812e27224d3e72aab231b10f4ee259799937ef39b38407",
+      "before_bytes": 35093,
+      "after_sha256": "5eebd374dfdf0ff6174bbb46945cf5cf9b52850020d72aba4d04b21a0871f00c",
+      "after_bytes": 34526,
+      "operations": [
+        {
+          "before": "<div class=\"status-row\" data-axis=\"human\" data-status=\"HUMAN_VERIFICATION_INCOMPLETE\"><div class=\"status-top\"><span class=\"status-title\">Human mathematical review</span><span class=\"badge pending\">Human verification incomplete</span></div><details><summary>Scope and evidence</summary><p>Full independent human verification of Draft R2 has not been completed. Earlier review records are preserved with their original scope.</p></details></div>",
+          "after": "",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "The public MathlibAnnex v0.4.0 source includes this Project. Its recorded qualification is separate from human review and Brief Report correspondence.",
+          "after": "The public MathlibAnnex v0.4.0 source includes this Project. Its recorded qualification is separate from manuscript correspondence.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "Recorded source qualification is separate from manuscript correspondence and human review.",
+          "after": "Recorded source qualification is separate from manuscript correspondence.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "This is a preliminary, AI-assisted manuscript. Full human verification of this report version has not been completed.",
+          "after": "This is a preliminary, AI-assisted manuscript.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "The brief report contains the statements, proofs, necessary notation, and references. Its footer reads “AI-assisted manuscript · Human verification incomplete”. Subsequent Lean, library, and paper milestones belong to this project record; they do not require a new report edition unless the report itself changes.",
+          "after": "The brief report contains the statements, proofs, necessary notation, and references. Published editions retain their original version-specific notices. Subsequent Lean, library, and paper milestones belong to this project record; they do not require a new report edition unless the report itself changes.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "The research direction and revisions were developed through human–AI dialogue. AI contributed substantially to proof development and manuscript preparation. This description does not imply that full human verification has been completed.",
+          "after": "The research direction and revisions were developed through human–AI dialogue. AI contributed substantially to proof development and manuscript preparation. This description does not change the stated scope of the available evidence.",
+          "expected_occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "verification/index.html",
+      "before_sha256": "3465a16f74c567df403156acd0b8090eba9d376a6985b3d96556d226a04821ca",
+      "before_bytes": 27114,
+      "after_sha256": "8a4728c21ae21b6bc1e1f3ac73b23fb3915e27c3dfaf61b58028fe2f5ea3a6e6",
+      "after_bytes": 26988,
+      "operations": [
+        {
+          "before": "<section class=\"guide-item\" id=\"human\"><span class=\"number\">02</span><h2>Human mathematical review</h2><p>Which statements and proofs a person has examined, in which version, and with what outcome. This is distinct from journal peer review.</p></section>",
+          "after": "",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "<section class=\"guide-item\" id=\"lean\"><span class=\"number\">03</span>",
+          "after": "<section class=\"guide-item\" id=\"lean\"><span class=\"number\">02</span>",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "<section class=\"guide-item\" id=\"alignment\"><span class=\"number\">04</span>",
+          "after": "<section class=\"guide-item\" id=\"alignment\"><span class=\"number\">03</span>",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "<section class=\"guide-item\" id=\"exposition\"><span class=\"number\">05</span>",
+          "after": "<section class=\"guide-item\" id=\"exposition\"><span class=\"number\">04</span>",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "<section class=\"guide-item\" id=\"publication\"><span class=\"number\">06</span>",
+          "after": "<section class=\"guide-item\" id=\"publication\"><span class=\"number\">05</span>",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "separately reports the author's proof review and the arXiv preprint; neither is an independent proof audit.",
+          "after": "links the arXiv preprint and the available formalization records; preprint availability is not journal peer review or an independent proof audit.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "Human review and conventional papers may come before or after formalization. Each is tracked independently, and any claim of completion must refer to matching versions.",
+          "after": "Conventional papers and formalization may be developed in either order. Their versions and stated scope are recorded separately.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "A report, its formal source, and their correspondence are separate records. Check the project page for the version, date, and scope of each review. An AI-assisted review of a written argument does not establish human verification.",
+          "after": "A report, its formal source, and their correspondence are separate records. Consult the linked documents and exact source records for their versions and scope. A formal check does not, by itself, establish correspondence with every step of a manuscript.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "Which briefing, paper, code, or reading material is actually available. Permission to publish an unreviewed result does not turn it into a reviewed result.",
+          "after": "Which briefing, preprint, journal article, code, or reading material is available, with its version and publication links. Preprint availability and journal publication are distinct records; neither is represented here as a guarantee of mathematical correctness.",
+          "expected_occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "about/index.html",
+      "before_sha256": "7e8139aa93449c8bd6464ee2a8af86088e76bf3d2af559c5c75c99a39be32705",
+      "before_bytes": 28434,
+      "after_sha256": "a260d49decb8c6e871c5ef7bf49706883ef0bca7e1c69bb78faf220289957132",
+      "after_bytes": 28515,
+      "operations": [
+        {
+          "before": "The role of AI and the extent of human review should be recorded for each result rather than hidden behind a general label.",
+          "after": "The role of AI should be stated for each work. Papers identify their authors' contributions and responsibility; the site links the available manuscripts, formal sources, and correspondence records.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "The standard label is “AI-assisted manuscript”; the human-verification notice describes the report version.",
+          "after": "The standard label is “AI-assisted manuscript”; published editions retain their original version-specific notices.",
+          "expected_occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "mathlibannex/verification/index.html",
+      "before_sha256": "c859c2c43ce00ea94ee45c4c675ac2c72f391c454b0ce46790f32616403043b2",
+      "before_bytes": 4518,
+      "after_sha256": "22742d07c92e18f4a58a98eac0a9fda3aa4b2a149f1a4ded2f43ebb932c3e26e",
+      "after_bytes": 4540,
+      "operations": [
+        {
+          "before": "Source qualification, exposition review, author review and independent proof verification remain distinct.",
+          "after": "Source qualification and source-exposition correspondence are distinct from journal peer review or an independent proof audit.",
+          "expected_occurrences": 1
+        },
+        {
+          "before": "Naimark review record",
+          "after": "Naimark research record",
+          "expected_occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "research/naimark-problem/paper-record.json",
+      "before_sha256": "bc228a2d45fde040d42af5b37a9d9e4a7302f340c101bcf3c5e2ff6722f38b09",
+      "before_bytes": 1593,
+      "after_sha256": "081fc6d75afd25545142a544d3b0a339b9bd91115f25c7c34af2a0461b7bcd20",
+      "after_bytes": 1360,
+      "json_remove_keys": [
+        "owner_reported_proof_understanding_date",
+        "understanding_scope"
+      ],
+      "json_set": {
+        "record_kind": "PAPER_BIBLIOGRAPHY"
+      }
+    },
+    {
+      "path": "index.html",
+      "before_sha256": "8392efa0149aa9ce1066a92fc5d64ac560c24cbab9ff4932ff8e144e143708e9",
+      "before_bytes": 26460,
+      "after_sha256": "db876041cac63ac1fcec240db36d607f32da6e11d29c1df1b553aeda9034f835",
+      "after_bytes": 26445,
+      "operations": [
+        {
+          "before": "Keep human review, formal checking, and statement alignment visible as separate records. A new version should say exactly what changed.",
+          "after": "Keep formal checking and statement alignment visible as separate records. A new version should say exactly what changed.",
+          "expected_occurrences": 1
+        }
+      ],
+      "scope_extension": "Same standing human-review policy sentence on current Home/Research index; expressly covered by TASK_JA.md section B."
+    },
+    {
+      "path": "research/index.html",
+      "before_sha256": "3e841c4fe916bbaa6284dcfceb23890ec10d5998aa0e3a963d3df1a65057f209",
+      "before_bytes": 27815,
+      "after_sha256": "ce435572b1c5dccc7b5d397965b03a3577a3a40fc2c476ada65a44e190139572",
+      "after_bytes": 27800,
+      "operations": [
+        {
+          "before": "Human review, formal checking, and statement alignment are shown separately.",
+          "after": "Formal checking and statement alignment are shown separately.",
+          "expected_occurrences": 1
+        }
+      ],
+      "scope_extension": "Same standing human-review policy sentence on current Home/Research index; expressly covered by TASK_JA.md section B."
+    }
+  ]
+}

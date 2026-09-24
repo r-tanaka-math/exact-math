@@ -1,4 +1,5 @@
 import {integrateNaimarkArxiv,finishNaimarkArxivOutput} from './scripts/naimark-arxiv-public-adapter.mjs';
+import {finishReviewDisplayCleanup} from './scripts/review-display-cleanup.mjs';
 import {defineConfig} from 'astro/config';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -38,8 +39,9 @@ const guard={name:'exact-public-launch-hardening',hooks:{
     integrateProjects(root,base,profile);
     if(release)for(const f of release.imports){const p=path.resolve(root,f.path);if(!p.startsWith(root)||fs.existsSync(p))throw Error('Imported route collision');fs.mkdirSync(path.dirname(p),{recursive:true});fs.copyFileSync(f.src,p)}
     if(fullPublicProfile(profile)){
-      const current=release?.act?.update_kind==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1');
-      if(current){await integrateNaimarkArxiv(root,base);finishNaimarkArxivOutput(root,deployment,profile,mode,release);}
+      const cleanup=release?.act?.update_kind==='EXACT_REVIEW_DISPLAY_CLEANUP_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_REVIEW_DISPLAY_CLEANUP_R1');
+      const current=cleanup||release?.act?.update_kind==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1');
+      if(current){await integrateNaimarkArxiv(root,base);finishNaimarkArxivOutput(root,deployment,profile,mode,release);if(cleanup)finishReviewDisplayCleanup(root,deployment,profile,release);}
       else {integrateFullHP(root,base);finishFullHPOutput(root,deployment,profile,mode,release);}
     }
     else finishOutput(root,deployment,profile,mode,release);

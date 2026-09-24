@@ -1,0 +1,45 @@
+{
+  "schema": "exact.review-display-cleanup.selection.v1",
+  "files": [
+    {
+      "path": "research/naimark-problem/index.html",
+      "bytes": 34154,
+      "sha256": "b47564e3af46056962f31163a4d8e4367f7e747fb0b4052a29b8cf86639bac5f"
+    },
+    {
+      "path": "research/sphere-rigidity/index.html",
+      "bytes": 34526,
+      "sha256": "5eebd374dfdf0ff6174bbb46945cf5cf9b52850020d72aba4d04b21a0871f00c"
+    },
+    {
+      "path": "verification/index.html",
+      "bytes": 26988,
+      "sha256": "8a4728c21ae21b6bc1e1f3ac73b23fb3915e27c3dfaf61b58028fe2f5ea3a6e6"
+    },
+    {
+      "path": "about/index.html",
+      "bytes": 28515,
+      "sha256": "a260d49decb8c6e871c5ef7bf49706883ef0bca7e1c69bb78faf220289957132"
+    },
+    {
+      "path": "mathlibannex/verification/index.html",
+      "bytes": 4540,
+      "sha256": "22742d07c92e18f4a58a98eac0a9fda3aa4b2a149f1a4ded2f43ebb932c3e26e"
+    },
+    {
+      "path": "research/naimark-problem/paper-record.json",
+      "bytes": 1360,
+      "sha256": "081fc6d75afd25545142a544d3b0a339b9bd91115f25c7c34af2a0461b7bcd20"
+    },
+    {
+      "path": "index.html",
+      "bytes": 26445,
+      "sha256": "db876041cac63ac1fcec240db36d607f32da6e11d29c1df1b553aeda9034f835"
+    },
+    {
+      "path": "research/index.html",
+      "bytes": 27800,
+      "sha256": "ce435572b1c5dccc7b5d397965b03a3577a3a40fc2c476ada65a44e190139572"
+    }
+  ]
+}
