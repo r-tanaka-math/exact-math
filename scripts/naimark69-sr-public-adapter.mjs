@@ -56,9 +56,11 @@ export function validateNaimark69SRAct(act,identity,deployment,today){
  same([act.public_repository,act.canonical_origin],[m.public_repository,m.canonical_origin],'owner act deployment');same(act.fixed_selection,m.fixed_selection,'fixed selection identity');
  same([deployment.origin,deployment.public_repository,deployment.base,deployment.deployment_profile],[m.canonical_origin,m.public_repository,'/','ROOT'],'root identity');
  need(/^\d{4}-\d{2}-\d{2}$/.test(today)&&m.publication_date===today&&act.update_date_asia_tokyo===today,'actual Asia/Tokyo date');
- same([act.metadata_sha256,act.selection_sha256],[v.metadata_sha256,v.selection_sha256],'exact selection');same(act.targets,m.targets,'all69 targets');same(act.source_release,m.source_release,'source v0.4.0');
+ same([act.metadata_sha256,act.selection_sha256],[v.metadata_sha256,v.selection_sha256],'exact selection');need(act.targets_sha256===sha(Buffer.from(JSON.stringify(m.targets))),'all69 ordered targets SHA256');same(act.source_release,m.source_release,'source v0.4.0');
  need(act.public_cards===113&&act.content_terms_sha256===m.content_terms_sha256,'scope/terms');
- need(git('rev-parse','HEAD^')===m.old_commit&&git('rev-parse',m.old_commit+'^{tree}')===m.old_tree,'single public successor; no private ancestry');
+ same([act.transport_parent_commit,act.transport_parent_tree],['bed97c70c45a7dd6fd75d6b4d681d2f2dba8a4fa','46d8f83b401083862f10b4290b91e077639603a2'],'exact prepared public parent');
+ need(git('rev-parse','HEAD^')===act.transport_parent_commit&&git('rev-parse','HEAD^^')===m.old_commit&&git('rev-parse',act.transport_parent_commit+'^{tree}')===act.transport_parent_tree&&git('rev-parse',m.old_commit+'^{tree}')===m.old_tree,'exact two-commit public chain; no private ancestry');
+ same(git('diff','--name-only',act.transport_parent_commit,'HEAD').split('\n').filter(Boolean).sort(),['publication/naimark69-sr/source-files.json','scripts/naimark69-sr-public-adapter.mjs'],'transport-only followup');
  need(git('rev-list','--merges',m.old_commit+'..HEAD')==='','no history merge');
  const manifest=prefix+'/source-files.json',b=fs.readFileSync(path.join(root,manifest)),rows=JSON.parse(b);
  need(sha(b)===act.source_files_sha256&&rows.length===act.source_file_count,'source manifest');
@@ -79,5 +81,5 @@ export function integrateNaimark69SR(output,base){
 export function finishNaimark69SROutput(output,deployment,profile,release){
  const v=verifyNaimark69SRSelection(),identity=gitIdentity(profile),p=path.join(output,'release-state.json'),state=read(p);
  need(!release||v.metadata.publication_date!==null,'actual date required');
- Object.assign(state,{site_commit:identity.commit,site_tree:identity.tree,profile,base:deployment.base,deployment_profile:deployment.deployment_profile,public_repository:deployment.public_repository,publication_state:release?'AUTHORIZED_POSTPUBLIC_UPDATE':'LOCAL_INDEXABLE_QUALIFICATION',indexing:release?'PUBLIC_INDEXABLE':'LOCAL_INDEXABLE_QUALIFICATION',selection_sha256:v.selection_sha256,metadata_sha256:v.metadata_sha256});fs.writeFileSync(p,JSON.stringify(state,null,2)+'\n');
+ Object.assign(state,{site_commit:identity.commit,site_tree:identity.tree,public_parent_commit:git('rev-parse','HEAD^'),publication_baseline_commit:v.metadata.old_commit,profile,base:deployment.base,deployment_profile:deployment.deployment_profile,public_repository:deployment.public_repository,publication_state:release?'AUTHORIZED_POSTPUBLIC_UPDATE':'LOCAL_INDEXABLE_QUALIFICATION',indexing:release?'PUBLIC_INDEXABLE':'LOCAL_INDEXABLE_QUALIFICATION',selection_sha256:v.selection_sha256,metadata_sha256:v.metadata_sha256});fs.writeFileSync(p,JSON.stringify(state,null,2)+'\n');
 }

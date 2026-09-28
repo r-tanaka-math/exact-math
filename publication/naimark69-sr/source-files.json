@@ -5791,8 +5791,8 @@
   },
   {
     "path": "scripts/naimark69-sr-public-adapter.mjs",
-    "bytes": 10850,
-    "sha256": "0b25a4f752d083e2fb6dd8af2dbec9fe05ed4d67a9e436c5986cd5fcfd95c31d"
+    "bytes": 11553,
+    "sha256": "62e64c6892b671c8456d65c4b79bd5342d97411594d6e2aa79f4c32e0deeb96d"
   },
   {
     "path": "scripts/postpublic-gate.mjs",
