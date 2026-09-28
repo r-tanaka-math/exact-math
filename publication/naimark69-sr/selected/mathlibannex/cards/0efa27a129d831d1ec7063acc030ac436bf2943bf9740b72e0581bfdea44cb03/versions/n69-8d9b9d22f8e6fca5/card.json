@@ -1,0 +1,243 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_surjective_selectedAtomicCyclicIsometry",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_surjective_selectedAtomicCyclicIsometry",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean",
+    "source_range": {
+      "end_line": 261,
+      "start_line": 32
+    },
+    "source_sha256": "7ac3d8630e3528423914e5e6b2cdd5edb1f88a49fea160a689fdcc4b1e84c2d7",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 3059,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "713d3452989e6b62bea9be9f648f017746306982c3f52affdfcd97ba64c3ed34",
+    "source_command_range": {
+      "end_column": 25,
+      "end_line": 261,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean",
+      "source_sha256": "7ac3d8630e3528423914e5e6b2cdd5edb1f88a49fea160a689fdcc4b1e84c2d7",
+      "start_column": 1,
+      "start_line": 32
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean",
+    "source_sha256": "7ac3d8630e3528423914e5e6b2cdd5edb1f88a49fea160a689fdcc4b1e84c2d7",
+    "start_byte": 1285,
+    "text": "theorem exists_surjective_selectedAtomicCyclicIsometry\n    (family : RepresentativeShellFamily)\n    (L : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit →\n      MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]\n        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState)\n    (hLunit : ∀ i, L i ∈ unitary\n      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]\n        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState))\n    (hLsource : ∀ i n, (L i).comp (selectedAtomicRepresentation\n      (transportedFlag family i n - transportedFlag family i (n + 1))) =\n        representedShellLink family i n)\n    (hLroot : L completedRootPureState.classOf = 1)\n    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]\n    [CompleteSpace K] (rho : Representation (AtomicTarget L) K)\n    (hrho : rho.IsIrreducible) :\n    ∃ (eta_o : K) (eta : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit → K)\n      (W : MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →ₗᵢ[ℂ] K),\n      Function.Surjective W ∧\n      ‖eta_o‖ = 1 ∧\n      (∀ i, ‖eta i‖ = 1) ∧\n      (∀ i, W (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i\n        (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) = eta i) ∧\n      (∀ i, (Unitary.linearIsometryEquiv\n        (representedGeneratorUnitary L hLunit rho i) : K ≃ₗᵢ[ℂ] K)\n          (eta i) = eta_o) ∧\n      ∀ a,\n        W.toContinuousLinearMap.comp (selectedAtomicRepresentation a) =\n          ((restrictedRepresentation L rho) a).comp\n            W.toContinuousLinearMap"
+  },
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra, the completion of the matrix stages $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$. Let $f_n$ be the image of the first diagonal matrix unit, so $f_0=1$ and $f_n$ decreases through projections. The root state $\\omega$ takes the value $a_{00}$ on each matrix stage.\n\nChoose one pure state $\\varphi_j$ from each unitary-equivalence class $j\\in I$ of pure-state Gelfand-Naimark-Segal (GNS) representations, with root index $o$ and $\\varphi_o=\\omega$. Write $(H_j,\\pi_j,\\xi_j)$ for its complete complex GNS space, unital star representation and unit cyclic vector. Set $\\mathcal H=\\bigoplus_{j\\in I}H_j$, $\\pi=\\bigoplus_j\\pi_j$, and let $e_j:H_j\\to \\mathcal H$ be the coordinate embedding. No countability of $I$ is assumed. Inner products are linear in the second argument.\n\nA supplied shell family consists of unital complex star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$. Put $f_{j,n}=\\alpha_j(f_n)$. The identities are $\\varphi_j\\circ\\alpha_j=\\omega$, $w_{j,n}^*w_{j,n}=f_{j,n}-f_{j,n+1}$ and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$. At the root, $\\alpha_o$ is the identity and $w_{o,n}=f_n-f_{n+1}$. The family is an input, not an existence conclusion.\n\nLet $L_j$ be unitaries on $\\mathcal H$ satisfying $L_j\\pi(f_{j,n}-f_{j,n+1})=\\pi(w_{j,n})$ for all $j,n$, and assume $L_o=I_{\\mathcal H}$. Let $T=C^*(\\pi(A),\\{L_j\\})\\subseteq B(\\mathcal H)$ be the norm-closed unital star algebra they generate. Write $\\iota(a)=\\pi(a)$ as an element of $T$, and $g_j\\in T$ for the element represented by $L_j$. Let $\\rho:T\\to B(K)$ be a unital complex star representation on a complete complex Hilbert space, put $\\sigma=\\rho\\circ\\iota$, and put $V_j=\\rho(g_j)$. Assume $\\rho$ is nonzero and irreducible: its only closed reducing subspaces are $\\{0\\}$ and $K$. This theorem does not assume the additional identity $L_j(e_j\\xi_j)=e_o\\xi_o$. The root normalization $L_o=I_{\\mathcal H}$ is required.",
+    "conclusion": "The selected cyclic pieces exhaust the target Hilbert space. [The source-restriction equivalence](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean#L266-L293) is the direct consequence obtained by viewing the surjective isometry as a unitary. The representation being assumed irreducible is $\\rho$ on $T$, not its generally reducible restriction $\\sigma$ on $A$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The cyclic sum fills every irreducible target representation",
+    "language_tag": "en",
+    "lean_realization_notes": "The conclusion displayed here intertwines the CAR source. To obtain intertwining for every element of $T$, [the full capture theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Capture.lean#L28-L310) also uses the prescribed action $L_j(e_j\\xi_j)=e_o\\xi_o$. No multiplicity assertion for arbitrary reducible target representations and no unconditional existence of a shell family is claimed.",
+    "natural_language_statement": "Under the shell-family, generator and irreducibility assumptions below, there exist unit vectors $\\zeta\\in K$, $\\eta_j\\in K$ for $j\\in I$, and a surjective complex-linear isometry $W:\\mathcal H\\to K$ such that\n\n$W(e_j\\xi_j)=\\eta_j,\\qquad V_j\\eta_j=\\zeta$\n\nfor every $j$, and $W\\pi(a)=\\sigma(a)W$ for every $a\\in A$. In particular, $\\sigma=\\rho\\circ\\iota$ is unitarily equivalent to the selected atomic source representation $\\pi$.",
+    "one_sentence_role": "Uses shell reconstruction and residual lines to turn an isometric CAR intertwiner into a unitary equivalence on the source.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The common-root construction gives $\\zeta$ and $\\eta_j$ of norm one with the selected CAR vector states, $V_j\\eta_j=\\zeta$, and fixedness under their respective flags. Assemble the cyclic pieces into $W$. Its range $M$ is closed because $\\mathcal H$ is complete and $W$ is an isometry. The relations for $a$ and $a^*$ show that $M$ reduces $\\sigma$. Let $P_j$ project onto the common range of $\\sigma(f_{j,n})$ and let $Q$ project onto the common range of $\\sigma(f_n)$. Assembly gives $P_jM\\subseteq\\mathbb C\\eta_j$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Since $L_o=I_{\\mathcal H}$, the represented root generator is $V_o=I_K$. Thus the root-index member $\\eta_o$ equals the common vector $\\zeta$. Consequently $\\zeta\\in M$ and $QM\\subseteq\\mathbb C\\zeta$. Reconstruct $V_j=S_j+R_j$ with $R_j=V_jP_j$, $R_j^*R_j=P_j$, $R_jR_j^*=Q$ and $R_j=QR_jP_j$. The operators $S_j$ and $S_j^*$ are strong limits of finite sums of $\\sigma(w_{j,n})$ and their adjoints. Closedness and source reduction make $M$ invariant under both limits."
+      },
+      {
+        "step_id": "s3",
+        "text": "Fixedness and the vector transport give $R_j\\eta_j=\\zeta$ and $R_j^*\\zeta=\\eta_j$. For $y\\in M$, the vector $P_jy$ lies in $\\mathbb C\\eta_j$, so $R_jy\\in\\mathbb C\\zeta\\subseteq M$. For the adjoint, use $R_j^*=P_jR_j^*Q$ and $Qy\\in\\mathbb C\\zeta$ to obtain $R_j^*y\\in\\mathbb C\\eta_j\\subseteq M$. Thus $M$ reduces the residual corner and, together with the shell sum, every $V_j$."
+      },
+      {
+        "step_id": "s4",
+        "text": "The orthogonal projection onto $M$ commutes with the represented source and every added generator. The commutation relation is stable under star-algebra operations and operator-norm limits, so $M$ reduces all of $\\rho(T)$. It contains the unit vector $\\zeta$ and is therefore nonzero. Irreducibility gives $M=K$, which is exactly surjectivity of $W$. Its pointed-vector and source intertwining identities are retained."
+      }
+    ],
+    "proof_summary": "[The common-root vector-state theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureSurviving.lean#L176-L250) supplies compatible unit vectors. [Cyclic-sum assembly](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean#L307-L461) gives an isometry with closed source-reducing range $M$. [Shell reconstruction](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TargetReconstruction.lean#L121-L178) splits each represented generator into a strong shell sum and a residual corner. Both parts and their adjoints preserve $M$. [Norm-closed generation](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedReduction.lean#L36-L125) then makes $M$ a nonzero reducing subspace for $\\rho$, so irreducibility forces $M=K$."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_surjective_selectedAtomicCyclicIsometry",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean",
+        "source_range": {
+          "end_line": 261,
+          "start_line": 32
+        },
+        "source_sha256": "7ac3d8630e3528423914e5e6b2cdd5edb1f88a49fea160a689fdcc4b1e84c2d7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean#L32-L261"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 39
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L39-L46"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+        "source_range": {
+          "end_line": 32,
+          "start_line": 26
+        },
+        "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean#L26-L32"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectorFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureSurviving.lean",
+        "source_range": {
+          "end_line": 250,
+          "start_line": 176
+        },
+        "source_sha256": "226f1b0dc8fd5676de72dde0edd5988b6550219c399c30efcf44d1c43e7595cc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectorFamily",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureSurviving.lean#L176-L250"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_selectedAtomicCyclicIsometry",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean",
+        "source_range": {
+          "end_line": 461,
+          "start_line": 307
+        },
+        "source_sha256": "4e17ab7eeeb32377242752fc58c988d70d4e794cbf26a2bd0528a483b3f7bbe4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.exists_selectedAtomicCyclicIsometry",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean#L307-L461"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_targetShellReconstruction",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TargetReconstruction.lean",
+        "source_range": {
+          "end_line": 178,
+          "start_line": 121
+        },
+        "source_sha256": "dfaa5def114883d1e3553a3adc53f0ac298e1ab045eb122d216f74a71cd2021e",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.exists_targetShellReconstruction",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TargetReconstruction.lean#L121-L178"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.reduces_concreteTarget_of_generators",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedReduction.lean",
+        "source_range": {
+          "end_line": 125,
+          "start_line": 36
+        },
+        "source_sha256": "4d2e0a71309382b68408a94680e353bbb635f3f0d9034befa8362c781c6b7721",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.AtomicConstruction.reduces_concreteTarget_of_generators",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedReduction.lean#L36-L125"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation_unitaryEquivalent_restricted",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean",
+        "source_range": {
+          "end_line": 293,
+          "start_line": 266
+        },
+        "source_sha256": "7ac3d8630e3528423914e5e6b2cdd5edb1f88a49fea160a689fdcc4b1e84c2d7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation_unitaryEquivalent_restricted",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean#L266-L293"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ambientInclusion_unitaryEquivalent",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Capture.lean",
+        "source_range": {
+          "end_line": 310,
+          "start_line": 28
+        },
+        "source_sha256": "f82d2be71b9af5ddd54bba9d55bb1ea5a73ec654ea82a9eba9a185413e9cd1fc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.ambientInclusion_unitaryEquivalent",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Capture.lean#L28-L310"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.completedRootPureState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean",
+        "source_range": {
+          "end_line": 18,
+          "start_line": 16
+        },
+        "source_sha256": "1732b296db28579e0cfd54bdafffca9753caf34dfd90f05aca5c34d5dd1ac417",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.completedRootPureState",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean#L16-L18"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "5fb3870842607637f36f0d394546e845aa17652f3b2b9f5363bebcc9c2a4d26d",
+    "uid": "lfh:lfh-declaration-card:sha256:0efa27a129d831d1ec7063acc030ac436bf2943bf9740b72e0581bfdea44cb03"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "8d9b9d22f8e6fca5a6f830d653607771e8f448c6d887a8c23a1277b891e9f59b",
+    "uid": "lfh:lfh-card-exposition:sha256:170553e0eebb87fd6fd2bddf121b9eb1208d11bdc4122a156ed125b4ccbaccf1"
+  },
+  "guide": "Here `Limit` is $A$, `completedRootPureState` is the root state $\\omega$ bundled with its purity proof, and `SelectedAtomicHilbert ...` is $\\mathcal H$. `AtomicTarget L` is $T$ and `restrictedRepresentation L rho` is $\\sigma$. Source `eta_o` denotes the common vector $\\zeta$; `eta i` denotes $\\eta_j$ at source index `i`. The equality of `eta` at the root index with `eta_o` follows from `hLroot`, rather than from their names. `Function.Surjective W` supplies the extra property that the isometry fills $K$. `hLsource` records the shell action; no hypothesis named `hLmap` occurs in this declaration.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/0efa27a129d831d1ec7063acc030ac436bf2943bf9740b72e0581bfdea44cb03/versions/n69-8d9b9d22f8e6fca5/index.html",
+    "pdf": "card.pdf"
+  }
+}

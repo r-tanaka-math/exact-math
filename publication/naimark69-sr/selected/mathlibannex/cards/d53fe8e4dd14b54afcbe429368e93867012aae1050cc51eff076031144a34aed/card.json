@@ -1,0 +1,121 @@
+{
+  "assumptions": "Real normed vector spaces; f is an isometry equivalence between open balls with radii r > 0 and R > 0.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "cc4454a6e59885d550f36925cf51555be4156dabe1f9ec84bd6dbcd8ed269233",
+    "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "1263484c712e461a6802349daed7936b3d5bc3f619a4670a7d5bc843f8a3263f",
+        "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+      },
+      "text": "The proof or construction of Affine extension from open balls uses the project declaration “Mankiewicz extension on open connected domains” at the indicated step."
+    }
+  ],
+  "conclusion": "f extends uniquely to an ambient real affine isometry equivalence. The two positive radii need not be assumed equal.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Affine extension from open balls",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "2a60e2259d49fff3060fd1e506d151e0b9cefd3e1500362e499fb78b8fc400ab",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:04e8fbf17b8c9afe26ae3ec4682bb6b7071467bc450d54b5e1ddef79f7b15878"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "0010c8ccb8965671842243a51487d560ec2424c0e83c8ce493dd7a161cdd859c",
+    "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "2a60e2259d49fff3060fd1e506d151e0b9cefd3e1500362e499fb78b8fc400ab",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:04e8fbf17b8c9afe26ae3ec4682bb6b7071467bc450d54b5e1ddef79f7b15878"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "0010c8ccb8965671842243a51487d560ec2424c0e83c8ce493dd7a161cdd859c",
+      "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_ball",
+  "natural_language_statement": "Let f be a surjective isometry from the open ball ball(c,r) onto the open ball ball(d,R) in real normed spaces, where r>0 and R>0; the two radii need not be equal. Then there is a unique ambient real affine isometry equivalence A such that A(x)=f(x) for every x in the source ball.",
+  "one_sentence_role": "Derives the open-ball form of the Mankiewicz extension theorem from the open-connected-domain theorem.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Use positivity of R to record connectedness of the target ball; this fact is available but is not an additional hypothesis of the invoked extension theorem."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Apply the open-connected extension theorem with the openness of both balls and the connectedness of the source ball."
+    },
+    {
+      "step_id": "step-3",
+      "text": "The existence, pointwise agreement, and uniqueness clauses are exactly those returned by that theorem."
+    }
+  ],
+  "proof_summary": "Both balls are open, and the source ball is connected because its radius is positive. These facts put the isometry directly within the scope of the open-connected extension theorem.",
+  "source_locator": {
+    "end_column": 52,
+    "end_line": 33,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+    "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+    "start_column": 1,
+    "start_line": 24
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "13245cdda38411f3bfe9955218444f86b189981cf16f05c8eba59ef2bfef2733",
+    "uid": "lfh:lfh-source-build-binding:sha256:e600edd161b26df18cb50e9f4061b19f1d59c8a28f6b609b8c7479a9221d7418"
+  },
+  "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+  "source_signature": {
+    "end_byte": 940,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "1147496eebcfc5d5c278e699b2b7dce593b0aac44eb32a8acbbbe7e59be546ad",
+    "source_command_range": {
+      "end_column": 52,
+      "end_line": 33,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+      "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+      "start_column": 1,
+      "start_line": 24
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+    "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+    "start_byte": 712,
+    "text": "theorem existsUnique_affineExtension_ball\n    {c : E} {d : F} {r R : ℝ} (f : ball c r ≃ᵢ ball d R)\n    (hr : 0 < r) (hR : 0 < R) :\n    ∃! A : E ≃ᵃⁱ[ℝ] F,\n      ∀ x : ball c r, A (x : E) = ((f x : ball d R) : F)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean#L24-L33",
+  "stable_card_id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

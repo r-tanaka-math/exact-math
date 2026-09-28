@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.Representation.IsIrreducible | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/02d568497c47fa51130ad2e7/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.Representation.IsIrreducible</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean</code>, lines 19–47.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1/versions/n69-88c54360c0e02540/index.html">Back to Purifying a vector state on a finite CAR stage</a> · <a href="../../../cards/68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32/versions/n69-9bdd04f8f82e2692/index.html">Back to Lifting a corner involution to an ambient CAR unitary</a> · <a href="../../../cards/b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f/versions/n69-53f094249210aff8/index.html">Back to Exact vector transport along an almost central unitary path</a> · <a href="../../../cards/5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16/versions/n69-9e5ffe2c1b5b2c5d/index.html">Back to Approximating another vector state along a unitary path</a> · <a href="../../../cards/fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110/versions/n69-5c025351e5f794d8/index.html">Back to Cross-representation state approximation with a protected finite set</a> · <a href="../../../cards/3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb/versions/n69-e6478edabe7a2541/index.html">Back to Realizing a finite Gram matrix in a represented CAR corner</a> · <a href="../../../cards/681004362f65370ff8743e0b17874135c5c9f291724bf7cd44c92d7fccd93c47/versions/n69-61307ca098e5a089/index.html">Back to An irreducible CAR representation has no nonzero compact image</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import Mathlib.Analysis.InnerProductSpace.Adjoint</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a></span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>/-!</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>Ordinary Hilbert-space representations and unitary equivalence.  The target</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>Hilbert space and its universe remain arbitrary.  Irreducibility explicitly</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>includes nonzeroness and quantifies over closed reducing subspaces.</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>-/</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>set_option autoImplicit false</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a></span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>universe u v w z</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>variable {A : Type u}</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>variable [Semiring A] [Algebra ℂ A] [Star A]</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>/-- A unital complex star representation on a Hilbert space. -/</span>
+<span class="source-line selected" id="L19"><a class="line-no" href="#L19">19</a>abbrev Representation (A : Type u) [Semiring A] [Algebra ℂ A] [Star A]</span>
+<span class="source-line selected" id="L20"><a class="line-no" href="#L20">20</a>    (H : Type v) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H] :=</span>
+<span class="source-line selected" id="L21"><a class="line-no" href="#L21">21</a>  A →⋆ₐ[ℂ] (H →L[ℂ] H)</span>
+<span class="source-line selected" id="L22"><a class="line-no" href="#L22">22</a></span>
+<span class="source-line selected" id="L23"><a class="line-no" href="#L23">23</a>section Reducing</span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a></span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>variable {H : Type v}</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a></span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>/-- A representation is nonzero if some represented element is nonzero. -/</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>def Representation.IsNonzero (pi : Representation A H) : Prop :=</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>  ∃ a : A, pi a ≠ 0</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a></span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>/-- A unital representation on a nontrivial Hilbert space is nonzero. -/</span>
+<span class="source-line selected" id="L33"><a class="line-no" href="#L33">33</a>theorem Representation.isNonzero_of_nontrivial [Nontrivial H]</span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>    (pi : Representation A H) : pi.IsNonzero := by</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>  refine ⟨1, ?_⟩</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>  simpa using (one_ne_zero : (1 : H →L[ℂ] H) ≠ 0)</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a></span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>/-- A closed subspace invariant under the representation and all adjoints. -/</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>def Representation.Reduces (pi : Representation A H) (K : Submodule ℂ H) : Prop :=</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>  IsClosed (K : Set H) ∧</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>    ∀ (a : A) (x : H), x ∈ K →</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>      pi a x ∈ K ∧ ContinuousLinearMap.adjoint (pi a) x ∈ K</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a></span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>/-- Irreducibility in the closed-reducing-subspace sense, with nonzero action. -/</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>def Representation.IsIrreducible (pi : Representation A H) : Prop :=</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>  pi.IsNonzero ∧ ∀ K : Submodule ℂ H, pi.Reduces K → K = ⊥ ∨ K = ⊤</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a></span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>end Reducing</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a></span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>section Equivalence</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a></span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>variable {H : Type v} {K : Type w} {L : Type z}</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>variable [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>variable [NormedAddCommGroup L] [InnerProductSpace ℂ L] [CompleteSpace L]</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a></span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>/-- Unitary equivalence of representations, including the full intertwining law. -/</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>def Representation.UnitaryEquivalent (pi : Representation A H)</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    (rho : Representation A K) : Prop :=</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  ∃ U : H ≃ₗᵢ[ℂ] K, ∀ (a : A) (x : H), U (pi a x) = rho a (U x)</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a></span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>theorem Representation.unitaryEquivalent_refl (pi : Representation A H) :</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    pi.UnitaryEquivalent pi := by</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>  refine ⟨LinearIsometryEquiv.refl ℂ H, ?_⟩</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>  simp</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a></span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>theorem Representation.unitaryEquivalent_symm {pi : Representation A H}</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    {rho : Representation A K} (h : pi.UnitaryEquivalent rho) :</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    rho.UnitaryEquivalent pi := by</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>  obtain ⟨U, hU⟩ := h</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  refine ⟨U.symm, fun a y ↦ ?_⟩</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>  have h&#x27; := congrArg U.symm (hU a (U.symm y))</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  simpa using h&#x27;.symm</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a></span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>theorem Representation.unitaryEquivalent_trans {pi : Representation A H}</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    {rho : Representation A K} {sigma : Representation A L}</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    (hpr : pi.UnitaryEquivalent rho) (hrs : rho.UnitaryEquivalent sigma) :</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>    pi.UnitaryEquivalent sigma := by</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>  obtain ⟨U, hU⟩ := hpr</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>  obtain ⟨V, hV⟩ := hrs</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>  refine ⟨U.trans V, fun a x ↦ ?_⟩</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>  simp only [LinearIsometryEquiv.trans_apply]</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  rw [hU, hV]</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a></span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>end Equivalence</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a></span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>section UniqueModel</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a></span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>variable {H : Type v}</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a></span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>/--</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>A displayed faithful irreducible representation that captures every nonzero</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>irreducible representation, with no restriction on the target Hilbert space or</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>its universe.</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>-/</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>def Representation.IsUniqueIrreducibleModel (pi : Representation A H) : Prop :=</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  Function.Injective pi ∧ pi.IsIrreducible ∧</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>    ∀ (K : Type w) [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>      (rho : Representation A K), rho.IsIrreducible → pi.UnitaryEquivalent rho</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a></span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>end UniqueModel</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a></span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

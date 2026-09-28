@@ -1,0 +1,36 @@
+{
+  "title": "CH and the existence of a counterexample of norm density aleph one",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 3,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "bbaa38f0690d7b0ca134e7875ae37f1e48d6f2cd8dc0d5b1d6b4c3701fa214c4",
+        "uid": "lfh:lfh-declaration-card:sha256:e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f"
+      },
+      "url": "/mathlibannex/cards/e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f/versions/n69-971e28fa2f885c07/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "228ba19d3e6f019d7447205532137a8eabdb20491d59bbae4fa507ce55cb654f",
+        "uid": "lfh:lfh-declaration-card:sha256:9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461"
+      },
+      "url": "/mathlibannex/cards/9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461/versions/n69-f9aed14a1af813b4/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "e9e119b142df5c73ca63aebd69db0c6601d2eba833dd69fa691bd0485a511bac",
+        "uid": "lfh:lfh-declaration-card:sha256:49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c"
+      },
+      "url": "/mathlibannex/cards/49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c/versions/n69-9b817fdfc02db29e/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

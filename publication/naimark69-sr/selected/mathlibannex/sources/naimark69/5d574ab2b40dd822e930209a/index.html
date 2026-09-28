@@ -1,0 +1,211 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerSupported_exponential_apply_eq_involution | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/5d574ab2b40dd822e930209a/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerSupported_exponential_apply_eq_involution</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/InvolutionLift.lean</code>, lines 50–183.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/InvolutionLift.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32/versions/n69-9bdd04f8f82e2692/index.html">Back to Lifting a corner involution to an ambient CAR unitary</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.CornerLift</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.StagePurification</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.SmallUnitary</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.Adapters</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>import MathlibAnnex.Analysis.InnerProductSpace.InvolutionExponential</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>set_option autoImplicit false</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>noncomputable section</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a></span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>open NormedSpace</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>open scoped CStarAlgebra</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>abbrev rootCornerSubspace</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>    [CompleteSpace H]</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>    (rho : Representation Limit H) (n : ℕ) : Submodule ℂ H :=</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>  LinearMap.range (rho (limitMatrixUnit n 0 0)).toLinearMap</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>theorem representation_liftedCornerExponential_apply_of_root</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>    [CompleteSpace H] (rho : Representation Limit H) (n : ℕ)</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>    (h : selfAdjoint Limit)</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>    (heh : limitMatrixUnit n 0 0 * (h : Limit) = h)</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    (hhe : (h : Limit) * limitMatrixUnit n 0 0 = h)</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>    (x : H) (hx : rho (limitMatrixUnit n 0 0) x = x) :</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    rho (liftedCornerExponential n h heh hhe : Limit) x =</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>      rho (cornerExponential n h) x := by</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  let z := cornerExponential n h</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>  have hz := isRootCornerUnitary_cornerExponential n h heh hhe</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>  change rho (cornerLift n z) x = rho z x</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>  rw [representation_cornerLift_apply]</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>  rw [Finset.sum_eq_single (0 : Fin (2 ^ n))]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  · simp only [z]</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>    rw [show rho (limitMatrixUnit n 0 0) x = x by exact hx]</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>    change rho (limitMatrixUnit n 0 0) (rho (cornerExponential n h) x) = _</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    rw [← mul_apply_eq_comp, ← map_mul, hz.2.2.1]</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>  · intro i _ hi</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    have h0i : rho (limitMatrixUnit n 0 i) x = 0 := by</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>      rw [← hx, ← mul_apply_eq_comp, ← map_mul]</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>      simp [hi]</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>    simp [h0i]</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>  · simp</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a></span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line selected" id="L50"><a class="line-no" href="#L50">50</a>theorem exists_rootCornerSupported_exponential_apply_eq_involution</span>
+<span class="source-line selected" id="L51"><a class="line-no" href="#L51">51</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line selected" id="L52"><a class="line-no" href="#L52">52</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line selected" id="L53"><a class="line-no" href="#L53">53</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line selected" id="L54"><a class="line-no" href="#L54">54</a>    (n d : ℕ) (v : Fin d → rootCornerSubspace rho n)</span>
+<span class="source-line selected" id="L55"><a class="line-no" href="#L55">55</a>    (U : rootCornerSubspace rho n ≃ₗᵢ[ℂ] rootCornerSubspace rho n)</span>
+<span class="source-line selected" id="L56"><a class="line-no" href="#L56">56</a>    (hU : ∀ x, U (U x) = x) :</span>
+<span class="source-line selected" id="L57"><a class="line-no" href="#L57">57</a>    ∃ h : selfAdjoint Limit,</span>
+<span class="source-line selected" id="L58"><a class="line-no" href="#L58">58</a>      limitMatrixUnit n 0 0 * (h : Limit) = h ∧</span>
+<span class="source-line selected" id="L59"><a class="line-no" href="#L59">59</a>      (h : Limit) * limitMatrixUnit n 0 0 = h ∧</span>
+<span class="source-line selected" id="L60"><a class="line-no" href="#L60">60</a>      ∀ i, rho (cornerExponential n h) (v i : H) = (U (v i) : H) := by</span>
+<span class="source-line selected" id="L61"><a class="line-no" href="#L61">61</a>  let e : Limit := limitMatrixUnit n 0 0</span>
+<span class="source-line selected" id="L62"><a class="line-no" href="#L62">62</a>  let K : Submodule ℂ H := rootCornerSubspace rho n</span>
+<span class="source-line selected" id="L63"><a class="line-no" href="#L63">63</a>  have hroot : IsStarProjection (rho e) := by</span>
+<span class="source-line selected" id="L64"><a class="line-no" href="#L64">64</a>    exact (isStarProjection_limitMatrixUnit_zero_zero n).map rho</span>
+<span class="source-line selected" id="L65"><a class="line-no" href="#L65">65</a>  letI : CompleteSpace K := IsComplete.completeSpace_coe</span>
+<span class="source-line selected" id="L66"><a class="line-no" href="#L66">66</a>    (ContinuousLinearMap.IsIdempotentElem.isClosed_range</span>
+<span class="source-line selected" id="L67"><a class="line-no" href="#L67">67</a>      hroot.isIdempotentElem).isComplete</span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>  have hKnot : ¬ FiniteDimensional ℂ K := by</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>    simpa [K, e, rootCornerSubspace] using</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>      not_finiteDimensional_range_rootCorner rho</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>        ((MathlibAnnex.Analysis.CStarAlgebra.Representation.isIrreducible_iff_starAlgHom rho).mpr</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>          hrho) n</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>  letI : Nontrivial K := by</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>    rw [← not_subsingleton_iff_nontrivial]</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>    intro hsub</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>    apply hKnot</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>    letI : Subsingleton K := hsub</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>    exact FiniteDimensional.of_rank_eq_zero (rank_subsingleton&#x27; ℂ K)</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>  letI : NormedRing (K →L[ℂ] K) := ContinuousLinearMap.toNormedRing</span>
+<span class="source-line selected" id="L80"><a class="line-no" href="#L80">80</a>  letI : K.HasOrthogonalProjection := by</span>
+<span class="source-line selected" id="L81"><a class="line-no" href="#L81">81</a>    simpa [K] using</span>
+<span class="source-line selected" id="L82"><a class="line-no" href="#L82">82</a>      (ContinuousLinearMap.IsIdempotentElem.hasOrthogonalProjection_range</span>
+<span class="source-line selected" id="L83"><a class="line-no" href="#L83">83</a>        hroot.isIdempotentElem)</span>
+<span class="source-line selected" id="L84"><a class="line-no" href="#L84">84</a>  let P : K →L[ℂ] K := U.involutionProjection</span>
+<span class="source-line selected" id="L85"><a class="line-no" href="#L85">85</a>  have hPstar : IsStarProjection P := U.isStarProjection_involutionProjection hU</span>
+<span class="source-line selected" id="L86"><a class="line-no" href="#L86">86</a>  let PH : H →L[ℂ] H :=</span>
+<span class="source-line selected" id="L87"><a class="line-no" href="#L87">87</a>    MathlibAnnex.Analysis.CStarAlgebra.zeroExtension K P</span>
+<span class="source-line selected" id="L88"><a class="line-no" href="#L88">88</a>  let T : H →L[ℂ] H := (Real.pi : ℂ) • PH</span>
+<span class="source-line selected" id="L89"><a class="line-no" href="#L89">89</a>  let S : Set H :=</span>
+<span class="source-line selected" id="L90"><a class="line-no" href="#L90">90</a>    Set.range (fun i =&gt; (v i : H)) ∪ Set.range (fun i =&gt; (U (v i) : H))</span>
+<span class="source-line selected" id="L91"><a class="line-no" href="#L91">91</a>  let E : Submodule ℂ H := Submodule.span ℂ S</span>
+<span class="source-line selected" id="L92"><a class="line-no" href="#L92">92</a>  letI : FiniteDimensional ℂ E :=</span>
+<span class="source-line selected" id="L93"><a class="line-no" href="#L93">93</a>    FiniteDimensional.span_of_finite ℂ</span>
+<span class="source-line selected" id="L94"><a class="line-no" href="#L94">94</a>      ((Set.finite_range fun i =&gt; (v i : H)).union</span>
+<span class="source-line selected" id="L95"><a class="line-no" href="#L95">95</a>        (Set.finite_range fun i =&gt; (U (v i) : H)))</span>
+<span class="source-line selected" id="L96"><a class="line-no" href="#L96">96</a>  letI : E.HasOrthogonalProjection := inferInstance</span>
+<span class="source-line selected" id="L97"><a class="line-no" href="#L97">97</a>  have hKfix (x : K) : rho e (x : H) = (x : H) := by</span>
+<span class="source-line selected" id="L98"><a class="line-no" href="#L98">98</a>    exact (LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line selected" id="L99"><a class="line-no" href="#L99">99</a>      (ContinuousLinearMap.IsIdempotentElem.toLinearMap</span>
+<span class="source-line selected" id="L100"><a class="line-no" href="#L100">100</a>        hroot.isIdempotentElem)).mp x.property</span>
+<span class="source-line selected" id="L101"><a class="line-no" href="#L101">101</a>  have hvE (i : Fin d) : (v i : H) ∈ E :=</span>
+<span class="source-line selected" id="L102"><a class="line-no" href="#L102">102</a>    Submodule.subset_span (Or.inl (Set.mem_range_self i))</span>
+<span class="source-line selected" id="L103"><a class="line-no" href="#L103">103</a>  have hUvE (i : Fin d) : (U (v i) : H) ∈ E :=</span>
+<span class="source-line selected" id="L104"><a class="line-no" href="#L104">104</a>    Submodule.subset_span (Or.inr (Set.mem_range_self i))</span>
+<span class="source-line selected" id="L105"><a class="line-no" href="#L105">105</a>  have hEroot : ∀ x : H, x ∈ E → rho e x = x := by</span>
+<span class="source-line selected" id="L106"><a class="line-no" href="#L106">106</a>    intro x hx</span>
+<span class="source-line selected" id="L107"><a class="line-no" href="#L107">107</a>    refine Submodule.span_induction</span>
+<span class="source-line selected" id="L108"><a class="line-no" href="#L108">108</a>      (p := fun x _ =&gt; rho e x = x) ?_ (by simp) ?_ ?_ hx</span>
+<span class="source-line selected" id="L109"><a class="line-no" href="#L109">109</a>    · intro x hx</span>
+<span class="source-line selected" id="L110"><a class="line-no" href="#L110">110</a>      rcases hx with hx | hx</span>
+<span class="source-line selected" id="L111"><a class="line-no" href="#L111">111</a>      · obtain ⟨i, rfl⟩ := hx</span>
+<span class="source-line selected" id="L112"><a class="line-no" href="#L112">112</a>        exact hKfix (v i)</span>
+<span class="source-line selected" id="L113"><a class="line-no" href="#L113">113</a>      · obtain ⟨i, rfl⟩ := hx</span>
+<span class="source-line selected" id="L114"><a class="line-no" href="#L114">114</a>        exact hKfix (U (v i))</span>
+<span class="source-line selected" id="L115"><a class="line-no" href="#L115">115</a>    · intro x y _ _ hx hy</span>
+<span class="source-line selected" id="L116"><a class="line-no" href="#L116">116</a>      simpa using congrArg₂ (· + ·) hx hy</span>
+<span class="source-line selected" id="L117"><a class="line-no" href="#L117">117</a>    · intro c x _ hx</span>
+<span class="source-line selected" id="L118"><a class="line-no" href="#L118">118</a>      simpa using congrArg (fun y =&gt; c • y) hx</span>
+<span class="source-line selected" id="L119"><a class="line-no" href="#L119">119</a>  have hPHself : IsSelfAdjoint PH :=</span>
+<span class="source-line selected" id="L120"><a class="line-no" href="#L120">120</a>    MathlibAnnex.Analysis.CStarAlgebra.isSelfAdjoint_zeroExtension</span>
+<span class="source-line selected" id="L121"><a class="line-no" href="#L121">121</a>      K P hPstar.isSelfAdjoint</span>
+<span class="source-line selected" id="L122"><a class="line-no" href="#L122">122</a>  have hTself : IsSelfAdjoint T := by</span>
+<span class="source-line selected" id="L123"><a class="line-no" href="#L123">123</a>    dsimp only [T]</span>
+<span class="source-line selected" id="L124"><a class="line-no" href="#L124">124</a>    rw [isSelfAdjoint_iff, star_smul, hPHself.star_eq]</span>
+<span class="source-line selected" id="L125"><a class="line-no" href="#L125">125</a>    simp</span>
+<span class="source-line selected" id="L126"><a class="line-no" href="#L126">126</a>  have hTroot : rho e * T = T := by</span>
+<span class="source-line selected" id="L127"><a class="line-no" href="#L127">127</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line selected" id="L128"><a class="line-no" href="#L128">128</a>    intro x</span>
+<span class="source-line selected" id="L129"><a class="line-no" href="#L129">129</a>    change rho e (T x) = T x</span>
+<span class="source-line selected" id="L130"><a class="line-no" href="#L130">130</a>    exact hKfix ⟨T x, by</span>
+<span class="source-line selected" id="L131"><a class="line-no" href="#L131">131</a>      dsimp only [T]</span>
+<span class="source-line selected" id="L132"><a class="line-no" href="#L132">132</a>      rw [ContinuousLinearMap.smul_apply]</span>
+<span class="source-line selected" id="L133"><a class="line-no" href="#L133">133</a>      apply K.smul_mem</span>
+<span class="source-line selected" id="L134"><a class="line-no" href="#L134">134</a>      dsimp [PH, MathlibAnnex.Analysis.CStarAlgebra.zeroExtension]</span>
+<span class="source-line selected" id="L135"><a class="line-no" href="#L135">135</a>      exact (P (K.orthogonalProjectionOnto x)).property⟩</span>
+<span class="source-line selected" id="L136"><a class="line-no" href="#L136">136</a>  have hTmap : Set.MapsTo T E E := by</span>
+<span class="source-line selected" id="L137"><a class="line-no" href="#L137">137</a>    intro x hx</span>
+<span class="source-line selected" id="L138"><a class="line-no" href="#L138">138</a>    refine Submodule.span_induction</span>
+<span class="source-line selected" id="L139"><a class="line-no" href="#L139">139</a>      (p := fun x _ =&gt; T x ∈ E) ?_ (by simp [T]) ?_ ?_ hx</span>
+<span class="source-line selected" id="L140"><a class="line-no" href="#L140">140</a>    · intro x hx</span>
+<span class="source-line selected" id="L141"><a class="line-no" href="#L141">141</a>      rcases hx with hx | hx</span>
+<span class="source-line selected" id="L142"><a class="line-no" href="#L142">142</a>      · obtain ⟨i, rfl⟩ := hx</span>
+<span class="source-line selected" id="L143"><a class="line-no" href="#L143">143</a>        rw [show T (v i : H) =</span>
+<span class="source-line selected" id="L144"><a class="line-no" href="#L144">144</a>            (Real.pi : ℂ) • ((2 : ℂ)⁻¹ •</span>
+<span class="source-line selected" id="L145"><a class="line-no" href="#L145">145</a>              ((v i : H) - (U (v i) : H))) by</span>
+<span class="source-line selected" id="L146"><a class="line-no" href="#L146">146</a>          simp [T, PH, P,</span>
+<span class="source-line selected" id="L147"><a class="line-no" href="#L147">147</a>            MathlibAnnex.Analysis.CStarAlgebra.zeroExtension_apply_of_mem,</span>
+<span class="source-line selected" id="L148"><a class="line-no" href="#L148">148</a>            LinearIsometryEquiv.involutionProjection_apply, smul_smul]</span>
+<span class="source-line selected" id="L149"><a class="line-no" href="#L149">149</a>          module]</span>
+<span class="source-line selected" id="L150"><a class="line-no" href="#L150">150</a>        exact E.smul_mem _ (E.smul_mem _ (E.sub_mem (hvE i) (hUvE i)))</span>
+<span class="source-line selected" id="L151"><a class="line-no" href="#L151">151</a>      · obtain ⟨i, rfl⟩ := hx</span>
+<span class="source-line selected" id="L152"><a class="line-no" href="#L152">152</a>        rw [show T (U (v i) : H) =</span>
+<span class="source-line selected" id="L153"><a class="line-no" href="#L153">153</a>            (Real.pi : ℂ) • ((2 : ℂ)⁻¹ •</span>
+<span class="source-line selected" id="L154"><a class="line-no" href="#L154">154</a>              ((U (v i) : H) - (v i : H))) by</span>
+<span class="source-line selected" id="L155"><a class="line-no" href="#L155">155</a>          simp [T, PH, P,</span>
+<span class="source-line selected" id="L156"><a class="line-no" href="#L156">156</a>            MathlibAnnex.Analysis.CStarAlgebra.zeroExtension_apply_of_mem,</span>
+<span class="source-line selected" id="L157"><a class="line-no" href="#L157">157</a>            LinearIsometryEquiv.involutionProjection_apply, hU, smul_smul]</span>
+<span class="source-line selected" id="L158"><a class="line-no" href="#L158">158</a>          module]</span>
+<span class="source-line selected" id="L159"><a class="line-no" href="#L159">159</a>        exact E.smul_mem _ (E.smul_mem _ (E.sub_mem (hUvE i) (hvE i)))</span>
+<span class="source-line selected" id="L160"><a class="line-no" href="#L160">160</a>    · intro x y _ _ hx hy</span>
+<span class="source-line selected" id="L161"><a class="line-no" href="#L161">161</a>      simpa using E.add_mem hx hy</span>
+<span class="source-line selected" id="L162"><a class="line-no" href="#L162">162</a>    · intro c x _ hx</span>
+<span class="source-line selected" id="L163"><a class="line-no" href="#L163">163</a>      simpa using E.smul_mem c hx</span>
+<span class="source-line selected" id="L164"><a class="line-no" href="#L164">164</a>  obtain ⟨h, -, heh, hhe, hexp⟩ :=</span>
+<span class="source-line selected" id="L165"><a class="line-no" href="#L165">165</a>    exists_rootCornerSupported_exponential_eq_on</span>
+<span class="source-line selected" id="L166"><a class="line-no" href="#L166">166</a>      rho hrho n E hEroot T hTself hTroot hTmap</span>
+<span class="source-line selected" id="L167"><a class="line-no" href="#L167">167</a>  refine ⟨h, heh, hhe, fun i =&gt; ?_⟩</span>
+<span class="source-line selected" id="L168"><a class="line-no" href="#L168">168</a>  rw [hexp (v i : H) (hvE i)]</span>
+<span class="source-line selected" id="L169"><a class="line-no" href="#L169">169</a>  have hsmul : Complex.I • T =</span>
+<span class="source-line selected" id="L170"><a class="line-no" href="#L170">170</a>      ((Real.pi : ℂ) * Complex.I) • PH := by</span>
+<span class="source-line selected" id="L171"><a class="line-no" href="#L171">171</a>    dsimp only [T]</span>
+<span class="source-line selected" id="L172"><a class="line-no" href="#L172">172</a>    module</span>
+<span class="source-line selected" id="L173"><a class="line-no" href="#L173">173</a>  rw [hsmul]</span>
+<span class="source-line selected" id="L174"><a class="line-no" href="#L174">174</a>  have hzero : ((Real.pi : ℂ) * Complex.I) • PH =</span>
+<span class="source-line selected" id="L175"><a class="line-no" href="#L175">175</a>      MathlibAnnex.Analysis.CStarAlgebra.zeroExtension K</span>
+<span class="source-line selected" id="L176"><a class="line-no" href="#L176">176</a>        (((Real.pi : ℂ) * Complex.I) • P) := by</span>
+<span class="source-line selected" id="L177"><a class="line-no" href="#L177">177</a>    ext x</span>
+<span class="source-line selected" id="L178"><a class="line-no" href="#L178">178</a>    simp [PH, MathlibAnnex.Analysis.CStarAlgebra.zeroExtension, smul_smul]</span>
+<span class="source-line selected" id="L179"><a class="line-no" href="#L179">179</a>  rw [hzero, MathlibAnnex.Analysis.CStarAlgebra.exp_zeroExtension_apply</span>
+<span class="source-line selected" id="L180"><a class="line-no" href="#L180">180</a>    K (((Real.pi : ℂ) * Complex.I) • P) (v i)]</span>
+<span class="source-line selected" id="L181"><a class="line-no" href="#L181">181</a>  exact congrArg Subtype.val</span>
+<span class="source-line selected" id="L182"><a class="line-no" href="#L182">182</a>    (MathlibAnnex.Analysis.InnerProductSpace.exp_pi_mul_involutionProjection_apply</span>
+<span class="source-line selected" id="L183"><a class="line-no" href="#L183">183</a>      U hU (v i))</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a></span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>/-- The ambient unitary obtained by amplifying the same corner exponential</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>acts as the prescribed involution on the selected root-corner family. -/</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>theorem exists_liftedCornerExponential_apply_eq_involution</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>    (n d : ℕ) (v : Fin d → rootCornerSubspace rho n)</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    (U : rootCornerSubspace rho n ≃ₗᵢ[ℂ] rootCornerSubspace rho n)</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>    (hU : ∀ x, U (U x) = x) :</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>    ∃ (h : selfAdjoint Limit)</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>      (heh : limitMatrixUnit n 0 0 * (h : Limit) = h)</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>      (hhe : (h : Limit) * limitMatrixUnit n 0 0 = h),</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>      ∀ i, rho (liftedCornerExponential n h heh hhe : Limit) (v i : H) =</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>        (U (v i) : H) := by</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>  obtain ⟨h, heh, hhe, hcorner⟩ :=</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>    exists_rootCornerSupported_exponential_apply_eq_involution</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>      rho hrho n d v U hU</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>  refine ⟨h, heh, hhe, fun i =&gt; ?_⟩</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>  rw [representation_liftedCornerExponential_apply_of_root</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>    rho n h heh hhe (v i) ?_]</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>  · exact hcorner i</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>  · exact (LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>      (ContinuousLinearMap.IsIdempotentElem.toLinearMap</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>        ((isStarProjection_limitMatrixUnit_zero_zero n).map rho).isIdempotentElem)).mp</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>      (v i).property</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a></span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

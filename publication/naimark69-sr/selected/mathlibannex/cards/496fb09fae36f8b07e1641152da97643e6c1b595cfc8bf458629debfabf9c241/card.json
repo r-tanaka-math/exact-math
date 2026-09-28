@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. There are no additional theorem hypotheses. In particular, neither CH nor separable representability is assumed.",
+    "conclusion": "The ordinary counterexample assertion holds for A. In addition, Hτ is nontrivial and separable, there exists an injective unital *-representation A → B(Hτ), and every possibly nonunital *-representation A → B(K) on any separable complex Hilbert space K fails to be nonzero irreducible.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A faithful separable model, but no separable irreducible model",
+    "language_tag": "en",
+    "lean_realization_notes": "The final existential witness and the universal comparison representations refer to the same A. The comparison Hilbert universe is independent. The conclusion excludes separable irreducible realizations, not all irreducible realizations; it does not assert that A is nonprimitive. The theorem has no tracial uniqueness clause: that is included separately in the counterexample theorem with its faithful separable tracial model.",
+    "natural_language_statement": "The fixed unital C*-algebra A is simple and infinite-dimensional, has exactly one nonzero irreducible representation class and is not an algebra of compact operators. The same A has a faithful representation on the nonzero separable CAR trace-GNS space Hτ, but has no nonzero irreducible representation on any separable complex Hilbert space.",
+    "one_sentence_role": "Combines the ordinary counterexample and the separable-representation conclusions for one fixed algebra.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Keep the entire ordinary assertion for the fixed A, including its arbitrary comparison universe."
+      },
+      {
+        "step_id": "2",
+        "text": "Choose the tracial representation as the faithful separable witness."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the universal separable irreducibility obstruction to every comparison map."
+      }
+    ],
+    "proof_summary": "Combine the ordinary counterexample theorem, nontriviality and separability of the CAR trace-GNS space, the faithful tracial representation, and the universal exclusion of separable irreducible representations."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "676839944ea44aba2ad0d82eecf10f9d7de497d78bdc437392982049cd4644ee",
+    "uid": "lfh:lfh-declaration-card:sha256:496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "33030ad83962e6456f2bf1888e972a45303ca1afba1c135ae85ea07d246dc816",
+    "uid": "lfh:lfh-card-exposition:sha256:2d04f960225daf7005d76568bcdfe0b73b7698319758d7dc15f2d53214a5acfd"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      152,
+      171
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L152-L171"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.SeparableFaithful",
+        "provider": "PROJECT",
+        "provider_source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.SeparableIrreducible",
+        "provider": "PROJECT",
+        "provider_source_sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. There are no additional theorem hypotheses. In particular, neither CH nor separable representability is assumed.",
+    "conclusion": "The ordinary counterexample assertion holds for A. In addition, Hτ is nontrivial and separable, there exists an injective unital *-representation A → B(Hτ), and every possibly nonunital *-representation A → B(K) on any separable complex Hilbert space K fails to be nonzero irreducible.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A faithful separable model, but no separable irreducible model",
+    "language_tag": "en",
+    "lean_realization_notes": "The final existential witness and the universal comparison representations refer to the same A. The comparison Hilbert universe is independent. The conclusion excludes separable irreducible realizations, not all irreducible realizations; it does not assert that A is nonprimitive. The theorem has no tracial uniqueness clause: that is included separately in the counterexample theorem with its faithful separable tracial model.",
+    "natural_language_statement": "The fixed unital C*-algebra A is simple and infinite-dimensional, has exactly one nonzero irreducible representation class and is not an algebra of compact operators. The same A has a faithful representation on the nonzero separable CAR trace-GNS space Hτ, but has no nonzero irreducible representation on any separable complex Hilbert space.",
+    "one_sentence_role": "Combines the ordinary counterexample and the separable-representation conclusions for one fixed algebra.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Keep the entire ordinary assertion for the fixed A, including its arbitrary comparison universe."
+      },
+      {
+        "step_id": "2",
+        "text": "Choose the tracial representation as the faithful separable witness."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the universal separable irreducibility obstruction to every comparison map."
+      }
+    ],
+    "proof_summary": "Combine the ordinary counterexample theorem, nontriviality and separability of the CAR trace-GNS space, the faithful tracial representation, and the universal exclusion of separable irreducible representations.",
+    "stable_card_id": "496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_locator": {
+      "start_line": 152,
+      "end_line": 171
+    },
+    "source_signature": {
+      "text": "/-- The same fixed algebra has a faithful representation on a nontrivial separable\nHilbert space, but has no nonzero irreducible representation on any separable\nHilbert space in the arbitrary comparison universe. This does not assert that\nthe algebra is nonprimitive: the original irreducible model is retained. -/\ntheorem atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation :\n    AtomicCounterexampleEndpoint.{v} ∧\n    Nontrivial SeparableCounterexampleHilbertSpace ∧\n    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace ∧\n    (∃ ρ : Representation AtomicCounterexampleAlgebra SeparableCounterexampleHilbertSpace,\n      Function.Injective ρ) ∧\n    (∀ (H : Type v) [NormedAddCommGroup H] [InnerProductSpace ℂ H]\n        [CompleteSpace H] [TopologicalSpace.SeparableSpace H],\n      ∀ ρ : NonUnitalRepresentation (A := AtomicCounterexampleAlgebra) (H := H),\n        ¬ ρ.IsIrreducible) := by\n  refine ⟨shellFamilyEndpoint homogeneityShellFamily, nontrivial_traceHilbertSpace,\n    separableSpace_separableCounterexampleHilbertSpace,\n    ⟨separableCounterexampleRepresentation,\n      separableCounterexampleRepresentation_injective⟩, ?_⟩\n  intro H _ _ _ _ ρ\n  exact not_isIrreducible_of_separable ρ"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "676839944ea44aba2ad0d82eecf10f9d7de497d78bdc437392982049cd4644ee",
+      "uid": "lfh:lfh-declaration-card:sha256:496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "33030ad83962e6456f2bf1888e972a45303ca1afba1c135ae85ea07d246dc816",
+      "uid": "lfh:lfh-card-exposition:sha256:2d04f960225daf7005d76568bcdfe0b73b7698319758d7dc15f2d53214a5acfd"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+        "text": "Exact source attribution.",
+        "website_href": "../d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09/index.html"
+      },
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+        "text": "Exact source attribution.",
+        "website_href": "../a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65/index.html"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

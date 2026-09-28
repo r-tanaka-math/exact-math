@@ -1,0 +1,249 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.norm_rootRepresentation_stage | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/1fb5f0adbb7ba8579c4f73d4/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.norm_rootRepresentation_stage</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean</code>, lines 89–93.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/d01780d70500992bccb2c17598d8cea950b7abc05535fe00cccfa4b9c4c41ee1/versions/n69-acd5f695f6a7ac65/index.html">Back to Simplicity of the completed CAR algebra</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.Completion</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.GNSCyclic</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import Mathlib.Analysis.SpecificLimits.Normed</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import Mathlib.Analysis.CStarAlgebra.ContinuousLinearMap</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>import Mathlib.RingTheory.TwoSidedIdeal.Operations</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>import Mathlib.RingTheory.SimpleRing.Basic</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>/-!</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a># Faithfulness and closed-ideal simplicity of the completed CAR algebra</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>-/</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a></span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>set_option autoImplicit false</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option maxHeartbeats 800000</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>open scoped ComplexOrder InnerProductSpace</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>/-- The positive-linear-map form of the completed root state. -/</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>noncomputable def rootPositiveState : Limit →ₚ[ℂ] ℂ :=</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>  PositiveLinearMap.mk₀ rootState.toLinearMap rootState_nonneg</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a></span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>@[simp]</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>theorem rootPositiveState_apply (x : Limit) : rootPositiveState x = rootState x := rfl</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>@[simp]</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>theorem rootPositiveState_one : rootPositiveState 1 = 1 := rootState_one</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a></span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>noncomputable instance rootGNSNontrivial : Nontrivial rootPositiveState.GNS := by</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>  refine ⟨⟨0, rootPositiveState.gnsCyclicVector, ?_⟩⟩</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>  intro h</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>  have hn := rootPositiveState.norm_gnsCyclicVector rootPositiveState_one</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  rw [← h, norm_zero] at hn</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>  exact zero_ne_one hn</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a></span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>theorem norm_leftMulMapPreGNS_apply_le (x : Limit) (y : rootPositiveState.PreGNS) :</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    ‖rootPositiveState.leftMulMapPreGNS x y‖ ≤ ‖x‖ * ‖y‖ := by</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  rw [PositiveLinearMap.leftMulMapPreGNS_apply]</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  rw [← sq_le_sq₀ (by positivity) (by positivity), mul_pow,</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>    ← RCLike.ofReal_le_ofReal (K := ℂ), RCLike.ofReal_pow,</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    RCLike.ofReal_eq_complex_ofReal, PositiveLinearMap.preGNS_norm_sq]</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>  have horder :</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>      star (rootPositiveState.ofPreGNS y) * star x *</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>          (x * rootPositiveState.ofPreGNS y) ≤</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>        ‖x‖ ^ 2 • star (rootPositiveState.ofPreGNS y) *</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>          rootPositiveState.ofPreGNS y := by</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    rw [← mul_assoc, mul_assoc _ (star x), sq,</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>      ← CStarRing.norm_star_mul_self (x := x), smul_mul_assoc]</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    exact CStarAlgebra.star_left_conjugate_le_norm_smul</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  calc</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    _ ≤ rootPositiveState</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>        (‖x‖ ^ 2 • star (rootPositiveState.ofPreGNS y) *</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>          rootPositiveState.ofPreGNS y) := by</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>      simpa using OrderHomClass.mono rootPositiveState horder</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    _ = _ := by</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>      simp [← Complex.coe_smul, PositiveLinearMap.preGNS_norm_sq]</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a></span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>theorem norm_leftMulMapPreGNS_le (x : Limit) :</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    ‖rootPositiveState.leftMulMapPreGNS x‖ ≤ ‖x‖ := by</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  exact ContinuousLinearMap.opNorm_le_bound _ (norm_nonneg x)</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    (norm_leftMulMapPreGNS_apply_le x)</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a></span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>theorem norm_rootRepresentation_le (x : Limit) :</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>    ‖rootPositiveState.gnsStarAlgHom x‖ ≤ ‖x‖ := by</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>  change ‖rootPositiveState.leftMulMapPreGNS x |&gt;.completion‖ ≤ ‖x‖</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>  apply ContinuousLinearMap.opNorm_le_bound _ (norm_nonneg x)</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>  intro y</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>  refine UniformSpace.Completion.induction_on</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    (p := fun y =&gt; ‖rootPositiveState.leftMulMapPreGNS x |&gt;.completion y‖ ≤</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>      ‖x‖ * ‖y‖) y ?_ ?_</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  · exact isClosed_le (by fun_prop) (by fun_prop)</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>  · intro z</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>    simpa using norm_leftMulMapPreGNS_apply_le x z</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a></span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>/-- The root GNS representation, bundled as a continuous linear map in its algebra argument. -/</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>noncomputable def rootRepresentationCLM :</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    Limit →L[ℂ] (rootPositiveState.GNS →L[ℂ] rootPositiveState.GNS) :=</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>  (rootPositiveState.gnsStarAlgHom).toLinearMap.mkContinuous 1 fun x =&gt; by</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    simpa using norm_rootRepresentation_le x</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a></span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>@[simp]</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>theorem rootRepresentationCLM_apply (x : Limit) :</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>    rootRepresentationCLM x = rootPositiveState.gnsStarAlgHom x := by rfl</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a></span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>theorem rootRepresentation_stage_injective (n : ℕ) :</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>    Function.Injective (rootPositiveState.gnsStarAlgHom.comp (ofStage n)) :=</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>  (rootPositiveState.gnsStarAlgHom.comp (ofStage n)).toRingHom.injective</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a></span>
+<span class="source-line selected" id="L89"><a class="line-no" href="#L89">89</a>theorem norm_rootRepresentation_stage (n : ℕ) (x : Stage n) :</span>
+<span class="source-line selected" id="L90"><a class="line-no" href="#L90">90</a>    ‖rootPositiveState.gnsStarAlgHom (ofStage n x)‖ = ‖ofStage n x‖ := by</span>
+<span class="source-line selected" id="L91"><a class="line-no" href="#L91">91</a>  exact NonUnitalStarAlgHom.norm_map</span>
+<span class="source-line selected" id="L92"><a class="line-no" href="#L92">92</a>    (rootPositiveState.gnsStarAlgHom.comp (ofStage n))</span>
+<span class="source-line selected" id="L93"><a class="line-no" href="#L93">93</a>    (rootRepresentation_stage_injective n) x |&gt;.trans (norm_ofStage n x).symm</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a></span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>theorem norm_rootRepresentation (x : Limit) :</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    ‖rootPositiveState.gnsStarAlgHom x‖ = ‖x‖ := by</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>  let f : Limit → ℝ := fun x =&gt; ‖rootRepresentationCLM x‖</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  let g : Limit → ℝ := fun x =&gt; ‖x‖</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>  have hfg : f = g := (rootRepresentationCLM.continuous.norm).ext_on</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>      dense_stageRange continuous_norm fun x hx =&gt; by</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>    rcases Set.mem_iUnion.mp hx with ⟨n, hn⟩</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>    rcases hn with ⟨a, rfl⟩</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>    exact norm_rootRepresentation_stage n a</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>  exact congrFun hfg x</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a></span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>theorem rootRepresentation_injective :</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>    Function.Injective rootPositiveState.gnsStarAlgHom :=</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>  fun x y hxy =&gt; by</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>    rw [← sub_eq_zero, ← norm_eq_zero, ← norm_rootRepresentation]</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>    rw [map_sub, hxy, sub_self, norm_zero]</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a></span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>/-- Matrix coefficients of the cyclic root vector separate elements because its</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>GNS representation is faithful. -/</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>theorem exists_rootState_mul_ne_zero {x : Limit} (hx : x ≠ 0) :</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    ∃ b c : Limit, rootState (b * x * c) ≠ 0 := by</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>  by_contra h</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>  push Not at h</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>  have horbit (c : Limit) :</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>      rootPositiveState.gnsStarAlgHom x</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>        (rootPositiveState.gnsStarAlgHom c rootPositiveState.gnsCyclicVector) = 0 := by</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>    apply norm_eq_zero.mp</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>    calc</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>      ‖rootPositiveState.gnsStarAlgHom x</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>          (rootPositiveState.gnsStarAlgHom c rootPositiveState.gnsCyclicVector)‖ =</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>          ‖rootPositiveState.gnsStarAlgHom (x * c)</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>            rootPositiveState.gnsCyclicVector‖ := by</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>        rw [map_mul]</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>        rfl</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>      _ = ‖(rootPositiveState.toPreGNS (x * c) : rootPositiveState.GNS)‖ := by</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>        rw [PositiveLinearMap.gnsStarAlgHom_apply_gnsCyclicVector]</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>      _ = ‖rootPositiveState.toPreGNS (x * c)‖ :=</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>        UniformSpace.Completion.norm_coe _</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>      _ = 0 := by</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>        have hs : ((‖rootPositiveState.toPreGNS (x * c)‖ ^ 2 : ℝ) : ℂ) = 0 := by</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>          calc</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>            ((‖rootPositiveState.toPreGNS (x * c)‖ ^ 2 : ℝ) : ℂ) =</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>                rootPositiveState (star (x * c) * (x * c)) := by</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>              simpa using rootPositiveState.preGNS_norm_sq</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>                (rootPositiveState.toPreGNS (x * c))</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>            _ = 0 := by</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>              change rootState (star (x * c) * (x * c)) = 0</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>              rw [star_mul]</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>              simpa only [mul_assoc] using h (star c * star x) c</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>        exact (sq_eq_zero_iff).mp (Complex.ofReal_injective hs)</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>  have hop : rootPositiveState.gnsStarAlgHom x = 0 := by</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>    apply ContinuousLinearMap.coeFn_injective</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>    exact (rootPositiveState.gnsStarAlgHom x).continuous.ext_on</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>      rootPositiveState.denseRange_gnsStarAlgHom_apply_gnsCyclicVector</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>      continuous_zero fun y hy =&gt; by</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>        rcases hy with ⟨c, rfl⟩</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>        exact horbit c</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>  apply hx</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>  apply rootRepresentation_injective</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>  simpa using hop</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a></span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>private theorem rootProjection_ne_zero (n : ℕ) : rootProjection n ≠ 0 := by</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>  intro h</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>  have hentry := congrArg (fun x : Stage n =&gt; x 0 0) h</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>  simp [rootProjection] at hentry</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a></span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>/-- A nonzero element of a two-sided ideal forces one projection of the root flag</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>into that ideal. The inverse is obtained by a Neumann-series perturbation of `1`. -/</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>theorem exists_rootFlag_mem_of_ne_zero_mem (I : TwoSidedIdeal Limit)</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>    {x : Limit} (hx : x ≠ 0) (hxI : x ∈ I) :</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>    ∃ n, rootFlag n ∈ I := by</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>  obtain ⟨b, c, hbc⟩ := exists_rootState_mul_ne_zero hx</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>  let y := b * x * c</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>  let lam := rootState y</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>  have hlam : lam ≠ 0 := hbc</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>  have hyI : y ∈ I := by</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>    exact I.mul_mem_right (b * x) c (I.mul_mem_left b x hxI)</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>  have hinv : (lam⁻¹ : ℂ) ≠ 0 := inv_ne_zero hlam</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>  let δ : ℝ := 1 / (2 * ‖(lam⁻¹ : ℂ)‖)</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>  have hden : 0 &lt; 2 * ‖(lam⁻¹ : ℂ)‖ := mul_pos two_pos (norm_pos_iff.mpr hinv)</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>  have hδ : 0 &lt; δ := one_div_pos.mpr hden</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>  obtain ⟨N, hN⟩ := Metric.tendsto_atTop.mp (tendsto_norm_compressionError y) δ hδ</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>  have herr : ‖compressionError N y‖ &lt; δ := by</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>    have := hN N le_rfl</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>    simpa [Real.dist_eq, abs_of_nonneg (norm_nonneg _)] using this</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>  let q := rootFlag N</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>  let z := q * y * q</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>  have hq : IsStarProjection q := isStarProjection_rootFlag N</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>  have hzI : z ∈ I := I.mul_mem_right (q * y) q (I.mul_mem_left q y hyI)</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>  have herr&#x27; : ‖z - lam • q‖ &lt; δ := by</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>    simpa [compressionError, q, z, lam] using herr</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>  have hscaled_eq : q - lam⁻¹ • z = -(lam⁻¹ • (z - lam • q)) := by</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>    rw [smul_sub, smul_smul, inv_mul_cancel₀ hlam, one_smul]</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>    abel</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>  have hhalf : ‖(lam⁻¹ : ℂ)‖ * δ = (1 : ℝ) / 2 := by</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>    dsimp [δ]</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>    rw [one_div, mul_inv_rev, ← mul_assoc,</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>      mul_inv_cancel₀ (norm_ne_zero_iff.mpr hinv), one_mul]</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>    norm_num</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>  have hsmall : ‖q - lam⁻¹ • z‖ &lt; 1 := by</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>    rw [hscaled_eq, norm_neg, norm_smul]</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>    calc</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>      ‖(lam⁻¹ : ℂ)‖ * ‖z - lam • q‖ &lt;</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>          ‖(lam⁻¹ : ℂ)‖ * δ :=</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>        mul_lt_mul_of_pos_left herr&#x27; (norm_pos_iff.mpr hinv)</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>      _ = (1 : ℝ) / 2 := hhalf</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>      _ &lt; 1 := by norm_num</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>  have hu : IsUnit (1 - (q - lam⁻¹ • z)) :=</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>    isUnit_one_sub_of_norm_lt_one hsmall</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>  have hzq : z * q = z := by</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>    dsimp [z]</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>    rw [mul_assoc, hq.isIdempotentElem.eq]</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>  have huq : (1 - (q - lam⁻¹ • z)) * q = lam⁻¹ • z := by</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>    rw [sub_mul, one_mul, sub_mul, hq.isIdempotentElem.eq, smul_mul_assoc, hzq]</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>    abel</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>  let U := hu.unit</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>  have hU : (U : Limit) = 1 - (q - lam⁻¹ • z) := hu.unit_spec</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>  have hqexpr : q = (↑(U⁻¹) : Limit) * (lam⁻¹ • z) := by</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>    calc</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>      q = (↑(U⁻¹) : Limit) * ((U : Limit) * q) := by</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>        rw [← mul_assoc, Units.inv_mul, one_mul]</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>      _ = (↑(U⁻¹) : Limit) * (lam⁻¹ • z) := by rw [hU, huq]</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>  refine ⟨N, ?_⟩</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>  rw [show rootFlag N = q by rfl, hqexpr, Algebra.smul_def]</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>  exact I.mul_mem_left (↑(U⁻¹) : Limit) _</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>    (I.mul_mem_left (algebraMap ℂ Limit lam⁻¹) z hzI)</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a></span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>noncomputable instance limitIsSimpleRing : IsSimpleRing Limit :=</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>  IsSimpleRing.of_eq_bot_or_eq_top fun I =&gt; by</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>    by_cases hI : I = ⊥</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>    · exact Or.inl hI</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>    · right</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>      obtain ⟨x, hxI, hx⟩ := SetLike.exists_of_lt (bot_lt_iff_ne_bot.mpr hI)</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>      have hx0 : x ≠ 0 := by simpa using hx</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>      obtain ⟨n, hflagI⟩ := exists_rootFlag_mem_of_ne_zero_mem I hx0 hxI</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>      let J : TwoSidedIdeal (Stage n) := TwoSidedIdeal.comap (ofStage n).toRingHom I</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>      have hpJ : rootProjection n ∈ J := by</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>        exact TwoSidedIdeal.mem_comap (ofStage n).toRingHom |&gt;.2 hflagI</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>      have honeJ : (1 : Stage n) ∈ J :=</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>        IsSimpleRing.one_mem_of_ne_zero_mem J (rootProjection_ne_zero n) hpJ</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>      apply TwoSidedIdeal.eq_top</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>      have honeI : (1 : Limit) ∈ I := by</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>        have := TwoSidedIdeal.mem_comap (ofStage n).toRingHom |&gt;.1 honeJ</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>        rw [← (ofStage n).map_one]</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>        exact this</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>      exact honeI</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a></span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>/-- The completed CAR algebra is simple in the stipulated closed-two-sided-ideal sense. -/</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>theorem isSimpleCStarAlgebra_limit : MathlibAnnex.CStarAlgebra.IsSimpleCStarAlgebra Limit := by</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>  constructor</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>  · infer_instance</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>  · intro I _</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>    exact eq_bot_or_eq_top I</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a></span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

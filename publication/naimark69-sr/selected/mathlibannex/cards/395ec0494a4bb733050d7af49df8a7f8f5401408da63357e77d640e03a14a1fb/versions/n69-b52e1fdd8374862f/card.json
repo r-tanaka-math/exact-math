@@ -1,0 +1,146 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+    "source_range": {
+      "end_line": 32,
+      "start_line": 22
+    },
+    "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "def PureStateHomogeneity : Prop :=\n  ∀ (phi psi : Limit →L[ℂ] ℂ), MathlibAnnex.CStarAlgebra.IsPureState Limit phi →\n    MathlibAnnex.CStarAlgebra.IsPureState Limit psi →\n      ∃ alpha : Limit ≃⋆ₐ[ℂ] Limit,\n        (∀ a : Limit, phi (alpha a) = psi a) ∧\n        ∀ (F : Finset Limit) (epsilon : ℝ), 0 < epsilon →\n          ∃ v : unitary Limit, ∀ a ∈ F,\n            ‖alpha a - (v : Limit) * a * star (v : Limit)‖ < epsilon",
+    "start_byte": 1010,
+    "end_byte": 1471,
+    "sha256": "4dbef65c00476bf6c6fac11ae2c9fd2806a3213f9335e9243c7bb962a321d950",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+    "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+      "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+      "start_line": 22,
+      "start_column": 1,
+      "end_line": 32,
+      "end_column": 70
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "Approximately inner homogeneity of pure CAR states",
+    "one_sentence_role": "The homogeneity property asks for exact state transport by an automorphism that is locally approximable by inner automorphisms.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. A state means a positive continuous complex-linear functional taking value $1$ at the identity; a pure state is an extreme point of this convex state space. The property of pure-state homogeneity says that, for every pair of pure states $\\varphi,\\psi$ on $A$, there is a complex star automorphism $\\alpha:A\\to A$ such that $\\varphi(\\alpha(a))=\\psi(a)$ for every $a\\in A$. In addition, for every finite $F\\subset A$ and every $\\varepsilon>0$, there is $u\\in U(A)$ with $\\|\\alpha(a)-uau^*\\|<\\varepsilon$ for all $a\\in F$.",
+    "definition_explanation": "The first requirement transports the state exactly, with the stated composition direction. The second is point-norm approximate innerness: a finite amount of algebra data can be moved almost as $\\alpha$ moves it. Both requirements concern the same $\\alpha$. No continuous path of unitaries is part of this definition.",
+    "assumptions": "The algebra is the fixed completed CAR algebra. The two functionals are pure states in the sense specified above. The automorphism is chosen for the state pair before the finite set and the error tolerance are given.",
+    "conclusion": "The equality is $\\varphi\\circ\\alpha=\\psi$. One unitary approximates $\\alpha$ on the entire chosen finite set; that unitary may change with the finite set and tolerance.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "This declaration defines a property; the separate CAR homogeneity theorem proves it. It does not assert that $\\alpha$ itself is inner or that implementing unitaries converge. The proposition about all simple separable unital C*-algebras named Kishimoto–Ozawa–Sakai is a different, more broadly quantified source definition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean#L22-L32",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+        "source_range": {
+          "end_line": 32,
+          "start_line": 22
+        },
+        "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "State space and normalization",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/KishimotoOzawaSakai.lean#L23-L26",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.stateSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/KishimotoOzawaSakai.lean",
+        "source_range": {
+          "end_line": 26,
+          "start_line": 23
+        },
+        "source_sha256": "9feb909018a5500bbfff869f976c92a38911252d7a5d7ab1fd9f9f2d6b7ae3e8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Purity as extremality",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/KishimotoOzawaSakai.lean#L55-L58",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.IsPureState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/KishimotoOzawaSakai.lean",
+        "source_range": {
+          "end_line": 58,
+          "start_line": 55
+        },
+        "source_sha256": "9feb909018a5500bbfff869f976c92a38911252d7a5d7ab1fd9f9f2d6b7ae3e8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The proved CAR homogeneity result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean#L1330-L1334",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+        "source_range": {
+          "end_line": 1334,
+          "start_line": 1330
+        },
+        "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The separately quantified general KOS proposition",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/KishimotoOzawaSakai.lean#L67-L79",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.KishimotoOzawaSakaiProperty",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/KishimotoOzawaSakai.lean",
+        "source_sha256": "9feb909018a5500bbfff869f976c92a38911252d7a5d7ab1fd9f9f2d6b7ae3e8",
+        "source_range": {
+          "start_line": 67,
+          "end_line": 79
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "094d318ed67743b2eb9ece586df619117001cc2f39a6893f0651e14cf6567c52",
+    "uid": "lfh:lfh-declaration-card:sha256:395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "b52e1fdd8374862f7d1cec368978c2039bd508f13aeed66f82b0b4ede2cc742f",
+    "uid": "lfh:lfh-card-exposition:sha256:3545cab8ccb95b1a02cffe0495cda661bcff4453e0fd0812818db030af67c41e"
+  },
+  "guide": "Here `Limit` is $A$, `IsPureState Limit phi` and `... psi` specify the pure states, and `alpha : Limit ≃⋆ₐ[ℂ] Limit` is $\\alpha$. The source unitary `v` is $u$ in the finite-set condition. The full right-hand side below the declaration name includes both the state equation and this approximation condition.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb/versions/n69-b52e1fdd8374862f/index.html",
+    "pdf": "card.pdf"
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.matchedLink | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/9579cf5fccafc3b29fa18387/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.matchedLink</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/ShellMatching.lean</code>, lines 19–20.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/ShellMatching.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5/versions/n69-eef64486b674e078/index.html">Back to Exact projection links for one approximately inner automorphism</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import Mathlib.Algebra.Star.Unitary</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a></span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>/-!</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a># Exact shell matching</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a></span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>The algebraic tail of shell matching.  Once two projection shells are exactly</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>unitarily matched after an auxiliary conjugation, the displayed link has both</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>required support identities.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>-/</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a></span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>set_option autoImplicit false</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>namespace MathlibAnnex.CStarAlgebra</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>variable {A : Type*} [Semiring A] [StarRing A]</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>/-- The partial-isometry link obtained after exact matching of two shells. -/</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>def matchedLink (g t : unitary A) (e : A) : A :=</span>
+<span class="source-line selected" id="L19"><a class="line-no" href="#L19">19</a>  star (g : A) * (t : A) * e</span>
+<span class="source-line selected" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>/-- If `t` takes `e` to the conjugate of `f` by `g`, then `g⁺ t e` has initial</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>support `e` and final support `f`. -/</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>theorem matchedLink_supports (g t : unitary A) (e f : A)</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>    (he : IsStarProjection e)</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>    (hmatch : (t : A) * e * star (t : A) = (g : A) * f * star (g : A)) :</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>    star (matchedLink g t e) * matchedLink g t e = e ∧</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>      matchedLink g t e * star (matchedLink g t e) = f := by</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>  constructor</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>  · simp only [matchedLink, star_mul, star_star, he.isSelfAdjoint.star_eq, mul_assoc]</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>    rw [← mul_assoc (g : A) (star (g : A)) ((t : A) * e),</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>      Unitary.mul_star_self_of_mem g.prop, one_mul,</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>      ← mul_assoc (star (t : A)) (t : A) e,</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>      Unitary.star_mul_self_of_mem t.prop, one_mul, he.isIdempotentElem.eq]</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>  · calc</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>      matchedLink g t e * star (matchedLink g t e) =</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>          star (g : A) * ((t : A) * e * star (t : A)) * (g : A) := by</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>            simp only [matchedLink, star_mul, star_star, he.isSelfAdjoint.star_eq]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>            rw [mul_assoc (star (g : A) * (t : A)) e</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>              (e * (star (t : A) * (g : A)))]</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>            rw [← mul_assoc e e (star (t : A) * (g : A)), he.isIdempotentElem.eq]</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>            simp only [mul_assoc]</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>      _ = star (g : A) * ((g : A) * f * star (g : A)) * (g : A) := by rw [hmatch]</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>      _ = f := by</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>        simp only [mul_assoc]</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>        rw [Unitary.star_mul_self_of_mem g.prop, mul_one,</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>          ← mul_assoc (star (g : A)) (g : A) f,</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>          Unitary.star_mul_self_of_mem g.prop, one_mul]</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a></span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>end MathlibAnnex.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

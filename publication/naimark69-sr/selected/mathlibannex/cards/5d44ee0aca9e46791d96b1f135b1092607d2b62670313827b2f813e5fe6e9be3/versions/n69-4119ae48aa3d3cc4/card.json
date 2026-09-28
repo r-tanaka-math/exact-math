@@ -1,0 +1,259 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_norm_compressionError",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_norm_compressionError",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_range": {
+      "end_line": 710,
+      "start_line": 683
+    },
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 28758,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "80678107836d77972acbfed5b188f0c57a3a9a6511151dbb16b7a02d2b4e5420",
+    "source_command_range": {
+      "end_column": 66,
+      "end_line": 710,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+      "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+      "start_column": 1,
+      "start_line": 683
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "start_byte": 28628,
+    "text": "theorem tendsto_norm_compressionError (x : Limit) :\n    Filter.Tendsto (fun n => ‖compressionError n x‖) Filter.atTop (nhds 0)"
+  },
+  "content": {
+    "assumptions": "The stages are linked by $a\\mapsto a\\otimes I_2$, and $A$ is their norm completion. The functional $\\omega$ is the continuous root state. Each $f_n$ is a self-adjoint projection of norm at most one. The element $x$ is arbitrary but fixed while $n$ tends to infinity.",
+    "conclusion": "Writing $E_n(x)=f_nxf_n-\\omega(x)f_n$, the theorem gives $\\lim_{n\\to\\infty}\\|E_n(x)\\|=0$ for every $x\\in A$. The error $E_n(x)$ is an element of $A$; its norm is the real-valued quantity that converges.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Root compression becomes scalar in norm",
+    "language_tag": "en",
+    "lean_realization_notes": "This is pointwise convergence in $x$, not convergence in operator norm uniformly over the unit ball. It also does not assert norm convergence of the projections $f_n$. The displayed projections have rank one at their defining finite stage; no rank-one assertion in an arbitrary representation of $A$ is used.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra with stage maps $\\iota_n:M_{2^n}(\\mathbb C)\\to A$ and root state $\\omega(\\iota_n(a))=a_{00}$. Put $f_n=\\iota_n(E_{00})$, where $E_{00}$ is the projection onto the first coordinate. Then, for every fixed $x\\in A$, $\\|f_nxf_n-\\omega(x)f_n\\|\\longrightarrow0$ as $n\\to\\infty$.",
+    "one_sentence_role": "Extends an exact rank-one compression identity on finite stages to a pointwise norm limit on the completed algebra.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For $\\varepsilon>0$, choose $y=\\iota_m(a)$ with $\\|x-y\\|<\\varepsilon/(\\|\\omega\\|+2)$, using density of the stages."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $n\\geq m$, the exact finite-stage compression identity gives $E_n(y)=0$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Linearity gives $E_n(x)=E_n(x-y)$. Hence $\\|E_n(x)\\|\\leq(1+\\|\\omega\\|)\\|x-y\\|<\\varepsilon$."
+      },
+      {
+        "step_id": "s4",
+        "text": "This bound holds for every $n\\geq m$, which is the required norm limit."
+      }
+    ],
+    "proof_summary": "If $y=\\iota_m(a)$ lies in a finite stage, rank-one compression gives $E_n(y)=0$ whenever $n\\geq m$. For arbitrary $z\\in A$, the projection norm bound and boundedness of $\\omega$ give $\\|E_n(z)\\|\\leq(1+\\|\\omega\\|)\\|z\\|$, uniformly in $n$. Approximate the fixed $x$ by such a $y$, and apply this estimate to $x-y$."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_norm_compressionError",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 710,
+          "start_line": 683
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L683-L710"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 470,
+          "start_line": 468
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L468-L470"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 481,
+          "start_line": 478
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rootState_stage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L478-L481"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 598,
+          "start_line": 596
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rootFlag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L596-L598"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isStarProjection_rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 612,
+          "start_line": 611
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.isStarProjection_rootFlag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L611-L612"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.compressionError",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 649,
+          "start_line": 647
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.compressionError",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L647-L649"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag_mul_ofStage_mul",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 645,
+          "start_line": 635
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rootFlag_mul_ofStage_mul",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L635-L645"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.compressionError_sub",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 654,
+          "start_line": 651
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.compressionError_sub",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L651-L654"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_compressionError_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 677,
+          "start_line": 656
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.norm_compressionError_le",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L656-L677"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.compressionError_ofStage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 681,
+          "start_line": 679
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.compressionError_ofStage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L679-L681"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.dense_stageRange",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 400,
+          "start_line": 388
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.dense_stageRange",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L388-L400"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "c2ac9201baafd4343fd842fed3bb480153e0b78995eb4dce3491d6475fdb9b00",
+    "uid": "lfh:lfh-declaration-card:sha256:5d44ee0aca9e46791d96b1f135b1092607d2b62670313827b2f813e5fe6e9be3"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "4119ae48aa3d3cc4f60c5e5adbe7f4530c6ff48f027809564ab08eb487d7cb30",
+    "uid": "lfh:lfh-card-exposition:sha256:c839097570931d2b6ba1f012323f3a44b5ac46ce051093a34d2de32880a2e5da"
+  },
+  "guide": "Here `Limit` is $A$, `rootState` is $\\omega$, `rootFlag n` is $f_n$, and `compressionError n x` is $E_n(x)$. The filter expression says that this real-valued sequence of norms tends to $0$ as $n\\to\\infty$.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/5d44ee0aca9e46791d96b1f135b1092607d2b62670313827b2f813e5fe6e9be3/versions/n69-4119ae48aa3d3cc4/index.html",
+    "pdf": "card.pdf"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_range": {
+      "end_line": 470,
+      "start_line": 468
+    },
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def rootState : Limit →L[ℂ] ℂ :=\n  preRootFunctional.extend (UniformSpace.Completion.toComplL : PreCAR →L[ℂ] Limit)",
+    "start_byte": 18837,
+    "end_byte": 18976,
+    "sha256": "b1a0518022b192a9fc83b1757a4ca19bd7a8ebd8c744ebef85a7dd453cc25f7c",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+      "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+      "start_line": 468,
+      "start_column": 1,
+      "end_line": 470,
+      "end_column": 84
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "The product-vector state on the completed CAR algebra",
+    "one_sentence_role": "Compatible evaluation at the distinguished matrix coordinate extends continuously to the CAR completion.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. At each stage take $a\\mapsto a_{00}$, the vector functional of the distinguished coordinate vector. These functionals determine a continuous linear functional $\\omega:A\\to\\mathbb C$ satisfying $\\omega(\\iota_n(a))=a_{00}$ for every $n$ and $a\\in A_n$. The definition called the root state is this extension.",
+    "definition_explanation": "The coordinate estimate $|a_{00}|\\leq\\|a\\|$ bounds each stage functional by $1$. The standard inclusion preserves the zero coordinate, so these maps agree on common representatives in the algebraic direct limit. They therefore define a bounded linear functional on the normed direct limit. Extending that functional to its completion gives $\\omega$; the extension keeps the stage values unchanged. Positivity passes from the stage functionals to the completion by continuity, and evaluation at the common unit gives normalization.",
+    "assumptions": "The stage system and distinguished zero coordinate are fixed as above. The completion uses the CAR norm. No ambient Hilbert-space representation is chosen in this definition.",
+    "conclusion": "The defining restriction formula determines $\\omega$ uniquely among continuous linear functionals, because the stage union is dense. The cited positivity and normalization results give $\\omega(a^*a)\\geq0$ and $\\omega(1)=1$, so this functional is a state.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "Normalization and positivity are properties proved after the definition. The state evaluates one distinguished coordinate; it is not the normalized trace on a matrix stage. Its definition does not assert that it is faithful.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L468-L470",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 470,
+          "start_line": 468
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Stage coordinate functional",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean#L62-L66",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFunctional",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean",
+        "source_range": {
+          "end_line": 66,
+          "start_line": 62
+        },
+        "source_sha256": "fe2c9e8ff50baff00d584846accb3633966bdf891c8faa900c1c32ed3e2a574f",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Compatibility of the coordinate functional",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean#L72-L78",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFunctional_step",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean",
+        "source_range": {
+          "end_line": 78,
+          "start_line": 72
+        },
+        "source_sha256": "fe2c9e8ff50baff00d584846accb3633966bdf891c8faa900c1c32ed3e2a574f",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Bounded functional before completion",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L460-L462",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.preRootFunctional",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 462,
+          "start_line": 460
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Stage restriction of the extended functional",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L478-L481",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 481,
+          "start_line": 478
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Normalization of the root state",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L503-L507",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState_one",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 507,
+          "start_line": 503
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Positivity of the root state",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L489-L497",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState_star_mul_self_nonneg",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 497,
+          "start_line": 489
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Uniqueness from the dense stage restrictions",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L539-L548",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.eq_rootState_of_restrict",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 548,
+          "start_line": 539
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "57b95199be75ec60e4eb22a021a39874e3414c50b4cdd2f9cf26aef0f56e9658",
+    "uid": "lfh:lfh-declaration-card:sha256:40a210ab270847d874db7bbe7090d71a22bdf29970b3f0c379b59095ad3fb767"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "1cf9d495caf1f451824a59c31c133a84868a848b7374b520c4e7f8f1ea07fb49",
+    "uid": "lfh:lfh-card-exposition:sha256:53aedc46c802af1a76ee0a4393225c366d54a9c4f97340a9d8198bb8d95cb0d5"
+  },
+  "guide": "Here `Limit` is $A$ and `PreCAR` is the normed direct limit before completion. `preRootFunctional` is its bounded coordinate functional, and `.extend` gives $\\omega$ on the completion. The stage inclusion $\\iota_n$ used in the Statement is named `ofStage n` in the separately linked [restriction theorem `rootState_stage`](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L478-L481), not in the defining line displayed here. Positivity and normalization are also separate cited results.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/40a210ab270847d874db7bbe7090d71a22bdf29970b3f0c379b59095ad3fb767/versions/n69-1cf9d495caf1f451/index.html",
+    "pdf": "card.pdf"
+  }
+}

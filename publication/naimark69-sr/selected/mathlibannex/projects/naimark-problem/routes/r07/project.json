@@ -1,0 +1,90 @@
+{
+  "title": "Trace extensions and faithful representations on a separable space",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 9,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "27922027d64747500d388ffe7fff3d06d4640882cdd419547b722bf62435216f",
+        "uid": "lfh:lfh-declaration-card:sha256:38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b"
+      },
+      "url": "/mathlibannex/cards/38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b/versions/n69-707d398151dff952/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "19aada20d6485c9f12877628bd41c79977e2de0905d433433abf4d900666fe90",
+        "uid": "lfh:lfh-declaration-card:sha256:c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23"
+      },
+      "url": "/mathlibannex/cards/c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23/versions/n69-64d1456f00ba8382/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "e7f55b2b92580ed875a6b30248ba272b68f833012f770d7de23e7ba34c99bfa1",
+        "uid": "lfh:lfh-declaration-card:sha256:6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137"
+      },
+      "url": "/mathlibannex/cards/6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137/versions/n69-28ed6f5a0c1e3bda/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "4e50c44f14a48c8f061646a405c75ba136829cab84f8fd45d4e52cf87386ca33",
+        "uid": "lfh:lfh-declaration-card:sha256:a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27"
+      },
+      "url": "/mathlibannex/cards/a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27/versions/n69-e14c11c65ccfaa24/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "620fecbf0a4335ede2fbb821725d07328b78484d0203a58f214549901eb839bd",
+        "uid": "lfh:lfh-declaration-card:sha256:e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d"
+      },
+      "url": "/mathlibannex/cards/e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d/versions/n69-ac498d0b64ed15df/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "083694f92a81054269d1db41236e51316cbd3d901c399e192b23a742ca2ef266",
+        "uid": "lfh:lfh-declaration-card:sha256:4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3"
+      },
+      "url": "/mathlibannex/cards/4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3/versions/n69-5b192ccbb19e7e60/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "8a9fbbd1a0305f221e617a417ec288d2563b88c6bb308562369f956067b88ccb",
+        "uid": "lfh:lfh-declaration-card:sha256:bd015ee41f91bc2a37747d438f714880780826893cb63ee7e84310a987b0611e"
+      },
+      "url": "/mathlibannex/cards/bd015ee41f91bc2a37747d438f714880780826893cb63ee7e84310a987b0611e/versions/n69-7def775971ef9e1b/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "b44fc1eb359af758468f55442e998fc4f91a92be8dcf566311f37e8b000bc06f",
+        "uid": "lfh:lfh-declaration-card:sha256:b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee"
+      },
+      "url": "/mathlibannex/cards/b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee/versions/n69-0bd44fead9f058ef/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "d604a2745ef32d61d8f9b60d3479ff7289bed7fccdc662ee899b3feace46bafd",
+        "uid": "lfh:lfh-declaration-card:sha256:258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e"
+      },
+      "url": "/mathlibannex/cards/258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e/versions/n69-462078ea562693ed/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

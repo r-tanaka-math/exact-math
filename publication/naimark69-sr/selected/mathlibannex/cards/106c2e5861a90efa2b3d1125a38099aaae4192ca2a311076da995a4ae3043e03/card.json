@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "f52036ddaaec14e5e4a8b4f69ba02afda7fad8adfdb89074f5314f786390b3ac",
+  "approved_card_model_sha256": "a263c510540b0787d80b72147385142589fcafc198baeb07583db7822cec63c8",
+  "assumptions": "Let A be a nonzero unital complex C*-algebra, H a complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. Assume additionally that π is injective. No separability assumption on H is required.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "3e840be62b2cd37be2177465ee59017e1bba2f722c38e1e8234b5ca2f888b123",
+    "uid": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.isIrreducible_pureState_gnsStarAlgHom",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "54d38276b2624f4bbb831bdcdc75bbba5ee6d940ee1923e2674d469c88464230",
+        "uid": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "A is simple in the exact closed-two-sided-ideal sense IsSimpleCStarAlgebra A.",
+  "declaration_kind": "theorem",
+  "definition_equation": "IsSingletonIrreducibleModel π ∧ Injective π → IsSimpleCStarAlgebra A.",
+  "definition_explanation": "IsSingletonIrreducibleModel π ∧ Injective π → IsSimpleCStarAlgebra A.",
+  "display_title": "Simplicity from a faithful representative of the unique irreducible-representation class",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] (pi : MathlibAnnex.Analysis.CStarAlgebra.Representation A H), pi.IsSingletonIrreducibleModel → Function.Injective ⇑pi → MathlibAnnex.Analysis.CStarAlgebra.IsSimpleCStarAlgebra A",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "a311f0b148c937aac720c808da3c3570ce6cb520f8a1b62953e21141de20a478",
+    "uid": "lfh:lfh-card-exposition:sha256:380ddc14dba1e074c0d7175e01d605cd2c9af2fcbf58a00355cc271d2999ab17"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "bd331ad47e6f8abbe054a5fce0c2821304d5be5ab8eed6641e8e9a0a5dd9bd17",
+    "uid": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "a311f0b148c937aac720c808da3c3570ce6cb520f8a1b62953e21141de20a478",
+    "uid": "lfh:lfh-card-exposition:sha256:380ddc14dba1e074c0d7175e01d605cd2c9af2fcbf58a00355cc271d2999ab17"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "bd331ad47e6f8abbe054a5fce0c2821304d5be5ab8eed6641e8e9a0a5dd9bd17",
+      "uid": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.isSimpleCStarAlgebra_of_singleton_of_injective",
+  "natural_language_statement": "Let A be a nonzero unital complex C*-algebra, H a complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. Assume additionally that π is injective. No separability assumption on H is required. A is simple in the exact closed-two-sided-ideal sense IsSimpleCStarAlgebra A.",
+  "one_sentence_role": "Converts a faithful representative of the unique irreducible-representation class into closed-two-sided-ideal simplicity of the algebra.",
+  "owner_review_item_sha256": "de68624063dcc495f92c5981854d0067643ac5b1f5cb2f855dbb2a7c420f5170",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] (pi : MathlibAnnex.Analysis.CStarAlgebra.Representation A H), pi.IsSingletonIrreducibleModel → Function.Injective ⇑pi → MathlibAnnex.Analysis.CStarAlgebra.IsSimpleCStarAlgebra A"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsSingletonIrreducibleModel π ∧ Injective π → IsSimpleCStarAlgebra A."
+    },
+    {
+      "step_id": "source_route",
+      "text": "For a closed two-sided ideal I, the source splits I=⊤ from a proper I. In the proper case an irreducible GNS representation annihilating I belongs to the unique class represented by π; the intertwiner makes π vanish on each x∈I, and injectivity forces x=0, so I=⊥."
+    }
+  ],
+  "proof_summary": "For a closed two-sided ideal I, the source splits I=⊤ from a proper I. In the proper case an irreducible GNS representation annihilating I belongs to the unique class represented by π; the intertwiner makes π vanish on each x∈I, and injectivity forces x=0, so I=⊥.",
+  "source_excerpt": {
+    "bytes": 1065,
+    "sha256": "f57ed54d136c789c196ddfbecb19a14018bac47aeef91bef9aa32323405c7612"
+  },
+  "source_locator": {
+    "end_column": 19,
+    "end_line": 55,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean",
+    "source_sha256": "860f0f4c097101bc50e28b0863237bce6e6161eb2e0240d639b544f228563b3b",
+    "start_column": 1,
+    "start_line": 29
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "f74f605b86766bd291eb85bd87f53ab0f53d8dba73c17d58a650d1d104cc473e",
+    "uid": "lfh:lfh-source-build-binding:sha256:17e93a2b44447975345f6a14b42cc2785366b3a716233491fbadcff1e14b489e"
+  },
+  "source_sha256": "860f0f4c097101bc50e28b0863237bce6e6161eb2e0240d639b544f228563b3b",
+  "source_signature": {
+    "end_byte": 1201,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "cb3e229e8d0d1e4c3ab0e65513a9530fc61377d98154c26cc51963382e6a9713",
+    "source_command_range": {
+      "end_column": 19,
+      "end_line": 55,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean",
+      "source_sha256": "860f0f4c097101bc50e28b0863237bce6e6161eb2e0240d639b544f228563b3b",
+      "start_column": 1,
+      "start_line": 29
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean",
+    "source_sha256": "860f0f4c097101bc50e28b0863237bce6e6161eb2e0240d639b544f228563b3b",
+    "start_byte": 985,
+    "text": "theorem isSimpleCStarAlgebra_of_singleton_of_injective [Nontrivial A]\n    (pi : Representation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi)\n    (hinj : Function.Injective pi) : IsSimpleCStarAlgebra A"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean#L29-L55",
+  "stable_card_id": "106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

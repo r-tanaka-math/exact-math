@@ -1,0 +1,109 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.AtomicConstruction.intertwines_of_source_of_generators | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/fcde8663e74d6dda46b919b9/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.AtomicConstruction.intertwines_of_source_of_generators</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedExt.lean</code>, lines 83–107.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedExt.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23/versions/n69-64d1456f00ba8382/index.html">Back to Pointed unitary transport between trace-cyclic target representations</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.AtomicConstruction.GeneratedReduction</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import Mathlib.Analysis.InnerProductSpace.Adjoint</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Extensionality for an actual norm-closed generated algebra</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>These lemmas use the defining norm closure only. They introduce no universal</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>completion and no claim that finite relations determine an operator norm.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>-/</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a></span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>set_option autoImplicit false</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>open Topology</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>open scoped CStarAlgebra</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>namespace MathlibAnnex.CStarAlgebra.AtomicConstruction</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>universe u v w z</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>variable {A : Type u} [CStarAlgebra A]</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>variable {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>variable {J : Type w}</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a></span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>/-- A closed star subalgebra containing the actual source and added generators</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>is the whole concrete target. -/</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>theorem eq_top_of_source_mem_of_generator_mem</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>    (π : Representation A H) (U : J → H →L[ℂ] H)</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    (C : StarSubalgebra ℂ (concreteTarget π U))</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>    (hC : IsClosed (C : Set (concreteTarget π U)))</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    (hsource : ∀ a, sourceHom π U a ∈ C)</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    (hgenerator : ∀ i, generator π U i ∈ C) : C = ⊤ := by</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  let B : StarSubalgebra ℂ (H →L[ℂ] H) :=</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>    StarAlgebra.adjoin ℂ (Set.range π ∪ Set.range U)</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>  have hlift (x : H →L[ℂ] H) (hx : x ∈ B) :</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>      (⟨x, StarSubalgebra.le_topologicalClosure B hx⟩ : concreteTarget π U) ∈ C := by</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    induction hx using StarAlgebra.adjoin_induction with</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    | mem x hx =&gt;</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>        rcases hx with ⟨a, rfl⟩ | ⟨i, rfl⟩</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>        · exact hsource a</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>        · exact hgenerator i</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    | algebraMap c =&gt; exact C.algebraMap_mem c</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    | add x y hx hy hxc hyc =&gt; exact C.add_mem hxc hyc</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>    | mul x y hx hy hxc hyc =&gt; exact C.mul_mem hxc hyc</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>    | star x hx hxc =&gt;</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>        change star (⟨x, StarSubalgebra.le_topologicalClosure B hx⟩ :</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>          concreteTarget π U) ∈ C</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>        exact star_mem hxc</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  let inclusion : B →⋆ₐ[ℂ] concreteTarget π U :=</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>    StarSubalgebra.inclusion (StarSubalgebra.le_topologicalClosure B)</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  have hdense : DenseRange inclusion := by</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    change DenseRange (Set.inclusion (StarSubalgebra.le_topologicalClosure B))</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    apply (denseRange_inclusion_iff _).2</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    change closure (B : Set (H →L[ℂ] H)) ⊆ closure (B : Set (H →L[ℂ] H))</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    exact le_rfl</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>  apply top_unique</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  intro x _</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  have hrange : Set.range inclusion ⊆ (C : Set (concreteTarget π U)) := by</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    rintro _ ⟨b, rfl⟩</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>    exact hlift b b.property</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  apply closure_minimal hrange hC</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>  rw [hdense.closure_range]</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>  exact Set.mem_univ x</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a></span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>/-- Two continuous star homomorphisms out of the same concrete target agree</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>if they agree on its displayed generators. -/</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>theorem starAlgHom_ext {D : Type z} [CStarAlgebra D]</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    (π : Representation A H) (U : J → H →L[ℂ] H)</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    (f g : concreteTarget π U →⋆ₐ[ℂ] D)</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    (hsource : ∀ a, f (sourceHom π U a) = g (sourceHom π U a))</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    (hgenerator : ∀ i, f (generator π U i) = g (generator π U i)) : f = g := by</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>  let C : StarSubalgebra ℂ (concreteTarget π U) := StarAlgHom.equalizer f g</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  have hclosed : IsClosed (C : Set (concreteTarget π U)) :=</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>    isClosed_eq (map_continuous f) (map_continuous g)</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>  have htop : C = ⊤ :=</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    eq_top_of_source_mem_of_generator_mem π U C hclosed hsource hgenerator</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>  ext a</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>  have ha : a ∈ C := by rw [htop]; trivial</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>  exact ha</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a></span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>/-- Intertwining two arbitrary representations, rather than requiring one of</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>them to be the concrete ambient inclusion. -/</span>
+<span class="source-line selected" id="L83"><a class="line-no" href="#L83">83</a>theorem intertwines_of_source_of_generators</span>
+<span class="source-line selected" id="L84"><a class="line-no" href="#L84">84</a>    {K : Type*} [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line selected" id="L85"><a class="line-no" href="#L85">85</a>    {L : Type*} [NormedAddCommGroup L] [InnerProductSpace ℂ L] [CompleteSpace L]</span>
+<span class="source-line selected" id="L86"><a class="line-no" href="#L86">86</a>    (π : Representation A H) (U : J → H →L[ℂ] H)</span>
+<span class="source-line selected" id="L87"><a class="line-no" href="#L87">87</a>    (ρ : Representation (concreteTarget π U) K)</span>
+<span class="source-line selected" id="L88"><a class="line-no" href="#L88">88</a>    (σ : Representation (concreteTarget π U) L) (e : K ≃ₗᵢ[ℂ] L)</span>
+<span class="source-line selected" id="L89"><a class="line-no" href="#L89">89</a>    (hsource : ∀ a, (e : K →L[ℂ] L).comp (ρ (sourceHom π U a)) =</span>
+<span class="source-line selected" id="L90"><a class="line-no" href="#L90">90</a>      (σ (sourceHom π U a)).comp (e : K →L[ℂ] L))</span>
+<span class="source-line selected" id="L91"><a class="line-no" href="#L91">91</a>    (hgenerator : ∀ i, (e : K →L[ℂ] L).comp (ρ (generator π U i)) =</span>
+<span class="source-line selected" id="L92"><a class="line-no" href="#L92">92</a>      (σ (generator π U i)).comp (e : K →L[ℂ] L)) :</span>
+<span class="source-line selected" id="L93"><a class="line-no" href="#L93">93</a>    ∀ a, (e : K →L[ℂ] L).comp (ρ a) = (σ a).comp (e : K →L[ℂ] L) := by</span>
+<span class="source-line selected" id="L94"><a class="line-no" href="#L94">94</a>  let f := e.conjStarAlgEquiv.toStarAlgHom.comp ρ</span>
+<span class="source-line selected" id="L95"><a class="line-no" href="#L95">95</a>  have hconj (a : concreteTarget π U)</span>
+<span class="source-line selected" id="L96"><a class="line-no" href="#L96">96</a>      (ha : (e : K →L[ℂ] L).comp (ρ a) = (σ a).comp (e : K →L[ℂ] L)) :</span>
+<span class="source-line selected" id="L97"><a class="line-no" href="#L97">97</a>      f a = σ a := by</span>
+<span class="source-line selected" id="L98"><a class="line-no" href="#L98">98</a>    ext y</span>
+<span class="source-line selected" id="L99"><a class="line-no" href="#L99">99</a>    have h := congrArg (fun T : K →L[ℂ] L ↦ T (e.symm y)) ha</span>
+<span class="source-line selected" id="L100"><a class="line-no" href="#L100">100</a>    simpa [f, ContinuousLinearMap.comp_apply] using h</span>
+<span class="source-line selected" id="L101"><a class="line-no" href="#L101">101</a>  have hfg : f = σ := starAlgHom_ext π U f σ</span>
+<span class="source-line selected" id="L102"><a class="line-no" href="#L102">102</a>    (fun b ↦ hconj _ (hsource b)) (fun i ↦ hconj _ (hgenerator i))</span>
+<span class="source-line selected" id="L103"><a class="line-no" href="#L103">103</a>  intro a</span>
+<span class="source-line selected" id="L104"><a class="line-no" href="#L104">104</a>  ext x</span>
+<span class="source-line selected" id="L105"><a class="line-no" href="#L105">105</a>  have h := congrArg (fun p : concreteTarget π U →⋆ₐ[ℂ] (L →L[ℂ] L) ↦</span>
+<span class="source-line selected" id="L106"><a class="line-no" href="#L106">106</a>    p a (e x)) hfg</span>
+<span class="source-line selected" id="L107"><a class="line-no" href="#L107">107</a>  simpa [f, ContinuousLinearMap.comp_apply] using h</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a></span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>end MathlibAnnex.CStarAlgebra.AtomicConstruction</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

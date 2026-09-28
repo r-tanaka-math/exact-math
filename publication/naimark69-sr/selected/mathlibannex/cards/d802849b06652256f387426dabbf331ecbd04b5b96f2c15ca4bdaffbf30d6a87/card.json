@@ -1,0 +1,139 @@
+{
+  "assumptions": "Real normed vector spaces; radius-R balls about c and f(c) lie in the source and target; R > 0; x,y lie in the radius-R/4 source ball.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "ce8bfa95660d8de634aced4f54406ab9e2fd70c17a7ce374fa8a0d30cd90822e",
+    "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "8d98a636a7e168433d5141c38866083e4d514bbd9a686b436317cdeb3c85a05e",
+        "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+      },
+      "text": "The proof or construction of Midpoint preservation on a quarter ball uses the project declaration “Midpoint preservation under lens containment” at the indicated step."
+    },
+    {
+      "label": "MathlibAnnex.symmetricLens",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3935024dd76f1c0d54f0ff1aa13a35e31d2a4b7ebce1fae22ae01e793e6eba20",
+        "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+      },
+      "text": "The proof or construction of Midpoint preservation on a quarter ball uses the project declaration “Symmetric lens” at the indicated step."
+    }
+  ],
+  "conclusion": "f sends the midpoint of x and y to the midpoint of f(x) and f(y).",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Midpoint preservation on a quarter ball",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "b06696a288bb9fe6b9fb685d0ad6e9d5a44298f7ae45e9a005cc2309197578a0",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:822a4d3f714ff4beac333d17007c72f9db27ff734c1bd7b9f92160452820477d"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "81c408d08caad98e784a6f6c6f5aaacbe2736834dee2eb84cce9af3ab14ccf02",
+    "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "b06696a288bb9fe6b9fb685d0ad6e9d5a44298f7ae45e9a005cc2309197578a0",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:822a4d3f714ff4beac333d17007c72f9db27ff734c1bd7b9f92160452820477d"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "81c408d08caad98e784a6f6c6f5aaacbe2736834dee2eb84cce9af3ab14ccf02",
+      "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+  "natural_language_statement": "Let f:s≃ᵢt and let c∈s. Assume R>0, ball(c,R)⊆s, and ball(f(c),R)⊆t. If x,y∈s both lie in ball(c,R/4), then f sends their midpoint to the midpoint of f(x) and f(y).",
+  "one_sentence_role": "Obtains a uniform local midpoint law from symmetric-lens center rigidity.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Use the triangle inequality through c to bound dist(x,y) by less than R/2."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Deduce the half-distance condition needed for a symmetric lens of radius R/2."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Show every point of the source lens lies in ball(c,R) by combining its distance to x with the R/4 bound on x."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Transport the R/4 bound from x to f(x), then prove the analogous containment of the target lens in ball(f(c),R)."
+    },
+    {
+      "step_id": "step-5",
+      "text": "Apply midpoint preservation for a set isometry whose corresponding lenses remain inside the source and target sets."
+    }
+  ],
+  "proof_summary": "The two endpoints are less than R/2 apart. Their symmetric lens of radius R/2 lies in the source R-ball, and the corresponding target lens lies in the target R-ball. The subset-local lens theorem therefore applies.",
+  "source_locator": {
+    "end_column": 79,
+    "end_line": 192,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_column": 1,
+    "start_line": 137
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "eea43f2b97bf136381c39a01c91a8833d0722d43592436814ffc21fa445a72b9",
+    "uid": "lfh:lfh-source-build-binding:sha256:7bcd7b6744ceaefeeb258b665e8bba4c55f9cbf07eb6bbbc63490c72c408741a"
+  },
+  "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+  "source_signature": {
+    "end_byte": 6703,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "cb472dd816bb08047ca8db0e178d2840a9408e2e3fae224b33828dec78d41605",
+    "source_command_range": {
+      "end_column": 79,
+      "end_line": 192,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+      "start_column": 1,
+      "start_line": 137
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_byte": 5924,
+    "text": "theorem map_midpoint_of_mem_ball\n    {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) {R : ℝ} (hR : 0 < R)\n    (hsball : ball (c : E) R ⊆ s)\n    (htball : ball ((f c : t) : F) R ⊆ t)\n    (x y : s) (hx : (x : E) ∈ ball (c : E) (R / 4))\n    (hy : (y : E) ∈ ball (c : E) (R / 4)) :\n    ((f ⟨midpoint ℝ (x : E) (y : E),\n          hsball (by\n            rw [mem_ball]\n            calc\n              dist (midpoint ℝ (x : E) (y : E)) (c : E) ≤\n                  (dist (x : E) (c : E) + dist (y : E) (c : E)) / 2 := by\n                    simpa [dist_comm] using\n                      dist_midpoint_midpoint_le (x : E) (y : E) (c : E) (c : E)\n              _ < R := by rw [mem_ball] at hx hy; linarith)⟩ : t) : F) =\n      midpoint ℝ ((f x : t) : F) ((f y : t) : F)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L137-L192",
+  "stable_card_id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

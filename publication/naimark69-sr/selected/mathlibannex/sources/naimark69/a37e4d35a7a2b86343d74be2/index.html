@@ -1,0 +1,273 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/a37e4d35a7a2b86343d74be2/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean</code>, lines 201–212.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1/versions/n69-89806d19203e218a/index.html">Back to Two-sided inner sequences imply pure-state homogeneity</a> · <a href="../../../cards/3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152/versions/n69-38a7fba1be45ea9b/index.html">Back to A two-sided inner intertwining sequence for two states</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import Mathlib.Algebra.Star.UnitaryStarAlgAut</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import Mathlib.Analysis.CStarAlgebra.Hom</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import Mathlib.Topology.Algebra.InfiniteSum.Real</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># Two-sided pointwise limits of C-star algebra automorphisms</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>The forward and inverse pointwise limits are kept together.  This is the</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>closure step required by an alternating approximately-inner construction:</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>pointwise convergence of the forward maps alone would not prove surjectivity.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>open Filter</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>namespace MathlibAnnex.CStarAlgebra</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>variable {A : Type*} [CStarAlgebra A]</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>/-- Summable pointwise increments give the Cauchy input used by the</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>two-sided limit construction.  This records the actual norm budget rather</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>than requiring convergence of the implementing unitaries. -/</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>theorem cauchySeq_of_summable_norm_step (f : ℕ → A)</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>    (hf : Summable fun n =&gt; ‖f (n + 1) - f n‖) : CauchySeq f := by</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>  apply cauchySeq_of_summable_dist</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>  simpa only [Nat.succ_eq_add_one, dist_eq_norm, norm_sub_rev] using hf</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a></span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>/-- Point-norm approximate innerness, with one unitary serving the whole</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>finite set. -/</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>def IsPointNormApproximatelyInner (alpha : A ≃⋆ₐ[ℂ] A) : Prop :=</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>  ∀ (F : Finset A) (epsilon : ℝ), 0 &lt; epsilon →</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>    ∃ u : unitary A, ∀ a ∈ F,</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>      ‖alpha a - Unitary.conjStarAlgAut ℂ A u a‖ &lt; epsilon</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a></span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>/-- The chosen pointwise limit of a pointwise Cauchy automorphism sequence. -/</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>noncomputable def pointwiseLimit (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a)) (a : A) : A :=</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  Classical.choose (cauchySeq_tendsto_of_complete (hf a))</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a></span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>theorem tendsto_pointwiseLimit (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a)) (a : A) :</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    Tendsto (fun n =&gt; f n a) atTop (nhds (pointwiseLimit f hf a)) :=</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>  Classical.choose_spec (cauchySeq_tendsto_of_complete (hf a))</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a></span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>/-- Algebraic operations pass to the chosen pointwise limit. -/</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>noncomputable def pointwiseLimitHom (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a)) : A →⋆ₐ[ℂ] A where</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  toFun := pointwiseLimit f hf</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  map_one&#x27; := by</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    apply tendsto_nhds_unique (tendsto_pointwiseLimit f hf 1)</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    simp</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>  map_mul&#x27; a b := by</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    apply tendsto_nhds_unique (tendsto_pointwiseLimit f hf (a * b))</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    simpa only [map_mul] using</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>      (tendsto_pointwiseLimit f hf a).mul (tendsto_pointwiseLimit f hf b)</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  map_zero&#x27; := by</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    apply tendsto_nhds_unique (tendsto_pointwiseLimit f hf 0)</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    simp</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  map_add&#x27; a b := by</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    apply tendsto_nhds_unique (tendsto_pointwiseLimit f hf (a + b))</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>    simpa only [map_add] using</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>      (tendsto_pointwiseLimit f hf a).add (tendsto_pointwiseLimit f hf b)</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>  commutes&#x27; c := by</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    apply tendsto_nhds_unique (tendsto_pointwiseLimit f hf ((algebraMap ℂ A) c))</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    simpa only [Algebra.algebraMap_eq_smul_one, map_smul, map_one] using</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>      (tendsto_const_nhds : Tendsto (fun _ : ℕ =&gt; c • (1 : A)) atTop (nhds (c • 1)))</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>  map_star&#x27; a := by</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    apply tendsto_nhds_unique (tendsto_pointwiseLimit f hf (star a))</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    have hstar := (continuous_star.tendsto _).comp (tendsto_pointwiseLimit f hf a)</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    have hfun : (fun n =&gt; f n (star a)) = star ∘ (fun n =&gt; f n a) := by</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>      funext n</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>      exact map_star (f n) a</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>    rw [hfun]</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    exact hstar</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a></span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>@[simp] theorem pointwiseLimitHom_apply (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a)) (a : A) :</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    pointwiseLimitHom f hf a = pointwiseLimit f hf a := rfl</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a></span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>/-- Isometric diagonal approximation identifies the value of the pointwise</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>limit at a moving input. -/</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>theorem pointwiseLimitHom_apply_eq_of_diagonal</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    (f : ℕ → StarAlgEquiv ℂ A A) (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>    (g : ℕ → A) (b c : A) (hg : Tendsto g atTop (nhds b))</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>    (hdiag : Tendsto (fun n =&gt; f n (g n)) atTop (nhds c)) :</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>    pointwiseLimitHom f hf b = c := by</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>  have hfixed : Tendsto (fun n =&gt; f n b) atTop</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>      (nhds (pointwiseLimitHom f hf b)) := tendsto_pointwiseLimit f hf b</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>  have hto_c : Tendsto (fun n =&gt; f n b) atTop (nhds c) := by</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    rw [Metric.tendsto_atTop]</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>    intro epsilon hepsilon</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    obtain ⟨Ng, hNg⟩ := (Metric.tendsto_atTop.mp hg) (epsilon / 2) (by positivity)</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>    obtain ⟨Nd, hNd⟩ := (Metric.tendsto_atTop.mp hdiag) (epsilon / 2) (by positivity)</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>    refine ⟨max Ng Nd, fun n hn =&gt; ?_⟩</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    have hg_n := hNg n (le_trans (le_max_left Ng Nd) hn)</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>    have hd_n := hNd n (le_trans (le_max_right Ng Nd) hn)</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>    have hdist : dist (f n b) (f n (g n)) = dist b (g n) :=</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>      (StarAlgEquiv.isometry (f n)).dist_eq b (g n)</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>    calc</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>      dist (f n b) c ≤ dist (f n b) (f n (g n)) + dist (f n (g n)) c :=</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>        dist_triangle _ _ _</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>      _ = dist b (g n) + dist (f n (g n)) c := by rw [hdist]</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>      _ &lt; epsilon / 2 + epsilon / 2 := by</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>        apply add_lt_add</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>        · simpa only [dist_comm] using hg_n</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>        · exact hd_n</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>      _ = epsilon := by ring</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>  exact tendsto_nhds_unique hfixed hto_c</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a></span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>/-- A two-sided pointwise Cauchy sequence of star-algebra equivalences has a</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>star-algebra equivalence as its limit.  The diagonal composition hypotheses</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>are the forward/inverse controls needed to prevent a merely injective limit. -/</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>noncomputable def pointwiseLimitEquiv</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    (f g : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>    (hg : ∀ a, CauchySeq (fun n =&gt; g n a))</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>    (hfg : ∀ a, Tendsto (fun n =&gt; f n (g n a)) atTop (nhds a))</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>    (hgf : ∀ a, Tendsto (fun n =&gt; g n (f n a)) atTop (nhds a)) :</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>    StarAlgEquiv ℂ A A := by</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>  let F := pointwiseLimitHom f hf</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>  let G := pointwiseLimitHom g hg</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>  have hFG (a : A) : F (G a) = a := by</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>    apply pointwiseLimitHom_apply_eq_of_diagonal f hf (fun n =&gt; g n a) (G a) a</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>    · exact tendsto_pointwiseLimit g hg a</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>    · exact hfg a</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>  have hGF (a : A) : G (F a) = a := by</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>    apply pointwiseLimitHom_apply_eq_of_diagonal g hg (fun n =&gt; f n a) (F a) a</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>    · exact tendsto_pointwiseLimit f hf a</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>    · exact hgf a</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>  exact StarAlgEquiv.ofBijective F ⟨</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>    fun x y hxy =&gt; by rw [← hGF x, ← hGF y, hxy],</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>    fun y =&gt; ⟨G y, hFG y⟩⟩</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a></span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>@[simp] theorem pointwiseLimitEquiv_apply</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    (f g : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>    (hg : ∀ a, CauchySeq (fun n =&gt; g n a))</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>    (hfg : ∀ a, Tendsto (fun n =&gt; f n (g n a)) atTop (nhds a))</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>    (hgf : ∀ a, Tendsto (fun n =&gt; g n (f n a)) atTop (nhds a)) (a : A) :</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>    pointwiseLimitEquiv f g hf hg hfg hgf a = pointwiseLimitHom f hf a := rfl</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a></span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>/-- A pointwise limit of inner automorphisms is point-norm approximately</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>inner on every finite set.  Surjectivity of the limit is supplied separately</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>by the inverse and diagonal hypotheses of `pointwiseLimitEquiv`. -/</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>theorem isPointNormApproximatelyInner_pointwiseLimitEquiv</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>    (f g : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>    (hg : ∀ a, CauchySeq (fun n =&gt; g n a))</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>    (hfg : ∀ a, Tendsto (fun n =&gt; f n (g n a)) atTop (nhds a))</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>    (hgf : ∀ a, Tendsto (fun n =&gt; g n (f n a)) atTop (nhds a))</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>    (hinner : ∀ n, ∃ u : unitary A, f n = Unitary.conjStarAlgAut ℂ A u) :</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>    IsPointNormApproximatelyInner (pointwiseLimitEquiv f g hf hg hfg hgf) := by</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>  intro F epsilon hepsilon</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>  have hconv (a : A) : Tendsto (fun n =&gt; f n a) atTop</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>      (nhds (pointwiseLimitEquiv f g hf hg hfg hgf a)) := by</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>    simpa only [pointwiseLimitEquiv_apply, pointwiseLimitHom_apply] using</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>      tendsto_pointwiseLimit f hf a</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>  have hfinite : ∀ᶠ n in atTop, ∀ a ∈ F,</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>      ‖pointwiseLimitEquiv f g hf hg hfg hgf a - f n a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>    apply (F.eventually_all).2</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>    intro a _ha</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>    have ha : ∀ᶠ n in atTop,</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>        f n a ∈ Metric.ball (pointwiseLimitEquiv f g hf hg hfg hgf a) epsilon :=</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>      (hconv a) (Metric.ball_mem_nhds _ hepsilon)</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>    filter_upwards [ha] with n hn</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>    simpa only [Metric.mem_ball, dist_eq_norm, norm_sub_rev] using hn</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>  obtain ⟨n, hn⟩ := hfinite.exists</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>  obtain ⟨u, hu⟩ := hinner n</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>  refine ⟨u, fun a ha =&gt; ?_⟩</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>  rw [← hu]</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>  exact hn a ha</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a></span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>/-- The state equation also passes to the same forward pointwise limit.</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>Together with the preceding theorem this is the non-circular global closure</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>used after a local alternating construction has produced its two sequences. -/</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>theorem pointwiseLimitEquiv_state_and_approximatelyInner</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>    (f g : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>    (hg : ∀ a, CauchySeq (fun n =&gt; g n a))</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>    (hfg : ∀ a, Tendsto (fun n =&gt; f n (g n a)) atTop (nhds a))</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>    (hgf : ∀ a, Tendsto (fun n =&gt; g n (f n a)) atTop (nhds a))</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>    (hinner : ∀ n, ∃ u : unitary A, f n = Unitary.conjStarAlgAut ℂ A u)</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>    (phi psi : A →L[ℂ] ℂ)</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>    (hstate : ∀ a, Tendsto (fun n =&gt; phi (f n a)) atTop (nhds (psi a))) :</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>    (∀ a, phi (pointwiseLimitEquiv f g hf hg hfg hgf a) = psi a) ∧</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>      IsPointNormApproximatelyInner (pointwiseLimitEquiv f g hf hg hfg hgf) := by</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>  refine ⟨?_, isPointNormApproximatelyInner_pointwiseLimitEquiv</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>    f g hf hg hfg hgf hinner⟩</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>  intro a</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>  apply tendsto_nhds_unique</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    ((phi.continuous.tendsto _).comp (show Tendsto (fun n =&gt; f n a) atTop</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>      (nhds (pointwiseLimitEquiv f g hf hg hfg hgf a)) by</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>        simpa only [pointwiseLimitEquiv_apply, pointwiseLimitHom_apply] using</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>          tendsto_pointwiseLimit f hf a))</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>  exact hstate a</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a></span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>/-- The two-sided pointwise limit when the inverse sequence is literally the</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>sequence of inverse automorphisms.  Requiring both pointwise Cauchy conditions</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>is essential; the diagonal composition conditions are then exact. -/</span>
+<span class="source-line selected" id="L201"><a class="line-no" href="#L201">201</a>noncomputable def twoSidedPointwiseLimit</span>
+<span class="source-line selected" id="L202"><a class="line-no" href="#L202">202</a>    (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line selected" id="L203"><a class="line-no" href="#L203">203</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line selected" id="L204"><a class="line-no" href="#L204">204</a>    (hfinv : ∀ a, CauchySeq (fun n =&gt; (f n).symm a)) :</span>
+<span class="source-line selected" id="L205"><a class="line-no" href="#L205">205</a>    StarAlgEquiv ℂ A A :=</span>
+<span class="source-line selected" id="L206"><a class="line-no" href="#L206">206</a>  pointwiseLimitEquiv f (fun n =&gt; (f n).symm) hf hfinv</span>
+<span class="source-line selected" id="L207"><a class="line-no" href="#L207">207</a>    (fun a =&gt; by simpa using (tendsto_const_nhds :</span>
+<span class="source-line selected" id="L208"><a class="line-no" href="#L208">208</a>      Tendsto (fun _ : ℕ =&gt; a) atTop (nhds a)))</span>
+<span class="source-line selected" id="L209"><a class="line-no" href="#L209">209</a>    (fun a =&gt; by simpa using (tendsto_const_nhds :</span>
+<span class="source-line selected" id="L210"><a class="line-no" href="#L210">210</a>      Tendsto (fun _ : ℕ =&gt; a) atTop (nhds a)))</span>
+<span class="source-line selected" id="L211"><a class="line-no" href="#L211">211</a></span>
+<span class="source-line selected" id="L212"><a class="line-no" href="#L212">212</a>@[simp] theorem twoSidedPointwiseLimit_apply</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>    (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>    (hfinv : ∀ a, CauchySeq (fun n =&gt; (f n).symm a)) (a : A) :</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>    twoSidedPointwiseLimit f hf hfinv a = pointwiseLimitHom f hf a :=</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>  rfl</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a></span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>/-- The inverse of the two-sided pointwise limit is the pointwise limit of</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>the actual inverse sequence. -/</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>theorem twoSidedPointwiseLimit_symm_apply</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>    (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>    (hf : ∀ a, CauchySeq (fun n ↦ f n a))</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>    (hfinv : ∀ a, CauchySeq (fun n ↦ (f n).symm a)) (a : A) :</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>    (twoSidedPointwiseLimit f hf hfinv).symm a =</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>      pointwiseLimitHom (fun n ↦ (f n).symm) hfinv a := by</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>  apply (twoSidedPointwiseLimit f hf hfinv).injective</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>  calc</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>    _ = a := (twoSidedPointwiseLimit f hf hfinv).apply_symm_apply a</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>    _ = _ := by</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>      symm</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>      change pointwiseLimitHom f hf</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>          (pointwiseLimitHom (fun n ↦ (f n).symm) hfinv a) = a</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>      apply pointwiseLimitHom_apply_eq_of_diagonal f hf</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>        (fun n ↦ (f n).symm a)</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>      · exact tendsto_pointwiseLimit (fun n ↦ (f n).symm) hfinv a</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>      · simpa using (tendsto_const_nhds :</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>          Tendsto (fun _ : ℕ ↦ a) atTop (nhds a))</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a></span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>/-- Summable forward and inverse pointwise increments are a concrete budget</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>for the two Cauchy hypotheses of `twoSidedPointwiseLimit`. -/</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>theorem twoSidedPointwiseCauchy_of_summable</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>    (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>    (hforward : ∀ a, Summable fun n =&gt; ‖f (n + 1) a - f n a‖)</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>    (hinverse : ∀ a, Summable fun n =&gt;</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>      ‖(f (n + 1)).symm a - (f n).symm a‖) :</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>    (∀ a, CauchySeq (fun n =&gt; f n a)) ∧</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>      ∀ a, CauchySeq (fun n =&gt; (f n).symm a) :=</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>  ⟨fun a =&gt; cauchySeq_of_summable_norm_step _ (hforward a),</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>    fun a =&gt; cauchySeq_of_summable_norm_step _ (hinverse a)⟩</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a></span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>/-- Global approximately-inner state transport from a genuine two-sided</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>inner-automorphism sequence.  This is the reusable limit endpoint for the</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>alternating local construction; no convergence of the implementing</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a>unitaries themselves is assumed. -/</span>
+<span class="source-line" id="L256"><a class="line-no" href="#L256">256</a>theorem twoSidedPointwiseLimit_state_and_approximatelyInner</span>
+<span class="source-line" id="L257"><a class="line-no" href="#L257">257</a>    (f : ℕ → StarAlgEquiv ℂ A A)</span>
+<span class="source-line" id="L258"><a class="line-no" href="#L258">258</a>    (hf : ∀ a, CauchySeq (fun n =&gt; f n a))</span>
+<span class="source-line" id="L259"><a class="line-no" href="#L259">259</a>    (hfinv : ∀ a, CauchySeq (fun n =&gt; (f n).symm a))</span>
+<span class="source-line" id="L260"><a class="line-no" href="#L260">260</a>    (hinner : ∀ n, ∃ u : unitary A, f n = Unitary.conjStarAlgAut ℂ A u)</span>
+<span class="source-line" id="L261"><a class="line-no" href="#L261">261</a>    (phi psi : A →L[ℂ] ℂ)</span>
+<span class="source-line" id="L262"><a class="line-no" href="#L262">262</a>    (hstate : ∀ a, Tendsto (fun n =&gt; phi (f n a)) atTop (nhds (psi a))) :</span>
+<span class="source-line" id="L263"><a class="line-no" href="#L263">263</a>    (∀ a, phi (twoSidedPointwiseLimit f hf hfinv a) = psi a) ∧</span>
+<span class="source-line" id="L264"><a class="line-no" href="#L264">264</a>      IsPointNormApproximatelyInner (twoSidedPointwiseLimit f hf hfinv) := by</span>
+<span class="source-line" id="L265"><a class="line-no" href="#L265">265</a>  exact pointwiseLimitEquiv_state_and_approximatelyInner</span>
+<span class="source-line" id="L266"><a class="line-no" href="#L266">266</a>    f (fun n =&gt; (f n).symm) hf hfinv</span>
+<span class="source-line" id="L267"><a class="line-no" href="#L267">267</a>    (fun a =&gt; by simpa using (tendsto_const_nhds :</span>
+<span class="source-line" id="L268"><a class="line-no" href="#L268">268</a>      Tendsto (fun _ : ℕ =&gt; a) atTop (nhds a)))</span>
+<span class="source-line" id="L269"><a class="line-no" href="#L269">269</a>    (fun a =&gt; by simpa using (tendsto_const_nhds :</span>
+<span class="source-line" id="L270"><a class="line-no" href="#L270">270</a>      Tendsto (fun _ : ℕ =&gt; a) atTop (nhds a)))</span>
+<span class="source-line" id="L271"><a class="line-no" href="#L271">271</a>    hinner phi psi hstate</span>
+<span class="source-line" id="L272"><a class="line-no" href="#L272">272</a></span>
+<span class="source-line" id="L273"><a class="line-no" href="#L273">273</a>end MathlibAnnex.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

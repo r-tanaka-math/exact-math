@@ -1,0 +1,252 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectors_of_fixedSpace_ne_bot | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/8b250add1cf71c1dd2550374/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectors_of_fixedSpace_ne_bot</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureSurviving.lean</code>, lines 29–140.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureSurviving.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/4888d88a4c7efeb37acd75ea32c5fe01cbce3d3cac678038c63b5954797902df/versions/n69-d1de79eac694b160/index.html">Back to A common root vector realizes every selected state through the generators</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.CaptureZero</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import Mathlib.Analysis.Normed.Module.Normalize</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Vectors carried by a surviving completed-CAR defect</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>The target-side unitary-completion relation transports a normalized vector</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>from a nonzero initial limiting fixed space to the root limiting fixed space.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>The actual completed-CAR compression estimates then identify both vector</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>states.  No ambient rank-one assertion is made for an arbitrary target</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>representation.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option autoImplicit false</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>set_option maxHeartbeats 1200000</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>noncomputable section</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>open Filter Topology</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>open scoped ComplexOrder ENNReal lp InnerProduct</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a></span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>universe v</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a></span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>/-- A specified nonzero limiting fixed space supplies unit vectors carrying</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>the selected state and the root state, joined by the represented target</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>generator. -/</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>theorem exists_targetDefectVectors_of_fixedSpace_ne_bot</span>
+<span class="source-line selected" id="L33"><a class="line-no" href="#L33">33</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>    (L : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit →</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>      MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState)</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>    (hLunit : ∀ i, L i ∈ unitary</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState))</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>    (hLsource : ∀ i n, (L i).comp (selectedAtomicRepresentation</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>      (transportedFlag family i n - transportedFlag family i (n + 1))) =</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>        representedShellLink family i n)</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>    [CompleteSpace K] (rho : Representation (AtomicTarget L) K)</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>    (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit)</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>    (hi : (⨅ n, ((restrictedRepresentation L rho)</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a>      (transportedFlag family i n)).range) ≠ ⊥) :</span>
+<span class="source-line selected" id="L48"><a class="line-no" href="#L48">48</a>    ∃ eta_i eta_o : K,</span>
+<span class="source-line selected" id="L49"><a class="line-no" href="#L49">49</a>      ‖eta_i‖ = 1 ∧ ‖eta_o‖ = 1 ∧</span>
+<span class="source-line selected" id="L50"><a class="line-no" href="#L50">50</a>      (∀ n, (restrictedRepresentation L rho)</span>
+<span class="source-line selected" id="L51"><a class="line-no" href="#L51">51</a>        (transportedFlag family i n) eta_i = eta_i) ∧</span>
+<span class="source-line selected" id="L52"><a class="line-no" href="#L52">52</a>      (∀ n, (restrictedRepresentation L rho) (rootFlag n) eta_o = eta_o) ∧</span>
+<span class="source-line selected" id="L53"><a class="line-no" href="#L53">53</a>      (Unitary.linearIsometryEquiv</span>
+<span class="source-line selected" id="L54"><a class="line-no" href="#L54">54</a>        (representedGeneratorUnitary L hLunit rho i) : K ≃ₗᵢ[ℂ] K) eta_i = eta_o ∧</span>
+<span class="source-line selected" id="L55"><a class="line-no" href="#L55">55</a>      Representation.vectorFunctional (restrictedRepresentation L rho) eta_i =</span>
+<span class="source-line selected" id="L56"><a class="line-no" href="#L56">56</a>        (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 ∧</span>
+<span class="source-line selected" id="L57"><a class="line-no" href="#L57">57</a>      Representation.vectorFunctional (restrictedRepresentation L rho) eta_o =</span>
+<span class="source-line selected" id="L58"><a class="line-no" href="#L58">58</a>        rootState := by</span>
+<span class="source-line selected" id="L59"><a class="line-no" href="#L59">59</a>  let sigma := restrictedRepresentation L rho</span>
+<span class="source-line selected" id="L60"><a class="line-no" href="#L60">60</a>  let U : ℕ → Submodule ℂ K := fun n ↦</span>
+<span class="source-line selected" id="L61"><a class="line-no" href="#L61">61</a>    (sigma (transportedFlag family i n)).range</span>
+<span class="source-line selected" id="L62"><a class="line-no" href="#L62">62</a>  let V : ℕ → Submodule ℂ K := fun n ↦ (sigma (rootFlag n)).range</span>
+<span class="source-line selected" id="L63"><a class="line-no" href="#L63">63</a>  obtain ⟨S, T, P, Q, R, -, -, -, -, -, -, hPrange, -, hQrange, -, -, -, -,</span>
+<span class="source-line selected" id="L64"><a class="line-no" href="#L64">64</a>      -, -, -, htransport⟩ :=</span>
+<span class="source-line selected" id="L65"><a class="line-no" href="#L65">65</a>    exists_targetShellReconstruction family L hLunit hLsource rho i</span>
+<span class="source-line selected" id="L66"><a class="line-no" href="#L66">66</a>  have hU_ne : (⨅ n, U n) ≠ ⊥ := by</span>
+<span class="source-line selected" id="L67"><a class="line-no" href="#L67">67</a>    simpa [U, sigma] using hi</span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>  obtain ⟨x, hxU, hxne⟩ := Submodule.exists_mem_ne_zero_of_ne_bot hU_ne</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>  let eta_i : K := NormedSpace.normalize x</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>  have heta_i_norm : ‖eta_i‖ = 1 := NormedSpace.norm_normalize hxne</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>  have heta_i_mem : eta_i ∈ ⨅ n, U n := by</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>    change NormedSpace.normalize x ∈ ⨅ n, U n</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>    rw [NormedSpace.normalize]</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>    exact (⨅ n, U n).smul_mem (‖x‖⁻¹ : ℝ) hxU</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>  let e : K ≃ₗᵢ[ℂ] K := Unitary.linearIsometryEquiv</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>    (representedGeneratorUnitary L hLunit rho i)</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>  let eta_o : K := e eta_i</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>  have heta_o_norm : ‖eta_o‖ = 1 := by</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>    rw [show ‖eta_o‖ = ‖eta_i‖ by exact e.norm_map eta_i]</span>
+<span class="source-line selected" id="L80"><a class="line-no" href="#L80">80</a>    exact heta_i_norm</span>
+<span class="source-line selected" id="L81"><a class="line-no" href="#L81">81</a>  have heta_o_mem : eta_o ∈ ⨅ n, V n := by</span>
+<span class="source-line selected" id="L82"><a class="line-no" href="#L82">82</a>    exact (htransport eta_i).1 heta_i_mem</span>
+<span class="source-line selected" id="L83"><a class="line-no" href="#L83">83</a>  have heta_i_fixed (n : ℕ) :</span>
+<span class="source-line selected" id="L84"><a class="line-no" href="#L84">84</a>      sigma (transportedFlag family i n) eta_i = eta_i := by</span>
+<span class="source-line selected" id="L85"><a class="line-no" href="#L85">85</a>    have hn : eta_i ∈ U n := (Submodule.mem_iInf U).mp heta_i_mem n</span>
+<span class="source-line selected" id="L86"><a class="line-no" href="#L86">86</a>    exact LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line selected" id="L87"><a class="line-no" href="#L87">87</a>      (ContinuousLinearMap.IsIdempotentElem.toLinearMap</span>
+<span class="source-line selected" id="L88"><a class="line-no" href="#L88">88</a>        (IsStarProjection.map_representation sigma</span>
+<span class="source-line selected" id="L89"><a class="line-no" href="#L89">89</a>          (isStarProjection_transportedFlag family i n)).isIdempotentElem) |&gt;.mp hn</span>
+<span class="source-line selected" id="L90"><a class="line-no" href="#L90">90</a>  have heta_o_fixed (n : ℕ) : sigma (rootFlag n) eta_o = eta_o := by</span>
+<span class="source-line selected" id="L91"><a class="line-no" href="#L91">91</a>    have hn : eta_o ∈ V n := (Submodule.mem_iInf V).mp heta_o_mem n</span>
+<span class="source-line selected" id="L92"><a class="line-no" href="#L92">92</a>    exact LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line selected" id="L93"><a class="line-no" href="#L93">93</a>      (ContinuousLinearMap.IsIdempotentElem.toLinearMap</span>
+<span class="source-line selected" id="L94"><a class="line-no" href="#L94">94</a>        (IsStarProjection.map_representation sigma</span>
+<span class="source-line selected" id="L95"><a class="line-no" href="#L95">95</a>          (isStarProjection_rootFlag n)).isIdempotentElem) |&gt;.mp hn</span>
+<span class="source-line selected" id="L96"><a class="line-no" href="#L96">96</a>  have heta_i_state : Representation.vectorFunctional sigma eta_i =</span>
+<span class="source-line selected" id="L97"><a class="line-no" href="#L97">97</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 := by</span>
+<span class="source-line selected" id="L98"><a class="line-no" href="#L98">98</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line selected" id="L99"><a class="line-no" href="#L99">99</a>    intro b</span>
+<span class="source-line selected" id="L100"><a class="line-no" href="#L100">100</a>    have hcoeff := inner_map_eq_of_compression_tendsto sigma</span>
+<span class="source-line selected" id="L101"><a class="line-no" href="#L101">101</a>      (Representation.continuousLinearMap sigma).continuous</span>
+<span class="source-line selected" id="L102"><a class="line-no" href="#L102">102</a>      (transportedFlag family i)</span>
+<span class="source-line selected" id="L103"><a class="line-no" href="#L103">103</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 b eta_i eta_i</span>
+<span class="source-line selected" id="L104"><a class="line-no" href="#L104">104</a>      (fun n ↦ (isStarProjection_transportedFlag family i n).isSelfAdjoint.star_eq)</span>
+<span class="source-line selected" id="L105"><a class="line-no" href="#L105">105</a>      heta_i_fixed heta_i_fixed</span>
+<span class="source-line selected" id="L106"><a class="line-no" href="#L106">106</a>      (tendsto_representative_transported_compression family i b)</span>
+<span class="source-line selected" id="L107"><a class="line-no" href="#L107">107</a>    have hself : inner ℂ eta_i eta_i = 1 := by</span>
+<span class="source-line selected" id="L108"><a class="line-no" href="#L108">108</a>      rw [inner_self_eq_norm_sq_to_K, heta_i_norm]</span>
+<span class="source-line selected" id="L109"><a class="line-no" href="#L109">109</a>      norm_num</span>
+<span class="source-line selected" id="L110"><a class="line-no" href="#L110">110</a>    change inner ℂ eta_i (sigma b eta_i) =</span>
+<span class="source-line selected" id="L111"><a class="line-no" href="#L111">111</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 b</span>
+<span class="source-line selected" id="L112"><a class="line-no" href="#L112">112</a>    calc</span>
+<span class="source-line selected" id="L113"><a class="line-no" href="#L113">113</a>      inner ℂ eta_i (sigma b eta_i) =</span>
+<span class="source-line selected" id="L114"><a class="line-no" href="#L114">114</a>          (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 b *</span>
+<span class="source-line selected" id="L115"><a class="line-no" href="#L115">115</a>            inner ℂ eta_i eta_i := hcoeff</span>
+<span class="source-line selected" id="L116"><a class="line-no" href="#L116">116</a>      _ = (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 b := by</span>
+<span class="source-line selected" id="L117"><a class="line-no" href="#L117">117</a>        rw [hself, mul_one]</span>
+<span class="source-line selected" id="L118"><a class="line-no" href="#L118">118</a>  have heta_o_state : Representation.vectorFunctional sigma eta_o = rootState := by</span>
+<span class="source-line selected" id="L119"><a class="line-no" href="#L119">119</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line selected" id="L120"><a class="line-no" href="#L120">120</a>    intro b</span>
+<span class="source-line selected" id="L121"><a class="line-no" href="#L121">121</a>    have hcompression : Tendsto</span>
+<span class="source-line selected" id="L122"><a class="line-no" href="#L122">122</a>        (fun n ↦ rootFlag n * b * rootFlag n - rootState b • rootFlag n)</span>
+<span class="source-line selected" id="L123"><a class="line-no" href="#L123">123</a>        atTop (nhds 0) := by</span>
+<span class="source-line selected" id="L124"><a class="line-no" href="#L124">124</a>      simpa using tendsto_transported_compressionError</span>
+<span class="source-line selected" id="L125"><a class="line-no" href="#L125">125</a>        (StarAlgEquiv.refl ℂ Limit) rootState (fun _ ↦ rfl) b</span>
+<span class="source-line selected" id="L126"><a class="line-no" href="#L126">126</a>    have hcoeff := inner_map_eq_of_compression_tendsto sigma</span>
+<span class="source-line selected" id="L127"><a class="line-no" href="#L127">127</a>      (Representation.continuousLinearMap sigma).continuous rootFlag rootState</span>
+<span class="source-line selected" id="L128"><a class="line-no" href="#L128">128</a>      b eta_o eta_o</span>
+<span class="source-line selected" id="L129"><a class="line-no" href="#L129">129</a>      (fun n ↦ (isStarProjection_rootFlag n).isSelfAdjoint.star_eq)</span>
+<span class="source-line selected" id="L130"><a class="line-no" href="#L130">130</a>      heta_o_fixed heta_o_fixed hcompression</span>
+<span class="source-line selected" id="L131"><a class="line-no" href="#L131">131</a>    have hself : inner ℂ eta_o eta_o = 1 := by</span>
+<span class="source-line selected" id="L132"><a class="line-no" href="#L132">132</a>      rw [inner_self_eq_norm_sq_to_K, heta_o_norm]</span>
+<span class="source-line selected" id="L133"><a class="line-no" href="#L133">133</a>      norm_num</span>
+<span class="source-line selected" id="L134"><a class="line-no" href="#L134">134</a>    change inner ℂ eta_o (sigma b eta_o) = rootState b</span>
+<span class="source-line selected" id="L135"><a class="line-no" href="#L135">135</a>    calc</span>
+<span class="source-line selected" id="L136"><a class="line-no" href="#L136">136</a>      inner ℂ eta_o (sigma b eta_o) =</span>
+<span class="source-line selected" id="L137"><a class="line-no" href="#L137">137</a>          rootState b * inner ℂ eta_o eta_o := hcoeff</span>
+<span class="source-line selected" id="L138"><a class="line-no" href="#L138">138</a>      _ = rootState b := by rw [hself, mul_one]</span>
+<span class="source-line selected" id="L139"><a class="line-no" href="#L139">139</a>  exact ⟨eta_i, eta_o, heta_i_norm, heta_o_norm,</span>
+<span class="source-line selected" id="L140"><a class="line-no" href="#L140">140</a>    heta_i_fixed, heta_o_fixed, rfl, heta_i_state, heta_o_state⟩</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a></span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>/-- Every irreducible target representation contains a transported pair of</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>unit defect vectors with the exact selected and root completed-CAR states. -/</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>theorem exists_targetDefectVectors</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>    (L : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit →</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>      MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState)</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>    (hLunit : ∀ i, L i ∈ unitary</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState))</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>    (hLsource : ∀ i n, (L i).comp (selectedAtomicRepresentation</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>      (transportedFlag family i n - transportedFlag family i (n + 1))) =</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>        representedShellLink family i n)</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>    [CompleteSpace K] (rho : Representation (AtomicTarget L) K)</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>    (hrho : rho.IsIrreducible) :</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    ∃ (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (eta_i eta_o : K),</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>      ‖eta_i‖ = 1 ∧ ‖eta_o‖ = 1 ∧</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>      (∀ n, (restrictedRepresentation L rho)</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>        (transportedFlag family i n) eta_i = eta_i) ∧</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>      (∀ n, (restrictedRepresentation L rho) (rootFlag n) eta_o = eta_o) ∧</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>      (Unitary.linearIsometryEquiv</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>        (representedGeneratorUnitary L hLunit rho i) : K ≃ₗᵢ[ℂ] K) eta_i = eta_o ∧</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>      Representation.vectorFunctional (restrictedRepresentation L rho) eta_i =</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>        (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 ∧</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>      Representation.vectorFunctional (restrictedRepresentation L rho) eta_o =</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>        rootState := by</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>  obtain ⟨i, hi⟩ := exists_nonzero_targetFixedSpace</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>    family L hLunit hLsource rho hrho</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>  obtain ⟨eta_i, eta_o, h⟩ :=</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>    exists_targetDefectVectors_of_fixedSpace_ne_bot</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>      family L hLunit hLsource rho i hi</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>  exact ⟨i, eta_i, eta_o, h⟩</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a></span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>/-- A surviving defect yields one common root unit vector and a compatible</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>unit defect vector for every selected pure-state class.  Each represented</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>generator sends its selected vector to the same root vector, and every vector</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>state is identified from the actual completed-CAR compression theorem. -/</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>theorem exists_targetDefectVectorFamily</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>    (L : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit →</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>      MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState)</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>    (hLunit : ∀ i, L i ∈ unitary</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState))</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>    (hLsource : ∀ i n, (L i).comp (selectedAtomicRepresentation</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>      (transportedFlag family i n - transportedFlag family i (n + 1))) =</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>        representedShellLink family i n)</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    [CompleteSpace K] (rho : Representation (AtomicTarget L) K)</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>    (hrho : rho.IsIrreducible) :</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>    ∃ (eta_o : K) (eta : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit → K),</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>      ‖eta_o‖ = 1 ∧</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>      (∀ n, (restrictedRepresentation L rho) (rootFlag n) eta_o = eta_o) ∧</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>      Representation.vectorFunctional (restrictedRepresentation L rho) eta_o =</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>        rootState ∧</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>      ∀ i,</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>        ‖eta i‖ = 1 ∧</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>        (∀ n, (restrictedRepresentation L rho)</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>          (transportedFlag family i n) (eta i) = eta i) ∧</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>        (Unitary.linearIsometryEquiv</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>          (representedGeneratorUnitary L hLunit rho i) : K ≃ₗᵢ[ℂ] K) (eta i) =</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>            eta_o ∧</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>        Representation.vectorFunctional (restrictedRepresentation L rho) (eta i) =</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>          (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 := by</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>  obtain ⟨i₀, eta₀, eta_o, -, heta_o_norm, -, heta_o_fixed, -, -,</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>      heta_o_state⟩ :=</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>    exists_targetDefectVectors family L hLunit hLsource rho hrho</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>  let sigma := restrictedRepresentation L rho</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>  have heta_o_mem : eta_o ∈</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>      (⨅ n, (sigma (rootFlag n)).range) := by</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>    rw [Submodule.mem_iInf]</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>    intro n</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>    exact ⟨eta_o, heta_o_fixed n⟩</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>  let e (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) : K ≃ₗᵢ[ℂ] K :=</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>    Unitary.linearIsometryEquiv</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>      (representedGeneratorUnitary L hLunit rho i)</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>  let eta (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) : K := (e i).symm eta_o</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>  refine ⟨eta_o, eta, heta_o_norm, heta_o_fixed, heta_o_state, ?_⟩</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>  intro i</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>  have heta_norm : ‖eta i‖ = 1 := by</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>    rw [show ‖eta i‖ = ‖eta_o‖ by exact (e i).symm.norm_map eta_o]</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>    exact heta_o_norm</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>  obtain ⟨S, T, P, Q, R, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -,</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>      htransport⟩ :=</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>    exists_targetShellReconstruction family L hLunit hLsource rho i</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>  have heta_mem : eta i ∈</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>      (⨅ n, (sigma (transportedFlag family i n)).range) := by</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>    apply (htransport (eta i)).2</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>    simpa [e, eta] using heta_o_mem</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>  have heta_fixed (n : ℕ) :</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>      sigma (transportedFlag family i n) (eta i) = eta i := by</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>    have hn : eta i ∈ (sigma (transportedFlag family i n)).range :=</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>      (Submodule.mem_iInf _).mp heta_mem n</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>    exact LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>      (ContinuousLinearMap.IsIdempotentElem.toLinearMap</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>        (IsStarProjection.map_representation sigma</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>          (isStarProjection_transportedFlag family i n)).isIdempotentElem) |&gt;.mp hn</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>  have heta_state : Representation.vectorFunctional sigma (eta i) =</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 := by</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>    apply vectorFunctional_eq_of_compression_tendsto sigma</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>      (transportedFlag family i)</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>      (fun n ↦ (isStarProjection_transportedFlag family i n).isSelfAdjoint.star_eq)</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>      (tendsto_representative_transported_compression family i)</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>      (eta i) heta_norm heta_fixed</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>  refine ⟨heta_norm, heta_fixed, ?_, heta_state⟩</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>  simp [e, eta]</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a></span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

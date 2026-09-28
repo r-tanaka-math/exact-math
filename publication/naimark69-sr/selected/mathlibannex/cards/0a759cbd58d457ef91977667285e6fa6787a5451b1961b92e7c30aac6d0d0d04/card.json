@@ -1,0 +1,134 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "0a759cbd58d457ef91977667285e6fa6787a5451b1961b92e7c30aac6d0d0d04",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Let ρ be the specified tracial representation, and let M be a closed complex-linear subspace of Hτ invariant under every ρ(a) and its adjoint.",
+    "conclusion": "The restricted representation ρ|M: A → B(M) is not both nonzero and irreducible. This includes M = {0}, for which nonzeroness already fails.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "No nonzero irreducible closed subrepresentation of the tracial model",
+    "language_tag": "en",
+    "lean_realization_notes": "The source argument hM : ρ.Reduces M contains closedness and invariance under both operators and their adjoints. The conclusion is about the defined restriction, not an arbitrary subset or a nonclosed algebraic subspace. It does not assert that all invariant subspaces are absent.",
+    "natural_language_statement": "The faithful tracial representation ρ: A → B(Hτ) has no nonzero irreducible closed subrepresentation.",
+    "one_sentence_role": "Extends the separable irreducibility exclusion to every closed reducing subspace of the fixed representation.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use closedness of M to equip it with its complete inherited Hilbert-space structure."
+      },
+      {
+        "step_id": "2",
+        "text": "Use separability of Hτ to obtain separability of M."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the universal no-separable-irreducible-representation theorem to ρ|M."
+      }
+    ],
+    "proof_summary": "A closed subspace M is complete, and as a subspace of the separable Hilbert space Hτ it is separable. Apply the exclusion of separable irreducible representations to the exact restriction."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "d76eb8815b2cd36bec71c53984e9ed201889ea48c67af6aa2ea2a3b7f1ddcd8b",
+    "uid": "lfh:lfh-declaration-card:sha256:0a759cbd58d457ef91977667285e6fa6787a5451b1961b92e7c30aac6d0d0d04"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "16a2e7290f22110200ea5359936372c57675e7483af18e0af60d7d74d349d093",
+    "uid": "lfh:lfh-card-exposition:sha256:66c6ade4783bfad900521afaffc5b4caf6c5829d9128383e80dad601c087eca9"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_restrictToReducing_separableCounterexampleRepresentation",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      55,
+      67
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L55-L67"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.SeparableIrreducible",
+        "provider": "PROJECT",
+        "provider_source_sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Let ρ be the specified tracial representation, and let M be a closed complex-linear subspace of Hτ invariant under every ρ(a) and its adjoint.",
+    "conclusion": "The restricted representation ρ|M: A → B(M) is not both nonzero and irreducible. This includes M = {0}, for which nonzeroness already fails.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "No nonzero irreducible closed subrepresentation of the tracial model",
+    "language_tag": "en",
+    "lean_realization_notes": "The source argument hM : ρ.Reduces M contains closedness and invariance under both operators and their adjoints. The conclusion is about the defined restriction, not an arbitrary subset or a nonclosed algebraic subspace. It does not assert that all invariant subspaces are absent.",
+    "natural_language_statement": "The faithful tracial representation ρ: A → B(Hτ) has no nonzero irreducible closed subrepresentation.",
+    "one_sentence_role": "Extends the separable irreducibility exclusion to every closed reducing subspace of the fixed representation.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Use closedness of M to equip it with its complete inherited Hilbert-space structure."
+      },
+      {
+        "step_id": "2",
+        "text": "Use separability of Hτ to obtain separability of M."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the universal no-separable-irreducible-representation theorem to ρ|M."
+      }
+    ],
+    "proof_summary": "A closed subspace M is complete, and as a subspace of the separable Hilbert space Hτ it is separable. Apply the exclusion of separable irreducible representations to the exact restriction.",
+    "stable_card_id": "0a759cbd58d457ef91977667285e6fa6787a5451b1961b92e7c30aac6d0d0d04",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_restrictToReducing_separableCounterexampleRepresentation",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_locator": {
+      "start_line": 55,
+      "end_line": 67
+    },
+    "source_signature": {
+      "text": "theorem not_isIrreducible_restrictToReducing_separableCounterexampleRepresentation\n    (M : Submodule ℂ SeparableCounterexampleHilbertSpace)\n    (hM : separableCounterexampleRepresentation.Reduces M) :\n    letI : CompleteSpace M := hM.1.completeSpace_coe\n    ¬ Representation.IsIrreducible\n      (Representation.restrictToReducing separableCounterexampleRepresentation M hM) := by\n  letI : CompleteSpace M := hM.1.completeSpace_coe\n  letI : TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace :=\n    separableSpace_separableCounterexampleHilbertSpace\n  letI : TopologicalSpace.SeparableSpace M := inferInstance\n  exact not_isIrreducible_of_separable\n    (Representation.restrictToReducing\n      separableCounterexampleRepresentation M hM).toNonUnitalStarAlgHom"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "d76eb8815b2cd36bec71c53984e9ed201889ea48c67af6aa2ea2a3b7f1ddcd8b",
+      "uid": "lfh:lfh-declaration-card:sha256:0a759cbd58d457ef91977667285e6fa6787a5451b1961b92e7c30aac6d0d0d04"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "16a2e7290f22110200ea5359936372c57675e7483af18e0af60d7d74d349d093",
+      "uid": "lfh:lfh-card-exposition:sha256:66c6ade4783bfad900521afaffc5b4caf6c5829d9128383e80dad601c087eca9"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+        "text": "Exact source attribution.",
+        "website_href": "../a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65/index.html"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/0a759cbd58d457ef91977667285e6fa6787a5451b1961b92e7c30aac6d0d0d04/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Density is computed in the norm topology on A; no CH assumption is made.",
+    "conclusion": "There exists a norm-dense subset D ⊆ A with |D| = 𝔠, and every norm-dense subset E ⊆ A satisfies 𝔠 ≤ |E|. Thus dens(A) = 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The norm density of A is exactly the continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "HasDensityCharacter contains an attained dense witness and a universal lower bound. This is not a statement about the strong-operator topology on a represented copy of A or an algebraic dimension.",
+    "natural_language_statement": "The fixed CAR-based C*-algebra A has norm density character exactly 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Proves both existence of a dense set of the stated size and minimality of that size.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "The full carrier A provides a dense witness of cardinality at most 𝔠."
+      },
+      {
+        "step_id": "2",
+        "text": "Apply the lower bound for all norm-dense subsets of A to that witness to obtain exact cardinality 𝔠."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the lower bound for all norm-dense subsets of A to an arbitrary dense subset for the universal minimality bound."
+      }
+    ],
+    "proof_summary": "Combine the carrier-cardinality upper bound with the lower bound for every norm-dense subset."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "bbaa38f0690d7b0ca134e7875ae37f1e48d6f2cd8dc0d5b1d6b4c3701fa214c4",
+    "uid": "lfh:lfh-declaration-card:sha256:e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "20091753c8207919644eda72991caa1705f87a7ece308bf93d912f1fdf702907",
+    "uid": "lfh:lfh-card-exposition:sha256:79d1a9f2af8358c223e4b9f7c84a0bad4f46bc99e54190610cfb2a91afab9dd3"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      42,
+      47
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean#L42-L47"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.Cardinality",
+        "provider": "PROJECT",
+        "provider_source_sha256": "d5b1b23f7a2e7c7a62a414d7872ff382b5bcfa8932b49cecefbdb0603ce395d8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.continuum_le_cardinalMk_dense_atomicCounterexampleAlgebra"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Topology.DensityCharacter",
+        "provider": "PROJECT",
+        "provider_source_sha256": "eef98feb3de949a1370dd64396093f58e144e8fe3e39ac839ff28654f555817c",
+        "qualified_name": "MathlibAnnex.Topology.HasDensityCharacter.of_cardinalMk_le_of_forall_dense"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Density is computed in the norm topology on A; no CH assumption is made.",
+    "conclusion": "There exists a norm-dense subset D ⊆ A with |D| = 𝔠, and every norm-dense subset E ⊆ A satisfies 𝔠 ≤ |E|. Thus dens(A) = 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The norm density of A is exactly the continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "HasDensityCharacter contains an attained dense witness and a universal lower bound. This is not a statement about the strong-operator topology on a represented copy of A or an algebraic dimension.",
+    "natural_language_statement": "The fixed CAR-based C*-algebra A has norm density character exactly 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Proves both existence of a dense set of the stated size and minimality of that size.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "The full carrier A provides a dense witness of cardinality at most 𝔠."
+      },
+      {
+        "step_id": "2",
+        "text": "Apply the lower bound for all norm-dense subsets of A to that witness to obtain exact cardinality 𝔠."
+      },
+      {
+        "step_id": "3",
+        "text": "Apply the lower bound for all norm-dense subsets of A to an arbitrary dense subset for the universal minimality bound."
+      }
+    ],
+    "proof_summary": "Combine the carrier-cardinality upper bound with the lower bound for every norm-dense subset.",
+    "stable_card_id": "e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_locator": {
+      "start_line": 42,
+      "end_line": 47
+    },
+    "source_signature": {
+      "text": "/-- The exact norm density of the same fixed algebra is continuum. -/\ntheorem hasDensityCharacter_atomicCounterexampleAlgebra :\n    HasDensityCharacter AtomicCounterexampleAlgebra Cardinal.continuum :=\n  HasDensityCharacter.of_cardinalMk_le_of_forall_dense\n    cardinalMk_atomicCounterexampleAlgebra_le_continuum\n    continuum_le_cardinalMk_dense_atomicCounterexampleAlgebra"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "bbaa38f0690d7b0ca134e7875ae37f1e48d6f2cd8dc0d5b1d6b4c3701fa214c4",
+      "uid": "lfh:lfh-declaration-card:sha256:e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "20091753c8207919644eda72991caa1705f87a7ece308bf93d912f1fdf702907",
+      "uid": "lfh:lfh-card-exposition:sha256:79d1a9f2af8358c223e4b9f7c84a0bad4f46bc99e54190610cfb2a91afab9dd3"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.continuum_le_cardinalMk_dense_atomicCounterexampleAlgebra",
+        "text": "Exact source attribution.",
+        "website_href": "../4e9f1fd1b5609f4b4591912d2f2f242e022b38ef13ae18ba179ad2c30a17835f/index.html"
+      },
+      {
+        "label": "MathlibAnnex.Topology.HasDensityCharacter.of_cardinalMk_le_of_forall_dense",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/4e12fa93dbb88c16f8cc7a13/index.html#L43"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

@@ -1,0 +1,326 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.selectedRootRepresentation_injective | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/868be186e1b385c0d902334b/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.selectedRootRepresentation_injective</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean</code>, lines 34–42.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f/versions/n69-e7453e7f2b99e61e/index.html">Back to Realizing a shell family by a faithful irreducible operator algebra</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.AtomicSource</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.ShellReconstruction</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># The completed CAR atomic shell model</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>This file discharges the representation-local shell hypotheses of the generic</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>atomic construction using the actual completed CAR algebra.  The only</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>remaining input is `KishimotoOzawaSakaiProperty`; in particular, rank-one limiting defects and</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>capture conclusions are not fields of a source-data structure.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option maxHeartbeats 1200000</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>noncomputable section</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>open Filter Topology</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>open scoped ComplexOrder ENNReal lp InnerProduct</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a></span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>/-- The displayed arbitrary-index direct sum of all selected pure GNS</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>representations of the completed CAR algebra. -/</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>noncomputable def selectedAtomicRepresentation :</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    Representation Limit</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState) :=</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>  atomicRepresentation</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState)</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a></span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>/-- The literal root summand is faithful; this is inherited from the actual</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>completed CAR root GNS representation, not from simplicity of a future</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>target. -/</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>theorem selectedRootRepresentation_injective :</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>    Function.Injective</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>      (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>        completedRootPureState.classOf) := by</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>  exact (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>    completedRootPureState.classOf).toRingHom.injective</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a></span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>/-- The displayed atomic source representation is faithful because it</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>contains the faithful literal root summand. -/</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>theorem selectedAtomicRepresentation_injective :</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    Function.Injective selectedAtomicRepresentation := by</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  exact atomicRepresentation_injective_of_component</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState)</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>    completedRootPureState.classOf selectedRootRepresentation_injective</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a></span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>/-- The represented initial flag for one selected state. -/</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>noncomputable def representedInitialFlag (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    Submodule ℂ (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState) :=</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>  (selectedAtomicRepresentation (transportedFlag family i n)).range</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a></span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>/-- The common represented final (root) flag. -/</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>noncomputable def representedRootFlag (n : ℕ) :</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>    Submodule ℂ (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState) :=</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  (selectedAtomicRepresentation (rootFlag n)).range</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a></span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>noncomputable instance instHasOrthogonalProjectionRepresentedInitialFlag</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>    (family : RepresentativeShellFamily) (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    (representedInitialFlag family i n).HasOrthogonalProjection :=</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>  (isStarProjection_iff_eq_starProjection_range.mp</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>    (IsStarProjection.map_representation selectedAtomicRepresentation</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>      (isStarProjection_transportedFlag family i n))).choose</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a></span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>theorem selectedAtomicRepresentation_transportedFlag_eq_starProjection</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    (family : RepresentativeShellFamily) (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>    selectedAtomicRepresentation (transportedFlag family i n) =</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>      (representedInitialFlag family i n).starProjection :=</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>  (isStarProjection_iff_eq_starProjection_range.mp</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    (IsStarProjection.map_representation selectedAtomicRepresentation</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>      (isStarProjection_transportedFlag family i n))).choose_spec</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a></span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>noncomputable instance instHasOrthogonalProjectionRepresentedRootFlag (n : ℕ) :</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    (representedRootFlag n).HasOrthogonalProjection :=</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>  (isStarProjection_iff_eq_starProjection_range.mp</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>    (IsStarProjection.map_representation selectedAtomicRepresentation</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>      (isStarProjection_rootFlag n))).choose</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a></span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>theorem selectedAtomicRepresentation_rootFlag_eq_starProjection (n : ℕ) :</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>    selectedAtomicRepresentation (rootFlag n) =</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>      (representedRootFlag n).starProjection :=</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>  (isStarProjection_iff_eq_starProjection_range.mp</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    (IsStarProjection.map_representation selectedAtomicRepresentation</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>      (isStarProjection_rootFlag n))).choose_spec</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a></span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>/-- A named final flag family.  Its state index is deliberately retained so</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>the generic arbitrary-index construction can use it without changing the</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>common completed-CAR root flag. -/</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>noncomputable def representedFinalFlag (_family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>    (_i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    Submodule ℂ (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState) :=</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>  representedRootFlag n</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a></span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>noncomputable instance instHasOrthogonalProjectionRepresentedFinalFlag</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>    (family : RepresentativeShellFamily) (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>    (representedFinalFlag family i n).HasOrthogonalProjection := by</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>  change (representedRootFlag n).HasOrthogonalProjection</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>  infer_instance</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a></span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>noncomputable instance instHasOrthogonalProjectionIInfRepresentedInitialFlag</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>    (family : RepresentativeShellFamily) (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>    (⨅ n, representedInitialFlag family i n).HasOrthogonalProjection := by</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>  have hspan :</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>      (⨅ n, representedInitialFlag family i n) =</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>        ℂ ∙ MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i) := by</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>    simpa [representedInitialFlag, selectedAtomicRepresentation] using</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>      (iInf_range_atomic_transportedFlag_eq_span family i)</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>  rw [hspan]</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>  infer_instance</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a></span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>noncomputable instance instHasOrthogonalProjectionIInfRepresentedFinalFlag</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>    (family : RepresentativeShellFamily) (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>    (⨅ n, representedFinalFlag family i n).HasOrthogonalProjection := by</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>  have hspan :</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>      (⨅ n, representedFinalFlag family i n) =</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>        ℂ ∙ MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>          completedRootPureState.classOf</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>            completedRootPureState.classOf) := by</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>    simpa [representedFinalFlag, representedRootFlag,</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>      selectedAtomicRepresentation] using</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>      (iInf_range_atomic_transportedFlag_eq_span family</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>        completedRootPureState.classOf)</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>  rw [hspan]</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>  infer_instance</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a></span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>/-- The represented algebraic link between one transported difference shell</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>and the corresponding root difference shell. -/</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>noncomputable def representedShellLink (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>    MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>      MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState :=</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>  selectedAtomicRepresentation ((representativeShellData family i).link n)</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a></span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>/-- Actual completed-CAR source data produces a faithful irreducible concrete</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>atomic model.  All projection flags, support identities, and rank-one limiting</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>defects are supplied by proved CAR/GNS facts.  At the distinguished root the</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>constructed generator is proved to be the identity from its action on every</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>difference shell and on the rank-one limiting defect. -/</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>theorem exists_completedAtomicShellModel (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>    ∃ L : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit →</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>          MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState,</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>      (∀ i, L i ∈ unitary</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>        (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>          MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState)) ∧</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>      (∀ i, L i (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) =</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>        MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>          completedRootPureState.classOf</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>            completedRootPureState.classOf)) ∧</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>      (∀ i n, (L i).comp (selectedAtomicRepresentation</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>          (transportedFlag family i n - transportedFlag family i (n + 1))) =</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>        representedShellLink family i n) ∧</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>      L completedRootPureState.classOf = 1 ∧</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>      Function.Injective</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>        (MathlibAnnex.CStarAlgebra.AtomicConstruction.sourceHom selectedAtomicRepresentation L) ∧</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>      Representation.IsIrreducible</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>        (MathlibAnnex.CStarAlgebra.AtomicConstruction.ambientInclusion selectedAtomicRepresentation L) := by</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>  classical</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>  let U := representedInitialFlag family</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>  let V := representedFinalFlag family</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>  let W := representedShellLink family</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>  have hUproj (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>      selectedAtomicRepresentation (transportedFlag family i n) =</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>        (U i n).starProjection := by</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>    exact selectedAtomicRepresentation_transportedFlag_eq_starProjection family i n</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>  have hVproj (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>      selectedAtomicRepresentation (rootFlag n) = (V i n).starProjection :=</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>    by simpa [V, representedFinalFlag] using</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>      selectedAtomicRepresentation_rootFlag_eq_starProjection n</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>  have hUspan (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>      (⨅ n, U i n) =</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>        ℂ ∙ MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i) := by</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>    simpa [U, representedInitialFlag, selectedAtomicRepresentation] using</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>      (iInf_range_atomic_transportedFlag_eq_span family i)</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>  have hVspan (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>      (⨅ n, V i n) =</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>        ℂ ∙ MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>          completedRootPureState.classOf</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>            completedRootPureState.classOf) := by</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>    simpa [V, representedFinalFlag, representedRootFlag,</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>      selectedAtomicRepresentation] using</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>      (iInf_range_atomic_transportedFlag_eq_span family</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>        completedRootPureState.classOf)</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>  have hU : ∀ i, Antitone (U i) := by</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>    intro i m n hmn</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>    rintro x ⟨y, rfl⟩</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>    refine ⟨selectedAtomicRepresentation (transportedFlag family i n) y, ?_⟩</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>    have heq :</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>        selectedAtomicRepresentation (transportedFlag family i m) *</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>            selectedAtomicRepresentation (transportedFlag family i n) =</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>          selectedAtomicRepresentation (transportedFlag family i n) := by</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>      rw [← map_mul, transportedFlag_mul_of_le family i hmn]</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>    exact congrArg</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>      (fun T : MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState ↦ T y) heq</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>  have hV : ∀ i, Antitone (V i) := by</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>    intro i m n hmn</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>    rintro x ⟨y, rfl⟩</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>    refine ⟨selectedAtomicRepresentation (rootFlag n) y, ?_⟩</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>    have heq : selectedAtomicRepresentation (rootFlag m) *</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>        selectedAtomicRepresentation (rootFlag n) =</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>          selectedAtomicRepresentation (rootFlag n) := by</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>      rw [← map_mul, rootFlag_mul_of_le hmn]</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>    exact congrArg</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>      (fun T : MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →L[ℂ]</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>        MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState ↦ T y) heq</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>  have hU0 : ∀ i, U i 0 = ⊤ := by</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>    intro i</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>    rw [← Submodule.range_starProjection (U i 0), ← hUproj i 0,</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>      transportedFlag_zero, map_one]</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>    exact LinearMap.range_eq_top.mpr fun x ↦ ⟨x, rfl⟩</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>  have hV0 : ∀ i, V i 0 = ⊤ := by</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>    intro i</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>    rw [← Submodule.range_starProjection (V i 0), ← hVproj i 0,</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>      rootFlag_zero, map_one]</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>    exact LinearMap.range_eq_top.mpr fun x ↦ ⟨x, rfl⟩</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>  have hInitial : ∀ i n, ((W i n)†).comp (W i n) =</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>      Submodule.projectionShell (U i) n := by</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>    intro i n</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>    change star (selectedAtomicRepresentation</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>        ((representativeShellData family i).link n)) *</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>        selectedAtomicRepresentation ((representativeShellData family i).link n) = _</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>    rw [← map_star, ← map_mul, representativeLink_initial, map_sub,</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>      hUproj i n, hUproj i (n + 1)]</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>    rfl</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>  have hFinal : ∀ i n, (W i n).comp ((W i n)†) =</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>      Submodule.projectionShell (V i) n := by</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>    intro i n</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>    change selectedAtomicRepresentation</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>        ((representativeShellData family i).link n) *</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>        star (selectedAtomicRepresentation</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>          ((representativeShellData family i).link n)) = _</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>    rw [← map_star, ← map_mul, representativeLink_final, map_sub,</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>      hVproj i n, hVproj i (n + 1)]</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>    rfl</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>  have hUShell : ∀ i n,</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>      selectedAtomicRepresentation</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>          (transportedFlag family i n - transportedFlag family i (n + 1)) =</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>        Submodule.projectionShell (U i) n := by</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>    intro i n</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>    rw [map_sub, hUproj i n, hUproj i (n + 1)]</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>    rfl</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>  have hUinf : ∀ i, (⨅ n, U i n).starProjection =</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a>      InnerProductSpace.rankOne ℂ</span>
+<span class="source-line" id="L256"><a class="line-no" href="#L256">256</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L257"><a class="line-no" href="#L257">257</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i))</span>
+<span class="source-line" id="L258"><a class="line-no" href="#L258">258</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L259"><a class="line-no" href="#L259">259</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) := by</span>
+<span class="source-line" id="L260"><a class="line-no" href="#L260">260</a>    intro i</span>
+<span class="source-line" id="L261"><a class="line-no" href="#L261">261</a>    apply starProjection_eq_rankOne_of_eq_span</span>
+<span class="source-line" id="L262"><a class="line-no" href="#L262">262</a>      (⨅ n, U i n)</span>
+<span class="source-line" id="L263"><a class="line-no" href="#L263">263</a>      (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L264"><a class="line-no" href="#L264">264</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i))</span>
+<span class="source-line" id="L265"><a class="line-no" href="#L265">265</a>    simpa [MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding, norm_coordinateEmbedding] using</span>
+<span class="source-line" id="L266"><a class="line-no" href="#L266">266</a>      MathlibAnnex.CStarAlgebra.PureState.norm_selectedVector completedRootPureState i</span>
+<span class="source-line" id="L267"><a class="line-no" href="#L267">267</a>    exact hUspan i</span>
+<span class="source-line" id="L268"><a class="line-no" href="#L268">268</a>  have hVinf : ∀ i, (⨅ n, V i n).starProjection =</span>
+<span class="source-line" id="L269"><a class="line-no" href="#L269">269</a>      InnerProductSpace.rankOne ℂ</span>
+<span class="source-line" id="L270"><a class="line-no" href="#L270">270</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState</span>
+<span class="source-line" id="L271"><a class="line-no" href="#L271">271</a>          completedRootPureState.classOf</span>
+<span class="source-line" id="L272"><a class="line-no" href="#L272">272</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState</span>
+<span class="source-line" id="L273"><a class="line-no" href="#L273">273</a>            completedRootPureState.classOf))</span>
+<span class="source-line" id="L274"><a class="line-no" href="#L274">274</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState</span>
+<span class="source-line" id="L275"><a class="line-no" href="#L275">275</a>          completedRootPureState.classOf</span>
+<span class="source-line" id="L276"><a class="line-no" href="#L276">276</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState</span>
+<span class="source-line" id="L277"><a class="line-no" href="#L277">277</a>            completedRootPureState.classOf)) := by</span>
+<span class="source-line" id="L278"><a class="line-no" href="#L278">278</a>    intro i</span>
+<span class="source-line" id="L279"><a class="line-no" href="#L279">279</a>    apply starProjection_eq_rankOne_of_eq_span</span>
+<span class="source-line" id="L280"><a class="line-no" href="#L280">280</a>      (⨅ n, V i n)</span>
+<span class="source-line" id="L281"><a class="line-no" href="#L281">281</a>      (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState</span>
+<span class="source-line" id="L282"><a class="line-no" href="#L282">282</a>        completedRootPureState.classOf</span>
+<span class="source-line" id="L283"><a class="line-no" href="#L283">283</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState</span>
+<span class="source-line" id="L284"><a class="line-no" href="#L284">284</a>          completedRootPureState.classOf))</span>
+<span class="source-line" id="L285"><a class="line-no" href="#L285">285</a>    simpa [MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding, norm_coordinateEmbedding] using</span>
+<span class="source-line" id="L286"><a class="line-no" href="#L286">286</a>      MathlibAnnex.CStarAlgebra.PureState.norm_selectedVector completedRootPureState</span>
+<span class="source-line" id="L287"><a class="line-no" href="#L287">287</a>        completedRootPureState.classOf</span>
+<span class="source-line" id="L288"><a class="line-no" href="#L288">288</a>    exact hVspan i</span>
+<span class="source-line" id="L289"><a class="line-no" href="#L289">289</a>  obtain ⟨L, hLunit, hLmap, hLterm, hLirr⟩ :=</span>
+<span class="source-line" id="L290"><a class="line-no" href="#L290">290</a>    MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel</span>
+<span class="source-line" id="L291"><a class="line-no" href="#L291">291</a>      completedRootPureState W U V hU hV hU0 hV0 hInitial hFinal hUinf hVinf</span>
+<span class="source-line" id="L292"><a class="line-no" href="#L292">292</a>  have hLsource (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :</span>
+<span class="source-line" id="L293"><a class="line-no" href="#L293">293</a>      (L i).comp (selectedAtomicRepresentation</span>
+<span class="source-line" id="L294"><a class="line-no" href="#L294">294</a>          (transportedFlag family i n - transportedFlag family i (n + 1))) =</span>
+<span class="source-line" id="L295"><a class="line-no" href="#L295">295</a>        representedShellLink family i n := by</span>
+<span class="source-line" id="L296"><a class="line-no" href="#L296">296</a>    rw [hUShell i n]</span>
+<span class="source-line" id="L297"><a class="line-no" href="#L297">297</a>    exact hLterm i n</span>
+<span class="source-line" id="L298"><a class="line-no" href="#L298">298</a>  have hRootShell (n : ℕ) :</span>
+<span class="source-line" id="L299"><a class="line-no" href="#L299">299</a>      representedShellLink family completedRootPureState.classOf n =</span>
+<span class="source-line" id="L300"><a class="line-no" href="#L300">300</a>        Submodule.projectionShell (U completedRootPureState.classOf) n := by</span>
+<span class="source-line" id="L301"><a class="line-no" href="#L301">301</a>    rw [Submodule.projectionShell, ← hUproj, ← hUproj]</span>
+<span class="source-line" id="L302"><a class="line-no" href="#L302">302</a>    simp [W, U, representedShellLink, rootShell, map_sub]</span>
+<span class="source-line" id="L303"><a class="line-no" href="#L303">303</a>  have hLroot : L completedRootPureState.classOf = 1 := by</span>
+<span class="source-line" id="L304"><a class="line-no" href="#L304">304</a>    apply ContinuousLinearMap.eq_one_of_comp_projectionShell_eq_self_of_rankOne_iInf</span>
+<span class="source-line" id="L305"><a class="line-no" href="#L305">305</a>      (L completedRootPureState.classOf) (U completedRootPureState.classOf)</span>
+<span class="source-line" id="L306"><a class="line-no" href="#L306">306</a>      (hU completedRootPureState.classOf) (hU0 completedRootPureState.classOf)</span>
+<span class="source-line" id="L307"><a class="line-no" href="#L307">307</a>      (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState</span>
+<span class="source-line" id="L308"><a class="line-no" href="#L308">308</a>        completedRootPureState.classOf</span>
+<span class="source-line" id="L309"><a class="line-no" href="#L309">309</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState</span>
+<span class="source-line" id="L310"><a class="line-no" href="#L310">310</a>          completedRootPureState.classOf))</span>
+<span class="source-line" id="L311"><a class="line-no" href="#L311">311</a>    · simpa [MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding, norm_coordinateEmbedding] using</span>
+<span class="source-line" id="L312"><a class="line-no" href="#L312">312</a>        MathlibAnnex.CStarAlgebra.PureState.norm_selectedVector completedRootPureState</span>
+<span class="source-line" id="L313"><a class="line-no" href="#L313">313</a>          completedRootPureState.classOf</span>
+<span class="source-line" id="L314"><a class="line-no" href="#L314">314</a>    · exact hUinf completedRootPureState.classOf</span>
+<span class="source-line" id="L315"><a class="line-no" href="#L315">315</a>    · intro n</span>
+<span class="source-line" id="L316"><a class="line-no" href="#L316">316</a>      rw [hLterm]</span>
+<span class="source-line" id="L317"><a class="line-no" href="#L317">317</a>      change representedShellLink family completedRootPureState.classOf n =</span>
+<span class="source-line" id="L318"><a class="line-no" href="#L318">318</a>        Submodule.projectionShell (U completedRootPureState.classOf) n</span>
+<span class="source-line" id="L319"><a class="line-no" href="#L319">319</a>      exact hRootShell n</span>
+<span class="source-line" id="L320"><a class="line-no" href="#L320">320</a>    · exact hLmap completedRootPureState.classOf</span>
+<span class="source-line" id="L321"><a class="line-no" href="#L321">321</a>  exact ⟨L, hLunit, hLmap, hLsource, hLroot,</span>
+<span class="source-line" id="L322"><a class="line-no" href="#L322">322</a>    MathlibAnnex.CStarAlgebra.AtomicConstruction.sourceHom_injective selectedAtomicRepresentation L</span>
+<span class="source-line" id="L323"><a class="line-no" href="#L323">323</a>      selectedAtomicRepresentation_injective,</span>
+<span class="source-line" id="L324"><a class="line-no" href="#L324">324</a>    hLirr⟩</span>
+<span class="source-line" id="L325"><a class="line-no" href="#L325">325</a></span>
+<span class="source-line" id="L326"><a class="line-no" href="#L326">326</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

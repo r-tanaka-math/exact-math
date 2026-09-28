@@ -1,0 +1,276 @@
+{
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "orientation": "prerequisite_to_dependent",
+  "node_count": 9,
+  "reachability_count": 19,
+  "display_edge_count": 10,
+  "maximum_level": 3,
+  "reachability": [
+    {
+      "prerequisite": "nm-173d26c9f1f819587fd5",
+      "dependent": "nm-a5720df7e99e8c2ac84d"
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-173d26c9f1f819587fd5"
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-3da2f308d8ba5a740784"
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-57def8d18581b3313546"
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-a5720df7e99e8c2ac84d"
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-d1cd138d8da7f7091497"
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-d2baf38f5a9400e2e21f"
+    },
+    {
+      "prerequisite": "nm-3da2f308d8ba5a740784",
+      "dependent": "nm-a5720df7e99e8c2ac84d"
+    },
+    {
+      "prerequisite": "nm-803f1da98c9a91c5916e",
+      "dependent": "nm-57def8d18581b3313546"
+    },
+    {
+      "prerequisite": "nm-803f1da98c9a91c5916e",
+      "dependent": "nm-d1cd138d8da7f7091497"
+    },
+    {
+      "prerequisite": "nm-803f1da98c9a91c5916e",
+      "dependent": "nm-d2baf38f5a9400e2e21f"
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-173d26c9f1f819587fd5"
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-20575ad16da32b85e124"
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-3da2f308d8ba5a740784"
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-57def8d18581b3313546"
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-a5720df7e99e8c2ac84d"
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-d1cd138d8da7f7091497"
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-d2baf38f5a9400e2e21f"
+    },
+    {
+      "prerequisite": "nm-d1cd138d8da7f7091497",
+      "dependent": "nm-57def8d18581b3313546"
+    }
+  ],
+  "nodes": [
+    {
+      "selected_node_id": "nm-861bb1296eef1fa640cf",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-20575ad16da32b85e124"
+      ]
+    },
+    {
+      "selected_node_id": "nm-803f1da98c9a91c5916e",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-d1cd138d8da7f7091497",
+        "nm-d2baf38f5a9400e2e21f"
+      ]
+    },
+    {
+      "selected_node_id": "nm-20575ad16da32b85e124",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+      "level": 1,
+      "prerequisites": [
+        "nm-861bb1296eef1fa640cf"
+      ],
+      "used_by": [
+        "nm-173d26c9f1f819587fd5",
+        "nm-3da2f308d8ba5a740784",
+        "nm-d1cd138d8da7f7091497",
+        "nm-d2baf38f5a9400e2e21f"
+      ]
+    },
+    {
+      "selected_node_id": "nm-d2baf38f5a9400e2e21f",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+      "level": 2,
+      "prerequisites": [
+        "nm-20575ad16da32b85e124",
+        "nm-803f1da98c9a91c5916e"
+      ],
+      "used_by": []
+    },
+    {
+      "selected_node_id": "nm-d1cd138d8da7f7091497",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm",
+      "level": 2,
+      "prerequisites": [
+        "nm-20575ad16da32b85e124",
+        "nm-803f1da98c9a91c5916e"
+      ],
+      "used_by": [
+        "nm-57def8d18581b3313546"
+      ]
+    },
+    {
+      "selected_node_id": "nm-3da2f308d8ba5a740784",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+      "level": 2,
+      "prerequisites": [
+        "nm-20575ad16da32b85e124"
+      ],
+      "used_by": [
+        "nm-a5720df7e99e8c2ac84d"
+      ]
+    },
+    {
+      "selected_node_id": "nm-173d26c9f1f819587fd5",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation",
+      "level": 2,
+      "prerequisites": [
+        "nm-20575ad16da32b85e124"
+      ],
+      "used_by": [
+        "nm-a5720df7e99e8c2ac84d"
+      ]
+    },
+    {
+      "selected_node_id": "nm-57def8d18581b3313546",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state",
+      "level": 3,
+      "prerequisites": [
+        "nm-d1cd138d8da7f7091497"
+      ],
+      "used_by": []
+    },
+    {
+      "selected_node_id": "nm-a5720df7e99e8c2ac84d",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+      "level": 3,
+      "prerequisites": [
+        "nm-173d26c9f1f819587fd5",
+        "nm-3da2f308d8ba5a740784"
+      ],
+      "used_by": []
+    }
+  ],
+  "display_edges": [
+    {
+      "prerequisite": "nm-173d26c9f1f819587fd5",
+      "dependent": "nm-a5720df7e99e8c2ac84d",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+        "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-173d26c9f1f819587fd5",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation",
+        "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-3da2f308d8ba5a740784",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+        "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-d1cd138d8da7f7091497",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm",
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtension_shellFamilyGenerator_mul",
+        "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-20575ad16da32b85e124",
+      "dependent": "nm-d2baf38f5a9400e2e21f",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+        "MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace",
+        "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-3da2f308d8ba5a740784",
+      "dependent": "nm-a5720df7e99e8c2ac84d",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+        "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective"
+      ]
+    },
+    {
+      "prerequisite": "nm-803f1da98c9a91c5916e",
+      "dependent": "nm-d1cd138d8da7f7091497",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm",
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtension_shellFamilySourceHom_mul",
+        "_private.MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceExtensionTracial.0.MathlibAnnex.CStarAlgebra.CAR.traceExtension_unitary_mul",
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtension_star_unitary_mul_mul",
+        "MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic"
+      ]
+    },
+    {
+      "prerequisite": "nm-803f1da98c9a91c5916e",
+      "dependent": "nm-d2baf38f5a9400e2e21f",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+        "MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic"
+      ]
+    },
+    {
+      "prerequisite": "nm-861bb1296eef1fa640cf",
+      "dependent": "nm-20575ad16da32b85e124",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtensionPositive",
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtension",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace"
+      ]
+    },
+    {
+      "prerequisite": "nm-d1cd138d8da7f7091497",
+      "dependent": "nm-57def8d18581b3313546",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state",
+        "MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm"
+      ]
+    }
+  ]
+}

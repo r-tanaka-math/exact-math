@@ -1,0 +1,81 @@
+{
+  "title": "Fixed subspaces and reconstruction of the generators",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 8,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ff46ad6b268c1288820f831c4777d7514861ba16ddaf465dfce9eb69ffba7c69",
+        "uid": "lfh:lfh-declaration-card:sha256:6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e"
+      },
+      "url": "/mathlibannex/cards/6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e/versions/n69-85ba692bd237d558/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "749883080e4d77ab3a35f830c3d36c79dec17bf74468620f474c10df2a93b6e5",
+        "uid": "lfh:lfh-declaration-card:sha256:d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61"
+      },
+      "url": "/mathlibannex/cards/d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61/versions/n69-f479404f3d58edd7/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "c713a970bebc8c0633fb8300afb783fe14ebbf0f89958519bda4c71c337cf3c7",
+        "uid": "lfh:lfh-declaration-card:sha256:956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c"
+      },
+      "url": "/mathlibannex/cards/956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c/versions/n69-9846526d3fb298d1/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "46468a9773e38db1c55d17a95e2a9bd0e48c1c2b8428b4a9f4dc8eb92af863a8",
+        "uid": "lfh:lfh-declaration-card:sha256:dd981a41d92677a67b76470021a431fddfac41e1292a8e9d3c1b5b5b6c6e7aef"
+      },
+      "url": "/mathlibannex/cards/dd981a41d92677a67b76470021a431fddfac41e1292a8e9d3c1b5b5b6c6e7aef/versions/n69-64fb2500bbff7edb/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1564975d5834ba5bc32bb5e411e16146fa3982ecafaac55210b5dbee2faeab6a",
+        "uid": "lfh:lfh-declaration-card:sha256:f96955493b7d58c74b287570a9cb14f2c543dd94a8fb260bd3afdd4344070a5f"
+      },
+      "url": "/mathlibannex/cards/f96955493b7d58c74b287570a9cb14f2c543dd94a8fb260bd3afdd4344070a5f/versions/n69-a452e4aab867448a/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "583e915df94134f418287efe8d437652571bc470104d1a618ad60ac1b218045e",
+        "uid": "lfh:lfh-declaration-card:sha256:33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e"
+      },
+      "url": "/mathlibannex/cards/33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e/versions/n69-55df6b0835b24b50/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "3013bebd0fa8135adbc19e340286b79e88fbfc0497c793aa18a17bdd139e5f0e",
+        "uid": "lfh:lfh-declaration-card:sha256:a78c4de54da4fbe1ab39f1d488112128a74cc98680c7764d29e113cb74ba0efc"
+      },
+      "url": "/mathlibannex/cards/a78c4de54da4fbe1ab39f1d488112128a74cc98680c7764d29e113cb74ba0efc/versions/n69-17a142f497c21610/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "2c6fbf8ce3493850aea7596ff64198f7a7e816217b2b62eeb16fe4850c824ce8",
+        "uid": "lfh:lfh-declaration-card:sha256:4888d88a4c7efeb37acd75ea32c5fe01cbce3d3cac678038c63b5954797902df"
+      },
+      "url": "/mathlibannex/cards/4888d88a4c7efeb37acd75ea32c5fe01cbce3d3cac678038c63b5954797902df/versions/n69-d1de79eac694b160/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

@@ -1,0 +1,463 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.initialFixedProjection_eq_zero_on_otherCyclic | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/337c7455bc493994df483ea6/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.initialFixedProjection_eq_zero_on_otherCyclic</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean</code>, lines 256–305.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77/versions/n69-9a2fd2ad5c81a020/index.html">Back to Assembling selected GNS cyclic subspaces into an isometric source representation</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.CaptureSurviving</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.CyclicRestriction</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Cyclic pieces carried by the target defect vectors</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>Each vector supplied by the completed-CAR compression theorem generates a</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>closed reducing copy of the corresponding selected pure GNS representation.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>Distinct selected classes give orthogonal cyclic pieces.</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>-/</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a></span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>set_option autoImplicit false</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option maxHeartbeats 1200000</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>noncomputable section</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>open scoped ComplexOrder InnerProduct</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>universe v</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>/-- A unit vector with one of the selected vector states generates an</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>irreducible cyclic restriction, unitarily equivalent to that selected GNS</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>fiber. -/</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>theorem exists_selectedCyclicUnitary</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    [CompleteSpace K] (sigma : Representation Limit K)</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (eta : K) (heta : ‖eta‖ = 1)</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>    (hstate : Representation.vectorFunctional sigma eta =</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1) :</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>    let M := Representation.cyclicSubspace sigma eta</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>    letI : CompleteSpace M :=</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>      (Representation.isClosed_cyclicSubspace sigma eta).completeSpace_coe</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    let tau := Representation.restrictToReducing sigma M</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>      (Representation.reduces_cyclicSubspace sigma eta)</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>    ∃ U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i ≃ₗᵢ[ℂ] M,</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>      tau.IsIrreducible ∧</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>      U (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i) =</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>        (⟨eta, Representation.self_mem_cyclicSubspace sigma eta⟩ : M) ∧</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>      ∀ a, (U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ] M).comp</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i a) =</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>        (tau a).comp</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>          (U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ] M) := by</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  dsimp only</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  letI : CompleteSpace (Representation.cyclicSubspace sigma eta) :=</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>    (Representation.isClosed_cyclicSubspace sigma eta).completeSpace_coe</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  let z : Representation.cyclicSubspace sigma eta :=</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    ⟨eta, Representation.self_mem_cyclicSubspace sigma eta⟩</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>  let tau := Representation.restrictToReducing sigma</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    (Representation.cyclicSubspace sigma eta)</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    (Representation.reduces_cyclicSubspace sigma eta)</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>  have hz : ‖z‖ = 1 := by simpa [z] using heta</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  have hzstate : Representation.vectorFunctional tau z =</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 := by</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    rw [Representation.vectorFunctional_restrictToReducing]</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>    exact hstate</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  have hcyclic : DenseRange (StarAlgHom.orbitMap tau z) := by</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>    exact Representation.denseRange_orbitMap_restrictCyclic sigma eta</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>  have hpure : IsPureState Limit (Representation.vectorFunctional tau z) := by</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>    rw [hzstate]</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    exact (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).2</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>  have hstar : StarAlgHom.IsIrreducible tau :=</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>    MathlibAnnex.CStarAlgebra.isIrreducible_starAlgHom_of_isPureState tau z hz hcyclic hpure</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>  have hz_ne : z ≠ 0 := by</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    intro hzero</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    simpa [hzero] using hz</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  letI : Nontrivial (Representation.cyclicSubspace sigma eta) :=</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>    nontrivial_of_ne z 0 hz_ne</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  have hirr : tau.IsIrreducible :=</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>    (Representation.isIrreducible_iff_starAlgHom tau).2 hstar</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>  have hsourceCyclic : DenseRange (StarAlgHom.orbitMap</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>      (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i)</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>      (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) :=</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>    MathlibAnnex.CStarAlgebra.PureState.denseRange_representative_gns_orbit completedRootPureState i</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>  have hcoeff (a : Limit) :</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>      inner ℂ (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i a</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>            (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) =</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>        inner ℂ z (tau a z) := by</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    calc</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>      inner ℂ (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i a</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>            (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) =</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>          (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1 a := by</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>            have h := congrArg (fun f : Limit →L[ℂ] ℂ ↦ f a)</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>              (MathlibAnnex.CStarAlgebra.PureState.selected_vectorFunctional completedRootPureState i)</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>            exact h</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>      _ = Representation.vectorFunctional tau z a := by rw [hzstate]</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>      _ = inner ℂ z (tau a z) := rfl</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>  obtain ⟨U, hU, -⟩ := StarAlgHom.existsUnique_pointedCyclicTransport</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>    (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i) tau</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i) z</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>    hsourceCyclic hcyclic hcoeff</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  refine ⟨U, ?_⟩</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>  simpa [tau, z] using (show tau.IsIrreducible ∧</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>      U (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i) = z ∧</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>      ∀ a, (U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ]</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>          Representation.cyclicSubspace sigma eta).comp</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>            (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i a) =</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>        (tau a).comp</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>          (U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ]</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>            Representation.cyclicSubspace sigma eta) from</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>    ⟨hirr, hU.2.1, hU.2.2⟩)</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a></span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>/-- Cyclic subspaces carrying two distinct selected pure-state classes are</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>orthogonal.  The projection from one cyclic piece to the other is an</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>intertwiner; Schur and the chosen-representative separation force it to</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>vanish. -/</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>theorem isOrtho_cyclicSubspace_of_selectedStates</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    [CompleteSpace K] (sigma : Representation Limit K)</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>    {i j : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit} (hij : i ≠ j)</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>    (eta_i eta_j : K) (heta_i : ‖eta_i‖ = 1) (heta_j : ‖eta_j‖ = 1)</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>    (hstate_i : Representation.vectorFunctional sigma eta_i =</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1)</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>    (hstate_j : Representation.vectorFunctional sigma eta_j =</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState j).1) :</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>    Representation.cyclicSubspace sigma eta_i ⟂</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>      Representation.cyclicSubspace sigma eta_j := by</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>  let Mi := Representation.cyclicSubspace sigma eta_i</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>  let Mj := Representation.cyclicSubspace sigma eta_j</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>  have hMiClosed : IsClosed (Mi : Set K) :=</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>    Representation.isClosed_cyclicSubspace sigma eta_i</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>  have hMjClosed : IsClosed (Mj : Set K) :=</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>    Representation.isClosed_cyclicSubspace sigma eta_j</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>  letI : CompleteSpace Mi := hMiClosed.completeSpace_coe</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>  letI : CompleteSpace Mj := hMjClosed.completeSpace_coe</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>  letI : Mi.HasOrthogonalProjection := by</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>    letI : IsClosed (Mi : Set K) := hMiClosed</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>    infer_instance</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>  let tau_i := Representation.restrictToReducing sigma Mi</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    (Representation.reduces_cyclicSubspace sigma eta_i)</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>  let tau_j := Representation.restrictToReducing sigma Mj</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>    (Representation.reduces_cyclicSubspace sigma eta_j)</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>  obtain ⟨Ui, hirri, -, hUi⟩ :=</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>    exists_selectedCyclicUnitary sigma i eta_i heta_i hstate_i</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>  obtain ⟨Uj, hirrj, -, hUj⟩ :=</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>    exists_selectedCyclicUnitary sigma j eta_j heta_j hstate_j</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>  let zi : Mi := ⟨eta_i, Representation.self_mem_cyclicSubspace sigma eta_i⟩</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>  let zj : Mj := ⟨eta_j, Representation.self_mem_cyclicSubspace sigma eta_j⟩</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>  have hzi_ne : zi ≠ 0 := by</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>    intro hzero</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>    have h := congrArg norm hzero</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>    simpa [zi, heta_i] using h</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>  have hzj_ne : zj ≠ 0 := by</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>    intro hzero</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>    have h := congrArg norm hzero</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>    simpa [zj, heta_j] using h</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>  letI : Nontrivial Mi := nontrivial_of_ne zi 0 hzi_ne</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>  letI : Nontrivial Mj := nontrivial_of_ne zj 0 hzj_ne</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>  let V : Mj →L[ℂ] Mi := Mi.orthogonalProjectionOnto.comp Mj.subtypeL</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>  have hV : StarAlgHom.Intertwines tau_j tau_i V := by</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>    intro a</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>    intro x</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>    apply Subtype.ext</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>    have hcomm := Representation.starProjection_commutes_of_reduces sigma Mi</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>      (Representation.reduces_cyclicSubspace sigma eta_i) a</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>    have hx := congrArg (fun T : K →L[ℂ] K ↦ T (x : K)) hcomm</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>    change Mi.starProjection (sigma a (x : K)) =</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>      sigma a (Mi.starProjection (x : K))</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>    exact hx</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>  have hno (E : Mj ≃ₗᵢ[ℂ] Mi) :</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>      ¬ StarAlgHom.Intertwines tau_j tau_i (E : Mj →L[ℂ] Mi) := by</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>    intro hE</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>    have hUjEq : Representation.UnitaryEquivalent</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState j) tau_j := by</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>      refine ⟨Uj, fun a x ↦ ?_⟩</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>      have h := congrArg</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>        (fun T : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState j →L[ℂ] Mj ↦ T x)</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>        (hUj a)</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>      simpa [ContinuousLinearMap.comp_apply] using h</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>    have hEEq : Representation.UnitaryEquivalent tau_j tau_i := by</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>      refine ⟨E, fun a x ↦ ?_⟩</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>      have h := congrArg (fun T : Mj →L[ℂ] Mi ↦ T x) (hE a)</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>      simpa [ContinuousLinearMap.comp_apply] using h</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>    have hUiEq : Representation.UnitaryEquivalent</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i) tau_i := by</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>      refine ⟨Ui, fun a x ↦ ?_⟩</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>      have h := congrArg</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>        (fun T : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ] Mi ↦ T x)</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>        (hUi a)</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>      simpa [ContinuousLinearMap.comp_apply] using h</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>    have hselected : Representation.UnitaryEquivalent</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState j)</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i) :=</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>      Representation.unitaryEquivalent_trans hUjEq</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>        (Representation.unitaryEquivalent_trans hEEq</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>          (Representation.unitaryEquivalent_symm hUiEq))</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>    obtain ⟨W, hW⟩ := hselected</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>    apply MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>      completedRootPureState hij.symm W</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>    intro a</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>    intro x</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>    simpa [ContinuousLinearMap.comp_apply] using hW a x</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>  have hVzero : V = 0 :=</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>    StarAlgHom.Intertwines.eq_zero_of_no_unitary</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>      (Representation.isIrreducible_starAlgHom tau_j hirrj)</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>      (Representation.isIrreducible_starAlgHom tau_i hirri)</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>      hno hV</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>  apply Submodule.orthogonalProjectionOnto_comp_subtypeL_eq_zero_iff.mp</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>  simpa [V] using hVzero</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a></span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>/-- On its own cyclic pure-state piece, the ambient common fixed projection</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>has image in the distinguished one-dimensional line.  This is an ambient-to-</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>cyclic restriction statement, not an ambient multiplicity claim. -/</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>theorem initialFixedProjection_maps_ownCyclic</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>    [CompleteSpace K] (sigma : Representation Limit K)</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>    (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (eta : K)</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>    (hfixed : ∀ n, sigma (transportedFlag family i n) eta = eta)</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>    {x : K} (hx : x ∈ Representation.cyclicSubspace sigma eta) :</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>    commonFixedProjection (fun n ↦ sigma (transportedFlag family i n)) x ∈</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>      ℂ ∙ eta := by</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>  let q := transportedFlag family i</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>  let phi : Limit →L[ℂ] ℂ :=</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>    (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>  let P : K →L[ℂ] K := commonFixedProjection (fun n ↦ sigma (q n))</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>  have hPeta : P eta = eta := by</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>    exact (commonFixedProjection_eq_self_iff (fun n ↦ sigma (q n)) eta).2</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>      ((mem_commonFixedSubspace_iff (fun n ↦ sigma (q n)) eta).2 hfixed)</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>  have hoperator (b : Limit) : P * sigma b * P = (phi b) • P := by</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>    exact commonFixedProjection_comp_map_comp_eq sigma</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>      (Representation.continuousLinearMap sigma).continuous q phi b</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>      (fun n ↦ (isStarProjection_transportedFlag family i n).isSelfAdjoint.star_eq)</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>      (tendsto_representative_transported_compression family i b)</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>  have horbit (b : Limit) : P (sigma b eta) = phi b • eta := by</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>    have h := congrArg (fun T : K →L[ℂ] K ↦ T eta) (hoperator b)</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>    simpa [hPeta] using h</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>  let M := Representation.cyclicSubspace sigma eta</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>  letI : CompleteSpace M :=</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>    (Representation.isClosed_cyclicSubspace sigma eta).completeSpace_coe</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>  let tau := Representation.restrictToReducing sigma M</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>    (Representation.reduces_cyclicSubspace sigma eta)</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>  let z : M := ⟨eta, Representation.self_mem_cyclicSubspace sigma eta⟩</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>  have hdense : DenseRange (StarAlgHom.orbitMap tau z) :=</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>    Representation.denseRange_orbitMap_restrictCyclic sigma eta</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>  have hspanClosed : IsClosed ((ℂ ∙ eta : Submodule ℂ K) : Set K) :=</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>    Submodule.closed_of_finiteDimensional _</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>  have hclosed : IsClosed {y : M | P (y : K) ∈ (ℂ ∙ eta : Submodule ℂ K)} :=</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>    hspanClosed.preimage (P.comp M.subtypeL).continuous</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>  have hall : ∀ y : M, P (y : K) ∈ (ℂ ∙ eta : Submodule ℂ K) := by</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>    intro y</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>    exact hdense.induction_on y hclosed fun b ↦ by</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>      change P (sigma b eta) ∈ (ℂ ∙ eta : Submodule ℂ K)</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>      rw [horbit b]</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>      exact (ℂ ∙ eta).smul_mem (phi b) (Submodule.mem_span_singleton_self eta)</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>  exact hall ⟨x, hx⟩</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a></span>
+<span class="source-line selected" id="L256"><a class="line-no" href="#L256">256</a>/-- The common fixed projection for class `i` vanishes on the cyclic piece</span>
+<span class="source-line selected" id="L257"><a class="line-no" href="#L257">257</a>of a different selected class `j`.  Every nonzero vector in the ambient</span>
+<span class="source-line selected" id="L258"><a class="line-no" href="#L258">258</a>fixed range would itself carry class `i`, so orthogonality and the projection</span>
+<span class="source-line selected" id="L259"><a class="line-no" href="#L259">259</a>norm identity exclude such a component. -/</span>
+<span class="source-line selected" id="L260"><a class="line-no" href="#L260">260</a>theorem initialFixedProjection_eq_zero_on_otherCyclic</span>
+<span class="source-line selected" id="L261"><a class="line-no" href="#L261">261</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line selected" id="L262"><a class="line-no" href="#L262">262</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line selected" id="L263"><a class="line-no" href="#L263">263</a>    [CompleteSpace K] (sigma : Representation Limit K)</span>
+<span class="source-line selected" id="L264"><a class="line-no" href="#L264">264</a>    {i j : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit} (hij : i ≠ j)</span>
+<span class="source-line selected" id="L265"><a class="line-no" href="#L265">265</a>    (eta_j : K) (heta_j : ‖eta_j‖ = 1)</span>
+<span class="source-line selected" id="L266"><a class="line-no" href="#L266">266</a>    (hstate_j : Representation.vectorFunctional sigma eta_j =</span>
+<span class="source-line selected" id="L267"><a class="line-no" href="#L267">267</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState j).1)</span>
+<span class="source-line selected" id="L268"><a class="line-no" href="#L268">268</a>    {x : K} (hx : x ∈ Representation.cyclicSubspace sigma eta_j) :</span>
+<span class="source-line selected" id="L269"><a class="line-no" href="#L269">269</a>    commonFixedProjection (fun n ↦ sigma (transportedFlag family i n)) x = 0 := by</span>
+<span class="source-line selected" id="L270"><a class="line-no" href="#L270">270</a>  let q := transportedFlag family i</span>
+<span class="source-line selected" id="L271"><a class="line-no" href="#L271">271</a>  let phi : Limit →L[ℂ] ℂ :=</span>
+<span class="source-line selected" id="L272"><a class="line-no" href="#L272">272</a>    (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1</span>
+<span class="source-line selected" id="L273"><a class="line-no" href="#L273">273</a>  let F := commonFixedSubspace (fun n ↦ sigma (q n))</span>
+<span class="source-line selected" id="L274"><a class="line-no" href="#L274">274</a>  let P : K →L[ℂ] K := commonFixedProjection (fun n ↦ sigma (q n))</span>
+<span class="source-line selected" id="L275"><a class="line-no" href="#L275">275</a>  let y : K := P x</span>
+<span class="source-line selected" id="L276"><a class="line-no" href="#L276">276</a>  by_contra hyzero</span>
+<span class="source-line selected" id="L277"><a class="line-no" href="#L277">277</a>  have hy_ne : y ≠ 0 := hyzero</span>
+<span class="source-line selected" id="L278"><a class="line-no" href="#L278">278</a>  let z : K := NormedSpace.normalize y</span>
+<span class="source-line selected" id="L279"><a class="line-no" href="#L279">279</a>  have hz_norm : ‖z‖ = 1 := NormedSpace.norm_normalize hy_ne</span>
+<span class="source-line selected" id="L280"><a class="line-no" href="#L280">280</a>  have hy_fixed (n : ℕ) : sigma (q n) y = y := by</span>
+<span class="source-line selected" id="L281"><a class="line-no" href="#L281">281</a>    exact commonFixedProjection_apply_fixed (fun n ↦ sigma (q n)) n x</span>
+<span class="source-line selected" id="L282"><a class="line-no" href="#L282">282</a>  have hz_fixed (n : ℕ) : sigma (q n) z = z := by</span>
+<span class="source-line selected" id="L283"><a class="line-no" href="#L283">283</a>    change sigma (q n) (((‖y‖⁻¹ : ℝ) : ℂ) • y) =</span>
+<span class="source-line selected" id="L284"><a class="line-no" href="#L284">284</a>      ((‖y‖⁻¹ : ℝ) : ℂ) • y</span>
+<span class="source-line selected" id="L285"><a class="line-no" href="#L285">285</a>    rw [map_smul, hy_fixed]</span>
+<span class="source-line selected" id="L286"><a class="line-no" href="#L286">286</a>  have hz_state : Representation.vectorFunctional sigma z = phi := by</span>
+<span class="source-line selected" id="L287"><a class="line-no" href="#L287">287</a>    apply vectorFunctional_eq_of_compression_tendsto sigma q phi</span>
+<span class="source-line selected" id="L288"><a class="line-no" href="#L288">288</a>      (fun n ↦ (isStarProjection_transportedFlag family i n).isSelfAdjoint.star_eq)</span>
+<span class="source-line selected" id="L289"><a class="line-no" href="#L289">289</a>      (tendsto_representative_transported_compression family i)</span>
+<span class="source-line selected" id="L290"><a class="line-no" href="#L290">290</a>      z hz_norm hz_fixed</span>
+<span class="source-line selected" id="L291"><a class="line-no" href="#L291">291</a>  have horth := isOrtho_cyclicSubspace_of_selectedStates sigma hij z eta_j</span>
+<span class="source-line selected" id="L292"><a class="line-no" href="#L292">292</a>    hz_norm heta_j hz_state hstate_j</span>
+<span class="source-line selected" id="L293"><a class="line-no" href="#L293">293</a>  have hzx : inner ℂ z x = 0 := horth.inner_eq</span>
+<span class="source-line selected" id="L294"><a class="line-no" href="#L294">294</a>    (Representation.self_mem_cyclicSubspace sigma z) hx</span>
+<span class="source-line selected" id="L295"><a class="line-no" href="#L295">295</a>  have hy_eq : y = (‖y‖ : ℂ) • z := by</span>
+<span class="source-line selected" id="L296"><a class="line-no" href="#L296">296</a>    simpa [z, Complex.real_smul] using (NormedSpace.norm_smul_normalize y).symm</span>
+<span class="source-line selected" id="L297"><a class="line-no" href="#L297">297</a>  have hyx : inner ℂ y x = 0 := by</span>
+<span class="source-line selected" id="L298"><a class="line-no" href="#L298">298</a>    rw [hy_eq, inner_smul_left, hzx, mul_zero]</span>
+<span class="source-line selected" id="L299"><a class="line-no" href="#L299">299</a>  have hnormsq := Submodule.re_inner_starProjection_eq_normSq F x</span>
+<span class="source-line selected" id="L300"><a class="line-no" href="#L300">300</a>  change (inner ℂ (P x) x).re = ‖P x‖ ^ 2 at hnormsq</span>
+<span class="source-line selected" id="L301"><a class="line-no" href="#L301">301</a>  have hnorm_zero : ‖y‖ ^ 2 = 0 := by</span>
+<span class="source-line selected" id="L302"><a class="line-no" href="#L302">302</a>    calc</span>
+<span class="source-line selected" id="L303"><a class="line-no" href="#L303">303</a>      ‖y‖ ^ 2 = (inner ℂ y x).re := hnormsq.symm</span>
+<span class="source-line selected" id="L304"><a class="line-no" href="#L304">304</a>      _ = 0 := by rw [hyx]; rfl</span>
+<span class="source-line selected" id="L305"><a class="line-no" href="#L305">305</a>  exact hy_ne (norm_eq_zero.mp (sq_eq_zero_iff.mp hnorm_zero))</span>
+<span class="source-line" id="L306"><a class="line-no" href="#L306">306</a></span>
+<span class="source-line" id="L307"><a class="line-no" href="#L307">307</a>/-- The cyclic copies of all selected pure states assemble to an isometric</span>
+<span class="source-line" id="L308"><a class="line-no" href="#L308">308</a>source intertwiner from the displayed arbitrary-index atomic Hilbert sum into</span>
+<span class="source-line" id="L309"><a class="line-no" href="#L309">309</a>the target Hilbert space.  The ambient fixed projection for class `i` maps</span>
+<span class="source-line" id="L310"><a class="line-no" href="#L310">310</a>the isometry range into the distinguished line carried by the `i`-th selected</span>
+<span class="source-line" id="L311"><a class="line-no" href="#L311">311</a>vector (and hence back into the isometry range).  Surjectivity is deliberately</span>
+<span class="source-line" id="L312"><a class="line-no" href="#L312">312</a>not asserted here; it is the remaining generated-target reduction step. -/</span>
+<span class="source-line" id="L313"><a class="line-no" href="#L313">313</a>theorem exists_selectedAtomicCyclicIsometry</span>
+<span class="source-line" id="L314"><a class="line-no" href="#L314">314</a>    (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L315"><a class="line-no" href="#L315">315</a>    {K : Type v} [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L316"><a class="line-no" href="#L316">316</a>    [CompleteSpace K] (sigma : Representation Limit K)</span>
+<span class="source-line" id="L317"><a class="line-no" href="#L317">317</a>    (eta : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit → K)</span>
+<span class="source-line" id="L318"><a class="line-no" href="#L318">318</a>    (heta : ∀ i, ‖eta i‖ = 1)</span>
+<span class="source-line" id="L319"><a class="line-no" href="#L319">319</a>    (hstate : ∀ i, Representation.vectorFunctional sigma (eta i) =</span>
+<span class="source-line" id="L320"><a class="line-no" href="#L320">320</a>      (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1) :</span>
+<span class="source-line" id="L321"><a class="line-no" href="#L321">321</a>    ∃ W : MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →ₗᵢ[ℂ] K,</span>
+<span class="source-line" id="L322"><a class="line-no" href="#L322">322</a>      (∀ i x, W (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i x) ∈</span>
+<span class="source-line" id="L323"><a class="line-no" href="#L323">323</a>        Representation.cyclicSubspace sigma (eta i)) ∧</span>
+<span class="source-line" id="L324"><a class="line-no" href="#L324">324</a>      (∀ i, W (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L325"><a class="line-no" href="#L325">325</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) = eta i) ∧</span>
+<span class="source-line" id="L326"><a class="line-no" href="#L326">326</a>      (∀ i x, commonFixedProjection</span>
+<span class="source-line" id="L327"><a class="line-no" href="#L327">327</a>        (fun n ↦ sigma (transportedFlag family i n)) (W x) ∈</span>
+<span class="source-line" id="L328"><a class="line-no" href="#L328">328</a>          ℂ ∙ eta i) ∧</span>
+<span class="source-line" id="L329"><a class="line-no" href="#L329">329</a>      ∀ a,</span>
+<span class="source-line" id="L330"><a class="line-no" href="#L330">330</a>        W.toContinuousLinearMap.comp</span>
+<span class="source-line" id="L331"><a class="line-no" href="#L331">331</a>            (selectedAtomicRepresentation a) =</span>
+<span class="source-line" id="L332"><a class="line-no" href="#L332">332</a>          (sigma a).comp</span>
+<span class="source-line" id="L333"><a class="line-no" href="#L333">333</a>            W.toContinuousLinearMap := by</span>
+<span class="source-line" id="L334"><a class="line-no" href="#L334">334</a>  classical</span>
+<span class="source-line" id="L335"><a class="line-no" href="#L335">335</a>  let M (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :=</span>
+<span class="source-line" id="L336"><a class="line-no" href="#L336">336</a>    Representation.cyclicSubspace sigma (eta i)</span>
+<span class="source-line" id="L337"><a class="line-no" href="#L337">337</a>  letI instComplete (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) : CompleteSpace (M i) :=</span>
+<span class="source-line" id="L338"><a class="line-no" href="#L338">338</a>    (Representation.isClosed_cyclicSubspace sigma (eta i)).completeSpace_coe</span>
+<span class="source-line" id="L339"><a class="line-no" href="#L339">339</a>  have hex (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :</span>
+<span class="source-line" id="L340"><a class="line-no" href="#L340">340</a>      ∃ U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i ≃ₗᵢ[ℂ] M i,</span>
+<span class="source-line" id="L341"><a class="line-no" href="#L341">341</a>        let tau := Representation.restrictToReducing sigma (M i)</span>
+<span class="source-line" id="L342"><a class="line-no" href="#L342">342</a>          (Representation.reduces_cyclicSubspace sigma (eta i))</span>
+<span class="source-line" id="L343"><a class="line-no" href="#L343">343</a>        tau.IsIrreducible ∧</span>
+<span class="source-line" id="L344"><a class="line-no" href="#L344">344</a>        U (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i) =</span>
+<span class="source-line" id="L345"><a class="line-no" href="#L345">345</a>          (⟨eta i, Representation.self_mem_cyclicSubspace sigma (eta i)⟩ : M i) ∧</span>
+<span class="source-line" id="L346"><a class="line-no" href="#L346">346</a>        ∀ a, (U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ] M i).comp</span>
+<span class="source-line" id="L347"><a class="line-no" href="#L347">347</a>            (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i a) =</span>
+<span class="source-line" id="L348"><a class="line-no" href="#L348">348</a>          (tau a).comp</span>
+<span class="source-line" id="L349"><a class="line-no" href="#L349">349</a>            (U : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ] M i) := by</span>
+<span class="source-line" id="L350"><a class="line-no" href="#L350">350</a>    simpa [M] using</span>
+<span class="source-line" id="L351"><a class="line-no" href="#L351">351</a>      exists_selectedCyclicUnitary sigma i (eta i) (heta i) (hstate i)</span>
+<span class="source-line" id="L352"><a class="line-no" href="#L352">352</a>  choose U hU using hex</span>
+<span class="source-line" id="L353"><a class="line-no" href="#L353">353</a>  let V (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :</span>
+<span class="source-line" id="L354"><a class="line-no" href="#L354">354</a>      MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →ₗᵢ[ℂ] K :=</span>
+<span class="source-line" id="L355"><a class="line-no" href="#L355">355</a>    (M i).subtypeₗᵢ.comp (U i).toLinearIsometry</span>
+<span class="source-line" id="L356"><a class="line-no" href="#L356">356</a>  have hVortho : OrthogonalFamily ℂ</span>
+<span class="source-line" id="L357"><a class="line-no" href="#L357">357</a>      (MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState) V := by</span>
+<span class="source-line" id="L358"><a class="line-no" href="#L358">358</a>    intro i j hij x y</span>
+<span class="source-line" id="L359"><a class="line-no" href="#L359">359</a>    have horth := isOrtho_cyclicSubspace_of_selectedStates sigma hij</span>
+<span class="source-line" id="L360"><a class="line-no" href="#L360">360</a>      (eta i) (eta j) (heta i) (heta j) (hstate i) (hstate j)</span>
+<span class="source-line" id="L361"><a class="line-no" href="#L361">361</a>    exact horth.inner_eq (by</span>
+<span class="source-line" id="L362"><a class="line-no" href="#L362">362</a>      change (U i x : K) ∈ Representation.cyclicSubspace sigma (eta i)</span>
+<span class="source-line" id="L363"><a class="line-no" href="#L363">363</a>      exact (U i x).property) (by</span>
+<span class="source-line" id="L364"><a class="line-no" href="#L364">364</a>      change (U j y : K) ∈ Representation.cyclicSubspace sigma (eta j)</span>
+<span class="source-line" id="L365"><a class="line-no" href="#L365">365</a>      exact (U j y).property)</span>
+<span class="source-line" id="L366"><a class="line-no" href="#L366">366</a>  let W : MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState →ₗᵢ[ℂ] K :=</span>
+<span class="source-line" id="L367"><a class="line-no" href="#L367">367</a>    hVortho.linearIsometry</span>
+<span class="source-line" id="L368"><a class="line-no" href="#L368">368</a>  have hWpoint (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :</span>
+<span class="source-line" id="L369"><a class="line-no" href="#L369">369</a>      W (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L370"><a class="line-no" href="#L370">370</a>        (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) = eta i := by</span>
+<span class="source-line" id="L371"><a class="line-no" href="#L371">371</a>    have hsingle := OrthogonalFamily.linearIsometry_apply_single hVortho</span>
+<span class="source-line" id="L372"><a class="line-no" href="#L372">372</a>      (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)</span>
+<span class="source-line" id="L373"><a class="line-no" href="#L373">373</a>    calc</span>
+<span class="source-line" id="L374"><a class="line-no" href="#L374">374</a>      W (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i</span>
+<span class="source-line" id="L375"><a class="line-no" href="#L375">375</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)) =</span>
+<span class="source-line" id="L376"><a class="line-no" href="#L376">376</a>          V i (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i) := by</span>
+<span class="source-line" id="L377"><a class="line-no" href="#L377">377</a>            simpa [W, MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding,</span>
+<span class="source-line" id="L378"><a class="line-no" href="#L378">378</a>              MathlibAnnex.Analysis.InnerProductSpace.coordinateEmbedding_apply] using hsingle</span>
+<span class="source-line" id="L379"><a class="line-no" href="#L379">379</a>      _ = eta i := by</span>
+<span class="source-line" id="L380"><a class="line-no" href="#L380">380</a>        have h := congrArg Subtype.val ((hU i).2.1)</span>
+<span class="source-line" id="L381"><a class="line-no" href="#L381">381</a>        simpa [V] using h</span>
+<span class="source-line" id="L382"><a class="line-no" href="#L382">382</a>  have hVintertwines (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (a : Limit)</span>
+<span class="source-line" id="L383"><a class="line-no" href="#L383">383</a>      (x : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i) :</span>
+<span class="source-line" id="L384"><a class="line-no" href="#L384">384</a>      V i (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i a x) =</span>
+<span class="source-line" id="L385"><a class="line-no" href="#L385">385</a>        sigma a (V i x) := by</span>
+<span class="source-line" id="L386"><a class="line-no" href="#L386">386</a>    have h := congrArg</span>
+<span class="source-line" id="L387"><a class="line-no" href="#L387">387</a>      (fun T : MathlibAnnex.CStarAlgebra.PureState.SelectedGNS completedRootPureState i →L[ℂ] M i ↦ T x)</span>
+<span class="source-line" id="L388"><a class="line-no" href="#L388">388</a>      ((hU i).2.2 a)</span>
+<span class="source-line" id="L389"><a class="line-no" href="#L389">389</a>    have h&#x27; := congrArg Subtype.val h</span>
+<span class="source-line" id="L390"><a class="line-no" href="#L390">390</a>    simpa [V, ContinuousLinearMap.comp_apply,</span>
+<span class="source-line" id="L391"><a class="line-no" href="#L391">391</a>      Representation.restrictToReducing_apply_coe] using h&#x27;</span>
+<span class="source-line" id="L392"><a class="line-no" href="#L392">392</a>  refine ⟨W, ?_, ?_, ?_, ?_⟩</span>
+<span class="source-line" id="L393"><a class="line-no" href="#L393">393</a>  · intro i x</span>
+<span class="source-line" id="L394"><a class="line-no" href="#L394">394</a>    have hsingle := OrthogonalFamily.linearIsometry_apply_single hVortho x</span>
+<span class="source-line" id="L395"><a class="line-no" href="#L395">395</a>    have heq : W (MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i x) =</span>
+<span class="source-line" id="L396"><a class="line-no" href="#L396">396</a>        V i x := by</span>
+<span class="source-line" id="L397"><a class="line-no" href="#L397">397</a>      simpa [W, MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding,</span>
+<span class="source-line" id="L398"><a class="line-no" href="#L398">398</a>        MathlibAnnex.Analysis.InnerProductSpace.coordinateEmbedding_apply] using hsingle</span>
+<span class="source-line" id="L399"><a class="line-no" href="#L399">399</a>    rw [heq]</span>
+<span class="source-line" id="L400"><a class="line-no" href="#L400">400</a>    change (U i x : K) ∈ Representation.cyclicSubspace sigma (eta i)</span>
+<span class="source-line" id="L401"><a class="line-no" href="#L401">401</a>    exact (U i x).property</span>
+<span class="source-line" id="L402"><a class="line-no" href="#L402">402</a>  · intro i</span>
+<span class="source-line" id="L403"><a class="line-no" href="#L403">403</a>    exact hWpoint i</span>
+<span class="source-line" id="L404"><a class="line-no" href="#L404">404</a>  · intro i x</span>
+<span class="source-line" id="L405"><a class="line-no" href="#L405">405</a>    let P : K →L[ℂ] K := commonFixedProjection</span>
+<span class="source-line" id="L406"><a class="line-no" href="#L406">406</a>      (fun n ↦ sigma (transportedFlag family i n))</span>
+<span class="source-line" id="L407"><a class="line-no" href="#L407">407</a>    have hsum : Summable (fun j ↦ V j (x j)) := hVortho.summable_of_lp x</span>
+<span class="source-line" id="L408"><a class="line-no" href="#L408">408</a>    have hother (j : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (hji : j ≠ i) :</span>
+<span class="source-line" id="L409"><a class="line-no" href="#L409">409</a>        P (V j (x j)) = 0 := by</span>
+<span class="source-line" id="L410"><a class="line-no" href="#L410">410</a>      apply initialFixedProjection_eq_zero_on_otherCyclic family sigma hji.symm</span>
+<span class="source-line" id="L411"><a class="line-no" href="#L411">411</a>        (eta j) (heta j) (hstate j)</span>
+<span class="source-line" id="L412"><a class="line-no" href="#L412">412</a>      change (U j (x j) : K) ∈ Representation.cyclicSubspace sigma (eta j)</span>
+<span class="source-line" id="L413"><a class="line-no" href="#L413">413</a>      exact (U j (x j)).property</span>
+<span class="source-line" id="L414"><a class="line-no" href="#L414">414</a>    have hcollapse : (∑&#x27; j, P (V j (x j))) = P (V i (x i)) := by</span>
+<span class="source-line" id="L415"><a class="line-no" href="#L415">415</a>      exact tsum_eq_single i hother</span>
+<span class="source-line" id="L416"><a class="line-no" href="#L416">416</a>    have hfixed_i (n : ℕ) :</span>
+<span class="source-line" id="L417"><a class="line-no" href="#L417">417</a>        sigma (transportedFlag family i n) (eta i) = eta i := by</span>
+<span class="source-line" id="L418"><a class="line-no" href="#L418">418</a>      apply projection_apply_eq_self_of_vectorFunctional_eq_one sigma</span>
+<span class="source-line" id="L419"><a class="line-no" href="#L419">419</a>        (transportedFlag family i n) (isStarProjection_transportedFlag family i n)</span>
+<span class="source-line" id="L420"><a class="line-no" href="#L420">420</a>        (eta i) (heta i)</span>
+<span class="source-line" id="L421"><a class="line-no" href="#L421">421</a>      rw [hstate i]</span>
+<span class="source-line" id="L422"><a class="line-no" href="#L422">422</a>      calc</span>
+<span class="source-line" id="L423"><a class="line-no" href="#L423">423</a>        (MathlibAnnex.CStarAlgebra.PureState.representative completedRootPureState i).1</span>
+<span class="source-line" id="L424"><a class="line-no" href="#L424">424</a>            (transportedFlag family i n) = rootState (rootFlag n) :=</span>
+<span class="source-line" id="L425"><a class="line-no" href="#L425">425</a>          (representativeShellData family i).state_eq (rootFlag n)</span>
+<span class="source-line" id="L426"><a class="line-no" href="#L426">426</a>        _ = 1 := rootState_rootFlag n</span>
+<span class="source-line" id="L427"><a class="line-no" href="#L427">427</a>    have hown : P (V i (x i)) ∈ (ℂ ∙ eta i : Submodule ℂ K) := by</span>
+<span class="source-line" id="L428"><a class="line-no" href="#L428">428</a>      apply initialFixedProjection_maps_ownCyclic family sigma i (eta i)</span>
+<span class="source-line" id="L429"><a class="line-no" href="#L429">429</a>        hfixed_i</span>
+<span class="source-line" id="L430"><a class="line-no" href="#L430">430</a>      change (U i (x i) : K) ∈ Representation.cyclicSubspace sigma (eta i)</span>
+<span class="source-line" id="L431"><a class="line-no" href="#L431">431</a>      exact (U i (x i)).property</span>
+<span class="source-line" id="L432"><a class="line-no" href="#L432">432</a>    have hPW : P (W x) = P (V i (x i)) := by</span>
+<span class="source-line" id="L433"><a class="line-no" href="#L433">433</a>      calc</span>
+<span class="source-line" id="L434"><a class="line-no" href="#L434">434</a>        P (W x) = P (∑&#x27; j, V j (x j)) := by</span>
+<span class="source-line" id="L435"><a class="line-no" href="#L435">435</a>          rw [OrthogonalFamily.linearIsometry_apply hVortho]</span>
+<span class="source-line" id="L436"><a class="line-no" href="#L436">436</a>        _ = ∑&#x27; j, P (V j (x j)) := P.map_tsum hsum</span>
+<span class="source-line" id="L437"><a class="line-no" href="#L437">437</a>        _ = P (V i (x i)) := hcollapse</span>
+<span class="source-line" id="L438"><a class="line-no" href="#L438">438</a>    rw [hPW]</span>
+<span class="source-line" id="L439"><a class="line-no" href="#L439">439</a>    exact hown</span>
+<span class="source-line" id="L440"><a class="line-no" href="#L440">440</a>  · intro a</span>
+<span class="source-line" id="L441"><a class="line-no" href="#L441">441</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L442"><a class="line-no" href="#L442">442</a>    intro x</span>
+<span class="source-line" id="L443"><a class="line-no" href="#L443">443</a>    change W (selectedAtomicRepresentation a x) = sigma a (W x)</span>
+<span class="source-line" id="L444"><a class="line-no" href="#L444">444</a>    calc</span>
+<span class="source-line" id="L445"><a class="line-no" href="#L445">445</a>      W (selectedAtomicRepresentation a x) =</span>
+<span class="source-line" id="L446"><a class="line-no" href="#L446">446</a>          ∑&#x27; i, V i ((selectedAtomicRepresentation a x) i) := by</span>
+<span class="source-line" id="L447"><a class="line-no" href="#L447">447</a>            exact OrthogonalFamily.linearIsometry_apply hVortho _</span>
+<span class="source-line" id="L448"><a class="line-no" href="#L448">448</a>      _ = ∑&#x27; i, V i</span>
+<span class="source-line" id="L449"><a class="line-no" href="#L449">449</a>          (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState i a (x i)) := by</span>
+<span class="source-line" id="L450"><a class="line-no" href="#L450">450</a>            apply tsum_congr</span>
+<span class="source-line" id="L451"><a class="line-no" href="#L451">451</a>            intro i</span>
+<span class="source-line" id="L452"><a class="line-no" href="#L452">452</a>            rw [selectedAtomicRepresentation]</span>
+<span class="source-line" id="L453"><a class="line-no" href="#L453">453</a>            rfl</span>
+<span class="source-line" id="L454"><a class="line-no" href="#L454">454</a>      _ = ∑&#x27; i, sigma a (V i (x i)) := by</span>
+<span class="source-line" id="L455"><a class="line-no" href="#L455">455</a>            apply tsum_congr</span>
+<span class="source-line" id="L456"><a class="line-no" href="#L456">456</a>            intro i</span>
+<span class="source-line" id="L457"><a class="line-no" href="#L457">457</a>            exact hVintertwines i a (x i)</span>
+<span class="source-line" id="L458"><a class="line-no" href="#L458">458</a>      _ = sigma a (∑&#x27; i, V i (x i)) := by</span>
+<span class="source-line" id="L459"><a class="line-no" href="#L459">459</a>            exact ((sigma a).map_tsum (hVortho.summable_of_lp x)).symm</span>
+<span class="source-line" id="L460"><a class="line-no" href="#L460">460</a>      _ = sigma a (W x) := by</span>
+<span class="source-line" id="L461"><a class="line-no" href="#L461">461</a>            rw [OrthogonalFamily.linearIsometry_apply hVortho]</span>
+<span class="source-line" id="L462"><a class="line-no" href="#L462">462</a></span>
+<span class="source-line" id="L463"><a class="line-no" href="#L463">463</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

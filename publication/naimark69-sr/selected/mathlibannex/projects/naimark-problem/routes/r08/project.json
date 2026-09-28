@@ -1,0 +1,72 @@
+{
+  "title": "One C*-algebra and its representation-theoretic properties",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 7,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ba2e8276346975fcb757ba309080b548e3825fd7a9e5f505c0947c847694f385",
+        "uid": "lfh:lfh-declaration-card:sha256:a1397f366783063d30db5ab13e31d3e5339a0d31518fb16b965d5299478b8142"
+      },
+      "url": "/mathlibannex/cards/a1397f366783063d30db5ab13e31d3e5339a0d31518fb16b965d5299478b8142/versions/n69-c6058a1a3b8d3ee0/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "d10f0a91f19a1e8ff87ebdfcdb4948f6e061fdea3cf835a3652348f1e8084674",
+        "uid": "lfh:lfh-declaration-card:sha256:fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470"
+      },
+      "url": "/mathlibannex/cards/fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470/versions/n69-f161a599b091c622/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "516a57a8f062ef0a6234d796e52b96c61eb3b141eb155771b24f65817dddb0ea",
+        "uid": "lfh:lfh-declaration-card:sha256:e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa"
+      },
+      "url": "/mathlibannex/cards/e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa/versions/n69-cef5d882030e1a2f/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "47d4f0b7c34f13bd52725a8e51e896bc85168489e7892a0a473cf0eac009e425",
+        "uid": "lfh:lfh-declaration-card:sha256:f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611"
+      },
+      "url": "/mathlibannex/cards/f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611/versions/n69-edb66b0baf7da104/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "82dcb53f14784d8184619f6b558bae0a063457b36614f838624b46b2451cb4c8",
+        "uid": "lfh:lfh-declaration-card:sha256:d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09"
+      },
+      "url": "/mathlibannex/cards/d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09/versions/n69-3dc89042d82a9fcf/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "ad091ef1bdb46599561192f9b2e32004e2aa24220ab5bf053514f7acb52b56d2",
+        "uid": "lfh:lfh-declaration-card:sha256:a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65"
+      },
+      "url": "/mathlibannex/cards/a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65/versions/n69-49a354534a5b9d1b/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "676839944ea44aba2ad0d82eecf10f9d7de497d78bdc437392982049cd4644ee",
+        "uid": "lfh:lfh-declaration-card:sha256:496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241"
+      },
+      "url": "/mathlibannex/cards/496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241/versions/n69-9f7c84764bbb25b9/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

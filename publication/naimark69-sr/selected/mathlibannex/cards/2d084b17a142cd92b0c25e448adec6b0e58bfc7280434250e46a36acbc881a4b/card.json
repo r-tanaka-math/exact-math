@@ -1,0 +1,126 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. No additional hypotheses are supplied to this theorem. Its proof uses the previously constructed faithful representation on the separable CAR trace-GNS space.",
+    "conclusion": "|A| ≤ 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The underlying set of A has size at most the continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "Cardinal.mk here refers to the underlying set, not the density character or a vector-space dimension. No CH premise is used. The lower bound required for equality is supplied separately.",
+    "natural_language_statement": "The underlying set of the fixed CAR-based C*-algebra A has cardinality at most 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Obtains a carrier-cardinality bound from a faithful representation on a separable Hilbert space.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Equip the fixed trace-GNS space with its established separable-space structure."
+      },
+      {
+        "step_id": "2",
+        "text": "Use injectivity of the tracial representation and the operator-space cardinality bound."
+      }
+    ],
+    "proof_summary": "Apply the cardinality bound for an algebra admitting an injective representation on a separable Hilbert space."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "02df2eeba0368fda2c5814cec462bc5566696823c4b4dd7fe316f492ef6c26d6",
+    "uid": "lfh:lfh-declaration-card:sha256:2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "2819956fe322be85a3bf072b0a1b2f513523a360b7b479174c28a5e0114d7c2d",
+    "uid": "lfh:lfh-card-exposition:sha256:50e87e3eefd3163193fdaa6c5b273f3495089e7485d8c7f28ade4fde2d122186"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.cardinalMk_atomicCounterexampleAlgebra_le_continuum",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      19,
+      25
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean#L19-L25"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.SeparableCardinality",
+        "provider": "PROJECT",
+        "provider_source_sha256": "a94424d75ffdb5fa49aef033dc2b9dd914ddf3c844d693df051f55db22eccf77",
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.cardinalMk_le_continuum_of_injective"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. No additional hypotheses are supplied to this theorem. Its proof uses the previously constructed faithful representation on the separable CAR trace-GNS space.",
+    "conclusion": "|A| ≤ 𝔠.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The underlying set of A has size at most the continuum",
+    "language_tag": "en",
+    "lean_realization_notes": "Cardinal.mk here refers to the underlying set, not the density character or a vector-space dimension. No CH premise is used. The lower bound required for equality is supplied separately.",
+    "natural_language_statement": "The underlying set of the fixed CAR-based C*-algebra A has cardinality at most 𝔠 = 2^ℵ₀.",
+    "one_sentence_role": "Obtains a carrier-cardinality bound from a faithful representation on a separable Hilbert space.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Equip the fixed trace-GNS space with its established separable-space structure."
+      },
+      {
+        "step_id": "2",
+        "text": "Use injectivity of the tracial representation and the operator-space cardinality bound."
+      }
+    ],
+    "proof_summary": "Apply the cardinality bound for an algebra admitting an injective representation on a separable Hilbert space.",
+    "stable_card_id": "2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.cardinalMk_atomicCounterexampleAlgebra_le_continuum",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+    "source_locator": {
+      "start_line": 19,
+      "end_line": 25
+    },
+    "source_signature": {
+      "text": "/-- The existing faithful separable representation bounds the fixed carrier. -/\ntheorem cardinalMk_atomicCounterexampleAlgebra_le_continuum :\n    #AtomicCounterexampleAlgebra ≤ Cardinal.continuum := by\n  letI : TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace :=\n    separableSpace_separableCounterexampleHilbertSpace\n  exact Representation.cardinalMk_le_continuum_of_injective\n    separableCounterexampleRepresentation separableCounterexampleRepresentation_injective"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "02df2eeba0368fda2c5814cec462bc5566696823c4b4dd7fe316f492ef6c26d6",
+      "uid": "lfh:lfh-declaration-card:sha256:2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "2819956fe322be85a3bf072b0a1b2f513523a360b7b479174c28a5e0114d7c2d",
+      "uid": "lfh:lfh-card-exposition:sha256:50e87e3eefd3163193fdaa6c5b273f3495089e7485d8c7f28ade4fde2d122186"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.Analysis.CStarAlgebra.Representation.cardinalMk_le_continuum_of_injective",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/bdadde1f50d8d549bd66de3c/index.html#L22"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

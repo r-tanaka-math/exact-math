@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.Representation.injective_of_closed_ideal_dichotomy | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/0444dacc7ba741b3e9a14ed2/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.Representation.injective_of_closed_ideal_dichotomy</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/Representation/SimpleFaithful.lean</code>, lines 23–39.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/SimpleFaithful.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3/versions/n69-5b192ccbb19e7e60/index.html">Back to Faithfulness of the target-state GNS representation</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.VectorFunctional</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import Mathlib.RingTheory.TwoSidedIdeal.Kernel</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Faithfulness from the closed-ideal dichotomy</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>Irreducibility is unnecessary here: a unital representation on a nonzero</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>Hilbert space has proper kernel. This small lemma keeps the faithful-model</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>argument independent of any separable irreducible-representation claim.</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>-/</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a></span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>set_option autoImplicit false</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>namespace MathlibAnnex.Analysis.CStarAlgebra.Representation</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>universe u v</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>variable {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>variable {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>  [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>/-- Every unital representation of an algebra with no nontrivial closed</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>two-sided ideals is faithful, provided its Hilbert space is nonzero. -/</span>
+<span class="source-line selected" id="L23"><a class="line-no" href="#L23">23</a>theorem injective_of_closed_ideal_dichotomy</span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a>    (hA : ∀ I : TwoSidedIdeal A, IsClosed (I : Set A) → I = ⊥ ∨ I = ⊤)</span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>    (ρ : Representation A H) : Function.Injective ρ := by</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>  let I : TwoSidedIdeal A := TwoSidedIdeal.ker ρ.toRingHom</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a>  have hclosed : IsClosed (I : Set A) := by</span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>    have hset : (I : Set A) =</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>        (continuousLinearMap ρ) ⁻¹&#x27; ({0} : Set (H →L[ℂ] H)) := by</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>      ext a</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>      exact TwoSidedIdeal.mem_ker ρ.toRingHom</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>    rw [hset]</span>
+<span class="source-line selected" id="L33"><a class="line-no" href="#L33">33</a>    exact isClosed_singleton.preimage (continuousLinearMap ρ).continuous</span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>  rcases hA I hclosed with hbot | htop</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>  · exact (TwoSidedIdeal.ker_eq_bot ρ.toRingHom).mp hbot</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>  · have hone : (1 : A) ∈ I := by rw [htop]; trivial</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>    have hzero := (TwoSidedIdeal.mem_ker ρ.toRingHom).mp hone</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>    have hbad : (1 : H →L[ℂ] H) = 0 := by simpa only [map_one] using hzero</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>    exact (one_ne_zero hbad).elim</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a></span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>end MathlibAnnex.Analysis.CStarAlgebra.Representation</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

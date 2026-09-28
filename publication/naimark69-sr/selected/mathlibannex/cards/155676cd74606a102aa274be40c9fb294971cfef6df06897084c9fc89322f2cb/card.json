@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "1e902925d794f4e33ffdde5a3d64012f7ee1e5ad95ef52b34faaa2d53cd53755",
+  "approved_card_model_sha256": "ccea5c4578dea61e5a3e0ed5f252d5e95813dcbe1e995033bffbd1a69c181b02",
+  "assumptions": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a separable complex Hilbert space; and let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "a1c2ac8a3243c4697c1d5133870dfbda664c5a4e32cfba5f403fe5d6f387df5a",
+    "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_rankOne_map",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "0f8e7968c7269244dff3347b8dd04824dd6f183f487dc52919fbc4e7b19ca3c9",
+        "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "For every pair x,y∈H, including zero vectors, there exists a∈A with π(a)=rankOne ℂ x y; this operator has rank at most one.",
+  "declaration_kind": "theorem",
+  "definition_equation": "∀ x y : H, ∃ a : A, π a = rankOne ℂ x y.",
+  "definition_explanation": "∀ x y : H, ∃ a : A, π a = rankOne ℂ x y.",
+  "display_title": "Preimages for all operators of the form rankOne",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] {H : Type v} [inst_1 : NormedAddCommGroup H] [inst_2 : InnerProductSpace ℂ H] [inst_3 : CompleteSpace H] [Nontrivial A] [inst_5 : PartialOrder A] [StarOrderedRing A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (x y : H), ∃ a, pi a = ((InnerProductSpace.rankOne ℂ) x) y",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "292d3d95418d0c7dc1e14e45463b44bfe2a2ae1074cb7938ad66e19e10ec44f4",
+    "uid": "lfh:lfh-card-exposition:sha256:95880f9548940aff49eed1a47900a2bdb81de2b8cb13af53c7fbe44bb17b6ed7"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "4070a659493df7373c0494197c1eaf7bb76535cf97cc61a4ffecab5f7f77ac0e",
+    "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "292d3d95418d0c7dc1e14e45463b44bfe2a2ae1074cb7938ad66e19e10ec44f4",
+    "uid": "lfh:lfh-card-exposition:sha256:95880f9548940aff49eed1a47900a2bdb81de2b8cb13af53c7fbe44bb17b6ed7"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "4070a659493df7373c0494197c1eaf7bb76535cf97cc61a4ffecab5f7f77ac0e",
+      "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_rankOne_of_singleton",
+  "natural_language_statement": "Let A be a nonzero complex C*-algebra, not assumed unital; let H be a separable complex Hilbert space; and let π be a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. For every pair x,y∈H, including zero vectors, there exists a∈A with π(a)=rankOne ℂ x y; this operator has rank at most one.",
+  "one_sentence_role": "Provides preimages for every operator of the form rankOne ℂ x y, the rank-at-most-one generators used to obtain all compact operators.",
+  "owner_review_item_sha256": "5bcbc8cf7d66b0fd151484241ca1885ff1504cb5f3df01c79dbba7c6ba89e98d",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] {H : Type v} [inst_1 : NormedAddCommGroup H] [inst_2 : InnerProductSpace ℂ H] [inst_3 : CompleteSpace H] [Nontrivial A] [inst_5 : PartialOrder A] [StarOrderedRing A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∀ (x y : H), ∃ a, pi a = ((InnerProductSpace.rankOne ℂ) x) y"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∀ x y : H, ∃ a : A, π a = rankOne ℂ x y."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source obtains one nonzero rank-one projection in π(A), uses the unique-class hypothesis for π together with injectivity, and invokes the rank-one-preimage theorem to move from that projection to every x and y, including zero vectors."
+    }
+  ],
+  "proof_summary": "The source obtains one nonzero rank-one projection in π(A), uses the unique-class hypothesis for π together with injectivity, and invokes the rank-one-preimage theorem to move from that projection to every x and y, including zero vectors.",
+  "source_excerpt": {
+    "bytes": 673,
+    "sha256": "d54ebf074a28780ccfdd74720c1d53c0012b29fc9715a2ec907c26132b3fbea7"
+  },
+  "source_locator": {
+    "end_column": 48,
+    "end_line": 105,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+    "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+    "start_column": 1,
+    "start_line": 94
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "b54efc338d43e8d21036eb262d792f8321d60cc956b7c9f6e97f816512a82ff0",
+    "uid": "lfh:lfh-source-build-binding:sha256:ff0a74bf66b234c09a12ecb5c3e69d64b09f5ad5cb1d5463f14cd69a5f87dc98"
+  },
+  "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+  "source_signature": {
+    "end_byte": 4083,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "e6ff3893963dfa329da5f77a92a40bc195e08d923b5468d2c422dec4e42cf00a",
+    "source_command_range": {
+      "end_column": 48,
+      "end_line": 105,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+      "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+      "start_column": 1,
+      "start_line": 94
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+    "source_sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063",
+    "start_byte": 3771,
+    "text": "theorem exists_preimage_rankOne_of_singleton [Nontrivial A]\n    [PartialOrder A] [StarOrderedRing A]\n    [TopologicalSpace.SeparableSpace H]\n    (pi : NonUnitalCStarRepresentation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :\n    ∀ x y : H, ∃ a : A, pi a = InnerProductSpace.rankOne ℂ x y"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean#L94-L105",
+  "stable_card_id": "155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

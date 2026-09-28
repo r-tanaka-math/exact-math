@@ -1,0 +1,175 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+    "source_range": {
+      "end_line": 254,
+      "start_line": 214
+    },
+    "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_rootCornerFamily_with_gram\n    {H K : Type*}\n    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]\n    [NormedAddCommGroup K] [InnerProductSpace ℂ K]\n    (ρ : Representation Limit H) (hρ : ρ.IsIrreducible)\n    (n : ℕ) {I : Type*} [Fintype I] (v : I → K) :\n    ∃ w : I → H,\n      (∀ i, ρ (limitMatrixUnit n 0 0) (w i) = w i) ∧\n      ∀ i j, inner ℂ (w i) (w j) = inner ℂ (v i) (v j)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+    "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+      "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+      "start_line": 214,
+      "start_column": 1,
+      "end_line": 254,
+      "end_column": 41
+    },
+    "start_byte": 9349,
+    "end_byte": 9785,
+    "sha256": "8ac208272d8a53a8e22f64a2ff8cf3a2d41764d3a2bf9f6a1f9749be6fcb8c40",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Realizing a finite Gram matrix in a represented CAR corner",
+    "one_sentence_role": "The infinite-dimensional root corner contains an isometric copy of any finite family of vectors.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. Fix an irreducible representation $\\pi:A\\to B(H)$ and a stage $n$. Set $P=\\pi(e_{00}^{(n)})$ and $R=\\operatorname{ran}P$. Given any finite family $(v_i)_{i\\in I}$ in a complex inner product space $K$, there are vectors $w_i\\in R$ with $\\langle w_i,w_j\\rangle=\\langle v_i,v_j\\rangle$ for every $i,j\\in I$.",
+    "definition_explanation": null,
+    "assumptions": "The space $H$ is a complex Hilbert space and $\\pi$ has nonzero irreducible action. The space $K$ is only required to be a complex inner product space; completeness is not assumed. The finite index set may be empty, and the vectors need not be independent or normalized.",
+    "conclusion": "The entire Gram matrix is preserved inside one fixed represented root corner. Consequently all the norms and inner products of the family are retained. The corner and the stage are chosen before the input family is realized.",
+    "proof_summary": "The represented root projection has closed range, making $R$ a Hilbert space. Its range is infinite-dimensional, since otherwise its nonzero image would be compact. Embed the finite-dimensional span of the input family isometrically into $R$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The finite matrix projection $E_{00}$ is self-adjoint and idempotent, and so is $P=\\pi(e_{00}^{(n)})$. Thus its range is closed and complete. The finite-corner identities underlying this choice are recorded in the short root-corner explanation linked below."
+      },
+      {
+        "step_id": "s2",
+        "text": "If $R$ were finite-dimensional, $P$ would have finite rank and hence be compact. The no-compact-image theorem would imply $e_{00}^{(n)}=0$, contradicting the injective stage inclusion. The precise result is `not_finiteDimensional_range_rootCorner`."
+      },
+      {
+        "step_id": "s3",
+        "text": "The subspace $S=\\operatorname{span}\\{v_i:i\\in I\\}$ is finite-dimensional. The finite-dimensional embedding theorem supplies a complex-linear isometry $L:S\\to R$. Define $w_i=L(v_i)$, viewing each $v_i$ in $S$. Preservation of inner products gives the required equalities."
+      }
+    ],
+    "lean_realization_notes": "The finite-stage projection $E_{00}$ has rank one in $A_n$, but $R$ is infinite-dimensional. The distinction is essential: the representation is of the completed algebra. The result gives a family in $R$, not a preferred or unique choice of that family.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L214-L254",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 254,
+          "start_line": 214
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The finite projection defining the corner",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean#L20-L22",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootProjection",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean",
+        "source_range": {
+          "end_line": 22,
+          "start_line": 20
+        },
+        "source_sha256": "fe2c9e8ff50baff00d584846accb3633966bdf891c8faa900c1c32ed3e2a574f",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The root-corner projection identity",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean#L46-L54",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isStarProjection_rootProjection",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean",
+        "source_range": {
+          "end_line": 54,
+          "start_line": 46
+        },
+        "source_sha256": "fe2c9e8ff50baff00d584846accb3633966bdf891c8faa900c1c32ed3e2a574f",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Infinite dimensionality of the represented root corner",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L182-L212",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional_range_rootCorner",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 212,
+          "start_line": 182
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Isometric embedding of a finite-dimensional inner product space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/InnerProductSpace/FiniteEmbedding.lean#L19-L41",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.InnerProductSpace.nonempty_linearIsometry_of_finiteDimensional_of_not_finiteDimensional",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/InnerProductSpace/FiniteEmbedding.lean",
+        "source_sha256": "4620b0e70075ab003d8a3ef9bf1eddcc6cfdc345f08cad558f2300736c9a8d48",
+        "source_range": {
+          "start_line": 19,
+          "end_line": 41
+        }
+      }
+    },
+    {
+      "label": "Representation and nonzero irreducibility conventions",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean#L19-L47",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsIrreducible",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean",
+        "source_sha256": "39a2641871d68ec2f30937ab9889e627261f13929f901f2b43c85ad2944a6888",
+        "source_range": {
+          "start_line": 19,
+          "end_line": 47
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "29c4dbed8161f46b746ffc3fc519425c63d152562147a0982a71930f72a33f73",
+    "uid": "lfh:lfh-declaration-card:sha256:3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "e6478edabe7a2541aeebe042fff643bc896a50a591591056f659e5d8faac2957",
+    "uid": "lfh:lfh-card-exposition:sha256:c69d2495e60ebaf934c8ec137bb1cf652257dc61846d5bb44afc1c9cada3cdb1"
+  },
+  "guide": "Here `ρ` is $\\pi$, `limitMatrixUnit n 0 0` is $e_{00}^{(n)}$, and $R$ is the range of its represented projection. The input `v : I → K` has arbitrary Gram matrix. The witness `w : I → H` is accompanied by `ρ (...) (w i) = w i`, which says that each vector lies in $R$. No completeness assumption on `K` is hidden in the prose.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb/versions/n69-e6478edabe7a2541/index.html",
+    "pdf": "card.pdf"
+  }
+}

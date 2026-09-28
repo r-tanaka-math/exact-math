@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>StarAlgHom.existsUnique_pointedCyclicTransport | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/23ca2c2393c899151935bf58/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>StarAlgHom.existsUnique_pointedCyclicTransport</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CyclicTransport.lean</code>, lines 24–86.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CyclicTransport.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23/versions/n69-64d1456f00ba8382/index.html">Back to Pointed unitary transport between trace-cyclic target representations</a> · <a href="../../../cards/956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c/versions/n69-9846526d3fb298d1/index.html">Back to An inequivalent GNS fiber has no residual common range</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.Cyclic</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.InnerProductSpace.DenseTransport</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Pointed cyclic transport</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>Equality of vector states gives equality of the full orbit Gram kernel.  The</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>dense transport theorem then supplies a unique unitary carrying orbit to</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>orbit; multiplication yields intertwining on the dense cyclic subspace and</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>continuity extends it everywhere.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>open scoped InnerProduct</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>namespace StarAlgHom</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>variable {A H K : Type*}</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>variable [CStarAlgebra A]</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>variable [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a>theorem existsUnique_pointedCyclicTransport</span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>    (π : A →⋆ₐ[ℂ] (H →L[ℂ] H)) (σ : A →⋆ₐ[ℂ] (K →L[ℂ] K))</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>    (ξ : H) (η : K)</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a>    (hπ : DenseRange (orbitMap π ξ)) (hσ : DenseRange (orbitMap σ η))</span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>    (hstate : ∀ a, inner ℂ ξ (π a ξ) = inner ℂ η (σ a η)) :</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>    ∃! W : H ≃ₗᵢ[ℂ] K,</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>      (∀ a, W (π a ξ) = σ a η) ∧</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>      W ξ = η ∧</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>      ∀ a, (W : H →L[ℂ] K).comp (π a) = (σ a).comp (W : H →L[ℂ] K) := by</span>
+<span class="source-line selected" id="L33"><a class="line-no" href="#L33">33</a>  have hgram : ∀ a b, inner ℂ ((orbitMap π ξ) a) ((orbitMap π ξ) b) =</span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>      inner ℂ ((orbitMap σ η) a) ((orbitMap σ η) b) := by</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>    intro a b</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>    simp only [orbitMap]</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>    have hπadj : ContinuousLinearMap.adjoint (π a) = π (star a) := by</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>      rw [← ContinuousLinearMap.star_eq_adjoint, ← map_star]</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>    have hσadj : ContinuousLinearMap.adjoint (σ a) = σ (star a) := by</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>      rw [← ContinuousLinearMap.star_eq_adjoint, ← map_star]</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>    have hπmul : π (star a * b) ξ = π (star a) (π b ξ) := by</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>      rw [map_mul]</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>      rfl</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>    have hσmul : σ (star a * b) η = σ (star a) (σ b η) := by</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>      rw [map_mul]</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>      rfl</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a>    calc</span>
+<span class="source-line selected" id="L48"><a class="line-no" href="#L48">48</a>      inner ℂ (π a ξ) (π b ξ) = inner ℂ ξ (π (star a * b) ξ) := by</span>
+<span class="source-line selected" id="L49"><a class="line-no" href="#L49">49</a>        rw [← ContinuousLinearMap.adjoint_inner_right]</span>
+<span class="source-line selected" id="L50"><a class="line-no" href="#L50">50</a>        rw [hπadj, hπmul]</span>
+<span class="source-line selected" id="L51"><a class="line-no" href="#L51">51</a>      _ = inner ℂ η (σ (star a * b) η) := hstate _</span>
+<span class="source-line selected" id="L52"><a class="line-no" href="#L52">52</a>      _ = inner ℂ (σ a η) (σ b η) := by</span>
+<span class="source-line selected" id="L53"><a class="line-no" href="#L53">53</a>        rw [← ContinuousLinearMap.adjoint_inner_right]</span>
+<span class="source-line selected" id="L54"><a class="line-no" href="#L54">54</a>        rw [hσadj, hσmul]</span>
+<span class="source-line selected" id="L55"><a class="line-no" href="#L55">55</a>  obtain ⟨W, hW, hWuniq⟩ := LinearMap.existsUnique_linearIsometryEquiv_of_inner_eq</span>
+<span class="source-line selected" id="L56"><a class="line-no" href="#L56">56</a>    (orbitMap π ξ) (orbitMap σ η) hπ hσ hgram</span>
+<span class="source-line selected" id="L57"><a class="line-no" href="#L57">57</a>  have hW&#x27; : ∀ a, W (π a ξ) = σ a η := by</span>
+<span class="source-line selected" id="L58"><a class="line-no" href="#L58">58</a>    intro a</span>
+<span class="source-line selected" id="L59"><a class="line-no" href="#L59">59</a>    have ha := hW a</span>
+<span class="source-line selected" id="L60"><a class="line-no" href="#L60">60</a>    change W (π a ξ) = σ a η at ha</span>
+<span class="source-line selected" id="L61"><a class="line-no" href="#L61">61</a>    exact ha</span>
+<span class="source-line selected" id="L62"><a class="line-no" href="#L62">62</a>  have hintertwine : ∀ a,</span>
+<span class="source-line selected" id="L63"><a class="line-no" href="#L63">63</a>      (W : H →L[ℂ] K).comp (π a) = (σ a).comp (W : H →L[ℂ] K) := by</span>
+<span class="source-line selected" id="L64"><a class="line-no" href="#L64">64</a>    intro a</span>
+<span class="source-line selected" id="L65"><a class="line-no" href="#L65">65</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line selected" id="L66"><a class="line-no" href="#L66">66</a>    intro x</span>
+<span class="source-line selected" id="L67"><a class="line-no" href="#L67">67</a>    exact hπ.induction_on x (isClosed_eq</span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>      ((W : H →L[ℂ] K).comp (π a)).continuous</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>      ((σ a).comp (W : H →L[ℂ] K)).continuous) fun b ↦ by</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>        change W (π a (π b ξ)) = σ a (W (π b ξ))</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>        have hπmul : π (a * b) ξ = π a (π b ξ) := by</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>          rw [map_mul]</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>          rfl</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>        have hσmul : σ (a * b) η = σ a (σ b η) := by</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>          rw [map_mul]</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>          rfl</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>        calc</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>          W (π a (π b ξ)) = W (π (a * b) ξ) := congrArg W hπmul.symm</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>          _ = σ (a * b) η := hW&#x27; _</span>
+<span class="source-line selected" id="L80"><a class="line-no" href="#L80">80</a>          _ = σ a (σ b η) := hσmul</span>
+<span class="source-line selected" id="L81"><a class="line-no" href="#L81">81</a>          _ = σ a (W (π b ξ)) := congrArg (σ a) (hW&#x27; b).symm</span>
+<span class="source-line selected" id="L82"><a class="line-no" href="#L82">82</a>  have hpoint : W ξ = η := by</span>
+<span class="source-line selected" id="L83"><a class="line-no" href="#L83">83</a>    simpa using hW&#x27; (1 : A)</span>
+<span class="source-line selected" id="L84"><a class="line-no" href="#L84">84</a>  refine ⟨W, ⟨hW&#x27;, hpoint, hintertwine⟩, ?_⟩</span>
+<span class="source-line selected" id="L85"><a class="line-no" href="#L85">85</a>  intro W&#x27; hW&#x27;</span>
+<span class="source-line selected" id="L86"><a class="line-no" href="#L86">86</a>  exact hWuniq W&#x27; hW&#x27;.1</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a></span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>end StarAlgHom</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

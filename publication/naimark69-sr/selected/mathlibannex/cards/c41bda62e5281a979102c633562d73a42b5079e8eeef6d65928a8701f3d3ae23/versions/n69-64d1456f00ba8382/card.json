@@ -1,0 +1,319 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean",
+    "source_range": {
+      "end_line": 101,
+      "start_line": 67
+    },
+    "source_sha256": "99eec6f4f309b9cbbaa18739576f7c0739aed040a8403129ed1096a74effb240",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_pointed_unitary_of_trace_of_cyclic\n    (family : RepresentativeShellFamily)\n    (ρ : Representation (ShellFamilyTarget family) H)\n    (σ : Representation (ShellFamilyTarget family) K) (ξ : H) (η : K)\n    (hξ : ∀ a, Representation.vectorFunctional\n      (ρ.comp (shellFamilySourceHom family)) ξ a = trace a)\n    (hη : ∀ a, Representation.vectorFunctional\n      (σ.comp (shellFamilySourceHom family)) η a = trace a)\n    (hρ : DenseRange (fun a ↦ ρ a ξ)) (hσ : DenseRange (fun a ↦ σ a η)) :\n    ∃ e : H ≃ₗᵢ[ℂ] K, e ξ = η ∧\n      ∀ a, (e : H →L[ℂ] K).comp (ρ a) = (σ a).comp (e : H →L[ℂ] K)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean",
+    "source_sha256": "99eec6f4f309b9cbbaa18739576f7c0739aed040a8403129ed1096a74effb240",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean",
+      "source_sha256": "99eec6f4f309b9cbbaa18739576f7c0739aed040a8403129ed1096a74effb240",
+      "start_line": 67,
+      "start_column": 1,
+      "end_line": 101,
+      "end_column": 81
+    },
+    "start_byte": 3020,
+    "end_byte": 3671,
+    "sha256": "c28a4fd8225b7394196a2df449909a32ae606f8887236aefe96e5adbc682f14c",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Pointed unitary transport between trace-cyclic target representations",
+    "one_sentence_role": "Source cyclicity and strong shell sums extend the canonical CAR orbit isometry to the whole target.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the completion of the matrix system $M_{2^n}(\\mathbb C)$, and let $\\tau$ be its normalized trace. Fix a representative shell family: for each chosen pure-GNS class $j$ it specifies an automorphism $\\alpha_j$ and partial isometries $w_{j,n}$ between the transported and root shells. Fix the links $L_j$ chosen by this family in the selected atomic representation $\\pi$. Throughout this Card,\n\n$$T=C^*(\\pi(A),\\{L_j\\}),\\qquad \\iota:A\\longrightarrow T,\\quad \\iota(a)=\\pi(a).$$\n\nThus $T$ is the already constructed concrete unital C*-algebra, and $\\iota$ is its injective source map. The links and target are kept fixed. A state means a positive continuous complex linear functional taking $1$ to $1$. Let $\\rho:T\\to B(H)$ and $\\sigma:T\\to B(K)$ be unital star representations on complex Hilbert spaces. Suppose $\\xi\\in H$ and $\\eta\\in K$ have dense target orbits and realize the same source trace:\n\n$$\\langle\\xi,\\rho(\\iota(a))\\xi\\rangle=\\tau(a)=\\langle\\eta,\\sigma(\\iota(a))\\eta\\rangle\\quad(a\\in A).$$\n\nThere exists a unitary $E:H\\to K$ with $E\\xi=\\eta$ and $E\\rho(t)=\\sigma(t)E$ for every $t\\in T$.",
+    "definition_explanation": null,
+    "assumptions": "Both Hilbert spaces are complete. The source trace identities and density of the two target orbits are the hypotheses. The vectors automatically have norm $1$ by taking $a=1$. No irreducibility of either representation and no norm separability of $T$ is required.",
+    "conclusion": "The resulting unitary is pointed and intertwines the entire fixed target. Source intertwining is obtained first; intertwining the added generators is a separate strong-limit step.",
+    "proof_summary": "Trace estimates kill the residual flag projections on the source-cyclic subspace. Reduction and target cyclicity make this subspace the entire Hilbert space. Pointed CAR transport can then be passed through the shell limits and extended by norm generation.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Write $f_n$ for the decreasing root projections, $p_n=f_n-f_{n+1}$, and $\\alpha_j$ for the automorphism selected for class $j$. The shell operators satisfy $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$ and $w_{j,n}w_{j,n}^*=p_n$. The normalized source trace has $\\tau(f_n)=2^{-n}$. Traciality on these supports gives\n\n$$\\tau(\\alpha_j(f_n))-\\tau(\\alpha_j(f_{n+1}))=\\tau(p_n).$$\n\nTogether with $f_0=\\alpha_j(f_0)=1$, this yields $\\tau(\\alpha_j(f_n))=2^{-n}$, as recorded by the transported-flag trace theorem."
+      },
+      {
+        "step_id": "s2",
+        "text": "Put $M=\\overline{\\rho(\\iota(A))\\xi}$. For every fixed $b\\in A$, apply the projection-orbit estimate separately to the root projection $f_n$ and the transported projection $\\alpha_j(f_n)$:\n\n$$\\begin{aligned}\n\\|\\rho(\\iota(f_n))\\rho(\\iota(b))\\xi\\|^2\n&\\leq\\|b\\|^2\\tau(f_n)=\\|b\\|^2 2^{-n},\\\\\n\\|\\rho(\\iota(\\alpha_j(f_n)))\\rho(\\iota(b))\\xi\\|^2\n&\\leq\\|b\\|^2\\tau(\\alpha_j(f_n))=\\|b\\|^2 2^{-n}.\n\\end{aligned}$$\n\nBoth right-hand sides tend to zero as $n\\to\\infty$. These estimates use the tracial source vector state $\\tau$; no traciality of a state on $T$ is used."
+      },
+      {
+        "step_id": "s3",
+        "text": "Actual-target shell reconstruction provides strong limits $S_j,S_j^*$ of the represented shell and adjoint-shell sums, intersection projections $P_j,Q_j$ for the transported and root flags, and a residual operator $R_j$, with\n\n$$\\rho(g_j)=S_j+R_j,\\qquad R_j=\\rho(g_j)P_j=Q_jR_jP_j,$$\n\nwhere $g_j=L_j\\in T$. For every $n$, the intersection projection satisfies $P_j\\rho(\\iota(\\alpha_j(f_n)))=P_j$. Hence, for every fixed $b\\in A$,\n\n$$\\begin{aligned}\n\\|P_j\\rho(\\iota(b))\\xi\\|\n&=\\|P_j\\rho(\\iota(\\alpha_j(f_n)))\\rho(\\iota(b))\\xi\\|\\\\\n&\\leq\\|\\rho(\\iota(\\alpha_j(f_n)))\\rho(\\iota(b))\\xi\\|\\longrightarrow0.\n\\end{aligned}$$\n\nThe left-hand side is independent of $n$, so $P_j\\rho(\\iota(b))\\xi=0$. Using $Q_j\\rho(\\iota(f_n))=Q_j$ and the root-projection estimate gives $Q_j\\rho(\\iota(b))\\xi=0$ as well. Continuity extends both equalities to $M$, so $P_j|_M=Q_j|_M=0$. Therefore $R_j|_M=0$; taking adjoints of the support relation gives $R_j^*=P_jR_j^*Q_j$ and $R_j^*|_M=0$."
+      },
+      {
+        "step_id": "s4",
+        "text": "The closed subspace $M$ reduces the source action. Both the shell sums and their adjoints preserve it, so their strong limits preserve it as well. The preceding residual equalities show $\\rho(g_j)|_M=S_j|_M$ and $\\rho(g_j)^*|_M=S_j^*|_M$. Hence $M$ reduces all generators, and therefore the norm-closed algebra they generate. It contains $\\xi$ and thus the entire target orbit. Target cyclicity forces $M=H$. The same argument gives $\\overline{\\sigma(\\iota(A))\\eta}=K$. These are the conclusions of `reduces_cyclicSubspace_of_trace` and `denseRange_source_orbit_of_trace_of_cyclic`."
+      },
+      {
+        "step_id": "s5",
+        "text": "For $a,b\\in A$, equality of source vector states gives the Gram identity\n\n$$\\langle\\rho(\\iota(a))\\xi,\\rho(\\iota(b))\\xi\\rangle=\\tau(a^*b)=\\langle\\sigma(\\iota(a))\\eta,\\sigma(\\iota(b))\\eta\\rangle.$$\n\nThe pointed cyclic transport theorem applies to the two now-dense source orbits. The orbit isometry extends onto $K$ and yields a unitary $E:H\\to K$ such that $E\\xi=\\eta$ and $E\\rho(\\iota(a))=\\sigma(\\iota(a))E$ for every $a\\in A$."
+      },
+      {
+        "step_id": "s6",
+        "text": "Set $s_{j,N}=\\sum_{n<N}w_{j,n}$. Since the source-cyclic spaces are the whole spaces, reconstruction gives, in each representation,\n\n$$\\rho(\\iota(s_{j,N}))\\longrightarrow\\rho(g_j),\\qquad \\sigma(\\iota(s_{j,N}))\\longrightarrow\\sigma(g_j)$$\n\nstrongly, as well as the corresponding adjoint limits. For $x\\in H$, source intertwining at every finite sum reads\n\n$$E\\rho(\\iota(s_{j,N}))x=\\sigma(\\iota(s_{j,N}))Ex.$$\n\nContinuity of $E$ and the two displayed limits yield $E\\rho(g_j)x=\\sigma(g_j)Ex$. This is the limit passage in the linked proof of the stated theorem."
+      },
+      {
+        "step_id": "s7",
+        "text": "Conjugation gives two continuous star homomorphisms $E\\rho(\\cdot)E^{-1}$ and $\\sigma$ on the same concrete $T$. They agree on $\\iota(A)$ and every $g_j$, hence on the algebraic star algebra generated by them and then its norm closure. The exact supplier `intertwines_of_source_of_generators` yields $E\\rho(t)=\\sigma(t)E$ for all $t\\in T$."
+      }
+    ],
+    "lean_realization_notes": "All shell convergence used below is proved inside each actual representation. The argument does not pass strong convergence through an arbitrary star homomorphism. A star on a bounded operator denotes its Hilbert adjoint, corresponding to Lean's postfix dagger on continuous linear operators.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean#L67-L101",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean",
+        "source_range": {
+          "end_line": 101,
+          "start_line": 67
+        },
+        "source_sha256": "99eec6f4f309b9cbbaa18739576f7c0739aed040a8403129ed1096a74effb240",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed concrete target and source map",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the source embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L78-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 78
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Trace values on root and transported flags",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean#L42-L46",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 42
+        },
+        "source_sha256": "03b656bcd11a56be975858c8610eeb4355a5eb52d9c2fe99e6efff5e2d27ef3a",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Projection-orbit estimate for a tracial state",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/GNS/TracialProjection.lean#L28-L66",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.norm_sq_projection_orbit_le",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/GNS/TracialProjection.lean",
+        "source_sha256": "c0c5554f195cc732110ecffe766f8afbec6e841ceca1453c6080a2236fd0d404",
+        "source_range": {
+          "start_line": 28,
+          "end_line": 66
+        }
+      }
+    },
+    {
+      "label": "Intersection projections vanish on the source-cyclic space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/GNS/TracialProjection.lean#L121-L150",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.projection_eq_zero_on_cyclicSubspace",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/GNS/TracialProjection.lean",
+        "source_sha256": "c0c5554f195cc732110ecffe766f8afbec6e841ceca1453c6080a2236fd0d404",
+        "source_range": {
+          "start_line": 121,
+          "end_line": 150
+        }
+      }
+    },
+    {
+      "label": "Actual-representation shell reconstruction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TargetReconstruction.lean#L121-L178",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_targetShellReconstruction",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TargetReconstruction.lean",
+        "source_range": {
+          "end_line": 178,
+          "start_line": 121
+        },
+        "source_sha256": "dfaa5def114883d1e3553a3adc53f0ac298e1ab045eb122d216f74a71cd2021e",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Shell and adjoint sums on the source-cyclic space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean#L51-L102",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_shell_sums_eq_on_cyclicSubspace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean",
+        "source_range": {
+          "end_line": 102,
+          "start_line": 51
+        },
+        "source_sha256": "bf1d4ce3e28972ec0fca1670b3219879272b12f3b04da363d1269c40c0e76a82",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Reduction by the source-cyclic space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean#L104-L141",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.reduces_cyclicSubspace_of_trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean",
+        "source_range": {
+          "end_line": 141,
+          "start_line": 104
+        },
+        "source_sha256": "bf1d4ce3e28972ec0fca1670b3219879272b12f3b04da363d1269c40c0e76a82",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Target cyclicity makes the source-cyclic space full",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean#L143-L162",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.cyclicSubspace_eq_top_of_trace_of_cyclic",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean",
+        "source_range": {
+          "end_line": 162,
+          "start_line": 143
+        },
+        "source_sha256": "bf1d4ce3e28972ec0fca1670b3219879272b12f3b04da363d1269c40c0e76a82",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Dense source orbit",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean#L164-L174",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.denseRange_source_orbit_of_trace_of_cyclic",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean",
+        "source_range": {
+          "end_line": 174,
+          "start_line": 164
+        },
+        "source_sha256": "bf1d4ce3e28972ec0fca1670b3219879272b12f3b04da363d1269c40c0e76a82",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Strong sums in each trace-cyclic representation",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean#L25-L54",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stronglyConverges_shell_sums_of_trace_of_cyclic",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean",
+        "source_range": {
+          "end_line": 54,
+          "start_line": 25
+        },
+        "source_sha256": "99eec6f4f309b9cbbaa18739576f7c0739aed040a8403129ed1096a74effb240",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Pointed cyclic transport for the common source state",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CyclicTransport.lean#L24-L86",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "StarAlgHom.existsUnique_pointedCyclicTransport",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CyclicTransport.lean",
+        "source_sha256": "3d62d687f439d40e5f3a568e8b665c434dccc7d4a0ee7419ceb0a0d2d3791a41",
+        "source_range": {
+          "start_line": 24,
+          "end_line": 86
+        }
+      }
+    },
+    {
+      "label": "Intertwining extends from concrete generators",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedExt.lean#L83-L107",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.intertwines_of_source_of_generators",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedExt.lean",
+        "source_sha256": "6a717e055aab7a4a461f73dc627503ebb05f2d22c6bebeafa2bdd3bf7cb87b49",
+        "source_range": {
+          "start_line": 83,
+          "end_line": 107
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "19aada20d6485c9f12877628bd41c79977e2de0905d433433abf4d900666fe90",
+    "uid": "lfh:lfh-declaration-card:sha256:c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "64d1456f00ba8382c30c40f6939320ee9b8e42154829d0731c19baaecee17d2e",
+    "uid": "lfh:lfh-card-exposition:sha256:d22ac857e8add011bbcbdb4ec7cd049a9b9611c83e6b57b6c8c7cb4f0567132b"
+  },
+  "guide": "`family` fixes $T$ and $\\iota$. The two `Representation` arguments are $\\rho,\\sigma$ and their vectors are $\\xi,\\eta$. `hξ` and `hη` are equality of the source vector functionals with `trace`; The arguments `hρ` and `hσ` concern target orbits. The returned `e` points from the first Hilbert space to the second. The linked proof's source restrictions, source-density facts and shell-sum limits are proof-local names; the displayed signature retains the full quantified conclusion. In continuous-operator source, `†` is the adjoint written $^*$ in the mathematics.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23/versions/n69-64d1456f00ba8382/index.html",
+    "pdf": "card.pdf"
+  }
+}

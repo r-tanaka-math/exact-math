@@ -1,0 +1,149 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c",
+  "content": {
+    "assumptions": "This is a biconditional with no extra hypothesis. CH means 𝔠 = ℵ₁, where 𝔠 = 2^ℵ₀. The existence predicate is the one described in the counterexample existence theorem, with density ℵ₁, and with carriers and comparison spaces in Type. No faithful separable representation is assumed for an arbitrary witness.",
+    "conclusion": "𝔠 = ℵ₁ ⇔ there exists a Naimark counterexample of exact norm density ℵ₁ in the stated sense.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "CH and a Naimark counterexample of density ℵ₁",
+    "language_tag": "en",
+    "lean_realization_notes": "CH is a proposition in the biconditional, not an added axiom of the development. This is an object-level equivalence, not a forcing construction or a metatheoretic independence certificate. The supporting obstruction has broader universe parameters; the final biconditional here is its closed universe-zero form.",
+    "natural_language_statement": "The continuum hypothesis holds if and only if there exists a nontrivial, possibly nonunital complex C*-algebra of norm density ℵ₁ with one nonzero irreducible representation class and a displayed irreducible model that is not the full compact-operator algebra.",
+    "one_sentence_role": "Relates CH to the general density-existence predicate, not only to separably represented examples.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Rewrite the density in the counterexample existence theorem using 𝔠 = ℵ₁."
+      },
+      {
+        "step_id": "2",
+        "text": "For the converse, use a dense set of cardinality ℵ₁ provided by the exact-density hypothesis."
+      },
+      {
+        "step_id": "3",
+        "text": "The general nonunital density obstruction forces 𝔠 = ℵ₁, without requiring a separable representation of the witness."
+      }
+    ],
+    "proof_summary": "Under CH, use the continuum-density example. Conversely, the general representation-theoretic density obstruction applied to a density-ℵ₁ witness gives 𝔠 ≤ ℵ₁; combine this with ℵ₁ ≤ 𝔠."
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "e9e119b142df5c73ca63aebd69db0c6601d2eba833dd69fa691bd0485a511bac",
+    "uid": "lfh:lfh-declaration-card:sha256:49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "5fa0d3f58c0ca6dffd939a5b6fbd1f0f68257c58b99323a198beb0c90cab337d",
+    "uid": "lfh:lfh-card-exposition:sha256:e61c3cc1a5afda718111e018cae4928cc35bf9594e3a7bb372c4c7742e22e9b5"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "theorem",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      34,
+      44
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean#L34-L44"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.ContinuumHypothesis",
+        "provider": "PROJECT",
+        "provider_source_sha256": "4bac0c0f2ab5ed31cd5d1986e3b15f332aaee9bf83881822b988264f9c6199a4",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum"
+      }
+    },
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.DensityCharacter",
+        "provider": "PROJECT",
+        "provider_source_sha256": "2c7894874f20caefdd4442114bccd0891ccf6d324f192583d852708df18568ae",
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.continuum_eq_aleph_one_of_existsNaimarkCounterexampleOfDensity"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "This is a biconditional with no extra hypothesis. CH means 𝔠 = ℵ₁, where 𝔠 = 2^ℵ₀. The existence predicate is the one described in the counterexample existence theorem, with density ℵ₁, and with carriers and comparison spaces in Type. No faithful separable representation is assumed for an arbitrary witness.",
+    "conclusion": "𝔠 = ℵ₁ ⇔ there exists a Naimark counterexample of exact norm density ℵ₁ in the stated sense.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "CH and a Naimark counterexample of density ℵ₁",
+    "language_tag": "en",
+    "lean_realization_notes": "CH is a proposition in the biconditional, not an added axiom of the development. This is an object-level equivalence, not a forcing construction or a metatheoretic independence certificate. The supporting obstruction has broader universe parameters; the final biconditional here is its closed universe-zero form.",
+    "natural_language_statement": "The continuum hypothesis holds if and only if there exists a nontrivial, possibly nonunital complex C*-algebra of norm density ℵ₁ with one nonzero irreducible representation class and a displayed irreducible model that is not the full compact-operator algebra.",
+    "one_sentence_role": "Relates CH to the general density-existence predicate, not only to separably represented examples.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "Rewrite the density in the counterexample existence theorem using 𝔠 = ℵ₁."
+      },
+      {
+        "step_id": "2",
+        "text": "For the converse, use a dense set of cardinality ℵ₁ provided by the exact-density hypothesis."
+      },
+      {
+        "step_id": "3",
+        "text": "The general nonunital density obstruction forces 𝔠 = ℵ₁, without requiring a separable representation of the witness."
+      }
+    ],
+    "proof_summary": "Under CH, use the continuum-density example. Conversely, the general representation-theoretic density obstruction applied to a density-ℵ₁ witness gives 𝔠 ≤ ℵ₁; combine this with ℵ₁ ≤ 𝔠.",
+    "stable_card_id": "49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity",
+    "declaration_kind": "theorem",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+    "source_locator": {
+      "start_line": 34,
+      "end_line": 44
+    },
+    "source_signature": {
+      "text": "/-- CH is equivalent to the existence of an ordinary possibly nonunital\nNaimark counterexample of exact norm density aleph one. Carriers in this closed\nexistence statement lie in Type; the reverse obstruction is universe-polymorphic. -/\ntheorem continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity :\n    (Cardinal.continuum : Cardinal.{0}) = Cardinal.aleph 1 ↔\n      ExistsNaimarkCounterexampleOfDensity (Cardinal.aleph 1 : Cardinal.{0}) := by\n  constructor\n  · intro hCH\n    rw [← hCH]\n    exact existsNaimarkCounterexampleOfDensity_continuum\n  · exact continuum_eq_aleph_one_of_existsNaimarkCounterexampleOfDensity"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "e9e119b142df5c73ca63aebd69db0c6601d2eba833dd69fa691bd0485a511bac",
+      "uid": "lfh:lfh-declaration-card:sha256:49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "5fa0d3f58c0ca6dffd939a5b6fbd1f0f68257c58b99323a198beb0c90cab337d",
+      "uid": "lfh:lfh-card-exposition:sha256:e61c3cc1a5afda718111e018cae4928cc35bf9594e3a7bb372c4c7742e22e9b5"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+        "text": "Exact source attribution.",
+        "website_href": "../9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461/index.html"
+      },
+      {
+        "label": "MathlibAnnex.Analysis.CStarAlgebra.continuum_eq_aleph_one_of_existsNaimarkCounterexampleOfDensity",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/b0b893285932a44e769cdd0a/index.html#L75"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

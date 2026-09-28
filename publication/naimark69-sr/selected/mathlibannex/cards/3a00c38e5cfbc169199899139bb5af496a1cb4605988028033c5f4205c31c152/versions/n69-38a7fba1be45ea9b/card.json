@@ -1,0 +1,114 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+    "source_range": {
+      "end_line": 87,
+      "start_line": 77
+    },
+    "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "def HasInnerIntertwiningSequence (phi psi : Limit →L[ℂ] ℂ) : Prop :=\n  ∃ f : ℕ → StarAlgEquiv ℂ Limit Limit,\n    (∀ a, CauchySeq (fun n => f n a)) ∧\n    (∀ a, CauchySeq (fun n => (f n).symm a)) ∧\n    (∀ n, ∃ u : unitary Limit,\n      f n = Unitary.conjStarAlgAut ℂ Limit u) ∧\n    ∀ a, Tendsto (fun n => phi (f n a)) atTop (nhds (psi a))",
+    "start_byte": 3738,
+    "end_byte": 4105,
+    "sha256": "9aa21c856a50f60729adb14adbbda9a5a36c1ee80ef79c0b631292ae55e1ebf5",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+    "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+      "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+      "start_line": 77,
+      "start_column": 1,
+      "end_line": 87,
+      "end_column": 62
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "A two-sided inner intertwining sequence for two states",
+    "one_sentence_role": "An inner sequence records both forward and actual inverse convergence data before any limiting automorphism is constructed.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. For a unitary $u\\in A$, write $\\operatorname{Ad}(u)(a)=uau^*$. Given continuous complex-linear functionals $\\varphi,\\psi:A\\to\\mathbb C$, an inner intertwining sequence is a sequence $(\\alpha_n)$ of complex star automorphisms with the following properties. For every $a\\in A$, both $(\\alpha_n(a))$ and $(\\alpha_n^{-1}(a))$ are Cauchy in norm. Each $\\alpha_n=\\operatorname{Ad}(u_n)$ for some unitary $u_n$, and $\\varphi(\\alpha_n(a))\\to\\psi(a)$ for every $a\\in A$.",
+    "definition_explanation": "Choose the automorphisms first and require the four conditions for those choices. Innerness is expressed as existence of an implementing unitary for each index. Norm completeness supplies pointwise limits from the two Cauchy conditions, while the exact inverse identities allow the two limits to be proved inverse to each other.",
+    "assumptions": "Only continuity and complex linearity of the two functionals are inputs to this definition. Positivity, normalization, and purity are not required here. The inverse in the second Cauchy condition is the inverse of that same $\\alpha_n$.",
+    "conclusion": "The datum is a sequence with four requirements: forward Cauchy behavior, inverse Cauchy behavior, innerness of each term, and pointwise convergence of the transported functional. A limiting automorphism is a later construction, not an additional field of the datum.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "Two unrelated Cauchy sequences do not meet the inverse requirement. No convergence of $(u_n)$ itself is asserted; the relevant convergence is of their conjugation actions on individual algebra elements.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean#L77-L87",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+        "source_range": {
+          "end_line": 87,
+          "start_line": 77
+        },
+        "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Two-sided pointwise limit and its inverse",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean#L201-L212",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean",
+        "source_sha256": "c59bb7371e07083206c3707b9083e40bc568c38af869585c4f84aa8a36cb2b1d",
+        "source_range": {
+          "start_line": 201,
+          "end_line": 212
+        }
+      }
+    },
+    {
+      "label": "Identification of the inverse limit",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean#L221-L237",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit_symm_apply",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean",
+        "source_sha256": "c59bb7371e07083206c3707b9083e40bc568c38af869585c4f84aa8a36cb2b1d",
+        "source_range": {
+          "start_line": 221,
+          "end_line": 237
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "c12901c424aeb424e93bca7877c15915eedc9859c2ffe83ba67265c5b22a7dd0",
+    "uid": "lfh:lfh-declaration-card:sha256:3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "38a7fba1be45ea9bd4b71934ec7089d0e47e498e279d7a6d738f9e8076c7cbd7",
+    "uid": "lfh:lfh-card-exposition:sha256:c5df6b266257db16afd64df1b9ef91a1ffc0d06c64c1121886b5d1ce771925db"
+  },
+  "guide": "Here `f n` is $\\alpha_n$ and `(f n).symm` is its actual inverse. `CauchySeq` requires the indicated sequence to be Cauchy in the norm of $A$. `Unitary.conjStarAlgAut ... u` is $\\operatorname{Ad}(u)$, and the final `Tendsto` is $\\varphi(\\alpha_n(a))\\to\\psi(a)$. The declaration has no pure-state hypotheses.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152/versions/n69-38a7fba1be45ea9b/index.html",
+    "pdf": "card.pdf"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_range": {
+      "end_line": 422,
+      "start_line": 411
+    },
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 16523,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "182c9184c3eee3ce2b2429ff2e1d63708bd4df20723912dff8c623475b78622e",
+    "source_command_range": {
+      "end_column": 56,
+      "end_line": 422,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+      "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+      "start_column": 1,
+      "start_line": 411
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "start_byte": 16461,
+    "text": "theorem not_finiteDimensional : ¬ FiniteDimensional ℂ Limit"
+  },
+  "content": {
+    "assumptions": "The algebra $A$ is the fixed completed CAR algebra. For every $n\\geq0$, its canonical stage map $\\iota_n:A_n\\to A$ is complex-linear and injective, and $\\dim_{\\mathbb C}A_n=(2^n)^2$. These are established properties of this construction, not new assumptions on an arbitrary algebra.",
+    "conclusion": "No finite integer can be the complex dimension of $A$: every stage contributes an embedded vector space of dimension $4^n$, and these dimensions are unbounded.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The completed CAR algebra is infinite-dimensional",
+    "language_tag": "en",
+    "lean_realization_notes": "The conclusion concerns vector-space dimension over $\\mathbb C$. It does not require an irreducible representation or a claim about compact operators.",
+    "natural_language_statement": "Let $A$ be the norm completion of the matrix system $A_n=M_{2^n}(\\mathbb C)$ with embeddings $a\\mapsto a\\otimes I_2$. Then $A$ is not finite-dimensional as a complex vector space.",
+    "one_sentence_role": "Rules out finite dimension by retaining matrix subalgebras of unbounded dimension.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Assume that $A$ is finite-dimensional and write $k=\\dim_{\\mathbb C}A$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The linear injection $\\iota_{k+1}$ forces $\\dim_{\\mathbb C}A_{k+1}\\leq k$."
+      },
+      {
+        "step_id": "s3",
+        "text": "The stage dimension is $(2^{k+1})^2>k$, yielding the contradiction."
+      }
+    ],
+    "proof_summary": "If $A$ had finite dimension $k$, injectivity of each $\\iota_n$ would give $(2^n)^2\\leq k$. Take $n=k+1$. The elementary inequality $k<2^n\\leq(2^n)^2$ contradicts that bound."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 422,
+          "start_line": 411
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L411-L422"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 278,
+          "start_line": 277
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L277-L278"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ofStage_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 381,
+          "start_line": 380
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.ofStage_injective",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L380-L381"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.finrank_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 409,
+          "start_line": 405
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.finrank_stage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L405-L409"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "8cb90ce94dfc1cc148315061e79dc108a836a18dfa44f9f57eaf13c52c38ff3e",
+    "uid": "lfh:lfh-declaration-card:sha256:65d7b879c0b5f0d302e831d587a4e6e555fe9c2d15bae7acacfc893ed9bcbcf2"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "707caa7d9e51c72dde81699ddc81c889694c5837b1f00de03236ecb7bdd1d72f",
+    "uid": "lfh:lfh-card-exposition:sha256:84a81f1c8e2e8c847a4685d7946a401df3af12548d0c146f7baab5daa82bf15a"
+  },
+  "guide": "Here `Limit` is the completed CAR algebra $A$. The expression `FiniteDimensional ℂ Limit` means that $A$ has finite complex dimension, and the symbol `¬` negates that assertion.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/65d7b879c0b5f0d302e831d587a4e6e555fe9c2d15bae7acacfc893ed9bcbcf2/versions/n69-707caa7d9e51c72d/index.html",
+    "pdf": "card.pdf"
+  }
+}

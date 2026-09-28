@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.vectorFunctional_mul_eq_mul_of_stronglyConverges | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/52d1c0a201a0d8d03840795a/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.vectorFunctional_mul_eq_mul_of_stronglyConverges</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/State/Centralizer.lean</code>, lines 64–82.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/State/Centralizer.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d/versions/n69-ac498d0b64ed15df/index.html">Back to The unique trace extension is tracial on the whole target</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.State.Basic</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.InnerProductSpace.StrongOperator</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># The centralizer of a state</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>Norm-closed star-algebra operations and passage to a represented strong limit</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>are separated. No strong continuity of a star homomorphism is asserted.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>-/</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a></span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>set_option autoImplicit false</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>open Filter Topology</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>open scoped ComplexOrder InnerProduct</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>universe u v</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>variable {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>/-- A positive state preserves the star operation. -/</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>theorem apply_star_of_mem_stateSpace (φ : A →L[ℂ] ℂ) (hφ : φ ∈ stateSpace A) (a : A) :</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>    φ (star a) = star (φ a) :=</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>  map_star (positiveLinearMapOfMemStateSpace φ hφ) a</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>/-- Elements which can be moved cyclically through the state. -/</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>def stateCentralizer (φ : A →L[ℂ] ℂ) (hφ : φ ∈ stateSpace A) : StarSubalgebra ℂ A where</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>  carrier := {a | ∀ b, φ (a * b) = φ (b * a)}</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>  zero_mem&#x27; := by intro b; simp</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>  one_mem&#x27; := by intro b; simp</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>  add_mem&#x27; := by</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    intro a c ha hc b</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>    simp only [add_mul, mul_add, map_add, ha b, hc b]</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>  mul_mem&#x27; := by</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>    intro a c ha hc b</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>    calc</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>      φ ((a * c) * b) = φ (a * (c * b)) := by rw [mul_assoc]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>      _ = φ ((c * b) * a) := ha _</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>      _ = φ (c * (b * a)) := by rw [mul_assoc]</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>      _ = φ ((b * a) * c) := hc _</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>      _ = φ (b * (a * c)) := by rw [mul_assoc]</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>  algebraMap_mem&#x27; := by</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    intro c b</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>    rw [Algebra.commutes c b]</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  star_mem&#x27; := by</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>    intro a ha b</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    have h := congrArg star (ha (star b))</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>    simpa only [← apply_star_of_mem_stateSpace φ hφ, star_mul, star_star] using h.symm</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a></span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>@[simp]</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>theorem mem_stateCentralizer_iff (φ : A →L[ℂ] ℂ) (hφ : φ ∈ stateSpace A) (a : A) :</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    a ∈ stateCentralizer φ hφ ↔ ∀ b, φ (a * b) = φ (b * a) := Iff.rfl</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a></span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>theorem isClosed_stateCentralizer (φ : A →L[ℂ] ℂ) (hφ : φ ∈ stateSpace A) :</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    IsClosed (stateCentralizer φ hφ : Set A) := by</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>  change IsClosed {a : A | ∀ b, φ (a * b) = φ (b * a)}</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  simp only [Set.setOf_forall]</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  exact isClosed_iInter fun b ↦ isClosed_eq</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    (φ.continuous.comp (continuous_id.mul continuous_const))</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>    (φ.continuous.comp (continuous_const.mul continuous_id))</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a></span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>/-- A vector-functional centralizer identity passes to an operator strong</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>limit formed in that same representation. -/</span>
+<span class="source-line selected" id="L64"><a class="line-no" href="#L64">64</a>theorem vectorFunctional_mul_eq_mul_of_stronglyConverges</span>
+<span class="source-line selected" id="L65"><a class="line-no" href="#L65">65</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line selected" id="L66"><a class="line-no" href="#L66">66</a>    (ρ : Representation A H) (ξ : H) (x : ℕ → A) (u a : A)</span>
+<span class="source-line selected" id="L67"><a class="line-no" href="#L67">67</a>    (hx : ContinuousLinearMap.StronglyConverges (fun n ↦ ρ (x n)) atTop (ρ u))</span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>    (heq : ∀ n, Representation.vectorFunctional ρ ξ (x n * a) =</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>      Representation.vectorFunctional ρ ξ (a * x n)) :</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>    Representation.vectorFunctional ρ ξ (u * a) =</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>      Representation.vectorFunctional ρ ξ (a * u) := by</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>  have hleft : Tendsto (fun n ↦ Representation.vectorFunctional ρ ξ (x n * a)) atTop</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>      (nhds (Representation.vectorFunctional ρ ξ (u * a))) := by</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>    simpa only [Representation.vectorFunctional_apply, map_mul, mul_apply_eq_comp,</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>      Function.comp_def, innerSL_apply_apply] using</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>      ((innerSL ℂ ξ).continuous.tendsto (ρ u (ρ a ξ))).comp (hx (ρ a ξ))</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>  have hright : Tendsto (fun n ↦ Representation.vectorFunctional ρ ξ (a * x n)) atTop</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>      (nhds (Representation.vectorFunctional ρ ξ (a * u))) := by</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>    simpa only [Representation.vectorFunctional_apply, map_mul, mul_apply_eq_comp,</span>
+<span class="source-line selected" id="L80"><a class="line-no" href="#L80">80</a>      Function.comp_def, ContinuousLinearMap.comp_apply, innerSL_apply_apply] using</span>
+<span class="source-line selected" id="L81"><a class="line-no" href="#L81">81</a>      (((innerSL ℂ ξ).comp (ρ a)).continuous.tendsto (ρ u ξ)).comp (hx ξ)</span>
+<span class="source-line selected" id="L82"><a class="line-no" href="#L82">82</a>  exact tendsto_nhds_unique hleft (by simpa only [← heq] using hright)</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a></span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

@@ -1,0 +1,234 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.irreducible_covered_by_pureState_representative | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/fd5d54c3010506533f2e507e/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.irreducible_covered_by_pureState_representative</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/IrreduciblePure.lean</code>, lines 212–232.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/IrreduciblePure.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/a78c4de54da4fbe1ab39f1d488112128a74cc98680c7764d29e113cb74ba0efc/versions/n69-17a142f497c21610/index.html">Back to An irreducible target representation has a surviving fixed space</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import Mathlib.Analysis.Normed.Operator.Extend</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.Intertwiner</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.PureStateGNS.PureIrreducible</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.PureStateRepresentatives</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a></span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>/-!</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a># Irreducible representations and pure vector states</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>The reverse pure-state/GNS implication is proved by extending the dominated</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>GNS orbit map to a contraction.  Its positive initial operator lies in the</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>commutant, so the arbitrary-dimensional Schur theorem makes it scalar.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option autoImplicit false</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open Set</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>open scoped ComplexOrder Convex InnerProduct</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>namespace MathlibAnnex.CStarAlgebra</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>universe u v</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a></span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>variable {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>variable {H : Type v}</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a></span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a></span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>/-- A positive functional dominated by an irreducible unit vector state is a</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>real scalar multiple of that state.  The dominated functional may be zero;</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>no normalization or nonzero hypothesis is used. -/</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>theorem eq_smul_of_irreducible_vectorFunctional_of_nonnegative_le</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>    (pi : Representation A H) (hirr : pi.IsIrreducible)</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>    (xi : H) (hxi : ‖xi‖ = 1)</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>    (rho : A →L[ℂ] ℂ) (hrho : ∀ a : A, 0 ≤ a → 0 ≤ rho a)</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>    (hle : ∀ a : A, 0 ≤ a → rho a ≤ Representation.vectorFunctional pi xi a) :</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    ∃ t : ℝ, 0 ≤ t ∧ t ≤ 1 ∧</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>      rho = t • Representation.vectorFunctional pi xi := by</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  letI : Nontrivial H := Representation.nontrivial_of_isNonzero pi hirr.1</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>  have hxi_ne : xi ≠ 0 := by</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    intro hzero</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    simpa [hzero] using hxi</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>  have hdense : DenseRange (StarAlgHom.orbitMap pi xi) :=</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>    Representation.denseRange_orbitMap_of_isIrreducible pi hirr hxi_ne</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  let f : A →ₚ[ℂ] ℂ := PositiveLinearMap.mk₀ rho.toLinearMap hrho</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>  let sigma : Representation A f.GNS := f.gnsStarAlgHom</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>  let eta : f.GNS := f.gnsCyclicVector</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  let p : A →ₗ[ℂ] H := StarAlgHom.orbitMap pi xi</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  let q : A →ₗ[ℂ] f.GNS := StarAlgHom.orbitMap sigma eta</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  have hq_inner (a : A) : inner ℂ (q a) (q a) = rho (star a * a) := by</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    calc</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>      inner ℂ (q a) (q a) =</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>          Representation.vectorFunctional sigma eta (star a * a) := by</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>            simpa [p, q, StarAlgHom.orbitMap] using</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>              (Representation.vectorFunctional_star_mul sigma eta a a).symm</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>      _ = f (star a * a) := by</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>        exact PositiveLinearMap.inner_gnsCyclicVector_gnsStarAlgHom f (star a * a)</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>      _ = rho (star a * a) := rfl</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>  have hp_inner (a : A) : inner ℂ (p a) (p a) =</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>      Representation.vectorFunctional pi xi (star a * a) := by</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    simpa [p, StarAlgHom.orbitMap] using</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>      (Representation.vectorFunctional_star_mul pi xi a a).symm</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>  have hnorm (a : A) : ‖q a‖ ≤ (1 : ℝ) * ‖p a‖ := by</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>    rw [one_mul]</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    apply (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mp</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    rw [norm_sq_eq_re_inner (𝕜 := ℂ) (q a),</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>      norm_sq_eq_re_inner (𝕜 := ℂ) (p a), hq_inner, hp_inner]</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    have hdiff := RCLike.nonneg_iff.mp</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>      (sub_nonneg.mpr (hle (star a * a) (star_mul_self_nonneg a)))</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    simpa using hdiff.1</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  let T : H →L[ℂ] f.GNS := q.extendOfNorm p</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>  have hT_orbit (a : A) : T (pi a xi) = sigma a eta := by</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>    simpa [T, p, q, StarAlgHom.orbitMap] using</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>      (LinearMap.extendOfNorm_eq hdense ⟨(1 : ℝ), hnorm⟩ a)</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>  have hT_intertwines : StarAlgHom.Intertwines pi sigma T := by</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    intro b</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>    intro x</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    exact hdense.induction_on x</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>      (isClosed_eq ((T.comp (pi b)).continuous) (((sigma b).comp T).continuous))</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>      fun a ↦ by</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>        change T (pi b (pi a xi)) = sigma b (T (pi a xi))</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>        have hpi_mul : pi (b * a) xi = pi b (pi a xi) := by</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>          rw [map_mul]</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>          rfl</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>        have hsigma_mul : sigma (b * a) eta = sigma b (sigma a eta) := by</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>          rw [map_mul]</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>          rfl</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>        calc</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>          T (pi b (pi a xi)) = T (pi (b * a) xi) := congrArg T hpi_mul.symm</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>          _ = sigma (b * a) eta := hT_orbit (b * a)</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>          _ = sigma b (sigma a eta) := hsigma_mul</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>          _ = sigma b (T (pi a xi)) := by rw [hT_orbit a]</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>  let D : H →L[ℂ] H := (T†).comp T</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>  have hD_self : IsSelfAdjoint D := by</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    rw [isSelfAdjoint_iff, ContinuousLinearMap.star_eq_adjoint,</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>      ContinuousLinearMap.adjoint_comp, ContinuousLinearMap.adjoint_adjoint]</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  have hD_comm : StarAlgHom.InCommutant pi D := by</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>    exact hT_intertwines.inCommutant_adjoint_comp_self</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>  obtain ⟨t, hD⟩ := StarAlgHom.eq_algebraMap_of_isSelfAdjoint_of_irreducible</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>    pi (Representation.isIrreducible_starAlgHom pi hirr) D hD_self hD_comm</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>  have hTxi : T xi = eta := by</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>    simpa using hT_orbit (1 : A)</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>  have heta_sq : ‖eta‖ ^ 2 = (rho 1).re := by</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>    rw [norm_sq_eq_re_inner (𝕜 := ℂ) eta]</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>    have hcoeff : inner ℂ eta eta = rho 1 := by</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>      calc</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>        inner ℂ eta eta = inner ℂ eta (sigma 1 eta) := by simp</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>        _ = f 1 := PositiveLinearMap.inner_gnsCyclicVector_gnsStarAlgHom f 1</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>        _ = rho 1 := rfl</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>    rw [hcoeff]</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>    rw [RCLike.re_eq_complex_re]</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>  have ht_eq : t = (rho 1).re := by</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    have hnormD := ContinuousLinearMap.apply_norm_sq_eq_inner_adjoint_right T xi</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    rw [hTxi, heta_sq] at hnormD</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>    rw [show (T†).comp T = D by rfl, hD] at hnormD</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>    rw [ContinuousLinearMap.algebraMap_apply,</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>      RCLike.real_smul_eq_coe_smul (K := ℂ), inner_smul_real_right,</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>      RCLike.smul_re, ← norm_sq_eq_re_inner (𝕜 := ℂ), hxi] at hnormD</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>    simpa using hnormD.symm</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>  have ht_nonneg : 0 ≤ t := by</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>    rw [ht_eq]</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>    exact (RCLike.nonneg_iff.mp</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>      (hrho 1 (by simpa using star_mul_self_nonneg (1 : A)))).1</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>  have ht_le_one : t ≤ 1 := by</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>    rw [ht_eq]</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>    have hdiff := RCLike.nonneg_iff.mp</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>      (sub_nonneg.mpr (hle 1 (by simpa using star_mul_self_nonneg (1 : A))))</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>    simpa [Representation.vectorFunctional_one pi hxi] using hdiff.1</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>  refine ⟨t, ht_nonneg, ht_le_one, ?_⟩</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>  intro a</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>  calc</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>    rho a = inner ℂ eta (sigma a eta) := by</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>      exact (PositiveLinearMap.inner_gnsCyclicVector_gnsStarAlgHom f a).symm</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    _ = inner ℂ (T xi) (sigma a (T xi)) := by rw [hTxi]</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>    _ = inner ℂ (T xi) (T (pi a xi)) := by</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>      have h := congrArg (fun R : H →L[ℂ] f.GNS ↦ R xi) (hT_intertwines a)</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>      simpa [ContinuousLinearMap.comp_apply] using congrArg (inner ℂ (T xi)) h.symm</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>    _ = inner ℂ xi (D (pi a xi)) := by</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>      simpa [D, ContinuousLinearMap.comp_apply] using</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>        (ContinuousLinearMap.adjoint_inner_right T xi (T (pi a xi))).symm</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>    _ = inner ℂ xi ((algebraMap ℝ (H →L[ℂ] H) t) (pi a xi)) := by rw [hD]</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>    _ = (t • Representation.vectorFunctional pi xi) a := by</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>      rw [ContinuousLinearMap.algebraMap_apply,</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>        RCLike.real_smul_eq_coe_smul (K := ℂ), inner_smul_right]</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>      simp [Representation.vectorFunctional_apply, Complex.real_smul]</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a></span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>/-- Every unit vector state of an explicitly nonzero irreducible unital</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>representation is pure. -/</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>theorem isPureState_vectorFunctional_of_isIrreducible</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>    (pi : Representation A H) (hirr : pi.IsIrreducible)</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>    (xi : H) (hxi : ‖xi‖ = 1) :</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>    IsPureState A (Representation.vectorFunctional pi xi) := by</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>  rw [IsPureState, mem_extremePoints_iff_left]</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>  refine ⟨vectorFunctional_mem_stateSpace pi xi hxi, ?_⟩</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>  intro psi hpsi chi hchi hsegment</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>  rcases hsegment with ⟨s, t, hs, ht, hst, hconv⟩</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>  let rho : A →L[ℂ] ℂ := s • psi</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>  have hrho : ∀ a : A, 0 ≤ a → 0 ≤ rho a := by</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>    intro a ha</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>    exact smul_nonneg hs.le (hpsi.1 a ha)</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>  have hle : ∀ a : A, 0 ≤ a →</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>      rho a ≤ Representation.vectorFunctional pi xi a := by</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>    intro a ha</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>    rw [← hconv]</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>    simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply]</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>    exact le_add_of_nonneg_right (smul_nonneg ht.le (hchi.1 a ha))</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>  obtain ⟨r, -, -, hrho_eq⟩ :=</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>    eq_smul_of_irreducible_vectorFunctional_of_nonnegative_le</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>      pi hirr xi hxi rho hrho hle</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>  have hrs : r = s := by</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>    have h := congrArg (fun f : A →L[ℂ] ℂ ↦ f 1) hrho_eq</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>    have hre := congrArg Complex.re h</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>    simpa [rho, hpsi.2, Representation.vectorFunctional_one pi hxi,</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>      Complex.real_smul] using hre.symm</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>  apply smul_right_injective (A →L[ℂ] ℂ) hs.ne&#x27;</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>  simpa [rho, hrs] using hrho_eq</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a></span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>/-- Ordinary pure states are exactly those whose canonical GNS</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>representations are irreducible. -/</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>theorem isPureState_iff_gnsStarAlgHom_isIrreducible</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>    (phi : A →L[ℂ] ℂ) (hphi : phi ∈ stateSpace A) :</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>    IsPureState A phi ↔</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>      StarAlgHom.IsIrreducible</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>        (positiveLinearMapOfMemStateSpace phi hphi).gnsStarAlgHom := by</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>  constructor</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>  · exact isIrreducible_pureState_gnsStarAlgHom phi hphi</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>  · intro hirr</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>    let f : A →ₚ[ℂ] ℂ := positiveLinearMapOfMemStateSpace phi hphi</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>    let xi : f.GNS := f.gnsCyclicVector</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    have hxi : ‖xi‖ = 1 := by</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>      exact PositiveLinearMap.norm_gnsCyclicVector f</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>        (positiveLinearMapOfMemStateSpace_one phi hphi)</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>    have hxi_ne : xi ≠ 0 := by</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>      intro hzero</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>      simpa [hzero] using hxi</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>    letI : Nontrivial f.GNS := nontrivial_of_ne xi 0 hxi_ne</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>    have hirr&#x27; : Representation.IsIrreducible f.gnsStarAlgHom :=</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>      (Representation.isIrreducible_iff_starAlgHom f.gnsStarAlgHom).2 hirr</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>    have hpure := isPureState_vectorFunctional_of_isIrreducible</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>      f.gnsStarAlgHom hirr&#x27; xi hxi</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>    have hfunctional : Representation.vectorFunctional f.gnsStarAlgHom xi = phi := by</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>      apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>      intro a</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>      exact inner_gnsStarAlgHom_stateGNSVector phi hphi a</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>    rw [hfunctional] at hpure</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>    exact hpure</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a></span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>/-- The existing chosen pure-GNS transversal covers every nonzero</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>irreducible representation on an arbitrary target Hilbert-space universe. -/</span>
+<span class="source-line selected" id="L212"><a class="line-no" href="#L212">212</a>theorem irreducible_covered_by_pureState_representative</span>
+<span class="source-line selected" id="L213"><a class="line-no" href="#L213">213</a>    (root : PureState A) (pi : Representation A H) (hirr : pi.IsIrreducible) :</span>
+<span class="source-line selected" id="L214"><a class="line-no" href="#L214">214</a>    ∃ j : PureState.GNSClass A,</span>
+<span class="source-line selected" id="L215"><a class="line-no" href="#L215">215</a>      Representation.UnitaryEquivalent pi</span>
+<span class="source-line selected" id="L216"><a class="line-no" href="#L216">216</a>        (PureState.representative root j).positiveFunctional.gnsStarAlgHom := by</span>
+<span class="source-line selected" id="L217"><a class="line-no" href="#L217">217</a>  obtain ⟨xi, hxi, hcyclic, -, hpi⟩ := irreducible_exists_vectorStateGNS pi hirr</span>
+<span class="source-line selected" id="L218"><a class="line-no" href="#L218">218</a>  have hpure : IsPureState A (Representation.vectorFunctional pi xi) :=</span>
+<span class="source-line selected" id="L219"><a class="line-no" href="#L219">219</a>    isPureState_vectorFunctional_of_isIrreducible pi hirr xi hxi</span>
+<span class="source-line selected" id="L220"><a class="line-no" href="#L220">220</a>  let phi : PureState A := ⟨Representation.vectorFunctional pi xi, hpure⟩</span>
+<span class="source-line selected" id="L221"><a class="line-no" href="#L221">221</a>  have hpositive : phi.positiveFunctional = vectorPositiveFunctional pi xi hxi := by</span>
+<span class="source-line selected" id="L222"><a class="line-no" href="#L222">222</a>    ext a</span>
+<span class="source-line selected" id="L223"><a class="line-no" href="#L223">223</a>    rfl</span>
+<span class="source-line selected" id="L224"><a class="line-no" href="#L224">224</a>  have hpi&#x27; : Representation.UnitaryEquivalent pi phi.positiveFunctional.gnsStarAlgHom := by</span>
+<span class="source-line selected" id="L225"><a class="line-no" href="#L225">225</a>    rw [hpositive]</span>
+<span class="source-line selected" id="L226"><a class="line-no" href="#L226">226</a>    exact hpi</span>
+<span class="source-line selected" id="L227"><a class="line-no" href="#L227">227</a>  have hrep : Representation.UnitaryEquivalent</span>
+<span class="source-line selected" id="L228"><a class="line-no" href="#L228">228</a>      (PureState.representative root phi.classOf).positiveFunctional.gnsStarAlgHom</span>
+<span class="source-line selected" id="L229"><a class="line-no" href="#L229">229</a>      phi.positiveFunctional.gnsStarAlgHom :=</span>
+<span class="source-line selected" id="L230"><a class="line-no" href="#L230">230</a>    PureState.representative_covers root phi</span>
+<span class="source-line selected" id="L231"><a class="line-no" href="#L231">231</a>  exact ⟨phi.classOf, Representation.unitaryEquivalent_trans hpi&#x27;</span>
+<span class="source-line selected" id="L232"><a class="line-no" href="#L232">232</a>    (Representation.unitaryEquivalent_symm hrep)⟩</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a></span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>end MathlibAnnex.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

@@ -1,0 +1,380 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.star_limitMatrixUnit | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/9e40ffe491d1ce47ca197633/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.star_limitMatrixUnit</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean</code>, lines 57–60.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05/versions/n69-8b60ab2d1eb40cfe/index.html">Back to A finite-row average centralizes its matrix stage</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.Completion</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.FiniteRow</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.PositiveMapBound</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import MathlibAnnex.Analysis.CStarAlgebra.VectorGram</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a></span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>/-!</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a># Finite-row averaging in the completed CAR algebra</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>For a full matrix stage, the single column `e_(i,0)` gives an exactly</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>normalized row.  Its associated positive map commutes with that whole stage,</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>and the elementary norm bound is independent of the matrix dimension.  Dense</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>finite-stage approximation then gives simultaneous approximate centrality on</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>an arbitrary finite subset of the actual completed CAR algebra.</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>-/</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>set_option autoImplicit false</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>open scoped ComplexOrder Matrix</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>/-- A standard matrix unit in a binary CAR stage. -/</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>noncomputable def matrixUnit (n : ℕ) (i j : Fin (2 ^ n)) : Stage n :=</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>  CStarMatrix.ofMatrix (Matrix.single i j 1)</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>@[simp] theorem matrixUnit_apply (n : ℕ) (i j k l : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>    matrixUnit n i j k l = if i = k ∧ j = l then 1 else 0 := by</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>  simp [matrixUnit, Matrix.single]</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a></span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>@[simp] theorem star_matrixUnit (n : ℕ) (i j : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    star (matrixUnit n i j) = matrixUnit n j i := by</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>  ext k l</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  simp [matrixUnit, CStarMatrix.star_apply, Matrix.single, and_comm]</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>@[simp] theorem matrixUnit_mul_same (n : ℕ) (i j k : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>    matrixUnit n i j * matrixUnit n j k = matrixUnit n i k := by</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>  change CStarMatrix.ofMatrix (Matrix.single i j 1 * Matrix.single j k 1) = _</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  rw [Matrix.single_mul_single_same]</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  simp [matrixUnit]</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a></span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>@[simp] theorem matrixUnit_mul_of_ne (n : ℕ) (i j k l : Fin (2 ^ n)) (h : j ≠ k) :</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    matrixUnit n i j * matrixUnit n k l = 0 := by</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>  change CStarMatrix.ofMatrix (Matrix.single i j 1 * Matrix.single k l 1) = _</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>  rw [Matrix.single_mul_single_of_ne _ _ _ _ h]</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  rfl</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a></span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>@[simp] theorem sum_matrixUnit_diag (n : ℕ) :</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>    ∑ i : Fin (2 ^ n), matrixUnit n i i = 1 := by</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  change CStarMatrix.ofMatrix (∑ i : Fin (2 ^ n), Matrix.single i i 1) = _</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  rw [Matrix.sum_single_one]</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  rfl</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a></span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>/-- A standard matrix unit viewed in the actual completed CAR algebra. -/</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>noncomputable def limitMatrixUnit (n : ℕ) (i j : Fin (2 ^ n)) : Limit :=</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>  ofStage n (matrixUnit n i j)</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a></span>
+<span class="source-line selected" id="L57"><a class="line-no" href="#L57">57</a>@[simp] theorem star_limitMatrixUnit (n : ℕ) (i j : Fin (2 ^ n)) :</span>
+<span class="source-line selected" id="L58"><a class="line-no" href="#L58">58</a>    star (limitMatrixUnit n i j) = limitMatrixUnit n j i := by</span>
+<span class="source-line selected" id="L59"><a class="line-no" href="#L59">59</a>  rw [limitMatrixUnit, ← map_star, star_matrixUnit]</span>
+<span class="source-line selected" id="L60"><a class="line-no" href="#L60">60</a>  rfl</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a></span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>@[simp] theorem limitMatrixUnit_mul (n : ℕ) (i j k l : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    limitMatrixUnit n i j * limitMatrixUnit n k l =</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>      if j = k then limitMatrixUnit n i l else 0 := by</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>  by_cases h : j = k</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>  · subst k</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>    rw [limitMatrixUnit, limitMatrixUnit, ← map_mul, matrixUnit_mul_same]</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    simp [limitMatrixUnit]</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>  · rw [limitMatrixUnit, limitMatrixUnit, ← map_mul, matrixUnit_mul_of_ne _ _ _ _ _ h,</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>      map_zero]</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    simp [h]</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a></span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>@[simp] theorem sum_limitMatrixUnit_diag (n : ℕ) :</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>    ∑ i : Fin (2 ^ n), limitMatrixUnit n i i = 1 := by</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>  calc</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    ∑ i : Fin (2 ^ n), limitMatrixUnit n i i =</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>        ofStage n (∑ i : Fin (2 ^ n), matrixUnit n i i) := by</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>          rw [map_sum]</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>          rfl</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>    _ = 1 := by rw [sum_matrixUnit_diag, map_one]</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a></span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>/-- The finite-row average associated to a full matrix stage. -/</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>noncomputable def rowAverageLinear (n : ℕ) : Limit →ₗ[ℂ] Limit where</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>  toFun b := ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>    limitMatrixUnit n i 0 * b * limitMatrixUnit n 0 i</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>  map_add&#x27; b c := by</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>    simp only [mul_add, add_mul, Finset.sum_add_distrib]</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>  map_smul&#x27; c b := by</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>    simp only [RingHom.id_apply, Algebra.smul_def]</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>    rw [Finset.mul_sum]</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>    intro i _</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    calc</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>      limitMatrixUnit n i 0 * ((algebraMap ℂ Limit) c * b) *</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>          limitMatrixUnit n 0 i =</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>          (limitMatrixUnit n i 0 * (algebraMap ℂ Limit) c) * b *</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>            limitMatrixUnit n 0 i := by simp only [mul_assoc]</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>      _ = ((algebraMap ℂ Limit) c * limitMatrixUnit n i 0) * b *</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>            limitMatrixUnit n 0 i := by</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>              rw [Algebra.commutes c (limitMatrixUnit n i 0)]</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>      _ = (algebraMap ℂ Limit) c *</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>          (limitMatrixUnit n i 0 * b * limitMatrixUnit n 0 i) := by</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>            simp only [mul_assoc]</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a></span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>@[simp] theorem rowAverageLinear_apply (n : ℕ) (b : Limit) :</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>    rowAverageLinear n b = ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>      limitMatrixUnit n i 0 * b * limitMatrixUnit n 0 i := rfl</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a></span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>@[simp] theorem rowAverageLinear_one (n : ℕ) : rowAverageLinear n 1 = 1 := by</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>  simp [rowAverageLinear]</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a></span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>theorem rowAverageLinear_nonneg (n : ℕ) (b : Limit) (hb : 0 ≤ b) :</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>    0 ≤ rowAverageLinear n b := by</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>  rw [rowAverageLinear_apply]</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>  apply Finset.sum_nonneg</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>  intro i _</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>  simpa only [star_limitMatrixUnit] using</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>    (star_right_conjugate_nonneg hb (limitMatrixUnit n i 0))</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a></span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>noncomputable def rowAveragePositive (n : ℕ) : Limit →ₚ[ℂ] Limit :=</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>  PositiveLinearMap.mk₀ (rowAverageLinear n) (rowAverageLinear_nonneg n)</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a></span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>theorem norm_rowAverageLinear_le (n : ℕ) (b : Limit) :</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>    ‖rowAverageLinear n b‖ ≤ 4 * ‖b‖ := by</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>  exact MathlibAnnex.CStarAlgebra.norm_apply_le_four (rowAveragePositive n)</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>    (rowAverageLinear_one n) b</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a></span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>/-- The finite-row average as a bounded linear operator. -/</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>noncomputable def rowAverage (n : ℕ) : Limit →L[ℂ] Limit :=</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>  (rowAverageLinear n).mkContinuous 4 (norm_rowAverageLinear_le n)</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a></span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>@[simp] theorem rowAverage_apply (n : ℕ) (b : Limit) :</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>    rowAverage n b = rowAverageLinear n b := rfl</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a></span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>/-- Commuting with `a` after applying the finite-row average. -/</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>noncomputable def commutatorAverageLinear (n : ℕ) (a : Limit) : Limit →ₗ[ℂ] Limit where</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>  toFun b := a * rowAverageLinear n b - rowAverageLinear n b * a</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>  map_add&#x27; b c := by simp only [map_add, mul_add, add_mul, sub_add_sub_comm]</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>  map_smul&#x27; c b := by</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>    rw [map_smul]</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>    simp only [RingHom.id_apply, Algebra.smul_def]</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>    rw [mul_sub]</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>    congr 1</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>    · calc</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>        a * ((algebraMap ℂ Limit) c * rowAverageLinear n b) =</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>            (a * (algebraMap ℂ Limit) c) * rowAverageLinear n b := by</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>              rw [mul_assoc]</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>        _ = ((algebraMap ℂ Limit) c * a) * rowAverageLinear n b := by</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>              rw [Algebra.commutes c a]</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>        _ = (algebraMap ℂ Limit) c * (a * rowAverageLinear n b) := by</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>              rw [mul_assoc]</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>    · rw [mul_assoc]</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a></span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>theorem norm_commutatorAverageLinear_le (n : ℕ) (a b : Limit) :</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>    ‖commutatorAverageLinear n a b‖ ≤ (8 * ‖a‖) * ‖b‖ := by</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>  change ‖a * rowAverageLinear n b - rowAverageLinear n b * a‖ ≤ _</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>  calc</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    ‖a * rowAverageLinear n b - rowAverageLinear n b * a‖ ≤</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>        ‖a * rowAverageLinear n b‖ + ‖rowAverageLinear n b * a‖ := norm_sub_le _ _</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>    _ ≤ ‖a‖ * ‖rowAverageLinear n b‖ + ‖rowAverageLinear n b‖ * ‖a‖ :=</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>      add_le_add (norm_mul_le _ _) (norm_mul_le _ _)</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>    _ = 2 * ‖a‖ * ‖rowAverageLinear n b‖ := by ring</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>    _ ≤ 2 * ‖a‖ * (4 * ‖b‖) := by</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>      gcongr</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>      exact norm_rowAverageLinear_le n b</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>    _ = (8 * ‖a‖) * ‖b‖ := by ring</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a></span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>/-- The averaged commutator as a bounded linear operator on the CAR algebra. -/</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>noncomputable def commutatorAverage (n : ℕ) (a : Limit) : Limit →L[ℂ] Limit :=</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>  (commutatorAverageLinear n a).mkContinuous (8 * ‖a‖)</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>    (norm_commutatorAverageLinear_le n a)</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a></span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>@[simp] theorem commutatorAverage_apply (n : ℕ) (a b : Limit) :</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>    commutatorAverage n a b =</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>      a * rowAverageLinear n b - rowAverageLinear n b * a := rfl</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a></span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>theorem limitMatrixUnit_commute_rowAverage (n : ℕ) (k l : Fin (2 ^ n)) (b : Limit) :</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>    limitMatrixUnit n k l * rowAverageLinear n b =</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>      rowAverageLinear n b * limitMatrixUnit n k l := by</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>  calc</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>    limitMatrixUnit n k l * rowAverageLinear n b =</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>        ∑ i : Fin (2 ^ n), limitMatrixUnit n k l *</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>          (limitMatrixUnit n i 0 * b * limitMatrixUnit n 0 i) := by</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>            rw [rowAverageLinear_apply, Finset.mul_sum]</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>    _ = limitMatrixUnit n k 0 * b * limitMatrixUnit n 0 l := by</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>      rw [Finset.sum_eq_single l]</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>      · simp [← mul_assoc]</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>      · intro i _ hil</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>        have hli : l ≠ i := Ne.symm hil</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>        simp [← mul_assoc, hli]</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>      · simp</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    _ = ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>        (limitMatrixUnit n i 0 * b * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>          limitMatrixUnit n k l := by</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>      rw [Finset.sum_eq_single k]</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>      · simp [mul_assoc]</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>      · intro i _ hik</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>        simp [mul_assoc, hik]</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>      · simp</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>    _ = rowAverageLinear n b * limitMatrixUnit n k l := by</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>      rw [rowAverageLinear_apply, Finset.sum_mul]</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a></span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>set_option backward.isDefEq.respectTransparency false in</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>theorem stage_eq_sum_smul_matrixUnit (n : ℕ) (c : Stage n) :</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>    c = ∑ i : Fin (2 ^ n), ∑ j : Fin (2 ^ n), c i j • matrixUnit n i j := by</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>  apply (CStarMatrix.ofMatrixₗ (R := ℂ)).symm.injective</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>  simp only [map_sum, map_smul]</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>  change CStarMatrix.ofMatrix.symm c =</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>    ∑ i : Fin (2 ^ n), ∑ j : Fin (2 ^ n),</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>      c i j • Matrix.single i j 1</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>  rw [Matrix.matrix_eq_sum_single (CStarMatrix.ofMatrix.symm c)]</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>  apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>  intro i _</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>  apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>  intro j _</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>  ext k l</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>  simp [Matrix.single]</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a></span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>theorem ofStage_eq_sum_smul_limitMatrixUnit (n : ℕ) (c : Stage n) :</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>    ofStage n c =</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>      ∑ i : Fin (2 ^ n), ∑ j : Fin (2 ^ n), c i j • limitMatrixUnit n i j := by</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>  conv_lhs =&gt; rw [stage_eq_sum_smul_matrixUnit n c]</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>  simp only [map_sum, map_smul, limitMatrixUnit]</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a></span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>theorem ofStage_commute_rowAverage (n : ℕ) (c : Stage n) (b : Limit) :</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>    ofStage n c * rowAverageLinear n b = rowAverageLinear n b * ofStage n c := by</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>  rw [ofStage_eq_sum_smul_limitMatrixUnit]</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>  apply (Commute.sum_left Finset.univ _ _ fun i _ =&gt;</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>    Commute.sum_left Finset.univ _ _ fun j _ =&gt; ?_).eq</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>  exact (show Commute (limitMatrixUnit n i j) (rowAverageLinear n b) from</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>    limitMatrixUnit_commute_rowAverage n i j b).smul_left (c i j)</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a></span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>theorem exists_stage_approx (a : Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>    ∃ n, ∃ c : Stage n, ‖a - ofStage n c‖ &lt; epsilon := by</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>  obtain ⟨y, hy, hya⟩ := dense_stageRange.exists_dist_lt a hepsilon</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>  rcases Set.mem_iUnion.mp hy with ⟨n, hn⟩</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>  rcases hn with ⟨c, rfl⟩</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>  exact ⟨n, c, by simpa only [dist_eq_norm, norm_sub_rev] using hya⟩</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a></span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>theorem exists_common_stage_approx (F : Finset Limit) {epsilon : ℝ}</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>    (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>    ∃ n, ∀ a ∈ F, ∃ c : Stage n, ‖a - ofStage n c‖ &lt; epsilon := by</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>  classical</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>  induction F using Finset.induction with</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>  | empty =&gt;</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>      exact ⟨0, by simp⟩</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>  | @insert a F ha ih =&gt;</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>      obtain ⟨n, c, hc⟩ := exists_stage_approx a hepsilon</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>      obtain ⟨m, hm⟩ := ih</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>      refine ⟨max n m, ?_⟩</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>      intro x hx</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>      rcases Finset.mem_insert.mp hx with rfl | hx</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>      · refine ⟨embed n (max n m) (le_max_left n m) c, ?_⟩</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>        simpa only [ofStage_embed] using hc</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a>      · obtain ⟨d, hd⟩ := hm x hx</span>
+<span class="source-line" id="L256"><a class="line-no" href="#L256">256</a>        refine ⟨embed m (max n m) (le_max_right n m) d, ?_⟩</span>
+<span class="source-line" id="L257"><a class="line-no" href="#L257">257</a>        simpa only [ofStage_embed] using hd</span>
+<span class="source-line" id="L258"><a class="line-no" href="#L258">258</a></span>
+<span class="source-line" id="L259"><a class="line-no" href="#L259">259</a>theorem norm_commutator_rowAverage_le (n : ℕ) (a b : Limit) (c : Stage n) :</span>
+<span class="source-line" id="L260"><a class="line-no" href="#L260">260</a>    ‖a * rowAverageLinear n b - rowAverageLinear n b * a‖ ≤</span>
+<span class="source-line" id="L261"><a class="line-no" href="#L261">261</a>      8 * ‖a - ofStage n c‖ * ‖b‖ := by</span>
+<span class="source-line" id="L262"><a class="line-no" href="#L262">262</a>  let p := rowAverageLinear n b</span>
+<span class="source-line" id="L263"><a class="line-no" href="#L263">263</a>  let d := a - ofStage n c</span>
+<span class="source-line" id="L264"><a class="line-no" href="#L264">264</a>  have hcomm : ofStage n c * p = p * ofStage n c :=</span>
+<span class="source-line" id="L265"><a class="line-no" href="#L265">265</a>    ofStage_commute_rowAverage n c b</span>
+<span class="source-line" id="L266"><a class="line-no" href="#L266">266</a>  have hid : a * p - p * a = d * p - p * d := by</span>
+<span class="source-line" id="L267"><a class="line-no" href="#L267">267</a>    dsimp only [d]</span>
+<span class="source-line" id="L268"><a class="line-no" href="#L268">268</a>    noncomm_ring [hcomm]</span>
+<span class="source-line" id="L269"><a class="line-no" href="#L269">269</a>  rw [hid]</span>
+<span class="source-line" id="L270"><a class="line-no" href="#L270">270</a>  calc</span>
+<span class="source-line" id="L271"><a class="line-no" href="#L271">271</a>    ‖d * p - p * d‖ ≤ ‖d * p‖ + ‖p * d‖ := norm_sub_le _ _</span>
+<span class="source-line" id="L272"><a class="line-no" href="#L272">272</a>    _ ≤ ‖d‖ * ‖p‖ + ‖p‖ * ‖d‖ :=</span>
+<span class="source-line" id="L273"><a class="line-no" href="#L273">273</a>      add_le_add (norm_mul_le _ _) (norm_mul_le _ _)</span>
+<span class="source-line" id="L274"><a class="line-no" href="#L274">274</a>    _ = 2 * ‖d‖ * ‖p‖ := by ring</span>
+<span class="source-line" id="L275"><a class="line-no" href="#L275">275</a>    _ ≤ 2 * ‖d‖ * (4 * ‖b‖) := by</span>
+<span class="source-line" id="L276"><a class="line-no" href="#L276">276</a>      gcongr</span>
+<span class="source-line" id="L277"><a class="line-no" href="#L277">277</a>      exact norm_rowAverageLinear_le n b</span>
+<span class="source-line" id="L278"><a class="line-no" href="#L278">278</a>    _ = 8 * ‖a - ofStage n c‖ * ‖b‖ := by</span>
+<span class="source-line" id="L279"><a class="line-no" href="#L279">279</a>      dsimp only [d]</span>
+<span class="source-line" id="L280"><a class="line-no" href="#L280">280</a>      ring</span>
+<span class="source-line" id="L281"><a class="line-no" href="#L281">281</a></span>
+<span class="source-line" id="L282"><a class="line-no" href="#L282">282</a>theorem norm_commutatorAverage_le_of_stage (n : ℕ) (a : Limit) (c : Stage n) :</span>
+<span class="source-line" id="L283"><a class="line-no" href="#L283">283</a>    ‖commutatorAverage n a‖ ≤ 8 * ‖a - ofStage n c‖ := by</span>
+<span class="source-line" id="L284"><a class="line-no" href="#L284">284</a>  apply ContinuousLinearMap.opNorm_le_bound _ (by positivity)</span>
+<span class="source-line" id="L285"><a class="line-no" href="#L285">285</a>  intro b</span>
+<span class="source-line" id="L286"><a class="line-no" href="#L286">286</a>  simpa only [commutatorAverage_apply, mul_assoc] using</span>
+<span class="source-line" id="L287"><a class="line-no" href="#L287">287</a>    norm_commutator_rowAverage_le n a b c</span>
+<span class="source-line" id="L288"><a class="line-no" href="#L288">288</a></span>
+<span class="source-line" id="L289"><a class="line-no" href="#L289">289</a>@[simp] theorem row_isometry_sum (n : ℕ) :</span>
+<span class="source-line" id="L290"><a class="line-no" href="#L290">290</a>    ∑ i : Fin (2 ^ n), limitMatrixUnit n i 0 * star (limitMatrixUnit n i 0) = 1 := by</span>
+<span class="source-line" id="L291"><a class="line-no" href="#L291">291</a>  simpa using sum_limitMatrixUnit_diag n</span>
+<span class="source-line" id="L292"><a class="line-no" href="#L292">292</a></span>
+<span class="source-line" id="L293"><a class="line-no" href="#L293">293</a>/-- Exact normalization survives every unital star representation. -/</span>
+<span class="source-line" id="L294"><a class="line-no" href="#L294">294</a>theorem map_row_isometry_sum</span>
+<span class="source-line" id="L295"><a class="line-no" href="#L295">295</a>    {B : Type*} [Semiring B] [StarRing B] [Algebra ℂ B]</span>
+<span class="source-line" id="L296"><a class="line-no" href="#L296">296</a>    (rho : Limit →⋆ₐ[ℂ] B) (n : ℕ) :</span>
+<span class="source-line" id="L297"><a class="line-no" href="#L297">297</a>    ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L298"><a class="line-no" href="#L298">298</a>      rho (limitMatrixUnit n i 0) * star (rho (limitMatrixUnit n i 0)) = 1 := by</span>
+<span class="source-line" id="L299"><a class="line-no" href="#L299">299</a>  calc</span>
+<span class="source-line" id="L300"><a class="line-no" href="#L300">300</a>    ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L301"><a class="line-no" href="#L301">301</a>        rho (limitMatrixUnit n i 0) * star (rho (limitMatrixUnit n i 0)) =</span>
+<span class="source-line" id="L302"><a class="line-no" href="#L302">302</a>        ∑ i : Fin (2 ^ n), rho</span>
+<span class="source-line" id="L303"><a class="line-no" href="#L303">303</a>          (limitMatrixUnit n i 0 * star (limitMatrixUnit n i 0)) := by</span>
+<span class="source-line" id="L304"><a class="line-no" href="#L304">304</a>          apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L305"><a class="line-no" href="#L305">305</a>          intro i _</span>
+<span class="source-line" id="L306"><a class="line-no" href="#L306">306</a>          rw [map_mul, map_star]</span>
+<span class="source-line" id="L307"><a class="line-no" href="#L307">307</a>    _ = rho (∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L308"><a class="line-no" href="#L308">308</a>        limitMatrixUnit n i 0 * star (limitMatrixUnit n i 0)) := by</span>
+<span class="source-line" id="L309"><a class="line-no" href="#L309">309</a>          rw [map_sum]</span>
+<span class="source-line" id="L310"><a class="line-no" href="#L310">310</a>    _ = 1 := by rw [row_isometry_sum, map_one]</span>
+<span class="source-line" id="L311"><a class="line-no" href="#L311">311</a></span>
+<span class="source-line" id="L312"><a class="line-no" href="#L312">312</a>/-- Consequently the Property 1.3 compression equation is exact for every</span>
+<span class="source-line" id="L313"><a class="line-no" href="#L313">313</a>operator `E`; no faithfulness or finite-rank assumption is needed here. -/</span>
+<span class="source-line" id="L314"><a class="line-no" href="#L314">314</a>theorem map_row_isometry_sum_mul</span>
+<span class="source-line" id="L315"><a class="line-no" href="#L315">315</a>    {B : Type*} [Semiring B] [StarRing B] [Algebra ℂ B]</span>
+<span class="source-line" id="L316"><a class="line-no" href="#L316">316</a>    (rho : Limit →⋆ₐ[ℂ] B) (n : ℕ) (E : B) :</span>
+<span class="source-line" id="L317"><a class="line-no" href="#L317">317</a>    (∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L318"><a class="line-no" href="#L318">318</a>      rho (limitMatrixUnit n i 0) * star (rho (limitMatrixUnit n i 0))) * E = E := by</span>
+<span class="source-line" id="L319"><a class="line-no" href="#L319">319</a>  rw [map_row_isometry_sum rho n, one_mul]</span>
+<span class="source-line" id="L320"><a class="line-no" href="#L320">320</a></span>
+<span class="source-line" id="L321"><a class="line-no" href="#L321">321</a>/-- In a Hilbert-space representation, the pulled-back row vectors have</span>
+<span class="source-line" id="L322"><a class="line-no" href="#L322">322</a>exact total squared norm.  This is the normalization used by the subsequent</span>
+<span class="source-line" id="L323"><a class="line-no" href="#L323">323</a>Gram comparison; no orthogonality of the row vectors is asserted. -/</span>
+<span class="source-line" id="L324"><a class="line-no" href="#L324">324</a>theorem sum_norm_sq_map_limitMatrixUnit_star</span>
+<span class="source-line" id="L325"><a class="line-no" href="#L325">325</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L326"><a class="line-no" href="#L326">326</a>    (rho : Limit →⋆ₐ[ℂ] (H →L[ℂ] H)) (n : ℕ) (ξ : H) :</span>
+<span class="source-line" id="L327"><a class="line-no" href="#L327">327</a>    ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L328"><a class="line-no" href="#L328">328</a>      ‖rho (star (limitMatrixUnit n i 0)) ξ‖ ^ 2 = ‖ξ‖ ^ 2 := by</span>
+<span class="source-line" id="L329"><a class="line-no" href="#L329">329</a>  exact MathlibAnnex.Analysis.CStarAlgebra.Representation.sum_norm_sq_map_star_eq</span>
+<span class="source-line" id="L330"><a class="line-no" href="#L330">330</a>    rho ξ (fun i =&gt; limitMatrixUnit n i 0) (row_isometry_sum n)</span>
+<span class="source-line" id="L331"><a class="line-no" href="#L331">331</a></span>
+<span class="source-line" id="L332"><a class="line-no" href="#L332">332</a>/-- Actual CAR finite-row averaging with a dimension-independent estimate.</span>
+<span class="source-line" id="L333"><a class="line-no" href="#L333">333</a>The same row works simultaneously for the finite set and every test element `b`. -/</span>
+<span class="source-line" id="L334"><a class="line-no" href="#L334">334</a>theorem exists_row_approx_central (F : Finset Limit) {epsilon : ℝ}</span>
+<span class="source-line" id="L335"><a class="line-no" href="#L335">335</a>    (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L336"><a class="line-no" href="#L336">336</a>    ∃ n,</span>
+<span class="source-line" id="L337"><a class="line-no" href="#L337">337</a>      (∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L338"><a class="line-no" href="#L338">338</a>        limitMatrixUnit n i 0 * star (limitMatrixUnit n i 0) = 1) ∧</span>
+<span class="source-line" id="L339"><a class="line-no" href="#L339">339</a>      ∀ a ∈ F, ∀ b : Limit,</span>
+<span class="source-line" id="L340"><a class="line-no" href="#L340">340</a>        ‖a * rowAverageLinear n b - rowAverageLinear n b * a‖ ≤ epsilon * ‖b‖ := by</span>
+<span class="source-line" id="L341"><a class="line-no" href="#L341">341</a>  obtain ⟨n, hn⟩ := exists_common_stage_approx F (show 0 &lt; epsilon / 8 by positivity)</span>
+<span class="source-line" id="L342"><a class="line-no" href="#L342">342</a>  refine ⟨n, row_isometry_sum n, ?_⟩</span>
+<span class="source-line" id="L343"><a class="line-no" href="#L343">343</a>  intro a ha b</span>
+<span class="source-line" id="L344"><a class="line-no" href="#L344">344</a>  obtain ⟨c, hc⟩ := hn a ha</span>
+<span class="source-line" id="L345"><a class="line-no" href="#L345">345</a>  calc</span>
+<span class="source-line" id="L346"><a class="line-no" href="#L346">346</a>    ‖a * rowAverageLinear n b - rowAverageLinear n b * a‖ ≤</span>
+<span class="source-line" id="L347"><a class="line-no" href="#L347">347</a>        8 * ‖a - ofStage n c‖ * ‖b‖ := norm_commutator_rowAverage_le n a b c</span>
+<span class="source-line" id="L348"><a class="line-no" href="#L348">348</a>    _ ≤ epsilon * ‖b‖ := by</span>
+<span class="source-line" id="L349"><a class="line-no" href="#L349">349</a>      gcongr</span>
+<span class="source-line" id="L350"><a class="line-no" href="#L350">350</a>      exact (lt_div_iff₀&#x27; (by norm_num : (0 : ℝ) &lt; 8)).mp hc |&gt;.le</span>
+<span class="source-line" id="L351"><a class="line-no" href="#L351">351</a></span>
+<span class="source-line" id="L352"><a class="line-no" href="#L352">352</a>/-- The actual completed CAR algebra supplies the source-independent</span>
+<span class="source-line" id="L353"><a class="line-no" href="#L353">353</a>finite-row averaging property. -/</span>
+<span class="source-line" id="L354"><a class="line-no" href="#L354">354</a>theorem hasFiniteRowAveraging_limit :</span>
+<span class="source-line" id="L355"><a class="line-no" href="#L355">355</a>    MathlibAnnex.CStarAlgebra.HasFiniteRowAveraging Limit := by</span>
+<span class="source-line" id="L356"><a class="line-no" href="#L356">356</a>  intro F epsilon hepsilon</span>
+<span class="source-line" id="L357"><a class="line-no" href="#L357">357</a>  obtain ⟨n, hrow, hcomm⟩ := exists_row_approx_central F hepsilon</span>
+<span class="source-line" id="L358"><a class="line-no" href="#L358">358</a>  refine ⟨2 ^ n, (fun i =&gt; limitMatrixUnit n i 0), hrow, ?_⟩</span>
+<span class="source-line" id="L359"><a class="line-no" href="#L359">359</a>  intro a ha b</span>
+<span class="source-line" id="L360"><a class="line-no" href="#L360">360</a>  simpa only [MathlibAnnex.CStarAlgebra.finiteRowAverage,</span>
+<span class="source-line" id="L361"><a class="line-no" href="#L361">361</a>    star_limitMatrixUnit, rowAverageLinear_apply] using hcomm a ha b</span>
+<span class="source-line" id="L362"><a class="line-no" href="#L362">362</a></span>
+<span class="source-line" id="L363"><a class="line-no" href="#L363">363</a>/-- Operator-norm form of the CAR finite-row property.  This is the exact</span>
+<span class="source-line" id="L364"><a class="line-no" href="#L364">364</a>`ad a ∘ Ad x` estimate used in Property 1.3, with an exactly normalized row. -/</span>
+<span class="source-line" id="L365"><a class="line-no" href="#L365">365</a>theorem exists_row_average_opNorm_lt (F : Finset Limit) {epsilon : ℝ}</span>
+<span class="source-line" id="L366"><a class="line-no" href="#L366">366</a>    (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L367"><a class="line-no" href="#L367">367</a>    ∃ n,</span>
+<span class="source-line" id="L368"><a class="line-no" href="#L368">368</a>      (∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L369"><a class="line-no" href="#L369">369</a>        limitMatrixUnit n i 0 * star (limitMatrixUnit n i 0) = 1) ∧</span>
+<span class="source-line" id="L370"><a class="line-no" href="#L370">370</a>      ∀ a ∈ F, ‖commutatorAverage n a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L371"><a class="line-no" href="#L371">371</a>  obtain ⟨n, hn⟩ := exists_common_stage_approx F (show 0 &lt; epsilon / 8 by positivity)</span>
+<span class="source-line" id="L372"><a class="line-no" href="#L372">372</a>  refine ⟨n, row_isometry_sum n, ?_⟩</span>
+<span class="source-line" id="L373"><a class="line-no" href="#L373">373</a>  intro a ha</span>
+<span class="source-line" id="L374"><a class="line-no" href="#L374">374</a>  obtain ⟨c, hc⟩ := hn a ha</span>
+<span class="source-line" id="L375"><a class="line-no" href="#L375">375</a>  calc</span>
+<span class="source-line" id="L376"><a class="line-no" href="#L376">376</a>    ‖commutatorAverage n a‖ ≤ 8 * ‖a - ofStage n c‖ :=</span>
+<span class="source-line" id="L377"><a class="line-no" href="#L377">377</a>      norm_commutatorAverage_le_of_stage n a c</span>
+<span class="source-line" id="L378"><a class="line-no" href="#L378">378</a>    _ &lt; epsilon := (lt_div_iff₀&#x27; (by norm_num : (0 : ℝ) &lt; 8)).mp hc</span>
+<span class="source-line" id="L379"><a class="line-no" href="#L379">379</a></span>
+<span class="source-line" id="L380"><a class="line-no" href="#L380">380</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

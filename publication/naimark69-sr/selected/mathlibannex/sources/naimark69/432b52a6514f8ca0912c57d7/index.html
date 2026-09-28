@@ -1,0 +1,166 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.StarAlgHom.isIrreducible_of_commutant_eq_algebraMap | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/432b52a6514f8ca0912c57d7/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.StarAlgHom.isIrreducible_of_commutant_eq_algebraMap</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/Representation/AtomicCommutant.lean</code>, lines 134–134.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/AtomicCommutant.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e/versions/n69-95487527d395cd99/index.html">Back to An irreducible operator algebra constructed from projection shells</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.Intertwiner</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.Atomic</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.InnerProductSpace.HilbertSumCoordinates</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># The commutant of an atomic sum joined by inter-block links</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>For an arbitrary dependent family of pairwise inequivalent irreducible</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>representations, a commuting operator has scalar diagonal blocks and zero</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>off-diagonal blocks.  Operators linking a selected unit vector in every block</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>to one root block force all diagonal scalars to agree.  The proof uses the</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>density of the arbitrary-index finite-support expansion `lp.hasSum_single`;</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>there is no finite or countable index restriction.</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>-/</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>set_option autoImplicit false</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>open scoped ENNReal lp InnerProduct</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>universe u v w</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>variable {A : Type u} [CStarAlgebra A]</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>variable {I : Type v} {H : I → Type w}</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>variable [DecidableEq I]</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>variable [∀ i, NormedAddCommGroup (H i)] [∀ i, InnerProductSpace ℂ (H i)]</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>variable [∀ i, CompleteSpace (H i)] [∀ i, Nontrivial (H i)]</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a></span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a></span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>/-- The `(j,i)` block of an operator on a dependent Hilbert sum. -/</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>noncomputable def atomicBlock (T : HilbertSum H →L[ℂ] HilbertSum H)</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>    (i j : I) : H i →L[ℂ] H j :=</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>  (coordinateProjection j).comp (T.comp (coordinateEmbedding i))</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a></span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>@[simp]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>theorem atomicBlock_apply (T : HilbertSum H →L[ℂ] HilbertSum H)</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>    (i j : I) (x : H i) :</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>    atomicBlock T i j x = T (coordinateEmbedding i x) j :=</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>  rfl</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a></span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>/-- Every matrix block of an operator in the atomic commutant is an</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>intertwiner between the corresponding fiber representations. -/</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>theorem intertwines_atomicBlock_of_inCommutant</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>    (pi : ∀ i, Representation A (H i))</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    (T : HilbertSum H →L[ℂ] HilbertSum H)</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>    (hT : StarAlgHom.InCommutant (atomicRepresentation pi) T)</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    (i j : I) :</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>    StarAlgHom.Intertwines (pi i) (pi j) (atomicBlock T i j) := by</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  intro a</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>  intro x</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>  have hcomm := congrArg</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    (fun R : HilbertSum H →L[ℂ] HilbertSum H ↦ R (coordinateEmbedding i x))</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    (hT a).eq</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  have hcoord := congrArg (fun y : HilbertSum H ↦ y j) hcomm</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  simpa [atomicBlock, ContinuousLinearMap.comp_apply,</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    coordinateEmbedding_apply] using hcoord</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a></span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>/-- The atomic source and one vector-link from every block to a root block</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>have scalar commutant.  Link unitarity is not needed for this implication;</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>the source-derived model supplies it separately from rank-one completion. -/</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>theorem eq_algebraMap_of_atomic_of_links</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    (pi : ∀ i, Representation A (H i))</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    (hirr : ∀ i, StarAlgHom.IsIrreducible (pi i))</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>    (hno : ∀ ⦃i j : I⦄, i ≠ j → ∀ U : H i ≃ₗᵢ[ℂ] H j,</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>      ¬ StarAlgHom.Intertwines (pi i) (pi j) (U : H i →L[ℂ] H j))</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    (o : I) (xi : ∀ i, H i) (hxi : ∀ i, ‖xi i‖ = 1)</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    (L : I → HilbertSum H →L[ℂ] HilbertSum H)</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    (hL : ∀ i, L i (coordinateEmbedding i (xi i)) =</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>      coordinateEmbedding o (xi o))</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>    (T : HilbertSum H →L[ℂ] HilbertSum H)</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>    (hTsource : StarAlgHom.InCommutant (atomicRepresentation pi) T)</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    (hTlink : ∀ i, Commute T (L i)) :</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    ∃ z : ℂ, T = algebraMap ℂ (HilbertSum H →L[ℂ] HilbertSum H) z := by</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>  have hblocks (i : I) : ∃ z : ℂ,</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>      atomicBlock T i i = algebraMap ℂ (H i →L[ℂ] H i) z := by</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    apply StarAlgHom.eq_algebraMap_of_irreducible (pi i) (hirr i)</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>    intro a</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>    exact intertwines_atomicBlock_of_inCommutant pi T hTsource i i a</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>  choose z hz using hblocks</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  have hoff {i j : I} (hij : i ≠ j) : atomicBlock T i j = 0 := by</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    exact (intertwines_atomicBlock_of_inCommutant pi T hTsource i j).eq_zero_of_no_unitary</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>      (hirr i) (hirr j) (hno hij)</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>  have hsingle (i : I) (x : H i) :</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>      T (coordinateEmbedding i x) = coordinateEmbedding i (z i • x) := by</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    apply lp.ext</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>    funext j</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>    by_cases hji : j = i</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    · subst j</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>      have h := congrArg (fun R : H i →L[ℂ] H i ↦ R x) (hz i)</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>      simpa [atomicBlock, ContinuousLinearMap.comp_apply,</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>        ContinuousLinearMap.algebraMap_apply] using h</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>    · have h := congrArg (fun R : H i →L[ℂ] H j ↦ R x) (hoff (Ne.symm hji))</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>      simpa [atomicBlock, ContinuousLinearMap.comp_apply,</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>        coordinateEmbedding_apply, hji] using h</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  have hzi (i : I) : z i = z o := by</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>    have hcomm := congrArg</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>      (fun R : HilbertSum H →L[ℂ] HilbertSum H ↦</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>        R (coordinateEmbedding i (xi i))) (hTlink i).eq</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>    change T (L i (coordinateEmbedding i (xi i))) =</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>      L i (T (coordinateEmbedding i (xi i))) at hcomm</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>    rw [hL, hsingle, hsingle,</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>      map_smul (coordinateEmbedding o) (z o) (xi o),</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>      map_smul (coordinateEmbedding i) (z i) (xi i),</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>      map_smul (L i) (z i) (coordinateEmbedding i (xi i)), hL] at hcomm</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>    have hcoord := congrArg (fun y : HilbertSum H ↦ y o) hcomm</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>    have hxine : xi o ≠ 0 := norm_ne_zero_iff.mp (by rw [hxi]; exact one_ne_zero)</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>    apply smul_left_injective ℂ hxine</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>    simpa [coordinateEmbedding_apply] using hcoord.symm</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>  refine ⟨z o, ?_⟩</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>  intro x</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>  have hxsum : HasSum (fun i ↦ coordinateEmbedding i (x i)) x := by</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>    simpa [coordinateEmbedding_apply] using</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>      (lp.hasSum_single (p := (2 : ℝ≥0∞)) (by norm_num) x)</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>  have hTsum : HasSum (fun i ↦ T (coordinateEmbedding i (x i))) (T x) :=</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>    hxsum.mapL T</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>  have hzsum : HasSum (fun i ↦ z o • coordinateEmbedding i (x i)) (z o • x) :=</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>    hxsum.const_smul (z o)</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>  have hterms : (fun i ↦ T (coordinateEmbedding i (x i))) =</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>      (fun i ↦ z o • coordinateEmbedding i (x i)) := by</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>    funext i</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>    rw [hsingle, hzi]</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>    exact map_smul (coordinateEmbedding i) (z o) (x i)</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>  have hTsum&#x27; : HasSum (fun i ↦ z o • coordinateEmbedding i (x i)) (T x) :=</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>    hTsum.congr_fun fun i ↦ (congrFun hterms i).symm</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>  have heq : T x = z o • x := hTsum&#x27;.unique hzsum</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>  simpa [ContinuousLinearMap.algebraMap_apply] using heq</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a></span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>/-- A unital star representation with scalar bounded commutant is</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>topologically irreducible. -/</span>
+<span class="source-line selected" id="L134"><a class="line-no" href="#L134">134</a>theorem StarAlgHom.isIrreducible_of_commutant_eq_algebraMap</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>    {B K : Type*} [CStarAlgebra B]</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>    [Nontrivial K] (rho : B →⋆ₐ[ℂ] (K →L[ℂ] K))</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>    (hscalar : ∀ T : K →L[ℂ] K, StarAlgHom.InCommutant rho T →</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>      ∃ z : ℂ, T = algebraMap ℂ (K →L[ℂ] K) z) :</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>    StarAlgHom.IsIrreducible rho := by</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>  intro M hMclosed hMreduces</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>  letI : IsClosed (M : Set K) := hMclosed</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>  letI : CompleteSpace M := inferInstance</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>  letI : M.HasOrthogonalProjection := inferInstance</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>  let P : K →L[ℂ] K := M.starProjection</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>  have hPcomm : StarAlgHom.InCommutant rho P := by</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>    intro b</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>    change P.comp (rho b) = (rho b).comp P</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>    exact Submodule.Reduces.starProjection_commute (hMreduces b)</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>  obtain ⟨z, hz⟩ := hscalar P hPcomm</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>  by_cases hM : M = ⊥</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>  · exact Or.inl hM</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>  right</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>  obtain ⟨x, hxM, hxne⟩ := M.ne_bot_iff.mp hM</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>  have hPx : P x = x := by</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>    exact M.starProjection_eq_self_iff.mpr hxM</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>  have hzapply : P x = z • x := by</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    simpa [ContinuousLinearMap.algebraMap_apply] using</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>      congrArg (fun T : K →L[ℂ] K ↦ T x) hz</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>  have hzx : z • x = (1 : ℂ) • x := by</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>    rw [← hzapply, hPx, one_smul]</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>  have hzone : z = 1 := smul_left_injective ℂ hxne hzx</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>  rw [← M.range_starProjection, show M.starProjection = 1 by simpa [P, hz, hzone]]</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>  exact LinearMap.range_eq_top.mpr fun y ↦ ⟨y, rfl⟩</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a></span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

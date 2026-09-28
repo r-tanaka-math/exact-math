@@ -1,0 +1,211 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_range": {
+      "end_line": 98,
+      "start_line": 95
+    },
+    "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem atomicCounterexampleEndpoint : AtomicCounterexampleEndpoint.{v}",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+      "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+      "start_line": 95,
+      "start_column": 1,
+      "end_line": 98,
+      "end_column": 46
+    },
+    "start_byte": 4265,
+    "end_byte": 4336,
+    "sha256": "23cae9bdc54bf0854a6d4bc70c3d091c8e781f7338e7ef4fe98f65df83c7a5d9",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "A simple C*-algebra with a unique irreducible representation class",
+    "one_sentence_role": "Establishes the properties that make the fixed algebra $T$ a counterexample to Naimark's problem.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra. Let $\\pi:A\\to B(\\mathcal H)$ be the direct sum of one chosen GNS representation from each pure-state GNS equivalence class, and let $(L_i)_{i\\in I}$ be the unitaries obtained from the fixed CAR homogeneity and shell construction. Put $T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})\\subseteq B(\\mathcal H)$, and write $\\iota(a)=\\pi(a)$ for the embedding into $T$. Let $\\rho_0:T\\to B(\\mathcal H)$ be the inclusion representation. Then $T$ is a nonzero, norm-closed, infinite-dimensional unital C*-algebra, $\\iota$ is injective and unital, and $\\rho_0$ is faithful and nonzero irreducible. Every nonzero irreducible $*$-representation $\\rho:T\\to B(K)$ on a complex Hilbert space $K$ is unitarily equivalent to $\\rho_0$, even if $\\rho(1)=1$ is not assumed: there is a unitary $U:\\mathcal H\\to K$ with $$U\\rho_0(t)=\\rho(t)U\\qquad(t\\in T).$$ The algebra $T$ is simple: every norm-closed two-sided ideal is $\\{0\\}$ or $T$. Moreover, for no complex Hilbert space $K$ is there an injective $*$-representation $e:T\\to B(K)$ with $e(T)=\\mathcal K(K)$.",
+    "definition_explanation": null,
+    "assumptions": "The automorphisms and shell unitaries are obtained from CAR homogeneity and fixed once. No simplicity or uniqueness-of-representation assumption is supplied to the theorem. The Hilbert space $K$ in the representation and compact-operator assertions is arbitrary; separability and preservation of the identity by the given representation are not assumed.",
+    "conclusion": "Thus $T$ has exactly one unitary-equivalence class of nonzero irreducible $*$-representations, but is not isomorphic to the full algebra of compact operators on any Hilbert space. The nonzero, norm-closed algebra $T$, its injective unital embedding $\\iota$ and its faithful irreducible inclusion $\\rho_0$ are the same throughout these assertions.",
+    "proof_summary": "Apply the cited theorem for a fixed shell family to the family supplied by CAR homogeneity. The construction and the representation-classification theorem give the embedding and unitary equivalences; their cited consequences give simplicity and the exclusion of an algebra of compact operators.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Let $o$ denote the class of the distinguished pure state, let $f_n$ be the decreasing root projections, and write $p_n=f_n-f_{n+1}$ for their shells. At $o$ choose $\\alpha_{o}=\\mathrm{id}$ and $w_{o,n}=p_n$. In each other class, CAR homogeneity supplies one automorphism $\\alpha_i$, and exact shell matching supplies all $w_{i,n}$ for that same $\\alpha_i$. These choices are made once for the entire construction."
+      },
+      {
+        "step_id": "s2",
+        "text": "The shell construction supplies an injective unital embedding $\\iota$ and an irreducible inclusion $\\rho_0$. Since $\\iota$ embeds the infinite-dimensional algebra $A$, the algebra $T$ is infinite dimensional. Its norm closure is part of its construction, and its nonzeroness follows from injectivity of $\\iota$."
+      },
+      {
+        "step_id": "s3",
+        "text": "The representation-classification theorem for this fixed family gives unitary equivalence with $\\rho_0$ for every unital nonzero irreducible representation. The cited unitality lemma gives $\\rho(1)=I_K$ for every nonzero irreducible $*$-representation $\\rho$ of $T$, so the same conclusion applies without initially assuming that $\\rho$ preserves the identity."
+      },
+      {
+        "step_id": "s4",
+        "text": "The cited simplicity theorem applies because $\\rho_0$ is faithful and all nonzero irreducible representations are unitarily equivalent to it. The cited compact-operator exclusion applies because $T$ is unital and infinite dimensional. The Lean theorem collects these proved properties for the same algebra."
+      }
+    ],
+    "lean_realization_notes": "In the displayed inclusion representation, one also has $T\\cap\\mathcal K(\\mathcal H)=\\{0\\}$. This follows from the stated properties: the intersection is a closed two-sided ideal of $T$; if it were nonzero, simplicity would give $T\\subseteq\\mathcal K(\\mathcal H)$. Then $I_{\\mathcal H}$ would be compact, so $\\mathcal H$, and hence $T\\subseteq B(\\mathcal H)$, would be finite dimensional, a contradiction. This is a consequence of the theorem, not an extra field of its Lean statement.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L95-L98",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 98,
+          "start_line": 95
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The abbreviation for the full structural assertion",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L91-L93",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.AtomicCounterexampleEndpoint",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 93,
+          "start_line": 91
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The ten properties in the exact statement",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L193-L229",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ShellFamilyEndpoint",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 229,
+          "start_line": 193
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The structural theorem for a fixed shell family",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L275-L292",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyEndpoint",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 292,
+          "start_line": 275
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The once-chosen automorphisms and shell partial isometries",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L32-L58",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 58,
+          "start_line": 32
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Unitality forced by nonzero irreducibility",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean#L75-L94",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalRepresentation.map_one_eq_one_of_isIrreducible",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean",
+        "source_sha256": "310216d56c948ea7fb6c70d0b288eac81c13dc5c9f8c76aa742b0ed64141a8ee",
+        "source_range": {
+          "start_line": 75,
+          "end_line": 94
+        }
+      }
+    },
+    {
+      "label": "Simplicity of the constructed algebra",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L176-L180",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isSimpleCStarAlgebra_shellFamilyTarget",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "source_range": {
+          "start_line": 176,
+          "end_line": 180
+        }
+      }
+    },
+    {
+      "label": "Infinite dimensionality of the constructed algebra",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L120-L128",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional_shellFamilyTarget",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "source_range": {
+          "start_line": 120,
+          "end_line": 128
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "d10f0a91f19a1e8ff87ebdfcdb4948f6e061fdea3cf835a3652348f1e8084674",
+    "uid": "lfh:lfh-declaration-card:sha256:fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "f161a599b091c62218ee716a708cbc5306b024b90354aedfad6344dc8c94adb3",
+    "uid": "lfh:lfh-card-exposition:sha256:7f17f8d967e6b6ca94bafca0e47433630d344b64c00d58db1ae6f8cd82bdc285"
+  },
+  "guide": "`AtomicCounterexampleEndpoint` abbreviates `ShellFamilyEndpoint homogeneityShellFamily`; the separate abbreviation and the full structure are linked. Its ten fields are the properties expanded above. In those fields, `atomicCounterexampleRepresentation` is $\\rho_0$, `atomicCounterexampleSourceHom` is $\\iota$, and `captures_nonunital` is the unitary-equivalence assertion for an arbitrary nonzero irreducible representation, without an initial unit-preservation assumption. `not_compactOperatorModel` rules out an injective representation whose range is all of $\\mathcal K(K)$. These names occur in the linked structure and proof, not as extra arguments in this short signature.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470/versions/n69-f161a599b091c622/index.html",
+    "pdf": "card.pdf"
+  }
+}

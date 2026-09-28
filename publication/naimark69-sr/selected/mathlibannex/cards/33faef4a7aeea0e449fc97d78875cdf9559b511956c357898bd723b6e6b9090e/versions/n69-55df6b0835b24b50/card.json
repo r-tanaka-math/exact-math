@@ -1,0 +1,223 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+    "source_range": {
+      "end_line": 260,
+      "start_line": 242
+    },
+    "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 12574,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "7e3d59bec6490bf3ab31476e239758a101bd1379bc8b7168dd1874f68976cf91",
+    "source_command_range": {
+      "end_column": 72,
+      "end_line": 260,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+      "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+      "start_column": 1,
+      "start_line": 242
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+    "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+    "start_byte": 12077,
+    "text": "theorem iInf_range_atomic_transportedFlag_eq_span\n    (family : RepresentativeShellFamily) (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) :\n    (⨅ n, (atomicRepresentation\n      (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState)\n      (transportedFlag family i n)).range) =\n      ℂ ∙ MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding completedRootPureState i\n        (MathlibAnnex.CStarAlgebra.PureState.selectedVector completedRootPureState i)"
+  },
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra, the completion of the matrix stages $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit. These are decreasing projections with $f_0=1$. Write $\\iota_n$ for the canonical embedding of stage $n$. The root state $\\omega$ is determined by $\\omega(\\iota_n(a))=a_{00}$ on every stage.\n\nChoose one pure state $\\varphi_j$ from each unitary-equivalence class $j\\in I$ of pure-state Gelfand-Naimark-Segal (GNS) representations, retaining $\\omega$ at the root index $o$. Write $(H_j,\\pi_j,\\xi_j)$ for its complete complex GNS space, unital star representation and unit cyclic vector. Thus $\\varphi_j(a)=\\langle\\xi_j,\\pi_j(a)\\xi_j\\rangle$, and the vectors $\\pi_j(a)\\xi_j$ are dense in $H_j$. Inner products are linear in the second argument.\n\nA fixed shell family supplies unital complex star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ with $\\varphi_j\\circ\\alpha_j=\\omega$, $w_{j,n}^*w_{j,n}=\\alpha_j(f_n-f_{n+1})$, and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$. At the root, $\\alpha_o$ is the identity and $w_{o,n}=f_n-f_{n+1}$. Fix $i\\in I$ and put $f_{i,n}=\\alpha_i(f_n)$. The family is supplied; its existence is not an extra conclusion here. The Hilbert direct sum consists of square-summable families $x=(x_j)_{j\\in I}$, and $\\pi(a)$ acts coordinatewise. No countability of $I$ is assumed. The coordinate embedding is isometric, so $e_i(\\xi_i)$ is a unit vector.",
+    "conclusion": "The orthogonal projection onto this common range is the rank-one map $x\\mapsto\\langle e_i(\\xi_i),x\\rangle e_i(\\xi_i)$. The decreasing-projection theorem therefore gives strong convergence of $\\pi(f_{i,n})$ to this map. In the construction of the shell unitaries, this is the one-dimensional residual space joined to the root residual line when the difference-shell maps are completed to a unitary.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The atomic common range is one embedded GNS line",
+    "language_tag": "en",
+    "lean_realization_notes": "The exact declaration is the equality of subspaces, and its identity remains separate from the two fiber declarations. The rank-one and strong-limit assertions are explained consequences. The coordinate proof works for an arbitrary index set; it does not exchange an uncountable sum with a limit or assert operator-norm convergence.",
+    "natural_language_statement": "For a fixed shell family and $i\\in I$ as below, let $\\mathcal H=\\bigoplus_{j\\in I}H_j$ and $\\pi=\\bigoplus_{j\\in I}\\pi_j$. Denote the coordinate embedding by $e_i:H_i\\to \\mathcal H$. Then $\\bigcap_{n\\geq0}\\operatorname{ran}\\pi(f_{i,n})=\\mathbb C e_i(\\xi_i)$, where $f_{i,n}=\\alpha_i(f_n)$.",
+    "one_sentence_role": "Assembles the matching and inequivalent fiber calculations in an arbitrary Hilbert direct sum.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For a vector in the common range, apply each coordinate evaluation to $\\pi(f_{i,n})x=x$. This gives fixedness in every fiber without a sum-limit argument."
+      },
+      {
+        "step_id": "s2",
+        "text": "The common projection in fiber $i$ sends $x_i$ to $\\langle\\xi_i,x_i\\rangle\\xi_i$; since $x_i$ is fixed it equals that value. For $j\\ne i$, the common projection is zero, so fixedness gives $x_j=0$. Therefore $x=\\langle\\xi_i,x_i\\rangle e_i(\\xi_i)$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Every flag projection fixes $\\xi_i$ in the matching fiber. Acting coordinatewise therefore fixes every scalar multiple of $e_i(\\xi_i)$, proving the reverse inclusion. The unit norm then identifies the projection onto the resulting line."
+      }
+    ],
+    "proof_summary": "A vector is in the range of an orthogonal projection exactly when that projection fixes it. Thus a vector $x\\in \\mathcal H$ belongs to the common range exactly when every coordinate $x_j$ is fixed by all $\\pi_j(f_{i,n})$. [The matching-fiber common-range theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L189-L212) forces $x_i$ to be a scalar multiple of $\\xi_i$, while [the inequivalent-fiber common-range theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L214-L240) forces $x_j=0$ for $j\\ne i$. Conversely, the embedded vector $e_i(\\xi_i)$ and all its scalar multiples are fixed by every $\\pi(f_{i,n})$."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 260,
+          "start_line": 242
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L242-L260"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 39
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L39-L46"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 104,
+          "start_line": 101
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L101-L104"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_rankOne",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 212,
+          "start_line": 189
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_rankOne",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L189-L212"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 240,
+          "start_line": 214
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L214-L240"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.iInf_range_atomicRepresentation_eq_span",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CommonFixedSubspace.lean",
+        "source_range": {
+          "end_line": 259,
+          "start_line": 198
+        },
+        "source_sha256": "c807b695b8761a7e5571268928d4cc7c9a860b40cf922209dfd0998deb3a7136",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.iInf_range_atomicRepresentation_eq_span",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/CommonFixedSubspace.lean#L198-L259"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "Submodule.tendsto_starProjection_iInf",
+        "source_path": "MathlibAnnex/Analysis/InnerProductSpace/DecreasingProjection.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 30
+        },
+        "source_sha256": "3fb6d831a2e4d957326a58de9cd245d764b8673d761e4009709008000a41d2f8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Submodule.tendsto_starProjection_iInf",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/InnerProductSpace/DecreasingProjection.lean#L30-L46"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_completedAtomicShellModel",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+        "source_range": {
+          "end_line": 324,
+          "start_line": 141
+        },
+        "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.exists_completedAtomicShellModel",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean#L141-L324"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.completedRootPureState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean",
+        "source_range": {
+          "end_line": 18,
+          "start_line": 16
+        },
+        "source_sha256": "1732b296db28579e0cfd54bdafffca9753caf34dfd90f05aca5c34d5dd1ac417",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "The root state bundled with its purity proof",
+      "role": "DEFINITION_CONTEXT",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean#L16-L18"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "583e915df94134f418287efe8d437652571bc470104d1a618ad60ac1b218045e",
+    "uid": "lfh:lfh-declaration-card:sha256:33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "55df6b0835b24b50e04e3d553336bb1567747701688653c043731d7d192026a9",
+    "uid": "lfh:lfh-card-exposition:sha256:f084dca73ac2563c4e48b5e15f05eaf4c73175f723460b63e578cbe5f5e2451f"
+  },
+  "guide": "Here `Limit` is $A$ and [`completedRootPureState`](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean#L16-L18) is the root state $\\omega$, bundled with its purity proof. `atomicRepresentation` is the coordinatewise representation $\\pi$ on $\\mathcal H$. The infimum `⨅ n` is the intersection of the represented ranges. `selectedEmbedding completedRootPureState i` is $e_i$, and `selectedVector completedRootPureState i` is $\\xi_i$. The right side `ℂ ∙ ...` is its complex linear span, not the entire $i$-th GNS fiber.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e/versions/n69-55df6b0835b24b50/index.html",
+    "pdf": "card.pdf"
+  }
+}

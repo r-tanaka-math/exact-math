@@ -1,0 +1,63 @@
+{
+  "title": "Finite-stage purification and local transport",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 6,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "29c4dbed8161f46b746ffc3fc519425c63d152562147a0982a71930f72a33f73",
+        "uid": "lfh:lfh-declaration-card:sha256:3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb"
+      },
+      "url": "/mathlibannex/cards/3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb/versions/n69-e6478edabe7a2541/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "32fb1332fb39aecd9f3eddad2225ee17f2bc95e81b086989d26eb6df3ff908f2",
+        "uid": "lfh:lfh-declaration-card:sha256:68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32"
+      },
+      "url": "/mathlibannex/cards/68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32/versions/n69-9bdd04f8f82e2692/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "b68e61a55e1334abdc50b1e9cf528b04c1e40407e8ac766004918e72ddf9c01f",
+        "uid": "lfh:lfh-declaration-card:sha256:01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1"
+      },
+      "url": "/mathlibannex/cards/01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1/versions/n69-88c54360c0e02540/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1e9fb7fc9b494074a274a3ff8761c90c7e53a2912f3e44d0d802a187b38fd865",
+        "uid": "lfh:lfh-declaration-card:sha256:b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f"
+      },
+      "url": "/mathlibannex/cards/b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f/versions/n69-53f094249210aff8/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "7711b3c3062f35d4f40941c530616797fcdd6ff68d6df057976f2c34a611097c",
+        "uid": "lfh:lfh-declaration-card:sha256:fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110"
+      },
+      "url": "/mathlibannex/cards/fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110/versions/n69-5c025351e5f794d8/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ca7b92d9fb47c907d06289cd2500a60d26d2ae92daa125feae35b8795c8b1b18",
+        "uid": "lfh:lfh-declaration-card:sha256:5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16"
+      },
+      "url": "/mathlibannex/cards/5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16/versions/n69-9e5ffe2c1b5b2c5d/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

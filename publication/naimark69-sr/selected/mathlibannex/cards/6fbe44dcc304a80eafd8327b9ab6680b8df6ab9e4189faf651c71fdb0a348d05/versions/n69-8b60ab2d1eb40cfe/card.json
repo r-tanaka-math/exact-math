@@ -1,0 +1,287 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ofStage_commute_rowAverage",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ofStage_commute_rowAverage",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+    "source_range": {
+      "end_line": 231,
+      "start_line": 225
+    },
+    "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 9445,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "5ddb12441cea78b452dfbffa3285e7e76e0dbee44fd9821cb0a348947de859db",
+    "source_command_range": {
+      "end_column": 67,
+      "end_line": 231,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+      "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+      "start_column": 1,
+      "start_line": 225
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+    "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+    "start_byte": 9297,
+    "text": "theorem ofStage_commute_rowAverage (n : ℕ) (c : Stage n) (b : Limit) :\n    ofStage n c * rowAverageLinear n b = rowAverageLinear n b * ofStage n c"
+  },
+  "content": {
+    "assumptions": "The integer $n\\geq0$ is arbitrary. Both $c$ and $b$ are arbitrary elements of the indicated algebras; neither positivity nor self-adjointness is assumed. The matrix units belong to one fixed stage and satisfy $e_{ij}e_{kl}=\\delta_{jk}e_{il}$, $e_{ij}^*=e_{ji}$, and $\\sum_i e_{ii}=1$.",
+    "conclusion": "The range of $\\Phi_n$ lies in the relative commutant of $\\iota_n(A_n)$ inside $A$, namely the set of elements commuting with every member of that stage. The same finite-row formula works for every $b\\in A$ once $n$ is fixed.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A finite-row average centralizes its matrix stage",
+    "language_tag": "en",
+    "lean_realization_notes": "The formula is a corner-based finite-row average, not an average over a unitary group. Separate cited results show $\\Phi_n(1)=1$, positivity, and the dimension-independent bound $\\|\\Phi_n(b)\\|\\leq4\\|b\\|$. The present theorem establishes exact commutation with this stage; it does not assert that $\\Phi_n(b)$ lies in the center of all of $A$.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra obtained from $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, and write $\\iota_n:A_n\\to A$ for the stage embedding. Set $d=2^n$ and $e_{ij}=\\iota_n(E_{ij})$, where $E_{ij}$ are the standard matrix units, indexed from $0$ to $d-1$. Define $\\Phi_n(b)=\\sum_{i=0}^{d-1}e_{i0}b e_{0i}$. Then $\\iota_n(c)\\Phi_n(b)=\\Phi_n(b)\\iota_n(c)$ for every $c\\in A_n$ and every $b\\in A$.",
+    "one_sentence_role": "Turns an arbitrary element of the completed CAR algebra into one commuting with a prescribed finite matrix stage.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Use the matrix-unit relations to compute $e_{kl}\\Phi_n(b)=e_{k0}b e_{0l}$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The same relations give $\\Phi_n(b)e_{kl}=e_{k0}b e_{0l}$. Thus every matrix unit commutes with $\\Phi_n(b)$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Expand $\\iota_n(c)=\\sum_{k,l}c_{kl}e_{kl}$ and distribute multiplication through the finite sums and scalar multiples."
+      }
+    ],
+    "proof_summary": "First test commutation against a matrix unit $e_{kl}$. Multiplying the defining sum on the left leaves only its term with index $l$, while multiplying on the right leaves only its term with index $k$. Both products are $e_{k0}b e_{0l}$. Every matrix $c$ is the finite linear combination $\\sum_{k,l}c_{kl}E_{kl}$, so bilinearity gives the assertion for $\\iota_n(c)$."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ofStage_commute_rowAverage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 231,
+          "start_line": 225
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L225-L231"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 278,
+          "start_line": 277
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L277-L278"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.matrixUnit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 24,
+          "start_line": 22
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.matrixUnit",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L22-L24"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.limitMatrixUnit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 55,
+          "start_line": 53
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.limitMatrixUnit",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L53-L55"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.limitMatrixUnit_mul",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 71,
+          "start_line": 62
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.limitMatrixUnit_mul",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L62-L71"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.star_limitMatrixUnit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 60,
+          "start_line": 57
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.star_limitMatrixUnit",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L57-L60"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.sum_limitMatrixUnit_diag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 80,
+          "start_line": 73
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.sum_limitMatrixUnit_diag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L73-L80"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rowAverageLinear",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 103,
+          "start_line": 82
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rowAverageLinear",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L82-L103"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.limitMatrixUnit_commute_rowAverage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 201,
+          "start_line": 177
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.limitMatrixUnit_commute_rowAverage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L177-L201"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ofStage_eq_sum_smul_limitMatrixUnit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 223,
+          "start_line": 219
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.ofStage_eq_sum_smul_limitMatrixUnit",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L219-L223"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rowAverageLinear_one",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 110,
+          "start_line": 109
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rowAverageLinear_one",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L109-L110"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rowAverageLinear_nonneg",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 118,
+          "start_line": 112
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rowAverageLinear_nonneg",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L112-L118"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_rowAverageLinear_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+        "source_range": {
+          "end_line": 126,
+          "start_line": 123
+        },
+        "source_sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.norm_rowAverageLinear_le",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean#L123-L126"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "0d68686d00c3d337c678c712c0b5b674b45f46ab6533112b36df34e5c43a9893",
+    "uid": "lfh:lfh-declaration-card:sha256:6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "8b60ab2d1eb40cfeda293b0754bbe38f4ae60badb4750a9d46b7d803296d0db1",
+    "uid": "lfh:lfh-card-exposition:sha256:387e2cc629c2a82b35fdf8c6ab2dad577ef4a68cf6b664e25d6b500b3a1ffe26"
+  },
+  "guide": "Here `Limit` is $A$, `Stage n` is $M_{2^n}(\\mathbb C)$, `ofStage n c` is $\\iota_n(c)$, and `rowAverageLinear n b` is $\\Phi_n(b)$. The source equality is precisely the commutation identity in the Statement.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05/versions/n69-8b60ab2d1eb40cfe/index.html",
+    "pdf": "card.pdf"
+  }
+}

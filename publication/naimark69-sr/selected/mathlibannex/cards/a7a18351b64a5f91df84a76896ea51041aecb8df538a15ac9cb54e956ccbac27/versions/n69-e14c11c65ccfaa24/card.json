@@ -1,0 +1,175 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean",
+    "source_range": {
+      "end_line": 60,
+      "start_line": 52
+    },
+    "source_sha256": "e0638efaeae226a48c0d3b65526b5cd83f0bc7572055b030837638b7817b47e9",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem existsUnique_state_extension_trace (family : RepresentativeShellFamily) :\n    ∃! φ : ShellFamilyTarget family →L[ℂ] ℂ,\n      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) ∧\n        ∀ b, φ (shellFamilySourceHom family b) = trace b",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean",
+    "source_sha256": "e0638efaeae226a48c0d3b65526b5cd83f0bc7572055b030837638b7817b47e9",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean",
+      "source_sha256": "e0638efaeae226a48c0d3b65526b5cd83f0bc7572055b030837638b7817b47e9",
+      "start_line": 52,
+      "start_column": 1,
+      "end_line": 60,
+      "end_column": 103
+    },
+    "start_byte": 2451,
+    "end_byte": 2736,
+    "sha256": "d61ab675d95118f4058336b0fe6bd90d2c6fcb1b1ee5d0b98f88b87262cbb17c",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Uniqueness among all state extensions of the CAR trace",
+    "one_sentence_role": "Pointed transport identifies arbitrary state extensions before traciality is proved.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. There is exactly one state $\\phi$ on $T$ such that $\\phi\\circ\\iota=\\tau$. Uniqueness here ranges over all state extensions, including those not assumed tracial.",
+    "definition_explanation": null,
+    "assumptions": "Only the fixed representative shell family is given. A competing functional $\\psi$ must be a state on $T$ and satisfy $\\psi(\\iota(a))=\\tau(a)$ for every $a\\in A$.",
+    "conclusion": "Every such $\\psi$ equals the chosen extension $\\phi$. The existence and uniqueness refer to the same fixed algebra $T$.",
+    "proof_summary": "Construct the two target GNS representations and apply pointed unitary transport from their common source trace. Equality of the vector functionals then gives equality of states.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Existence is `exists_state_extension_trace`. For an arbitrary competing state $\\psi$, let $(H_\\psi,\\rho_\\psi,\\xi_\\psi)$ be its GNS representation; define $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$ for the chosen extension. Both target orbits are dense and their source vector functionals are $\\tau$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Apply `exists_pointed_unitary_of_trace_of_cyclic` with the $\\psi$ representation first and the $\\phi$ representation second. Its hypotheses are exactly the two restriction equalities and target cyclicity. It gives a unitary\n\n$$E_\\psi:H_\\psi\\longrightarrow H_\\phi,\\quad E_\\psi\\xi_\\psi=\\xi_\\phi,\\quad E_\\psi\\rho_\\psi(t)=\\rho_\\phi(t)E_\\psi\\quad(t\\in T).$$"
+      },
+      {
+        "step_id": "s3",
+        "text": "For every $t\\in T$, preservation of the inner product and these two identities give\n\n$$\\begin{aligned}\n\\psi(t)&=\\langle\\xi_\\psi,\\rho_\\psi(t)\\xi_\\psi\\rangle\\\\\n&=\\langle E_\\psi\\xi_\\psi,E_\\psi\\rho_\\psi(t)\\xi_\\psi\\rangle\\\\\n&=\\langle\\xi_\\phi,\\rho_\\phi(t)\\xi_\\phi\\rangle=\\phi(t).\n\\end{aligned}$$\n\nThis is the pointwise equality used by `eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace`; extensionality then gives $\\psi=\\phi$."
+      }
+    ],
+    "lean_realization_notes": "The argument does not use uniqueness among tracial states to prove this stronger extension uniqueness. The unitary below compares the GNS representations of two possibly different extension states; it is not an identification of independently chosen vectors without a transport theorem.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean#L52-L60",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean",
+        "source_range": {
+          "end_line": 60,
+          "start_line": 52
+        },
+        "source_sha256": "e0638efaeae226a48c0d3b65526b5cd83f0bc7572055b030837638b7817b47e9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed concrete target and source map",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the source embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L78-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 78
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Existence of a state extension",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L22-L28",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 28,
+          "start_line": 22
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Pointed transport for trace-realizing cyclic targets",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean#L67-L101",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean",
+        "source_range": {
+          "end_line": 101,
+          "start_line": 67
+        },
+        "source_sha256": "99eec6f4f309b9cbbaa18739576f7c0739aed040a8403129ed1096a74effb240",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Equality of an arbitrary extension with the chosen state",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean#L18-L50",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean",
+        "source_range": {
+          "end_line": 50,
+          "start_line": 18
+        },
+        "source_sha256": "e0638efaeae226a48c0d3b65526b5cd83f0bc7572055b030837638b7817b47e9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "4e50c44f14a48c8f061646a405c75ba136829cab84f8fd45d4e52cf87386ca33",
+    "uid": "lfh:lfh-declaration-card:sha256:a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "e14c11c65ccfaa24799d351ac5da4d424bf2f2045b087d272589498455e3306c",
+    "uid": "lfh:lfh-card-exposition:sha256:b4cea0d243068f7ec1398e33d62b3bca6a204ce7c701815d8a1eb49a2b39c352"
+  },
+  "guide": "`∃! φ` quantifies a continuous functional on the fixed `ShellFamilyTarget family`. The conjunction requires state-space membership and restriction equal to `trace`. The linked uniqueness supplier calls the arbitrary competing state `φ` and its positive-map bundle `f`; these correspond to $\\psi$ and its positive bundle in the mathematics above. Its proof-local `ρ`, `ξ`, and `e` are the competitor's GNS action, vector and pointed transport toward the chosen extension. Thus $E_\\psi$ records the direction of that `e`.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27/versions/n69-e14c11c65ccfaa24/index.html",
+    "pdf": "card.pdf"
+  }
+}

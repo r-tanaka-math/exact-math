@@ -1,0 +1,239 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+    "source_range": {
+      "end_line": 240,
+      "start_line": 214
+    },
+    "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 10851,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "776cbb0388ceeedc2bc838cdde0dcb120139738026bd3a6bbe737b74001749f0",
+    "source_command_range": {
+      "end_column": 41,
+      "end_line": 240,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+      "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+      "start_column": 1,
+      "start_line": 214
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+    "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+    "start_byte": 10514,
+    "text": "theorem selected_commonFixedProjection_eq_zero\n    (family : RepresentativeShellFamily) {i j : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit}\n    (hij : j ≠ i) :\n    commonFixedProjection (fun n ↦\n      MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState j\n        (transportedFlag family i n)) = 0"
+  },
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra, the completion of the matrix stages $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit. These are decreasing projections with $f_0=1$. Write $\\iota_n$ for the canonical embedding of stage $n$. The root state $\\omega$ is determined by $\\omega(\\iota_n(a))=a_{00}$ on every stage.\n\nChoose one pure state $\\varphi_j$ from each unitary-equivalence class $j\\in I$ of pure-state Gelfand-Naimark-Segal (GNS) representations, retaining $\\omega$ at the root index $o$. Write $(H_j,\\pi_j,\\xi_j)$ for its complete complex GNS space, unital star representation and unit cyclic vector. Thus $\\varphi_j(a)=\\langle\\xi_j,\\pi_j(a)\\xi_j\\rangle$, and the vectors $\\pi_j(a)\\xi_j$ are dense in $H_j$. Inner products are linear in the second argument.\n\nA fixed shell family supplies unital complex star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ with $\\varphi_j\\circ\\alpha_j=\\omega$, $w_{j,n}^*w_{j,n}=\\alpha_j(f_n-f_{n+1})$, and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$. At the root, $\\alpha_o$ is the identity and $w_{o,n}=f_n-f_{n+1}$. Fix $i\\in I$ and put $f_{i,n}=\\alpha_i(f_n)$. The family is supplied; its existence is not an extra conclusion here. The condition $j\\ne i$ means that the unitary-equivalence classes are distinct, not merely that two state functionals in the same class differ. The selected representation $\\pi_j$ is irreducible and has nonzero Hilbert space because $\\|\\xi_j\\|=1$.",
+    "conclusion": "The transported flag leaves no nonzero vector fixed in an inequivalent chosen fiber. As a separate consequence of decreasing orthogonal projections, $\\pi_j(f_{i,n})x\\to0$ in norm for each fixed $x\\in H_j$. Thus the surviving line in the matching fiber is sharply separated from every other chosen class.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "An inequivalent GNS fiber has no residual common range",
+    "language_tag": "en",
+    "lean_realization_notes": "Irreducibility is used to make a nonzero candidate fixed vector cyclic. The conclusion is not asserted for an arbitrary reducible representation or for a different vector state in the same GNS class. The exact source proves equality of projections; strong convergence uses the additional cited projection theorem and does not imply operator-norm convergence.",
+    "natural_language_statement": "Fix a shell family and indices $i,j\\in I$ as below, with $j\\ne i$. For $f_{i,n}=\\alpha_i(f_n)$, let $F_j=\\bigcap_{n\\geq0}\\operatorname{ran}\\pi_j(f_{i,n})$ and let $P_j$ be its orthogonal projection. Then $P_j=0$, or equivalently $F_j=\\{0\\}$.",
+    "one_sentence_role": "Uses compression and cyclic transport to exclude fixed vectors in every other chosen pure-state class.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "If $P_j\\ne0$, choose $z$ with $P_jz\\ne0$ and normalize $P_jz$ to a unit vector $\\eta$. Since $P_j$ projects onto the common range, every $\\pi_j(f_{i,n})$ fixes $\\eta$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Take the matrix coefficient of the represented compression error against $\\eta$. Fixedness and unit norm turn it into the constant $\\langle\\eta,\\pi_j(b)\\eta\\rangle-\\varphi_i(b)$; norm convergence forces this constant to vanish."
+      },
+      {
+        "step_id": "s3",
+        "text": "The orbit closures of $\\xi_i$ and $\\eta$ are their full Hilbert spaces. Equality of vector states gives equality of orbit inner products, so the map $\\pi_i(b)\\xi_i\\mapsto\\pi_j(b)\\eta$ extends to a surjective complex-linear isometry that intertwines the representations. This contradicts $j\\ne i$."
+      }
+    ],
+    "proof_summary": "If $F_j$ contained a unit vector $\\eta$, [the transported CAR compression estimate](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L150-L161) $\\|f_{i,n} b f_{i,n}-\\varphi_i(b)f_{i,n}\\|\\to0$, valid for every $b\\in A$, would imply $\\langle\\eta,\\pi_j(b)\\eta\\rangle=\\varphi_i(b)$. Irreducibility makes $\\eta$ cyclic. Equality of this vector state with the state of $\\xi_i$ yields a unitary intertwiner from $\\pi_i$ to $\\pi_j$, contradicting their distinct classes."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 240,
+          "start_line": 214
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L214-L240"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 39
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L39-L46"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 104,
+          "start_line": 101
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L101-L104"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_representative_transported_compression",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 161,
+          "start_line": 150
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.tendsto_representative_transported_compression",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L150-L161"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.isIrreducible_selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 73,
+          "start_line": 65
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.PureState.isIrreducible_selectedRepresentation",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L65-L73"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 88,
+          "start_line": 75
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L75-L88"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.commonFixedProjection_eq_zero_of_no_unitary",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CommonFixedSubspace.lean",
+        "source_range": {
+          "end_line": 193,
+          "start_line": 138
+        },
+        "source_sha256": "c807b695b8761a7e5571268928d4cc7c9a860b40cf922209dfd0998deb3a7136",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.commonFixedProjection_eq_zero_of_no_unitary",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/CommonFixedSubspace.lean#L138-L193"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "StarAlgHom.existsUnique_pointedCyclicTransport",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CyclicTransport.lean",
+        "source_range": {
+          "end_line": 86,
+          "start_line": 24
+        },
+        "source_sha256": "3d62d687f439d40e5f3a568e8b665c434dccc7d4a0ee7419ceb0a0d2d3791a41",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "StarAlgHom.existsUnique_pointedCyclicTransport",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CyclicTransport.lean#L24-L86"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "Submodule.tendsto_starProjection_iInf",
+        "source_path": "MathlibAnnex/Analysis/InnerProductSpace/DecreasingProjection.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 30
+        },
+        "source_sha256": "3fb6d831a2e4d957326a58de9cd245d764b8673d761e4009709008000a41d2f8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Submodule.tendsto_starProjection_iInf",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/InnerProductSpace/DecreasingProjection.lean#L30-L46"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.completedRootPureState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean",
+        "source_range": {
+          "end_line": 18,
+          "start_line": 16
+        },
+        "source_sha256": "1732b296db28579e0cfd54bdafffca9753caf34dfd90f05aca5c34d5dd1ac417",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "The root state bundled with its purity proof",
+      "role": "DEFINITION_CONTEXT",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean#L16-L18"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "c713a970bebc8c0633fb8300afb783fe14ebbf0f89958519bda4c71c337cf3c7",
+    "uid": "lfh:lfh-declaration-card:sha256:956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "9846526d3fb298d1a42dfe59f1e3ec37ec375206e8bc24f5f86e04f367e223f1",
+    "uid": "lfh:lfh-card-exposition:sha256:2c41e57a71c1078432fb4850e7b528b8d89a1e0de5c4ae7e1f2e57a43bde6ed5"
+  },
+  "guide": "Here `Limit` is $A$ and [`completedRootPureState`](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean#L16-L18) is the root state $\\omega$, bundled with its purity proof. `transportedFlag family i n` is $f_{i,n}$, and `selectedRepresentation completedRootPureState j` is $\\pi_j$. Thus `i` selects the flag, while `j` selects the representation on which it acts. The hypothesis `hij : j ≠ i` excludes the matching GNS class. `commonFixedProjection` is $P_j$, so `= 0` is the operator equality in the Statement. The quantified indices range over chosen GNS classes, not over arbitrary vectors or arbitrary representations.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c/versions/n69-9846526d3fb298d1/index.html",
+    "pdf": "card.pdf"
+  }
+}

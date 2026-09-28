@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /corrections/received/
+Disallow: /corrections/demo/
+Sitemap: https://exactmathematics.org/sitemap.xml

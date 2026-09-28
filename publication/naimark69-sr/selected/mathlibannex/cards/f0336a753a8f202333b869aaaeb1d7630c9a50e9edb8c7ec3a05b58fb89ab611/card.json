@@ -1,0 +1,108 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Use the fixed homogeneity shell family and the chosen pointed unitary V: Hτ → Htr from the CAR GNS space to the constructed target-state GNS space.",
+    "conclusion": "A specified unital complex *-homomorphism ρ: A → B(Hτ), with ρ(a) = V⁻¹ πtr(a) V. The domain is the same A as in the atomic representation.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "The unitary V preserves the distinguished cyclic trace vector and intertwines the CAR actions. Conjugating the tracial representation by V places the target algebra on the original CAR trace-GNS space. Separability of Hτ and faithfulness of ρ are established separately; this definition does not assert irreducibility.",
+    "display_title": "The representation on the CAR trace-GNS space",
+    "language_tag": "en",
+    "lean_realization_notes": "Source kind: noncomputable def. Exact name: separableCounterexampleRepresentation. SeparableCounterexampleHilbertSpace abbreviates TraceHilbertSpace. The definition is traceModelRepresentation homogeneityShellFamily. The faithfulness theorem for the separable tracial representation proves injectivity; the exclusion of separable irreducible representations excludes nonzero irreducibility on a separable space.",
+    "natural_language_statement": "Define ρ: A → B(Hτ) on the CAR trace-GNS space Hτ = L²(C, τC) by transporting the previously constructed tracial representation along the pointed unitary identifying its CAR-cyclic model with Hτ.",
+    "one_sentence_role": "Defines a separable-space representation of exactly the same algebra A.",
+    "proof_steps": [],
+    "proof_summary": null
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "47d4f0b7c34f13bd52725a8e51e896bc85168489e7892a0a473cf0eac009e425",
+    "uid": "lfh:lfh-declaration-card:sha256:f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "18a00b16c602643f4721dea28608dc386a4a9424793aec633962350320bd0ef4",
+    "uid": "lfh:lfh-card-exposition:sha256:2c286f9f723b9ebc5484237236bc8e483e16f10f5a9e245d1c2bebdac24d8a17"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "def",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      28,
+      32
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L28-L32"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceGNSModel",
+        "provider": "PROJECT",
+        "provider_source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Let Hτ = L²(C, τC) be the GNS Hilbert space of the normalized CAR trace τC. Use the fixed homogeneity shell family and the chosen pointed unitary V: Hτ → Htr from the CAR GNS space to the constructed target-state GNS space.",
+    "conclusion": "A specified unital complex *-homomorphism ρ: A → B(Hτ), with ρ(a) = V⁻¹ πtr(a) V. The domain is the same A as in the atomic representation.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "The unitary V preserves the distinguished cyclic trace vector and intertwines the CAR actions. Conjugating the tracial representation by V places the target algebra on the original CAR trace-GNS space. Separability of Hτ and faithfulness of ρ are established separately; this definition does not assert irreducibility.",
+    "display_title": "The representation on the CAR trace-GNS space",
+    "language_tag": "en",
+    "lean_realization_notes": "Source kind: noncomputable def. Exact name: separableCounterexampleRepresentation. SeparableCounterexampleHilbertSpace abbreviates TraceHilbertSpace. The definition is traceModelRepresentation homogeneityShellFamily. The faithfulness theorem for the separable tracial representation proves injectivity; the exclusion of separable irreducible representations excludes nonzero irreducibility on a separable space.",
+    "natural_language_statement": "Define ρ: A → B(Hτ) on the CAR trace-GNS space Hτ = L²(C, τC) by transporting the previously constructed tracial representation along the pointed unitary identifying its CAR-cyclic model with Hτ.",
+    "one_sentence_role": "Defines a separable-space representation of exactly the same algebra A.",
+    "proof_steps": [],
+    "proof_summary": null,
+    "stable_card_id": "f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation",
+    "declaration_kind": "def",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_locator": {
+      "start_line": 28,
+      "end_line": 32
+    },
+    "source_signature": {
+      "text": "/-- A faithful representation of exactly the existing atomic counterexample\non a separable Hilbert space. -/\nnoncomputable def separableCounterexampleRepresentation :\n    Representation AtomicCounterexampleAlgebra SeparableCounterexampleHilbertSpace :=\n  traceModelRepresentation homogeneityShellFamily"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "47d4f0b7c34f13bd52725a8e51e896bc85168489e7892a0a473cf0eac009e425",
+      "uid": "lfh:lfh-declaration-card:sha256:f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "18a00b16c602643f4721dea28608dc386a4a9424793aec633962350320bd0ef4",
+      "uid": "lfh:lfh-card-exposition:sha256:2c286f9f723b9ebc5484237236bc8e483e16f10f5a9e245d1c2bebdac24d8a17"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/121af06c14ebeb843bfa91b5/index.html#L104"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "198af0a9948780a8b14e270a8c69d8ece3171a34a93b2456ae502457443d4afe",
+  "approved_card_model_sha256": "881a4848151985eeced07909df9acdb1659d3762d62898dd3b676da47202e7ff",
+  "assumptions": "Let A be a unital complex C*-algebra, H a nonzero finite-dimensional complex Hilbert space, and π an irreducible unital representation of A on H. No singleton hypothesis or separability assumption on A is made.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "cdaca830d65c48ca1059ea14c788eaeafa21d27eaa3c998721e82809414d3690",
+    "uid": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00"
+  },
+  "citations": [],
+  "conclusion": "π is surjective onto all bounded complex-linear operators on H.",
+  "declaration_kind": "theorem",
+  "definition_equation": "Surjective π : A → (H →L[ℂ] H).",
+  "definition_explanation": "Surjective π : A → (H →L[ℂ] H).",
+  "display_title": "Full operator image in finite dimension",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial H] [FiniteDimensional ℂ H] (pi : MathlibAnnex.Analysis.CStarAlgebra.Representation A H), pi.IsIrreducible → Function.Surjective ⇑pi",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "bd6df50b706ef93fbc603cdab67d2f82040a80f0b870020a6dc61b23bcbf5e25",
+    "uid": "lfh:lfh-card-exposition:sha256:f25185c21cd06bf9d70f9d787e5a231bbdd4d393a2e8db29cc9a66aac886dd09"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "324770624f548d09cdbcfadb6c988538d24e2b22dc1f9e9992d419c369a14ee9",
+    "uid": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "bd6df50b706ef93fbc603cdab67d2f82040a80f0b870020a6dc61b23bcbf5e25",
+    "uid": "lfh:lfh-card-exposition:sha256:f25185c21cd06bf9d70f9d787e5a231bbdd4d393a2e8db29cc9a66aac886dd09"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "324770624f548d09cdbcfadb6c988538d24e2b22dc1f9e9992d419c369a14ee9",
+      "uid": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.surjective_of_irreducible_of_finiteDimensional",
+  "natural_language_statement": "Let A be a unital complex C*-algebra, H a nonzero finite-dimensional complex Hilbert space, and π an irreducible unital representation of A on H. No singleton hypothesis or separability assumption on A is made. π is surjective onto all bounded complex-linear operators on H.",
+  "one_sentence_role": "Shows that an irreducible representation on a nonzero finite-dimensional Hilbert space has full operator image.",
+  "owner_review_item_sha256": "a8021c4e081ac9b8201593cb9b6fb72136abaf0a5d4a859c1fa0757ebd3b1235",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : CStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial H] [FiniteDimensional ℂ H] (pi : MathlibAnnex.Analysis.CStarAlgebra.Representation A H), pi.IsIrreducible → Function.Surjective ⇑pi"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "Surjective π : A → (H →L[ℂ] H)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source finds preimages separately for the self-adjoint real and imaginary parts of an arbitrary operator T using finite-dimensional irreducible interpolation. It combines those preimages as a+i b and invokes T=ℜT+iℑT."
+    }
+  ],
+  "proof_summary": "The source finds preimages separately for the self-adjoint real and imaginary parts of an arbitrary operator T using finite-dimensional irreducible interpolation. It combines those preimages as a+i b and invokes T=ℜT+iℑT.",
+  "source_excerpt": {
+    "bytes": 792,
+    "sha256": "f670e8f89e869a416d51f3c96d54602debceabafa1bd7913c932605cb2c000cc"
+  },
+  "source_locator": {
+    "end_column": 49,
+    "end_line": 54,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean",
+    "source_sha256": "e2979964ee7ee112b2c1ac65e550ec3ba9eec20fb27d2a0d513bb0060515c884",
+    "start_column": 1,
+    "start_line": 36
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "3536e9023e6c91366bb07bbde1ffaa36bf6b8ead1282a6e0754e7b69ef1340bf",
+    "uid": "lfh:lfh-source-build-binding:sha256:5ed199d249734093254547eb18a2b905943a900a94e2acbe76a12057d527402b"
+  },
+  "source_sha256": "e2979964ee7ee112b2c1ac65e550ec3ba9eec20fb27d2a0d513bb0060515c884",
+  "source_signature": {
+    "end_byte": 1458,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "626b84f57c7ad80de762ba85a5e877cda3d208a5bbc529a08c5a17960d983462",
+    "source_command_range": {
+      "end_column": 49,
+      "end_line": 54,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean",
+      "source_sha256": "e2979964ee7ee112b2c1ac65e550ec3ba9eec20fb27d2a0d513bb0060515c884",
+      "start_column": 1,
+      "start_line": 36
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean",
+    "source_sha256": "e2979964ee7ee112b2c1ac65e550ec3ba9eec20fb27d2a0d513bb0060515c884",
+    "start_byte": 1274,
+    "text": "theorem surjective_of_irreducible_of_finiteDimensional [Nontrivial H]\n    [FiniteDimensional ℂ H]\n    (pi : Representation A H) (hirr : pi.IsIrreducible) :\n    Function.Surjective pi"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean#L36-L54",
+  "stable_card_id": "a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

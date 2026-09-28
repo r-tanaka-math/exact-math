@@ -1,0 +1,159 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean",
+    "source_range": {
+      "end_line": 60,
+      "start_line": 43
+    },
+    "source_sha256": "8da75aff3bd4078699d7f0284a898ce644bf15c9785815a365cf6bd7fe593dcc",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_shell_family_of_approximately_inner\n    (A : Type u) {ι : Type v}\n    [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A] [Nontrivial A]\n    (alpha : A ≃⋆ₐ[ℂ] A)\n    (happrox : ∀ (F : Finset A) (epsilon : ℝ), 0 < epsilon →\n      ∃ g : unitary A, ∀ a ∈ F,\n        ‖alpha a - (g : A) * a * star (g : A)‖ < epsilon)\n    (f : ι → A) (hf : ∀ i, IsStarProjection (f i)) :\n    ∃ w : ι → A, ∀ i,\n      star (w i) * w i = alpha (f i) ∧ w i * star (w i) = f i",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean",
+    "source_sha256": "8da75aff3bd4078699d7f0284a898ce644bf15c9785815a365cf6bd7fe593dcc",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean",
+      "source_sha256": "8da75aff3bd4078699d7f0284a898ce644bf15c9785815a365cf6bd7fe593dcc",
+      "start_line": 43,
+      "start_column": 1,
+      "end_line": 60,
+      "end_column": 48
+    },
+    "start_byte": 1723,
+    "end_byte": 2228,
+    "sha256": "2c1e05303190fadc13fa812cc98cf91e9f06758a993fe193e786ed7b6d140d76",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Exact projection links for one approximately inner automorphism",
+    "one_sentence_role": "A point-norm approximation followed by close-projection conjugacy gives exact support identities for an arbitrary projection family.",
+    "natural_language_statement": "Let $A$ be a nonzero unital complex C*-algebra with its usual positive order, and let $\\alpha:A\\to A$ be a complex star automorphism. Suppose that for every finite $F\\subset A$ and $\\varepsilon>0$ there is $g\\in U(A)$ satisfying $\\|\\alpha(a)-gag^*\\|<\\varepsilon$ for all $a\\in F$. For any set $I$ and family of self-adjoint projections $(q_i)_{i\\in I}$ in $A$, there are elements $(w_i)_{i\\in I}$ such that $w_i^*w_i=\\alpha(q_i)$ and $w_iw_i^*=q_i$ for every $i$.",
+    "definition_explanation": null,
+    "assumptions": "The same automorphism $\\alpha$ and its finite-set approximation property are fixed for the whole family. The index set is arbitrary. The projections need not be nonzero, orthogonal, or countably indexed, and no condition on their sum is imposed.",
+    "conclusion": "Each $w_i$ is a partial-isometry link with initial support $\\alpha(q_i)$ and final support $q_i$. The resulting links all use the one specified $\\alpha$, although the auxiliary approximating and correcting unitaries may depend on $i$.",
+    "proof_summary": "For one projection $q$, approximate $\\alpha(q)$ within distance $1$ by $gqg^*$. Close self-adjoint projections are exactly unitarily conjugate, so choose $t$ with $t\\alpha(q)t^*=gqg^*$. Then $w=g^*t\\alpha(q)$ has the required supports. Apply this argument separately to each index and choose one link at each index.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Approximate on the singleton $\\{q\\}$ with tolerance $1$. Both $e=\\alpha(q)$ and $gqg^*$ are self-adjoint projections and $\\|e-gqg^*\\|<1$. The close-projection conjugacy theorem supplies $t\\in U(A)$ with $tet^*=gqg^*$."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $w=g^*te$, the unitary identities and $e=e^*=e^2$ give $w^*w=e t^*gg^*te=e$. The other support is $ww^*=g^*tet^*g=q$. Thus the direction of the two support equations is fixed."
+      },
+      {
+        "step_id": "s3",
+        "text": "Use choice on the individual existence statements for $q_i$. This produces a function $i\\mapsto w_i$ with both equations at every index, including the vacuous case of an empty index set."
+      }
+    ],
+    "lean_realization_notes": "The result gives algebraic support equations for the family. It asserts no convergence of a sum of links, no common correcting unitary, and no uniqueness of the chosen links. No pure-state or homogeneity hypothesis is needed once $\\alpha$ and its approximate innerness are supplied.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean#L43-L60",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean",
+        "source_range": {
+          "end_line": 60,
+          "start_line": 43
+        },
+        "source_sha256": "8da75aff3bd4078699d7f0284a898ce644bf15c9785815a365cf6bd7fe593dcc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Single-projection construction at tolerance one",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean#L21-L41",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.exists_shell_of_approximately_inner",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean",
+        "source_range": {
+          "end_line": 41,
+          "start_line": 21
+        },
+        "source_sha256": "8da75aff3bd4078699d7f0284a898ce644bf15c9785815a365cf6bd7fe593dcc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Close-projection unitary conjugacy",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CloseProjections.lean#L138-L146",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "IsStarProjection.exists_unitary_conjugate_of_norm_sub_lt_one",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CloseProjections.lean",
+        "source_sha256": "9d34283d24e8b4ea9ab191782dc6b820f00fa50ebf049b44817c972120d0098a",
+        "source_range": {
+          "start_line": 138,
+          "end_line": 146
+        }
+      }
+    },
+    {
+      "label": "Exact link formula",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ShellMatching.lean#L19-L20",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.matchedLink",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ShellMatching.lean",
+        "source_sha256": "76c78c66e4c05317fc35d929e6a887498e29db5b731c57bc1ec2be00357ecc4d",
+        "source_range": {
+          "start_line": 19,
+          "end_line": 20
+        }
+      }
+    },
+    {
+      "label": "Both support identities for the link",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ShellMatching.lean#L24-L48",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.matchedLink_supports",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ShellMatching.lean",
+        "source_sha256": "76c78c66e4c05317fc35d929e6a887498e29db5b731c57bc1ec2be00357ecc4d",
+        "source_range": {
+          "start_line": 24,
+          "end_line": 48
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "3ff4e295253067a463fc1f1c82e2b18df098c20fd1732a982e33e0f635439d9e",
+    "uid": "lfh:lfh-declaration-card:sha256:d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "eef64486b674e07871709e723729417852b3bba75edc99a4828bc7e5b9a7a23b",
+    "uid": "lfh:lfh-card-exposition:sha256:e573b11a5e4f2580f55ed1205cd0dd8d8efe98631fce5bad38b8d8d68d8c88ff"
+  },
+  "guide": "Here the source family `f i` is $q_i$ in the prose, and `alpha` is the single fixed $\\alpha$. `hf` supplies self-adjoint idempotence. In the single-projection proof `matchedLink g t (alpha f)` is exactly $g^*t\\alpha(q)$. The first support is `star w * w`; it must not be interchanged with the second.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5/versions/n69-eef64486b674e078/index.html",
+    "pdf": "card.pdf"
+  }
+}

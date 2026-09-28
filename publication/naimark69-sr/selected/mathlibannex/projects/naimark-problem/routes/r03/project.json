@@ -1,0 +1,81 @@
+{
+  "title": "Pure-state homogeneity and shell matching",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 8,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "094d318ed67743b2eb9ece586df619117001cc2f39a6893f0651e14cf6567c52",
+        "uid": "lfh:lfh-declaration-card:sha256:395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb"
+      },
+      "url": "/mathlibannex/cards/395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb/versions/n69-b52e1fdd8374862f/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "c12901c424aeb424e93bca7877c15915eedc9859c2ffe83ba67265c5b22a7dd0",
+        "uid": "lfh:lfh-declaration-card:sha256:3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152"
+      },
+      "url": "/mathlibannex/cards/3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152/versions/n69-38a7fba1be45ea9b/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "3ff4e295253067a463fc1f1c82e2b18df098c20fd1732a982e33e0f635439d9e",
+        "uid": "lfh:lfh-declaration-card:sha256:d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5"
+      },
+      "url": "/mathlibannex/cards/d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5/versions/n69-eef64486b674e078/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1c532d64db83192c067a4e726afa6d4c4cd941d770a97dbf2687faf8544821f7",
+        "uid": "lfh:lfh-declaration-card:sha256:3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66"
+      },
+      "url": "/mathlibannex/cards/3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66/versions/n69-ab4382383328c50b/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "31de10b4bf30350d4acecff8e7349eeb3d3aabd7a2a42cbe5a0255bc13a6f18e",
+        "uid": "lfh:lfh-declaration-card:sha256:956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1"
+      },
+      "url": "/mathlibannex/cards/956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1/versions/n69-89806d19203e218a/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "b7e0f73e3b318db4bc9c1cf34d55c3106c4a7e4dde0b330fddafafffc3c3c902",
+        "uid": "lfh:lfh-declaration-card:sha256:3dfe02286dcb40387b6decbe45dddfbd82a2a7dfe7a6612c592255e76b2fac33"
+      },
+      "url": "/mathlibannex/cards/3dfe02286dcb40387b6decbe45dddfbd82a2a7dfe7a6612c592255e76b2fac33/versions/n69-8a6ed21b4319688f/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "e4fd985587d524e2a8360caa9e86ee3af0618b5e5aff21d9323a221bfec4d9bf",
+        "uid": "lfh:lfh-declaration-card:sha256:c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41"
+      },
+      "url": "/mathlibannex/cards/c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41/versions/n69-4081c8ebb5e78e14/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "0c6be805b079b4f1f3684090433f578eb030424b9ee394db71a7878007910ea2",
+        "uid": "lfh:lfh-declaration-card:sha256:c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9"
+      },
+      "url": "/mathlibannex/cards/c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9/versions/n69-9492e07b809016d2/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

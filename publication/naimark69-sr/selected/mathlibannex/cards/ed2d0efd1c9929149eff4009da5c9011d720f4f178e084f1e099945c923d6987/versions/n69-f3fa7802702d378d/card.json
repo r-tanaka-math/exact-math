@@ -1,0 +1,450 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+    "source_range": {
+      "end_line": 64,
+      "start_line": 62
+    },
+    "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 2235,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "423988280605a579001333745241346dd098a96f185f40cb71051f3d77317f97",
+    "source_command_range": {
+      "end_column": 75,
+      "end_line": 64,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+      "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+      "start_column": 1,
+      "start_line": 62
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+    "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+    "start_byte": 2190,
+    "text": "noncomputable def trace : Limit →L[ℂ] ℂ"
+  },
+  "content": {
+    "assumptions": "The matrix norm is the C*-operator norm. The map $a\\mapsto a\\otimes I_2$ is a unital star homomorphism. Its entries with both added bit coordinates zero recover the entries of $a$, so it is injective; relabelling the coordinates does not affect injectivity. The C*-norm theorem for injective star homomorphisms then makes the stage map isometric. Thus the normed union has an unambiguous norm and its completion is $A$. These are proved features of the fixed construction, not new hypotheses about arbitrary directed systems.",
+    "conclusion": "The cited extension and stage-evaluation results identify one continuous functional on $A$. The [contractivity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L75-L82), [normalization](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L84-L90), [positivity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L98-L105), and [trace-identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L120-L125) theorems show $|\\tau(x)|\\leq\\|x\\|$, $\\tau(1)=1$, $\\tau(x^*x)\\geq0$, and $\\tau(xy)=\\tau(yx)$. Thus this extension is a normalized tracial state.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "At a matrix stage of size $d=2^n$, each diagonal entry satisfies $|a_{ii}|\\leq\\|a\\|$. Consequently $|\\tau_n(a)|\\leq d^{-1}\\sum_i|a_{ii}|\\leq\\|a\\|$. Under $a\\mapsto a\\otimes I_2$, each diagonal entry is repeated twice and the normalizing denominator doubles, so the trace is unchanged. Iterating proves compatibility with every later-stage embedding.\n\nThe algebraic direct limit identifies two matrices when their images agree in a common later stage. Trace compatibility makes the value independent of the chosen representative. Transport this linear functional to the normed union. Every element there is represented at a finite stage; the stage embeddings preserve norm, so the same bound holds on the union.\n\nFor a Cauchy sequence $x_k$ in that union, define the value at its limit by $\\tau(\\lim_k x_k)=\\lim_k\\tau(x_k)$. The bound makes the scalar sequence Cauchy and makes the limit independent of the representing sequence. This is the continuous extension used in the declaration.",
+    "display_title": "Constructing the normalized trace on the completed CAR algebra",
+    "language_tag": "en",
+    "lean_realization_notes": "The declaration defines the continuous extension. Positivity, normalization and traciality are separate proved results, not conclusions established merely by giving the definition. Uniqueness among all normalized continuous traces is proved in [the CAR trace-uniqueness theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean#L82-L91). No statement about extending this trace to the larger shell-generated target is part of this construction.",
+    "natural_language_statement": "Let $A_n=M_{2^n}(\\mathbb C)$ with connecting maps $a\\mapsto a\\otimes I_2$, and let $\\iota_n:A_n\\to A$ embed the stages in the completed CAR algebra. The trace constructed here is the continuous complex-linear functional $\\tau:A\\to\\mathbb C$ extending $\\tau_n(a)=2^{-n}\\sum_i a_{ii}$. In particular, $\\tau(\\iota_n(a))=\\tau_n(a)$.",
+    "one_sentence_role": "Carries compatible bounded matrix traces through the algebraic limit, normed union and completion.",
+    "proof_steps": [],
+    "proof_summary": null
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 64,
+          "start_line": 62
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L62-L64"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 278,
+          "start_line": 277
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L277-L278"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.Stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean",
+        "source_range": {
+          "end_line": 23,
+          "start_line": 22
+        },
+        "source_sha256": "3d9d738ea2aea8544b5263cf6d45d08a3c5f64b8bce873b93260ddbed48f29cc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.Stage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean#L22-L23"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.step",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean",
+        "source_range": {
+          "end_line": 84,
+          "start_line": 82
+        },
+        "source_sha256": "3d9d738ea2aea8544b5263cf6d45d08a3c5f64b8bce873b93260ddbed48f29cc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.step",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean#L82-L84"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.step_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean",
+        "source_range": {
+          "end_line": 87,
+          "start_line": 86
+        },
+        "source_sha256": "3d9d738ea2aea8544b5263cf6d45d08a3c5f64b8bce873b93260ddbed48f29cc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.step_injective",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean#L86-L87"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_step",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean",
+        "source_range": {
+          "end_line": 91,
+          "start_line": 89
+        },
+        "source_sha256": "3d9d738ea2aea8544b5263cf6d45d08a3c5f64b8bce873b93260ddbed48f29cc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.norm_step",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean#L89-L91"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.embed",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 19,
+          "start_line": 17
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.embed",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L17-L19"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_stageHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 209,
+          "start_line": 204
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.norm_stageHom",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L204-L209"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_common_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 199,
+          "start_line": 191
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.exists_common_stage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L191-L199"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 51,
+          "start_line": 48
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.stageTrace",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L48-L51"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_stageTrace_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 58,
+          "start_line": 57
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.norm_stageTrace_le",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L57-L58"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_step",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 116,
+          "start_line": 112
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_step",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L112-L116"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_embed",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 28,
+          "start_line": 19
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_embed",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L19-L28"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.algTraceLinear",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 34,
+          "start_line": 30
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.algTraceLinear",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L30-L34"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.preTraceLinear",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 42,
+          "start_line": 40
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.preTraceLinear",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L40-L42"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_preTraceLinear_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 51,
+          "start_line": 48
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.norm_preTraceLinear_le",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L48-L51"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.preTrace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 56,
+          "start_line": 53
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.preTrace",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L53-L56"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_ofStage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 73,
+          "start_line": 71
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace_ofStage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L71-L73"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_trace_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 75
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.norm_trace_le",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L75-L82"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_one",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 90,
+          "start_line": 84
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace_one",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L84-L90"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_star_mul_self_nonneg",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 105,
+          "start_line": 98
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace_star_mul_self_nonneg",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L98-L105"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 125,
+          "start_line": 120
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace_mul_comm",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L120-L125"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.amplify_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean",
+        "source_range": {
+          "end_line": 68,
+          "start_line": 63
+        },
+        "source_sha256": "3d9d738ea2aea8544b5263cf6d45d08a3c5f64b8bce873b93260ddbed48f29cc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.amplify_injective",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean#L63-L68"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.eq_trace_of_apply_one_of_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean",
+        "source_range": {
+          "end_line": 91,
+          "start_line": 82
+        },
+        "source_sha256": "10674c694dea95e8eb078d49f5cc70686f83d2b87eede56578e0236519222678",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Uniqueness of the normalized continuous CAR trace",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean#L82-L91"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "b3e06ef11b85ccefd20888a4fb61fc7c73391885b97588a075057cb1c7ba71bb",
+    "uid": "lfh:lfh-declaration-card:sha256:ed2d0efd1c9929149eff4009da5c9011d720f4f178e084f1e099945c923d6987"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "f3fa7802702d378d0fece356ede75b11466fd9e70420b5fa42dd07d57ecbfc1d",
+    "uid": "lfh:lfh-card-exposition:sha256:3f06c33bec17defdb65f564f62c147854236a216038ae14b993546ec2d393fc4"
+  },
+  "guide": "Here `Limit` is $A$, `PreCAR` is the normed union $A_{\\mathrm{alg}}$, and `trace` is $\\tau$. The separately defined `preTrace` is the continuous trace on $A_{\\mathrm{alg}}$. The displayed `extend` applies the continuous-extension construction along the canonical dense inclusion `toComplL` of $A_{\\mathrm{alg}}$ into $A$. It retains the finite-stage values described above.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/ed2d0efd1c9929149eff4009da5c9011d720f4f178e084f1e099945c923d6987/versions/n69-f3fa7802702d378d/index.html",
+    "pdf": "card.pdf"
+  }
+}

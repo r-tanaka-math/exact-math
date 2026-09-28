@@ -1,0 +1,210 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+    "source_range": {
+      "end_line": 51,
+      "start_line": 48
+    },
+    "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def stageTrace (n : ℕ) : Stage n →L[ℂ] ℂ :=\n  (stageTraceLinear n).mkContinuous 1 fun a ↦ by\n    simpa only [one_mul] using norm_stageTraceLinear_le n a",
+    "start_byte": 1911,
+    "end_byte": 2087,
+    "sha256": "2343c37755c623f18598332050ca73a4628ed407fb235b9322a900929e20e2c1",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+    "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+      "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+      "start_line": 48,
+      "start_column": 1,
+      "end_line": 51,
+      "end_column": 61
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "The normalized trace on a finite CAR stage",
+    "one_sentence_role": "The normalized matrix trace provides a positive tracial functional compatible with the CAR inclusions.",
+    "natural_language_statement": "For $n\\in\\mathbb N$, let $A_n=M_{2^n}(\\mathbb C)$ with its operator norm. The finite-stage trace is the continuous complex-linear functional $\\tau_n:A_n\\to\\mathbb C$ whose value is $\\tau_n(a)=2^{-n}\\sum_{i=0}^{2^n-1}a_{ii}$. The factor $2^{-n}$ makes $\\tau_n(I)=1$.",
+    "definition_explanation": "Take the normalized diagonal sum as a linear map. Each diagonal entry satisfies $|a_{ii}|\\leq\\|a\\|$, so the triangle inequality gives $|2^{-n}\\sum_i a_{ii}|\\leq 2^{-n}2^n\\|a\\|=\\|a\\|$. This bound supplies continuity. Positivity follows by expanding the diagonal of $a^*a$ into sums of squared absolute values; the trace identity follows by interchanging the two finite summations. Amplification repeats every diagonal entry twice, exactly cancelling the change in normalization.",
+    "assumptions": "The index $n$ may be zero, in which case $A_0=\\mathbb C$. No representation, choice of vector, or limiting operation enters this definition.",
+    "conclusion": "The functional is bounded by $|\\tau_n(a)|\\leq\\|a\\|$, is positive on $a^*a$, and satisfies $\\tau_n(ab)=\\tau_n(ba)$. Under the standard CAR inclusion $s_n:A_n\\to A_{n+1}$, given by $a\\otimes I_2$ and coordinate reindexing, $\\tau_{n+1}(s_n(a))=\\tau_n(a)$. These are the separately proved properties cited below.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The root projection $E_{00}$ has trace $2^{-n}$; the root-coordinate functional $a\\mapsto a_{00}$ instead takes value $1$ there. Thus the trace and the product-vector functional serve different purposes. The declaration here defines a finite-stage functional, not a new assertion about a trace on the completion.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L48-L51",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 51,
+          "start_line": 48
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Normalized diagonal sum",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L17-L25",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTraceLinear",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 25,
+          "start_line": 17
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Entrywise estimate giving continuity",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L31-L46",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_stageTraceLinear_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 31
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Bound for the continuous trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L57-L58",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_stageTrace_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 58,
+          "start_line": 57
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Normalization at the identity",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L60-L65",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_one",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 65,
+          "start_line": 60
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Positivity on squares",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L67-L80",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_star_mul_self_nonneg",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 80,
+          "start_line": 67
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Cyclicity of the finite trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L82-L92",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 92,
+          "start_line": 82
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Compatibility with amplification",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L112-L116",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_step",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 116,
+          "start_line": 112
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Trace of the distinguished projection",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean#L118-L121",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace_rootProjection",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+        "source_range": {
+          "end_line": 121,
+          "start_line": 118
+        },
+        "source_sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "45e6017f58cbdedcc1be3088d3b58abd517ca8d0efe97b5f8680a335352d7ccd",
+    "uid": "lfh:lfh-declaration-card:sha256:0047cafd9294f990a20362b56c9f7b905407ae2c02f2b9df80a3dba01bf1254b"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "0383e61e8449db7d28fa9398e2ae0163b6b0a2d391263673f75789b3ad736e58",
+    "uid": "lfh:lfh-card-exposition:sha256:d8085dabcb1b5704ce71f5f309dd335cb69f5b117c989a0026ea1e4d2d135615"
+  },
+  "guide": "Here `Stage n` is $A_n$, `stageTraceLinear n` is the normalized diagonal sum, and `mkContinuous 1` equips it with the bound $1$. The displayed right-hand side is the full definition of `stageTrace`. The formula for its underlying linear map and the proofs of its properties are separate exact citations.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/0047cafd9294f990a20362b56c9f7b905407ae2c02f2b9df80a3dba01bf1254b/versions/n69-0383e61e8449db7d/index.html",
+    "pdf": "card.pdf"
+  }
+}

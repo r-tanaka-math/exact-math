@@ -1,3 +1,4 @@
+import {validateNaimark69SRAct} from './naimark69-sr-public-adapter.mjs';
 import {validateNaimarkArxivAct} from './naimark-arxiv-public-adapter.mjs';
 import fs from 'node:fs';
 import {validateReviewDisplayAct} from './review-display-cleanup.mjs';
@@ -168,7 +169,8 @@ export function postPublicUpdateGate(deployment){
   const identity=gitIdentity('FULL_LAUNCH');
   need(process.env.EXACT_UPDATE_ACT,'EXACT_UPDATE_ACT must identify a separate owner act');
   const act=JSON.parse(fs.readFileSync(path.resolve(process.env.EXACT_UPDATE_ACT),'utf8'));
-  if(act.update_kind==='EXACT_REVIEW_DISPLAY_CLEANUP_R1')validateReviewDisplayAct(act,identity,deployment,tokyoDate());
+  if(act.update_kind==='EXACT_NAIMARK69_SR_PUBLICATION_R1')validateNaimark69SRAct(act,identity,deployment,tokyoDate());
+  else if(act.update_kind==='EXACT_REVIEW_DISPLAY_CLEANUP_R1')validateReviewDisplayAct(act,identity,deployment,tokyoDate());
   else if(act.update_kind==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1')validateNaimarkArxivAct(act,identity,deployment,tokyoDate());
  else if(act.update_kind==='EM_FULL_HP_PUBLICATION_R1'){
     validateFullHPAct(act,identity,deployment,tokyoDate());

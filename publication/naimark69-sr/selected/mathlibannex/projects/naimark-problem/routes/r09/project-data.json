@@ -1,0 +1,45 @@
+{
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "orientation": "prerequisite_to_dependent",
+  "node_count": 2,
+  "reachability_count": 1,
+  "display_edge_count": 1,
+  "maximum_level": 1,
+  "reachability": [
+    {
+      "prerequisite": "nm-0bbf6885b1bf3b8b1102",
+      "dependent": "nm-bb29f9950e399d17f633"
+    }
+  ],
+  "nodes": [
+    {
+      "selected_node_id": "nm-0bbf6885b1bf3b8b1102",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-bb29f9950e399d17f633"
+      ]
+    },
+    {
+      "selected_node_id": "nm-bb29f9950e399d17f633",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+      "level": 1,
+      "prerequisites": [
+        "nm-0bbf6885b1bf3b8b1102"
+      ],
+      "used_by": []
+    }
+  ],
+  "display_edges": [
+    {
+      "prerequisite": "nm-0bbf6885b1bf3b8b1102",
+      "dependent": "nm-bb29f9950e399d17f633",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+        "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra"
+      ]
+    }
+  ]
+}

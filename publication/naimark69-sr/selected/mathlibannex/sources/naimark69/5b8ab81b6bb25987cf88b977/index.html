@@ -1,0 +1,261 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.commonFixedProjection_eq_rankOne_of_dense_orbit | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/5b8ab81b6bb25987cf88b977/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.commonFixedProjection_eq_rankOne_of_dense_orbit</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/Representation/CommonFixedSubspace.lean</code>, lines 112–134.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/CommonFixedSubspace.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61/versions/n69-f479404f3d58edd7/index.html">Back to The matching GNS fiber retains exactly its cyclic line</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.Compression</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CyclicTransport</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.Adapters</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.Atomic</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.VectorFunctional</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>import MathlibAnnex.Analysis.CStarAlgebra.Intertwiner</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>import MathlibAnnex.Analysis.InnerProductSpace.HilbertSumCoordinates</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>import MathlibAnnex.Analysis.InnerProductSpace.RankOne</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>import Mathlib.Analysis.Normed.Module.Normalize</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a></span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>/-!</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a># Fixed spaces of represented projection flags</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>Compression identifies the common fixed projection in its cyclic fiber and</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>excludes it in inequivalent irreducible fibers.  A coordinate argument then</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>identifies the common fixed space of an arbitrary dependent atomic sum.</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>-/</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>set_option autoImplicit false</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>open Filter Topology</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>open scoped ENNReal lp InnerProduct</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a></span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>universe u v w</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a></span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>variable {A : Type u} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a></span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>/-- For represented star projections, being fixed is equivalent to belonging</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>to the operator range, so the common fixed subspace is the infimum of the</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>ranges. -/</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>theorem commonFixedSubspace_eq_iInf_range</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    [CompleteSpace H]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    (pi : Representation A H) (q : ℕ → A) (hq : ∀ n, IsStarProjection (q n)) :</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>    commonFixedSubspace (fun n ↦ pi (q n)) = ⨅ n, (pi (q n)).range := by</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>  ext x</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>  rw [mem_commonFixedSubspace_iff, Submodule.mem_iInf]</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>  apply forall_congr&#x27;</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>  intro n</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>  exact (LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>    (ContinuousLinearMap.IsIdempotentElem.toLinearMap</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>      ((hq n).map pi).isIdempotentElem)).symm</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a></span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>/-- A supplied star projection with the represented common-fixed range is</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>the canonical common fixed projection. -/</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>theorem starProjection_eq_commonFixedProjection_of_range_iInf</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    [CompleteSpace H]</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    (pi : Representation A H) (q : ℕ → A) (hq : ∀ n, IsStarProjection (q n))</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    (P : H →L[ℂ] H) (hP : IsStarProjection P)</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    (hPrange : P.range = ⨅ n, (pi (q n)).range) :</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    P = commonFixedProjection (fun n ↦ pi (q n)) := by</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  obtain ⟨hProjection, hPeq⟩ :=</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    isStarProjection_iff_eq_starProjection_range.mp hP</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>  have hrange : P.range = commonFixedSubspace (fun n ↦ pi (q n)) :=</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>    hPrange.trans (commonFixedSubspace_eq_iInf_range pi q hq).symm</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  simpa only [commonFixedProjection, hrange] using hPeq</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a></span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>/-- A projection has to fix a unit vector when its vector state takes value</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>one on that projection. -/</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>theorem projection_apply_eq_self_of_vectorFunctional_eq_one</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>    [CompleteSpace H]</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    (pi : Representation A H) (p : A) (hp : IsStarProjection p)</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    (xi : H) (hxi : ‖xi‖ = 1)</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    (hvalue : Representation.vectorFunctional pi xi p = 1) :</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    pi p xi = xi := by</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>  have hcomp : IsStarProjection (1 - p) := hp.one_sub</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  have hfunctional :</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>      Representation.vectorFunctional pi xi (star (1 - p) * (1 - p)) = 0 := by</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    rw [hcomp.isSelfAdjoint.star_eq, hcomp.isIdempotentElem.eq, map_sub,</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>      Representation.vectorFunctional_one pi hxi, hvalue, sub_self]</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>  have hinner : inner ℂ (pi (1 - p) xi) (pi (1 - p) xi) = 0 := by</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>    rw [← Representation.vectorFunctional_star_mul]</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    exact hfunctional</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>  have hzero : pi (1 - p) xi = 0 := inner_self_eq_zero.mp hinner</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>  have hsub : xi - pi p xi = 0 := by</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>    simpa [map_sub, map_one] using hzero</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  exact (sub_eq_zero.mp hsub).symm</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a></span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>/-- A unit vector fixed by every member of a compressing self-adjoint flag</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>has exactly the limiting compression functional as its vector state. -/</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>theorem vectorFunctional_eq_of_compression_tendsto</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>    [CompleteSpace H]</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>    (pi : Representation A H) (q : ℕ → A) (phi : A →L[ℂ] ℂ)</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    (hq_star : ∀ n, star (q n) = q n)</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>    (hcompression : ∀ b : A,</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>      Tendsto (fun n ↦ q n * b * q n - phi b • q n) atTop (nhds 0))</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>    (eta : H) (heta : ‖eta‖ = 1)</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>    (hfixed : ∀ n, pi (q n) eta = eta) :</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    Representation.vectorFunctional pi eta = phi := by</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  intro b</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>  have hcoeff := inner_map_eq_of_compression_tendsto pi</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>    (Representation.continuousLinearMap pi).continuous q phi b eta eta</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>    hq_star hfixed hfixed (hcompression b)</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>  have hself : inner ℂ eta eta = 1 := by</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>    rw [inner_self_eq_norm_sq_to_K, heta]</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>    norm_num</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>  change inner ℂ eta (pi b eta) = phi b</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>  calc</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>    inner ℂ eta (pi b eta) = phi b * inner ℂ eta eta := hcoeff</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>    _ = phi b := by rw [hself, mul_one]</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a></span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>/-- In a cyclic realization of the compression state, the represented common</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>fixed projection is exactly the projection onto the cyclic vector. -/</span>
+<span class="source-line selected" id="L112"><a class="line-no" href="#L112">112</a>theorem commonFixedProjection_eq_rankOne_of_dense_orbit</span>
+<span class="source-line selected" id="L113"><a class="line-no" href="#L113">113</a>    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line selected" id="L114"><a class="line-no" href="#L114">114</a>    [CompleteSpace H]</span>
+<span class="source-line selected" id="L115"><a class="line-no" href="#L115">115</a>    (pi : Representation A H) (q : ℕ → A) (phi : A →L[ℂ] ℂ) (xi : H)</span>
+<span class="source-line selected" id="L116"><a class="line-no" href="#L116">116</a>    (hq_star : ∀ n, star (q n) = q n)</span>
+<span class="source-line selected" id="L117"><a class="line-no" href="#L117">117</a>    (hcompression : ∀ b : A,</span>
+<span class="source-line selected" id="L118"><a class="line-no" href="#L118">118</a>      Tendsto (fun n ↦ q n * b * q n - phi b • q n) atTop (nhds 0))</span>
+<span class="source-line selected" id="L119"><a class="line-no" href="#L119">119</a>    (hfixed : ∀ n, pi (q n) xi = xi)</span>
+<span class="source-line selected" id="L120"><a class="line-no" href="#L120">120</a>    (hphi : ∀ b : A, phi b = inner ℂ xi (pi b xi))</span>
+<span class="source-line selected" id="L121"><a class="line-no" href="#L121">121</a>    (hdense : DenseRange (StarAlgHom.orbitMap pi xi)) :</span>
+<span class="source-line selected" id="L122"><a class="line-no" href="#L122">122</a>    commonFixedProjection (fun n ↦ pi (q n)) =</span>
+<span class="source-line selected" id="L123"><a class="line-no" href="#L123">123</a>      InnerProductSpace.rankOne ℂ xi xi := by</span>
+<span class="source-line selected" id="L124"><a class="line-no" href="#L124">124</a>  let Q : ℕ → H →L[ℂ] H := fun n ↦ pi (q n)</span>
+<span class="source-line selected" id="L125"><a class="line-no" href="#L125">125</a>  let P := commonFixedProjection Q</span>
+<span class="source-line selected" id="L126"><a class="line-no" href="#L126">126</a>  apply projection_eq_rankOne_of_dense_orbit pi phi P xi</span>
+<span class="source-line selected" id="L127"><a class="line-no" href="#L127">127</a>  · exact (commonFixedProjection_eq_self_iff Q xi).2</span>
+<span class="source-line selected" id="L128"><a class="line-no" href="#L128">128</a>      ((mem_commonFixedSubspace_iff Q xi).2 hfixed)</span>
+<span class="source-line selected" id="L129"><a class="line-no" href="#L129">129</a>  · intro b</span>
+<span class="source-line selected" id="L130"><a class="line-no" href="#L130">130</a>    exact commonFixedProjection_comp_map_comp_eq pi</span>
+<span class="source-line selected" id="L131"><a class="line-no" href="#L131">131</a>      (Representation.continuousLinearMap pi).continuous q phi b hq_star</span>
+<span class="source-line selected" id="L132"><a class="line-no" href="#L132">132</a>      (hcompression b)</span>
+<span class="source-line selected" id="L133"><a class="line-no" href="#L133">133</a>  · exact hphi</span>
+<span class="source-line selected" id="L134"><a class="line-no" href="#L134">134</a>  · exact hdense</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a></span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>/-- In an inequivalent irreducible realization, the common fixed projection</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>of a flag with a pure cyclic compression state must vanish. -/</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>theorem commonFixedProjection_eq_zero_of_no_unitary</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>    {H : Type v} {K : Type w}</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>    [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>    [Nontrivial K]</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>    (pi : Representation A H) (rho : Representation A K)</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>    (q : ℕ → A) (phi : A →L[ℂ] ℂ) (xi : H)</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>    (hq_star : ∀ n, star (q n) = q n)</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>    (hcompression : ∀ b : A,</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>      Tendsto (fun n ↦ q n * b * q n - phi b • q n) atTop (nhds 0))</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>    (hxiState : ∀ b : A, inner ℂ xi (pi b xi) = phi b)</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>    (hxiCyclic : DenseRange (StarAlgHom.orbitMap pi xi))</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>    (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>    (hno : ∀ U : H ≃ₗᵢ[ℂ] K,</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>      ¬ StarAlgHom.Intertwines pi rho (U : H →L[ℂ] K)) :</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>    commonFixedProjection (fun n ↦ rho (q n)) = 0 := by</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>  let Q : ℕ → K →L[ℂ] K := fun n ↦ rho (q n)</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>  let P := commonFixedProjection Q</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>  by_contra hP</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>  have hex : ∃ z : K, P z ≠ 0 := by</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    by_contra h</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>    push_neg at h</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>    apply hP</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>    ext z</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>    exact h z</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>  obtain ⟨z, hz⟩ := hex</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>  let r : ℝ := ‖P z‖</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>  have hr : r ≠ 0 := norm_ne_zero_iff.mpr hz</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>  let eta : K := ((r⁻¹ : ℝ) : ℂ) • P z</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>  have heta_norm : ‖eta‖ = 1 := by</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>    dsimp only [eta]</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>    rw [norm_smul, Complex.norm_real, Real.norm_eq_abs,</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>      abs_of_nonneg (inv_nonneg.mpr (norm_nonneg _)), inv_mul_cancel₀ hr]</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>  have heta_ne : eta ≠ 0 := norm_ne_zero_iff.mp (by rw [heta_norm]; exact one_ne_zero)</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>  have heta_fixed (n : ℕ) : rho (q n) eta = eta := by</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>    dsimp only [eta]</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>    rw [map_smul]</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>    exact congrArg (fun y : K ↦ ((r⁻¹ : ℝ) : ℂ) • y)</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>      (commonFixedProjection_apply_fixed Q n z)</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>  have heta_state (b : A) : inner ℂ eta (rho b eta) = phi b := by</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>    have h := inner_map_eq_of_compression_tendsto rho</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>      (Representation.continuousLinearMap rho).continuous q phi b eta eta</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>      hq_star heta_fixed heta_fixed (hcompression b)</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>    have hself : inner ℂ eta eta = 1 := by</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>      rw [inner_self_eq_norm_sq_to_K, heta_norm]</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>      norm_num</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>    calc</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>      inner ℂ eta (rho b eta) = phi b * inner ℂ eta eta := h</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>      _ = phi b := by rw [hself, mul_one]</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>  have hrho&#x27; : Representation.IsIrreducible rho :=</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>    (Representation.isIrreducible_iff_starAlgHom rho).2 hrho</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>  have hetaCyclic : DenseRange (StarAlgHom.orbitMap rho eta) :=</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>    Representation.denseRange_orbitMap_of_isIrreducible rho hrho&#x27; heta_ne</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>  obtain ⟨U, hU, -⟩ := StarAlgHom.existsUnique_pointedCyclicTransport</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    pi rho xi eta hxiCyclic hetaCyclic (fun b ↦ (hxiState b).trans (heta_state b).symm)</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>  exact hno U hU.2.2</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a></span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>/-- If exactly one fiber of an arbitrary atomic sum has a nonzero common fixed</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>projection, its atomic common fixed space is the span of the corresponding</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>coordinate vector. -/</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>theorem iInf_range_atomicRepresentation_eq_span</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>    {I : Type v} {H : I → Type w}</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>    [DecidableEq I]</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>    [∀ i, NormedAddCommGroup (H i)] [∀ i, InnerProductSpace ℂ (H i)]</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>    [∀ i, CompleteSpace (H i)]</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>    (pi : ∀ i, Representation A (H i))</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>    (q : ℕ → A) (hq : ∀ n, IsStarProjection (q n))</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>    (i : I) (xi : H i) (hxi : ‖xi‖ = 1)</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>    (hsame : commonFixedProjection (fun n ↦ pi i (q n)) =</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>      InnerProductSpace.rankOne ℂ xi xi)</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>    (hother : ∀ j, j ≠ i →</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>      commonFixedProjection (fun n ↦ pi j (q n)) = 0) :</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>    (⨅ n, (atomicRepresentation pi (q n)).range) =</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>      ℂ ∙ coordinateEmbedding i xi := by</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>  let Q (j : I) : ℕ → H j →L[ℂ] H j := fun n ↦ pi j (q n)</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>  have hxiCommon : xi ∈ commonFixedSubspace (Q i) := by</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>    rw [← commonFixedProjection_eq_self_iff]</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>    rw [hsame]</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>    simp [InnerProductSpace.rankOne_apply, inner_self_eq_norm_sq_to_K, hxi]</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>  have hxiFixed : ∀ n, pi i (q n) xi = xi :=</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>    (mem_commonFixedSubspace_iff (Q i) xi).1 hxiCommon</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>  apply le_antisymm</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>  · intro x hx</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>    have hfixed (n : ℕ) : atomicRepresentation pi (q n) x = x := by</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>      rcases (Submodule.mem_iInf</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>        (fun n ↦ (atomicRepresentation pi (q n)).range)).mp hx n with ⟨y, rfl⟩</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>      change atomicRepresentation pi (q n)</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>          (atomicRepresentation pi (q n) y) = atomicRepresentation pi (q n) y</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>      rw [← ContinuousLinearMap.mul_apply, ← map_mul,</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>        (hq n).isIdempotentElem.eq]</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>    have hfiberFixed (j : I) : ∀ n, pi j (q n) (x j) = x j := by</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>      intro n</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>      exact congrArg (fun y : HilbertSum H ↦ y j) (hfixed n)</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>    have hfiberProjection (j : I) : commonFixedProjection (Q j) (x j) = x j :=</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>      (commonFixedProjection_eq_self_iff (Q j) (x j)).2</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>        ((mem_commonFixedSubspace_iff (Q j) (x j)).2 (hfiberFixed j))</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>    refine Submodule.mem_span_singleton.mpr ⟨inner ℂ xi (x i), ?_⟩</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>    apply lp.ext</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>    funext j</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>    by_cases hji : j = i</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>    · subst j</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>      have hi := hfiberProjection i</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>      rw [hsame] at hi</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>      simpa [coordinateEmbedding_apply, InnerProductSpace.rankOne_apply] using hi</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>    · have hj := hfiberProjection j</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>      rw [hother j hji] at hj</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>      have hxj : x j = 0 := by simpa using hj.symm</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>      simp [coordinateEmbedding_apply, lp.coeFn_single, hji, hxj]</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>  · intro x hx</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>    obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.mp hx</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>    apply (Submodule.mem_iInf</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>      (fun n ↦ (atomicRepresentation pi (q n)).range)).mpr</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>    intro n</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>    refine ⟨c • coordinateEmbedding i xi, ?_⟩</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>    calc</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>      atomicRepresentation pi (q n) (c • coordinateEmbedding i xi) =</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>          c • atomicRepresentation pi (q n) (coordinateEmbedding i xi) :=</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a>        map_smul _ _ _</span>
+<span class="source-line" id="L256"><a class="line-no" href="#L256">256</a>      _ = c • lp.single 2 i (pi i (q n) xi) := by</span>
+<span class="source-line" id="L257"><a class="line-no" href="#L257">257</a>        rw [coordinateEmbedding_apply, atomicRepresentation_single]</span>
+<span class="source-line" id="L258"><a class="line-no" href="#L258">258</a>      _ = c • coordinateEmbedding i xi := by</span>
+<span class="source-line" id="L259"><a class="line-no" href="#L259">259</a>        rw [hxiFixed n, coordinateEmbedding_apply]</span>
+<span class="source-line" id="L260"><a class="line-no" href="#L260">260</a></span>
+<span class="source-line" id="L261"><a class="line-no" href="#L261">261</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

@@ -1,0 +1,148 @@
+{
+  "assumptions": "Real normed affine spaces; source and target sets contain their centers and are invariant under reflection through those centers; the source is bounded; f is an isometry equivalence.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "87c6848b90700ef729e5e4c337c08137c9495291a3155b705a5ad63663287d77",
+    "uid": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0"
+  },
+  "citations": [
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.Reflection.0.MathlibAnnex.IsometryEquiv.apply_center_eq_of_isBounded_of_mapsTo_pointReflection",
+      "source_locator": {
+        "end_column": 43,
+        "end_line": 72,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+        "source_sha256": "2206e447833f35910561aa666c22e5ea0b0d9b65605bcd52a8e108435dde6bb0",
+        "start_column": 1,
+        "start_line": 38
+      },
+      "text": "The proof or construction of Center transport under bounded point-reflection symmetry uses the project declaration “Every self-isometry fixes the center of a bounded reflection-invariant set” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.Reflection.0.MathlibAnnex.IsometryEquiv.restrictedPointReflection",
+      "source_locator": {
+        "end_column": 53,
+        "end_line": 36,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+        "source_sha256": "2206e447833f35910561aa666c22e5ea0b0d9b65605bcd52a8e108435dde6bb0",
+        "start_column": 1,
+        "start_line": 23
+      },
+      "text": "The proof or construction of Center transport under bounded point-reflection symmetry uses the project declaration “Point reflection restricted to an invariant subset” at the indicated step."
+    }
+  ],
+  "conclusion": "f maps the source reflection center to the target reflection center.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Center transport under bounded point-reflection symmetry",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "0fad08f6606a4e679080a8764e076ca473d3f9aa75994e5fee0ee953dda394d4",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:44707c7aac5bdc007c9116ce028e282c655201c3aff4127f372f615d7ba27d11"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "a97a1976b14207fc263907ee8fef3f37bda326fe215a2ac5516026cc01017806",
+    "uid": "lfh:lfh-declaration-card:sha256:078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "0fad08f6606a4e679080a8764e076ca473d3f9aa75994e5fee0ee953dda394d4",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:44707c7aac5bdc007c9116ce028e282c655201c3aff4127f372f615d7ba27d11"
+  },
+  "lineage": {
+    "classification": "DISTINCT_UID_REVISION_ONE_RENAMED_TO",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "a97a1976b14207fc263907ee8fef3f37bda326fe215a2ac5516026cc01017806",
+      "uid": "lfh:lfh-declaration-card:sha256:078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    "renamed_to_relation_ref": {
+      "record_type": "LFH_DECLARATION_RELATION",
+      "revision": 1,
+      "sha256": "a044bb06356545b9f01b7a35f982a64131c39375b61cd5417ec83bc1abb7e60b",
+      "uid": "lfh:lfh-declaration-relation:sha256:c3d521a363facb13c73dd00dde8ddb23f1adfbb5db3a214476dfc40ae4367b2b"
+    }
+  },
+  "name": "MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection",
+  "natural_language_statement": "Let f:s≃ᵢt be an isometry equivalence between subsets of real normed affine spaces. Suppose c∈s and d∈t, the source set s is bounded, and s and t are invariant under point reflection about c and d respectively. Then f(c)=d as subtype points.",
+  "one_sentence_role": "Identifies the distinguished centers of two bounded reflection-invariant subsets under an isometry equivalence.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Restrict target point reflection about d to an isometry equivalence of t."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Conjugate this restricted reflection by f to form a self-isometry g of s."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Apply the bounded reflection-center fixed-point lemma to g at c."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Transport the resulting equality through f to show that restricted reflection fixes f(c)."
+    },
+    {
+      "step_id": "step-5",
+      "text": "Forget the subtype and apply the characterization of fixed points of point reflection to conclude f(c)=d."
+    }
+  ],
+  "proof_summary": "Conjugate the target reflection about d by f to obtain a self-isometry g of s. Every self-isometry of the bounded source reflection space fixes c. Translating that fixed-point equation back through f shows that f(c) is fixed by reflection about d, hence equals d.",
+  "source_locator": {
+    "end_column": 44,
+    "end_line": 91,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+    "source_sha256": "2206e447833f35910561aa666c22e5ea0b0d9b65605bcd52a8e108435dde6bb0",
+    "start_column": 1,
+    "start_line": 74
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "534abba30e671c3ff91e0abd0f4fbdca305b4969931e9ce0bd1a760b0ded6f65",
+    "uid": "lfh:lfh-source-build-binding:sha256:00c3cce3a9e272cb2ef6e5ab888d4cdbbe9c171c97deeba29a044f5e49147a90"
+  },
+  "source_sha256": "2206e447833f35910561aa666c22e5ea0b0d9b65605bcd52a8e108435dde6bb0",
+  "source_signature": {
+    "end_byte": 3504,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "758d8838f86a8fb01bafe6fae1dddbef6ec998b6667907c9ee221947da94019e",
+    "source_command_range": {
+      "end_column": 44,
+      "end_line": 91,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+      "source_sha256": "2206e447833f35910561aa666c22e5ea0b0d9b65605bcd52a8e108435dde6bb0",
+      "start_column": 1,
+      "start_line": 74
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+    "source_sha256": "2206e447833f35910561aa666c22e5ea0b0d9b65605bcd52a8e108435dde6bb0",
+    "start_byte": 3206,
+    "text": "theorem map_center_of_mapsTo_pointReflection\n    {s : Set P} {t : Set Q} {c : P} {d : Q} (f : s ≃ᵢ t)\n    (hc : c ∈ s) (hd : d ∈ t) (hs : IsBounded s)\n    (hsreflect : MapsTo (pointReflection ℝ c) s s)\n    (htreflect : MapsTo (pointReflection ℝ d) t t) :\n    f ⟨c, hc⟩ = ⟨d, hd⟩"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean#L74-L91",
+  "stable_card_id": "e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

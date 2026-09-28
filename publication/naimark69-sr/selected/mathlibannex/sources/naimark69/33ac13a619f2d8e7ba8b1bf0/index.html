@@ -1,0 +1,147 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>IsStarProjection.exists_unitary_conjugate_of_norm_sub_lt_one | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/33ac13a619f2d8e7ba8b1bf0/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>IsStarProjection.exists_unitary_conjugate_of_norm_sub_lt_one</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CloseProjections.lean</code>, lines 138–146.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CloseProjections.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5/versions/n69-eef64486b674e078/index.html">Back to Exact projection links for one approximately inner automorphism</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Commute</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import Mathlib.Analysis.Normed.Ring.Units</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># Close projections in a unital C-star algebra</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>Two star projections at distance strictly less than one are unitarily conjugate.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>The proof constructs the standard invertible intertwiner and takes its polar part.</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>-/</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a></span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>set_option autoImplicit false</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>open scoped NNReal Ring</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>namespace IsStarProjection</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>variable {A : Type*} [CStarAlgebra A] [PartialOrder A] [StarOrderedRing A]</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>omit [PartialOrder A] [StarOrderedRing A] in</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>/-- Conjugation of a star projection by a unitary is a star projection. -/</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>theorem unitary_conjugate {p : A} (hp : IsStarProjection p) (u : unitary A) :</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>    IsStarProjection ((u : A) * p * star (u : A)) := by</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>  constructor</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>  · rw [isIdempotentElem_iff]</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>    calc</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>      ((u : A) * p * star (u : A)) * ((u : A) * p * star (u : A)) =</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>          (u : A) * p * (star (u : A) * (u : A)) * p * star (u : A) := by</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>            simp only [mul_assoc]</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>      _ = (u : A) * p * p * star (u : A) := by</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>        rw [Unitary.star_mul_self_of_mem u.prop, mul_one]</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>      _ = (u : A) * (p * p) * star (u : A) := by simp only [mul_assoc]</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>      _ = (u : A) * p * star (u : A) := by rw [hp.isIdempotentElem.eq]</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>  · rw [isSelfAdjoint_iff]</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>    simp [star_mul, hp.isSelfAdjoint.star_eq, mul_assoc]</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a></span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>/-- The standard intertwiner between two projections. -/</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>def closeIntertwiner (p q : A) : A :=</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  q * p + (1 - q) * (1 - p)</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a></span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>omit [PartialOrder A] [StarOrderedRing A] in</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>theorem closeIntertwiner_mul (p q : A) (hp : IsStarProjection p)</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    (hq : IsStarProjection q) :</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>    closeIntertwiner p q * p = q * closeIntertwiner p q := by</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  have hl : closeIntertwiner p q * p = q * p := by</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>    simp [closeIntertwiner, add_mul, mul_assoc, hp.isIdempotentElem.eq,</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>      hp.one_sub_mul_self]</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  have hr : q * closeIntertwiner p q = q * p := by</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    simp [closeIntertwiner, mul_add, ← mul_assoc, hq.isIdempotentElem.eq,</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>      hq.mul_one_sub_self]</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  exact hl.trans hr.symm</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a></span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>omit [PartialOrder A] [StarOrderedRing A] in</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>theorem closeIntertwiner_sub_one (p q : A) (hp : IsStarProjection p) :</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    closeIntertwiner p q - 1 = (q - p) * (2 * p - 1) := by</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>  simp only [closeIntertwiner]</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  noncomm_ring [hp.isIdempotentElem.eq]</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a></span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>omit [PartialOrder A] [StarOrderedRing A] in</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>theorem norm_closeIntertwiner_sub_one (p q : A) [Nontrivial A]</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    (hp : IsStarProjection p) :</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>    ‖closeIntertwiner p q - 1‖ = ‖p - q‖ := by</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>  rw [closeIntertwiner_sub_one p q hp]</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>  let s : unitary A := ⟨2 * p - 1, hp.two_mul_sub_one_mem_unitary⟩</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>  change ‖(q - p) * (s : A)‖ = ‖p - q‖</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>  rw [CStarRing.norm_mul_coe_unitary]</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>  exact norm_sub_rev q p</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a></span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>omit [PartialOrder A] [StarOrderedRing A] in</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>theorem isUnit_closeIntertwiner (p q : A) [Nontrivial A]</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    (hp : IsStarProjection p) (hclose : ‖p - q‖ &lt; 1) :</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>    IsUnit (closeIntertwiner p q) := by</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  have hnear : ‖closeIntertwiner p q - (1 : A)‖ &lt;</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>      (‖(↑((1 : Aˣ)⁻¹) : A)‖)⁻¹ := by</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    simpa [norm_closeIntertwiner_sub_one p q hp] using hclose</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>  exact (Units.ofNearby (1 : Aˣ) (closeIntertwiner p q) hnear).isUnit</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a></span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>/-- The polar part of an invertible intertwiner of self-adjoint elements is unitary and</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>is still an intertwiner. -/</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>theorem exists_unitary_of_isUnit_of_mul_eq {x p q : A} (hx : IsUnit x)</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>    (hp : IsSelfAdjoint p) (hq : IsSelfAdjoint q) (hxp : x * p = q * x) :</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>    ∃ u : unitary A, (u : A) * p = q * u := by</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  let a : A := star x * x</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>  let s : A := CFC.sqrt a</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>  let t : A := s⁻¹ʳ</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>  let u : A := x * t</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>  have ha_pos : IsStrictlyPositive a := by</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    apply CStarAlgebra.isStrictlyPositive_iff_eq_star_mul_self.mpr</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>    exact ⟨x, hx, rfl⟩</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>  have hs_unit : IsUnit s := by</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    exact ha_pos.isUnit_cfcSqrt a</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>  have hs_self : IsSelfAdjoint s := IsSelfAdjoint.of_nonneg (CFC.sqrt_nonneg a)</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>  have ht_self : IsSelfAdjoint t := hs_self.ringInverse</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>  have hu_unit : IsUnit u := hx.mul hs_unit.ringInverse</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>  have hstar : p * star x = star x * q := by</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    have := congrArg star hxp</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>    simpa [star_mul, hp.star_eq, hq.star_eq] using this</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  have ha_comm : Commute a p := by</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>    rw [commute_iff_eq]</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>    dsimp only [a]</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>    calc</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>      star x * x * p = star x * (x * p) := by rw [mul_assoc]</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>      _ = star x * (q * x) := by rw [hxp]</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>      _ = (star x * q) * x := by rw [mul_assoc]</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>      _ = (p * star x) * x := by rw [hstar]</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>      _ = p * (star x * x) := by rw [mul_assoc]</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>  have hs_comm : Commute s p := by</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>    dsimp only [s]</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>    simpa [CFC.sqrt] using ha_comm.cfcₙ_nnreal NNReal.sqrt</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>  have ht_comm : Commute t p := by</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>    dsimp only [t]</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>    rw [Ring.inverse_of_isUnit hs_unit]</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>    exact Commute.units_inv_left (by simpa using hs_comm)</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>  have hu_star_mul : star u * u = 1 := by</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    dsimp only [u]</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>    rw [star_mul, ht_self.star_eq]</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>    calc</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>      t * star x * (x * t) = t * (star x * x) * t := by simp only [mul_assoc]</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>      _ = t * a * t := rfl</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>      _ = t * (s * s) * t := by rw [CFC.sqrt_mul_sqrt_self a ha_pos.nonneg]</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>      _ = (t * s) * (s * t) := by simp only [mul_assoc]</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>      _ = 1 := by</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>        rw [show t * s = 1 by exact Ring.inverse_mul_cancel s hs_unit,</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>          show s * t = 1 by exact Ring.mul_inverse_cancel s hs_unit, one_mul]</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>  have hu_mem : u ∈ unitary A := hu_unit.mem_unitary_of_star_mul_self hu_star_mul</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>  let U : unitary A := ⟨u, hu_mem⟩</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>  refine ⟨U, ?_⟩</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>  change u * p = q * u</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>  dsimp only [u]</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>  calc</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>    x * t * p = x * (t * p) := by rw [mul_assoc]</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>    _ = x * (p * t) := by rw [ht_comm.eq]</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>    _ = (x * p) * t := by rw [mul_assoc]</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>    _ = (q * x) * t := by rw [hxp]</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>    _ = q * (x * t) := by rw [mul_assoc]</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a></span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>/-- Star projections at distance less than one are unitarily conjugate. -/</span>
+<span class="source-line selected" id="L138"><a class="line-no" href="#L138">138</a>theorem exists_unitary_conjugate_of_norm_sub_lt_one {p q : A} [Nontrivial A]</span>
+<span class="source-line selected" id="L139"><a class="line-no" href="#L139">139</a>    (hp : IsStarProjection p) (hq : IsStarProjection q) (hclose : ‖p - q‖ &lt; 1) :</span>
+<span class="source-line selected" id="L140"><a class="line-no" href="#L140">140</a>    ∃ u : unitary A, (u : A) * p * star u = q := by</span>
+<span class="source-line selected" id="L141"><a class="line-no" href="#L141">141</a>  have hx := isUnit_closeIntertwiner p q hp hclose</span>
+<span class="source-line selected" id="L142"><a class="line-no" href="#L142">142</a>  obtain ⟨u, hu⟩ := exists_unitary_of_isUnit_of_mul_eq hx hp.isSelfAdjoint</span>
+<span class="source-line selected" id="L143"><a class="line-no" href="#L143">143</a>    hq.isSelfAdjoint (closeIntertwiner_mul p q hp hq)</span>
+<span class="source-line selected" id="L144"><a class="line-no" href="#L144">144</a>  refine ⟨u, ?_⟩</span>
+<span class="source-line selected" id="L145"><a class="line-no" href="#L145">145</a>  rw [hu, mul_assoc, Unitary.coe_mul_star_self, mul_one]</span>
+<span class="source-line selected" id="L146"><a class="line-no" href="#L146">146</a></span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>end IsStarProjection</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

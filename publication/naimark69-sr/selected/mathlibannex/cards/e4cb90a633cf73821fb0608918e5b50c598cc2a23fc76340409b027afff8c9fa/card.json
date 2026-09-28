@@ -1,0 +1,108 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Regard A as a closed unital *-subalgebra of B(Hₐₜ), with its inherited algebraic operations.",
+    "conclusion": "A specified unital complex *-algebra homomorphism πₐₜ: A → B(Hₐₜ), given by the underlying operator of each element of A.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "The map is literal subtype inclusion. Its injectivity follows from this construction; its irreducibility is a further theorem, recorded in the counterexample theorem for A, rather than part of the meaning of a representation. Hₐₜ is not the CAR trace-GNS space Hτ.",
+    "display_title": "The atomic inclusion representation",
+    "language_tag": "en",
+    "lean_realization_notes": "Source kind: noncomputable def. Exact name: atomicCounterexampleRepresentation. Representation A H is the unital *-homomorphism API. This definition specializes shellFamilyInclusion to homogeneityShellFamily.",
+    "natural_language_statement": "Define πₐₜ: A → B(Hₐₜ) to be the inclusion representation of the fixed CAR-based operator algebra A. Thus πₐₜ(a)x = a(x).",
+    "one_sentence_role": "Defines the representation on the atomic Hilbert space, keeping it distinct from the separable tracial model.",
+    "proof_steps": [],
+    "proof_summary": null
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "516a57a8f062ef0a6234d796e52b96c61eb3b141eb155771b24f65817dddb0ea",
+    "uid": "lfh:lfh-declaration-card:sha256:e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "b2608b0b12cb6115777cb5f05c41771d130f931c3459ef8fb554c55f7b520b87",
+    "uid": "lfh:lfh-card-exposition:sha256:a3493bd95370f62e97033c89cfe0ba57cc02ef165509be17dced400f93373d11"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "def",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleRepresentation",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      85,
+      89
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L85-L89"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.AtomicEndpoint",
+        "provider": "PROJECT",
+        "provider_source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Regard A as a closed unital *-subalgebra of B(Hₐₜ), with its inherited algebraic operations.",
+    "conclusion": "A specified unital complex *-algebra homomorphism πₐₜ: A → B(Hₐₜ), given by the underlying operator of each element of A.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "The map is literal subtype inclusion. Its injectivity follows from this construction; its irreducibility is a further theorem, recorded in the counterexample theorem for A, rather than part of the meaning of a representation. Hₐₜ is not the CAR trace-GNS space Hτ.",
+    "display_title": "The atomic inclusion representation",
+    "language_tag": "en",
+    "lean_realization_notes": "Source kind: noncomputable def. Exact name: atomicCounterexampleRepresentation. Representation A H is the unital *-homomorphism API. This definition specializes shellFamilyInclusion to homogeneityShellFamily.",
+    "natural_language_statement": "Define πₐₜ: A → B(Hₐₜ) to be the inclusion representation of the fixed CAR-based operator algebra A. Thus πₐₜ(a)x = a(x).",
+    "one_sentence_role": "Defines the representation on the atomic Hilbert space, keeping it distinct from the separable tracial model.",
+    "proof_steps": [],
+    "proof_summary": null,
+    "stable_card_id": "e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleRepresentation",
+    "declaration_kind": "def",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_locator": {
+      "start_line": 85,
+      "end_line": 89
+    },
+    "source_signature": {
+      "text": "/-- The fixed faithful irreducible displayed representation of `AtomicCounterexampleAlgebra`. -/\nnoncomputable def atomicCounterexampleRepresentation :\n    Representation AtomicCounterexampleAlgebra\n      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState) :=\n  shellFamilyInclusion homogeneityShellFamily"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "516a57a8f062ef0a6234d796e52b96c61eb3b141eb155771b24f65817dddb0ea",
+      "uid": "lfh:lfh-declaration-card:sha256:e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "b2608b0b12cb6115777cb5f05c41771d130f931c3459ef8fb554c55f7b520b87",
+      "uid": "lfh:lfh-card-exposition:sha256:a3493bd95370f62e97033c89cfe0ba57cc02ef165509be17dced400f93373d11"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/8b5c72a4f27a6c0e45451afa/index.html#L71"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

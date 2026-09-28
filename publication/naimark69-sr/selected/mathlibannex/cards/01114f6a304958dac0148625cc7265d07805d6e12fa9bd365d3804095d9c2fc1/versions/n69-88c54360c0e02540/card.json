@@ -1,0 +1,239 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+    "source_range": {
+      "end_line": 278,
+      "start_line": 256
+    },
+    "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_unitVector_vectorFunctional_eq_on_stage\n    {H K : Type*}\n    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]\n    [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]\n    (ρ : Representation Limit H) (hρ : ρ.IsIrreducible)\n    (σ : Representation Limit K) (n : ℕ) (η : K) (hη : ‖η‖ = 1) :\n    ∃ ξ : H, ‖ξ‖ = 1 ∧ ∀ c : Stage n,\n      Representation.vectorFunctional ρ ξ (ofStage n c) =\n        Representation.vectorFunctional σ η (ofStage n c)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+    "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+      "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+      "start_line": 256,
+      "start_column": 1,
+      "end_line": 278,
+      "end_column": 28
+    },
+    "start_byte": 11339,
+    "end_byte": 11858,
+    "sha256": "aa6eb3909385750df351b67bc34b313eedb922e3776fc7fee3cdf0a4d2dab9a4",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Purifying a vector state on a finite CAR stage",
+    "one_sentence_role": "Every finite-stage restriction of a unit vector state can be realized by a unit vector in any irreducible CAR representation.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. We use the inner product conjugate linear in its first argument and write $\\varphi_{\\pi,v}(a)=\\langle v,\\pi(a)v\\rangle$ for the vector functional. Fix an irreducible representation $\\pi:A\\to B(H)$, any representation $\\sigma:A\\to B(K)$, and a unit vector $\\eta\\in K$. For every stage $n$ there is a unit vector $\\xi\\in H$ such that $\\varphi_{\\pi,\\xi}(\\iota_n(a))=\\varphi_{\\sigma,\\eta}(\\iota_n(a))$ for all $a\\in A_n$.",
+    "definition_explanation": null,
+    "assumptions": "Both $H$ and $K$ are complete complex Hilbert spaces. Only $\\pi$ is required to be irreducible with nonzero action. The representation $\\sigma$ is unital but may be reducible. The target vector has norm $1$.",
+    "conclusion": "The two vector states agree exactly on the whole chosen matrix stage, not merely approximately on a finite list. The unit vector $\\xi$ may depend on the stage. No single vector realizing the target state on all of $A$ is asserted.",
+    "proof_summary": "Encode the target stage restriction as a Gram matrix, realize that matrix in the root corner of $\\pi$, and reconstruct a vector by applying the first-column matrix units. Matrix-unit coefficients determine a linear functional on a full matrix algebra, and evaluation at the unit gives normalization.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Set $v_i=\\sigma(e_{0i}^{(n)})\\eta$. The matrix-unit relations and the star property give $\\langle v_i,v_j\\rangle=\\varphi_{\\sigma,\\eta}(e_{ij}^{(n)})$. Use the root-corner Gram realization theorem to choose $w_i\\in\\operatorname{ran}\\pi(e_{00}^{(n)})$ with the same inner products."
+      },
+      {
+        "step_id": "s2",
+        "text": "Define $\\xi=\\sum_i\\pi(e_{i0}^{(n)})w_i$. Multiplication by a matrix unit gives $\\pi(e_{pq}^{(n)})\\xi=\\pi(e_{p0}^{(n)})w_q$. Taking the inner product with $\\xi$ yields $\\varphi_{\\pi,\\xi}(e_{pq}^{(n)})=\\langle w_p,w_q\\rangle$."
+      },
+      {
+        "step_id": "s3",
+        "text": "The two vector functionals therefore agree on every matrix unit, and linearity extends equality to every element of $A_n$. At its identity, the target value is $\\|\\eta\\|^2=1$ and the reconstructed value is $\\|\\xi\\|^2$, so $\\|\\xi\\|=1$."
+      }
+    ],
+    "lean_realization_notes": "Finite-stage purification is compatible with mixed restrictions of the target state: no purity assumption on that restriction is needed. The extra room comes from the infinite-dimensional represented root corner.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L256-L278",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 278,
+          "start_line": 256
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Gram realization in the root corner",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L214-L254",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 254,
+          "start_line": 214
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Reconstruction from root-corner vectors",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L25-L30",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.reconstructedStageVector",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 30,
+          "start_line": 25
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Matrix-unit action on the reconstructed vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L32-L47",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.representation_matrixUnit_reconstructedStageVector",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 47,
+          "start_line": 32
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Its matrix-unit coefficients",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L83-L103",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.vectorFunctional_reconstructedStageVector_matrixUnit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 103,
+          "start_line": 83
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Matrix units determine a stage functional",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L115-L128",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.continuousLinearMap_eq_on_ofStage_of_eq_matrixUnit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 128,
+          "start_line": 115
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Equality on the whole stage",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L130-L152",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.reconstructedStageVector_vectorFunctional_eq_on_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 152,
+          "start_line": 130
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Normalization of the reconstructed vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L154-L180",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_reconstructedStageVector_eq_one",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 180,
+          "start_line": 154
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The infinite-dimensional corner supplying room",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L182-L212",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional_range_rootCorner",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 212,
+          "start_line": 182
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Representation and nonzero irreducibility conventions",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean#L19-L47",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsIrreducible",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean",
+        "source_sha256": "39a2641871d68ec2f30937ab9889e627261f13929f901f2b43c85ad2944a6888",
+        "source_range": {
+          "start_line": 19,
+          "end_line": 47
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "b68e61a55e1334abdc50b1e9cf528b04c1e40407e8ac766004918e72ddf9c01f",
+    "uid": "lfh:lfh-declaration-card:sha256:01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "88c54360c0e0254051673cb7d6c1b17c24460ef5417b8103dd7ecf9591a57f43",
+    "uid": "lfh:lfh-card-exposition:sha256:5fb76f37948512dd374f5161a36afee7ebc38061b8921ccfb92c4af2b723015e"
+  },
+  "guide": "Here `ρ` is $\\pi$, `σ` is $\\sigma$, and `Representation.vectorFunctional` is $\\varphi$. The input `η` is the target unit vector and the existential `ξ` is its finite-stage realization. `ofStage n a` denotes $\\iota_n(a)$. The proof uses `reconstructedStageVector` for the finite sum in the second step.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1/versions/n69-88c54360c0e02540/index.html",
+    "pdf": "card.pdf"
+  }
+}

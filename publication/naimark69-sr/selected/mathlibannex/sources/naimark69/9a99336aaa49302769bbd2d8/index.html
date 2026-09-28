@@ -1,0 +1,135 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/9a99336aaa49302769bbd2d8/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean</code>, lines 35–133.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e/versions/n69-95487527d395cd99/index.html">Back to An irreducible operator algebra constructed from projection shells</a> · <a href="../../../cards/39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a/versions/n69-288200e633113b2b/index.html">Back to The atomic-shell construction on selected pure-GNS fibers</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.Adapters</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.AtomicCommutant</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.AtomicConstruction.Concrete</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># A source-parametric atomic model from projection shells</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>This theorem consumes only representation-local source data: pairwise</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>inequivalent irreducible fibers, selected unit vectors, decreasing normalized</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>flags, and shell partial isometries with their exact initial/final supports.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>It constructs the off-diagonal rank-one completions, proves their termwise</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>shell relations, and proves irreducibility of the displayed concrete target.</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>No target capture, target simplicity, or final Naimark conclusion is a field</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>or hypothesis.</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>-/</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>set_option autoImplicit false</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>open Filter Topology</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>open scoped ENNReal lp InnerProduct</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>namespace MathlibAnnex.CStarAlgebra.AtomicConstruction</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>universe u v w</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>variable {A : Type u} [CStarAlgebra A]</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>variable {I : Type v} {H : I → Type w}</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>variable [DecidableEq I]</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>variable [∀ i, NormedAddCommGroup (H i)] [∀ i, InnerProductSpace ℂ (H i)]</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>variable [∀ i, CompleteSpace (H i)] [∀ i, Nontrivial (H i)]</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a></span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>/-- Natural shell data on an arbitrary family of pairwise inequivalent</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>irreducible fibers produces actual inter-block unitary generators and an</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>irreducible concrete generated representation. -/</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>theorem exists_irreducible_atomicShellModel</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>    (pi : ∀ i, Representation A (H i))</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>    (hirr : ∀ i, StarAlgHom.IsIrreducible (pi i))</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>    (hno : ∀ ⦃i j : I⦄, i ≠ j → ∀ e : H i ≃ₗᵢ[ℂ] H j,</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>      ¬ StarAlgHom.Intertwines (pi i) (pi j) (e : H i →L[ℂ] H j))</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>    (o : I) (xi : ∀ i, H i) (hxi : ∀ i, ‖xi i‖ = 1)</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>    (W : I → ℕ → HilbertSum H →L[ℂ] HilbertSum H)</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>    (U V : I → ℕ → Submodule ℂ (HilbertSum H))</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>    [∀ i n, (U i n).HasOrthogonalProjection]</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a>    [∀ i n, (V i n).HasOrthogonalProjection]</span>
+<span class="source-line selected" id="L48"><a class="line-no" href="#L48">48</a>    [∀ i, (⨅ n, U i n).HasOrthogonalProjection]</span>
+<span class="source-line selected" id="L49"><a class="line-no" href="#L49">49</a>    [∀ i, (⨅ n, V i n).HasOrthogonalProjection]</span>
+<span class="source-line selected" id="L50"><a class="line-no" href="#L50">50</a>    (hU : ∀ i, Antitone (U i)) (hV : ∀ i, Antitone (V i))</span>
+<span class="source-line selected" id="L51"><a class="line-no" href="#L51">51</a>    (hU0 : ∀ i, U i 0 = ⊤) (hV0 : ∀ i, V i 0 = ⊤)</span>
+<span class="source-line selected" id="L52"><a class="line-no" href="#L52">52</a>    (hInitial : ∀ i n, ((W i n)†).comp (W i n) =</span>
+<span class="source-line selected" id="L53"><a class="line-no" href="#L53">53</a>      Submodule.projectionShell (U i) n)</span>
+<span class="source-line selected" id="L54"><a class="line-no" href="#L54">54</a>    (hFinal : ∀ i n, (W i n).comp ((W i n)†) =</span>
+<span class="source-line selected" id="L55"><a class="line-no" href="#L55">55</a>      Submodule.projectionShell (V i) n)</span>
+<span class="source-line selected" id="L56"><a class="line-no" href="#L56">56</a>    (hUinf : ∀ i, (⨅ n, U i n).starProjection =</span>
+<span class="source-line selected" id="L57"><a class="line-no" href="#L57">57</a>      InnerProductSpace.rankOne ℂ (coordinateEmbedding i (xi i))</span>
+<span class="source-line selected" id="L58"><a class="line-no" href="#L58">58</a>        (coordinateEmbedding i (xi i)))</span>
+<span class="source-line selected" id="L59"><a class="line-no" href="#L59">59</a>    (hVinf : ∀ i, (⨅ n, V i n).starProjection =</span>
+<span class="source-line selected" id="L60"><a class="line-no" href="#L60">60</a>      InnerProductSpace.rankOne ℂ (coordinateEmbedding o (xi o))</span>
+<span class="source-line selected" id="L61"><a class="line-no" href="#L61">61</a>        (coordinateEmbedding o (xi o))) :</span>
+<span class="source-line selected" id="L62"><a class="line-no" href="#L62">62</a>    ∃ L : I → HilbertSum H →L[ℂ] HilbertSum H,</span>
+<span class="source-line selected" id="L63"><a class="line-no" href="#L63">63</a>      (∀ i, L i ∈ unitary (HilbertSum H →L[ℂ] HilbertSum H)) ∧</span>
+<span class="source-line selected" id="L64"><a class="line-no" href="#L64">64</a>      (∀ i, L i (coordinateEmbedding i (xi i)) =</span>
+<span class="source-line selected" id="L65"><a class="line-no" href="#L65">65</a>        coordinateEmbedding o (xi o)) ∧</span>
+<span class="source-line selected" id="L66"><a class="line-no" href="#L66">66</a>      (∀ i n, (L i).comp (Submodule.projectionShell (U i) n) = W i n) ∧</span>
+<span class="source-line selected" id="L67"><a class="line-no" href="#L67">67</a>      Representation.IsIrreducible</span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>        (ambientInclusion (atomicRepresentation pi) L) := by</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>  have hexists (i : I) : ∃ S : HilbertSum H →L[ℂ] HilbertSum H,</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>      ContinuousLinearMap.StronglyConverges</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>          (ContinuousLinearMap.partialSum (W i)) atTop S ∧</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>      (S + InnerProductSpace.rankOne ℂ</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>          (coordinateEmbedding o (xi o)) (coordinateEmbedding i (xi i))) ∈</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>        unitary (HilbertSum H →L[ℂ] HilbertSum H) ∧</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>      (S + InnerProductSpace.rankOne ℂ</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>          (coordinateEmbedding o (xi o)) (coordinateEmbedding i (xi i)))</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>          (coordinateEmbedding i (xi i)) = coordinateEmbedding o (xi o) ∧</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>      ∀ n, (S + InnerProductSpace.rankOne ℂ</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>          (coordinateEmbedding o (xi o)) (coordinateEmbedding i (xi i))).comp</span>
+<span class="source-line selected" id="L80"><a class="line-no" href="#L80">80</a>          (Submodule.projectionShell (U i) n) = W i n := by</span>
+<span class="source-line selected" id="L81"><a class="line-no" href="#L81">81</a>    apply ContinuousLinearMap.exists_rankOneCompletion_of_projectionShells</span>
+<span class="source-line selected" id="L82"><a class="line-no" href="#L82">82</a>      (W i) (U i) (V i) (hU i) (hV i) (hU0 i) (hV0 i)</span>
+<span class="source-line selected" id="L83"><a class="line-no" href="#L83">83</a>      (hInitial i) (hFinal i)</span>
+<span class="source-line selected" id="L84"><a class="line-no" href="#L84">84</a>      (coordinateEmbedding o (xi o)) (coordinateEmbedding i (xi i))</span>
+<span class="source-line selected" id="L85"><a class="line-no" href="#L85">85</a>    · simpa [norm_coordinateEmbedding] using hxi o</span>
+<span class="source-line selected" id="L86"><a class="line-no" href="#L86">86</a>    · simpa [norm_coordinateEmbedding] using hxi i</span>
+<span class="source-line selected" id="L87"><a class="line-no" href="#L87">87</a>    · exact hUinf i</span>
+<span class="source-line selected" id="L88"><a class="line-no" href="#L88">88</a>    · exact hVinf i</span>
+<span class="source-line selected" id="L89"><a class="line-no" href="#L89">89</a>  choose S hS hunit hmap hterm using hexists</span>
+<span class="source-line selected" id="L90"><a class="line-no" href="#L90">90</a>  let L : I → HilbertSum H →L[ℂ] HilbertSum H := fun i ↦</span>
+<span class="source-line selected" id="L91"><a class="line-no" href="#L91">91</a>    S i + InnerProductSpace.rankOne ℂ</span>
+<span class="source-line selected" id="L92"><a class="line-no" href="#L92">92</a>      (coordinateEmbedding o (xi o)) (coordinateEmbedding i (xi i))</span>
+<span class="source-line selected" id="L93"><a class="line-no" href="#L93">93</a>  have hLunit : ∀ i, L i ∈ unitary (HilbertSum H →L[ℂ] HilbertSum H) := by</span>
+<span class="source-line selected" id="L94"><a class="line-no" href="#L94">94</a>    intro i</span>
+<span class="source-line selected" id="L95"><a class="line-no" href="#L95">95</a>    exact hunit i</span>
+<span class="source-line selected" id="L96"><a class="line-no" href="#L96">96</a>  have hLmap : ∀ i, L i (coordinateEmbedding i (xi i)) =</span>
+<span class="source-line selected" id="L97"><a class="line-no" href="#L97">97</a>      coordinateEmbedding o (xi o) := by</span>
+<span class="source-line selected" id="L98"><a class="line-no" href="#L98">98</a>    intro i</span>
+<span class="source-line selected" id="L99"><a class="line-no" href="#L99">99</a>    exact hmap i</span>
+<span class="source-line selected" id="L100"><a class="line-no" href="#L100">100</a>  have hLterm : ∀ i n, (L i).comp</span>
+<span class="source-line selected" id="L101"><a class="line-no" href="#L101">101</a>      (Submodule.projectionShell (U i) n) = W i n := by</span>
+<span class="source-line selected" id="L102"><a class="line-no" href="#L102">102</a>    intro i n</span>
+<span class="source-line selected" id="L103"><a class="line-no" href="#L103">103</a>    exact hterm i n</span>
+<span class="source-line selected" id="L104"><a class="line-no" href="#L104">104</a>  have hrootne : coordinateEmbedding o (xi o) ≠ 0 := by</span>
+<span class="source-line selected" id="L105"><a class="line-no" href="#L105">105</a>    intro hzero</span>
+<span class="source-line selected" id="L106"><a class="line-no" href="#L106">106</a>    have := congrArg norm hzero</span>
+<span class="source-line selected" id="L107"><a class="line-no" href="#L107">107</a>    simpa [norm_coordinateEmbedding, hxi o] using this</span>
+<span class="source-line selected" id="L108"><a class="line-no" href="#L108">108</a>  letI : Nontrivial (HilbertSum H) := nontrivial_of_ne</span>
+<span class="source-line selected" id="L109"><a class="line-no" href="#L109">109</a>    (coordinateEmbedding o (xi o)) 0 hrootne</span>
+<span class="source-line selected" id="L110"><a class="line-no" href="#L110">110</a>  have hmodelStar : StarAlgHom.IsIrreducible</span>
+<span class="source-line selected" id="L111"><a class="line-no" href="#L111">111</a>      (ambientInclusion (atomicRepresentation pi) L) := by</span>
+<span class="source-line selected" id="L112"><a class="line-no" href="#L112">112</a>    apply StarAlgHom.isIrreducible_of_commutant_eq_algebraMap</span>
+<span class="source-line selected" id="L113"><a class="line-no" href="#L113">113</a>    intro T hT</span>
+<span class="source-line selected" id="L114"><a class="line-no" href="#L114">114</a>    apply eq_algebraMap_of_atomic_of_links pi hirr hno o xi hxi L hLmap T</span>
+<span class="source-line selected" id="L115"><a class="line-no" href="#L115">115</a>    · intro a</span>
+<span class="source-line selected" id="L116"><a class="line-no" href="#L116">116</a>      have h := hT (sourceHom (atomicRepresentation pi) L a)</span>
+<span class="source-line selected" id="L117"><a class="line-no" href="#L117">117</a>      change Commute T</span>
+<span class="source-line selected" id="L118"><a class="line-no" href="#L118">118</a>        (((sourceHom (atomicRepresentation pi) L a :</span>
+<span class="source-line selected" id="L119"><a class="line-no" href="#L119">119</a>          concreteTarget (atomicRepresentation pi) L) :</span>
+<span class="source-line selected" id="L120"><a class="line-no" href="#L120">120</a>            HilbertSum H →L[ℂ] HilbertSum H)) at h</span>
+<span class="source-line selected" id="L121"><a class="line-no" href="#L121">121</a>      rw [sourceHom_coe] at h</span>
+<span class="source-line selected" id="L122"><a class="line-no" href="#L122">122</a>      exact h</span>
+<span class="source-line selected" id="L123"><a class="line-no" href="#L123">123</a>    · intro i</span>
+<span class="source-line selected" id="L124"><a class="line-no" href="#L124">124</a>      have h := hT (generator (atomicRepresentation pi) L i)</span>
+<span class="source-line selected" id="L125"><a class="line-no" href="#L125">125</a>      change Commute T</span>
+<span class="source-line selected" id="L126"><a class="line-no" href="#L126">126</a>        (((generator (atomicRepresentation pi) L i :</span>
+<span class="source-line selected" id="L127"><a class="line-no" href="#L127">127</a>          concreteTarget (atomicRepresentation pi) L) :</span>
+<span class="source-line selected" id="L128"><a class="line-no" href="#L128">128</a>            HilbertSum H →L[ℂ] HilbertSum H)) at h</span>
+<span class="source-line selected" id="L129"><a class="line-no" href="#L129">129</a>      rw [generator_coe] at h</span>
+<span class="source-line selected" id="L130"><a class="line-no" href="#L130">130</a>      exact h</span>
+<span class="source-line selected" id="L131"><a class="line-no" href="#L131">131</a>  exact ⟨L, hLunit, hLmap, hLterm,</span>
+<span class="source-line selected" id="L132"><a class="line-no" href="#L132">132</a>    (Representation.isIrreducible_iff_starAlgHom</span>
+<span class="source-line selected" id="L133"><a class="line-no" href="#L133">133</a>      (ambientInclusion (atomicRepresentation pi) L)).2 hmodelStar⟩</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a></span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>end MathlibAnnex.CStarAlgebra.AtomicConstruction</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

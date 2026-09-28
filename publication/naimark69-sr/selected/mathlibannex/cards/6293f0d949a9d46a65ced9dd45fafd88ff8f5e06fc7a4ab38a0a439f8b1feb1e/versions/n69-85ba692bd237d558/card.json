@@ -1,0 +1,255 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean",
+    "source_range": {
+      "end_line": 46,
+      "start_line": 42
+    },
+    "source_sha256": "03b656bcd11a56be975858c8610eeb4355a5eb52d9c2fe99e6efff5e2d27ef3a",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 1850,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "64a92b55ccdd7ee968984ae2784a9b88f70c7c41a5186a7f7fcd4bf2a0a04ab4",
+    "source_command_range": {
+      "end_column": 64,
+      "end_line": 46,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean",
+      "source_sha256": "03b656bcd11a56be975858c8610eeb4355a5eb52d9c2fe99e6efff5e2d27ef3a",
+      "start_column": 1,
+      "start_line": 42
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean",
+    "source_sha256": "03b656bcd11a56be975858c8610eeb4355a5eb52d9c2fe99e6efff5e2d27ef3a",
+    "start_byte": 1643,
+    "text": "@[simp]\ntheorem trace_transportedFlag (family : RepresentativeShellFamily)\n    (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit) (n : ℕ) :\n    trace (transportedFlag family i n) = (2 ^ n : ℂ)⁻¹"
+  },
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra with matrix stages $M_{2^n}(\\mathbb C)$ embedded by $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit, $p_n=f_n-f_{n+1}$, and $\\omega$ for the root state characterized by $\\omega(\\iota_n(a))=a_{00}$ on each stage, where $\\iota_n$ is its canonical embedding.\n\nIndex chosen pure-state Gelfand-Naimark-Segal (GNS) representations by their unitary-equivalence classes $j\\in I$, with root index $o$ and representative states $\\varphi_j$.\n\nA fixed shell family consists of complex-linear unital star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ satisfying $\\varphi_j(\\alpha_j(a))=\\omega(a)$, $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$ and $w_{j,n}w_{j,n}^*=p_n$.\n\nAt the root, $\\alpha_o$ is the identity and $w_{o,n}=p_n$.\n\nThe functional $\\tau$ is the normalized CAR trace defined in [the trace construction](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L62-L64). In particular $\\tau(f_n)=2^{-n}$. The same family and the same automorphism $\\alpha_j$ are used for all values of $n$.",
+    "conclusion": "Transported flags and root flags have the same trace at each level. This supplies the decaying scalar values needed to estimate their action on vectors implementing the trace.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Shell matching fixes the trace of transported flags",
+    "language_tag": "en",
+    "lean_realization_notes": "No new automorphism is chosen and trace-invariance of arbitrary automorphisms is not assumed. The proof uses the exact support identities of the given links and finite induction; it does not infer that the projections themselves converge in operator norm.",
+    "natural_language_statement": "For the completed CAR algebra with normalized trace $\\tau$ and a fixed shell family, the transported projection $f_{j,n}=\\alpha_j(f_n)$ satisfies $\\tau(f_{j,n})=2^{-n}$ for every index $j$ and every $n\\geq0$. Here $f_n$ is the root projection at the matrix stage of size $2^n$.",
+    "one_sentence_role": "Recovers exact trace values from the initial and final supports of shell links.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Use $w_{j,n}^*w_{j,n}=f_{j,n}-f_{j,n+1}$ and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$ in the trace identity."
+      },
+      {
+        "step_id": "s2",
+        "text": "At $n=0$ both flags are $1$. If their traces agree at $n$, equality of the successive differences gives agreement at $n+1$."
+      },
+      {
+        "step_id": "s3",
+        "text": "At stage $n$, the root projection has exactly one diagonal entry equal to $1$. Dividing its matrix trace by $2^n$ gives the stated value."
+      }
+    ],
+    "proof_summary": "For each shell link, traciality gives $\\tau(w_{j,n}^*w_{j,n})=\\tau(w_{j,n}w_{j,n}^*)$. Its support identities turn this into $\\tau(f_{j,n})-\\tau(f_{j,n+1})=\\tau(f_n)-\\tau(f_{n+1})$. Both flags start at $1$, so induction forces equal trace values at every level. The root value is the normalized trace of a rank-one diagonal matrix projection."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 42
+        },
+        "source_sha256": "03b656bcd11a56be975858c8610eeb4355a5eb52d9c2fe99e6efff5e2d27ef3a",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean#L42-L46"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 39
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L39-L46"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellData",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 37,
+          "start_line": 26
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellData",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L26-L37"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 104,
+          "start_line": 101
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L101-L104"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag_zero",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 119,
+          "start_line": 116
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.transportedFlag_zero",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L116-L119"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.representativeLink_initial",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 141,
+          "start_line": 135
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.representativeLink_initial",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L135-L141"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.representativeLink_final",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 148,
+          "start_line": 143
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.representativeLink_final",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L143-L148"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 125,
+          "start_line": 120
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace_mul_comm",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L120-L125"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 129,
+          "start_line": 127
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace_rootFlag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L127-L129"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag_eq_trace_rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean",
+        "source_range": {
+          "end_line": 40,
+          "start_line": 30
+        },
+        "source_sha256": "03b656bcd11a56be975858c8610eeb4355a5eb52d9c2fe99e6efff5e2d27ef3a",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag_eq_trace_rootFlag",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean#L30-L40"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 64,
+          "start_line": 62
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.trace",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L62-L64"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "ff46ad6b268c1288820f831c4777d7514861ba16ddaf465dfce9eb69ffba7c69",
+    "uid": "lfh:lfh-declaration-card:sha256:6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "85ba692bd237d55892f80c775d498013680ebb72282e8106668d7b36c051df9d",
+    "uid": "lfh:lfh-card-exposition:sha256:59f413a403df56587446098f1ecd0445a28d87ae7347baabfde80525383d4412"
+  },
+  "guide": "Here `Limit` is $A$, `trace` is $\\tau$, and `rootFlag n` is $f_n$. The source index `i` is the index $j$ used here. The expression `transportedFlag family i n` is $\\alpha_j(f_n)=f_{j,n}$. The right-hand side is the reciprocal of $2^n$, regarded as a complex scalar, so the source equality is precisely $\\tau(f_{j,n})=2^{-n}$.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e/versions/n69-85ba692bd237d558/index.html",
+    "pdf": "card.pdf"
+  }
+}

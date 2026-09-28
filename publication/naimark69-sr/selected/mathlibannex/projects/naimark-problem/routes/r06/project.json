@@ -1,0 +1,90 @@
+{
+  "title": "Unitary equivalence of irreducible representations",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 9,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "96ea1c57fcaefde73b57f268d03d633124e71f1704b992ca7e2ecfb4c5bea821",
+        "uid": "lfh:lfh-declaration-card:sha256:f812ae1994c38c2084553fa23f888662511d3ca528cc035a090b656e5c38b152"
+      },
+      "url": "/mathlibannex/cards/f812ae1994c38c2084553fa23f888662511d3ca528cc035a090b656e5c38b152/versions/n69-4dec22a18c5651da/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "608748718c9b2fa8d4a3f8b34ab899dc76f70c13f6b41b13231b5aa918686622",
+        "uid": "lfh:lfh-declaration-card:sha256:ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d"
+      },
+      "url": "/mathlibannex/cards/ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d/versions/n69-dcb3559cfc538c70/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5b9f5d0a4cfb13095b600fce83d7654403ab06f9f73800276dece4ac88a2ba89",
+        "uid": "lfh:lfh-declaration-card:sha256:67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77"
+      },
+      "url": "/mathlibannex/cards/67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77/versions/n69-9a2fd2ad5c81a020/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5fb3870842607637f36f0d394546e845aa17652f3b2b9f5363bebcc9c2a4d26d",
+        "uid": "lfh:lfh-declaration-card:sha256:0efa27a129d831d1ec7063acc030ac436bf2943bf9740b72e0581bfdea44cb03"
+      },
+      "url": "/mathlibannex/cards/0efa27a129d831d1ec7063acc030ac436bf2943bf9740b72e0581bfdea44cb03/versions/n69-8d9b9d22f8e6fca5/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "63eb23bc6a8d3e7555fba85b8fa2b3034c6655a355c5a79f27854ee042fbc82b",
+        "uid": "lfh:lfh-declaration-card:sha256:613fdafd1f323fb659d8b89d248b1f5902a2cc42585e5fe30392ece18490eeea"
+      },
+      "url": "/mathlibannex/cards/613fdafd1f323fb659d8b89d248b1f5902a2cc42585e5fe30392ece18490eeea/versions/n69-eca1da9d8c8943a3/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "b8dddc74bf9f0654a8de879f783ff7c092ef0d41663280a93568ddb1a007c8ef",
+        "uid": "lfh:lfh-declaration-card:sha256:eb751b0f22dde8fb7e06ff32bb25d5db1cd55259e2b97594d65e2f3fc7657452"
+      },
+      "url": "/mathlibannex/cards/eb751b0f22dde8fb7e06ff32bb25d5db1cd55259e2b97594d65e2f3fc7657452/versions/n69-9240c79b6251b902/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5e8723732f99734ed20d9eebcec120288986b4189609f25f82176fc458697e28",
+        "uid": "lfh:lfh-declaration-card:sha256:b6748daf1c41f393446af30ae98ca1dda1b7f3f027f7efa07a934eff56065fd4"
+      },
+      "url": "/mathlibannex/cards/b6748daf1c41f393446af30ae98ca1dda1b7f3f027f7efa07a934eff56065fd4/versions/n69-7cbb07e920950cd3/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "12b80e1f736ab61c746ad43545eeac483af19f4bccd6ea10d04993b56aef591b",
+        "uid": "lfh:lfh-declaration-card:sha256:2f74196f22042b6e02ddfbd323ee500f1cd0f3bc297f30b91ccaed55116f7c26"
+      },
+      "url": "/mathlibannex/cards/2f74196f22042b6e02ddfbd323ee500f1cd0f3bc297f30b91ccaed55116f7c26/versions/n69-005b0ef073045c52/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "963ba28055994c54f1f2a45c157c1d4c74f37952b595c5894c0c051169f78338",
+        "uid": "lfh:lfh-declaration-card:sha256:c2533b47d2800cf40bedcc7a2969c4296ab1b60fe6986fe527e1247ef3862788"
+      },
+      "url": "/mathlibannex/cards/c2533b47d2800cf40bedcc7a2969c4296ab1b60fe6986fe527e1247ef3862788/versions/n69-de7fb04f639023fa/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

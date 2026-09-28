@@ -1,0 +1,183 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+    "source_range": {
+      "end_line": 133,
+      "start_line": 130
+    },
+    "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem traceModelRepresentation_injective (family : RepresentativeShellFamily) :\n    Function.Injective (traceModelRepresentation family)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+    "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+      "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+      "start_line": 130,
+      "start_column": 1,
+      "end_line": 133,
+      "end_column": 46
+    },
+    "start_byte": 6149,
+    "end_byte": 6287,
+    "sha256": "7483c4398beb7120be237424d6d5e363f30c3a4a69a5e784753b754fbb70609a",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Faithfulness of the representation on the CAR trace Hilbert space",
+    "one_sentence_role": "Unitary conjugation preserves injectivity of the target-state representation.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Let $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$ be the GNS representation of the chosen state extension $\\phi$, and let $(H_\\tau,\\pi_\\tau,\\xi_\\tau)$ be the CAR trace GNS representation. Choose once the pointed unitary $E:H_\\tau\\to H_\\phi$ with $E\\xi_\\tau=\\xi_\\phi$ and $E\\pi_\\tau(a)=\\rho_\\phi(\\iota(a))E$. Then $\\widetilde\\rho(t)=E^{-1}\\rho_\\phi(t)E$ is injective on $T$.",
+    "definition_explanation": null,
+    "assumptions": "The family, extension, and chosen unitary are the ones used to define `traceModelRepresentation`. Faithfulness of $\\rho_\\phi$ is the separately proved kernel-dichotomy result.",
+    "conclusion": "The same concrete target admits a faithful representation on the nonzero separable space $H_\\tau=L^2(A,\\tau)$. Its restriction to $A$ is the CAR trace representation.",
+    "proof_summary": "Undo the same conjugation and apply faithfulness of the original target-state representation.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Suppose $\\widetilde\\rho(t)=\\widetilde\\rho(s)$. Since $E$ is a unitary onto $H_\\phi$,\n\n$$\\rho_\\phi(t)=E\\widetilde\\rho(t)E^{-1}=E\\widetilde\\rho(s)E^{-1}=\\rho_\\phi(s).$$\n\nThe theorem `tracialRepresentation_injective` then gives $t=s$. In the source this is the composition of the injective conjugation equivalence with the injective representation; it does not require another ideal argument."
+      }
+    ],
+    "lean_realization_notes": "Injectivity concerns the homomorphism into operators, not a vector functional. The result does not assert irreducibility of this representation or norm separability of $T$. Conjugation uses the inverse on the left because $E$ points from the CAR space to the target-state space.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean#L130-L133",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+        "source_range": {
+          "end_line": 133,
+          "start_line": 130
+        },
+        "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed concrete target and source map",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the source embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L78-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 78
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Definition and direction of the transport",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean#L104-L108",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+        "source_range": {
+          "end_line": 108,
+          "start_line": 104
+        },
+        "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness before conjugation",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L126-L132",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 132,
+          "start_line": 126
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Separable CAR trace space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean#L54-L57",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableSpace_traceHilbertSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+        "source_range": {
+          "end_line": 57,
+          "start_line": 54
+        },
+        "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Source action in the transported model",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean#L118-L128",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_shellFamilySourceHom",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+        "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+        "source_range": {
+          "start_line": 118,
+          "end_line": 128
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "d604a2745ef32d61d8f9b60d3479ff7289bed7fccdc662ee899b3feace46bafd",
+    "uid": "lfh:lfh-declaration-card:sha256:258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "462078ea562693ed5553e7331061073cfbafd297f1330ceb6ae70b08c1a6b407",
+    "uid": "lfh:lfh-card-exposition:sha256:67291157b7fa76822ad39ce7ddbd4110311eaddb4fba6ee36ebabb034c601f00"
+  },
+  "guide": "`traceModelRepresentation family` is $\\widetilde\\rho$ on `TraceHilbertSpace`. The proof uses `(traceGNSUnitary family).symm.conjStarAlgEquiv.injective` and `tracialRepresentation_injective family`. These refer to the exact same $E$ and $\\rho_\\phi$ as the definition, not newly selected existence witnesses.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e/versions/n69-462078ea562693ed/index.html",
+    "pdf": "card.pdf"
+  }
+}

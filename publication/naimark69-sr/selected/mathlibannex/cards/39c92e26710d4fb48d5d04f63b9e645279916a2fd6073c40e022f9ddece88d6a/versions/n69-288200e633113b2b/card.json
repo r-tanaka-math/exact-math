@@ -1,0 +1,175 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+    "source_range": {
+      "end_line": 159,
+      "start_line": 107
+    },
+    "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_irreducible_pureAtomicShellModel\n    (root : PureState A)\n    (W : PureState.GNSClass A → ℕ →\n      PureState.SelectedAtomicHilbert root →L[ℂ]\n        PureState.SelectedAtomicHilbert root)\n    (U V : PureState.GNSClass A → ℕ →\n      Submodule ℂ (PureState.SelectedAtomicHilbert root))\n    [∀ i n, (U i n).HasOrthogonalProjection]\n    [∀ i n, (V i n).HasOrthogonalProjection]\n    [∀ i, (⨅ n, U i n).HasOrthogonalProjection]\n    [∀ i, (⨅ n, V i n).HasOrthogonalProjection]\n    (hU : ∀ i, Antitone (U i)) (hV : ∀ i, Antitone (V i))\n    (hU0 : ∀ i, U i 0 = ⊤) (hV0 : ∀ i, V i 0 = ⊤)\n    (hInitial : ∀ i n, ((W i n)†).comp (W i n) =\n      Submodule.projectionShell (U i) n)\n    (hFinal : ∀ i n, (W i n).comp ((W i n)†) =\n      Submodule.projectionShell (V i) n)\n    (hUinf : ∀ i, (⨅ n, U i n).starProjection =\n      InnerProductSpace.rankOne ℂ\n        (PureState.selectedEmbedding root i (PureState.selectedVector root i))\n        (PureState.selectedEmbedding root i (PureState.selectedVector root i)))\n    (hVinf : ∀ i, (⨅ n, V i n).starProjection =\n      InnerProductSpace.rankOne ℂ\n        (PureState.selectedEmbedding root root.classOf\n          (PureState.selectedVector root root.classOf))\n        (PureState.selectedEmbedding root root.classOf\n          (PureState.selectedVector root root.classOf))) :\n    ∃ L : PureState.GNSClass A →\n        PureState.SelectedAtomicHilbert root →L[ℂ]\n          PureState.SelectedAtomicHilbert root,\n      (∀ i, L i ∈ unitary\n        (PureState.SelectedAtomicHilbert root →L[ℂ]\n          PureState.SelectedAtomicHilbert root)) ∧\n      (∀ i, L i (PureState.selectedEmbedding root i\n          (PureState.selectedVector root i)) =\n        PureState.selectedEmbedding root root.classOf\n          (PureState.selectedVector root root.classOf)) ∧\n      (∀ i n, (L i).comp (Submodule.projectionShell (U i) n) = W i n) ∧\n      Representation.IsIrreducible\n        (ambientInclusion\n          (atomicRepresentation (PureState.selectedRepresentation root)) L)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+    "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+      "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+      "start_line": 107,
+      "start_column": 1,
+      "end_line": 159,
+      "end_column": 54
+    },
+    "start_byte": 4347,
+    "end_byte": 6435,
+    "sha256": "4e5979432498f1696fc1be57d174785e46f80105b40a19fd5e85d373b9949e7d",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "The atomic-shell construction on selected pure-GNS fibers",
+    "one_sentence_role": "Pure-state GNS data supplies the irreducible and inequivalent fibers required by the generic shell construction.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra, with the positive order used for its states, and fix a pure state $\\omega$. A pure state is an extreme point of the normalized positive continuous linear functionals. Let $I$ be the set of pure-state GNS representations modulo unitary equivalence. For each $j\\in I$, choose a pure state $\\varphi_j$ in that class, retaining $\\varphi_o=\\omega$ literally at $o=[\\omega]$. Write $(H_j,\\pi_j,\\xi_j)$ for its GNS space, representation and canonical cyclic vector. Write $\\mathcal H=\\bigoplus_{j\\in I}H_j$ for the Hilbert direct sum, $e_j:H_j\\to\\mathcal H$ for coordinate inclusion, and $\\pi(a)(x_j)_j=(\\pi_j(a)x_j)_j$. Here the sum consists of square-summable families and has no countability restriction on $I$. Put $b_j=e_j\\xi_j$. Given the shell data specified below, there exist unitaries $L_j\\in B(\\mathcal H)$ with $L_jb_j=b_o$ and $L_j(P_{j,n}-P_{j,n+1})=W_{j,n}$. The inclusion of $T=C^*(\\pi(A),\\{L_j:j\\in I\\})$ into $B(\\mathcal H)$ is irreducible.",
+    "definition_explanation": null,
+    "assumptions": "For each $i\\in I$, let $(U_{i,n})_{n\\geq0}$ and $(V_{i,n})_{n\\geq0}$ be decreasing subspaces of $\\mathcal H$, with $U_{i,0}=V_{i,0}=\\mathcal H$. All these subspaces and both intersections admit orthogonal projections. Write $P_{i,n}=P_{U_{i,n}}$, $Q_{i,n}=P_{V_{i,n}}$, and $P_{i,\\infty}=P_{\\bigcap_nU_{i,n}}$, $Q_{i,\\infty}=P_{\\bigcap_nV_{i,n}}$. The given bounded shell maps $W_{i,n}$ satisfy $W_{i,n}^*W_{i,n}=P_{i,n}-P_{i,n+1}$ and $W_{i,n}W_{i,n}^*=Q_{i,n}-Q_{i,n+1}$. Their limiting defects are prescribed: $P_{i,\\infty}=\\theta_{b_i,b_i}$ and $Q_{i,\\infty}=\\theta_{b_o,b_o}$. Here $\\theta_{a,b}x=\\langle b,x\\rangle a$, with the inner product linear in its second variable. In these formulas the generic index $i$ ranges over the GNS classes $I$ and the vectors are the selected GNS vectors just defined. The two flags, shell maps, support equations and limiting rank-one equations remain hypotheses; purity alone does not supply them.",
+    "conclusion": "One family of unitary links realizes all prescribed shell actions and joins every selected cyclic vector to the root vector, with irreducible concrete target action. This is the specialization of the generic atomic-shell result to the chosen pure-GNS family.",
+    "proof_summary": "Use the selected GNS representations as the fibers of the generic atomic-shell theorem, with root class $o=[\\omega]$ and the same selected vectors $\\xi_j$. Three proved pure-GNS facts discharge its representation hypotheses; all shell hypotheses pass through unchanged.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The selected-vector normalization theorem gives $\\|\\xi_j\\|=1$, so each $H_j$ is nonzero. The selected-vector functional equals the pure state $\\varphi_j$, and the selected GNS orbit is dense. The separate pure-GNS irreducibility theorem uses these facts to show that each $\\pi_j$ is irreducible."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $i\\ne j$, the selected-class non-intertwining theorem rules out a unitary intertwiner between $\\pi_i$ and $\\pi_j$. The GNS classes, not merely the state functionals, are required to be distinct. Thus the pairwise-unitary-inequivalence hypothesis of the generic theorem is satisfied."
+      },
+      {
+        "step_id": "s3",
+        "text": "Apply the generic atomic-shell theorem with these fibers, the distinguished index $o$, the already fixed vectors $\\xi_j$, and the given $W,U,V$. The displayed support and rank-one intersection equations are the remaining inputs. Coordinate inclusion here is exactly $e_j$, so its output vector-link and shell equations are the required ones, with no new choice of GNS representatives."
+      }
+    ],
+    "lean_realization_notes": "The selected vectors are fixed before applying the construction and are not replaced by arbitrary unit vectors. No target capture or simplicity conclusion is part of this result, and the selected representations are not assumed faithful. No countability or separability of $I$ or $\\mathcal H$ is required.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L107-L159",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 159,
+          "start_line": 107
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Generic atomic-shell construction with its full input hypotheses",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean#L35-L133",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean",
+        "source_range": {
+          "end_line": 133,
+          "start_line": 35
+        },
+        "source_sha256": "c3b02a92548ee34891bb459f490d0b8cde32d32bbac2da915d9e3688ef6f7336",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Irreducibility of each selected GNS fiber",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L65-L73",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.isIrreducible_selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 73,
+          "start_line": 65
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Inequivalence of distinct selected classes",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L75-L88",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 88,
+          "start_line": 75
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Norm one of the selected cyclic vectors",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L43-L45",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.norm_selectedVector",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 45,
+          "start_line": 43
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Selected coordinate inclusions",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L94-L98",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 98,
+          "start_line": 94
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "e244b62ef37cd89bb88e21906ffcf366d76ae4d38f5c2da2ce82cef0f7bb177b",
+    "uid": "lfh:lfh-declaration-card:sha256:39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "288200e633113b2bc2910843475ce4e856c0194e110cb265f09f595f2a058355",
+    "uid": "lfh:lfh-card-exposition:sha256:4f85afb6a3c80e66941be6d6f25b162b754fefc213881e34b62da2bd30007030"
+  },
+  "guide": "Here `root` is $\\omega$, `PureState.GNSClass A` is $I$, and `SelectedAtomicHilbert root` is $\\mathcal H$. `selectedEmbedding root i (selectedVector root i)` is $b_i$; the root expression is $b_o$. The signature retains `hInitial,hFinal,hUinf,hVinf` as shell hypotheses. The linked proof supplies `isIrreducible_selectedRepresentation`, `no_unitaryIntertwiner_selectedRepresentation` and `norm_selectedVector` to the generic theorem; those are separately cited, rather than assumed to follow from the names of the types.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a/versions/n69-288200e633113b2b/index.html",
+    "pdf": "card.pdf"
+  }
+}
