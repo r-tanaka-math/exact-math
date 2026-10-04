@@ -21,8 +21,8 @@
   },
   {
     "path": "publication/lfh188-fix4/metadata.json",
-    "bytes": 276710,
-    "sha256": "ca3e9a3c4cc5abf9047c72521881c7b661b7fa63ec7e9b1b7376ebc5d69e8cb7"
+    "bytes": 279031,
+    "sha256": "20c6dee10600a17f543e46dfd70e8fb054eb594dc2860c472227eb1a3676a381"
   },
   {
     "path": "publication/lfh188-fix4/revision-set.json",
@@ -5616,8 +5616,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/index.html",
-    "bytes": 32202,
-    "sha256": "89e13bb657948214c72026bca24f4196f6284ab4cd53841a7073939c73681017"
+    "bytes": 32204,
+    "sha256": "b33b2d6f29b3e1801d60332927ab02244561b49219085477d2f9cd31da460b0b"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/overviews/mankiewicz/boundary-projection.json",
@@ -5791,8 +5791,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/mankiewicz/project.pdf",
-    "bytes": 140279,
-    "sha256": "f37b275b4cdabaf80fa85d79c1c537baed7c3e7fe8090492be6b5f56f5390f2e"
+    "bytes": 121210,
+    "sha256": "8bcc60a6cb26ee8dc51d759c1c16d179940f05f567f1ed2df60d4f29e0660f82"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/mankiewicz/reading-projection.json",
@@ -5876,8 +5876,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/naimark-problem/project.pdf",
-    "bytes": 372016,
-    "sha256": "68459c8d7fc9c8f87675953882798a86d17334a9c7250916196dab941e4de070"
+    "bytes": 285797,
+    "sha256": "2e1c3af2b0559a229a72e3e622d1792bce82340cad0b2f2af128976acce2ea72"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/naimark-problem/reading-projection.json",
@@ -6121,8 +6121,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/rosenberg/project.pdf",
-    "bytes": 283090,
-    "sha256": "bf2c03411341cfb781b18f1d015131acc5fe465b8109ff2cde4b7267c6f48521"
+    "bytes": 219942,
+    "sha256": "a953a16369839ff186df551dca791888ca2a987bd116e2f1c957c2a4cb6ff770"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/rosenberg/reading-projection.json",
@@ -6236,8 +6236,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/sphere-rigidity/project.pdf",
-    "bytes": 455063,
-    "sha256": "6682cce08cf2d3c83fef41da3ce0b263de29d351297f1fa32d8275ee8c812e46"
+    "bytes": 344764,
+    "sha256": "156eb345248bfa37f2e52a1c5cd25fdbf31856b15b9067562d6204b5a86949a7"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/sphere-rigidity/reading-projection.json",
@@ -6336,8 +6336,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/sphere-rigidity/source-exploration/index.html",
-    "bytes": 795572,
-    "sha256": "1470831f69aa382b767db044f29ccb52a67435b30521a60df387545b519b7977"
+    "bytes": 795577,
+    "sha256": "606b42d699a88c2a41c8cc80414b9324d8905031732c54998c44e020d6753e46"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/sphere-rigidity/source-exploration/project-data.json",
@@ -14381,8 +14381,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/research/sphere-rigidity/index.html",
-    "bytes": 35687,
-    "sha256": "70d640d6bb94498fad3d5df959f39d2af6a0b5b7c61b5515ac2387c0aa8ce825"
+    "bytes": 35749,
+    "sha256": "7ab13826e10e934dfe21580326a485b01d289a8a482fd0475e610e81d3d19244"
   },
   {
     "path": "publication/lfh188-fix4/selected/research/sphere-rigidity/paper-record.json",
@@ -14422,12 +14422,12 @@
   {
     "path": "publication/lfh188-fix4/selection.json",
     "bytes": 623012,
-    "sha256": "df787d6a715b344e992a672e1643478695ce4c4c771e8b44715eefa407606d2a"
+    "sha256": "62ab74a672d99cd12dfc0af901c2ad82a6893d61ee600c3c3fea192cd2118efc"
   },
   {
     "path": "scripts/lfh188-public-adapter.mjs",
-    "bytes": 11278,
-    "sha256": "e19e3f2baaf4bbfdd93d2ccc6968aa8c312117b1d2243e9b039f81b4f43b1460"
+    "bytes": 12099,
+    "sha256": "d71891e9e61d7e141f21fcf6e4aaaa8fa02fe4b20b5961dca97edae6cc6cd17c"
   },
   {
     "path": "scripts/postpublic-gate.mjs",

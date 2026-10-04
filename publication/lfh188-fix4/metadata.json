@@ -1880,5 +1880,48 @@
     "research/sphere-rigidity/versions/index.html": "e312ba7b84026737836c9ada4130f594158adfeeab3b1297fd2966f3166783ee",
     "research/sr/index.html": "dd207a5a84e2736512efd3b20047d47a767a0fbdcee088544c39c51de2b1a136",
     "verification/index.html": "638ba1ea10335bed79e17fb48909bc0c7397d41b4ed4e195378e3dee5b4fc4db"
+  },
+  "public_body_metadata_successors": {
+    "mathlibannex/index.html": {
+      "accepted_body_sha256": "e3cc2873e9ddfc80159004e0116bfaa3b9c85721dc15338cd252d6e56951bec7",
+      "public_body_sha256": "10a956e7c7f6df93b5d14778bf1ffca4c882a7b3999d1a162599f3fee4821c2c",
+      "substitutions": [
+        {
+          "before": "Sphere Rigidity includes 75 approved Cards in this private candidate.",
+          "after": "Sphere Rigidity includes 75 approved Cards in this published selection.",
+          "count": 1
+        }
+      ],
+      "reason": "HP publication-state and current selected scope only; mathematics and historical preparation remain unchanged"
+    },
+    "mathlibannex/projects/sphere-rigidity/source-exploration/index.html": {
+      "accepted_body_sha256": "04a988f76c532bd0851b1a37512059729a3a93e9a858f2aa5edbe9aaec31e2df",
+      "public_body_sha256": "2de9fa6d497065236bc9c95daf31c2ceff1c540fcf4c91556edff2ed17689b4c",
+      "substitutions": [
+        {
+          "before": "75 approved Declaration Cards are selected in this private candidate.",
+          "after": "75 approved Declaration Cards are selected in the published reading scope.",
+          "count": 1
+        }
+      ],
+      "reason": "HP publication-state and current selected scope only; mathematics and historical preparation remain unchanged"
+    },
+    "research/sphere-rigidity/index.html": {
+      "accepted_body_sha256": "143d96613c1024ecd92448328e8587069fcc88a894b32795b05940e99229e6e7",
+      "public_body_sha256": "ec15cea0cc39c053ca32cf6ce1a8167e9c5f8a77215b45689a5543c9b24057eb",
+      "substitutions": [
+        {
+          "before": "467 exact declaration tiles with source, graph and reading routes; zero canonical Cards.",
+          "after": "75 approved Cards in the selected reading scope; 467 exact declarations remain available in separate source exploration.",
+          "count": 1
+        },
+        {
+          "before": "The Research Companion contains 467 exact declarations and zero canonical Cards:",
+          "after": "The Research Companion presents 75 approved Cards, with separate exploration of 467 exact source declarations:",
+          "count": 1
+        }
+      ],
+      "reason": "HP publication-state and current selected scope only; mathematics and historical preparation remain unchanged"
+    }
   }
 }

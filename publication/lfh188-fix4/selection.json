@@ -5588,8 +5588,8 @@
     },
     {
       "path": "mathlibannex/index.html",
-      "bytes": 32202,
-      "sha256": "89e13bb657948214c72026bca24f4196f6284ab4cd53841a7073939c73681017"
+      "bytes": 32204,
+      "sha256": "b33b2d6f29b3e1801d60332927ab02244561b49219085477d2f9cd31da460b0b"
     },
     {
       "path": "mathlibannex/overviews/mankiewicz/boundary-projection.json",
@@ -5763,8 +5763,8 @@
     },
     {
       "path": "mathlibannex/projects/mankiewicz/project.pdf",
-      "bytes": 140279,
-      "sha256": "f37b275b4cdabaf80fa85d79c1c537baed7c3e7fe8090492be6b5f56f5390f2e"
+      "bytes": 121210,
+      "sha256": "8bcc60a6cb26ee8dc51d759c1c16d179940f05f567f1ed2df60d4f29e0660f82"
     },
     {
       "path": "mathlibannex/projects/mankiewicz/reading-projection.json",
@@ -5848,8 +5848,8 @@
     },
     {
       "path": "mathlibannex/projects/naimark-problem/project.pdf",
-      "bytes": 372016,
-      "sha256": "68459c8d7fc9c8f87675953882798a86d17334a9c7250916196dab941e4de070"
+      "bytes": 285797,
+      "sha256": "2e1c3af2b0559a229a72e3e622d1792bce82340cad0b2f2af128976acce2ea72"
     },
     {
       "path": "mathlibannex/projects/naimark-problem/reading-projection.json",
@@ -6093,8 +6093,8 @@
     },
     {
       "path": "mathlibannex/projects/rosenberg/project.pdf",
-      "bytes": 283090,
-      "sha256": "bf2c03411341cfb781b18f1d015131acc5fe465b8109ff2cde4b7267c6f48521"
+      "bytes": 219942,
+      "sha256": "a953a16369839ff186df551dca791888ca2a987bd116e2f1c957c2a4cb6ff770"
     },
     {
       "path": "mathlibannex/projects/rosenberg/reading-projection.json",
@@ -6208,8 +6208,8 @@
     },
     {
       "path": "mathlibannex/projects/sphere-rigidity/project.pdf",
-      "bytes": 455063,
-      "sha256": "6682cce08cf2d3c83fef41da3ce0b263de29d351297f1fa32d8275ee8c812e46"
+      "bytes": 344764,
+      "sha256": "156eb345248bfa37f2e52a1c5cd25fdbf31856b15b9067562d6204b5a86949a7"
     },
     {
       "path": "mathlibannex/projects/sphere-rigidity/reading-projection.json",
@@ -6308,8 +6308,8 @@
     },
     {
       "path": "mathlibannex/projects/sphere-rigidity/source-exploration/index.html",
-      "bytes": 795572,
-      "sha256": "1470831f69aa382b767db044f29ccb52a67435b30521a60df387545b519b7977"
+      "bytes": 795577,
+      "sha256": "606b42d699a88c2a41c8cc80414b9324d8905031732c54998c44e020d6753e46"
     },
     {
       "path": "mathlibannex/projects/sphere-rigidity/source-exploration/project-data.json",
@@ -14353,8 +14353,8 @@
     },
     {
       "path": "research/sphere-rigidity/index.html",
-      "bytes": 35687,
-      "sha256": "70d640d6bb94498fad3d5df959f39d2af6a0b5b7c61b5515ac2387c0aa8ce825"
+      "bytes": 35749,
+      "sha256": "7ab13826e10e934dfe21580326a485b01d289a8a482fd0475e610e81d3d19244"
     },
     {
       "path": "research/sphere-rigidity/paper-record.json",

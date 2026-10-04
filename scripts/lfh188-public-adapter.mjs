@@ -17,6 +17,11 @@ const git=(...a)=>execFileSync('git',['-c','safe.directory='+root.replaceAll('\\
 const safe=p=>{need(typeof p==='string'&&!p.includes('\\')&&!p.startsWith('/')&&p.split('/').every(x=>/^[a-zA-Z0-9_.\[\]-]+$/.test(x)&&x!=='.'&&x!=='..'),'unsafe path');return p};
 const files=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>{need(!e.isSymbolicLink(),'linked input');return e.isDirectory()?files(path.join(d,e.name)):e.isFile()?[path.join(d,e.name)]:(need(false,'special input'),[])});
 const canonical=x=>Array.isArray(x)?x.map(canonical):x&&typeof x==='object'?Object.fromEntries(Object.keys(x).sort().map(k=>[k,canonical(x[k])])):x;
+function verifyBody(text,rel,metadata){
+ let body=text.split('</head>').slice(1).join('</head>');const successor=metadata.public_body_metadata_successors?.[rel];
+ if(successor){need(['mathlibannex/index.html','mathlibannex/projects/sphere-rigidity/source-exploration/index.html','research/sphere-rigidity/index.html'].includes(rel),'bounded public status description');need(sha(Buffer.from(body))===successor.public_body_sha256,'public status body');for(const r of successor.substitutions){need(r.count===1&&body.split(r.after).length===2,'one status substitution');body=body.replace(r.after,r.before);}need(successor.accepted_body_sha256===metadata.accepted_visible_body_sha256[rel],'accepted status binding');}
+ return sha(Buffer.from(body))===metadata.accepted_visible_body_sha256[rel];
+}
 export function verifyLFH188Selection(){
  verifyNaimark69SRSelection();
  const metadata=read(path.join(dir,'metadata.json')),selection=read(path.join(dir,'selection.json')),accepted=read(path.join(dir,'accepted-input-set.json')),revision=read(path.join(dir,'revision-set.json')),selected=path.join(dir,'selected');
@@ -38,7 +43,7 @@ export function verifyLFH188Selection(){
   need(!/(?:^|\/)(?:PRIVATE_INPUTS|AUDIT|AUTHORITY|EVIDENCE|HISTORY|CHECKPOINTS|node_modules|\.git|RENDERER)(?:\/|$)|\.(?:zip|bundle|py|map|tex|ttf|woff2)$/.test(rel)&&rel!=='preview-state.json','private or runtime payload');
   const b=fs.readFileSync(path.join(selected,rel));need(b.length===row.bytes&&sha(b)===row.sha256,'selected bytes '+rel);
   if(/\.(?:html|json|css|js|bib|txt)$/.test(rel))need(!/github\.com\/r-tanaka-math\/(?:lfh-cards|lean-workbench|semantic-bridge|exact-math-private)|[A-Za-z]:[\\/](?:Users|EXACT_MAIN)|review\.md|github_pat_|gh[pousr]_[A-Za-z0-9]{20,}/.test(b.toString()),'private disclosure '+rel);
-  if(metadata.accepted_visible_body_sha256[rel]){const text=b.toString();need(text.includes('</head>')&&sha(Buffer.from(text.split('</head>').slice(1).join('</head>')))===metadata.accepted_visible_body_sha256[rel],'accepted visible body '+rel);}
+  if(metadata.accepted_visible_body_sha256[rel]){const text=b.toString();need(text.includes('</head>')&&verifyBody(text,rel,metadata),'accepted visible body '+rel);}
  }
  same(files(selected).map(p=>path.relative(selected,p).split(path.sep).join('/')).sort(),selection.files.map(r=>r.path).sort(),'exact public files');
  const cat=read(path.join(selected,'mathlibannex/catalog/current.json'));need(cat.state==='PUBLIC_CURRENT'&&cat.card_count===188&&cat.cards.length===188,'current188');
@@ -63,7 +68,7 @@ export function validateLFH188Act(act,identity,deployment,today){
  need(/^\d{4}-\d{2}-\d{2}$/.test(today)&&act.update_date_asia_tokyo===today&&m.publication_date===today,'actual Asia/Tokyo publication date');
  for(const key of ['owner_instruction_sha256','dispatch_sha256','HP_acceptance_sha256','conditional_resolution_sha256','accepted_candidate_commit','accepted_candidate_subtree','accepted_revision_entries_digest','accepted_input_set_sha256','revision_set_sha256','content_terms_sha256'])same(act[key],m[key],'exact authority/selection '+key);
  same([act.metadata_sha256,act.selection_sha256],[v.metadata_sha256,v.selection_sha256],'bound full public set');same(act.counts,m.counts,'scope');same(act.source_release,m.source_release,'source');need(act.public_cards===188&&!act.formal_CURRENT_changed&&!act.new_native_registration,'publication only');
- need(git('rev-parse','HEAD^')===m.old_commit&&git('rev-parse',m.old_commit+'^{tree}')===m.old_tree,'ordinary one-commit public successor');need(git('rev-list','--merges',m.old_commit+'..HEAD')==='','no private-history merge');
+ need(git('rev-parse','HEAD^')==='64d5e2c28dcb32e3cb9334d7abb413da135a0213'&&git('rev-parse','HEAD^^')===m.old_commit&&git('rev-parse',m.old_commit+'^{tree}')===m.old_tree,'ordinary two-commit public successor preserving prepublication checkpoint');need(git('rev-list','--merges',m.old_commit+'..HEAD')==='','no private-history merge');
  const manifest=prefix+'/source-files.json',bytes=fs.readFileSync(path.join(root,manifest)),rows=JSON.parse(bytes);need(sha(bytes)===act.source_files_sha256&&rows.length===act.source_file_count,'exact public source manifest');
  same(git('diff','--name-only',m.old_commit,'HEAD').split('\n').filter(Boolean).sort(),[manifest,...rows.map(r=>r.path)].sort(),'exact source allowlist');need(git('diff','--diff-filter=D','--name-only',m.old_commit,'HEAD')==='','no deletion');
  for(const r of rows){safe(r.path);need(['.gitignore','.gitattributes','astro.config.mjs','scripts/postpublic-gate.mjs','scripts/lfh188-public-adapter.mjs','scripts/stage-assets.mjs'].includes(r.path)||r.path.startsWith(prefix+'/'),'bounded HP mounting');const b=fs.readFileSync(path.join(root,r.path));need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);}
