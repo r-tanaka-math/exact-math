@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+  "title": "Midpoint preservation on a symmetric lens",
+  "stable_card_id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+  "identity_key": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+  "source_url": "mathlibannex/sources/lfh188/c4cf3c2bb15b52bfa5520d64/index.html#L66",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "63fba5b08bdea6c6cfb55dd9ff94c1a5d7278c5aad5f2e8de3d1b8b2fe026fa6",
+  "accepted_guide_sha256": "75eb26b32e968f00be1f4d6353af1f25b8afd977bbc34507f2360d52666583c7",
+  "content": {
+    "display_title": "Midpoint preservation on a symmetric lens",
+    "one_sentence_role": "Identifies the centers of two lenses without prescribing images of their foci.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $x,y\\in E$, $x^{\\prime},y^{\\prime}\\in F$, and $r\\in\\mathbb R$. Put $\\Lambda_r(x,y)=\\{z:\\|z-x\\|\\le r,\\ \\|z-y\\|\\le r\\}$, and define the target lens in $F$ similarly. Suppose $\\|x-y\\|/2\\le r$ and $\\|x^{\\prime}-y^{\\prime}\\|/2\\le r$. Every bijective isometry $f:\\Lambda_r(x,y)\\to \\Lambda_r(x^{\\prime},y^{\\prime})$ satisfies $$f\\!\\left(\\frac{x+y}{2}\\right)=\\frac{x^{\\prime}+y^{\\prime}}2.$$",
+    "definition_explanation": null,
+    "assumptions": "The two real normed spaces, both half-distance inequalities, and the bijective isometry between the lenses are given. The radius is common to both lenses. The foci need not themselves belong to the lenses, and no equation for their images is assumed.",
+    "conclusion": "The midpoint of the source foci is sent to the midpoint of the target foci.",
+    "proof_summary": "Verify membership, boundedness and reflection invariance for these exact sets, and then apply center transport.",
+    "proof_steps": [
+      "For $m=(x+y)/2$, one has $\\|m-x\\|=\\|m-y\\|=\\|x-y\\|/2\\le r$. Hence $m\\in \\Lambda_r(x,y)$ by [Midpoint membership](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L34-L38). The same calculation places $m^{\\prime}=(x^{\\prime}+y^{\\prime})/2$ in the target lens.",
+      "The source lens is contained in $\\overline B(x,r)$ and is therefore bounded. For $z$ in that lens, reflection about $m$ is $r_m(z)=x+y-z$, and $$\\|r_m(z)-x\\|=\\|z-y\\|\\le r,\\qquad \\|r_m(z)-y\\|=\\|z-x\\|\\le r.$$ This verifies [Reflection invariance of a lens](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L40-L62) for the source; the identical identities with primes verify the target condition.",
+      "Apply [Center transport](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean#L74-L91) to $s=\\Lambda_r(x,y)$, $t=\\Lambda_r(x^{\\prime},y^{\\prime})$, centers $m,m^{\\prime}$ and this same $f$. Step 1 supplies center membership and Step 2 supplies boundedness and both invariances. Its output $f(m)=m^{\\prime}$ is exactly the asserted equation."
+    ],
+    "lean_realization_notes": []
+  }
+}

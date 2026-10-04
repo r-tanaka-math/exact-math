@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.EquivalentSeminorm",
+  "title": "A seminorm with two-sided bounds against a reference norm",
+  "stable_card_id": null,
+  "identity_key": "2a7cb4d225a9979780479aa12b9ec68b358cc4eff73a924e5432590016bf2be6",
+  "source_url": "mathlibannex/sources/lfh188/c8a39df72375d17192e7617e/index.html#L15",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "522c11db88ba75a947324c8ad87007f383ebf0b0a8c79a808b3023f97789c3ce",
+  "accepted_guide_sha256": "99bf5069f22bf495f89344173ccffbcc4408b7c02f8d80240c28557ab2c1573c",
+  "content": {
+    "display_title": "A seminorm with two-sided bounds against a reference norm",
+    "one_sentence_role": "Records a norm through a seminorm, two positive comparison constants and continuity on the original normed space.",
+    "natural_language_statement": "Let $X$ be a real normed space with reference norm $\\|\\cdot\\|$. An equivalent-seminorm datum consists of a real seminorm $p$ and constants $c,C>0$ such that\n\n$$c\\|x\\|\\le p(x)\\le C\\|x\\|\\qquad(x\\in X),$$\n\ntogether with continuity of $p$ for the reference topology. The record keeps this comparison data explicit.",
+    "definition_explanation": "The eight fields are: (1) the seminorm $p$; (2) a real lower constant $c$; (3) a real upper constant $C$; (4) a proof that $c>0$; (5) a proof that $C>0$; (6) the lower comparison $c\\|x\\|\\le p(x)$ for every $x$; (7) the upper comparison $p(x)\\le C\\|x\\|$ for every $x$; and (8) continuity of $p$. These fields specify data and its properties; constructing such a record requires supplying all eight.",
+    "assumptions": "The carrier $X$ is a real normed vector space. The stored function $p:X\\to\\mathbb R$ is a seminorm: it is subadditive, nonnegative and satisfies $p(tx)=|t|p(x)$. Both comparison constants are strictly positive, both inequalities hold for every $x$, and continuity of $p$ is part of the stored data. There is no finite-dimensionality or completeness assumption.",
+    "conclusion": "The lower bound makes $p$ definite: if $p(x)=0$, then $0\\le c\\|x\\|\\le0$; since $c>0$, $\\|x\\|=0$ and $x=0$. This is the separately proved definiteness lemma. The related definitions give $B_p=\\{x:p(x)\\le1\\}$ and $S_p=\\{x:p(x)=1\\}$. In particular $B_p\\subseteq\\{x:\\|x\\|\\le1/c\\}$, by the bounded-ball lemma.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The reference norm on $X$ remains in place. The separate construction $\\mathrm{Space}(p)$ equips a copy of the carrier with norm $p$; its distance is $p(x-y)$, as recorded in the cited transport theorem. Boundedness of $B_p$ alone does not assert compactness in an arbitrary infinite-dimensional space.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,6 @@
+P2-MA01 R3 offline Lean code webfont set.
+DejaVu Sans Mono supplies the main character repertoire. FreeMono supplies only U+2A06.
+Each retains its own embedded copyright, origin and license notices. No glyph outline was redrawn.
+The same CSS family selects these two same-origin faces by Unicode range. Neither uses local().
+Subset/WOFF2 conversion: Lean Workbench P2-MA01 R3, 2026-09-12.
+This notice concerns the bundled fonts only; it grants no MathlibAnnex project license.

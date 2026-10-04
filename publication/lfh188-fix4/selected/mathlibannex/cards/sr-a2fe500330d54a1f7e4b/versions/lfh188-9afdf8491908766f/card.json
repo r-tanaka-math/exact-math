@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.Satellite.absoluteMaximizer_base_nearMax",
+  "title": "Absolute maximization forces a near-maximal base",
+  "stable_card_id": null,
+  "identity_key": "c93701940275afd4192bb4e5ca2125d554655352826df15f7ae17134ddfa442f",
+  "source_url": "mathlibannex/sources/lfh188/5cac884e08cd40dde8701531/index.html#L713",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "1510ad9ef49cb88b88be7c6bd8311e1a66ff84728cb7c042fbf5b4acf64f4afc",
+  "accepted_guide_sha256": "3901d0f28fe6638210e9f1708754b0710dedc6d7f1203d12e53acc9bd1a2630d",
+  "content": {
+    "display_title": "Absolute maximization forces a near-maximal base",
+    "one_sentence_role": "A dominant determinant term prevents a large deficit in the base frame.",
+    "natural_language_statement": "Let $n\\in\\mathbb N$ and use reference coordinates $V=\\mathbb R^n$ with the sup norm. Let $p:V\\to\\mathbb R$ be a continuous seminorm with specified constants $a_p,b_p>0$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty\\qquad(x\\in V).$$\nThus $p$ is a norm. We use $p$ for the model distance and $\\|\\cdot\\|_\\infty$ for reference-coordinate estimates; the two norms are allowed to coincide. A $p$-dual contraction is a continuous real linear functional $r$ satisfying $|r(x)|\\le p(x)$ for every $x$. Let $e_1,\\ldots,e_n$ be the standard coordinate vectors. For an ordered family $F=(\\ell_i)_{i=1}^n$ of continuous real linear functionals on $V$, put\n$$M_F=(\\ell_i(e_j))_{i,j},\\quad T_Fx=(\\ell_i(x))_i=M_Fx,\\quad\n\\mathcal U_p=\\{F:\\forall i,x,\\ |\\ell_i(x)|\\le p(x)\\}.$$\nFor a real number $\\eta$, define the attained maximum and near-maximal set by\n$$D_p=\\max_{F\\in\\mathcal U_p}|\\det M_F|>0,\\qquad\n\\mathcal N_{p,\\eta}=\\{F\\in\\mathcal U_p:D_p-\\eta\\le|\\det M_F|\\}.$$\nAdmissibility is measured with $p$; the matrices are written in the fixed reference coordinates.\n\nLet $J$ be a finite index set, possibly empty; choose coefficients $c_a\\in V$ for $a\\in J$. A configuration is a pair $Q=(F,s)$, where $F$ is a frame and $s=(s_a)_{a\\in J}$ is a family of additional continuous real linear functionals, called satellites. Write\n$$\\Omega_p^J=\\{(F,s):F\\in\\mathcal U_p,\\ \\forall a,x,\\ |s_a(x)|\\le p(x)\\}.$$\nFor any real weight $w$, let $M_F[i\\leftarrow r]$ replace row $i$ by $(r(e_j))_j$ and set\n$$\\Phi_{w,c}(F,s)=w\\det M_F+\\sum_{a\\in J}\\sum_{i=1}^n(c_a)_i\\det M_F[i\\leftarrow s_a].$$\nAn absolute maximizer means a single $Q\\in\\Omega_p^J$ with $|\\Phi_{w,c}(Q')|\\le|\\Phi_{w,c}(Q)|$ for every $Q'\\in\\Omega_p^J$. It need not maximize the signed polynomial. Set\n$$S_p(c)=D_p\\sum_{a\\in J}\\sum_{i=1}^n|(c_a)_i|.$$\nSuppose $\\eta\\ge0$, $w>0$, $S_p(c)<w\\eta$, and $Q=(F,s)$ is an admissible absolute maximizer. Then $F\\in\\mathcal N_{p,\\eta}$.",
+    "definition_explanation": null,
+    "assumptions": "The stated positive comparison constants for $p$, finiteness of $J$, nonnegative deficit, positive weight, strict budget inequality, admissibility of $Q$ and its global absolute maximality are required. There is no $\\eta<D_p$ assumption in this theorem.",
+    "conclusion": "The base frame has $|\\det M_F|\\ge D_p-\\eta$ while remaining $p$-dual contractive. Invertibility requires the separate additional condition $\\eta<D_p$.",
+    "proof_summary": "Bound the satellite sum and compare against an attained maximum frame with zero satellites.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Bound every satellite contribution.** For an admissible $Q$, replacing a row by any $s_a$ leaves a $p$-dual contraction frame. Therefore each replacement determinant has absolute value at most $D_p$. Applying [the finite satellite budget estimate](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean#L441-L477) to precisely these contraction rows gives\n   $$\\left|\\sum_{a,i}(c_a)_i\\det M_F[i\\leftarrow s_a]\\right|\n   \\le D_p\\sum_{a,i}|(c_a)_i|=S_p(c).$$\n   Since $w\\ge0$, [the absolute polynomial upper bound](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean#L480-L499) yields $|\\Phi_{w,c}(Q)|\\le w|\\det M_F|+S_p(c)$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Use a benchmark in the same domain.** Choose a $p$-dual frame $F_*$ attaining $D_p$, and set all its satellites to zero. This comparison configuration is admissible. Its polynomial has absolute value $wD_p$. Absolute maximality of the given $Q$ gives\n   $$wD_p=|\\Phi_{w,c}(F_*,0)|\\le|\\Phi_{w,c}(Q)|.$$\n   This comparison uses the same weight and coefficients, without choosing a sign for the determinant."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Exclude a deficit larger than $\\eta$.** If $|\\det M_F|<D_p-\\eta$, positivity of $w$ and $S_p(c)<w\\eta$ imply\n   $$|\\Phi_{w,c}(Q)|\\le w|\\det M_F|+S_p(c)\n   <w(D_p-\\eta)+w\\eta=wD_p,$$\n   contradicting the benchmark. Thus $D_p-\\eta\\le|\\det M_F|$. Together with $F\\in\\mathcal U_p$ this is near-maximal membership, the output of [the benchmark-to-near-maximal lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean#L502-L522)."
+      }
+    ],
+    "lean_realization_notes": "The budget is defined by [the determinant-scaled coefficient sum](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean#L427-L429). For later applications with $\\eta>0$, [a weight dominating that budget](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean#L525-L533) chooses $w=S_p(c)/\\eta+1$, giving $w>0$ and $w\\eta=S_p(c)+\\eta>S_p(c)$. This weight choice is a contextual result with the stronger positive-deficit input, not an additional assumption on this theorem.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

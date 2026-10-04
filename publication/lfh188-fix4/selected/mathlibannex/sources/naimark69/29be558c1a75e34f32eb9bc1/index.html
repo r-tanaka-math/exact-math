@@ -1,0 +1,176 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/29be558c1a75e34f32eb9bc1/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/29be558c1a75e34f32eb9bc1/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionTracial.lean</code>, lines 161–174.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionTracial.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee/versions/n69-0bd44fead9f058ef/index.html">Back to The fixed shell target has a unique tracial state</a> · <a href="../../../cards/e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d/versions/n69-ac498d0b64ed15df/index.html">Back to The unique trace extension is tracial on the whole target</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TraceExtensionUnique</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.State.Centralizer</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import Mathlib.Analysis.CStarAlgebra.Unitary.Span</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># The unique extension is tracial on the entire target</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>Uniqueness makes the extension invariant under source unitary conjugation.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>Source unitaries span CAR. Strong shell sums then put every added generator</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>in the state centralizer, and norm generation completes the argument.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>open Filter Topology</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open scoped ComplexOrder InnerProduct</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>private theorem trace_star_unitary_mul_mul (u : unitary Limit) (b : Limit) :</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>    trace (star (u : Limit) * b * (u : Limit)) = trace b := by</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>  rw [trace_mul_comm (star (u : Limit) * b) (u : Limit), ← mul_assoc,</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>    u.property.2, one_mul]</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a></span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>/-- The vector functional of the chosen target-state GNS is its state. -/</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>theorem vectorFunctional_tracialRepresentation (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    Representation.vectorFunctional (tracialRepresentation family) (tracialVector family) =</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>      traceExtension family := by</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>  ext a</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>  exact inner_tracialVector_tracialRepresentation family a</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a></span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>set_option maxHeartbeats 5000000 in</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>/-- Conjugation by any source unitary fixes the state on the full target. -/</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>theorem traceExtension_star_unitary_mul_mul (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    (u : unitary Limit) (a : ShellFamilyTarget family) :</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    traceExtension family</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>      (star (shellFamilySourceHom family (u : Limit)) * a *</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>        shellFamilySourceHom family (u : Limit)) = traceExtension family a := by</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>  let ζ := tracialRepresentation family</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    (shellFamilySourceHom family (u : Limit)) (tracialVector family)</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>  let ψ := Representation.vectorFunctional (tracialRepresentation family) ζ</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>  have hζ : ‖ζ‖ = 1 := by</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>    change ‖((tracialRepresentation family).comp (shellFamilySourceHom family))</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>      (u : Limit) (tracialVector family)‖ = 1</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    rw [(((tracialRepresentation family).comp (shellFamilySourceHom family))</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>      (u : Limit)).norm_map_of_mem_unitary</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>        (Unitary.map_mem ((tracialRepresentation family).comp</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>          (shellFamilySourceHom family)) u.property)]</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    exact norm_tracialVector family</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>  have hψstate : ψ ∈</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>      MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) :=</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    vectorFunctional_mem_stateSpace (tracialRepresentation family) ζ hζ</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>  have hψsource (b : Limit) : ψ (shellFamilySourceHom family b) = trace b := by</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    change Representation.vectorFunctional (tracialRepresentation family)</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>      (tracialRepresentation family (shellFamilySourceHom family (u : Limit))</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>        (tracialVector family)) (shellFamilySourceHom family b) = trace b</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    calc</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>      _ = Representation.vectorFunctional (tracialRepresentation family)</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>          (tracialVector family)</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>          (star (shellFamilySourceHom family (u : Limit)) *</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>            shellFamilySourceHom family b * shellFamilySourceHom family (u : Limit)) :=</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>        Representation.vectorFunctional_map_apply (tracialRepresentation family)</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>          (tracialVector family) (shellFamilySourceHom family (u : Limit))</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>          (shellFamilySourceHom family b)</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>      _ = traceExtension family</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>          (star (shellFamilySourceHom family (u : Limit)) *</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>            shellFamilySourceHom family b * shellFamilySourceHom family (u : Limit)) := by</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>        rw [vectorFunctional_tracialRepresentation]</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>      _ = trace (star (u : Limit) * b * (u : Limit)) := by</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>        rw [← map_star, ← map_mul, ← map_mul, traceExtension_shellFamilySourceHom]</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>      _ = trace b := trace_star_unitary_mul_mul u b</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>  have hψ : ψ = traceExtension family :=</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace family ψ hψstate hψsource</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>  have hvalue := congrArg (fun f : ShellFamilyTarget family →L[ℂ] ℂ ↦ f a) hψ</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>  change Representation.vectorFunctional (tracialRepresentation family)</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>    (tracialRepresentation family (shellFamilySourceHom family (u : Limit))</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>      (tracialVector family)) a = _ at hvalue</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>  calc</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>    traceExtension family</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>        (star (shellFamilySourceHom family (u : Limit)) * a *</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>          shellFamilySourceHom family (u : Limit)) =</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>      Representation.vectorFunctional (tracialRepresentation family) (tracialVector family)</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>        (star (shellFamilySourceHom family (u : Limit)) * a *</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>          shellFamilySourceHom family (u : Limit)) := by</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>        rw [vectorFunctional_tracialRepresentation]</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    _ = Representation.vectorFunctional (tracialRepresentation family)</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>        (tracialRepresentation family (shellFamilySourceHom family (u : Limit))</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>          (tracialVector family)) a :=</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>      (Representation.vectorFunctional_map_apply (tracialRepresentation family)</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>        (tracialVector family) (shellFamilySourceHom family (u : Limit)) a).symm</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    _ = traceExtension family a := hvalue</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a></span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>set_option maxHeartbeats 1000000 in</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>private theorem traceExtension_unitary_mul (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>    (u : unitary Limit) (a : ShellFamilyTarget family) :</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>    traceExtension family (shellFamilySourceHom family (u : Limit) * a) =</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>      traceExtension family (a * shellFamilySourceHom family (u : Limit)) := by</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>  let v := shellFamilySourceHom family (u : Limit)</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>  have hv : star v * v = 1 := by</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>    change star (shellFamilySourceHom family (u : Limit)) *</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>      shellFamilySourceHom family (u : Limit) = 1</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>    rw [← map_star, ← map_mul, u.property.1, map_one]</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>  have h := traceExtension_star_unitary_mul_mul family u (v * a)</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>  change traceExtension family (star v * (v * a) * v) = _ at h</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>  rw [← mul_assoc (star v) v a, hv, one_mul] at h</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>  exact h.symm</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a></span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>set_option maxHeartbeats 1000000 in</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>/-- Every source element, not just source unitaries, lies in the full state&#x27;s</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>centralizer. -/</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>theorem traceExtension_shellFamilySourceHom_mul (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    (b : Limit) (a : ShellFamilyTarget family) :</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    traceExtension family (shellFamilySourceHom family b * a) =</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>      traceExtension family (a * shellFamilySourceHom family b) := by</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>  obtain ⟨u, c, hb, _⟩ := CStarAlgebra.exists_sum_four_unitary b</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>  rw [hb]</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>  simp only [map_sum, map_smul, Finset.sum_mul, Finset.mul_sum,</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>    smul_mul_assoc, mul_smul_comm]</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>  apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>  intro i _</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>  rw [traceExtension_unitary_mul]</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a></span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>set_option maxHeartbeats 1000000 in</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>/-- A generator is in the centralizer by the source shell approximants in</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>this very GNS representation. -/</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>theorem traceExtension_shellFamilyGenerator_mul (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>    (i : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit)</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>    (a : ShellFamilyTarget family) :</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>    traceExtension family (shellFamilyGenerator family i * a) =</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>      traceExtension family (a * shellFamilyGenerator family i) := by</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>  let x : ℕ → ShellFamilyTarget family := fun N ↦ shellFamilySourceHom family</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>    (∑ n ∈ Finset.range N, (representativeShellData family i).link n)</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>  have hx : ContinuousLinearMap.StronglyConverges</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>      (fun N ↦ tracialRepresentation family (x N)) atTop</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>      (tracialRepresentation family (shellFamilyGenerator family i)) := by</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>    have hfamily : (fun N ↦ tracialRepresentation family (x N)) =</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>        ContinuousLinearMap.partialSum (fun n ↦</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>          tracialRepresentation family</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>            (shellFamilySourceHom family ((representativeShellData family i).link n))) := by</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>      funext N</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>      simp only [x, map_sum, ContinuousLinearMap.partialSum]</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>    rw [hfamily]</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>    exact (stronglyConverges_shell_sums_of_trace_of_cyclic family</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>      (tracialRepresentation family) (tracialVector family)</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>      (vectorFunctional_tracialRepresentation_source family)</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>      (denseRange_tracialRepresentation_orbit family) i).1</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>  have heq (N : ℕ) : Representation.vectorFunctional</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>      (tracialRepresentation family) (tracialVector family) (x N * a) =</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>      Representation.vectorFunctional (tracialRepresentation family) (tracialVector family)</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>        (a * x N) := by</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>    rw [vectorFunctional_tracialRepresentation]</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>    exact traceExtension_shellFamilySourceHom_mul family _ a</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>  have h := vectorFunctional_mul_eq_mul_of_stronglyConverges</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>    (tracialRepresentation family) (tracialVector family) x</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>    (shellFamilyGenerator family i) a hx heq</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>  simpa only [vectorFunctional_tracialRepresentation] using h</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a></span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>set_option maxHeartbeats 1000000 in</span>
+<span class="source-line selected" id="L161"><a class="line-no" href="#L161">161</a>/-- The unique state extension of the CAR trace is a trace on the whole</span>
+<span class="source-line selected" id="L162"><a class="line-no" href="#L162">162</a>previously constructed target. -/</span>
+<span class="source-line selected" id="L163"><a class="line-no" href="#L163">163</a>theorem traceExtension_mul_comm (family : RepresentativeShellFamily)</span>
+<span class="source-line selected" id="L164"><a class="line-no" href="#L164">164</a>    (a b : ShellFamilyTarget family) :</span>
+<span class="source-line selected" id="L165"><a class="line-no" href="#L165">165</a>    traceExtension family (a * b) = traceExtension family (b * a) := by</span>
+<span class="source-line selected" id="L166"><a class="line-no" href="#L166">166</a>  let C := stateCentralizer (traceExtension family) (traceExtension_mem_stateSpace family)</span>
+<span class="source-line selected" id="L167"><a class="line-no" href="#L167">167</a>  have htop : C = ⊤ :=</span>
+<span class="source-line selected" id="L168"><a class="line-no" href="#L168">168</a>    MathlibAnnex.CStarAlgebra.AtomicConstruction.eq_top_of_source_mem_of_generator_mem</span>
+<span class="source-line selected" id="L169"><a class="line-no" href="#L169">169</a>      selectedAtomicRepresentation (shellFamilyLinks family) C</span>
+<span class="source-line selected" id="L170"><a class="line-no" href="#L170">170</a>      (isClosed_stateCentralizer _ _)</span>
+<span class="source-line selected" id="L171"><a class="line-no" href="#L171">171</a>      (fun c ↦ traceExtension_shellFamilySourceHom_mul family c)</span>
+<span class="source-line selected" id="L172"><a class="line-no" href="#L172">172</a>      (fun i ↦ traceExtension_shellFamilyGenerator_mul family i)</span>
+<span class="source-line selected" id="L173"><a class="line-no" href="#L173">173</a>  have ha : a ∈ C := by rw [htop]; trivial</span>
+<span class="source-line selected" id="L174"><a class="line-no" href="#L174">174</a>  exact ha b</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a></span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

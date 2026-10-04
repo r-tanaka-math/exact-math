@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.exists_aeConstantOn_of_local",
+  "title": "From local to global almost-everywhere constancy",
+  "stable_card_id": null,
+  "identity_key": "ca52dc2a5619e122453c60efb289697673b61fc437b02905964486298b0f1eca",
+  "source_url": "mathlibannex/sources/lfh188/fa0358495ee690fc79664bf1/index.html#L148",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/MeasureTheory/Function/AEConstant.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "32eb30dc10b1168e6498f64852c670422dee306e24e529c37903ca272446043d",
+  "accepted_guide_sha256": "8f2b48a24d4619c2f6a92822335346698edaba2bc7d32939b663da8392d43bae",
+  "content": {
+    "display_title": "From local to global almost-everywhere constancy",
+    "one_sentence_role": "Separates agreement of constants by connectedness from countable measure-theoretic gluing.",
+    "natural_language_statement": "Let $X$ be a topological space with a measurable structure, and let $\\mu$ be positive on every nonempty open set. Let $Y$ be any set, $u:X\\to Y$, and let $U\\subseteq X$ be connected and Lindelöf. Suppose that for every $x\\in U$ there are an open neighborhood $V_x$ and a constant $c_x\\in Y$ such that\n$$x\\in V_x\\subseteq U,\\qquad u=c_x\\quad\\mu|_{V_x}\\text{-almost everywhere}.$$\nThen there is one $c\\in Y$ with $u=c$ almost everywhere for $\\mu|_U$.",
+    "definition_explanation": null,
+    "assumptions": "Here connected means nonempty and admitting no partition into two disjoint nonempty relatively open subsets. Lindelöf means that every open cover of $U$ admits a countable subcover. No finiteness or Haar assumption is imposed on $\\mu$, and $X$ need not be second countable. No topology or measurable structure on the value set $Y$ is required. The supplied neighborhoods in particular make $U$ open, although openness is not a separate input.",
+    "conclusion": "One common constant works outside a null set for the restricted measure on $U$. Connectedness identifies the local constants; Lindelöf supplies the countability needed to join their exceptional sets. Those are distinct uses of the hypotheses.",
+    "proof_summary": "Fix a constant from one local neighborhood. Its region of local validity and its complement in $U$ are disjoint open sets. Connectedness makes that region all of $U$. Select a countable subcover of neighborhoods carrying this same constant and apply countable gluing.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Fix a value and its region.** Choose $x_0\\in U$ and its local data $(V_0,c_0)$. Define\n$$G:=\\{x\\in U:\\ \\exists V\\text{ open},\\ x\\in V\\subseteq U,\n\\ u=c_0\\ \\mu|_V\\text{-almost everywhere}\\}.$$\nIt contains $x_0$. It is open: a witnessing $V$ for $x$ is contained in $G$, because the same $V$ witnesses membership for every point of $V$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Show the complementary region is open.** For $x\\in U\\setminus G$, choose local data $(V_x,c_x)$. If some $y\\in V_x$ were also in $G$, take a witnessing open set $W$ for $y$ with constant $c_0$. Then $y\\in V_x\\cap W$, so this open overlap has positive measure. [The open-overlap theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Function/AEConstant.lean#L92-L105) gives $c_x=c_0$. But $(V_x,c_x)$ would then witness $x\\in G$, a contradiction. Thus\n$$x\\in V_x\\subseteq U\\setminus G,$$\nand $U\\setminus G$ is open."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Use connectedness to identify the region.** The disjoint open sets $G$ and $U\\setminus G$ cover $U$. Preconnectedness forces $U$ to lie in one of them. It cannot lie in the latter because $x_0\\in G\\subseteq U$. Hence $G=U$. In particular, every point of $U$ now has an open neighborhood on which the same $c_0$ works almost everywhere."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Use a countable cover to glue.** Choose for each $x\\in U$ one of these neighborhoods $V_x$. Lindelöf gives a countable set $T\\subseteq U$ of indices such that\n$$U\\subseteq\\bigcup_{x\\in T}V_x,\\qquad\nu=c_0\\quad\\mu|_{V_x}\\text{-almost everywhere for each }x\\in T.$$\n[The countable-cover gluing theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Function/AEConstant.lean#L24-L47) gives $u=c_0$ almost everywhere for $\\mu|_U$. Only this selected countable family is used in the measure argument; the original uncountable family of local null sets is never united."
+      }
+    ],
+    "lean_realization_notes": "The local data at $x$ are an open set $V$, the relations $x\\in V\\subseteq U$, and a value $c\\in Y$ satisfying $u=c$ almost everywhere for $\\mu|_V$. At one chosen point of the nonempty set $U$, these data supply the initial value $c_0\\in Y$. Thus no separate nonemptiness assumption on $Y$ is needed.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

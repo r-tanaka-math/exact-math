@@ -1,0 +1,179 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean",
+    "source_range": {
+      "end_line": 133,
+      "start_line": 35
+    },
+    "source_sha256": "c3b02a92548ee34891bb459f490d0b8cde32d32bbac2da915d9e3688ef6f7336",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_irreducible_atomicShellModel\n    (pi : ∀ i, Representation A (H i))\n    (hirr : ∀ i, StarAlgHom.IsIrreducible (pi i))\n    (hno : ∀ ⦃i j : I⦄, i ≠ j → ∀ e : H i ≃ₗᵢ[ℂ] H j,\n      ¬ StarAlgHom.Intertwines (pi i) (pi j) (e : H i →L[ℂ] H j))\n    (o : I) (xi : ∀ i, H i) (hxi : ∀ i, ‖xi i‖ = 1)\n    (W : I → ℕ → HilbertSum H →L[ℂ] HilbertSum H)\n    (U V : I → ℕ → Submodule ℂ (HilbertSum H))\n    [∀ i n, (U i n).HasOrthogonalProjection]\n    [∀ i n, (V i n).HasOrthogonalProjection]\n    [∀ i, (⨅ n, U i n).HasOrthogonalProjection]\n    [∀ i, (⨅ n, V i n).HasOrthogonalProjection]\n    (hU : ∀ i, Antitone (U i)) (hV : ∀ i, Antitone (V i))\n    (hU0 : ∀ i, U i 0 = ⊤) (hV0 : ∀ i, V i 0 = ⊤)\n    (hInitial : ∀ i n, ((W i n)†).comp (W i n) =\n      Submodule.projectionShell (U i) n)\n    (hFinal : ∀ i n, (W i n).comp ((W i n)†) =\n      Submodule.projectionShell (V i) n)\n    (hUinf : ∀ i, (⨅ n, U i n).starProjection =\n      InnerProductSpace.rankOne ℂ (coordinateEmbedding i (xi i))\n        (coordinateEmbedding i (xi i)))\n    (hVinf : ∀ i, (⨅ n, V i n).starProjection =\n      InnerProductSpace.rankOne ℂ (coordinateEmbedding o (xi o))\n        (coordinateEmbedding o (xi o))) :\n    ∃ L : I → HilbertSum H →L[ℂ] HilbertSum H,\n      (∀ i, L i ∈ unitary (HilbertSum H →L[ℂ] HilbertSum H)) ∧\n      (∀ i, L i (coordinateEmbedding i (xi i)) =\n        coordinateEmbedding o (xi o)) ∧\n      (∀ i n, (L i).comp (Submodule.projectionShell (U i) n) = W i n) ∧\n      Representation.IsIrreducible\n        (ambientInclusion (atomicRepresentation pi) L)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean",
+    "source_sha256": "c3b02a92548ee34891bb459f490d0b8cde32d32bbac2da915d9e3688ef6f7336",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean",
+      "source_sha256": "c3b02a92548ee34891bb459f490d0b8cde32d32bbac2da915d9e3688ef6f7336",
+      "start_line": 35,
+      "start_column": 1,
+      "end_line": 133,
+      "end_column": 69
+    },
+    "start_byte": 1437,
+    "end_byte": 3104,
+    "sha256": "371e7613655011c5b77fd64394447cdbf4e82a9fddfcdcb90c58e792c19cd425",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "An irreducible operator algebra constructed from projection shells",
+    "one_sentence_role": "Shell partial isometries with rank-one limiting defects can be completed to unitary links that join inequivalent irreducible fibers.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra and $(\\pi_i:A\\to B(H_i))_{i\\in I}$ a family of pairwise unitarily inequivalent irreducible unital representations on nonzero complete complex Hilbert spaces. Fix a root $o\\in I$ and unit vectors $\\xi_i\\in H_i$. On $\\mathcal H=\\bigoplus_iH_i$, let $e_i$ be coordinate inclusion, $b_i=e_i\\xi_i$, and $\\pi=\\bigoplus_i\\pi_i$. For shell data satisfying the conditions below, there are unitaries $L_i\\in B(\\mathcal H)$ such that $L_i b_i=b_o$ and $L_i(P_{i,n}-P_{i,n+1})=W_{i,n}$ for all $i,n$. The literal inclusion into $B(\\mathcal H)$ of the norm-closed unital star algebra $T=C^*(\\pi(A),\\{L_i:i\\in I\\})$ is irreducible.",
+    "definition_explanation": null,
+    "assumptions": "For each $i\\in I$, let $(U_{i,n})_{n\\geq0}$ and $(V_{i,n})_{n\\geq0}$ be decreasing subspaces of $\\mathcal H$, with $U_{i,0}=V_{i,0}=\\mathcal H$. All these subspaces and both intersections admit orthogonal projections. Write $P_{i,n}=P_{U_{i,n}}$, $Q_{i,n}=P_{V_{i,n}}$, and $P_{i,\\infty}=P_{\\bigcap_nU_{i,n}}$, $Q_{i,\\infty}=P_{\\bigcap_nV_{i,n}}$. The given bounded shell maps $W_{i,n}$ satisfy $W_{i,n}^*W_{i,n}=P_{i,n}-P_{i,n+1}$ and $W_{i,n}W_{i,n}^*=Q_{i,n}-Q_{i,n+1}$. Their limiting defects are prescribed: $P_{i,\\infty}=\\theta_{b_i,b_i}$ and $Q_{i,\\infty}=\\theta_{b_o,b_o}$. Here $\\theta_{a,b}x=\\langle b,x\\rangle a$, with the inner product linear in its second variable. No finite, countable or separable restriction is placed on the family. The rank-one conditions are input hypotheses of this generic theorem.",
+    "conclusion": "The same chosen family $(L_i)_i$ simultaneously has the unitary, vector-link and termwise-shell properties, and its concrete generated target acts irreducibly on $\\mathcal H$. All closed reducing subspaces of that target action are therefore $0$ or $\\mathcal H$.",
+    "proof_summary": "For each $i$, sum the orthogonal shell maps strongly to an operator $S_i$, then fill its one-dimensional defect by $L_i=S_i+\\theta_{b_o,b_i}$. To prove irreducibility, a bounded operator commuting with the target first has scalar diagonal blocks and zero off-diagonal blocks relative to the atomic source. Commuting with the links forces all those scalars to agree.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Apply the cited projection-shell rank-one completion theorem separately to each $i$, with initial vector $b_i$ and final vector $b_o$. Coordinate inclusion is isometric, so both vectors have norm one. The decreasing normalized flags, the two support equations and the two limiting projection identities are exactly its hypotheses. It supplies $S_i$ with strong convergence $\\sum_{n<N}W_{i,n}\\to S_i$ and the unitary completion $L_i=S_i+\\theta_{b_o,b_i}$. Choose these witnesses once for all $i$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The completion theorem also gives $L_i b_i=b_o$ and $L_i(P_{i,n}-P_{i,n+1})=W_{i,n}$. The rank-one correction vanishes on every initial difference shell because $b_i$ belongs to the limiting intersection. Thus the correction does not change any prescribed shell action."
+      },
+      {
+        "step_id": "s3",
+        "text": "Let $R\\in B(\\mathcal H)$ commute with $T$. Since $\\pi(A)\\subseteq T$ and $L_i\\in T$, it commutes with the atomic source and every link. The cited atomic-commutant theorem applies to the given irreducible, inequivalent fibers: each matrix block $e_j^*Re_i$ intertwines the corresponding actions; the Schur argument makes diagonal blocks scalar, while irreducibility and unitary inequivalence force off-diagonal blocks to vanish."
+      },
+      {
+        "step_id": "s4",
+        "text": "Write $Re_i x=e_i(z_i x)$. Commuting with $L_i$ and evaluating at $b_i$ gives $z_i b_o=z_o b_o$, hence $z_i=z_o$ since $\\|b_o\\|=1$. Finite-support vectors are dense in the arbitrary-index Hilbert sum, so continuity yields $R=z_o1$ on all of $\\mathcal H$. Finally, the projection onto any closed reducing subspace commutes with $T$; being a scalar projection, it is $0$ or $1$. This is the cited scalar-commutant irreducibility criterion."
+      }
+    ],
+    "lean_realization_notes": "This theorem does not assert $L_o=1$, simplicity of $T$, faithfulness of $\\pi$, or capture of every irreducible representation of $T$. Its shell operators $W_{i,n}$ are not the cyclic-assembly map $W$ used in the later capture results. The star on operators is the Hilbert adjoint.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean#L35-L133",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean",
+        "source_range": {
+          "end_line": 133,
+          "start_line": 35
+        },
+        "source_sha256": "c3b02a92548ee34891bb459f490d0b8cde32d32bbac2da915d9e3688ef6f7336",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Rank-one completion of each strongly summed shell family",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/InnerProductSpace/RankOneCompletion.lean#L200-L200",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "ContinuousLinearMap.exists_rankOneCompletion_of_projectionShells",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/InnerProductSpace/RankOneCompletion.lean",
+        "source_sha256": "c90092af3481562be7ee761876e3747182ae050254f4eb0153c76ec094d59eb4",
+        "source_range": {
+          "start_line": 200,
+          "end_line": 200
+        }
+      }
+    },
+    {
+      "label": "Atomic commutant made scalar by the vector links",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/AtomicCommutant.lean#L64-L64",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.eq_algebraMap_of_atomic_of_links",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/AtomicCommutant.lean",
+        "source_sha256": "f5117d136631880a34497e90b4b78bce5ec5ab192f5f37a57c3c7b0e504ff81c",
+        "source_range": {
+          "start_line": 64,
+          "end_line": 64
+        }
+      }
+    },
+    {
+      "label": "Scalar commutant implies irreducibility",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/AtomicCommutant.lean#L134-L134",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.StarAlgHom.isIrreducible_of_commutant_eq_algebraMap",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/AtomicCommutant.lean",
+        "source_sha256": "f5117d136631880a34497e90b4b78bce5ec5ab192f5f37a57c3c7b0e504ff81c",
+        "source_range": {
+          "start_line": 134,
+          "end_line": 134
+        }
+      }
+    },
+    {
+      "label": "Concrete generated target",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean#L21-L25",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.concreteTarget",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean",
+        "source_range": {
+          "end_line": 25,
+          "start_line": 21
+        },
+        "source_sha256": "c49eb34791db9639db8ac6e68e63da2a420368f9aced46af9215dd41add4be97",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Literal inclusion of the concrete target",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean#L67-L72",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.ambientInclusion",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean",
+        "source_range": {
+          "end_line": 72,
+          "start_line": 67
+        },
+        "source_sha256": "c49eb34791db9639db8ac6e68e63da2a420368f9aced46af9215dd41add4be97",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "2826da4e5a31e6b86b2bb133a8680ced9042a70adb452d4344a5f8f6b22f5791",
+    "uid": "lfh:lfh-declaration-card:sha256:2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "95487527d395cd99f92f8c1a8240efcf23f237086442f81e625caaf494c1261e",
+    "uid": "lfh:lfh-card-exposition:sha256:73d9c8b6dec42880538e80ac7f0a8a71994912e06ed29d57811b8b6eac7d70dc"
+  },
+  "guide": "Here `pi i` is $\\pi_i$, `xi i` is $\\xi_i$, and `coordinateEmbedding i (xi i)` is $b_i$. `U,V` are the two flags; `projectionShell (U i) n` is $P_{i,n}-P_{i,n+1}$. `hUinf,hVinf` supply the two rank-one defects. `W i n` is $W_{i,n}$ and `L i` is the completed unitary $L_i$. For these continuous operators, postfix `†` is the adjoint written as superscript $*$ in the prose. `ambientInclusion (atomicRepresentation pi) L` is the inclusion of this same generated $T$. The operators `S` and the commutant calculation occur in the linked proof, not as extra inputs in the signature.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e/versions/n69-95487527d395cd99/index.html",
+    "pdf": "card.pdf"
+  }
+}

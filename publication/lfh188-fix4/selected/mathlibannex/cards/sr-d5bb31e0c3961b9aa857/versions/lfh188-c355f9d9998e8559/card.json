@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Piola.cofactorRow",
+  "title": "A cofactor row by row replacement",
+  "stable_card_id": null,
+  "identity_key": "bae9d4c4ef77e1e152fc34bb20a9b9fa57ec3107bbc085b41de7fa531e65cae6",
+  "source_url": "mathlibannex/sources/lfh188/73e1c3ceb68dc4ec503a6392/index.html#L51",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/Piola.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "a220df3d27a689052b2bfc3737cc23c6de30b90604fe892b3fbbfeb8231746e0",
+  "accepted_guide_sha256": "4a162be906ee75996e0b9993387fccc53dd3b30500a67621acd58a1b3cc54ff0",
+  "content": {
+    "display_title": "A cofactor row by row replacement",
+    "one_sentence_role": "Fixes the cofactor convention used in the divergence and determinant identities.",
+    "natural_language_statement": "Let $A=(A_{kq})$ be a real $n\\times n$ matrix, and fix a row index $i\\in\\{1,\\ldots,n\\}$. Write $e_j=(\\delta_{jq})_{q=1}^n$ for the $j$th coordinate vector. The cofactor row $C_i(A)$ is the vector whose $j$th coordinate is the determinant obtained by replacing row $i$ of $A$ by $e_j^{\\mathsf T}$.",
+    "definition_explanation": "For a row vector $v$, let $A[i\\leftarrow v]$ denote $A$ with only its $i$th row replaced by $v$. Then\n$$C_i(A)=\\bigl(C_i(A)_j\\bigr)_{j=1}^n,\\qquad\nC_i(A)_j=\\det\\bigl(A[i\\leftarrow e_j^{\\mathsf T}]\\bigr).$$\nEquivalently, $C_i(A)_j$ is the usual $(i,j)$ cofactor. The row-replacement formula fixes the row and column convention without choosing an inverse.",
+    "assumptions": "The matrix is arbitrary: invertibility is not required. The dimension is a natural number, with a specified $i\\in\\{1,\\ldots,n\\}$. When $n=0$ there is no such index, so this indexed definition has no instance to evaluate.",
+    "conclusion": "The result is a row in $\\mathbb R^n$, using the row convention throughout. No transpose or choice of an inverse is part of the definition.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The later row-expansion lemma gives $\\det(A[i\\leftarrow v])=\\sum_jv_jC_i(A)_j$. It is cited as a separate identity, not included as an additional conclusion of this definition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

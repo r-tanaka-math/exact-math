@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+  "title": "A fixed representative family of CAR shell data",
+  "stable_card_id": "3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66",
+  "identity_key": "lfh:lfh-declaration-card:sha256:3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66",
+  "source_url": "mathlibannex/sources/lfh188/2005338ec03db6a42e4aa64d/index.html#L39",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "35729b65c31ea0670e6c0656bc52b163a7360ac9eaf9ff3362dd3dd540f41485",
+  "accepted_guide_sha256": "694a0733819416300fbdd56dd6efcbd83b3b1d50b5268dbde3a03a71ca1755a8",
+  "content": {
+    "display_title": "A fixed representative family of CAR shell data",
+    "one_sentence_role": "One family records a transporting automorphism and exact shell links for each selected pure-state class, with an explicitly fixed root component.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. Write $\\iota_n:A_n\\to A$ for the canonical inclusion, $\\omega(\\iota_n(a))=a_{00}$ for the root state, $f_n=\\iota_n(E_{00})$ for its decreasing root projections, and $p_n=f_n-f_{n+1}$ for the difference shells. Each $p_n$ is a self-adjoint projection. Let $I$ be the set of unitary-equivalence classes of pure-state Gelfand–Naimark–Segal (GNS) representations of $A$. Choose a representative pure state $\\varphi_j$ for each $j\\in I$, with the distinguished class $o=[\\omega]$ represented by $\\varphi_o=\\omega$. A representative shell family assigns to each $j\\in I$ an automorphism $\\alpha_j$ and links $w_{j,n}\\in A$ with $\\varphi_j(\\alpha_j(a))=\\omega(a)$ for every $a$, $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$, and $w_{j,n}w_{j,n}^*=p_n$ for every $n$. At the distinguished class it further requires $\\alpha_o=\\mathrm{id}_A$ and $w_{o,n}=p_n$.",
+    "definition_explanation": "The component structure stores $\\alpha_j$, the equation $\\varphi_j\\circ\\alpha_j=\\omega$, the sequence $(w_{j,n})$, and its initial and final supports. The family structure chooses a component for every class and adds the root equations. They normalize a distinguished component of this chosen family; they do not impose equality between arbitrary choices made in unrelated existence statements.",
+    "assumptions": "The CAR system, root state, and selected representatives are fixed. A family is supplied as data of this structure. There is no restriction that $I$ be countable, and this structure declaration does not itself prove the existence of such a family.",
+    "conclusion": "The fields are the component data for every class and the two root equations. Each component contains one automorphism, its state-transport equation, its link sequence, and both support equations. The root shell $p_n=f_n-f_{n+1}$ is distinguished from the nested flag projection $f_n$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "No rank-one, capture, simplicity, compactness, or approximate-innerness conclusion is stored in this structure. A later constructor can use approximate innerness to build the links, but that construction property is not an extra field required of every supplied family.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

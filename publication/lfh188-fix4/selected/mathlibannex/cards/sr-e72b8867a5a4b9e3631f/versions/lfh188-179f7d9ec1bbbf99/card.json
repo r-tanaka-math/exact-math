@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Mollification.mollify",
+  "title": "Mollification by a normalized smooth kernel",
+  "stable_card_id": null,
+  "identity_key": "5fc62dcf5d09696160cab08918064ba7347d3d85250c9ae688518918ac6dd799",
+  "source_url": "mathlibannex/sources/lfh188/208f5e6218439d5dd671675c/index.html#L36",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/Mollification.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "b4e9e1dfaeaea191863548272df300ed393323e9048f55d7f6a64aa6e32cb4b9",
+  "accepted_guide_sha256": "c17d8730519abe8c478ed14b412685fe5ef985644d950fc028c307151ec31063",
+  "content": {
+    "display_title": "Mollification by a normalized smooth kernel",
+    "one_sentence_role": "Defines convolution with a nonnegative smooth kernel of integral one.",
+    "natural_language_statement": "Let $X=\\mathbb R^n$ and $Y=\\mathbb R^N$, with their coordinate sup norms and Lebesgue measure on $X$. For a real parameter $\\varepsilon$ and a map $f:X\\to Y$, define $f_\\varepsilon=\\rho_\\varepsilon*f$, where $\\rho_\\varepsilon$ is the normalized bump described below.",
+    "definition_explanation": "For $\\varepsilon>0$, take the specified smooth bump $\\varphi_\\varepsilon$ centered at $0$, with inner radius $\\varepsilon/2$ and outer radius $\\varepsilon$. For $\\varepsilon\\leq0$, the definition instead uses radii $1/2$ and $1$. Set\n$$\\begin{aligned}\n\\rho_\\varepsilon(y)&=\\frac{\\varphi_\\varepsilon(y)}{\\int_{\\mathbb R^n}\\varphi_\\varepsilon(z)\\,dz},\\\\\nf_\\varepsilon(x)&=\\int_{\\mathbb R^n}\\rho_\\varepsilon(y)f(x-y)\\,dy.\n\\end{aligned}$$\nThe denominator is positive. This normalization followed by convolution is the complete definition. The fallback defines the operation at every real parameter; approximation uses only $\\varepsilon\\downarrow0$.",
+    "assumptions": "The definition accepts every $n,N\\geq0$, every real $\\varepsilon$, and every function $f$. It does not assume continuity, measurability, or integrability. Analytic properties of the convolution require their own hypotheses.",
+    "conclusion": "The output is the function $f_\\varepsilon:X\\to Y$. For locally integrable $f$ this is the ordinary convolution with the compactly supported continuous kernel. For arbitrary $f$ the displayed integral is understood with the source library's total Bochner-integral convention (zero when Bochner integrability fails).",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "For $\\varepsilon>0$, the same normalized bump satisfies\n$$\\rho_\\varepsilon\\geq0,\\qquad \\int_{\\mathbb R^n}\\rho_\\varepsilon(y)\\,dy=1,\\qquad\n\\rho_\\varepsilon(y)=0\\quad\\text{if }\\|y\\|_\\infty\\geq\\varepsilon.$$\nIn particular its topological support, $\\overline{\\{y:\\rho_\\varepsilon(y)\\ne0\\}}$, is contained in $\\overline B_\\infty(0,\\varepsilon)$. The definition fixes these bumps; no formula identifying them as dilates of a single kernel is asserted. Smoothness of $f_\\varepsilon$ and convergence are separate results.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

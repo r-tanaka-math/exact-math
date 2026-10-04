@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.surjective_of_irreducible_of_finiteDimensional",
+  "title": "Full operator image in finite dimension",
+  "stable_card_id": "a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00",
+  "identity_key": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00",
+  "source_url": "mathlibannex/sources/lfh188/5f5a0fa950ddab8562c53dda/index.html#L36",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "cf06d584cd1fd1eb6baaf06b386ebd6e1a7b6f8dddcf1adb96c1b769b5529363",
+  "accepted_guide_sha256": "edec39f02355afccce3e457cbbea41368524f4a5fb261ac23d30c7fbeabdc2b9",
+  "content": {
+    "display_title": "Full operator image in finite dimension",
+    "one_sentence_role": "Constructs a preimage of an arbitrary operator by separately lifting its self-adjoint real and imaginary parts.",
+    "natural_language_statement": "Let $A$ be a unital complex $C^*$-algebra and $H$ a nonzero finite-dimensional complex Hilbert space. If $\\pi:A\\to\\mathcal B(H)$ is an irreducible unital representation, then $$\\forall T\\in\\mathcal B(H)\\ \\exists c\\in A:\\ \\pi(c)=T.$$ ",
+    "definition_explanation": null,
+    "assumptions": "No singleton condition, faithfulness or separability of $A$ is assumed. The finite-dimensionality and nontriviality hypotheses concern $H$.",
+    "conclusion": "The image of $\\pi$ is all bounded operators on $H$.",
+    "proof_summary": "Interpolate each self-adjoint operator on the whole finite-dimensional space, then use the real-imaginary decomposition.",
+    "proof_steps": [
+      "For a self-adjoint bounded operator $S$, apply [Self-adjoint interpolation on a finite-dimensional subspace](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ExactInterpolation.lean#L403-L419) to the irreducible $\\pi$, the finite-dimensional subspace $E=H$, and this $S$. The theorem supplies a self-adjoint $a\\in A$ with $\\pi(a)x=Sx$ for every $x\\in E$ (and a norm bound which is not needed here). Since $E=H$, equality on all vectors gives $\\pi(a)=S$. This is packaged in [Preimages of self-adjoint operators on the whole finite-dimensional space](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean#L24-L36).",
+      "For an arbitrary $T$, define $$\\operatorname{Re}T=(T+T^*)/2,\\qquad\\operatorname{Im}T=(T-T^*)/(2i).$$ Both operators are self-adjoint, so Step 1 gives $a,b\\in A$ with $\\pi(a)=\\operatorname{Re}T$ and $\\pi(b)=\\operatorname{Im}T$.",
+      "Use the same two preimages to set $c=a+ib$. Complex linearity gives $$\\pi(c)=\\pi(a)+i\\pi(b)=\\operatorname{Re}T+i\\operatorname{Im}T=T.$$ This constructs the required preimage of each $T$."
+    ],
+    "lean_realization_notes": []
+  }
+}

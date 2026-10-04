@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsSingletonIrreducibleModel",
+  "title": "A representative of the unique irreducible class",
+  "stable_card_id": "15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff",
+  "identity_key": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff",
+  "source_url": "mathlibannex/sources/lfh188/d2e393f56bce18ffb70b0029/index.html#L23",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "081be484bba44478a0ab817625d1047efc169cd8ebd56028441216aeda834972",
+  "accepted_guide_sha256": "c1e093326531c3965b07bfd304478df48dcc642d68fa7f7259a986d78fa4eadb",
+  "content": {
+    "display_title": "A representative of the unique irreducible class",
+    "one_sentence_role": "Defines when one nonzero irreducible $*$-representation represents the sole unitary-equivalence class of such representations.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed, and let $\\pi:A\\to\\mathcal B(H)$ be a $*$-representation. The predicate below says that $\\pi$ is nonzero irreducible and that every other nonzero irreducible $*$-representation of $A$ is unitarily equivalent to $\\pi$.",
+    "definition_explanation": "Require first that $\\pi$ act nontrivially and have no proper nonzero closed reducing subspace. Then, for every complex Hilbert space $K$ and every nonzero irreducible $*$-representation $\\rho:A\\to\\mathcal B(K)$, require a unitary operator $U:H\\to K$ such that $$U\\pi(a)=\\rho(a)U\\qquad(a\\in A).$$",
+    "assumptions": "No separability or faithfulness condition is part of this definition. The algebra may be unital, but the definition does not require a unit or a unit-preservation equation.",
+    "conclusion": "The output is a property of the specified $\\pi$: it represents the unique unitary-equivalence class of nonzero irreducible $*$-representations of $A$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": [
+      "Faithfulness is not part of this definition. Later theorems impose hypotheses to deduce it. “Non-unital” permits an algebra with a unit; it does not assert that a unit fails to exist."
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection",
+  "title": "Center transport under bounded point-reflection symmetry",
+  "stable_card_id": "e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0",
+  "identity_key": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0",
+  "source_url": "mathlibannex/sources/lfh188/bbd1a7932ca637cbe9d08cb9/index.html#L74",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 3,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "b8cb8a9ea95e7e1a6d11d698a1ab9a29b4f56c92b82d9ad7089bf1729e3102d0",
+  "accepted_guide_sha256": "e5560bf68e7619f4440f6241472aaab5edbfe96d29e59d01bfa96685546ae7fe",
+  "content": {
+    "display_title": "Center transport under bounded point-reflection symmetry",
+    "one_sentence_role": "Uses a doubling argument to identify the reflection centers under a bijective isometry.",
+    "natural_language_statement": "Let $X,Y$ be real normed affine spaces, with translation spaces $V,W$. For $c\\in X$, point reflection about $c$ is $\\sigma_c(x)=c-(x-c)$; define $\\sigma_d$ on $Y$ similarly. Let $S\\subseteq X$, $T\\subseteq Y$, choose $c\\in S$ and $d\\in T$, and let $f:S\\to T$ be a bijective isometry. If $S$ is bounded and $\\sigma_c(S)\\subseteq S$, $\\sigma_d(T)\\subseteq T$, then $f(c)=d$.",
+    "definition_explanation": null,
+    "assumptions": "The metrics come from the normed translation spaces $V,W$. The centers belong to their respective subsets; $S$ is bounded; and each subset is invariant under reflection about its designated center. No convexity, openness, completeness or finite-dimensionality assumption is used.",
+    "conclusion": "The given isometry sends the designated source center to the designated target center: $f(c)=d$.",
+    "proof_summary": "A conjugation argument doubles the displacement of a center under a self-isometry. Boundedness forces that displacement to vanish; applying the result to the transported target reflection identifies the two centers.",
+    "proof_steps": [
+      "Point reflection is an involutive isometry and fixes its center. Hence the two invariance assumptions restrict $\\sigma_c$ and $\\sigma_d$ to bijective isometries of $S$ and $T$; this is [Restriction of point reflection](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean#L23-L36).",
+      "For a bijective self-isometry $g:S\\to S$, define $$\\Gamma(g)=\\sigma_c\\circ g^{-1}\\circ\\sigma_c\\circ g.$$ Since $\\sigma_c(c)=c$, distance preservation gives $$\\begin{aligned}\\operatorname{dist}(\\Gamma(g)(c),c)&=\\operatorname{dist}(g^{-1}(\\sigma_c(g(c))),c)\\\\&=\\operatorname{dist}(\\sigma_c(g(c)),g(c))\\\\&=2\\operatorname{dist}(g(c),c).\\end{aligned}$$ This is the doubling calculation in [Bounded reflection-center lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean#L38-L72).",
+      "The set of numbers $\\operatorname{dist}(g(c),c)$ is bounded because both points lie in bounded $S$. Let $C$ be its supremum. Since $\\Gamma(g)$ is again a self-isometry of $S$, Step 2 yields $2\\operatorname{dist}(g(c),c)\\le C$ for every $g$, hence $2C\\le C$ and therefore $C=0$. Thus every self-isometry of $S$ fixes $c$.",
+      "Apply the preceding result to $g=f^{-1}\\circ\\sigma_d\\circ f$. Then $$f^{-1}(\\sigma_d(f(c)))=c,$$ so $\\sigma_d(f(c))=f(c)$. A point is fixed by reflection about $d$ only when it equals $d$; equivalently, $f(c)-d=-(f(c)-d)$. Hence $f(c)=d$."
+    ],
+    "lean_realization_notes": []
+  }
+}

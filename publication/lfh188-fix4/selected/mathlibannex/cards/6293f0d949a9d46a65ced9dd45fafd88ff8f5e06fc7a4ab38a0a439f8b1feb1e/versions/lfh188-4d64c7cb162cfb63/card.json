@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag",
+  "title": "Shell matching fixes the trace of transported flags",
+  "stable_card_id": "6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e",
+  "identity_key": "lfh:lfh-declaration-card:sha256:6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e",
+  "source_url": "mathlibannex/sources/lfh188/f7f424a124800bab0a3c1267/index.html#L42",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "02f1c27aed575feb2cdc51875db9628f600760d4193bfd1892dd0da4503470e1",
+  "accepted_guide_sha256": "dc5162fe0f69e0168370cfd0740e6474d04f946cdfb1c3e3c144610693d3ae50",
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra with matrix stages $M_{2^n}(\\mathbb C)$ embedded by $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit, $p_n=f_n-f_{n+1}$, and $\\omega$ for the root state characterized by $\\omega(\\iota_n(a))=a_{00}$ on each stage, where $\\iota_n$ is its canonical embedding.\n\nIndex chosen pure-state Gelfand-Naimark-Segal (GNS) representations by their unitary-equivalence classes $j\\in I$, with root index $o$ and representative states $\\varphi_j$.\n\nA fixed shell family consists of complex-linear unital star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ satisfying $\\varphi_j(\\alpha_j(a))=\\omega(a)$, $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$ and $w_{j,n}w_{j,n}^*=p_n$.\n\nAt the root, $\\alpha_o$ is the identity and $w_{o,n}=p_n$.\n\nThe functional $\\tau$ is the normalized CAR trace defined in [the trace construction](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L62-L64). In particular $\\tau(f_n)=2^{-n}$. The same family and the same automorphism $\\alpha_j$ are used for all values of $n$.",
+    "conclusion": "Transported flags and root flags have the same trace at each level. This supplies the decaying scalar values needed to estimate their action on vectors implementing the trace.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Shell matching fixes the trace of transported flags",
+    "language_tag": "en",
+    "lean_realization_notes": "No new automorphism is chosen and trace-invariance of arbitrary automorphisms is not assumed. The proof uses the exact support identities of the given links and finite induction; it does not infer that the projections themselves converge in operator norm.",
+    "natural_language_statement": "For the completed CAR algebra with normalized trace $\\tau$ and a fixed shell family, the transported projection $f_{j,n}=\\alpha_j(f_n)$ satisfies $\\tau(f_{j,n})=2^{-n}$ for every index $j$ and every $n\\geq0$. Here $f_n$ is the root projection at the matrix stage of size $2^n$.",
+    "one_sentence_role": "Recovers exact trace values from the initial and final supports of shell links.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Use $w_{j,n}^*w_{j,n}=f_{j,n}-f_{j,n+1}$ and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$ in the trace identity."
+      },
+      {
+        "step_id": "s2",
+        "text": "At $n=0$ both flags are $1$. If their traces agree at $n$, equality of the successive differences gives agreement at $n+1$."
+      },
+      {
+        "step_id": "s3",
+        "text": "At stage $n$, the root projection has exactly one diagonal entry equal to $1$. Dividing its matrix trace by $2^n$ gives the stated value."
+      }
+    ],
+    "proof_summary": "For each shell link, traciality gives $\\tau(w_{j,n}^*w_{j,n})=\\tau(w_{j,n}w_{j,n}^*)$. Its support identities turn this into $\\tau(f_{j,n})-\\tau(f_{j,n+1})=\\tau(f_n)-\\tau(f_{n+1})$. Both flags start at $1$, so induction forces equal trace values at every level. The root value is the normalized trace of a rank-one diagonal matrix projection."
+  }
+}

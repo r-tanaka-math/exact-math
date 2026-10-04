@@ -1,0 +1,155 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+    "source_range": {
+      "end_line": 1334,
+      "start_line": 1330
+    },
+    "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem homogeneity : PureStateHomogeneity",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+    "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+      "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+      "start_line": 1330,
+      "start_column": 1,
+      "end_line": 1334,
+      "end_column": 63
+    },
+    "start_byte": 61360,
+    "end_byte": 61402,
+    "sha256": "7bf50fa0e98029842f38ad22ae6b48df1489a5fe61d9948d40caea37faa7f97a",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Pure-state homogeneity of the completed CAR algebra",
+    "one_sentence_role": "The constructed inner intertwining sequences discharge the supplier hypothesis and give an approximately inner transporting automorphism.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. A state means a positive continuous complex-linear functional taking value $1$ at the identity; a pure state is an extreme point of this convex state space. Given any pure states $\\varphi,\\psi$ on $A$, there is a complex star automorphism $\\alpha$ such that $\\varphi(\\alpha(a))=\\psi(a)$ for every $a\\in A$. For every finite set $F\\subset A$ and every $\\varepsilon>0$, a unitary $u\\in A$ can be chosen with $\\|\\alpha(a)-uau^*\\|<\\varepsilon$ for all $a\\in F$.",
+    "definition_explanation": null,
+    "assumptions": "The algebra is the fixed CAR completion, and the functionals are pure states. There is no additional intertwining-sequence hypothesis and no general Kishimoto–Ozawa–Sakai assumption.",
+    "conclusion": "The approximately inner automorphism transports $\\varphi$ to $\\psi$ in the direction $\\varphi\\circ\\alpha=\\psi$. It is surjective because the construction controls actual inverse automorphisms as well as forward maps.",
+    "proof_summary": "The pure-state sequence theorem provides inner automorphisms with forward and inverse pointwise Cauchy behavior and the transported-state limit. The conditional homogeneity theorem applies its two-sided limit construction to this supplier. These two results are exactly the dependencies composed in the selected proof.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For the chosen pure-state pair, apply the pure-state supplier theorem. Its alternating GNS construction uses the summable budget $2^{-n}$, which also tends to zero for the state estimates; the route explanation below records where each supporting dense-test estimate enters."
+      },
+      {
+        "step_id": "s2",
+        "text": "Apply the conditional two-sided-limit theorem to this supplier for all pairs. Forward and actual inverse limits are inverse to one another. Continuity preserves the state equation, and a sufficiently late inner automorphism approximates the limit simultaneously on any finite set."
+      }
+    ],
+    "lean_realization_notes": "This theorem asserts homogeneity for CAR. It does not prove the separately defined statement for all simple separable C*-algebras. Approximate innerness does not assert that the two GNS representations are already unitarily equivalent. The adjacent asymptotically inner result carries extra path data and is not the direct proof used by this declaration.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean#L1330-L1334",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+        "source_range": {
+          "end_line": 1334,
+          "start_line": 1330
+        },
+        "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Exact meaning of the homogeneity property",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean#L22-L32",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+        "source_range": {
+          "end_line": 32,
+          "start_line": 22
+        },
+        "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Unconditional pure-state sequence supplier",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean#L1205-L1261",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.hasInnerIntertwiningSequence_of_pure",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+        "source_range": {
+          "end_line": 1261,
+          "start_line": 1205
+        },
+        "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Conditional limit assembly, now discharged",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean#L89-L104",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+        "source_range": {
+          "end_line": 104,
+          "start_line": 89
+        },
+        "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Vanishing error used in dense state control",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean#L812-L815",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_transportBudget_zero",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+        "source_range": {
+          "end_line": 815,
+          "start_line": 812
+        },
+        "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "e4fd985587d524e2a8360caa9e86ee3af0618b5e5aff21d9323a221bfec4d9bf",
+    "uid": "lfh:lfh-declaration-card:sha256:c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "4081c8ebb5e78e1450160e5e2bc7f686906db157b075d0c269471c1f615b58e0",
+    "uid": "lfh:lfh-card-exposition:sha256:fc2690b16beb2d4f91fa6721a535acecc5a51204aca3e1474e8b4c5c2b5a74f2"
+  },
+  "guide": "Here `PureStateHomogeneity` expands to the state equation and finite-set approximation stated above. The short proof passes `hasInnerIntertwiningSequence_of_pure` to `homogeneity_of_innerIntertwiningSequences`. It does not call the neighboring `homogeneity_from_asymptotic` theorem.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41/versions/n69-4081c8ebb5e78e14/index.html",
+    "pdf": "card.pdf"
+  }
+}

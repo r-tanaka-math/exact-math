@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+  "title": "The atomic direct sum of the selected CAR representations",
+  "stable_card_id": "6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2",
+  "identity_key": "lfh:lfh-declaration-card:sha256:6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2",
+  "source_url": "mathlibannex/sources/lfh188/3f25cb20a220a582f7f1a1f2/index.html#L26",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "31d69adcb21f8c0d67d242772866f455d6e39cfe57d7947cd0b2f4a41b67bba8",
+  "accepted_guide_sha256": "9d255e6f5ab0b8a82903766867c6d72498e219ae2d57756bf7a15ee564337e5f",
+  "content": {
+    "display_title": "The atomic direct sum of the selected CAR representations",
+    "one_sentence_role": "All selected pure-GNS fibers of the completed CAR algebra act together on one Hilbert direct sum.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the unital matrix system $M_{2^n}(\\mathbb C)$ with embeddings $a\\mapsto a\\otimes I_2$. Let $\\omega$ be its distinguished pure product-vector state. Index pure-state GNS equivalence classes by $I$, choose one representative $\\varphi_j$ in each class with $\\varphi_o=\\omega$ at $o=[\\omega]$, and denote its GNS data by $(H_j,\\pi_j,\\xi_j)$. Write $\\mathcal H=\\bigoplus_{j\\in I}H_j$ for the Hilbert direct sum, $e_j:H_j\\to\\mathcal H$ for coordinate inclusion, and $\\pi(a)(x_j)_j=(\\pi_j(a)x_j)_j$. Here the sum consists of square-summable families and has no countability restriction on $I$. The selected atomic representation is this coordinatewise unital representation $\\pi:A\\to B(\\mathcal H)$.",
+    "definition_explanation": "The common estimate $\\|\\pi_j(a)\\|\\leq\\|a\\|$ bounds every coordinate action uniformly in $j$. Hence the coordinatewise formula defines a bounded operator on the square-summable families, with $\\|\\pi(a)\\|\\leq\\|a\\|$. Multiplication, the unit and complex linearity hold coordinatewise. The inner product on the direct sum shows that taking adjoints also holds coordinatewise, giving $\\pi(a^*)=\\pi(a)^*$. The existing arbitrary-index atomic construction packages these properties.",
+    "assumptions": "The completed CAR algebra and its root pure state are fixed. Every fiber is the complete GNS Hilbert space of the chosen state. The index set need not be countable, and the Hilbert direct sum is not assumed separable.",
+    "conclusion": "For every $a\\in A$, $x\\in\\mathcal H$ and $j\\in I$, the defining formula is $(\\pi(a)x)_j=\\pi_j(a)x_j$. In particular, $\\pi(a)e_jx=e_j\\pi_j(a)x$ for $x\\in H_j$. Thus the selected individual actions are the coordinate restrictions of one displayed representation.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The symbol $\\pi_j$ denotes one fiber action and $\\pi$ denotes their direct sum. The cited faithfulness theorem is a separate property of this CAR representation, obtained from its faithful root summand; faithfulness is not a new input or a field added to this definition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

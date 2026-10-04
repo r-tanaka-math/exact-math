@@ -1,0 +1,26 @@
+{
+  "name": "MathlibAnnex.symmetricLens",
+  "title": "Symmetric lens",
+  "stable_card_id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+  "identity_key": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+  "source_url": "mathlibannex/sources/lfh188/f3751937018d63b9e369a931/index.html#L30",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "4b43206779c0b263bb6797dac39922b99d2b9f426f345630054bf01c568c436c",
+  "accepted_guide_sha256": "6cdfcba722a5b82d71ca123ad300523dc190c4dd9c6a7bb96a6bfb9d4672bc2f",
+  "content": {
+    "display_title": "Symmetric lens",
+    "one_sentence_role": "Names the intersection of two closed balls with a common radius.",
+    "natural_language_statement": "Let $E$ be a normed additive commutative group, let $x,y\\in E$, and let $r\\in\\mathbb R$. The symmetric lens with foci $x,y$ and radius $r$ is the set $\\Lambda_r(x,y)$ defined below.",
+    "definition_explanation": "Write $\\overline B(x,r)=\\{z\\in E:\\|z-x\\|\\le r\\}$. Then $$\\Lambda_r(x,y)=\\overline B(x,r)\\cap\\overline B(y,r)=\\{z\\in E:\\|z-x\\|\\le r\\ \\text{and}\\ \\|z-y\\|\\le r\\}.$$ Thus membership imposes both closed distance bounds with the same radius.",
+    "assumptions": "Only the normed additive commutative group $E$, two points $x,y$, and a real number $r$ are required. The foci may coincide, and $r$ need not be positive.",
+    "conclusion": "The output is a subset of $E$, symmetric in its two foci: $\\Lambda_r(x,y)=\\Lambda_r(y,x)$. If $r<0$, it is empty because norms are nonnegative. No midpoint or reflection assertion is part of this definition.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": []
+  }
+}

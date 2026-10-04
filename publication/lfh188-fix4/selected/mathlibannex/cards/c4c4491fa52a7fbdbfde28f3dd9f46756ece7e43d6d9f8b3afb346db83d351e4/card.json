@@ -1,0 +1,140 @@
+{
+  "accepted_type_fingerprint_sha256": "9d4150bdf88153724ae04e130cf9d48c109061c1a2b35016183fa0683d8487e7",
+  "approved_card_model_sha256": "3d65d8de08f42c2cc3f3f3dc1c11089d0b971482dcedfc71b513548903b1841b",
+  "assumptions": "Let A be a nonzero complex C*-algebra, not assumed unital, H a separable complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "0f8e7968c7269244dff3347b8dd04824dd6f183f487dc52919fbc4e7b19ca3c9",
+    "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_scalar_corner",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5b07a7c7de32145f121f2a50d936d721f077b048bca799b7e2852db18b512bba",
+        "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.injective_of_singleton",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3753106ba648e2a30ddde2adad74dbe93df42d065d9a8b9d3790136458806884",
+        "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "There are a nonzero star projection p∈A and a unit vector e∈H with π(p)=rankOne e e; the represented operator π(p) is compact. Minimality is not an explicit clause of this theorem type.",
+  "declaration_kind": "theorem",
+  "definition_equation": "∃ p, IsStarProjection p ∧ p≠0 ∧ (∃ e, ‖e‖=1 ∧ π p=rankOne ℂ e e) ∧ IsCompactOperator (π p).",
+  "definition_explanation": "∃ p, IsStarProjection p ∧ p≠0 ∧ (∃ e, ‖e‖=1 ∧ π p=rankOne ℂ e e) ∧ IsCompactOperator (π p).",
+  "display_title": "A represented rank-one projection from a representative of the unique irreducible-representation class",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] {H : Type v} [inst_1 : NormedAddCommGroup H] [inst_2 : InnerProductSpace ℂ H] [inst_3 : CompleteSpace H] [Nontrivial A] [inst_5 : PartialOrder A] [StarOrderedRing A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∃ p, IsStarProjection p ∧ p ≠ 0 ∧ (∃ e, ‖e‖ = 1 ∧ pi p = ((InnerProductSpace.rankOne ℂ) e) e) ∧ IsCompactOperator ⇑(pi p)",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "51b034cb324b0f53556680512dc0f125c6e75dc8825eb8940bf66089d36dd418",
+    "uid": "lfh:lfh-card-exposition:sha256:523d1076eb56ae12b0a624216894fb79c5f62173f01c46bb5649842fbb51b59b"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "df1f74ea4614865ac353697213b7fb2a3f742d7cffdd0628480489b8bbf02ef8",
+    "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "51b034cb324b0f53556680512dc0f125c6e75dc8825eb8940bf66089d36dd418",
+    "uid": "lfh:lfh-card-exposition:sha256:523d1076eb56ae12b0a624216894fb79c5f62173f01c46bb5649842fbb51b59b"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "df1f74ea4614865ac353697213b7fb2a3f742d7cffdd0628480489b8bbf02ef8",
+      "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_rankOne_map",
+  "natural_language_statement": "Let A be a nonzero complex C*-algebra, not assumed unital, H a separable complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. There are a nonzero star projection p∈A and a unit vector e∈H with π(p)=rankOne e e; the represented operator π(p) is compact. Minimality is not an explicit clause of this theorem type.",
+  "one_sentence_role": "Produces a nonzero projection whose represented image is a compact rank-one orthogonal projection.",
+  "owner_review_item_sha256": "365263731d2d1334c4b25af39a88844a4b59380c3513731bdedebd7408fcffcf",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] {H : Type v} [inst_1 : NormedAddCommGroup H] [inst_2 : InnerProductSpace ℂ H] [inst_3 : CompleteSpace H] [Nontrivial A] [inst_5 : PartialOrder A] [StarOrderedRing A] [TopologicalSpace.SeparableSpace H] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → ∃ p, IsStarProjection p ∧ p ≠ 0 ∧ (∃ e, ‖e‖ = 1 ∧ pi p = ((InnerProductSpace.rankOne ℂ) e) e) ∧ IsCompactOperator ⇑(pi p)"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∃ p, IsStarProjection p ∧ p≠0 ∧ (∃ e, ‖e‖=1 ∧ π p=rankOne ℂ e e) ∧ IsCompactOperator (π p)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The preceding scalar-corner theorem gives p. Injectivity makes π(p) nonzero, and the scalar-corner/rank-one lemma gives a unit e and the image equation. Compactness follows from compactness of a rank-one operator."
+    }
+  ],
+  "proof_summary": "The preceding scalar-corner theorem gives p. Injectivity makes π(p) nonzero, and the scalar-corner/rank-one lemma gives a unit e and the image equation. Compactness follows from compactness of a rank-one operator.",
+  "source_excerpt": {
+    "bytes": 999,
+    "sha256": "c149844df14d0baa62a98722ec2a4385437e565f03a8ec161a50930d850a5756"
+  },
+  "source_locator": {
+    "end_column": 38,
+    "end_line": 99,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean",
+    "source_sha256": "eba1bbf260f30b2a83aaa9a28a4c8b6aadd223fdfef7732ce0d5c9c2a75f1512",
+    "start_column": 1,
+    "start_line": 76
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "0916762b2a87380fcbfa86296bee3e823060a31cc63f14775f0604d340a3918d",
+    "uid": "lfh:lfh-source-build-binding:sha256:cb822c8e183011bad8d81466ea96832748da31f32b6355f9bb9901387e654be9"
+  },
+  "source_sha256": "eba1bbf260f30b2a83aaa9a28a4c8b6aadd223fdfef7732ce0d5c9c2a75f1512",
+  "source_signature": {
+    "end_byte": 3665,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "52214e57e93d2b583e04646f1a2bc8bc5f6a805985de4798c2335dd1cafc0e32",
+    "source_command_range": {
+      "end_column": 38,
+      "end_line": 99,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean",
+      "source_sha256": "eba1bbf260f30b2a83aaa9a28a4c8b6aadd223fdfef7732ce0d5c9c2a75f1512",
+      "start_column": 1,
+      "start_line": 76
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean",
+    "source_sha256": "eba1bbf260f30b2a83aaa9a28a4c8b6aadd223fdfef7732ce0d5c9c2a75f1512",
+    "start_byte": 3260,
+    "text": "theorem exists_nonzero_projection_rankOne_map [Nontrivial A]\n    [PartialOrder A] [StarOrderedRing A]\n    [TopologicalSpace.SeparableSpace H]\n    (pi : NonUnitalCStarRepresentation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :\n    ∃ p : A, IsStarProjection p ∧ p ≠ 0 ∧\n      (∃ e : H, ‖e‖ = 1 ∧ pi p = InnerProductSpace.rankOne ℂ e e) ∧\n      IsCompactOperator (pi p)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean#L76-L99",
+  "stable_card_id": "c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

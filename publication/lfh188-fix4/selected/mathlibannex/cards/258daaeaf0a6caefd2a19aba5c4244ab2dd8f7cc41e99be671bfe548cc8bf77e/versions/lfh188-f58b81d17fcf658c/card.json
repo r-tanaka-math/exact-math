@@ -1,0 +1,33 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+  "title": "Faithfulness of the representation on the CAR trace Hilbert space",
+  "stable_card_id": "258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e",
+  "identity_key": "lfh:lfh-declaration-card:sha256:258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e",
+  "source_url": "mathlibannex/sources/lfh188/07197202c07e7043724aef5d/index.html#L130",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d4481026b41ec003d55bc2394a2f19bc8eed5d75574b5d6214dbb0d708d075ce",
+  "accepted_guide_sha256": "cc55a5a287db8070a1baad172199034f51921d0b7b746b093d8bd8f4dbe54fe2",
+  "content": {
+    "display_title": "Faithfulness of the representation on the CAR trace Hilbert space",
+    "one_sentence_role": "Unitary conjugation preserves injectivity of the target-state representation.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Let $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$ be the GNS representation of the chosen state extension $\\phi$, and let $(H_\\tau,\\pi_\\tau,\\xi_\\tau)$ be the CAR trace GNS representation. Choose once the pointed unitary $E:H_\\tau\\to H_\\phi$ with $E\\xi_\\tau=\\xi_\\phi$ and $E\\pi_\\tau(a)=\\rho_\\phi(\\iota(a))E$. Then $\\widetilde\\rho(t)=E^{-1}\\rho_\\phi(t)E$ is injective on $T$.",
+    "definition_explanation": null,
+    "assumptions": "The family, extension, and chosen unitary are the ones used to define `traceModelRepresentation`. Faithfulness of $\\rho_\\phi$ is the separately proved kernel-dichotomy result.",
+    "conclusion": "The same concrete target admits a faithful representation on the nonzero separable space $H_\\tau=L^2(A,\\tau)$. Its restriction to $A$ is the CAR trace representation.",
+    "proof_summary": "Undo the same conjugation and apply faithfulness of the original target-state representation.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Suppose $\\widetilde\\rho(t)=\\widetilde\\rho(s)$. Since $E$ is a unitary onto $H_\\phi$,\n\n$$\\rho_\\phi(t)=E\\widetilde\\rho(t)E^{-1}=E\\widetilde\\rho(s)E^{-1}=\\rho_\\phi(s).$$\n\nThe theorem `tracialRepresentation_injective` then gives $t=s$. In the source this is the composition of the injective conjugation equivalence with the injective representation; it does not require another ideal argument."
+      }
+    ],
+    "lean_realization_notes": "Injectivity concerns the homomorphism into operators, not a vector functional. The result does not assert irreducibility of this representation or norm separability of $T$. Conjugation uses the inverse on the left because $E$ points from the CAR space to the target-state space.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

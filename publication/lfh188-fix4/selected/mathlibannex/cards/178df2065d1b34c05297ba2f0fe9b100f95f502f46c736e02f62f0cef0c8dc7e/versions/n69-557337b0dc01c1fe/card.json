@@ -1,0 +1,139 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+    "source_range": {
+      "end_line": 88,
+      "start_line": 75
+    },
+    "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem no_unitaryIntertwiner_selectedRepresentation (root : PureState A)\n    {i j : GNSClass A} (hij : i ≠ j) (e : SelectedGNS root i ≃ₗᵢ[ℂ] SelectedGNS root j) :\n    ¬ StarAlgHom.Intertwines (selectedRepresentation root i)\n      (selectedRepresentation root j)\n      (e : SelectedGNS root i →L[ℂ] SelectedGNS root j)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+    "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+      "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+      "start_line": 75,
+      "start_column": 1,
+      "end_line": 88,
+      "end_column": 75
+    },
+    "start_byte": 2954,
+    "end_byte": 3287,
+    "sha256": "6080d9cf0514564efb41dd0ce48080354b1bd34efade9be5947bc75d4a7fda15",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Distinct GNS classes have no unitary intertwiner",
+    "one_sentence_role": "The class index makes the selected pure-GNS family pairwise unitarily inequivalent.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra, with the positive order used for its states, and fix a pure state $\\omega$. A pure state is an extreme point of the normalized positive continuous linear functionals. Let $I$ be the set of pure-state GNS representations modulo unitary equivalence. For each $j\\in I$, choose a pure state $\\varphi_j$ in that class, retaining $\\varphi_o=\\omega$ literally at $o=[\\omega]$. Write $(H_j,\\pi_j,\\xi_j)$ for its GNS space, representation and canonical cyclic vector. If $i\\ne j$, no surjective complex-linear isometry $E:H_i\\to H_j$ intertwines the two selected representations. Explicitly, for every such $E$, the equations $E\\pi_i(a)=\\pi_j(a)E$ cannot hold for all $a\\in A$.",
+    "definition_explanation": null,
+    "assumptions": "The GNS classes $i,j\\in I$ are assumed to be distinct. A candidate $E$ is a unitary map between the two complete Hilbert spaces; it need not carry $\\xi_i$ to $\\xi_j$. The same representative selection based at $\\omega$ is used on both sides.",
+    "conclusion": "The selected representations form a family with no unitary intertwiners between distinct indices. This supplies precisely the pairwise-inequivalence hypothesis of the generic atomic-shell construction.",
+    "proof_summary": "An intertwining unitary would certify GNS equivalence of the two selected states. Taking their quotient classes would therefore identify $i$ and $j$, contradicting their assumed distinctness.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Assume that the candidate unitary $E$ satisfies the intertwining equations. The selected representations are exactly the GNS actions of $\\varphi_i$ and $\\varphi_j$, so $E$ witnesses their GNS equivalence."
+      },
+      {
+        "step_id": "s2",
+        "text": "The cited representative-class theorem says that GNS-equivalent selected representatives have equal indices: each chosen representative has the class it was chosen from. Applying that theorem gives $i=j$, contrary to the hypothesis."
+      }
+    ],
+    "lean_realization_notes": "Two distinct pure states can belong to the same GNS class. The assertion here is about distinct classes. Vanishing of arbitrary bounded intertwiners requires an additional irreducibility argument and is not the conclusion of this declaration.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L75-L88",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 88,
+          "start_line": 75
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Selected concrete GNS representations",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L33-L36",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 36,
+          "start_line": 33
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Equivalent selected representatives have the same class",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean#L106-L106",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.representative_injective_on_classes",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean",
+        "source_sha256": "8de4be03e6c52cfef4deba306bfb6cd4be96d9940dbde63df19b18ae7d542ce2",
+        "source_range": {
+          "start_line": 106,
+          "end_line": 106
+        }
+      }
+    },
+    {
+      "label": "Each representative lies in its specified class",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean#L89-L89",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.classOf_representative",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean",
+        "source_sha256": "8de4be03e6c52cfef4deba306bfb6cd4be96d9940dbde63df19b18ae7d542ce2",
+        "source_range": {
+          "start_line": 89,
+          "end_line": 89
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "8c78f205e340bea56aec97118cab2578ff73f99177c73f7ce3982828a4d49537",
+    "uid": "lfh:lfh-declaration-card:sha256:178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "557337b0dc01c1feef1dfba6501ca3f7f27f23f478b276fcf94d407c67d0a078",
+    "uid": "lfh:lfh-card-exposition:sha256:d2ce3893deb9f7b01076771b80f8ba0a1f34a0cd0cca3502d1b0ef2b699a7547"
+  },
+  "guide": "Here `root` is $\\omega$ and `hij` is $i\\ne j$. The linear isometry equivalence `e` is the candidate $E$, so it is already surjective. `StarAlgHom.Intertwines` expresses $E\\pi_i(a)=\\pi_j(a)E$ for every $a$. In the linked proof, `representative_injective_on_classes` converts that unitary equivalence into equality of the class indices; it is separately cited.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e/versions/n69-557337b0dc01c1fe/index.html",
+    "pdf": "card.pdf"
+  }
+}

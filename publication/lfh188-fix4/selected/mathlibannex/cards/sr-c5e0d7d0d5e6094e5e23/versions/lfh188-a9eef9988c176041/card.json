@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.Plucker.derivativeAverage_mem_body",
+  "title": "The average of contractive derivative generators lies in the body",
+  "stable_card_id": null,
+  "identity_key": "3e83bba1009eb0f03f0925be83ba8046c9f6a88b237b88e1c306acf37cb2ca3c",
+  "source_url": "mathlibannex/sources/lfh188/877e62626668005ebb865011/index.html#L39",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Plucker/Average.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "972810f9ab58287a3c528b4adfe340f672f47ba5ac106d8463be219ca8c1a253",
+  "accepted_guide_sha256": "36ef8b6dfa04bf0147839ef1b87122dcac2dc1fbf2b3cd685338bdb30c5b8bb1",
+  "content": {
+    "display_title": "The average of contractive derivative generators lies in the body",
+    "one_sentence_role": "Uses closed-convex average membership for the actual derivative-generator function.",
+    "natural_language_statement": "Let $n,N\\in\\mathbb N_0$ and give $E=\\mathbb R^n$ and $F=\\mathbb R^N$ their coordinate sup norms. Let $\\lambda_n$ be the fixed coordinate Lebesgue measure on $E$. Let $p:E\\to\\mathbb R$ be a continuous real seminorm with specified constants $a_p,b_p>0$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty\\qquad(x\\in E).$$\n\nThe lower bound makes $p$ a norm. Its closed unit ball and real reference volume are\n$$K_p=\\{x:p(x)\\le1\\},\\qquad v_p=\\lambda_n(K_p)\\in(0,\\infty).$$\nHere and below a finite Lebesgue measure is read as a real number when used as a scalar.\n\nLet $\\mathcal I_{n,N}$ be the finite set of increasing $n$-tuples of distinct rows from $\\{1,\\ldots,N\\}$. The minor-coordinate space $\\mathbb R^{\\mathcal I_{n,N}}$ carries its sup norm. For a linear map $B:E\\to F$, put $B_{ij}=(Be_j)_i$ in the standard coordinate basis. Write $\\Pi_n(B)$ for its maximal-minor vector and $\\mathcal V_p(B)$ for that vector scaled by $v_p$. Their coordinates and scaling are\n$$\\Pi_n(B)_I=\\det(B_{i_a,j})_{a,j=1}^n,\\qquad\\mathcal V_p(B)=v_p\\Pi_n(B)\\quad(I=(i_1<\\cdots<i_n)).$$\n\nA $p$-contraction is a linear map $B:E\\to F$ satisfying $\\|Bz\\|_\\infty\\le p(z)$ for every $z\\in E$. Write $\\mathcal C_p^N$ for these maps. Write $\\mathcal G_p^N$ for the signed generator set and $\\mathcal P_p^N$ for its real convex hull, so\n$$\\mathcal G_p^N=\\{\\mathcal V_p(B),-\\mathcal V_p(B):B\\in\\mathcal C_p^N\\},\\qquad\\mathcal P_p^N=\\operatorname{conv}_{\\mathbb R}(\\mathcal G_p^N).$$\n\nFor a function $f:E\\to F$, write $Df(x)$ for its Fréchet derivative where it exists and for the zero linear map otherwise. Write $G_{p,f}$ for its derivative-generator function and $\\mathcal A_p(f)$ for the average of that function over $K_p$. The integrand and normalization are\n$$G_{p,f}(x)=v_p\\Pi_n(Df(x)),\\qquad\\mathcal A_p(f)=v_p^{-1}\\int_{K_p}G_{p,f}(x)\\,d\\lambda_n(x).$$\nThe integrals use the fixed reference measure, even when distances are measured with $p$.\n\nSuppose $G_{p,f}\\in L^1(K_p,\\lambda_n)$ and\n$$\\|Df(x)h\\|_\\infty\\le p(h)\\quad(h\\in E),\\quad\\lambda_n|_{K_p}\\text{-almost every }x.$$\nThen $\\mathcal A_p(f)\\in\\mathcal P_p^N$.",
+    "definition_explanation": null,
+    "assumptions": "The source and target are finite real coordinate spaces with sup norms. The seminorm $p$ is continuous and has the stated positive lower and upper comparison constants. The measure is the original coordinate Lebesgue measure. The derivative bound holds in all directions simultaneously for almost every point of $K_p$. Integrability of the vector $G_{p,f}$ is the other explicit hypothesis. Global Lipschitzness and everywhere differentiability are not required. The dimensions $n,N$ may be zero. When $n=0$, the unique empty minor has determinant $1$; when $N<n$, the minor-index set is empty and its function space has one element. Neither case is excluded.",
+    "conclusion": "The normalized vector average belongs to $\\mathcal P_p^N$, with no extra multiplication by ball volume.",
+    "proof_summary": "Use the derivative as a contraction witness, then average in the closed convex body.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Obtain almost-everywhere membership.** At every point satisfying the derivative bound, $Df(x)\\in\\mathcal C_p^N$ and hence\n$$G_{p,f}(x)=\\mathcal V_p(Df(x))\\in\\mathcal G_p^N\\subseteq\\mathcal P_p^N.$$\n[The positive-generator lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/Average.lean#L32-L37) takes this very derivative as its witness. Applied on the given full-measure set, it proves the displayed membership almost everywhere."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Supply every average hypothesis.** The input function is $G_{p,f}$, the integration set is $K_p$, and the receiving set is $\\mathcal P_p^N$. We have\n$$0<\\lambda_n(K_p)=v_p<\\infty,\\qquad G_{p,f}\\in L^1(K_p),\\qquad G_{p,f}(x)\\in\\mathcal P_p^N\\ \\text{a.e.}$$\nThe body is convex by definition. [Compactness of the generators](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L66-L90) and [compactness of their finite-dimensional convex hull](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/CompactHull.lean#L138-L143) make it closed. Apply [the closed-convex set-average theorem](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/Analysis/Convex/Integral.lean#L95-L99) to these inputs. It gives\n$$v_p^{-1}\\int_{K_p}G_{p,f}(x)\\,d\\lambda_n(x)\\in\\mathcal P_p^N.$$\nThe left side is exactly $\\mathcal A_p(f)$ by its definition."
+      }
+    ],
+    "lean_realization_notes": null,
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

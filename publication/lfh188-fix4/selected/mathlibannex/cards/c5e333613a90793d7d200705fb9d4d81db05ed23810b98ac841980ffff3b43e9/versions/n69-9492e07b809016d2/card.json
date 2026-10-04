@@ -1,0 +1,178 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_range": {
+      "end_line": 76,
+      "start_line": 72
+    },
+    "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def homogeneityShellFamily : RepresentativeShellFamily where\n  data := representativeShellDataOfHomogeneity\n  root_alpha := representativeShellDataOfHomogeneity_root_alpha\n  root_link := representativeShellDataOfHomogeneity_root_link",
+    "start_byte": 2949,
+    "end_byte": 3196,
+    "sha256": "a56097c4380f01acd0958eca116ae10b0bd4b28d6bc5ed4e225f768a53748020",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+      "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+      "start_line": 72,
+      "start_column": 1,
+      "end_line": 76,
+      "end_column": 63
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "Choosing the CAR shell family from proved homogeneity",
+    "one_sentence_role": "CAR homogeneity and exact shell matching supply one family whose distinguished component is fixed by an explicit identity choice.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. Write $\\iota_n:A_n\\to A$ for the canonical inclusion, $\\omega(\\iota_n(a))=a_{00}$ for the root state, $f_n=\\iota_n(E_{00})$ for its decreasing root projections, and $p_n=f_n-f_{n+1}$ for the difference shells. Each $p_n$ is a self-adjoint projection. Let $I$ be the set of unitary-equivalence classes of pure-state Gelfand–Naimark–Segal (GNS) representations of $A$. Choose a representative pure state $\\varphi_j$ for each $j\\in I$, with the distinguished class $o=[\\omega]$ represented by $\\varphi_o=\\omega$. Fix the following representative shell family. At $o$, choose $\\alpha_o=\\mathrm{id}_A$ and $w_{o,n}=p_n$. At every other $j$, choose an automorphism $\\alpha_j$ from CAR homogeneity for the pair $(\\varphi_j,\\omega)$, and then choose shell links for that same automorphism. Thus $\\varphi_j(\\alpha_j(a))=\\omega(a)$, $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$, and $w_{j,n}w_{j,n}^*=p_n$. This fixed choice is the homogeneity shell family.",
+    "definition_explanation": "The component supplier branches on $j=o$. On the root branch, the root-state representative is exactly $\\omega$ and $p_n^*p_n=p_n=p_np_n^*$, so identity and the shells themselves satisfy all component equations. On a non-root branch, homogeneity gives one $\\alpha_j$ with $\\varphi_j\\circ\\alpha_j=\\omega$ and approximate innerness. Apply the arbitrary-family shell-matching theorem to this $\\alpha_j$ and $(p_n)_n$, and choose its link sequence. The two root lemmas certify the explicit branch, and the displayed definition assembles these data into one family.",
+    "assumptions": "The selected states are pure, including the root state. CAR homogeneity is a proved result, and the difference shells are projections. No external KOS proposition or pre-existing shell family is an input to this definition.",
+    "conclusion": "The definition supplies a value of the representative-family structure, including both root equations. The same selected value can be carried into later constructions without making a fresh choice at each use.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "This is a fixed choice, not a uniqueness theorem for all possible families. In particular, the non-root links need not be unique. The subsequent structural theorem uses this very family. The present definition does not itself prove uniqueness of the irreducible representation class, the rank-one identities, simplicity, or the exclusion of compact-operator algebras.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L72-L76",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 76,
+          "start_line": 72
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Component choice and its explicit root branch",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L32-L58",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 58,
+          "start_line": 32
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "CAR state transport supplying each non-root automorphism",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean#L1330-L1334",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+        "source_range": {
+          "end_line": 1334,
+          "start_line": 1330
+        },
+        "source_sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Links for all shells of that fixed automorphism",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean#L43-L60",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean",
+        "source_range": {
+          "end_line": 60,
+          "start_line": 43
+        },
+        "source_sha256": "8da75aff3bd4078699d7f0284a898ce644bf15c9785815a365cf6bd7fe593dcc",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Identity at the distinguished class",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L60-L64",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity_root_alpha",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 64,
+          "start_line": 60
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Shells themselves at the distinguished class",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L66-L70",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity_root_link",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 70,
+          "start_line": 66
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The family interface with all fields",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L39-L46",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 39
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "0c6be805b079b4f1f3684090433f578eb030424b9ee394db71a7878007910ea2",
+    "uid": "lfh:lfh-declaration-card:sha256:c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "9492e07b809016d2fd2c22d67477e86af56995dfdd6ff012451b4c4e428ac1ac",
+    "uid": "lfh:lfh-card-exposition:sha256:c9df3e31aa24cde34eae656b62ca6866686421b9d5a4469fa27c56ad40ae6f37"
+  },
+  "guide": "Here `data := representativeShellDataOfHomogeneity` is the component choice just described. The two named root lemmas provide the `root_alpha` and `root_link` fields. `homogeneityShellFamily` is a fixed value, not a new existentially chosen family each time it is referenced. The component supplier is linked separately and is not concatenated into this definition’s signature.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9/versions/n69-9492e07b809016d2/index.html",
+    "pdf": "card.pdf"
+  }
+}

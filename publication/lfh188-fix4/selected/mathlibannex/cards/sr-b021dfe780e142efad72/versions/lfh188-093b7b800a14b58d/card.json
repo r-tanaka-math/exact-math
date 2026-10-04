@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.WeakGradient.localMollification_fderiv_apply",
+  "title": "Differentiating a local mollification through its kernel",
+  "stable_card_id": null,
+  "identity_key": "aaf25e6d1afc1f8fde144f4721d80b7b2299e5a7d9423b147a995db46d74f195",
+  "source_url": "mathlibannex/sources/lfh188/61b9524ce2089171c8da16b1/index.html#L270",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "53fd32f1ec326a98c2b1dcfeaff7b1fc8e8743f6b690592ea00cc15721e7e43f",
+  "accepted_guide_sha256": "575b274040370cb823dabc732ad4a92e8adf030582ff26e29bb3a7fcb6ebdc75",
+  "content": {
+    "display_title": "Differentiating a local mollification through its kernel",
+    "one_sentence_role": "Writes a directional derivative without differentiating the locally integrable input.",
+    "natural_language_statement": "Let $E$ be a finite-dimensional real normed vector space with its Borel measurable structure and an additive Haar measure $\\mu$. Fix $R>0$. For $k\\in\\mathbb N$, let $\\varphi_k:E\\to\\mathbb R$ be the normalized smooth bump centered at zero with inner and outer radii\n$$a_k=\\frac{R}{2(k+2)},\\qquad r_k=\\frac{R}{k+2}.$$\nIt is nonnegative, has integral one, and has compact support in $\\overline B(0,r_k)$. If $v:E\\to\\mathbb R$ is locally integrable, put\n$$v_k(y):=(\\varphi_k*v)(y)=\\int_E\\varphi_k(t)v(y-t)\\,d\\mu(t).$$\nThen, for every $k$, $y\\in E$, and direction $e\\in E$,\n$$Dv_k(y)e=\\int_Ev(z)\\,D\\varphi_k(y-z)e\\,d\\mu(z).$$",
+    "definition_explanation": null,
+    "assumptions": "Only local integrability of $v$ is assumed. The theorem does not require a weak equation, global integrability, Lipschitz continuity, or differentiability of $v$. The dimension may be zero. The kernel is the specified normalized bump for these radii; no extra scaling formula for a universal kernel is assumed.",
+    "conclusion": "The derivative is a genuine Fréchet derivative of the mollification, and the displayed scalar integral is integrable. Differentiation falls on the smooth compactly supported kernel, not on $v$.",
+    "proof_summary": "Apply the compact-kernel differentiation theorem for convolution, evaluate its operator-valued integral in direction $e$, and change variables by the Haar-measure-preserving reflection $t=y-z$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Apply the derivative theorem with its hypotheses.** The normalized bump $\\varphi_k$ is $C^1$ and compactly supported, while $v$ is locally integrable on all of $E$. The [compact-kernel convolution differentiation theorem](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/Analysis/Calculus/ContDiff/Convolution.lean#L93-L97) therefore yields\n$$Dv_k(y)=\\int_E v(y-t)\\,D\\varphi_k(t)\\,d\\mu(t).$$\nThis is an integral of continuous linear functionals on $E$. The derivative $D\\varphi_k$ is continuous and compactly supported. Multiplication against the locally integrable translate of $v$ is therefore integrable, which justifies this operator-valued integral."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Evaluate and change variables.** Evaluation $L\\mapsto L(e)$ is continuous linear, so it commutes with that integrable Bochner integral:\n$$Dv_k(y)e=\\int_Ev(y-t)\\,D\\varphi_k(t)e\\,d\\mu(t).$$\nTranslation and negation preserve additive Haar measure on the real vector space. Thus the measurable bijection $z\\mapsto y-z$, its own inverse, permits substitution $t=y-z$. Since $y-(y-z)=z$, the preceding formula becomes\n$$Dv_k(y)e=\\int_Ev(z)\\,D\\varphi_k(y-z)e\\,d\\mu(z).$$\nNo derivative of $v$ has been used."
+      }
+    ],
+    "lean_realization_notes": "In the local application, $v=\\mathbf1_Ku$ with $K$ compact and contained in an open set on which $u$ is locally integrable. Local integrability gives $\\int_K|u|\\,d\\mu<\\infty$, and measurability of compact $K$ gives integrability of $\\mathbf1_Ku$ on $E$, hence the hypothesis of this theorem. Separately, the rank-one trace identity $\\operatorname{tr}(z\\mapsto L(z)e)=L(e)$ explains why the same directional kernel derivative occurs in the divergence test used later; it is not an assumption on $v$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

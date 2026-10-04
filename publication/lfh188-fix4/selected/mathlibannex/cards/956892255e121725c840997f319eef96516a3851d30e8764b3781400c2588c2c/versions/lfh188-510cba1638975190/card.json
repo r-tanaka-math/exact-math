@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+  "title": "An inequivalent GNS fiber has no residual common range",
+  "stable_card_id": "956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c",
+  "identity_key": "lfh:lfh-declaration-card:sha256:956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c",
+  "source_url": "mathlibannex/sources/lfh188/6f2eb5e13539ffc8e4f79e99/index.html#L214",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "7d7c162eb750b8de37d22f76b08d600e65af91db27d0ca9793def297eb6e177f",
+  "accepted_guide_sha256": "333ba18f04c226451722c428df2d40746ae26500e2cf23d17743089cd60f6b40",
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra, the completion of the matrix stages $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit. These are decreasing projections with $f_0=1$. Write $\\iota_n$ for the canonical embedding of stage $n$. The root state $\\omega$ is determined by $\\omega(\\iota_n(a))=a_{00}$ on every stage.\n\nChoose one pure state $\\varphi_j$ from each unitary-equivalence class $j\\in I$ of pure-state Gelfand-Naimark-Segal (GNS) representations, retaining $\\omega$ at the root index $o$. Write $(H_j,\\pi_j,\\xi_j)$ for its complete complex GNS space, unital star representation and unit cyclic vector. Thus $\\varphi_j(a)=\\langle\\xi_j,\\pi_j(a)\\xi_j\\rangle$, and the vectors $\\pi_j(a)\\xi_j$ are dense in $H_j$. Inner products are linear in the second argument.\n\nA fixed shell family supplies unital complex star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ with $\\varphi_j\\circ\\alpha_j=\\omega$, $w_{j,n}^*w_{j,n}=\\alpha_j(f_n-f_{n+1})$, and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$. At the root, $\\alpha_o$ is the identity and $w_{o,n}=f_n-f_{n+1}$. Fix $i\\in I$ and put $f_{i,n}=\\alpha_i(f_n)$. The family is supplied; its existence is not an extra conclusion here. The condition $j\\ne i$ means that the unitary-equivalence classes are distinct, not merely that two state functionals in the same class differ. The selected representation $\\pi_j$ is irreducible and has nonzero Hilbert space because $\\|\\xi_j\\|=1$.",
+    "conclusion": "The transported flag leaves no nonzero vector fixed in an inequivalent chosen fiber. As a separate consequence of decreasing orthogonal projections, $\\pi_j(f_{i,n})x\\to0$ in norm for each fixed $x\\in H_j$. Thus the surviving line in the matching fiber is sharply separated from every other chosen class.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "An inequivalent GNS fiber has no residual common range",
+    "language_tag": "en",
+    "lean_realization_notes": "Irreducibility is used to make a nonzero candidate fixed vector cyclic. The conclusion is not asserted for an arbitrary reducible representation or for a different vector state in the same GNS class. The exact source proves equality of projections; strong convergence uses the additional cited projection theorem and does not imply operator-norm convergence.",
+    "natural_language_statement": "Fix a shell family and indices $i,j\\in I$ as below, with $j\\ne i$. For $f_{i,n}=\\alpha_i(f_n)$, let $F_j=\\bigcap_{n\\geq0}\\operatorname{ran}\\pi_j(f_{i,n})$ and let $P_j$ be its orthogonal projection. Then $P_j=0$, or equivalently $F_j=\\{0\\}$.",
+    "one_sentence_role": "Uses compression and cyclic transport to exclude fixed vectors in every other chosen pure-state class.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "If $P_j\\ne0$, choose $z$ with $P_jz\\ne0$ and normalize $P_jz$ to a unit vector $\\eta$. Since $P_j$ projects onto the common range, every $\\pi_j(f_{i,n})$ fixes $\\eta$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Take the matrix coefficient of the represented compression error against $\\eta$. Fixedness and unit norm turn it into the constant $\\langle\\eta,\\pi_j(b)\\eta\\rangle-\\varphi_i(b)$; norm convergence forces this constant to vanish."
+      },
+      {
+        "step_id": "s3",
+        "text": "The orbit closures of $\\xi_i$ and $\\eta$ are their full Hilbert spaces. Equality of vector states gives equality of orbit inner products, so the map $\\pi_i(b)\\xi_i\\mapsto\\pi_j(b)\\eta$ extends to a surjective complex-linear isometry that intertwines the representations. This contradicts $j\\ne i$."
+      }
+    ],
+    "proof_summary": "If $F_j$ contained a unit vector $\\eta$, [the transported CAR compression estimate](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L150-L161) $\\|f_{i,n} b f_{i,n}-\\varphi_i(b)f_{i,n}\\|\\to0$, valid for every $b\\in A$, would imply $\\langle\\eta,\\pi_j(b)\\eta\\rangle=\\varphi_i(b)$. Irreducibility makes $\\eta$ cyclic. Equality of this vector state with the state of $\\xi_i$ yields a unitary intertwiner from $\\pi_i$ to $\\pi_j$, contradicting their distinct classes."
+  }
+}

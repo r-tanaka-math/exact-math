@@ -1,0 +1,32 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_extension",
+  "title": "A character extends to a pure state",
+  "stable_card_id": "f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226",
+  "identity_key": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226",
+  "source_url": "mathlibannex/sources/lfh188/dd8e639d11d1661be81d0943/index.html#L231",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "c0c91fda02ed2ed8ec467f2cb43fc89e00623ec94115b0726e913c4fee64f040",
+  "accepted_guide_sha256": "3ff75ee29922635da168954add276b03e81e8cca1a487a26a731f7a7933b2c48",
+  "content": {
+    "display_title": "A character extends to a pure state",
+    "one_sentence_role": "Chooses an extreme state in the compact face of all extensions of one prescribed character.",
+    "natural_language_statement": "Let $A$ be a nonzero unital complex $C^*$-algebra. Let $D\\subseteq A$ be a norm-closed unital $*$-subalgebra and $\\chi:D\\to\\mathbb C$ a character. There exists a continuous complex-linear functional $\\varphi$ on $A$ such that it is a state, is pure, and satisfies $$\\varphi(d)=\\chi(d)\\qquad(d\\in D).$$ A state is positive and normalized at the unit; purity means extremality in the real convex state space.",
+    "definition_explanation": null,
+    "assumptions": "No commutativity assumption is made on $D$. Its closedness and the specified character are inputs. Neither algebra separability nor a Hilbert-space representation is assumed.",
+    "conclusion": "One pure state of $A$ extends that same character on every element of $D$.",
+    "proof_summary": "Use Hahn–Banach to obtain a state extension, show that all extensions form a nonempty compact face, and choose a pure state in that face.",
+    "proof_steps": [
+      "Write $S(A)$ for the state space of $A$. The character $\\chi$ is a positive normalized functional of norm one on $D$. Apply the norm-preserving Hahn–Banach extension in [A norm-preserving Hahn–Banach extension is an ambient state](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean#L125-L147) to the underlying complex subspace $D\\subseteq A$ and this functional. Obtain $\\psi:A\\to\\mathbb C$ with $\\psi|_D=\\chi$ and $\\|\\psi\\|=1$. Since $1_A\\in D$, $\\psi(1_A)=\\chi(1_A)=1$. The $C^*$-algebra criterion $\\|\\psi\\|\\le1$ and $\\psi(1)=1$ implies positivity. Thus the set $$F_\\chi=\\{\\psi\\in S(A):\\psi|_D=\\chi\\}$$ of state extensions is nonempty.",
+      "Give the continuous dual the weak-star topology. Each condition $\\psi(d)=\\chi(d)$ is closed because evaluation at a fixed $d$ is continuous, and the state conditions are weak-$*$-closed. States have norm at most one, so the closed set $F_\\chi$ lies in the weak-star compact dual unit ball and is compact. It is convex because positivity, normalization and all restriction equations are preserved by real convex combinations. These are the compactness and nonemptiness facts in [Compactness, nonemptiness and the face property](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean#L149-L228).",
+      "The character is pure on $D$ by [A character is a pure state](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean#L47-L111). Explicitly, if $\\chi=(1-t)\\alpha+t\\beta$ with states on $D$ and $0<t<1$, for an arbitrary $d\\in D$ put $q=d-\\chi(d)1$. Then $\\chi(q^*q)=0$, while both $\\alpha(q^*q)$ and $\\beta(q^*q)$ are nonnegative. The convex equality forces both to vanish. Cauchy–Schwarz gives $|\\alpha(q)|^2\\le\\alpha(q^*q)\\alpha(1)=0$ and the corresponding inequality for $\\beta$. Thus $\\alpha(q)=\\beta(q)=0$, so normalization gives $\\alpha(d)=\\beta(d)=\\chi(d)$ for every $d$.",
+      "Let $\\psi_0,\\psi_1\\in S(A)$ and $0<t<1$ satisfy $$(1-t)\\psi_0+t\\psi_1\\in F_\\chi.$$ Their restrictions to $D$ are states, and restriction of this equation gives $$(1-t)\\psi_0|_D+t\\psi_1|_D=\\chi.$$ Step 3 implies $\\psi_0|_D=\\psi_1|_D=\\chi$, so $\\psi_0,\\psi_1\\in F_\\chi$. This is exactly the face property proved in [Compactness, nonemptiness and the face property](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean#L149-L228).",
+      "The extreme-point existence theorem for a nonempty compact convex set in the real locally convex weak-star dual gives a state $\\varphi\\in\\operatorname{ext}_{\\mathbb R}F_\\chi$. Since $F_\\chi$ is a face of $S(A)$, the same $\\varphi$ is extreme in $S(A)$. Its membership in $F_\\chi$ gives positivity, $\\varphi(1)=1$ and $\\varphi(d)=\\chi(d)$ for every $d\\in D$; its extremality gives purity. These are all the required conclusions for one continuous complex-linear functional."
+    ],
+    "lean_realization_notes": []
+  }
+}

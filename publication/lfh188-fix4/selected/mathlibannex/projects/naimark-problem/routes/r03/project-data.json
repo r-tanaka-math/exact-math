@@ -1,0 +1,222 @@
+{
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "orientation": "prerequisite_to_dependent",
+  "node_count": 8,
+  "reachability_count": 14,
+  "display_edge_count": 8,
+  "maximum_level": 3,
+  "reachability": [
+    {
+      "prerequisite": "nm-13349d2359009230ac51",
+      "dependent": "nm-0c0fee19e48d19efe184"
+    },
+    {
+      "prerequisite": "nm-13349d2359009230ac51",
+      "dependent": "nm-8f1c4df034ff75240bd3"
+    },
+    {
+      "prerequisite": "nm-13349d2359009230ac51",
+      "dependent": "nm-e7a2a17bd26533049bba"
+    },
+    {
+      "prerequisite": "nm-8f1c4df034ff75240bd3",
+      "dependent": "nm-0c0fee19e48d19efe184"
+    },
+    {
+      "prerequisite": "nm-8f1c4df034ff75240bd3",
+      "dependent": "nm-e7a2a17bd26533049bba"
+    },
+    {
+      "prerequisite": "nm-a067d00b990845fe58c7",
+      "dependent": "nm-0c0fee19e48d19efe184"
+    },
+    {
+      "prerequisite": "nm-a26f8ad13bd0e68b6263",
+      "dependent": "nm-0c0fee19e48d19efe184"
+    },
+    {
+      "prerequisite": "nm-aa4edba5516ed262c658",
+      "dependent": "nm-0c0fee19e48d19efe184"
+    },
+    {
+      "prerequisite": "nm-aa4edba5516ed262c658",
+      "dependent": "nm-e7a2a17bd26533049bba"
+    },
+    {
+      "prerequisite": "nm-e7a2a17bd26533049bba",
+      "dependent": "nm-0c0fee19e48d19efe184"
+    },
+    {
+      "prerequisite": "nm-f58aba8a132801e8d71f",
+      "dependent": "nm-0c0fee19e48d19efe184"
+    },
+    {
+      "prerequisite": "nm-f58aba8a132801e8d71f",
+      "dependent": "nm-8f1c4df034ff75240bd3"
+    },
+    {
+      "prerequisite": "nm-f58aba8a132801e8d71f",
+      "dependent": "nm-aa4edba5516ed262c658"
+    },
+    {
+      "prerequisite": "nm-f58aba8a132801e8d71f",
+      "dependent": "nm-e7a2a17bd26533049bba"
+    }
+  ],
+  "nodes": [
+    {
+      "selected_node_id": "nm-13349d2359009230ac51",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-8f1c4df034ff75240bd3"
+      ]
+    },
+    {
+      "selected_node_id": "nm-f58aba8a132801e8d71f",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-8f1c4df034ff75240bd3",
+        "nm-aa4edba5516ed262c658"
+      ]
+    },
+    {
+      "selected_node_id": "nm-a067d00b990845fe58c7",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-0c0fee19e48d19efe184"
+      ]
+    },
+    {
+      "selected_node_id": "nm-a26f8ad13bd0e68b6263",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-0c0fee19e48d19efe184"
+      ]
+    },
+    {
+      "selected_node_id": "nm-8f1c4df034ff75240bd3",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+      "level": 1,
+      "prerequisites": [
+        "nm-13349d2359009230ac51",
+        "nm-f58aba8a132801e8d71f"
+      ],
+      "used_by": [
+        "nm-e7a2a17bd26533049bba"
+      ]
+    },
+    {
+      "selected_node_id": "nm-aa4edba5516ed262c658",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.hasInnerIntertwiningSequence_of_pure",
+      "level": 1,
+      "prerequisites": [
+        "nm-f58aba8a132801e8d71f"
+      ],
+      "used_by": [
+        "nm-e7a2a17bd26533049bba"
+      ]
+    },
+    {
+      "selected_node_id": "nm-e7a2a17bd26533049bba",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+      "level": 2,
+      "prerequisites": [
+        "nm-8f1c4df034ff75240bd3",
+        "nm-aa4edba5516ed262c658"
+      ],
+      "used_by": [
+        "nm-0c0fee19e48d19efe184"
+      ]
+    },
+    {
+      "selected_node_id": "nm-0c0fee19e48d19efe184",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+      "level": 3,
+      "prerequisites": [
+        "nm-a067d00b990845fe58c7",
+        "nm-a26f8ad13bd0e68b6263",
+        "nm-e7a2a17bd26533049bba"
+      ],
+      "used_by": []
+    }
+  ],
+  "display_edges": [
+    {
+      "prerequisite": "nm-13349d2359009230ac51",
+      "dependent": "nm-8f1c4df034ff75240bd3",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+        "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity"
+      ]
+    },
+    {
+      "prerequisite": "nm-8f1c4df034ff75240bd3",
+      "dependent": "nm-e7a2a17bd26533049bba",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences"
+      ]
+    },
+    {
+      "prerequisite": "nm-a067d00b990845fe58c7",
+      "dependent": "nm-0c0fee19e48d19efe184",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+        "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity",
+        "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity._proof_4",
+        "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner"
+      ]
+    },
+    {
+      "prerequisite": "nm-a26f8ad13bd0e68b6263",
+      "dependent": "nm-0c0fee19e48d19efe184",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+        "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily"
+      ]
+    },
+    {
+      "prerequisite": "nm-aa4edba5516ed262c658",
+      "dependent": "nm-e7a2a17bd26533049bba",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+        "MathlibAnnex.CStarAlgebra.CAR.hasInnerIntertwiningSequence_of_pure"
+      ]
+    },
+    {
+      "prerequisite": "nm-e7a2a17bd26533049bba",
+      "dependent": "nm-0c0fee19e48d19efe184",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+        "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity",
+        "MathlibAnnex.CStarAlgebra.CAR.representativeShellDataOfHomogeneity._proof_2",
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneity"
+      ]
+    },
+    {
+      "prerequisite": "nm-f58aba8a132801e8d71f",
+      "dependent": "nm-8f1c4df034ff75240bd3",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+        "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence"
+      ]
+    },
+    {
+      "prerequisite": "nm-f58aba8a132801e8d71f",
+      "dependent": "nm-aa4edba5516ed262c658",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.hasInnerIntertwiningSequence_of_pure",
+        "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+/* Scoped layout only; existing palette, fonts and common renderer are preserved. */
+[data-project-reader] .tile .qualified{overflow-wrap:anywhere}[data-project-reader] .tile-role{overflow-wrap:anywhere}[data-project-reader] .relations{overflow-wrap:anywhere}[data-project-reader] .filters{flex-wrap:wrap}[data-project-reader] #empty-state{padding:12px}[data-project-reader] select{max-width:100%}[data-project-reader] .architecture-card p{overflow-wrap:anywhere}
+[data-project-reader] .math-svg{display:inline-block;vertical-align:baseline;max-width:100%}[data-project-reader] .math-svg svg{vertical-align:middle}
+@media print{[data-project-reader] .history-trace,[data-project-reader] #clear-search{display:none}[data-project-reader] .tile{break-inside:avoid}[data-project-reader] .architecture-card{break-inside:avoid}[data-project-reader] .level>h3{break-after:avoid}[data-project-reader] .tile .qualified{font-size:8pt}[data-project-reader] .relations{font-size:8pt}[data-project-reader] .tile-actions a{font-size:8pt}}
+@media print{body>footer{display:none!important}}
+
+[data-project-reader] .key-links{padding-left:1.25em}[data-project-reader] .key-links li{margin:.35em 0;overflow-wrap:anywhere}[data-project-reader] .route-reference-index{margin-top:1em}[data-project-reader] .route-reference-index p{overflow-wrap:anywhere}@media print{[data-project-reader] .route-reference-index{display:none!important}}
+@media screen{[data-project-reader] a[data-key-identity]{display:inline-block;vertical-align:top}}

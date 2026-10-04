@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+  "title": "A separably represented C*-algebra with no separable irreducible representation",
+  "stable_card_id": "496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241",
+  "identity_key": "lfh:lfh-declaration-card:sha256:496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241",
+  "source_url": "mathlibannex/sources/lfh188/a6656d2ca1bcc56e1965e923/index.html#L152",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "df641d48577ed178651ff18b5cdc2c3fb4e0d88c8cf4fd6d01b96628ed25d648",
+  "accepted_guide_sha256": "16f450a005ba142d889b4ec3737f5ca01b0d44a0d907db676530e2f74356bbf2",
+  "content": {
+    "display_title": "A separably represented C*-algebra with no separable irreducible representation",
+    "one_sentence_role": "The same algebra $T$ has a faithful representation on a separable Hilbert space, but no nonzero irreducible representation on any separable Hilbert space.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra. Let $\\pi:A\\to B(\\mathcal H)$ be the direct sum of one chosen GNS representation from each pure-state GNS equivalence class, and let $(L_i)_{i\\in I}$ be the unitaries obtained from the fixed CAR homogeneity and shell construction. Put $T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})\\subseteq B(\\mathcal H)$, and write $\\iota(a)=\\pi(a)$ for the embedding into $T$. Let $\\tau$ be the normalized trace of $A$. The algebra $T$ retains all the properties in the cited representation-classification theorem: it is nonzero, norm closed, unital, infinite dimensional and simple; $\\iota$ is injective and unital; the inclusion $\\rho_0:T\\to B(\\mathcal H)$ is faithful and irreducible; every nonzero irreducible $*$-representation of $T$ is unitarily equivalent to $\\rho_0$; and $T$ is not isomorphic to the full algebra of compact operators on any Hilbert space. In addition, $H_\\tau=L^2(A,\\tau)$ is nonzero and separable, and there exists a faithful unital representation $T\\to B(H_\\tau)$. No separable complex Hilbert space carries a nonzero irreducible $*$-representation of $T$, even without assuming preservation of the identity.",
+    "definition_explanation": null,
+    "assumptions": "All assertions concern the same generated algebra $T$ and the same fixed shell unitaries. The absence of irreducible representations is quantified over arbitrary separable complex Hilbert spaces. Norm separability of $T$ is neither required nor asserted.",
+    "conclusion": "$T$ has both the faithful representation $\\widetilde\\rho$ on the separable space $H_\\tau$ and the faithful irreducible representation $\\rho_0$ on $\\mathcal H$. The representation $\\widetilde\\rho$ is reducible, whereas $\\mathcal H$ cannot be separable.",
+    "proof_summary": "Combine the classification and simplicity results for $T$ with the normalized CAR trace vector, the dense CAR orbit, faithfulness of $\\widetilde\\rho$, and the theorem excluding nonzero irreducible representations on separable Hilbert spaces.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Let $(\\pi_\\tau,H_\\tau,\\xi_\\tau)$ be the GNS representation and cyclic vector of $\\tau$. One has $\\|\\xi_\\tau\\|=1$, so $H_\\tau\\ne\\{0\\}$. The continuous map $a\\mapsto\\pi_\\tau(a)\\xi_\\tau$ has dense range. Since $A$ is separable, $H_\\tau$ is separable."
+      },
+      {
+        "step_id": "s2",
+        "text": "Take the GNS representation $\\rho_\\phi$ of the chosen extension $\\phi$ of $\\tau$ to $T$, and the unitary $E:H_\\tau\\to H_\\phi$ from the cited trace construction. Then $\\widetilde\\rho(t)=E^{-1}\\rho_\\phi(t)E$ is the established faithful representation on $H_\\tau$. The cited theorem excluding nonzero irreducible representations on separable Hilbert spaces applies to every $*$-representation $\\rho:T\\to B(H)$ with $H$ separable. These statements are conjoined with the classification and structural properties of the same $T$."
+      }
+    ],
+    "lean_realization_notes": "The faithful representation in the existential assertion is the already chosen $\\widetilde\\rho$. No different algebra or unrelated representation is chosen to establish the two separability assertions.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

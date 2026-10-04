@@ -16,3 +16,7 @@ src/styles/private-lfh.css
 PRIVATE_PREVIEW.md
 
 publication/incoming/
+
+!publication/lfh188-fix4/selected/mathlibannex/raw/MathlibAnnex/Analysis/Distribution/
+!publication/lfh188-fix4/selected/mathlibannex/raw/MathlibAnnex/Analysis/Distribution/**/
+!publication/lfh188-fix4/selected/mathlibannex/raw/MathlibAnnex/Analysis/Distribution/**

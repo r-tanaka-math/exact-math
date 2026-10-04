@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.DeterminantFrame.determinantMaximum_pos",
+  "title": "Positivity of the determinant maximum",
+  "stable_card_id": null,
+  "identity_key": "1a5fff1c6ed445dd614fcd0129028953d5254cf60872de25c8fb0ed97e527293",
+  "source_url": "mathlibannex/sources/lfh188/06f81464de9cc3a6a77d758a/index.html#L247",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "88c7250e9ce9f5c0ca4075df9465864b85e3b171bda1c39334633047151abe4f",
+  "accepted_guide_sha256": "22c18235cae3d2c2b36ea48aa250e62c3b1302f0b08e2b3a55449b759e4dae95",
+  "content": {
+    "display_title": "Positivity of the determinant maximum",
+    "one_sentence_role": "A uniformly scaled dual basis supplies a positive comparison determinant.",
+    "natural_language_statement": "Let $n\\in\\mathbb N$, let $E$ be a finite-dimensional real normed vector space, and fix an ordered basis $b=(b_j)_{j=1}^n$. Write $C_b:E\\to\\mathbb R^n$ for the coordinate isomorphism, defined by $x=\\sum_{j=1}^n(C_bx)_j b_j$, and give its coordinate space the sup norm $\\|c\\|_\\infty=\\max_j|c_j|$ (zero in dimension zero). A frame is an ordered family $F=(\\ell_i)_{i=1}^n$ of continuous real linear functionals, with no independence assumed. Its matrix and evaluation map are\n$$M_F=(\\ell_i(b_j))_{i,j},\\qquad T_Fx=(\\ell_i(x))_i=M_FC_bx.$$\nThe admissible frames form the product of closed dual unit balls\n$$\\mathcal U=\\{F:\\|\\ell_i\\|_{E^*}\\le1\\text{ for every }i\\}.$$\nThe norm on $E$ need not be a coordinate sup norm. Let $F_*$ be an absolute maximizing frame and put $D_b=|\\det M_{F_*}|$. Then $D_b>0$.",
+    "definition_explanation": null,
+    "assumptions": "Only the finite-dimensional real normed space and the specified basis $b$ are inputs. Dimension zero is allowed. The maximum is taken over the closed dual unit balls, not over unit spheres.",
+    "conclusion": "The attained absolute maximum is strictly positive. Consequently a maximizing frame has nonzero determinant, but it need not be unique.",
+    "proof_summary": "Exhibit an admissible scaled dual basis and compare its positive determinant with the attained maximum.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Scale all coordinate functionals by the same amount.** Let $e_i^*:E\\to\\mathbb R$ be the dual coordinate functional $e_i^*(x)=(C_bx)_i$ and set\n   $$S_b=\\sum_i\\|e_i^*\\|,\\qquad \\alpha_b=(1+S_b)^{-1}>0,\\qquad F_0=(\\alpha_be_i^*)_i.$$\n   These are the [coordinate functionals](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L171-L174), [sum of their norms](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L176-L178), and [common scaling factor](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L180-L182). Since every term of $S_b$ is nonnegative and $\\|e_i^*\\|\\le S_b$,\n   $$\\|\\alpha_be_i^*\\|=\\frac{\\|e_i^*\\|}{1+S_b}\\le\\frac{S_b}{1+S_b}\\le1.$$\n   Thus [admissibility of the scaled coordinate frame](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L217-L229) applies to this same $F_0$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Insert the comparison value into the maximum.** The basis identity $e_i^*(b_j)=\\delta_{ij}$ gives\n   $$M_{F_0}=\\alpha_bI,\\qquad |\\det M_{F_0}|=\\alpha_b^n>0.$$\n   Use [the scaled coordinate matrix](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L231-L239) and [its determinant](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L241-L245), then [the maximizing comparison](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L161-L165) with $F_0\\in\\mathcal U$:\n   $$0<\\alpha_b^n=|\\det M_{F_0}|\\le|\\det M_{F_*}|=D_b.$$\n   When $n=0$, $S_b=0$, $\\alpha_b=1$ and the empty determinant is $1$, so the same inequality proves the result."
+      }
+    ],
+    "lean_realization_notes": "The proof uses [the positive scale](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L189-L193), [the nonnegative row-size sum](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L184-L187), [each row norm bounded by that sum](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L195-L200), [the scaled row](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L202-L205) and [the scaled coordinate frame](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L207-L209). These are proof-context definitions, not extra arguments in the exact signature. Their common scalar is $\\alpha_b$, and each row evaluates as $\\alpha_be_i^*(x)$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

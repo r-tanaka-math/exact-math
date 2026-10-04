@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+  "title": "A Naimark counterexample of continuum norm density",
+  "stable_card_id": "9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461",
+  "identity_key": "lfh:lfh-declaration-card:sha256:9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461",
+  "source_url": "mathlibannex/sources/lfh188/2b5eb562be5c9542c3bab55e/index.html#L18",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "ac159c66a014ea67c887a6885485419b0ef5c4f9f437c1a8759e3fe21ef9d3fb",
+  "accepted_guide_sha256": "db51c328deb14579b22abd0b9e9333a5fd31f62f353baa5e546103c12fd3979b",
+  "content": {
+    "display_title": "A Naimark counterexample of continuum norm density",
+    "one_sentence_role": "Gives a C*-algebra of norm density $\\mathfrak c$ whose nonzero irreducible representations form one unitary-equivalence class, without an identification with the compact operators.",
+    "natural_language_statement": "There exist a nonzero complex C*-algebra $B$, not required to be unital, a complex Hilbert space $K$, and a nonzero irreducible $*$-representation $\\sigma:B\\to B(K)$ with the following properties. Every nonzero irreducible $*$-representation of $B$ is unitarily equivalent to $\\sigma$. The representation $\\sigma$ is not both injective and surjective onto $\\mathcal K(K)$, the full algebra of compact operators on $K$. Finally, $$\\operatorname{dens}_{\\|\\cdot\\|}(B)=\\mathfrak c,\\qquad\\mathfrak c=2^{\\aleph_0}.$$ Here density refers to the norm topology. None of the representations is required in advance to preserve an identity.",
+    "definition_explanation": null,
+    "assumptions": "This is an existence theorem with no CH hypothesis. Its statement allows nonunital C*-algebras and places no requirement on the existence of a faithful representation on a separable Hilbert space.",
+    "conclusion": "One may take $B=T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})$, where $A$ is CAR, $\\pi$ is the selected GNS direct sum, and $L_i$ are the unitaries from the fixed homogeneity and shell construction. Take $K=\\mathcal H$ and $\\sigma=\\rho_0$, the inclusion of this concrete algebra in $B(\\mathcal H)$. Thus the constructed example is unital, even though unitality is not required by the existence statement.",
+    "proof_summary": "Use the constructed algebra $T$ and its inclusion representation $\\rho_0$. The classification theorem gives the single unitary-equivalence class, the compact-operator exclusion applies to $\\rho_0$, and the density theorem gives the required value $\\mathfrak c$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Take the algebra $T$, its selected GNS direct sum $\\mathcal H$, and the inclusion $\\rho_0$. The representation-classification theorem says that $\\rho_0$ is nonzero irreducible and that, for any nonzero irreducible $*$-representation $\\rho:T\\to B(H)$, a unitary $U:\\mathcal H\\to H$ satisfies $U\\rho_0(t)=\\rho(t)U$. This statement does not require $\\rho(1)=I_H$ as an initial assumption."
+      },
+      {
+        "step_id": "s2",
+        "text": "The compact-operator exclusion rules out every injective representation of $T$ onto the full algebra of compact operators, in particular the specified inclusion $\\rho_0$. The density theorem gives $\\operatorname{dens}_{\\|\\cdot\\|}(T)=\\mathfrak c$. These are precisely the other conditions of the existential predicate in the Lean statement."
+      }
+    ],
+    "lean_realization_notes": "The fixed example also admits a faithful representation on a separable Hilbert space, but that is not a condition in this existence statement and is not asserted for every C*-algebra satisfying it.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

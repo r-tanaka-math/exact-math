@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+  "title": "The product-vector state on the completed CAR algebra",
+  "stable_card_id": "40a210ab270847d874db7bbe7090d71a22bdf29970b3f0c379b59095ad3fb767",
+  "identity_key": "lfh:lfh-declaration-card:sha256:40a210ab270847d874db7bbe7090d71a22bdf29970b3f0c379b59095ad3fb767",
+  "source_url": "mathlibannex/sources/lfh188/53f3e83be50beb6280701b05/index.html#L468",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "1704b60839cec4bda29d82b73690aef3c3ee6e19622973f31b2c0358d9c52fab",
+  "accepted_guide_sha256": "f015f71eda84371db1bea90bbcce88a93d7d6974925af7c60b0ede81f430a0d2",
+  "content": {
+    "display_title": "The product-vector state on the completed CAR algebra",
+    "one_sentence_role": "Compatible evaluation at the distinguished matrix coordinate extends continuously to the CAR completion.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. At each stage take $a\\mapsto a_{00}$, the vector functional of the distinguished coordinate vector. These functionals determine a continuous linear functional $\\omega:A\\to\\mathbb C$ satisfying $\\omega(\\iota_n(a))=a_{00}$ for every $n$ and $a\\in A_n$. The definition called the root state is this extension.",
+    "definition_explanation": "The coordinate estimate $|a_{00}|\\leq\\|a\\|$ bounds each stage functional by $1$. The standard inclusion preserves the zero coordinate, so these maps agree on common representatives in the algebraic direct limit. They therefore define a bounded linear functional on the normed direct limit. Extending that functional to its completion gives $\\omega$; the extension keeps the stage values unchanged. Positivity passes from the stage functionals to the completion by continuity, and evaluation at the common unit gives normalization.",
+    "assumptions": "The stage system and distinguished zero coordinate are fixed as above. The completion uses the CAR norm. No ambient Hilbert-space representation is chosen in this definition.",
+    "conclusion": "The defining restriction formula determines $\\omega$ uniquely among continuous linear functionals, because the stage union is dense. The cited positivity and normalization results give $\\omega(a^*a)\\geq0$ and $\\omega(1)=1$, so this functional is a state.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "Normalization and positivity are properties proved after the definition. The state evaluates one distinguished coordinate; it is not the normalized trace on a matrix stage. Its definition does not assert that it is faithful.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.divergence",
+  "title": "Divergence as the trace of a derivative",
+  "stable_card_id": null,
+  "identity_key": "88f8b7fd8078faa8e3e6de7d95ddbf823984035470676419d1d90affad6298fd",
+  "source_url": "mathlibannex/sources/lfh188/cbb04988e6fb89ab99d6c0a2/index.html#L14",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Distribution/Divergence.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "0eff187c71cf0c7055bfadca6dcea0338b72eb1a122df728cd86f03ac8100df1",
+  "accepted_guide_sha256": "f496dbe5b89e58192f0a17f2914b5160ea9515e43a02088582f5fc8188d494f6",
+  "content": {
+    "display_title": "Divergence as the trace of a derivative",
+    "one_sentence_role": "Defines divergence without choosing coordinates.",
+    "natural_language_statement": "Let $E$ be a finite-dimensional real normed vector space and $W:E\\to E$. The divergence of $W$ at $x\\in E$ is the trace of its real Fréchet derivative:\n$$\\operatorname{div}W(x):=\\operatorname{tr}(DW(x)).$$",
+    "definition_explanation": "Here $DW(x)$ denotes the continuous linear derivative when it exists, and the zero map otherwise, following the source's total derivative convention. The RHS takes the trace of that endomorphism. Thus this definition still returns a value at a nondifferentiability point; it does not assert that the classical derivative exists there.",
+    "assumptions": "The definition accepts every function $W$ and every point $x$. It imposes neither differentiability nor a measure. Finite dimensionality is part of the definition's domain; dimension zero is allowed.",
+    "conclusion": "The output is a real number. At a point where $W$ is differentiable, it is the usual divergence. In coordinates $E=\\mathbb R^{\\iota}$ with a finite index set $\\iota$ and coordinate vectors $e_i$,\n$$\\operatorname{div}W(x)=\\sum_{i\\in\\iota}(DW(x)e_i)_i.$$\nFor a differentiable field, writing $W_i(x)=(W(x))_i$ identifies the summand as $\\partial_iW_i(x)$. The empty sum in dimension zero is zero.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The trace is independent of a basis. The coordinate identity follows by representing the derivative in the coordinate basis and summing its diagonal entries; the exact coordinate lemma is cited below. This identity also holds for the library's total derivative convention.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

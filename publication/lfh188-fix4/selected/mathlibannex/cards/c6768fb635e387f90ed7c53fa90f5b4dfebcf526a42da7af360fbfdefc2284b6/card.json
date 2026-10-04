@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "b4b22bde778db61d646b0a71aca602b2265a82f686b7e829a5dc0ff338487247",
+  "approved_card_model_sha256": "43cbfb312f5b297b4d313abcecadbce50dcca5b2c05bc994cef5bccc858ab433",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and π a representation of A on H.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "bc9645084bd34c210153e9a1ceb61fa2f603b776edf5ab668678f9356e023b96",
+    "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5f6518c19b7ddf2cefa410727daa089f8bcd028d40af5d7507d33d3490084f9c",
+        "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "The predicate says that π acts nontrivially and every closed complex submodule L invariant under both π(a) and its adjoint for every a is either {0} or H.",
+  "declaration_kind": "def",
+  "definition_equation": "IsIrreducible π ↔ (∃ a : A, π a ≠ 0) ∧ ∀ L, Reduces π L → L = ⊥ ∨ L = ⊤.",
+  "definition_explanation": "IsIrreducible π ↔ (∃ a : A, π a ≠ 0) ∧ ∀ L, Reduces π L → L = ⊥ ∨ L = ⊤.",
+  "display_title": "Nonunital irreducibility",
+  "exact_elaborated_lean_type": "{A : Type u} → [inst : NonUnitalCStarAlgebra A] → {H : Type v} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H → Prop",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "7c05ef49afa4760ab5b5c89dca86bc234c51c0cde643c5c9628c471972e25eb1",
+    "uid": "lfh:lfh-card-exposition:sha256:a434ebd3758ef3af4488ddc62ab51bd57378c37b4434cdd00d468b4c9adb4830"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "4d15da98d9d54e36b6911405aa170288a8ff8783eb736564c3e50f5f863670c6",
+    "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "7c05ef49afa4760ab5b5c89dca86bc234c51c0cde643c5c9628c471972e25eb1",
+    "uid": "lfh:lfh-card-exposition:sha256:a434ebd3758ef3af4488ddc62ab51bd57378c37b4434cdd00d468b4c9adb4830"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "4d15da98d9d54e36b6911405aa170288a8ff8783eb736564c3e50f5f863670c6",
+      "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsIrreducible",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and π a representation of A on H. The predicate says that π acts nontrivially and every closed complex submodule L invariant under both π(a) and its adjoint for every a is either {0} or H.",
+  "one_sentence_role": "Defines nonunital irreducibility as nonzero action with no nontrivial closed reducing subspaces.",
+  "owner_review_item_sha256": "dcc7d9e3893ff005befa5b615935ee7c4aca661f8d849e1dbf5dd8fbb788adfc",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → [inst : NonUnitalCStarAlgebra A] → {H : Type v} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H → Prop"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsIrreducible π ↔ (∃ a : A, π a ≠ 0) ∧ ∀ L, Reduces π L → L = ⊥ ∨ L = ⊤."
+    },
+    {
+      "step_id": "source_route",
+      "text": "Unfold IsNonzero and Reduces in NonUnital/Representation.lean: Reduces includes closedness and joint invariance under each operator and its adjoint. The second conjunct then eliminates proper reducing subspaces."
+    }
+  ],
+  "proof_summary": "Unfold IsNonzero and Reduces in NonUnital/Representation.lean: Reduces includes closedness and joint invariance under each operator and its adjoint. The second conjunct then eliminates proper reducing subspaces.",
+  "source_excerpt": {
+    "bytes": 149,
+    "sha256": "ab24aa3b0f01d0881eff6be90cc5cc762a19fea1f558fcf07325ae9fcf65d263"
+  },
+  "source_locator": {
+    "end_column": 67,
+    "end_line": 41,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+    "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+    "start_column": 1,
+    "start_line": 40
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "59e8821fd3eecaca82b9c0a3eff78db2d717f4a7eace5aeb0b4da88fb8e5b64e",
+    "uid": "lfh:lfh-source-build-binding:sha256:2bd6e9ed6e4a4046de7d282d86fa874e2d3dda7cc424711f9ba24675bdc1d948"
+  },
+  "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+  "source_signature": {
+    "end_byte": 1349,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "06a5f9bde6edd48e55ad40a57f3bfd0b69e82d54fc1519e9d4a70b4dddb4e2dd",
+    "source_command_range": {
+      "end_column": 67,
+      "end_line": 41,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+      "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+      "start_column": 1,
+      "start_line": 40
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+    "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+    "start_byte": 1285,
+    "text": "def IsIrreducible (pi : NonUnitalCStarRepresentation A H) : Prop"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean#L40-L41",
+  "stable_card_id": "c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

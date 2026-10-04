@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity",
+  "title": "CH and a Naimark counterexample of norm density aleph one",
+  "stable_card_id": "49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c",
+  "identity_key": "lfh:lfh-declaration-card:sha256:49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c",
+  "source_url": "mathlibannex/sources/lfh188/6a6ede8dcc0b30bd276d74c9/index.html#L34",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "af847aaea6b518301f9dbc23d58f0245b983e48e72b4792c81df03c74440fb6c",
+  "accepted_guide_sha256": "f5b32ca0f64d6b413a8d4d2f0768556c291ca130ae7cdc4e065b1c6155bc1cd5",
+  "content": {
+    "display_title": "CH and a Naimark counterexample of norm density aleph one",
+    "one_sentence_role": "Characterizes the continuum hypothesis by the existence of a Naimark counterexample of exact norm density $\\aleph_1$.",
+    "natural_language_statement": "Write $\\mathfrak c=2^{\\aleph_0}$. Then $$\\mathfrak c=\\aleph_1\\quad\\Longleftrightarrow\\quad\\text{there exists a Naimark counterexample of norm density }\\aleph_1.$$ The right-hand side has the following precise meaning. There are a nonzero, possibly nonunital complex C*-algebra $B$, a complex Hilbert space $K$, and a nonzero irreducible $*$-representation $\\sigma:B\\to B(K)$ such that every nonzero irreducible $*$-representation of $B$ is unitarily equivalent to $\\sigma$, the map $\\sigma$ is not both injective and surjective onto $\\mathcal K(K)$, and $\\operatorname{dens}_{\\|\\cdot\\|}(B)=\\aleph_1$. Preservation of an identity is not required of these representations.",
+    "definition_explanation": null,
+    "assumptions": "The equivalence itself assumes neither CH nor its negation. In the reverse implication, $B$ and $\\sigma$ are arbitrary objects satisfying the displayed existence statement; a faithful representation of $B$ on a separable Hilbert space is not an additional hypothesis.",
+    "conclusion": "CH implies the stated existence, and any witness of that existence implies CH. The equivalence is a mathematical theorem about exact norm density; it neither proves CH nor supplies a forcing or metatheoretic independence proof.",
+    "proof_summary": "For the forward implication, substitute $\\mathfrak c=\\aleph_1$ in the continuum-density existence theorem. For the reverse implication, the general density obstruction for a C*-algebra with a single irreducible representation class gives $\\mathfrak c\\leq\\aleph_1$; combine it with $\\aleph_1\\leq\\mathfrak c$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Assume $\\mathfrak c=\\aleph_1$. The continuum-density existence theorem gives a nonzero C*-algebra with the stated representation properties and norm density $\\mathfrak c$. Substitution yields density $\\aleph_1$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Conversely, let $B,K,\\sigma$ satisfy the right-hand side. Exact density provides a norm-dense $D\\subseteq B$ with $|D|=\\aleph_1$. Apply the cited density obstruction to $\\sigma$, the unitary equivalence of all nonzero irreducible representations to it, its failure to be an injective representation onto $\\mathcal K(K)$, and the density of $D$. This theorem allows a nonunital algebra and gives $\\mathfrak c\\leq |D|$. No separable representation is required."
+      },
+      {
+        "step_id": "s3",
+        "text": "Therefore $$\\mathfrak c\\leq |D|=\\aleph_1\\leq\\mathfrak c.$$ Antisymmetry gives $\\mathfrak c=\\aleph_1$, as required."
+      }
+    ],
+    "lean_realization_notes": "The forward implication uses the concrete algebra built from CAR. The reverse implication is not restricted to that construction.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+  "title": "The atomic-shell construction on selected pure-GNS fibers",
+  "stable_card_id": "39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a",
+  "identity_key": "lfh:lfh-declaration-card:sha256:39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a",
+  "source_url": "mathlibannex/sources/lfh188/764c3d06e30df7c93c592c02/index.html#L107",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "5acad45a19c66110cd95c932be07fe6a64add6bc7ce462833711250280361b1e",
+  "accepted_guide_sha256": "87a720265f59825ab35a32440dfc635ffad95e2677e25e4028a380dd87e78465",
+  "content": {
+    "display_title": "The atomic-shell construction on selected pure-GNS fibers",
+    "one_sentence_role": "Pure-state GNS data supplies the irreducible and inequivalent fibers required by the generic shell construction.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra, with the positive order used for its states, and fix a pure state $\\omega$. A pure state is an extreme point of the normalized positive continuous linear functionals. Let $I$ be the set of pure-state GNS representations modulo unitary equivalence. For each $j\\in I$, choose a pure state $\\varphi_j$ in that class, retaining $\\varphi_o=\\omega$ literally at $o=[\\omega]$. Write $(H_j,\\pi_j,\\xi_j)$ for its GNS space, representation and canonical cyclic vector. Write $\\mathcal H=\\bigoplus_{j\\in I}H_j$ for the Hilbert direct sum, $e_j:H_j\\to\\mathcal H$ for coordinate inclusion, and $\\pi(a)(x_j)_j=(\\pi_j(a)x_j)_j$. Here the sum consists of square-summable families and has no countability restriction on $I$. Put $b_j=e_j\\xi_j$. Given the shell data specified below, there exist unitaries $L_j\\in B(\\mathcal H)$ with $L_jb_j=b_o$ and $L_j(P_{j,n}-P_{j,n+1})=W_{j,n}$. The inclusion of $T=C^*(\\pi(A),\\{L_j:j\\in I\\})$ into $B(\\mathcal H)$ is irreducible.",
+    "definition_explanation": null,
+    "assumptions": "For each $i\\in I$, let $(U_{i,n})_{n\\geq0}$ and $(V_{i,n})_{n\\geq0}$ be decreasing subspaces of $\\mathcal H$, with $U_{i,0}=V_{i,0}=\\mathcal H$. All these subspaces and both intersections admit orthogonal projections. Write $P_{i,n}=P_{U_{i,n}}$, $Q_{i,n}=P_{V_{i,n}}$, and $P_{i,\\infty}=P_{\\bigcap_nU_{i,n}}$, $Q_{i,\\infty}=P_{\\bigcap_nV_{i,n}}$. The given bounded shell maps $W_{i,n}$ satisfy $W_{i,n}^*W_{i,n}=P_{i,n}-P_{i,n+1}$ and $W_{i,n}W_{i,n}^*=Q_{i,n}-Q_{i,n+1}$. Their limiting defects are prescribed: $P_{i,\\infty}=\\theta_{b_i,b_i}$ and $Q_{i,\\infty}=\\theta_{b_o,b_o}$. Here $\\theta_{a,b}x=\\langle b,x\\rangle a$, with the inner product linear in its second variable. In these formulas the generic index $i$ ranges over the GNS classes $I$ and the vectors are the selected GNS vectors just defined. The two flags, shell maps, support equations and limiting rank-one equations remain hypotheses; purity alone does not supply them.",
+    "conclusion": "One family of unitary links realizes all prescribed shell actions and joins every selected cyclic vector to the root vector, with irreducible concrete target action. This is the specialization of the generic atomic-shell result to the chosen pure-GNS family.",
+    "proof_summary": "Use the selected GNS representations as the fibers of the generic atomic-shell theorem, with root class $o=[\\omega]$ and the same selected vectors $\\xi_j$. Three proved pure-GNS facts discharge its representation hypotheses; all shell hypotheses pass through unchanged.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The selected-vector normalization theorem gives $\\|\\xi_j\\|=1$, so each $H_j$ is nonzero. The selected-vector functional equals the pure state $\\varphi_j$, and the selected GNS orbit is dense. The separate pure-GNS irreducibility theorem uses these facts to show that each $\\pi_j$ is irreducible."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $i\\ne j$, the selected-class non-intertwining theorem rules out a unitary intertwiner between $\\pi_i$ and $\\pi_j$. The GNS classes, not merely the state functionals, are required to be distinct. Thus the pairwise-unitary-inequivalence hypothesis of the generic theorem is satisfied."
+      },
+      {
+        "step_id": "s3",
+        "text": "Apply the generic atomic-shell theorem with these fibers, the distinguished index $o$, the already fixed vectors $\\xi_j$, and the given $W,U,V$. The displayed support and rank-one intersection equations are the remaining inputs. Coordinate inclusion here is exactly $e_j$, so its output vector-link and shell equations are the required ones, with no new choice of GNS representatives."
+      }
+    ],
+    "lean_realization_notes": "The selected vectors are fixed before applying the construction and are not replaced by arbitrary unit vectors. No target capture or simplicity conclusion is part of this result, and the selected representations are not assumed faithful. No countability or separability of $I$ or $\\mathcal H$ is required.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

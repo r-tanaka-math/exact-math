@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.ContinuousLinearMap.abs_det_sub_le_max",
+  "title": "A determinant difference bound in the sup operator norm",
+  "stable_card_id": null,
+  "identity_key": "0cbcd85b9064ef94c7977caf225abdf7885312f992485a6c6d0700a2242015a6",
+  "source_url": "mathlibannex/sources/lfh188/9f981f0283f1ea63a8406c8d/index.html#L328",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Operator/Determinant.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "5f4d67395dbe0ba5df4b29d5df0eff5476d758d834bc02cb9031efe32d276f5c",
+  "accepted_guide_sha256": "f3fbd6ce3f86e42fde4e741cc1984c4d33829563ebc554ed37cd7c38217db202",
+  "content": {
+    "display_title": "A determinant difference bound in the sup operator norm",
+    "one_sentence_role": "Controls determinant variation by replacing one matrix row at a time.",
+    "natural_language_statement": "Let $I$ be a finite set of size $n$, and give $\\mathbb R^I$ the sup norm $\\|x\\|_\\infty=\\max_{i\\in I}|x_i|$ (the zero norm on the zero space if $I=\\varnothing$). For continuous real-linear maps $P,Q:\\mathbb R^I\\to\\mathbb R^I$, use the induced operator norm. If $n\\ge1$, then\n\n$$|\\det P-\\det Q|\\le\nn\\max\\{\\|P\\|,\\|Q\\|\\}^{\\,n-1}\\|P-Q\\|.$$\n\nFor $n=0$, both determinants are $1$ and the bound is $0\\le0$.",
+    "definition_explanation": null,
+    "assumptions": "The coordinate set $I$ is finite and may be empty. The coefficients are real and the operator norm is induced by the sup norm on both domain and codomain. Neither map is assumed invertible.",
+    "conclusion": "The coefficient $n$ counts the number of row replacements. The norm is specifically the sup operator norm; the estimate is not being asserted here with an unspecified norm on the same coordinate space.",
+    "proof_summary": "The determinant is bounded by the product of the absolute row sums. A sign vector bounds each such row sum by the sup operator norm. In a one-row replacement, one row is a row of $P-Q$ and the other $n-1$ rows are rows of $P$ or $Q$; summing the $n$ replacement bounds gives the result.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Bound a determinant by its row sums.** Let $C=(C_{ij})_{i,j\\in I}$ be a real square matrix, and let $\\mathfrak S(I)$ denote the permutations of $I$. Expanding the determinant gives\n\n$$\\begin{aligned}\n|\\det C|\n&=\\left|\\sum_{\\sigma\\in\\mathfrak S(I)}\n\\operatorname{sgn}(\\sigma)\\prod_{i\\in I}C_{i,\\sigma(i)}\\right|\\\\\n&\\le\\sum_{\\sigma\\in\\mathfrak S(I)}\\prod_{i\\in I}|C_{i,\\sigma(i)}|\\\\\n&\\le\\sum_{f:I\\to I}\\prod_{i\\in I}|C_{i,f(i)}|\\\\\n&=\\prod_{i\\in I}\\left(\\sum_{j\\in I}|C_{ij}|\\right).\n\\end{aligned}$$\n\nThe second inequality includes all functions $f:I\\to I$, rather than only bijections; every added summand is nonnegative. The last equality is distributivity: expanding the product chooses one column $f(i)$ independently in each row. This is precisely the row-sum bound needed below, not a bound by Euclidean row lengths."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Bound each row sum by the operator norm.** Let $C$ now be the standard matrix of a continuous real-linear map $T:\\mathbb R^I\\to\\mathbb R^I$, so $C_{ij}=(Te_j)_i$ for the coordinate vector $e_j$. For a fixed row $i$, choose\n\n$$\\varepsilon^{(i)}_j=\n\\begin{cases}1,&C_{ij}\\ge0,\\\\-1,&C_{ij}<0.\\end{cases}\n\\qquad \\|\\varepsilon^{(i)}\\|_\\infty\\le1.$$\n\nThen $C_{ij}\\varepsilon^{(i)}_j=|C_{ij}|$, and therefore\n\n$$\\begin{aligned}\n\\sum_{j\\in I}|C_{ij}|\n&=\\left|(T\\varepsilon^{(i)})_i\\right|\\\\\n&\\le\\|T\\varepsilon^{(i)}\\|_\\infty\n\\le\\|T\\|\\,\\|\\varepsilon^{(i)}\\|_\\infty\n\\le\\|T\\|.\n\\end{aligned}$$\n\nApply this with $T=P$, $T=Q$, and $T=P-Q$. These three applications provide the bounds for every row appearing in the next step."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Estimate one row replacement.** Assume $n\\ge1$ and choose one enumeration of $I$ for both rows and columns. Write $P_{ij}=(Pe_j)_i$ and $Q_{ij}=(Qe_j)_i$. Define\n\n$$(C_k)_{ij}=\\begin{cases}P_{ij},&i\\le k,\\\\Q_{ij},&i>k,\\end{cases}\n\\qquad 0\\le k\\le n.$$\n\nThus $C_0$ is the matrix of $Q$ and $C_n$ that of $P$. For $1\\le k\\le n$, let $D_k$ have row $k$ equal to $(P-Q)_{k,\\bullet}$ and every other row equal to that of $C_{k-1}$. Linearity of the determinant in row $k$ gives\n\n$$\\det C_k-\\det C_{k-1}=\\det D_k.$$\n\nStep 2 bounds the row sums of $D_k$ by\n\n$$\\sum_j|(D_k)_{ij}|\\le\n\\begin{cases}\\|P-Q\\|,&i=k,\\\\\n\\max\\{\\|P\\|,\\|Q\\|\\},&i\\ne k.\n\\end{cases}$$\n\nSubstituting these bounds into Step 1 yields\n\n$$|\\det C_k-\\det C_{k-1}|\n\\le\\max\\{\\|P\\|,\\|Q\\|\\}^{\\,n-1}\\|P-Q\\|.$$\n\nThere is one difference row and exactly $n-1$ other rows. For $n=1$, the product over the other rows is the empty product $1$."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Sum the $n$ replacement bounds.** Since $C_0=Q$ and $C_n=P$ in the standard coordinates,\n\n$$\\begin{aligned}\n|\\det P-\\det Q|\n&=\\left|\\sum_{k=1}^{n}(\\det C_k-\\det C_{k-1})\\right|\\\\\n&\\le\\sum_{k=1}^{n}|\\det C_k-\\det C_{k-1}|\\\\\n&\\le n\\max\\{\\|P\\|,\\|Q\\|\\}^{\\,n-1}\\|P-Q\\|.\n\\end{aligned}$$\n\nThis is the stated bound. If $n=0$, there are no replacements and both empty determinants are $1$, giving $0\\le0$ separately."
+      }
+    ],
+    "lean_realization_notes": "The row estimate uses the sum of the absolute values of entries, not the Euclidean length of a row. This fits the sup norm through a sign vector. All coordinate matrices refer to the standard coordinate basis, so their determinants are the determinants of the original linear maps.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

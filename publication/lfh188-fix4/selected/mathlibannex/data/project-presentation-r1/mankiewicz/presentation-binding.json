@@ -1,0 +1,54 @@
+{
+  "candidate_scope": "ELEVEN_PUBLIC_CARD_RESOLUTIONS_FOR_SUCCESSOR",
+  "canonical_card_links": 11,
+  "content_terms_effect": "REUSE_CURRENT_EFFECTIVE_TERMS_NO_MUTATION",
+  "effective_content_terms_sha256": "eaf1195b43fdd0d4245fccaf2aa74b50287f176700567394e872cbb610e3d817",
+  "exposure_record": "HOSTING_RELEASE_RECORD",
+  "first_publication_date": null,
+  "inherited_project_manifest": {
+    "authority": "ACCEPTED_PROGRESSIVE_PROJECT_HANDOFF",
+    "sha256": "e0901857fdc2c9c0ec605b0c74db3824797f015a9ae8a08b452b3da1106a84a5"
+  },
+  "profile": "PROJECT_PUBLIC_PRESENTATION_R1",
+  "project_identity": {
+    "slug": "mankiewicz",
+    "title": "Mankiewicz Extension Theorem"
+  },
+  "project_json": {
+    "bytes": 28257,
+    "path": "project.json",
+    "sha256": "ef992a95989095ad0718ad19fcce1c3fe6717ba1f30faac2933df4bdc5570cef"
+  },
+  "project_kind": "THEOREM_PROJECT",
+  "public_cards": 11,
+  "record_type": "LFH_PROJECT_PRESENTATION_BINDING",
+  "revision": "R1",
+  "schema": "mathlibannex.project-public-presentation-binding.v1",
+  "source_binding": {
+    "commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+    "entry_path": "MathlibAnnex/Projects/Mankiewicz.lean",
+    "entry_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Projects/Mankiewicz.lean",
+    "manifest_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/docs/projects/mankiewicz.json",
+    "qualification_run": 35086615666,
+    "repository": "https://github.com/r-tanaka-math/mathlib-annex",
+    "tag": "v0.2.0",
+    "tree": "b3378851a5287f5e3c8418f668e4d0ba52718739"
+  },
+  "structural_files": [
+    {
+      "bytes": 758507,
+      "path": "boundary-projection.accepted.json",
+      "sha256": "eb3a94835698feecac56f2e05c032f9bfc3eee61cea79dcfc4473f02e4678cf0"
+    },
+    {
+      "bytes": 1344,
+      "path": "levels.accepted.json",
+      "sha256": "3cbb8b47936fac43e70a750c7f1545c979b040bf64bca3a6835094e5a3b591e1"
+    },
+    {
+      "bytes": 14157,
+      "path": "selected-graph.accepted.json",
+      "sha256": "342de4be1528a50cff58464eb41c8e737bdd0ee874fb996edc76c464c3249ece"
+    }
+  ]
+}

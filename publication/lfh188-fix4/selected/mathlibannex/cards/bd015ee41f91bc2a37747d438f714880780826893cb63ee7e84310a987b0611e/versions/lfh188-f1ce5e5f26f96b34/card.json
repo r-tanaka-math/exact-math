@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation",
+  "title": "The target represented on the CAR trace GNS space",
+  "stable_card_id": "bd015ee41f91bc2a37747d438f714880780826893cb63ee7e84310a987b0611e",
+  "identity_key": "lfh:lfh-declaration-card:sha256:bd015ee41f91bc2a37747d438f714880780826893cb63ee7e84310a987b0611e",
+  "source_url": "mathlibannex/sources/lfh188/ce492732dd4bc01c3d4139fc/index.html#L104",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "372b829e62ef0133956bbf205a34bbebd7037879580836f0cae81743166af51b",
+  "accepted_guide_sha256": "2c8680edcf6df581b0fb47638fb56a94670de38139454c873a3168197c10dcdb",
+  "content": {
+    "display_title": "The target represented on the CAR trace GNS space",
+    "one_sentence_role": "A fixed pointed unitary transports the target action onto the Hilbert space constructed from CAR alone.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Let $(H_\\tau,\\pi_\\tau,\\xi_\\tau)$ be the GNS representation of the CAR trace, and let $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$ be the target-state GNS representation for the chosen extension $\\phi$. Fix the pointed unitary $E:H_\\tau\\to H_\\phi$ described below. Define the target representation on $H_\\tau$ by\n\n$$\\widetilde\\rho(t)=E^{-1}\\rho_\\phi(t)E\\qquad(t\\in T).$$",
+    "definition_explanation": "Set $H_\\tau=L^2(A,\\tau)$, $\\xi_\\tau=[1]$, and $\\pi_\\tau(a)[b]=[ab]$. The GNS identities give $\\|\\xi_\\tau\\|=1$ and $\\tau(a)=\\langle\\xi_\\tau,\\pi_\\tau(a)\\xi_\\tau\\rangle$. Thus $H_\\tau\\ne0$, and its dense continuous CAR orbit makes it separable. The target GNS has the same source vector functional and a dense source orbit. Pointed cyclic transport therefore gives, and `traceGNSUnitary` chooses once,\n\n$$E\\xi_\\tau=\\xi_\\phi,\\qquad E\\pi_\\tau(a)=\\rho_\\phi(\\iota(a))E.$$\n\nConjugate the whole target action by its inverse. Then $E^{-1}\\rho_\\phi(\\iota(a))E=\\pi_\\tau(a)$ and\n\n$$\\langle\\xi_\\tau,\\widetilde\\rho(t)\\xi_\\tau\\rangle=\\langle E\\xi_\\tau,\\rho_\\phi(t)E\\xi_\\tau\\rangle=\\phi(t).$$\n\nThe dense $\\pi_\\tau(A)\\xi_\\tau$ orbit is contained in the target orbit, proving target cyclicity. The defining RHS below uses the inverse of this same chosen $E$.",
+    "assumptions": "The representative shell family and chosen state extension are fixed. Both GNS representations restrict to the same source trace, and both source orbits are dense; source cyclicity in $H_\\phi$ is a proved result.",
+    "conclusion": "The new representation has $\\widetilde\\rho(\\iota(a))=\\pi_\\tau(a)$ and realizes $\\phi$ at $\\xi_\\tau$. Its target orbit is dense. The space $H_\\tau$ is nonzero and separable and is defined from CAR alone, independently of the family; the target action still depends on the fixed family.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The direction $E:H_\\tau\\to H_\\phi$ determines the conjugation $E^{-1}\\rho_\\phi E$. This is one chosen pointed unitary, used throughout the definition and its consequences. Injectivity of this representation is stated separately. The target $T$ itself has not been replaced.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

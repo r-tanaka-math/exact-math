@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.countable_characterSpace_of_nonUnital_singleton",
+  "title": "The full character space is countable",
+  "stable_card_id": "ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584",
+  "identity_key": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584",
+  "source_url": "mathlibannex/sources/lfh188/b7f4c01c000f8e817b52bf07/index.html#L93",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "6171dfe84b4bd371c4b8d431157f618e323b22aa042125daa2799444c4fefc18",
+  "accepted_guide_sha256": "6e9af28c687a9329f00ac4879a29fce4fcd65ee212edc36f94d196fd8aa278e0",
+  "content": {
+    "display_title": "The full character space is countable",
+    "one_sentence_role": "Uses separated unit eigenvectors to count the non-scalar characters, then restores the one scalar character.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed. Let $H$ be a separable complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ be nonzero irreducible and represent the unique unitary-equivalence class of nonzero irreducible comparisons. If $D$ is a norm-closed unital $*$-subalgebra of $\\widetilde A=\\mathbb C\\oplus A$, then the entire character space $X$ of $D$ is countable. Here $\\chi_\\infty(\\lambda,a)=\\lambda$ denotes the scalar-coordinate character of $\\widetilde A$.",
+    "definition_explanation": null,
+    "assumptions": "Commutativity of $D$ is not an additional hypothesis in this theorem. Separability is imposed on $H$, not on $A$ or $D$.",
+    "conclusion": "Countability includes the scalar character $\\chi_\\infty|_D$, as well as all the other characters.",
+    "proof_summary": "Choose a unit eigenvector for each non-scalar character, prove their pairwise orthogonality, count disjoint small balls using separability, and adjoin the scalar character.",
+    "proof_steps": [
+      "Let $Y=X\\setminus\\{\\chi_\\infty|_D\\}$. For each $\\chi\\in Y$, apply [A joint unit eigenvector for each non-scalar character](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean#L85-L197) with the same $A,H,\\pi,D$ and that $\\chi$. Closedness of $D$ and its inequality from the scalar character supply the remaining hypotheses. Fix a unit vector $\\eta_\\chi$ for each character so that $$\\widehat\\pi(d)\\eta_\\chi=\\chi(d)\\eta_\\chi\\qquad(d\\in D),$$ where $\\widehat\\pi(\\lambda,a)=\\lambda I+\\pi(a)$.",
+      "If $\\chi\\ne\\psi$, choose $d\\in D$ with $\\chi(d)\\ne\\psi(d)$. Put $T=\\widehat\\pi(d)$. Since $D$ is $*$-closed, the eigenvector equation also gives $T^*\\eta_\\psi=\\overline{\\psi(d)}\\eta_\\psi$. With the inner product linear in its second argument, $$\\overline{\\psi(d)}\\langle\\eta_\\chi,\\eta_\\psi\\rangle=\\langle\\eta_\\chi,T^*\\eta_\\psi\\rangle=\\langle T\\eta_\\chi,\\eta_\\psi\\rangle=\\overline{\\chi(d)}\\langle\\eta_\\chi,\\eta_\\psi\\rangle.$$ The two coefficients differ, so $\\langle\\eta_\\chi,\\eta_\\psi\\rangle=0$.",
+      "Consequently $$\\|\\eta_\\chi-\\eta_\\psi\\|^2=\\|\\eta_\\chi\\|^2+\\|\\eta_\\psi\\|^2=2.$$ The open balls $B(\\eta_\\chi,1/3)$ are therefore nonempty and pairwise disjoint. Choose a countable dense set in $H$; each ball contains a point of it, and disjoint balls require different points. Thus $Y$ is countable. This is the separated-ball argument in [Countability of the non-scalar character space](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean#L38-L93).",
+      "Finally $$X=Y\\cup\\{\\chi_\\infty|_D\\}.$$ Adding this one character to the countable set $Y$ proves countability of the entire character space."
+    ],
+    "lean_realization_notes": []
+  }
+}

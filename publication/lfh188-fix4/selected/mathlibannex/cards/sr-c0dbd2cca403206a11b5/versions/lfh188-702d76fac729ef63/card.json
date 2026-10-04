@@ -1,0 +1,49 @@
+{
+  "name": "MathlibAnnex.NullLagrangian.integral_maximalMinor_fderiv_add_sub_eq_zero_of_lipschitzWith",
+  "title": "Maximal-minor integral differences for Lipschitz perturbations",
+  "stable_card_id": null,
+  "identity_key": "421273218b3444978c0511a7450fe7f471933a58de559d212f12d6620b3b17ec",
+  "source_url": "mathlibannex/sources/lfh188/700aa7e4642841b7c830def0/index.html#L151",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/MeasureTheory/Integral/MaximalMinor.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "633190ad10fc198b21cc65efb19b0cb7005ec47f94d93528baa9aa946cfd1d58",
+  "accepted_guide_sha256": "e27e54b001d5707a6f62e402d4543bd8359472c1f4b062b9dfe9751a21307c65",
+  "content": {
+    "display_title": "Maximal-minor integral differences for Lipschitz perturbations",
+    "one_sentence_role": "Passes the smooth compact-perturbation identity to Lipschitz maps through local strong convergence.",
+    "natural_language_statement": "Fix $n\\geq1$ and $g,u:\\mathbb R^n\\to\\mathbb R^N$ be globally Lipschitz, with $u$ compactly supported. Fix a set of $n$ output indices $s=\\{s_1<\\cdots<s_n\\}$. Define $\\pi_s(y)=(y_{s_1},\\ldots,y_{s_n})$ and the signed selected minor\n$$M_s(f)(x)=\\det(\\pi_s\\circ Df(x)).$$\nThen\n$$\\int_{\\mathbb R^n}\\bigl(M_s(g+u)(x)-M_s(g)(x)\\bigr)\\,dx=0.$$",
+    "definition_explanation": null,
+    "assumptions": "There are finite constants $C_g,C_u\\geq0$ such that, for all $x,y$,\n$$\\|g(x)-g(y)\\|_\\infty\\leq C_g\\|x-y\\|_\\infty,\\qquad\n\\|u(x)-u(y)\\|_\\infty\\leq C_u\\|x-y\\|_\\infty.$$\nThe support convention is $\\operatorname{supp}u:=\\overline{\\{x:u(x)\\ne0\\}}$, and only this set must be compact. The fixed selection $s$ consists of $n$ distinct output coordinates in increasing order, so its existence entails $N\\geq n$. Differentiability everywhere and a boundary condition are not assumed.",
+    "conclusion": "The same signed minor $M_s$ occurs in both terms, and their difference is integrable with integral zero. No absolute value is placed around either determinant, and separate whole-space integrability of the two minors is not claimed.",
+    "proof_summary": "Smooth both maps, use one compact set for all small-parameter perturbations, pass each restricted determinant integral to the limit, and finally identify the whole-space difference.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The support lemma provides a compact $K$ containing $\\operatorname{supp}u$ and also $\\operatorname{supp}u_\\varepsilon$ for every sufficiently small positive $\\varepsilon$. Lipschitz maps are locally integrable, so mollification is linear: $(g+u)_\\varepsilon=g_\\varepsilon+u_\\varepsilon$. These mollifications are $C^\\infty$. Apply the smooth compact-perturbation theorem to $\\pi_s\\circ g_\\varepsilon$ and $\\pi_s\\circ u_\\varepsilon$; output selection preserves compact support. The chain rule identifies their derivatives with selected square operators and gives\n$$\\int_{\\mathbb R^n}\\bigl(M_s((g+u)_\\varepsilon)-M_s(g_\\varepsilon)\\bigr)=0.$$"
+      },
+      {
+        "step_id": "s2",
+        "text": "Outside $K$, $u_\\varepsilon$ is locally zero. The two maps then agree on a neighborhood, so their derivatives, and thus their selected minors, agree there. The previous integral therefore equals its restriction to $K$. This argument only needs local equality; it does not require differentiability of the unsmoothed maps at every point."
+      },
+      {
+        "step_id": "s3",
+        "text": "Apply strong local convergence of mollified derivatives to $f=g+u$ and to $f=g$, on this same compact $K$. For $T_s(A)=\\pi_s\\circ A$, contractivity and linearity give\n$$\\|T_s(Df_\\varepsilon)-T_s(Df)\\|_{L^n(K)}\\leq\\|Df_\\varepsilon-Df\\|_{L^n(K)}\\longrightarrow0.$$\nContinuous linear postcomposition preserves eventual $L^n$ membership; the limiting derivative belongs to $L^n(K)$ by its Lipschitz bound. Thus all hypotheses of determinant-integral continuity hold with measure restricted to $K$. Its output is $\\int_KM_s(f_\\varepsilon)\\to\\int_KM_s(f)$ for each of these two maps."
+      },
+      {
+        "step_id": "s4",
+        "text": "The smooth selected minors are integrable on compact $K$. For the limiting maps $f=g+u,g$, the bound $|M_s(f)(x)|\\leq n\\|\\pi_s\\circ Df(x)\\|_{\\mathrm{op}}^n$ and $Df\\in L^n(K)$ give the same integrability. Thus both terms may be integrated separately on $K$. Using Step 3 for each term,\n$$\\begin{aligned}\n0&=\\int_K\\bigl(M_s((g+u)_\\varepsilon)-M_s(g_\\varepsilon)\\bigr)\\\\\n &=\\int_K M_s((g+u)_\\varepsilon)-\\int_K M_s(g_\\varepsilon)\\\\\n &\\longrightarrow\\int_K M_s(g+u)-\\int_K M_s(g)\n =\\int_K\\bigl(M_s(g+u)-M_s(g)\\bigr).\n\\end{aligned}$$\nThis proves the restricted difference integral is zero; it does not subtract unrestricted whole-space integrals."
+      },
+      {
+        "step_id": "s5",
+        "text": "Outside $K$, the original perturbation $u$ is locally zero, so $M_s(g+u)-M_s(g)=0$ there as well. The difference is integrable on $K$ and equals zero outside; it is therefore integrable on the whole space and has the same integral. This proves the asserted whole-space identity without requiring mollification to preserve any boundary values."
+      }
+    ],
+    "lean_realization_notes": "The coordinate projection $\\pi_s$ is contractive for the sup norms. Postcomposition $A\\mapsto\\pi_s\\circ A$ is a continuous linear map on operator spaces, preserves subtraction, and has norm at most one. Its determinant equals the maximal minor of the standard matrix in precisely the increasing row order.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

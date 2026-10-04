@@ -1,0 +1,159 @@
+{
+  "assumptions": "Real normed vector spaces; f is an isometry equivalence s to t; radius-r symmetric lenses about x,y and f(x),f(y) lie in s and t; half the distance from x to y is at most r.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "8d98a636a7e168433d5141c38866083e4d514bbd9a686b436317cdeb3c85a05e",
+    "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "aa07f5efc7a9d59552a046091c57dfad6548ee065751704b012ec1f00954522b",
+        "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+      },
+      "text": "The proof or construction of Midpoint preservation under lens containment uses the project declaration “Midpoint preservation on a symmetric lens” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.restrictToSymmetricLens",
+      "source_locator": {
+        "end_column": 53,
+        "end_line": 118,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 82
+      },
+      "text": "The proof or construction of Midpoint preservation under lens containment uses the project declaration “Restriction of a set isometry to corresponding symmetric lenses” at the indicated step."
+    },
+    {
+      "label": "MathlibAnnex.symmetricLens",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "3935024dd76f1c0d54f0ff1aa13a35e31d2a4b7ebce1fae22ae01e793e6eba20",
+        "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+      },
+      "text": "The proof or construction of Midpoint preservation under lens containment uses the project declaration “Symmetric lens” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.midpoint_mem_symmetricLens",
+      "source_locator": {
+        "end_column": 70,
+        "end_line": 38,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 34
+      },
+      "text": "The proof or construction of Midpoint preservation under lens containment uses the project declaration “The midpoint belongs to a sufficiently large symmetric lens” at the indicated step."
+    }
+  ],
+  "conclusion": "f preserves the midpoint of x and y. The target half-distance bound follows from the isometry.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Midpoint preservation under lens containment",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "09e97319542b53041fe9e0eba2c21ea36c537dc841dfcf8bc078456eef1c2cc2",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:e0ed2079c200381f1106e4020f21c80a9d205cef35a0a2e7d12bd326219fdb7c"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "b8c28fe867604d317c6bb50248b4684deb39c56fb6fcd964b2329c93e42d14b6",
+    "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "09e97319542b53041fe9e0eba2c21ea36c537dc841dfcf8bc078456eef1c2cc2",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:e0ed2079c200381f1106e4020f21c80a9d205cef35a0a2e7d12bd326219fdb7c"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "b8c28fe867604d317c6bb50248b4684deb39c56fb6fcd964b2329c93e42d14b6",
+      "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+  "natural_language_statement": "Let f:s≃ᵢt and x,y∈s. If the symmetric lens of radius r around x,y lies in s, the corresponding lens around f(x),f(y) lies in t, and half the distance between x and y is at most r, then f sends midpoint(x,y) to midpoint(f(x),f(y)).",
+  "one_sentence_role": "Applies the symmetric-lens midpoint theorem inside arbitrary source and target subsets.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Construct the induced isometry equivalence between the two symmetric lenses."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Use f.dist_eq to identify the distance between the target foci with the distance between the source foci."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Transport the half-distance hypothesis to the target lens."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Apply midpoint preservation for an isometry between the two lenses."
+    }
+  ],
+  "proof_summary": "Restrict f and its inverse to the two contained lenses. Distance preservation transports the half-distance bound to the target foci. The lens-level midpoint theorem applied to this restricted isometry gives the result.",
+  "source_locator": {
+    "end_column": 53,
+    "end_line": 135,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_column": 1,
+    "start_line": 120
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "2b6229aa8b784fa92feef681c114daa574bc94435209e3c8cb89783fbff314f2",
+    "uid": "lfh:lfh-source-build-binding:sha256:a323b5c69f3d9d1e8adc0bdd7d6661bc6e471ad4f71c19220be1a5f57c175959"
+  },
+  "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+  "source_signature": {
+    "end_byte": 5445,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "216cc16af7de6004b202dd6391c656086ec4432fa041056f6e718bea48b69a30",
+    "source_command_range": {
+      "end_column": 53,
+      "end_line": 135,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+      "start_column": 1,
+      "start_line": 120
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_byte": 5015,
+    "text": "theorem map_midpoint_of_symmetricLens_subset\n    {s : Set E} {t : Set F} (f : s ≃ᵢ t) (x y : s) (r : ℝ)\n    (hhalf : 2⁻¹ * dist (x : E) (y : E) ≤ r)\n    (hs : symmetricLens (x : E) (y : E) r ⊆ s)\n    (ht : symmetricLens ((f x : t) : F) ((f y : t) : F) r ⊆ t) :\n    ((f ⟨midpoint ℝ (x : E) (y : E),\n          hs (midpoint_mem_symmetricLens hhalf)⟩ : t) : F) =\n      midpoint ℝ ((f x : t) : F) ((f y : t) : F)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L120-L135",
+  "stable_card_id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

@@ -1,0 +1,407 @@
+{
+  "schema": "exact.catalog-public-presentation.v1",
+  "publication_authorized": true,
+  "catalog_current": true,
+  "source_release": {
+    "tag": "v0.4.0",
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "official_public_card_count": 64,
+  "project_card_counts": {
+    "mankiewicz": 11,
+    "sphere-rigidity": 0,
+    "rosenberg": 33,
+    "naimark-problem": 16
+  },
+  "approval_scope": "REUSED_44_AND_APPROVED_R3_NAIMARK20_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "accepted_card_refs": {
+    "e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "87c6848b90700ef729e5e4c337c08137c9495291a3155b705a5ad63663287d77",
+      "uid": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0"
+    },
+    "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "3935024dd76f1c0d54f0ff1aa13a35e31d2a4b7ebce1fae22ae01e793e6eba20",
+      "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "aa07f5efc7a9d59552a046091c57dfad6548ee065751704b012ec1f00954522b",
+      "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "8d98a636a7e168433d5141c38866083e4d514bbd9a686b436317cdeb3c85a05e",
+      "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ce8bfa95660d8de634aced4f54406ab9e2fd70c17a7ce374fa8a0d30cd90822e",
+      "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "4b0e889e2a2710f6ce882d742e637066a12e3e43cdc4a99d90b6e3fa9a47cb1e",
+      "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "b4ef8d7f9913ca0a211b548805d49160070e9f0bf268e84724d67c5b53d3412e",
+      "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "1263484c712e461a6802349daed7936b3d5bc3f619a4670a7d5bc843f8a3263f",
+      "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "cc4454a6e59885d550f36925cf51555be4156dabe1f9ec84bd6dbcd8ed269233",
+      "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+    },
+    "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "e9a5e15ee95ad76de6435c37a4fee43c4bdda17836534bf186964da0c62a9c4f",
+      "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+    },
+    "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "8f8f74883b3320a2f4b6f780cbbf954685b42419f699eb7498b3a5f62286e6f5",
+      "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+    },
+    "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "5b6417ca84b7f238af19c451492ddf07d9960d3c2b4eae863704a3ad8e7ad3ce",
+      "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+    },
+    "005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "6ecd9d4cd166a51597108ebc647b9591f3f695086b94c6969a58bccef565a979",
+      "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+    },
+    "2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ab3cc7055573144f26c2ee004138fc8a252ae8b2fbc21ba53cbcfc4e5337a997",
+      "uid": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840"
+    },
+    "fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "5f6518c19b7ddf2cefa410727daa089f8bcd028d40af5d7507d33d3490084f9c",
+      "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+    },
+    "6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "518aa200681b91f3c30151862209af278c02422d54f77469f2eacb9dd43de6f9",
+      "uid": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f"
+    },
+    "637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "70bf38775c890eefb79631d1b6c0acb1310662f238112198f657a426c9c0edd2",
+      "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+    },
+    "a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "cdaca830d65c48ca1059ea14c788eaeafa21d27eaa3c998721e82809414d3690",
+      "uid": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00"
+    },
+    "1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "6478c2932ffa998eda8ac724e6df08a7c18971e943cf48ac511aa19e7793261a",
+      "uid": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f"
+    },
+    "9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ee21384769079014e7f0b83108c683e777408b5e63149385e2931aa44db2b8b1",
+      "uid": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6"
+    },
+    "9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "819701b501957cdcf19003e34a0cad05ad728f597d7dc5224d359463cbf86461",
+      "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+    },
+    "c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "bc9645084bd34c210153e9a1ceb61fa2f603b776edf5ab668678f9356e023b96",
+      "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+    },
+    "caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "a8e25386a77ea847a8782daf3e66b3684a80f4986143acac07d0377f2fbd2dff",
+      "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+    },
+    "f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "86c77d8996979dd6453b5b81a6f1314b1a2a146adc1a437fd80d77e3a94c0ee0",
+      "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+    },
+    "d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "3b716c28ce2e856618761c6501f718c76cf15bc712d79bcac94e6f1d09befae4",
+      "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+    },
+    "f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "b491c2ef82049b88e4d26e38eab76305c842ad0185cc3edeb40f129127bbe887",
+      "uid": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226"
+    },
+    "68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "54d38276b2624f4bbb831bdcdc75bbba5ee6d940ee1923e2674d469c88464230",
+      "uid": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a"
+    },
+    "15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "c089732cc79ef2a1a463e42c0bd496ccda8b2525b493dc8bcde5e4da70950bdb",
+      "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+    },
+    "106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "3e840be62b2cd37be2177465ee59017e1bba2f722c38e1e8234b5ca2f888b123",
+      "uid": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03"
+    },
+    "23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "80afe23433c02265252a97ff93dd683f25f5d0dbab62a98400823808de83329a",
+      "uid": "lfh:lfh-declaration-card:sha256:23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013"
+    },
+    "7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "66362986cb8e27b76374628c9b58a049b33fc3ce262e58e3e38d04a93a47ed08",
+      "uid": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a"
+    },
+    "66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "3753106ba648e2a30ddde2adad74dbe93df42d065d9a8b9d3790136458806884",
+      "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+    },
+    "956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "88f0d99a8e018be7d631ec67a0b283306e74549bc5526e3185861f3927db6411",
+      "uid": "lfh:lfh-declaration-card:sha256:956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298"
+    },
+    "ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "22237a1d60bd1b4dae08a2f0dfe2cc4ccdc6f96f85b6be11b110839d3e1671f9",
+      "uid": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584"
+    },
+    "8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "16bca310f77405e367eea080da63ce9a180e242a66c01b35672b2def0606a50d",
+      "uid": "lfh:lfh-declaration-card:sha256:8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141"
+    },
+    "f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ecc79438064f62aae0bbacb681b74e61a1bdf6907db81f63936cc28abaaa4b2d",
+      "uid": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9"
+    },
+    "fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "6c39a0335bae06c780f4d6169369e5075367719237ff4ec7c2428f09aff37038",
+      "uid": "lfh:lfh-declaration-card:sha256:fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d"
+    },
+    "964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "5b07a7c7de32145f121f2a50d936d721f077b048bca799b7e2852db18b512bba",
+      "uid": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130"
+    },
+    "f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "f21cea9af3dce8c0c987722a576294b1d5d1053d1a5473e2956074cae45cb850",
+      "uid": "lfh:lfh-declaration-card:sha256:f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467"
+    },
+    "c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "0f8e7968c7269244dff3347b8dd04824dd6f183f487dc52919fbc4e7b19ca3c9",
+      "uid": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4"
+    },
+    "155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "a1c2ac8a3243c4697c1d5133870dfbda664c5a4e32cfba5f403fe5d6f387df5a",
+      "uid": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb"
+    },
+    "0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ef9634a120bc677817374b923a401e6b48677300dcbed8bfe81cb3c9b001d2c0",
+      "uid": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8"
+    },
+    "be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "9c84c41fbd329d019a48250459bbaa298670bcb68317e4f2c154f1c9e5144ac3",
+      "uid": "lfh:lfh-declaration-card:sha256:be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85"
+    },
+    "4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "f98a893acfc2db2d884a3079ff3eb5aa5de2a9cdd0e9a5e0ae65b26cb3ac687f",
+      "uid": "lfh:lfh-declaration-card:sha256:4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537"
+    },
+    "a1397f366783063d30db5ab13e31d3e5339a0d31518fb16b965d5299478b8142": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ba2e8276346975fcb757ba309080b548e3825fd7a9e5f505c0947c847694f385",
+      "uid": "lfh:lfh-declaration-card:sha256:a1397f366783063d30db5ab13e31d3e5339a0d31518fb16b965d5299478b8142"
+    },
+    "fc53edababaef4cd5e177061b0866789eacc62e1d9a69cf1dc16c08c02d6307a": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "0e0dcb2302827d125d7dbd94b5cd58de45152fb64dc29f81686b47253b995036",
+      "uid": "lfh:lfh-declaration-card:sha256:fc53edababaef4cd5e177061b0866789eacc62e1d9a69cf1dc16c08c02d6307a"
+    },
+    "fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "d10f0a91f19a1e8ff87ebdfcdb4948f6e061fdea3cf835a3652348f1e8084674",
+      "uid": "lfh:lfh-declaration-card:sha256:fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470"
+    },
+    "e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "516a57a8f062ef0a6234d796e52b96c61eb3b141eb155771b24f65817dddb0ea",
+      "uid": "lfh:lfh-declaration-card:sha256:e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa"
+    },
+    "4e9f1fd1b5609f4b4591912d2f2f242e022b38ef13ae18ba179ad2c30a17835f": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "1bb9f1304e4319112a787cd90aab522b6c259ccfdcf7571dce1d28cba6b569b5",
+      "uid": "lfh:lfh-declaration-card:sha256:4e9f1fd1b5609f4b4591912d2f2f242e022b38ef13ae18ba179ad2c30a17835f"
+    },
+    "f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "47d4f0b7c34f13bd52725a8e51e896bc85168489e7892a0a473cf0eac009e425",
+      "uid": "lfh:lfh-declaration-card:sha256:f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611"
+    },
+    "a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "ad091ef1bdb46599561192f9b2e32004e2aa24220ab5bf053514f7acb52b56d2",
+      "uid": "lfh:lfh-declaration-card:sha256:a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65"
+    },
+    "d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "82dcb53f14784d8184619f6b558bae0a063457b36614f838624b46b2451cb4c8",
+      "uid": "lfh:lfh-declaration-card:sha256:d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09"
+    },
+    "496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "676839944ea44aba2ad0d82eecf10f9d7de497d78bdc437392982049cd4644ee",
+      "uid": "lfh:lfh-declaration-card:sha256:496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241"
+    },
+    "2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "02df2eeba0368fda2c5814cec462bc5566696823c4b4dd7fe316f492ef6c26d6",
+      "uid": "lfh:lfh-declaration-card:sha256:2d084b17a142cd92b0c25e448adec6b0e58bfc7280434250e46a36acbc881a4b"
+    },
+    "8f6080ffedd7a05589c15beb77da0914b520154a8e6de93f7d47d064cf365ca0": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "75a7668379333ad8738557c1da68955398f298726394d3d716d30ce59bcf1ad3",
+      "uid": "lfh:lfh-declaration-card:sha256:8f6080ffedd7a05589c15beb77da0914b520154a8e6de93f7d47d064cf365ca0"
+    },
+    "e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "bbaa38f0690d7b0ca134e7875ae37f1e48d6f2cd8dc0d5b1d6b4c3701fa214c4",
+      "uid": "lfh:lfh-declaration-card:sha256:e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f"
+    },
+    "9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "228ba19d3e6f019d7447205532137a8eabdb20491d59bbae4fa507ce55cb654f",
+      "uid": "lfh:lfh-declaration-card:sha256:9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461"
+    },
+    "49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "e9e119b142df5c73ca63aebd69db0c6601d2eba833dd69fa691bd0485a511bac",
+      "uid": "lfh:lfh-declaration-card:sha256:49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c"
+    },
+    "a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "4e50c44f14a48c8f061646a405c75ba136829cab84f8fd45d4e52cf87386ca33",
+      "uid": "lfh:lfh-declaration-card:sha256:a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27"
+    },
+    "b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "b44fc1eb359af758468f55442e998fc4f91a92be8dcf566311f37e8b000bc06f",
+      "uid": "lfh:lfh-declaration-card:sha256:b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee"
+    },
+    "bd4b1ed05fb5063cf29ec3c970e72b83f91f2924b541f616688ce518163f5dac": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "4781b2a183efdb30b33f8d73b2423360cd38cdb807c6f9b7ddaa3746770023b2",
+      "uid": "lfh:lfh-declaration-card:sha256:bd4b1ed05fb5063cf29ec3c970e72b83f91f2924b541f616688ce518163f5dac"
+    },
+    "0a759cbd58d457ef91977667285e6fa6787a5451b1961b92e7c30aac6d0d0d04": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "d76eb8815b2cd36bec71c53984e9ed201889ea48c67af6aa2ea2a3b7f1ddcd8b",
+      "uid": "lfh:lfh-declaration-card:sha256:0a759cbd58d457ef91977667285e6fa6787a5451b1961b92e7c30aac6d0d0d04"
+    },
+    "e3615f5ad0eee009f7d76eac1eef94455a6c979000af73eece1cc7b944d3c3d7": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "79f1cbd6ad329c3e3023830d3ad3cca58491bc0bea89f63173261c36d58a54e7",
+      "uid": "lfh:lfh-declaration-card:sha256:e3615f5ad0eee009f7d76eac1eef94455a6c979000af73eece1cc7b944d3c3d7"
+    },
+    "acd238bacdf236617d1b6fcee52bc6c12e193116f911bbb8f2020a1c9979dc8d": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "976996c043914f314b6f3313626b811ee061277d9a483edae58ea15a2eea8087",
+      "uid": "lfh:lfh-declaration-card:sha256:acd238bacdf236617d1b6fcee52bc6c12e193116f911bbb8f2020a1c9979dc8d"
+    }
+  },
+  "publication_date": "2026-09-24",
+  "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1",
+  "catalog_only_naimark_cards": 4
+}

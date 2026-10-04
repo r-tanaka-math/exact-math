@@ -1,0 +1,163 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean",
+    "source_range": {
+      "end_line": 104,
+      "start_line": 22
+    },
+    "source_sha256": "23611993a53a83cc178e7761d17b23be73b204d340159eaef86b94bb5c16a3e8",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_stageTests_crossRepresentation_path_approx\n    {H : Type*}\n    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]\n    [Nontrivial H]\n    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)\n    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 < epsilon) :\n    ∃ n, ∃ delta > 0,\n      ∀ {K : Type*}\n        [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]\n        (sigma : Representation Limit K) (xi : H) (eta : K),\n      ‖xi‖ = 1 → ‖eta‖ = 1 →\n      (∀ i j : Fin (2 ^ n),\n        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -\n          Representation.vectorFunctional sigma eta (limitMatrixUnit n i j)‖ < delta) →\n      ∀ (F' : Finset Limit) (epsilon' : ℝ), 0 < epsilon' →\n        ∃ u : unitary Limit,\n          ∃ p : Path 1 u,\n          (∀ t, ∀ a ∈ F,\n            ‖(p t : Limit) * a * star (p t : Limit) - a‖ < epsilon ∧\n            ‖star (p t : Limit) * a * (p t : Limit) - a‖ < epsilon) ∧\n          ∀ a ∈ F',\n            ‖Representation.vectorFunctional rho (rho (u : Limit) xi) a -\n              Representation.vectorFunctional sigma eta a‖ < epsilon'",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean",
+    "source_sha256": "23611993a53a83cc178e7761d17b23be73b204d340159eaef86b94bb5c16a3e8",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean",
+      "source_sha256": "23611993a53a83cc178e7761d17b23be73b204d340159eaef86b94bb5c16a3e8",
+      "start_line": 22,
+      "start_column": 1,
+      "end_line": 104,
+      "end_column": 16
+    },
+    "start_byte": 916,
+    "end_byte": 2119,
+    "sha256": "f78dd62ab2e788f74a4de2bbc109b6fe31cac02d5a22fd2bc3e461654168cef6",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Cross-representation state approximation with a protected finite set",
+    "one_sentence_role": "Finite entrywise tests allow new state approximation while an entire unitary path nearly fixes earlier data.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. We use the inner product conjugate linear in its first argument and write $\\varphi_{\\pi,v}(a)=\\langle v,\\pi(a)v\\rangle$ for the vector functional. Fix an irreducible $\\pi:A\\to B(H)$ with $H\\ne0$. For every finite $F\\subset A$ and $\\varepsilon>0$, there exist $n$ and $\\delta>0$ with the following property. Let $\\sigma:A\\to B(K)$ be any representation and let $\\xi\\in H$, $\\eta\\in K$ be unit vectors whose vector states differ by less than $\\delta$ on every $e_{ij}^{(n)}$. For every later finite set $F^{\\prime}\\subset A$ and $\\varepsilon^{\\prime}>0$, there are $u\\in U(A)$ and a norm-continuous path $p$ from $1$ to $u$ such that $|\\varphi_{\\pi,\\pi(u)\\xi}(a)-\\varphi_{\\sigma,\\eta}(a)|<\\varepsilon^{\\prime}$ for every $a\\in F^{\\prime}$. Throughout the path, both conjugation errors on $F$ are less than $\\varepsilon$.",
+    "definition_explanation": null,
+    "assumptions": "The spaces $H$ and $K$ are complete complex Hilbert spaces. Only $\\pi$ is required to be irreducible. The order of choices is essential: $F,\\varepsilon$ come first, then $n,\\delta$, then the second representation and the unit vectors satisfying the tests, and finally the new approximation requests $F^{\\prime},\\varepsilon^{\\prime}$.",
+    "conclusion": "Writing the all-time protection explicitly, $\\|p(t)ap(t)^*-a\\|<\\varepsilon$ and $\\|p(t)^*ap(t)-a\\|<\\varepsilon$ for every $t\\in[0,1]$ and $a\\in F$. At the endpoint the transported vector state approximates the target on the independently specified later set $F^{\\prime}$.",
+    "proof_summary": "Choose the tests using the exact local transport theorem in the first representation. Approximate the later set by a larger stage. Finite-stage purification realizes the second vector state exactly on that larger stage inside $H$, so the original tests still hold. Exact local transport reaches this purified vector while protecting $F$. Contractivity of unit vector states controls the approximation error on the later set.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Use the local exact-transport theorem for $\\pi,F,\\varepsilon$ to fix $n$ and $\\delta$. These choices do not depend on $K$, $\\sigma$, or the later approximation request."
+      },
+      {
+        "step_id": "s2",
+        "text": "Approximate every element of $F^{\\prime}$ in a common stage $m$ within $\\varepsilon^{\\prime}/3$, and pass to $N=\\max(n,m)$. Purification gives a unit vector $\\zeta\\in H$ whose vector state agrees with $\\varphi_{\\sigma,\\eta}$ on stage $N$. Compatibility of the inclusions gives agreement on the earlier stage $n$ as well."
+      },
+      {
+        "step_id": "s3",
+        "text": "The assumed entrywise tests for $\\xi,\\eta$ are therefore the tests for $\\xi,\\zeta$ in $H$. Exact local transport supplies $u$ and $p$ with $\\pi(u)\\xi=\\zeta$ and the required all-time protection."
+      },
+      {
+        "step_id": "s4",
+        "text": "For $a\\in F^{\\prime}$ and a stage approximant $b$, the two vector states agree at $b$. Each has norm at most $1$, so their difference at $a$ is bounded by $2\\|a-b\\|<\\varepsilon^{\\prime}$."
+      }
+    ],
+    "lean_realization_notes": "The endpoint approximation does not assert equality of the two states on all of $A$, unitary equivalence of the representations, or state approximation along every intermediate point of the path. The second representation need not be irreducible.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean#L22-L104",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean",
+        "source_range": {
+          "end_line": 104,
+          "start_line": 22
+        },
+        "source_sha256": "23611993a53a83cc178e7761d17b23be73b204d340159eaef86b94bb5c16a3e8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Exact local transport preserving a finite set along the path",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean#L486-L607",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+        "source_range": {
+          "end_line": 607,
+          "start_line": 486
+        },
+        "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Exact purification on a larger finite stage",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L256-L278",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+        "source_range": {
+          "end_line": 278,
+          "start_line": 256
+        },
+        "source_sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Representation and nonzero irreducibility conventions",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean#L19-L47",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsIrreducible",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean",
+        "source_sha256": "39a2641871d68ec2f30937ab9889e627261f13929f901f2b43c85ad2944a6888",
+        "source_range": {
+          "start_line": 19,
+          "end_line": 47
+        }
+      }
+    },
+    {
+      "label": "Equivalence of the two irreducibility interfaces on a nonzero Hilbert space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Adapters.lean#L67-L77",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.isIrreducible_iff_starAlgHom",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Adapters.lean",
+        "source_sha256": "80379684dcb688eb10d7c31c71ef7eab2378ce73893cf151b0b85015fc0be9aa",
+        "source_range": {
+          "start_line": 67,
+          "end_line": 77
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "7711b3c3062f35d4f40941c530616797fcdd6ff68d6df057976f2c34a611097c",
+    "uid": "lfh:lfh-declaration-card:sha256:fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "5c025351e5f794d88c7ae8ae8475b719da90a5ba389646a4db41b2537c5b2974",
+    "uid": "lfh:lfh-card-exposition:sha256:fd5ba7904bd5a83b1df7761c2e22cd83a1391643497f29cd8c373663c6956aef"
+  },
+  "guide": "Here `rho` is the fixed representation $\\pi$, `sigma` is the later representation, and `F` is protected throughout `p`. The primed variables `F'` and `epsilon'` specify the later endpoint approximation. `Representation.vectorFunctional rho (rho u xi)` is the state after transport; the theorem compares it with the state of `eta` under `sigma`.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110/versions/n69-5c025351e5f794d8/index.html",
+    "pdf": "card.pdf"
+  }
+}

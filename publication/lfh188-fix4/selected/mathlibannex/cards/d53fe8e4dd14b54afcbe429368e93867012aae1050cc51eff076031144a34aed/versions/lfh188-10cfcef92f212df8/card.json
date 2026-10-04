@@ -1,0 +1,29 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_ball",
+  "title": "Affine extension from open balls",
+  "stable_card_id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+  "identity_key": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+  "source_url": "mathlibannex/sources/lfh188/6e5b7548f0da15a8e3137903/index.html#L24",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "3660e1ed6a0b3fdd551b9c92e576b022eb7c3de869eb774474b08378cae9fb26",
+  "accepted_guide_sha256": "a2976dcb4c535425be2e752fb173f0a9e30979f9be55212b68d39c6a0ef2f5e8",
+  "content": {
+    "display_title": "Affine extension from open balls",
+    "one_sentence_role": "Applies the open connected theorem to two positive-radius balls.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $c\\in E$, $d\\in F$, and $r,R>0$. For a bijective isometry $f:B(c,r)\\to B(d,R)$ there exists a unique surjective real affine isometry $A:E\\to F$ satisfying $A(x)=f(x)$ for all $x\\in B(c,r)$.",
+    "definition_explanation": null,
+    "assumptions": "Both radii are positive. They are not assumed equal. No nonzero-dimension or completeness hypothesis is imposed on the spaces.",
+    "conclusion": "The specified isometry of open balls has exactly one ambient affine-isometry extension.",
+    "proof_summary": "Check openness and nonempty connectedness of the source ball, then substitute the two balls into the open connected theorem.",
+    "proof_steps": [
+      "The two balls are open. Since $r>0$, $c\\in B(c,r)$, and this ball is convex: for $x,y$ in it and $0\\le a\\le1$, $\\|(1-a)x+ay-c\\|\\le(1-a)\\|x-c\\|+a\\|y-c\\|<r$. Thus it is nonempty and connected. Positivity of $R$ also makes the target ball nonempty and connected, although target connectedness is not an independent input to the next theorem.",
+      "Apply [Open connected extension theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean#L120-L147) with $s=B(c,r)$, $t=B(d,R)$ and the given $f$. The openness and source connectedness just verified supply its hypotheses. Its single existence-and-uniqueness conclusion gives $A(x)=f(x)$ for every source-ball point, exactly as required."
+    ],
+    "lean_realization_notes": []
+  }
+}

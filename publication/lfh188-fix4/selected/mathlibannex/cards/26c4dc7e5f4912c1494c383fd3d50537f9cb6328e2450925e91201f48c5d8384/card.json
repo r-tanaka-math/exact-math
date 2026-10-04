@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "79ea68a45af505d13b0e28ba089cd2bae42b308d55dc4f33d21fdb20e837d0dd",
+  "approved_card_model_sha256": "ab49c0a15c835ff2cdbc9a7e2947c2bd7aecbc8b5401f98babd0a86c1be24842",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and e a nonunital complex star-algebra homomorphism from A to the bounded operators on H.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "5b6417ca84b7f238af19c451492ddf07d9960d3c2b4eae863704a3ad8e7ad3ce",
+    "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+  },
+  "citations": [],
+  "conclusion": "The model predicate consists of all three clauses: e is injective; every represented e(a) is compact; and each compact bounded operator T on H equals e(a) for some a in A.",
+  "declaration_kind": "def",
+  "definition_equation": "IsCompactOperatorModel e ↔ Injective e ∧ (∀ a, IsCompactOperator (e a)) ∧ ∀ T, IsCompactOperator T → ∃ a, e a = T.",
+  "definition_explanation": "IsCompactOperatorModel e ↔ Injective e ∧ (∀ a, IsCompactOperator (e a)) ∧ ∀ T, IsCompactOperator T → ∃ a, e a = T.",
+  "display_title": "Unbundled compact-operator model",
+  "exact_elaborated_lean_type": "{A : Type u} → {H : Type v} → [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → [inst_2 : CompleteSpace H] → [inst_3 : NonUnitalCStarAlgebra A] → (A →⋆ₙₐ[ℂ] H →L[ℂ] H) → Prop",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "e3d8202b0f37d353aec27c1e89f80047e121fe860f3b2499d8c9a3c88d55b23c",
+    "uid": "lfh:lfh-card-exposition:sha256:a31cce052d1f64f317c92b8ccf4b844bce48f49953631499310294d313d73aaa"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "f43437a5550cb3475eccb96f704a175c4c2754875e439729dfbd3de3bc52bbf8",
+    "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "e3d8202b0f37d353aec27c1e89f80047e121fe860f3b2499d8c9a3c88d55b23c",
+    "uid": "lfh:lfh-card-exposition:sha256:a31cce052d1f64f317c92b8ccf4b844bce48f49953631499310294d313d73aaa"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "f43437a5550cb3475eccb96f704a175c4c2754875e439729dfbd3de3bc52bbf8",
+      "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.IsCompactOperatorModel",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and e a nonunital complex star-algebra homomorphism from A to the bounded operators on H. The model predicate consists of all three clauses: e is injective; every represented e(a) is compact; and each compact bounded operator T on H equals e(a) for some a in A.",
+  "one_sentence_role": "Packages injectivity, compact-valuedness, and surjectivity onto all compact operators into one unbundled predicate.",
+  "owner_review_item_sha256": "524c4f7143f55e9b60ac8fed0d7c96156909fc5452e9e6efd25842fba4a47061",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → {H : Type v} → [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → [inst_2 : CompleteSpace H] → [inst_3 : NonUnitalCStarAlgebra A] → (A →⋆ₙₐ[ℂ] H →L[ℂ] H) → Prop"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsCompactOperatorModel e ↔ Injective e ∧ (∀ a, IsCompactOperator (e a)) ∧ ∀ T, IsCompactOperator T → ∃ a, e a = T."
+    },
+    {
+      "step_id": "source_route",
+      "text": "This is a definition of a property. It characterizes equality of the image with K(H) together with injectivity; no bundled StarAlgEquiv value is constructed by the definition."
+    }
+  ],
+  "proof_summary": "This is a definition of a property. It characterizes equality of the image with K(H) together with injectivity; no bundled StarAlgEquiv value is constructed by the definition.",
+  "source_excerpt": {
+    "bytes": 425,
+    "sha256": "f5210ad85321f8ae37c09fc01dbb253bd7fe4b7bc66e8da1cfc0aafb8cc6ce22"
+  },
+  "source_locator": {
+    "end_column": 60,
+    "end_line": 33,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+    "source_sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285",
+    "start_column": 1,
+    "start_line": 26
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "5b2f684516cf3fdfdc06b76b3b80b7646327b9938f05265d50569160ec1f8fe0",
+    "uid": "lfh:lfh-source-build-binding:sha256:263cd2affc1e91d7a31fcc92136f7c6572add41befbc9064a0f6622aeed1c61f"
+  },
+  "source_sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285",
+  "source_signature": {
+    "end_byte": 1039,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "8cf30c0f4d10d0fbf94a18b62286bf6005bb988bbb5b52cd589baf23313d36a1",
+    "source_command_range": {
+      "end_column": 60,
+      "end_line": 33,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+      "source_sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285",
+      "start_column": 1,
+      "start_line": 26
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+    "source_sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285",
+    "start_byte": 934,
+    "text": "def IsCompactOperatorModel [NonUnitalCStarAlgebra A]\n    (e : A →⋆ₙₐ[ℂ] (H →L[ℂ] H)) : Prop"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean#L26-L33",
+  "stable_card_id": "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+    "source_range": {
+      "end_line": 607,
+      "start_line": 486
+    },
+    "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt\n    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]\n    [CompleteSpace H] [Nontrivial H]\n    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)\n    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 < epsilon) :\n    ∃ n, ∃ delta > 0, ∀ (xi eta : H), ‖xi‖ = 1 → ‖eta‖ = 1 →\n      (∀ i j : Fin (2 ^ n),\n        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -\n          Representation.vectorFunctional rho eta (limitMatrixUnit n i j)‖ < delta) →\n      ∃ u : unitary Limit,\n        rho (u : Limit) xi = eta ∧\n        ∃ p : Path 1 u, ∀ t, ∀ a ∈ F,\n          ‖(p t : Limit) * a * star (p t : Limit) - a‖ < epsilon ∧\n          ‖star (p t : Limit) * a * (p t : Limit) - a‖ < epsilon",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+    "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+      "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+      "start_line": 486,
+      "start_column": 1,
+      "end_line": 607,
+      "end_column": 18
+    },
+    "start_byte": 21982,
+    "end_byte": 22831,
+    "sha256": "0caf0d8a7930bf2d085fd18437214ef182e3258384dc824ca8959c40de7bcbde",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Exact vector transport along an almost central unitary path",
+    "one_sentence_role": "Finite matrix-state tests ensure exact transport while protecting a prescribed finite set throughout the path.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. We use the inner product conjugate linear in its first argument and write $\\varphi_{\\pi,v}(a)=\\langle v,\\pi(a)v\\rangle$ for the vector functional. Fix an irreducible representation $\\pi:A\\to B(H)$ on a nonzero complex Hilbert space. Given a finite set $F\\subset A$ and $\\varepsilon>0$, one can choose a stage $n$ and $\\delta>0$ such that the following holds for every pair of unit vectors $\\xi,\\eta\\in H$. If $|\\varphi_{\\pi,\\xi}(e_{ij}^{(n)})-\\varphi_{\\pi,\\eta}(e_{ij}^{(n)})|<\\delta$ for all $i,j$, there is $u\\in U(A)$ with $\\pi(u)\\xi=\\eta$ and a norm-continuous path $p:[0,1]\\to U(A)$ from $1$ to $u$. At every time and for every $a\\in F$, both $\\|p(t)ap(t)^*-a\\|<\\varepsilon$ and $\\|p(t)^*ap(t)-a\\|<\\varepsilon$ hold.",
+    "definition_explanation": null,
+    "assumptions": "The representation is unital and irreducible, and $H$ is complete and nonzero. The finite set and positive error are fixed first. The stage and tolerance are chosen before either unit vector; there is no hypothesis that the two vectors are already close in norm.",
+    "conclusion": "The endpoint transport is exact. The protection of $F$ is approximate, in both conjugation directions, uniformly for the entire path. The stage tests compare vector states, not the vectors themselves.",
+    "proof_summary": "Approximate $F$ inside one finite stage. Close stage states give close Gram matrices of the root-corner components. Corner involutions yield a stage-central path moving the first vector near the second; a short final unitary correction makes the transport exact. Quantitative commutator bounds then transfer to the original finite set.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For fixed stage $n$, decompose a unit vector as $\\xi=\\sum_i\\pi(e_{i0}^{(n)})v_i$, where $v_i=\\pi(e_{0i}^{(n)})\\xi$. The sums of squared component norms equal $1$, and $\\langle v_i,v_j\\rangle=\\varphi_{\\pi,\\xi}(e_{ij}^{(n)})$. Thus entrywise state tests are Gram-matrix tests."
+      },
+      {
+        "step_id": "s2",
+        "text": "The corner Gram-perturbation result uses an auxiliary isometric family orthogonal to both input families. Two unitary involutions move through that family with small errors. Lifting them to corner exponentials gives a path centralizing the whole stage at every time. Reconstructing the vectors converts small component errors into a small vector error."
+      },
+      {
+        "step_id": "s3",
+        "text": "The fixed-stage exact-transport lemma follows by correcting this endpoint with a unitary near $1$ and concatenating its short path with the stage-central path. For any prescribed $\\gamma>0$, its path satisfies $\\|[p(t),\\iota_n(c)]\\|\\leq\\gamma\\|\\iota_n(c)\\|$ for all stage elements and all times, while the endpoint sends $\\xi$ exactly to $\\eta$."
+      },
+      {
+        "step_id": "s4",
+        "text": "Choose stage approximants to each $a\\in F$ within $\\varepsilon/8$, and choose $\\gamma$ small relative to their common norm bound. The commutator of $p(t)$ with $a$ is bounded by twice the approximation error plus the stage commutator bound, which is strictly below $\\varepsilon$. Multiplication by the appropriate unitary converts that commutator bound into each of the two conjugation inequalities."
+      }
+    ],
+    "lean_realization_notes": "The path need not centralize $F$ exactly. The tolerance is an existential modulus and no numerical value is claimed. The conditions require all the matrix entries at the chosen stage, not only the diagonal ones.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean#L486-L607",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+        "source_range": {
+          "end_line": 607,
+          "start_line": 486
+        },
+        "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Corner Gram tests give a stage-central path",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean#L16-L147",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_delta_liftedCornerUnitary_path_apply_sub_norm_lt",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+        "source_range": {
+          "end_line": 147,
+          "start_line": 16
+        },
+        "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Stage-state tests give approximate vector transport",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean#L174-L326",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_delta_stageCentral_unitary_path_apply_sub_norm_lt",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+        "source_range": {
+          "end_line": 326,
+          "start_line": 174
+        },
+        "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Exact endpoint with all-time stage commutator control",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean#L353-L455",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_delta_exact_unitary_path_apply_eq_and_stage_commutator",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+        "source_range": {
+          "end_line": 455,
+          "start_line": 353
+        },
+        "source_sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Representation and nonzero irreducibility conventions",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean#L19-L47",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsIrreducible",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean",
+        "source_sha256": "39a2641871d68ec2f30937ab9889e627261f13929f901f2b43c85ad2944a6888",
+        "source_range": {
+          "start_line": 19,
+          "end_line": 47
+        }
+      }
+    },
+    {
+      "label": "Equivalence of the two irreducibility interfaces on a nonzero Hilbert space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Adapters.lean#L67-L77",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.isIrreducible_iff_starAlgHom",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Adapters.lean",
+        "source_sha256": "80379684dcb688eb10d7c31c71ef7eab2378ce73893cf151b0b85015fc0be9aa",
+        "source_range": {
+          "start_line": 67,
+          "end_line": 77
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "1e9fb7fc9b494074a274a3ff8761c90c7e53a2912f3e44d0d802a187b38fd865",
+    "uid": "lfh:lfh-declaration-card:sha256:b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "53f094249210aff8dbd7bdefe8255d2592b33fb7f88a190d5b324139b5025f34",
+    "uid": "lfh:lfh-card-exposition:sha256:5401064ccf8b2b771a234477a8c53524fad4070a4666384a9f9d31573a60e971"
+  },
+  "guide": "Here `rho` is $\\pi$, `F` and `epsilon` are the protected set and error, and `n, delta` are chosen before `xi, eta`. `limitMatrixUnit n i j` is $e_{ij}^{(n)}$. A witness `p : Path 1 u` is the norm-continuous unitary path. The two conjuncts under `∀ t ...` are forward and inverse conjugation control at every time.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f/versions/n69-53f094249210aff8/index.html",
+    "pdf": "card.pdf"
+  }
+}

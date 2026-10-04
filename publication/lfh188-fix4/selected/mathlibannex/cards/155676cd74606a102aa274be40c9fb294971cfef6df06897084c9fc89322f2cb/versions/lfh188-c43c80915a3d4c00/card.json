@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_rankOne_of_singleton",
+  "title": "Every rank-one operator has an algebra preimage",
+  "stable_card_id": "155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb",
+  "identity_key": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb",
+  "source_url": "mathlibannex/sources/lfh188/042d293aefe87fb23a495f82/index.html#L94",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "68cc3dfce4a57d34a5ceddc31a6338a17696144595fd2bc2de1a79430aa4b053",
+  "accepted_guide_sha256": "d3fbce5ad9638ab3a7f018d8d1539b09ef22f0656404058591811d5e8be72f62",
+  "content": {
+    "display_title": "Every rank-one operator has an algebra preimage",
+    "one_sentence_role": "Turns one represented rank-one projection into every rank-one operator using dense orbits and a closed range.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed, let $H$ be a separable complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ represent the unique unitary-equivalence class of nonzero irreducible $*$-representations. For every $x,y\\in H$ there is $a\\in A$ such that $$\\pi(a)=\\theta_{x,y},\\qquad \\theta_{x,y}(z)=\\langle y,z\\rangle x.$$",
+    "definition_explanation": null,
+    "assumptions": "The vectors $x,y$ are arbitrary, including zero. They need not be unit vectors. The separability assumption concerns $H$. No unit is required in $A$.",
+    "conclusion": "Each rank-one operator belongs to the image of the original algebra, not merely to the image of its unitization.",
+    "proof_summary": "Find one rank-one projection in the range. Use irreducibility to obtain a dense original-algebra orbit, multiply around the projection, and pass to limits in both vectors.",
+    "proof_steps": [
+      "Apply [A rank-one projection in a singleton model](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean#L76-L99) to the nonzero ordered $A$, separable $H$, and singleton $\\pi$. It supplies $p\\in A$ and a unit vector $e\\in H$ with $\\pi(p)=\\theta_{e,e}$. In particular $\\pi(p)e=e$. The theorem [Faithfulness of a non-unital singleton model](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean#L34-L94) also gives injectivity of $\\pi$.",
+      "The dense-orbit step in [One rank-one projection generates all rank-one operators in the range](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean#L62-L92) uses irreducibility of the unitized representation. Its orbit of $e\\ne0$ is dense; every unitization element has the form $(\\lambda,a)$ and acts by $$\\widehat\\pi(\\lambda,a)e=\\lambda e+\\pi(a)e=\\pi(\\lambda p+a)e.$$ Thus already $\\{\\pi(a)e:a\\in A\\}$ is dense in $H$. This calculation is why the preimages below stay in $A$.",
+      "For $a,b\\in A$ and $z\\in H$, multiplicativity and adjoints give $$\\pi(apb^*)z=\\pi(a)\\theta_{e,e}\\pi(b)^*z=\\langle e,\\pi(b)^*z\\rangle\\pi(a)e=\\langle\\pi(b)e,z\\rangle\\pi(a)e.$$ Hence $\\pi(apb^*)=\\theta_{\\pi(a)e,\\pi(b)e}$.",
+      "Because $\\pi$ is injective, it is isometric and has norm-closed range. Approximate arbitrary $x,y$ by vectors $\\pi(a)e,\\pi(b)e$ in the dense orbit. The estimates $\\|\\theta_{u,v}\\|\\le\\|u\\|\\|v\\|$ and $$\\|\\theta_{u,v}-\\theta_{x,y}\\|\\le\\|u-x\\|\\|v\\|+\\|x\\|\\|v-y\\|$$ show convergence of the corresponding rank-one operators. Closedness then puts $\\theta_{x,y}$ in $\\pi(A)$, which is the asserted existence of $a$."
+    ],
+    "lean_realization_notes": []
+  }
+}

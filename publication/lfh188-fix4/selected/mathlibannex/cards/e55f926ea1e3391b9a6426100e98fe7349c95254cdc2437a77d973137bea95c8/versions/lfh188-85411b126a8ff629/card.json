@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+  "title": "Midpoint preservation under lens containment",
+  "stable_card_id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+  "identity_key": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+  "source_url": "mathlibannex/sources/lfh188/4308208bbaab8b36968ae99e/index.html#L120",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "a22ad0229a763a9c4fbb846f8874c408c690b05e0fe21eb51c664fd53bc9e568",
+  "accepted_guide_sha256": "745bce0b99b52d2d2f0a7c54c4d5323a3cbafd4ac67bd9500839ed3d4ff6da07",
+  "content": {
+    "display_title": "Midpoint preservation under lens containment",
+    "one_sentence_role": "Restricts a set isometry and its inverse to the two contained lenses.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $S\\subseteq E$, $T\\subseteq F$, and $f:S\\to T$ a bijective isometry. Choose $x,y\\in S$ and $r\\in\\mathbb R$. Write $\\Lambda_r(x,y)=\\overline B(x,r)\\cap\\overline B(y,r)$. If $$\\frac{\\|x-y\\|}{2}\\le r,\\qquad \\Lambda_r(x,y)\\subseteq S,\\qquad \\Lambda_r(f(x),f(y))\\subseteq T,$$ then $f((x+y)/2)=(f(x)+f(y))/2$.",
+    "definition_explanation": null,
+    "assumptions": "The half-distance bound and both displayed lens inclusions are assumed for the same points, radius and isometry. There is no openness or convexity requirement on $S,T$.",
+    "conclusion": "The midpoint belongs to $S$ and its image is the midpoint of the two images. The target half-distance bound is a consequence of distance preservation.",
+    "proof_summary": "Use both inclusions to restrict the forward and inverse maps; then apply the lens midpoint theorem to that restriction.",
+    "proof_steps": [
+      "If $z\\in \\Lambda_r(x,y)$, then $z\\in S$ and $$\\|f(z)-f(x)\\|=\\|z-x\\|\\le r,\\qquad\\|f(z)-f(y)\\|=\\|z-y\\|\\le r.$$ Hence $f(z)$ lies in the target lens. Conversely, for $w$ in that lens, the target inclusion allows $f^{-1}(w)$ to be formed, and the same two distance identities put it in the source lens. This is precisely the bijective isometry in [Restriction to corresponding lenses](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L82-L118).",
+      "Distance preservation gives $\\|f(x)-f(y)\\|/2=\\|x-y\\|/2\\le r$. The source half-distance bound and [Midpoint membership](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L34-L38) also give $(x+y)/2\\in \\Lambda_r(x,y)\\subseteq S$.",
+      "Apply [Midpoint preservation between lenses](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L66-L80) to the restricted isometry, source foci $x,y$, target foci $f(x),f(y)$ and radius $r$. Both half-distance hypotheses were checked above. Since this restriction evaluates to the original $f$, its output is $f((x+y)/2)=(f(x)+f(y))/2$."
+    ],
+    "lean_realization_notes": []
+  }
+}

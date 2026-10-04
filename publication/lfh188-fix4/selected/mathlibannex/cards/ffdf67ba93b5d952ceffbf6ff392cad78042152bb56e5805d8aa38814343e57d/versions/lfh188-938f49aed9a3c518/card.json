@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion",
+  "title": "The ambient inclusion of the fixed shell-family target",
+  "stable_card_id": "ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d",
+  "identity_key": "lfh:lfh-declaration-card:sha256:ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d",
+  "source_url": "mathlibannex/sources/lfh188/2e9dd66565552877220c03f2/index.html#L71",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "8a17723fae6a09396ac1057170579580dac4a7b6a03a5591d7d7e71ce18aa60b",
+  "accepted_guide_sha256": "714f0d981ba068d683ca76a8f89c6235982c01ebe622c60ea97f1e4adbfd5f25",
+  "content": {
+    "display_title": "The ambient inclusion of the fixed shell-family target",
+    "one_sentence_role": "The same concrete target has a literal representation on the selected atomic Hilbert space.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the unital matrix system $M_{2^n}(\\mathbb C)$ with embeddings $a\\mapsto a\\otimes I_2$. Let $\\omega$ be its distinguished pure product-vector state. Index pure-state GNS equivalence classes by $I$, choose one representative $\\varphi_j$ in each class with $\\varphi_o=\\omega$ at $o=[\\omega]$, and denote its GNS data by $(H_j,\\pi_j,\\xi_j)$. Write $\\mathcal H=\\bigoplus_{j\\in I}H_j$ for the Hilbert direct sum, $e_j:H_j\\to\\mathcal H$ for coordinate inclusion, and $\\pi(a)(x_j)_j=(\\pi_j(a)x_j)_j$. Here the sum consists of square-summable families and has no countability restriction on $I$. Fix a representative shell family: for each class $j$ it gives an automorphism $\\alpha_j$ with $\\varphi_j\\circ\\alpha_j=\\omega$ and shell links $w_{j,n}$ satisfying $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$ and $w_{j,n}w_{j,n}^*=p_n$. Here $f_n$ is the image of the distinguished matrix projection $E_{00}\\in M_{2^n}(\\mathbb C)$ in $A$, and $p_n=f_n-f_{n+1}$. At $o$, the family specifies $\\alpha_o=\\mathrm{id}$ and $w_{o,n}=p_n$. Choose once the family of unitary operators $L=(L_j)_j$ supplied for this shell family by the completed CAR atomic-shell realization theorem, and fix $T=C^*(\\pi(A),\\{L_j:j\\in I\\})\\subseteq B(\\mathcal H)$. The ambient inclusion is $\\rho_0:T\\to B(\\mathcal H)$, $\\rho_0(t)=t$. With the source map $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, it satisfies $\\rho_0\\circ\\iota=\\pi$.",
+    "definition_explanation": "The generic ambient-inclusion construction takes a concrete generated star algebra to its inclusion in the existing operator algebra. Using the atomic CAR action and the fixed links gives exactly $t\\mapsto t$. Since $\\iota(a)$ is the same operator $\\pi(a)$ regarded as an element of $T$, composing with this inclusion recovers $\\pi(a)$ for every $a$; no new operator is constructed by the composition.",
+    "assumptions": "The representative shell family is the only input beyond the fixed CAR construction. Both $T$ and its ambient Hilbert space $\\mathcal H$ have already been determined by that family and its once-chosen links $L$. The target is a concrete norm-closed unital star subalgebra of $B(\\mathcal H)$.",
+    "conclusion": "The definition supplies the displayed unital representation $\\rho_0$ of this same $T$ on this same $\\mathcal H$. Its injectivity is the injectivity of literal inclusion. The separately cited irreducibility theorem uses the construction of the chosen shell unitaries $L$ to show that this representation has no proper nonzero closed reducing subspace.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The inclusion and source map have different domains: $\\rho_0$ acts on $T$ and $\\iota$ on $A$. Irreducibility and universal capture are separate results, not fields of this definition. This construction does not identify arbitrary target representations or change the choice of $L$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

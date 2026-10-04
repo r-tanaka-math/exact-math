@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.Piola.divergence_cofactorRowField_eq_zero",
+  "title": "The divergence-free cofactor identity",
+  "stable_card_id": null,
+  "identity_key": "5ec72c0913aa4130a9d28a1a1df45bd1a92eb814d64bf2d84493e88776b3b0b5",
+  "source_url": "mathlibannex/sources/lfh188/73d65014651163ad86b1a9f3/index.html#L323",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/Piola.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "e586a6536e27c03ab4425c4b10c551655da32a43be1170c424c4b06bb2f20a4d",
+  "accepted_guide_sha256": "cca27385be48b2092fc739c16a4889a53b2d3d714458b0ba9aa893468bfe29d2",
+  "content": {
+    "display_title": "The divergence-free cofactor identity",
+    "one_sentence_role": "Cancels the Hessian terms that arise when differentiating a cofactor row.",
+    "natural_language_statement": "Let $H:\\mathbb R^n\\to\\mathbb R^n$ be $C^2$, and fix $i\\in\\{1,\\ldots,n\\}$. Let $e_j$ be the $j$th standard coordinate vector, with coordinates $(e_j)_q=\\delta_{jq}$. Define the scalar coordinate maps and the derivative matrix by\n$$H_k(x):=(H(x))_k,\\qquad A(x)_{kq}:=\\partial_qH_k(x).$$\nThus rows are output coordinates and columns are differentiation directions. Let $F:\\mathbb R^n\\to\\mathbb R^n$ be the fixed $i$th cofactor row field:\n$$F_j(x):=(F(x))_j=\\det\\bigl(A(x)[i\\leftarrow e_j^{\\mathsf T}]\\bigr),\\qquad\nF(x)=C_i(A(x)).$$\nThen, at every $x$,\n$$\\operatorname{div}F(x):=\\sum_{j=1}^n\\partial_jF_j(x)=0.$$",
+    "definition_explanation": null,
+    "assumptions": "The hypothesis is twice continuous differentiability on the whole coordinate space. There is no invertibility, compact-support, or boundary assumption. A row $i$ is supplied; the zero-dimensional case consequently has no row to check.",
+    "conclusion": "Every cofactor row field of the derivative is divergence-free, pointwise. The input and output coordinate indices remain distinct in the cancellation below.",
+    "proof_summary": "Differentiate one coordinate $F_j(x)=\\det(A(x)[i\\leftarrow e_j^{\\mathsf T}])$ first. Rowwise differentiation and row multilinearity express it using $\\partial_j\\partial_qH_k$. In the divergence sum, the terms indexed by $(j,q)$ and $(q,j)$ cancel: their second derivatives agree and their two-row determinants have opposite signs.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Differentiate one cofactor coordinate, not the whole divergence at once.** Write the $k$th row of $A(x)$ as\n$$r_k(x)=\\bigl(\\partial_1H_k(x),\\ldots,\\partial_nH_k(x)\\bigr).$$\nFor fixed $j$,\n$$F_j(x)=\\det\\bigl(r_1(x),\\ldots,r_{i-1}(x),e_j^{\\mathsf T},r_{i+1}(x),\\ldots,r_n(x)\\bigr).$$\nOnly the rows $r_k(x)$ with $k\\ne i$ vary. The finite product rule in the determinant expansion therefore gives\n$$\\partial_jF_j(x)=\\sum_{k\\ne i}\n\\det\\!\\left((A(x)[i\\leftarrow e_j^{\\mathsf T}])\n[k\\leftarrow\\partial_j r_k(x)]\\right).$$\nThis is the rowwise derivative formula: each summand differentiates just one nonconstant row. The $C^2$ assumption makes every row being differentiated a $C^1$ map."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Expand the differentiated row and then take the divergence.** The coordinate row satisfies\n$$\\partial_jr_k(x)=\\bigl(\\partial_j\\partial_qH_k(x)\\bigr)_{q=1}^n\n=\\sum_{q=1}^n\\partial_j\\partial_qH_k(x)\\,e_q^{\\mathsf T}.$$\nDefine, displaying both replaced rows,\n$$B_{ikjq}(x):=(A(x)[i\\leftarrow e_j^{\\mathsf T}])[k\\leftarrow e_q^{\\mathsf T}].$$\nLinearity of the determinant in row $k$ turns Step 1 into\n$$\\partial_jF_j(x)=\\sum_{k\\ne i}\\sum_{q=1}^n\n\\partial_j\\partial_qH_k(x)\\det B_{ikjq}(x).$$\nFinally sum over $j$ and reorder these finite sums:\n$$\\operatorname{div}F(x)=\\sum_{k\\ne i}\\sum_{j=1}^n\\sum_{q=1}^n\n\\partial_j\\partial_qH_k(x)\\det B_{ikjq}(x).$$"
+      },
+      {
+        "step_id": "s3",
+        "text": "**Identify the two symmetries.** For each fixed $k\\ne i$, equality of mixed second derivatives gives\n$$\\partial_j\\partial_qH_k(x)=\\partial_q\\partial_jH_k(x).$$\nThe matrices $B_{ikjq}(x)$ and $B_{ikqj}(x)$ differ by interchanging rows $i$ and $k$: these rows are $e_j^{\\mathsf T},e_q^{\\mathsf T}$ in the first and $e_q^{\\mathsf T},e_j^{\\mathsf T}$ in the second. Hence\n$$\\det B_{ikjq}(x)=-\\det B_{ikqj}(x).$$\nFor $j=q$, the two rows coincide and each determinant is zero. There is no matrix-invertibility hypothesis in either step."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Perform the cancellation.** For a fixed $k\\ne i$, call the inner finite sum $S_k(x)$. Relabel $j$ and $q$, and then use Step 3:\n$$\\begin{aligned}\nS_k(x)&:=\\sum_{j,q}\\partial_j\\partial_qH_k(x)\\det B_{ikjq}(x)\\\\\n&=\\sum_{j,q}\\partial_q\\partial_jH_k(x)\\det B_{ikqj}(x)\\\\\n&=-\\sum_{j,q}\\partial_j\\partial_qH_k(x)\\det B_{ikjq}(x)=-S_k(x).\n\\end{aligned}$$\nThus $2S_k(x)=0$ over $\\mathbb R$, so $S_k(x)=0$. Substitution into Step 2 gives $\\operatorname{div}F(x)=\\sum_{k\\ne i}S_k(x)=0$."
+      }
+    ],
+    "lean_realization_notes": "Here $H_k$ and $F_j$ are scalar functions, whereas $H$ and $F$ are vector-valued maps. For any $C^1$ vector field $V$, $\\partial_jV_j(x)=(DV(x)e_j)_j$. Thus taking the derivative in direction $e_j$ and then taking coordinate $j$ is precisely the $j$th term in the divergence.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

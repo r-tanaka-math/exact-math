@@ -1,0 +1,187 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+    "source_range": {
+      "end_line": 132,
+      "start_line": 126
+    },
+    "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem tracialRepresentation_injective (family : RepresentativeShellFamily) :\n    Function.Injective (tracialRepresentation family)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+    "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+      "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+      "start_line": 126,
+      "start_column": 1,
+      "end_line": 132,
+      "end_column": 85
+    },
+    "start_byte": 6202,
+    "end_byte": 6334,
+    "sha256": "bb2397e2041d52060aaa9a0ed63de94c61e877ae3edb367ee3b12846fa504723",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Faithfulness of the target-state GNS representation",
+    "one_sentence_role": "The ideal dichotomy of the same target forces the constructed nonzero representation to be injective.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Choose the state extension $\\phi:T\\to\\mathbb C$ of $\\tau$ supplied by state extension along $\\iota$. Its GNS representation is $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$, with\n\n$$\\|\\xi_\\phi\\|=1,\\qquad \\phi(t)=\\langle\\xi_\\phi,\\rho_\\phi(t)\\xi_\\phi\\rangle.$$\n\nThe inner product is linear in its second argument. The $T$-orbit of $\\xi_\\phi$ is dense by the GNS construction. The representation $\\rho_\\phi:T\\to B(H_\\phi)$ is injective.",
+    "definition_explanation": null,
+    "assumptions": "The representative shell family is fixed. The established closed two-sided ideal dichotomy of this same $T$ is available as a theorem. The GNS space is nonzero because its canonical vector has norm $1$.",
+    "conclusion": "If $\\rho_\\phi(t)=\\rho_\\phi(s)$, then $t=s$. Thus the GNS representation of the chosen state on $T$ is faithful as an algebra representation.",
+    "proof_summary": "Apply the closed-ideal dichotomy to the kernel and exclude the whole-algebra case using the unit on the nonzero GNS space.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The kernel $I=\\ker\\rho_\\phi$ is a norm-closed two-sided ideal. The previously established result `shellFamilyTarget_closedIdeal_dichotomy` gives $I=\\{0\\}$ or $I=T$."
+      },
+      {
+        "step_id": "s2",
+        "text": "If $I=T$, then $\\rho_\\phi(1)=0$. But $\\rho_\\phi$ is unital, so\n\n$$\\xi_\\phi=I_{H_\\phi}\\xi_\\phi=\\rho_\\phi(1)\\xi_\\phi=0,$$\n\ncontradicting $\\|\\xi_\\phi\\|=1$. Hence $I=\\{0\\}$, which is precisely injectivity. The source applies `Representation.injective_of_closed_ideal_dichotomy` after installing the separately proved nontriviality of $H_\\phi$."
+      }
+    ],
+    "lean_realization_notes": "This does not infer faithfulness of an arbitrary vector state from faithfulness of its representation. State faithfulness requires its own argument. No irreducibility of $\\rho_\\phi$, purity of $\\phi$, or separability of $T$ is assumed.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L126-L132",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 132,
+          "start_line": 126
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed concrete target and source map",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the source embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L78-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 78
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The target-state GNS definition",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L68-L71",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 71,
+          "start_line": 68
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Nontriviality witnessed by the unit vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L85-L88",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.nontrivial_tracialHilbertSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 88,
+          "start_line": 85
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Closed-ideal dichotomy of the fixed target",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L253-L258",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyTarget_closedIdeal_dichotomy",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 258,
+          "start_line": 253
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The kernel argument for a nonzero unital representation",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/SimpleFaithful.lean#L23-L39",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.injective_of_closed_ideal_dichotomy",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/SimpleFaithful.lean",
+        "source_sha256": "2a2d255a05ce9d01dab5116c9e66e45097bf77067221a6a2e5f85fbf5eb1d34c",
+        "source_range": {
+          "start_line": 23,
+          "end_line": 39
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "083694f92a81054269d1db41236e51316cbd3d901c399e192b23a742ca2ef266",
+    "uid": "lfh:lfh-declaration-card:sha256:4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "5b192ccbb19e7e6073ddf15a64483af45d140b2f508b20849f1d6b11f420d154",
+    "uid": "lfh:lfh-card-exposition:sha256:a96051dc714c58afbe44d3dbce95def9096d0aba02bb593a125ac0dccedf4c96"
+  },
+  "guide": "`Function.Injective (tracialRepresentation family)` concerns the map from $T$ to bounded operators on $H_\\phi$. In the linked proof, `nontrivial_tracialHilbertSpace` supplies a nonzero codomain, and `shellFamilyTarget_closedIdeal_dichotomy` is passed to the generic faithful-representation lemma. Neither is a new assumption added to the displayed signature.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3/versions/n69-5b192ccbb19e7e60/index.html",
+    "pdf": "card.pdf"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+  "title": "Purifying a vector state on a finite CAR stage",
+  "stable_card_id": "01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1",
+  "identity_key": "lfh:lfh-declaration-card:sha256:01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1",
+  "source_url": "mathlibannex/sources/lfh188/924e49a1178cb37a48378e2b/index.html#L256",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "6175f865819e4ba5e8f08ff7497e3443db234ba02bacdf216008bb2a1f0524a0",
+  "accepted_guide_sha256": "b951f9630666e3c5ed4fdd4e0baf8c6e02bd1238ac814dceeb9a305ff356c167",
+  "content": {
+    "display_title": "Purifying a vector state on a finite CAR stage",
+    "one_sentence_role": "Every finite-stage restriction of a unit vector state can be realized by a unit vector in any irreducible CAR representation.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. We use the inner product conjugate linear in its first argument and write $\\varphi_{\\pi,v}(a)=\\langle v,\\pi(a)v\\rangle$ for the vector functional. Fix an irreducible representation $\\pi:A\\to B(H)$, any representation $\\sigma:A\\to B(K)$, and a unit vector $\\eta\\in K$. For every stage $n$ there is a unit vector $\\xi\\in H$ such that $\\varphi_{\\pi,\\xi}(\\iota_n(a))=\\varphi_{\\sigma,\\eta}(\\iota_n(a))$ for all $a\\in A_n$.",
+    "definition_explanation": null,
+    "assumptions": "Both $H$ and $K$ are complete complex Hilbert spaces. Only $\\pi$ is required to be irreducible with nonzero action. The representation $\\sigma$ is unital but may be reducible. The target vector has norm $1$.",
+    "conclusion": "The two vector states agree exactly on the whole chosen matrix stage, not merely approximately on a finite list. The unit vector $\\xi$ may depend on the stage. No single vector realizing the target state on all of $A$ is asserted.",
+    "proof_summary": "Encode the target stage restriction as a Gram matrix, realize that matrix in the root corner of $\\pi$, and reconstruct a vector by applying the first-column matrix units. Matrix-unit coefficients determine a linear functional on a full matrix algebra, and evaluation at the unit gives normalization.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Set $v_i=\\sigma(e_{0i}^{(n)})\\eta$. The matrix-unit relations and the star property give $\\langle v_i,v_j\\rangle=\\varphi_{\\sigma,\\eta}(e_{ij}^{(n)})$. Use the root-corner Gram realization theorem to choose $w_i\\in\\operatorname{ran}\\pi(e_{00}^{(n)})$ with the same inner products."
+      },
+      {
+        "step_id": "s2",
+        "text": "Define $\\xi=\\sum_i\\pi(e_{i0}^{(n)})w_i$. Multiplication by a matrix unit gives $\\pi(e_{pq}^{(n)})\\xi=\\pi(e_{p0}^{(n)})w_q$. Taking the inner product with $\\xi$ yields $\\varphi_{\\pi,\\xi}(e_{pq}^{(n)})=\\langle w_p,w_q\\rangle$."
+      },
+      {
+        "step_id": "s3",
+        "text": "The two vector functionals therefore agree on every matrix unit, and linearity extends equality to every element of $A_n$. At its identity, the target value is $\\|\\eta\\|^2=1$ and the reconstructed value is $\\|\\xi\\|^2$, so $\\|\\xi\\|=1$."
+      }
+    ],
+    "lean_realization_notes": "Finite-stage purification is compatible with mixed restrictions of the target state: no purity assumption on that restriction is needed. The extra room comes from the infinite-dimensional represented root corner.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

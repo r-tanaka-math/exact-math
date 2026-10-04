@@ -1,0 +1,49 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm",
+  "title": "The unique trace extension is tracial on the whole target",
+  "stable_card_id": "e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d",
+  "identity_key": "lfh:lfh-declaration-card:sha256:e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d",
+  "source_url": "mathlibannex/sources/lfh188/13cad7340187af1dfa0e23af/index.html#L161",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionTracial.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "3a52e5a31078343188f579eccaf3be4ebdbf2a81c6a275283c4ea5e9e76c794d",
+  "accepted_guide_sha256": "dd153865910b9d9ad61dda16a5ad0a3992bf911be3fc810695d1cc4602b8b185",
+  "content": {
+    "display_title": "The unique trace extension is tracial on the whole target",
+    "one_sentence_role": "Unitary invariance, strong shell sums, and a closed centralizer extend the trace identity beyond the source.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Choose the state extension $\\phi:T\\to\\mathbb C$ of $\\tau$ supplied by state extension along $\\iota$. Its GNS representation is $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$, with\n\n$$\\|\\xi_\\phi\\|=1,\\qquad \\phi(t)=\\langle\\xi_\\phi,\\rho_\\phi(t)\\xi_\\phi\\rangle.$$\n\nThe inner product is linear in its second argument. The $T$-orbit of $\\xi_\\phi$ is dense by the GNS construction. The chosen state is tracial: $\\phi(ab)=\\phi(ba)$ for every $a,b\\in T$.",
+    "definition_explanation": null,
+    "assumptions": "The representative shell family is fixed. The state $\\phi$ is the chosen extension of the CAR trace, not an arbitrary state. Its uniqueness among all extensions has already been established by the separately cited extension-uniqueness theorem.",
+    "conclusion": "Every element of $T$ lies in the centralizer of $\\phi$. Thus the trace identity holds for arbitrary pairs of target elements, not just pairs coming from $A$.",
+    "proof_summary": "Use extension uniqueness to prove source-unitary invariance. Linear spanning gives the source centralizer; vector-functional limits give the shell generators. The norm-closed star centralizer then contains the generated algebra.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For a unitary $u\\in A$, put $v=\\iota(u)$ and $\\zeta=\\rho_\\phi(v)\\xi_\\phi$. Unitarity gives $\\|\\zeta\\|=1$, so $\\psi_u(t)=\\langle\\zeta,\\rho_\\phi(t)\\zeta\\rangle$ is a state. Its source restriction is\n\n$$\\psi_u(\\iota(b))=\\phi(v^*\\iota(b)v)=\\tau(u^*bu)=\\tau(b).$$\n\nThe last equality uses the source trace and $uu^*=1$. Extension uniqueness applies and gives $\\psi_u=\\phi$, hence $\\phi(v^*tv)=\\phi(t)$ for all $t\\in T$. This is `traceExtension_star_unitary_mul_mul`."
+      },
+      {
+        "step_id": "s2",
+        "text": "Substitute $t=va$ into that invariance equality. Since $v^*v=1$,\n\n$$\\phi(av)=\\phi(v^*(va)v)=\\phi(va).$$\n\nThe four-unitary spanning theorem for a unital complex C*-algebra writes each $b\\in A$ as $b=\\sum_{k=1}^4 c_k u_k$. Linearity therefore gives\n\n$$\\phi(\\iota(b)a)=\\sum_k c_k\\phi(\\iota(u_k)a)=\\sum_k c_k\\phi(a\\iota(u_k))=\\phi(a\\iota(b)).$$\n\nThe exact application of `CStarAlgebra.exists_sum_four_unitary` is in `traceExtension_shellFamilySourceHom_mul`."
+      },
+      {
+        "step_id": "s3",
+        "text": "For a class $j$, let $g_j=L_j$ regarded as an element of $T$, let $w_{j,n}$ be its source shell partial isometries, and set $x_N=\\iota(\\sum_{n<N}w_{j,n})$. The actual-representation shell-sum theorem applies to $\\rho_\\phi,\\xi_\\phi$: the vector functional restricts to $\\tau$, and the target orbit is dense. It gives $\\rho_\\phi(x_N)\\to\\rho_\\phi(g_j)$ strongly."
+      },
+      {
+        "step_id": "s4",
+        "text": "Fix $a\\in T$. The source centralizer equality holds for every $x_N$. Strong convergence at both $\\rho_\\phi(a)\\xi_\\phi$ and $\\xi_\\phi$, followed by continuity of $\\rho_\\phi(a)$ and the inner product, gives\n\n$$\\begin{aligned}\n\\phi(x_Na)&=\\langle\\xi_\\phi,\\rho_\\phi(x_N)\\rho_\\phi(a)\\xi_\\phi\\rangle\\longrightarrow\\phi(g_ja),\\\\\n\\phi(ax_N)&=\\langle\\xi_\\phi,\\rho_\\phi(a)\\rho_\\phi(x_N)\\xi_\\phi\\rangle\\longrightarrow\\phi(ag_j).\n\\end{aligned}$$\n\nUniqueness of the scalar limit proves $\\phi(g_ja)=\\phi(ag_j)$. This is the precise input/output of `vectorFunctional_mul_eq_mul_of_stronglyConverges` in `traceExtension_shellFamilyGenerator_mul`."
+      },
+      {
+        "step_id": "s5",
+        "text": "Define $C_\\phi=\\{t\\in T:\\forall a\\in T,\\ \\phi(ta)=\\phi(at)\\}$. State positivity supplies $\\phi(t^*)=\\overline{\\phi(t)}$, so $C_\\phi$ is a unital star subalgebra; continuity makes it norm closed. The preceding steps put $\\iota(A)$ and all $g_j$ in $C_\\phi$. The concrete-generation theorem `eq_top_of_source_mem_of_generator_mem` now yields $C_\\phi=T$. Substituting any $a\\in T$ into its defining property gives $\\phi(ab)=\\phi(ba)$."
+      }
+    ],
+    "lean_realization_notes": "Strong convergence is used inside the actual GNS representation $\\rho_\\phi$. No norm convergence of shell partial sums in $T$, and no strong continuity of an arbitrary representation, is asserted.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

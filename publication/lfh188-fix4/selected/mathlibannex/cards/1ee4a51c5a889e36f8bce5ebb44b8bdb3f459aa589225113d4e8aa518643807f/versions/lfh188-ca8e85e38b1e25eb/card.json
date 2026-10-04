@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_completedAtomicShellModel",
+  "title": "Realizing a shell family by a faithful irreducible operator algebra",
+  "stable_card_id": "1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f",
+  "identity_key": "lfh:lfh-declaration-card:sha256:1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f",
+  "source_url": "mathlibannex/sources/lfh188/bdec4fb262cd93ef186bead5/index.html#L141",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "b3c1c2a0e02b60f44fcfa567e146983edcace16a3b6335e6d9a480c3e4c5709b",
+  "accepted_guide_sha256": "c1b8891ddbdfcf047307b402e9786f0c45d608a23e6b1b34592e4149ce7d68d5",
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra with matrix stages $M_{2^n}(\\mathbb C)$ embedded by $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit, $p_n=f_n-f_{n+1}$, and $\\omega$ for the root state characterized by $\\omega(\\iota_n(a))=a_{00}$ on each stage, where $\\iota_n$ is its canonical embedding.\n\nIndex chosen pure-state Gelfand-Naimark-Segal (GNS) representations by their unitary-equivalence classes $j\\in I$, with root index $o$ and representative states $\\varphi_j$.\n\nA fixed shell family consists of complex-linear unital star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ satisfying $\\varphi_j(\\alpha_j(a))=\\omega(a)$, $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$ and $w_{j,n}w_{j,n}^*=p_n$.\n\nAt the root, $\\alpha_o$ is the identity and $w_{o,n}=p_n$. The Hilbert spaces are the chosen complete complex GNS spaces. No countability of $I$ is assumed. Irreducibility means a nonzero representation with no proper nonzero closed reducing subspace.",
+    "conclusion": "The shell identities are realized by actual bounded unitary operators on one Hilbert space. The generated algebra acts irreducibly while retaining the original algebra faithfully; rank-one limiting projections and irreducibility are proved consequences, not fields imposed on the input family.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Realizing a shell family by a faithful irreducible operator algebra",
+    "language_tag": "en",
+    "lean_realization_notes": "This is existence of the operator links for a supplied family. It does not construct that family without hypotheses, nor prove uniqueness of every irreducible representation of $T$. [The universal capture theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L130-L144) supplies that additional conclusion. No generic homogeneity principle is a further hypothesis of this exact theorem.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and fix a shell family as defined below. Let $\\mathcal H=\\bigoplus_{j\\in I}H_j$ be the Hilbert direct sum of the chosen pure-state Gelfand-Naimark-Segal (GNS) spaces, $\\pi=\\bigoplus_j\\pi_j$ their representation, and $b_j=e_j\\xi_j$ the embedded unit cyclic vectors, where $\\xi_j\\in H_j$ is the selected unit cyclic vector and $e_j:H_j\\to\\mathcal H$ is coordinate inclusion. There exist unitaries $L_j$ on $\\mathcal H$ with $L_jb_j=b_o$, $L_j\\pi(\\alpha_j(p_n))=\\pi(w_{j,n})$ for every $j,n$, and $L_o=I_{\\mathcal H}$. The norm-closed unital star algebra $T=C^*(\\pi(A),\\{L_j\\})$ in the bounded operators $B(\\mathcal H)$ contains an injective copy of $A$ and acts irreducibly on $\\mathcal H$.",
+    "one_sentence_role": "Constructs unitary links between pure-state summands and an irreducible algebra containing a faithful copy of CAR.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The support equations give initial projection $\\pi(\\alpha_j(f_n)-\\alpha_j(f_{n+1}))$ and final projection $\\pi(f_n-f_{n+1})$ for each represented shell link."
+      },
+      {
+        "step_id": "s2",
+        "text": "Use the proved common-range identity to identify the residual projections with the rank-one projections onto $b_j$ and $b_o$. Apply the atomic-shell existence theorem, which supplies the unitaries and irreducibility of the generated algebra."
+      },
+      {
+        "step_id": "s3",
+        "text": "At the root the constructed link is the identity on every difference shell and on the residual line. These subspaces reconstruct $\\mathcal H$, so $L_o=I_{\\mathcal H}$. The faithful root summand makes $\\pi$, hence its codomain restriction to $T$, injective."
+      }
+    ],
+    "proof_summary": "By [the atomic common-range theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L242-L260), the decreasing projections $\\pi(\\alpha_j(f_n))$ start at the identity and have common range $\\mathbb Cb_j$; the root flag has common range $\\mathbb Cb_o$. The represented links $\\pi(w_{j,n})$ identify their corresponding orthogonal difference shells. The cited atomic-shell construction joins these partial isometries and the map between the one-dimensional residual spaces into unitaries. Its irreducibility argument uses the inequivalent irreducible GNS summands and the links between their cyclic vectors. Faithfulness comes from the faithful root summand of $\\pi$."
+  }
+}

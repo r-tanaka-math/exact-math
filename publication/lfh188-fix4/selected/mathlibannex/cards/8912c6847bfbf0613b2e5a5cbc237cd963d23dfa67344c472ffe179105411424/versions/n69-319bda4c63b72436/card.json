@@ -1,0 +1,211 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isPureState_rootState",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isPureState_rootState",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_range": {
+      "end_line": 573,
+      "start_line": 550
+    },
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "end_byte": 22811,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "fd3476399b91ec3d1ad2a65b7dbcb19919223d9642e130dbb2d8cb71ef485ae6",
+    "source_command_range": {
+      "end_column": 34,
+      "end_line": 573,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+      "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+      "start_column": 1,
+      "start_line": 550
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "start_byte": 22726,
+    "text": "theorem isPureState_rootState : MathlibAnnex.CStarAlgebra.IsPureState Limit rootState"
+  },
+  "content": {
+    "assumptions": "The embeddings come from $a\\mapsto a\\otimes I_2$. The index $0$ is the distinguished first coordinate in each stage. The coordinate functionals are compatible and bounded by the matrix norm, so they extend to the specified functional $\\omega$ on the completion. Positivity and $\\omega(1)=1$ are established before the purity argument. Convex combinations use real coefficients.",
+    "conclusion": "If $\\varphi$ and $\\psi$ are states on $A$, $0<t<1$, and $\\omega=t\\varphi+(1-t)\\psi$, then $\\varphi=\\psi=\\omega$. Thus completion has not introduced a nontrivial convex decomposition of this state.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Purity of the completed root state",
+    "language_tag": "en",
+    "lean_realization_notes": "The purity asserted here is extremality in the state space. The proof uses the pure finite-stage restrictions and density; it makes no assertion that all states on $A$ are pure.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra with stage embeddings $\\iota_n:M_{2^n}(\\mathbb C)\\to A$. Let $\\omega:A\\to\\mathbb C$ be the continuous linear functional characterized by $\\omega(\\iota_n(a))=a_{00}$ for every stage matrix $a$. Then $\\omega$ is a pure state: it is an extreme point of the convex set of continuous positive unital complex-linear functionals on $A$.",
+    "one_sentence_role": "Passes extremality of the root vector states from every finite matrix stage to the completed CAR algebra.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Write $\\omega=t\\varphi+(1-t)\\psi$ with states $\\varphi,\\psi$ and $0<t<1$."
+      },
+      {
+        "step_id": "s2",
+        "text": "For each $n$, compose with $\\iota_n$ to obtain a convex decomposition of $a\\mapsto a_{00}$ into states on $M_{2^n}(\\mathbb C)$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Finite-stage purity forces $\\varphi\\circ \\iota_n=\\psi\\circ \\iota_n=(a\\mapsto a_{00})$."
+      },
+      {
+        "step_id": "s4",
+        "text": "Continuity and density imply $\\varphi=\\psi=\\omega$. The source uses the equivalent one-sided extreme-point criterion, establishing the first equality, which suffices."
+      }
+    ],
+    "proof_summary": "Restrict a proposed convex decomposition of $\\omega$ to each finite matrix stage. The restriction of a state is again a state, because $\\iota_n$ is unital and preserves positivity. The root coordinate state $a\\mapsto a_{00}$ is pure on each matrix algebra, so both restricted states equal it. The two continuous functionals therefore agree with $\\omega$ on the dense union of stages, and hence on all of $A$."
+  },
+  "citations": [
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isPureState_rootState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 573,
+          "start_line": 550
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "Exact declaration and proof",
+      "role": "SOURCE_ATTRIBUTION",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L550-L573"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 470,
+          "start_line": 468
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L468-L470"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 481,
+          "start_line": 478
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rootState_stage",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L478-L481"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState_mem_stateSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 510,
+          "start_line": 509
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.rootState_mem_stateSpace",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L509-L510"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.restrictState_mem_stateSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 537,
+          "start_line": 521
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.restrictState_mem_stateSpace",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L521-L537"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isPureState_rootFunctional",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/PureRoot.lean",
+        "source_range": {
+          "end_line": 94,
+          "start_line": 63
+        },
+        "source_sha256": "74fafbabd39b02d5b79b2c0c0e8bb79a656d77f88112c701bf79ef8161bb3e78",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.isPureState_rootFunctional",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/PureRoot.lean#L63-L94"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.eq_rootState_of_restrict",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 548,
+          "start_line": 539
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.eq_rootState_of_restrict",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L539-L548"
+    },
+    {
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.dense_stageRange",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 400,
+          "start_line": 388
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      },
+      "label": "MathlibAnnex.CStarAlgebra.CAR.dense_stageRange",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L388-L400"
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "1073c8bcb6fc6b854ea9e7724a24c5bf7b47a5f19c3e725042cd2645f38e7f5d",
+    "uid": "lfh:lfh-declaration-card:sha256:8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "319bda4c63b7243662b17ac9d3a5ed6aafef8164b2cc0ff568cdb559b3d3ba86",
+    "uid": "lfh:lfh-card-exposition:sha256:35d766c104b5156bcb8812e8ccd3eb4d5c3606cc6e1d354acbbd47191e0c4339"
+  },
+  "guide": "Here `Limit` denotes the completed CAR algebra $A$, `rootState` denotes $\\omega$, and `IsPureState` expresses the extreme-point property stated above.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424/versions/n69-319bda4c63b72436/index.html",
+    "pdf": "card.pdf"
+  }
+}

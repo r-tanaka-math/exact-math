@@ -1,0 +1,2706 @@
+{
+  "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "bytes": 129,
+      "sha256": "30c4329267a34b22e1899958d7d9c1d0b5e012c631a4d7b7e2988cb504f319c2"
+    },
+    {
+      "path": ".github/workflows/release-qualification.yml",
+      "mode": "100644",
+      "bytes": 6771,
+      "sha256": "841f9ccdacce93431ef569961dc14013c9ef35f14384b53ff505614e45b6aee3"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "bytes": 54,
+      "sha256": "fa93602196e983b9e99cd109b649274c3de0f0ec7a561b56097121ed20bc8b90"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "bytes": 4418,
+      "sha256": "32233eb413dd069b6fd9ab73f802efd73adbb024e49e64dc61a122799be84984"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "bytes": 1285,
+      "sha256": "c07bcbb19790a832f6aba96ce60847399502934ed90d2d5da2ad64a4eaa6a42d"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "bytes": 11357,
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    {
+      "path": "MathlibAnnex.lean",
+      "mode": "100644",
+      "bytes": 27062,
+      "sha256": "6edc91bf873d2433beeeb5511aed02a51e5ea77daefc779d12ed945ac45a13da"
+    },
+    {
+      "path": "MathlibAnnex/Algebra/FiniteConjugacy.lean",
+      "mode": "100644",
+      "bytes": 3216,
+      "sha256": "9560c6a9aae4703608a9e3108f76e28793914b452f1d2caf01ed776e7023f82f"
+    },
+    {
+      "path": "MathlibAnnex/Algebra/FiniteShellSum.lean",
+      "mode": "100644",
+      "bytes": 2044,
+      "sha256": "da52a24f9fc1189e8de4c447321a8eaadaa47491556bdd699ba47e5a48bfde67"
+    },
+    {
+      "path": "MathlibAnnex/Algebra/Shell.lean",
+      "mode": "100644",
+      "bytes": 639,
+      "sha256": "e4a9138f322ed048d473397a2d30c2bd2f485d9e23e03d0c45429b481cba3f8c"
+    },
+    {
+      "path": "MathlibAnnex/Algebra/ShellMatching.lean",
+      "mode": "100644",
+      "bytes": 1925,
+      "sha256": "a9ea5568746a1af4b1b8862211f5883fb7c12e6f4439a55930825fb49adcaded"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean",
+      "mode": "100644",
+      "bytes": 12809,
+      "sha256": "c59bb7371e07083206c3707b9083e40bc568c38af869585c4f84aa8a36cb2b1d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/AsymptoticallyInner.lean",
+      "mode": "100644",
+      "bytes": 6632,
+      "sha256": "d007af08898f359778fda70d0b19e1755a7601ab1afc5d154ce1be62ce518832"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean",
+      "mode": "100644",
+      "bytes": 6133,
+      "sha256": "c3b02a92548ee34891bb459f490d0b8cde32d32bbac2da915d9e3688ef6f7336"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean",
+      "mode": "100644",
+      "bytes": 3156,
+      "sha256": "c49eb34791db9639db8ac6e68e63da2a420368f9aced46af9215dd41add4be97"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedExt.lean",
+      "mode": "100644",
+      "bytes": 4826,
+      "sha256": "6a717e055aab7a4a461f73dc627503ebb05f2d22c6bebeafa2bdd3bf7cb87b49"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/GeneratedReduction.lean",
+      "mode": "100644",
+      "bytes": 11523,
+      "sha256": "4d2e0a71309382b68408a94680e353bbb635f3f0d9034befa8362c781c6b7721"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+      "mode": "100644",
+      "bytes": 6937,
+      "sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/AdditiveSelection.lean",
+      "mode": "100644",
+      "bytes": 17445,
+      "sha256": "ae96faa0b5b6a9f402ca688920dced8392d496e5793493aeb4cf8627f7b1c1bc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/ComplexFamilies.lean",
+      "mode": "100644",
+      "bytes": 8045,
+      "sha256": "91de67c0e761f3d1dfa362c1f8e5e36a58956580ca162ba507efeb4ac5aff7a7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/DyadicCFC.lean",
+      "mode": "100644",
+      "bytes": 8667,
+      "sha256": "8d68dd46184e1a09683832dd8c661feacb51fd4e42b4cfec9d887b8505172a35"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/DyadicScalar.lean",
+      "mode": "100644",
+      "bytes": 6541,
+      "sha256": "25d385ebc3b674fde8e64b349c3310800b19955bc290a5ba1392e488cf741816"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/EffectPhase.lean",
+      "mode": "100644",
+      "bytes": 5651,
+      "sha256": "81cd49590349f4cf8cd8fca7c4aad9feb9d7329e986bae408ac8e9bea71cdfe9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/FiniteAverage.lean",
+      "mode": "100644",
+      "bytes": 5601,
+      "sha256": "3bea14a6e45cf1b1415c73fda22e52f395aa09a7b477741f3b7d931c3c4418f9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/ModelQuartic.lean",
+      "mode": "100644",
+      "bytes": 2653,
+      "sha256": "5686fed8df9e802e17e775d5bdf4aaa1173645910800dc29167e2b8c332d8a3d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/NormalizedEffects.lean",
+      "mode": "100644",
+      "bytes": 7820,
+      "sha256": "4323e281a1b1dce5299e9d3016b1c7b747425a6ccf91674710947a9e9c14e52e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/NormalizedFamilies.lean",
+      "mode": "100644",
+      "bytes": 7781,
+      "sha256": "c2b42a37bb4b524162fdcbd13fee48ec159fedf29d5d3b69c8f58ad5ee3ae4b9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/NormalizedRealPart.lean",
+      "mode": "100644",
+      "bytes": 9003,
+      "sha256": "b733afaf29f51824ba54dda3f817a06b8716b953ced69fcff766d5344d95364a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/QuarticImaginary.lean",
+      "mode": "100644",
+      "bytes": 5937,
+      "sha256": "f347621b020d9561cb96ab5a78f2c01568ff7ea24822192e969dd1608c050695"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/RademacherFourthOrder.lean",
+      "mode": "100644",
+      "bytes": 7348,
+      "sha256": "5278daf6aca8f79db39400b40e277c0dcc3ebd5c2774659c05348e400289ba78"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/RademacherMoments.lean",
+      "mode": "100644",
+      "bytes": 9123,
+      "sha256": "52b909def754d303ec8de52dcb1a33963aa6122370484c5e1a837b54faef973d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/ScalarEllipse.lean",
+      "mode": "100644",
+      "bytes": 5717,
+      "sha256": "7e3b08a6fb5a67bf545da2fa424eac8d9e9df5ed5f00c1fca9dd2ef3d930f5a8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/SignedDyadic.lean",
+      "mode": "100644",
+      "bytes": 4847,
+      "sha256": "cfadaa31fd85f95b801f0f68fb7183da5c1f6bd20c25ea7ade5f66258d0a274d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Analytic/SignedEffectList.lean",
+      "mode": "100644",
+      "bytes": 6511,
+      "sha256": "48a463e3745fb1030ecfb031187a3e431712e234938a8ce00f4ef14a4b196322"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Arens.lean",
+      "mode": "100644",
+      "bytes": 5084,
+      "sha256": "e378ab1743829497ef6f1ceb02fbc997c727b8d3ce33ef829d9b64fd1b2bdce2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Domination.lean",
+      "mode": "100644",
+      "bytes": 5287,
+      "sha256": "6b1ca20698e4f912ae12c01365d707c3328aaf286342acd5d00b3767786324b9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Factorization.lean",
+      "mode": "100644",
+      "bytes": 14266,
+      "sha256": "c098346fc0b2f9782270deca6d98332ebb232ee292a7b28f8a5fa71c5d55e99d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/FiniteMinimax.lean",
+      "mode": "100644",
+      "bytes": 5171,
+      "sha256": "55e892ec15c105605c82c987112a8d587249b712e688541106de3b43970c2a83"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/FiniteSequenceBridge.lean",
+      "mode": "100644",
+      "bytes": 7634,
+      "sha256": "ecf1421326680fff2bd2953b151891c1d58203a09d59b8563c887d7388525bc5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/HaagerupFourPhase.lean",
+      "mode": "100644",
+      "bytes": 3014,
+      "sha256": "2f74aa118ceaf452e97aa277e563fedf7099cf92006956e8fc671604b02599c7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/NormalExtension.lean",
+      "mode": "100644",
+      "bytes": 4271,
+      "sha256": "77d6ff39820aede29a8e3287f8da063f62ba9844823dd08ae261245660f08052"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/NormalizedMatrixForm.lean",
+      "mode": "100644",
+      "bytes": 8521,
+      "sha256": "285dc88a31ec8127dc8d1344c259e8f4f968f417dac99d07ac4f2a8718d9f591"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/NormalizedSequenceForm.lean",
+      "mode": "100644",
+      "bytes": 9206,
+      "sha256": "e36977ccb7fb70640ebd5b630ae192cb48cecd773a5cd9477bfc211d310314b8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/RowColumnSeparation.lean",
+      "mode": "100644",
+      "bytes": 8450,
+      "sha256": "7e9ff53a12f40086c1935d5d1d9736a54443934f0ffb0c3261cbcd5162177751"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/SequenceExtension.lean",
+      "mode": "100644",
+      "bytes": 6646,
+      "sha256": "dca6c7af64d35113668ee0084c4f2b7c4de93fb31c96d3325bdca243127d83a2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/SequenceNormAttainment.lean",
+      "mode": "100644",
+      "bytes": 7508,
+      "sha256": "75dda2d918bfaa5946fc92b6c75fcf1ec760208c09c1d1370ff85a09671148cb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/StateSelection.lean",
+      "mode": "100644",
+      "bytes": 6634,
+      "sha256": "747e4ceeba744fc4fcb320c559d922870505f90008482730ff5d5c6bad5cb5c2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/TensorDual.lean",
+      "mode": "100644",
+      "bytes": 3259,
+      "sha256": "37f1d2b9db0dc697caf683b3e8c8dd98b7bfeb0ca31b4db7be40bd95f0abc424"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/TensorDualDomination.lean",
+      "mode": "100644",
+      "bytes": 3143,
+      "sha256": "ffcd21388240c13e26bfe50cce7766e9a0abcf06db58a5999d073b437c6dfa3a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/TensorExtension.lean",
+      "mode": "100644",
+      "bytes": 6130,
+      "sha256": "c9d96bd2c7b4798468870b1ef73f8070a8524515335e06ed3af1120e892476a0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/Unitization.lean",
+      "mode": "100644",
+      "bytes": 3912,
+      "sha256": "b6186a8410cb9f5a88cb987a839f99d01b5038a3c0038a38ae19ea859193c8ce"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/UniversalExtension.lean",
+      "mode": "100644",
+      "bytes": 4967,
+      "sha256": "a4b968a578ffc39d1b1325e25d0fbeaa99d6ec53d3802ff57d3b304a722b2ed5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Bilinear/UniversalRowColumn.lean",
+      "mode": "100644",
+      "bytes": 4894,
+      "sha256": "7b2455c7658b50a805707415f70da0e9dc2ce5f3f71a1e39e2792ab91bb99a44"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+      "mode": "100644",
+      "bytes": 4420,
+      "sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexampleConsequences.lean",
+      "mode": "100644",
+      "bytes": 6505,
+      "sha256": "fdf66f07bd6b7b0ed7dd384ebb2884ab4cbf9743f75f5f446faf10df601298c5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+      "mode": "100644",
+      "bytes": 16010,
+      "sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+      "mode": "100644",
+      "bytes": 17669,
+      "sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+      "mode": "100644",
+      "bytes": 13223,
+      "sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Capture.lean",
+      "mode": "100644",
+      "bytes": 17750,
+      "sha256": "f82d2be71b9af5ddd54bba9d55bb1ea5a73ec654ea82a9eba9a185413e9cd1fc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean",
+      "mode": "100644",
+      "bytes": 14695,
+      "sha256": "7ac3d8630e3528423914e5e6b2cdd5edb1f88a49fea160a689fdcc4b1e84c2d7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureSurviving.lean",
+      "mode": "100644",
+      "bytes": 13163,
+      "sha256": "226f1b0dc8fd5676de72dde0edd5988b6550219c399c30efcf44d1c43e7595cc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureZero.lean",
+      "mode": "100644",
+      "bytes": 7761,
+      "sha256": "e926879ee7a1c84ebe7f19009080fcc0e4359ff5d7699a034c29038dcf6fdbeb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+      "mode": "100644",
+      "bytes": 5853,
+      "sha256": "d5b1b23f7a2e7c7a62a414d7872ff382b5bcfa8932b49cecefbdb0603ce395d8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CompletedSource.lean",
+      "mode": "100644",
+      "bytes": 2968,
+      "sha256": "1732b296db28579e0cfd54bdafffca9753caf34dfd90f05aca5c34d5dd1ac417"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+      "mode": "100644",
+      "bytes": 30052,
+      "sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+      "mode": "100644",
+      "bytes": 3252,
+      "sha256": "4bac0c0f2ab5ed31cd5d1986e3b15f332aaee9bf83881822b988264f9c6199a4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CornerLift.lean",
+      "mode": "100644",
+      "bytes": 20841,
+      "sha256": "c8e1b799294124017989c3b08e16dbbcb8088a91b85b67217f16dc5533a0b68c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean",
+      "mode": "100644",
+      "bytes": 25049,
+      "sha256": "4e17ab7eeeb32377242752fc58c988d70d4e794cbf26a2bd0528a483b3f7bbe4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/DifferenceShell.lean",
+      "mode": "100644",
+      "bytes": 5573,
+      "sha256": "363a539037423c94c3bbcc4cd8da7e9eced2f588c48c185cdf4ac749c41f6fdd"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean",
+      "mode": "100644",
+      "bytes": 16402,
+      "sha256": "9533b1b7cbc11552fa00e27a12f559a2a79ff75fd7cb9dbd90401500a9f69fdd"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteStages.lean",
+      "mode": "100644",
+      "bytes": 4950,
+      "sha256": "3d9d738ea2aea8544b5263cf6d45d08a3c5f64b8bce873b93260ddbed48f29cc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteTrace.lean",
+      "mode": "100644",
+      "bytes": 4896,
+      "sha256": "3c96ea9c3110913ccd2850cea9179889a990072d0a19523145b625b478762575"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GNS.lean",
+      "mode": "100644",
+      "bytes": 1624,
+      "sha256": "c3935680aebfbf682c0b5c6235a8d6cd60815b3470259c0b6f531220fefe0eae"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GenericTransport.lean",
+      "mode": "100644",
+      "bytes": 16765,
+      "sha256": "d3cb1cb63405d5f5a0f2c47297e969466fd113e422673b30652fc360f87e258c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean",
+      "mode": "100644",
+      "bytes": 61577,
+      "sha256": "f479ceb8efe872534a9485d0e300b0ace404e0c823ad21a430cb1f1ea3db16d2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+      "mode": "100644",
+      "bytes": 4982,
+      "sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/InvolutionLift.lean",
+      "mode": "100644",
+      "bytes": 9031,
+      "sha256": "13bbd382ded675f466ffa4b2b158d5bbe1885524355299a95abd547ec29b070b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean",
+      "mode": "100644",
+      "bytes": 28549,
+      "sha256": "473bdc03952235148aa317b7d70e23587b6dcc584bbee8b7368d33e10671d9ef"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/NoCompacts.lean",
+      "mode": "100644",
+      "bytes": 3681,
+      "sha256": "255878ce2e6808b06e43359a4a77965c663cae492f2e92678e4154e5e4c08e4f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/PureRoot.lean",
+      "mode": "100644",
+      "bytes": 4266,
+      "sha256": "74fafbabd39b02d5b79b2c0c0e8bb79a656d77f88112c701bf79ef8161bb3e78"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RepresentativeShell.lean",
+      "mode": "100644",
+      "bytes": 2625,
+      "sha256": "7fa878bab84d2d7dd31a4c837ec5698aebda89dc583026d2af5cfda56740d0ac"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean",
+      "mode": "100644",
+      "bytes": 5201,
+      "sha256": "fe2c9e8ff50baff00d584846accb3633966bdf891c8faa900c1c32ed3e2a574f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+      "mode": "100644",
+      "bytes": 8997,
+      "sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+      "mode": "100644",
+      "bytes": 2486,
+      "sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean",
+      "mode": "100644",
+      "bytes": 5374,
+      "sha256": "8da75aff3bd4078699d7f0284a898ce644bf15c9785815a365cf6bd7fe593dcc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+      "mode": "100644",
+      "bytes": 10963,
+      "sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean",
+      "mode": "100644",
+      "bytes": 12308,
+      "sha256": "3d2accfb6a371db56e9924c501bf20cc18774a5a13f1ea0144456799b06fc1f9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean",
+      "mode": "100644",
+      "bytes": 18018,
+      "sha256": "23611993a53a83cc178e7761d17b23be73b204d340159eaef86b94bb5c16a3e8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TargetReconstruction.lean",
+      "mode": "100644",
+      "bytes": 9547,
+      "sha256": "dfaa5def114883d1e3553a3adc53f0ac298e1ab045eb122d216f74a71cd2021e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+      "mode": "100644",
+      "bytes": 5473,
+      "sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionTracial.lean",
+      "mode": "100644",
+      "bytes": 9144,
+      "sha256": "113279f9d1a887018cf2cc00dbdb3682d413c4aeca1e1d9e0f9a65dd17cfdd5a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean",
+      "mode": "100644",
+      "bytes": 3031,
+      "sha256": "e0638efaeae226a48c0d3b65526b5cd83f0bc7572055b030837638b7817b47e9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceFlag.lean",
+      "mode": "100644",
+      "bytes": 3556,
+      "sha256": "03b656bcd11a56be975858c8610eeb4355a5eb52d9c2fe99e6efff5e2d27ef3a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+      "mode": "100644",
+      "bytes": 10044,
+      "sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+      "mode": "100644",
+      "bytes": 3660,
+      "sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean",
+      "mode": "100644",
+      "bytes": 4206,
+      "sha256": "10674c694dea95e8eb078d49f5cc70686f83d2b87eede56578e0236519222678"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialCyclic.lean",
+      "mode": "100644",
+      "bytes": 9149,
+      "sha256": "bf1d4ce3e28972ec0fca1670b3219879272b12f3b04da363d1269c40c0e76a82"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+      "mode": "100644",
+      "bytes": 6916,
+      "sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialTransport.lean",
+      "mode": "100644",
+      "bytes": 5117,
+      "sha256": "99eec6f4f309b9cbbaa18739576f7c0739aed040a8403129ed1096a74effb240"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CloseProjections.lean",
+      "mode": "100644",
+      "bytes": 6161,
+      "sha256": "9d34283d24e8b4ea9ab191782dc6b820f00fa50ebf049b44817c972120d0098a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean",
+      "mode": "100644",
+      "bytes": 2386,
+      "sha256": "bd49792cfd7e9f95ab8922af10c1b308f518e8898b128fa17cd43bec3b5c35d1"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+      "mode": "100644",
+      "bytes": 3652,
+      "sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean",
+      "mode": "100644",
+      "bytes": 5565,
+      "sha256": "56a6219605e19a8059f83789140b34bb66204d4c9c863cee515b68000e10266d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Compression.lean",
+      "mode": "100644",
+      "bytes": 7719,
+      "sha256": "b944723d043a4225980313747e874fe884b361fd5a0adc4b3d45e6aa4c39f72b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CompressionEstimate.lean",
+      "mode": "100644",
+      "bytes": 1705,
+      "sha256": "fc6ba7e9ec6e0d88284613eb61679c55e8d592c83d45c0a68a9fc9abecae82b3"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Cyclic.lean",
+      "mode": "100644",
+      "bytes": 5334,
+      "sha256": "00ca01bc871f72f8d2499050fc7aadbd4c68317f927b18e8835c3508e2aae72a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/CyclicTransport.lean",
+      "mode": "100644",
+      "bytes": 3412,
+      "sha256": "3d62d687f439d40e5f3a568e8b665c434dccc7d4a0ee7419ceb0a0d2d3791a41"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/DenseCauchy.lean",
+      "mode": "100644",
+      "bytes": 5919,
+      "sha256": "2f435ab1bbaca4793236f7b19f1d15292d9c8ed177dae5f75eff5262167aced0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/ExactInterpolation.lean",
+      "mode": "100644",
+      "bytes": 48080,
+      "sha256": "3d75baed2ac9f63d55a2f2c6f7b95dd3ebe70ed2fcf7237d0d847dc26c4f138e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/FiniteCornerInterpolation.lean",
+      "mode": "100644",
+      "bytes": 2510,
+      "sha256": "8d2a89e2433871203a15225c165f0a6ecacc316acc7ac1ae047c33b5b4f0daf9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/FiniteInterpolation.lean",
+      "mode": "100644",
+      "bytes": 20054,
+      "sha256": "6374d950a9b7cbcb8845a10ceca8aed7f01a7609c53114acac16852ed9b7845a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/FiniteNormalization.lean",
+      "mode": "100644",
+      "bytes": 2117,
+      "sha256": "a6cdd243ff257ebd3841fcef06d87fc64cc73cb50c869db48ccfdceb909dc7ca"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/FiniteRow.lean",
+      "mode": "100644",
+      "bytes": 1648,
+      "sha256": "4d7f777ace118174cf72e22316fc6194fc1aa03dd1d3c4e99268c612702503b8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/GNS/Adapters.lean",
+      "mode": "100644",
+      "bytes": 712,
+      "sha256": "9356918780f0986780e6bc78b942f55e0a810242413b1b08afc182d6b94fef51"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/GNS/Cyclic.lean",
+      "mode": "100644",
+      "bytes": 2873,
+      "sha256": "b78b127b1388e9e5ff3de45785c6ff046c04778e3b54aba1d4d7d6ddab85276b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/GNS/TracialFaithfulness.lean",
+      "mode": "100644",
+      "bytes": 3195,
+      "sha256": "750e9f66aee6c14eb9870f65badd486013f32320de2c5771fb26842d83677f31"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/GNS/TracialProjection.lean",
+      "mode": "100644",
+      "bytes": 7188,
+      "sha256": "c0c5554f195cc732110ecffe766f8afbec6e841ceca1453c6080a2236fd0d404"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/GNSCyclic.lean",
+      "mode": "100644",
+      "bytes": 3774,
+      "sha256": "d49fa7189690811d2dbb60a2c70c852c8017a4129ceeeda25f376317cf5db3dc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Generated.lean",
+      "mode": "100644",
+      "bytes": 1064,
+      "sha256": "da2bc4908f9fc101aebc9295f1703ecdc000ae7d386a14544aef1d5f980c73da"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Intertwiner.lean",
+      "mode": "100644",
+      "bytes": 10036,
+      "sha256": "e52efe0e23d1e7ad5d6968de25b8e3695078bcee1e4edea14165cd7be8463c8b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/InvariantExponential.lean",
+      "mode": "100644",
+      "bytes": 2918,
+      "sha256": "9dc7d0ffb2b63d90be9d5536af778ccb3b7490d8f492800f69c20163d0b28804"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/IsolatedCharacter.lean",
+      "mode": "100644",
+      "bytes": 2345,
+      "sha256": "4f411e0207307930058376c447bb72104f23fecf76ad6c6928672d156a9ac32b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Kadison.lean",
+      "mode": "100644",
+      "bytes": 32463,
+      "sha256": "1e39d56645969a82fd6998fdc73041df05197ade52b1225f7fcb3a5d7666471d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/LocalPathTransport.lean",
+      "mode": "100644",
+      "bytes": 41873,
+      "sha256": "843441b82946c662ee9e388aa705560d97b42372fa4c9044e3cf3117b271c7d0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Matrix/CornerMaps.lean",
+      "mode": "100644",
+      "bytes": 6260,
+      "sha256": "9fb003d041b4e12ad35c7c60446fcb59c4c2b1918caea17505d959261e17f4ba"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Matrix/UnitaryDilation.lean",
+      "mode": "100644",
+      "bytes": 9179,
+      "sha256": "47fd2a58f3f9aece24a23a94c5b0219787deda43befc129cb567ee5331da5483"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelian.lean",
+      "mode": "100644",
+      "bytes": 5687,
+      "sha256": "97ae04433e2f96c0c9733a73e4a1415b51f624ddb2afd2aa45d584f8795aacb7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean",
+      "mode": "100644",
+      "bytes": 2145,
+      "sha256": "1ce651c4573fbc40f40eb01d9a014b31264d6e4399e00fdfb0d52e940a684726"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/AsymptoticallyInner.lean",
+      "mode": "100644",
+      "bytes": 7298,
+      "sha256": "2bb0178f4c560ae94eaef7db1f03eec7398011f54873eacbf260feec33645747"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCardinality.lean",
+      "mode": "100644",
+      "bytes": 1920,
+      "sha256": "ad1565fd34a89a495280f377fcc1a8800a651b2972f7b212448eef31cff21587"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean",
+      "mode": "100644",
+      "bytes": 4792,
+      "sha256": "4f8b4d41bb6f0723a340a47c54a547add543149ad3cb0b046ab691233676d396"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean",
+      "mode": "100644",
+      "bytes": 8078,
+      "sha256": "a54e9f658724f9b559c1c665d7a19e8edcd69c699d10975773f9f70eb2afbe1f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactExclusion.lean",
+      "mode": "100644",
+      "bytes": 7879,
+      "sha256": "faa2c79a30832771558546b265481337a38256f44920a71b29da9b8d8db659a2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactImageOfRankOne.lean",
+      "mode": "100644",
+      "bytes": 10265,
+      "sha256": "6afc68b204caa977288addc6319fc8bd3aa0d7d2cf1a004dd51493512efbcccf"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactModel.lean",
+      "mode": "100644",
+      "bytes": 4453,
+      "sha256": "5b309e71fdc1c67a9d15c0ba23665247dcc99977508f69204fb58ea32cf5d061"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactModelDensity.lean",
+      "mode": "100644",
+      "bytes": 3025,
+      "sha256": "819d080203344289856c46b6f9dcfdcf4e75e0720276fbfac6c282c7b7589cc9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean",
+      "mode": "100644",
+      "bytes": 9464,
+      "sha256": "5f1bb90a03d6629f1926badf88a05ccd4a063bed9c1e173bb65e91b65bd55063"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CyclicDensity.lean",
+      "mode": "100644",
+      "bytes": 2920,
+      "sha256": "a4d90b7d228a8c739f6b2c3c79166fc811dd02802091c4a93ad8b9efeb964772"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/DensityLowerBound.lean",
+      "mode": "100644",
+      "bytes": 2823,
+      "sha256": "f9aa0591d5dcdf63b77704f00c4dad9527056f77e292d6ab10bc57d6505feed7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/ExactInterpolation.lean",
+      "mode": "100644",
+      "bytes": 6013,
+      "sha256": "313ccb940aabddeb396a4135fac1bb368d5afa35315750b97ddc6a116bda5db0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/FullImageIrreducible.lean",
+      "mode": "100644",
+      "bytes": 1298,
+      "sha256": "a135152f327cb127e15279d4760076e42956b609e6cde78cf69bf90baea28703"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+      "mode": "100644",
+      "bytes": 6250,
+      "sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjectionDensity.lean",
+      "mode": "100644",
+      "bytes": 6243,
+      "sha256": "07bc179e56e12c17329e86cf142fd1e3ec6104f2ba7a6e2b8bf90e560bc390a7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/ProjectionNormalization.lean",
+      "mode": "100644",
+      "bytes": 2960,
+      "sha256": "10ebb52ecee250c90c17a7a18a6a5899ab90e9b5c78ec208842c43693d2bacdb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean",
+      "mode": "100644",
+      "bytes": 4211,
+      "sha256": "eba1bbf260f30b2a83aaa9a28a4c8b6aadd223fdfef7732ce0d5c9c2a75f1512"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+      "mode": "100644",
+      "bytes": 5259,
+      "sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RowPerturbation.lean",
+      "mode": "100644",
+      "bytes": 4876,
+      "sha256": "cd6834e35100aa14a17fc5be0383e6537e26dd696174ca2d4b5f505289161736"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+      "mode": "100644",
+      "bytes": 3700,
+      "sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PositiveMapBound.lean",
+      "mode": "100644",
+      "bytes": 1477,
+      "sha256": "d67aed3a4371cb26aff2ae6085b7b9a30861c62b5628561fe1cce77ef3ed4d19"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/ProjectionNormalization.lean",
+      "mode": "100644",
+      "bytes": 35263,
+      "sha256": "6d9d8937d203733f4041785ea072d706cc88ad82df627d66f9ca316cfa33db5c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureState.lean",
+      "mode": "100644",
+      "bytes": 15965,
+      "sha256": "6fa827aa6353f671db0d15f6ac917c8a4b7a71fb3eae3542eedb7d3aa19885c2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/Ideal.lean",
+      "mode": "100644",
+      "bytes": 4065,
+      "sha256": "880b770119888226047b7500eaf54537643e6f194e436c645f581bd3e126d047"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/IrreduciblePure.lean",
+      "mode": "100644",
+      "bytes": 10873,
+      "sha256": "09a193fca5f8f96290b15b2498f6358008d13982d179277ef8ea914d1d98bbb3"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/PureIrreducible.lean",
+      "mode": "100644",
+      "bytes": 6420,
+      "sha256": "3f9124798cbf0a7851b6f81ce6c3343761a2edb0f7413d8ddbb8eeeb04472a7d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/Purity.lean",
+      "mode": "100644",
+      "bytes": 4635,
+      "sha256": "b628595f116c5badccfd93b8f2820faa1f86558068b249e636ac8b9d2964f06a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/State.lean",
+      "mode": "100644",
+      "bytes": 2238,
+      "sha256": "829bd3fb2c2c216cd88dba9b992df90ee561d8f4d4514781060efb8f4c72b299"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateGNS/VectorState.lean",
+      "mode": "100644",
+      "bytes": 5056,
+      "sha256": "e9899aa6875b24bf7a081920fce0925a9c8d3275a0626903346bab4ceede4191"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/ConditionalGlobal.lean",
+      "mode": "100644",
+      "bytes": 1122,
+      "sha256": "991e015c3d5d2c93a37096835cd640a8498b831d78e8e6b169c63a133c7e05bd"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/Consequences.lean",
+      "mode": "100644",
+      "bytes": 5214,
+      "sha256": "55ffcf366b66fe1c2a8dc80b061a95c08832215c690a2388422f932bf960b8fc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/ConstructedAverages.lean",
+      "mode": "100644",
+      "bytes": 3822,
+      "sha256": "94be957b741f5671dffc9ea0c809fbdc9bc3edbb3b4375cc2a380aee390895d9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/FiniteAverageAssembly.lean",
+      "mode": "100644",
+      "bytes": 3828,
+      "sha256": "4531a1ea8b15786ceec637a72547944cef00b4bacc70e7e97f14a4b383fb92e7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/FiniteKOS.lean",
+      "mode": "100644",
+      "bytes": 950,
+      "sha256": "d18882f58dedebbe7aead3eca0c50db4d84aa6f375cf2693d33f541577ff5c95"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/FiniteTransport.lean",
+      "mode": "100644",
+      "bytes": 1265,
+      "sha256": "66f1be80f261bc3fa8995ccb3bfb24917494214fe802567381e1d0d18993e745"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/InfiniteRowConditional.lean",
+      "mode": "100644",
+      "bytes": 3872,
+      "sha256": "b735ba8c636e2e18d6e468dd779743484439866cb87e10c56c3a3d5c540d003c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/KishimotoOzawaSakai.lean",
+      "mode": "100644",
+      "bytes": 2981,
+      "sha256": "9feb909018a5500bbfff869f976c92a38911252d7a5d7ab1fd9f9f2d6b7ae3e8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/NonUnitalSameKernel.lean",
+      "mode": "100644",
+      "bytes": 3725,
+      "sha256": "910a81578d10cbae1521fb82cd72472a7db6768bf08d80a9e83d8b4fd85a549c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/PureCompact.lean",
+      "mode": "100644",
+      "bytes": 3414,
+      "sha256": "86d8ea4d5c578d574b1d96ef719296a85275a5ffa4ec94a8124ac3254327f0bf"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/PureFamily.lean",
+      "mode": "100644",
+      "bytes": 2532,
+      "sha256": "9719c857a0262fe0cd262190b96597be8e6c8be56b7ae23fe76aebcc7776e3d6"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/PureInfiniteApprox.lean",
+      "mode": "100644",
+      "bytes": 2153,
+      "sha256": "4819b8a4abd3fbbc95786cf988de34eec1c15c8935d78a4177f027b3dbe8d70f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/SameKernelFamily.lean",
+      "mode": "100644",
+      "bytes": 1202,
+      "sha256": "dbaa7bac2047ea6186f946f3e512ae774a755cff3ab1091c7889f264045d9dd8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/SameKernelTransport.lean",
+      "mode": "100644",
+      "bytes": 7062,
+      "sha256": "125dfc4120293dfff0a5706bf479925d9f53291e272b49eaf0eba9b36af1b665"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/SimpleCompact.lean",
+      "mode": "100644",
+      "bytes": 1924,
+      "sha256": "b0407cb9c7d3bf260eb5e0a92137097d5847619c0d7fc8f2de096cf6eae4fd1a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/SimpleProtected.lean",
+      "mode": "100644",
+      "bytes": 2869,
+      "sha256": "44e5d1cb101b4ea133e593ef71abfd71145712c0e9d4379efea3fcbce42f3174"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/SimpleRepresentation.lean",
+      "mode": "100644",
+      "bytes": 5989,
+      "sha256": "94d9872a70c9641a169029dc2c1aa16ebd1bb88d5b3a6179dae04376cd32c7de"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/PureStateHomogeneity/Specialization.lean",
+      "mode": "100644",
+      "bytes": 960,
+      "sha256": "a0e7bd09d97d994f1b10e54bd7c15976ab36a198ae2abd76d8ddbedc60e50ea2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation.lean",
+      "mode": "100644",
+      "bytes": 1809,
+      "sha256": "c4955c160d1a8ffadcf417eed6c9c952a629d4a3992e021593e862e701bccccf"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Adapters.lean",
+      "mode": "100644",
+      "bytes": 3652,
+      "sha256": "80379684dcb688eb10d7c31c71ef7eab2378ce73893cf151b0b85015fc0be9aa"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Atomic.lean",
+      "mode": "100644",
+      "bytes": 4569,
+      "sha256": "4b3bc96f389cb0dba56461e10eec436011177b959047713dc13ef4b82cebe8fc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/AtomicCommutant.lean",
+      "mode": "100644",
+      "bytes": 7426,
+      "sha256": "f5117d136631880a34497e90b4b78bce5ec5ab192f5f37a57c3c7b0e504ff81c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Basic.lean",
+      "mode": "100644",
+      "bytes": 3896,
+      "sha256": "39a2641871d68ec2f30937ab9889e627261f13929f901f2b43c85ad2944a6888"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CharacterCardinality.lean",
+      "mode": "100644",
+      "bytes": 3359,
+      "sha256": "7ac802bcbf31821216a3f0c11396ceafb4c2c6cb5b6ae6b9d319ffab2a713c4f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CharacterCountable.lean",
+      "mode": "100644",
+      "bytes": 3081,
+      "sha256": "70e707ec4dd0325ea829374a27eab3fa7c42f4b6032ed7a7dd250dbe18d70705"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CharacterEigenvector.lean",
+      "mode": "100644",
+      "bytes": 3758,
+      "sha256": "0ae1053d7b07f35c6f6600ff9fd529120421c8056a9ef55ccee6f1c8f1958115"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CommonFixedSubspace.lean",
+      "mode": "100644",
+      "bytes": 11779,
+      "sha256": "c807b695b8761a7e5571268928d4cc7c9a860b40cf922209dfd0998deb3a7136"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CompactModelDensity.lean",
+      "mode": "100644",
+      "bytes": 4437,
+      "sha256": "9fee1d98e1f8ccd8397f8db79aa48f341e8ecee31e88aea14e394099568e8025"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CompactSandwichApproximation.lean",
+      "mode": "100644",
+      "bytes": 6970,
+      "sha256": "30e2f9f7db7d718a0491e2ecd7957c669525fcdab93104979eefb4f29cb2140d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Cyclic.lean",
+      "mode": "100644",
+      "bytes": 4984,
+      "sha256": "90d7050b9e9e5ed04b8fb636ed75b8fcc79ee5b0fb9665a453a9fa1c3dccd4cb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/CyclicRestriction.lean",
+      "mode": "100644",
+      "bytes": 3641,
+      "sha256": "5453f3e4b6dcf453ae27b6923e9239f33813738a153527b2912d71398bedab31"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityCharacter.lean",
+      "mode": "100644",
+      "bytes": 4232,
+      "sha256": "2c7894874f20caefdd4442114bccd0891ccf6d324f192583d852708df18568ae"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityLowerBound.lean",
+      "mode": "100644",
+      "bytes": 3841,
+      "sha256": "f125b3f63be75cd5e2e8b25667e2a0d9b6f024f38d853ca9178b63ada56086c7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Faithful.lean",
+      "mode": "100644",
+      "bytes": 4390,
+      "sha256": "5743bb806ed0b3b7075085fc47acb1df888e6e3546b74f262faace1e4987dfad"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/FiniteDimension.lean",
+      "mode": "100644",
+      "bytes": 3144,
+      "sha256": "71f516060859bfc246132b3aac58d6959c33bad8d27c14cabd62165f210c37e7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/FullImage.lean",
+      "mode": "100644",
+      "bytes": 3400,
+      "sha256": "e2979964ee7ee112b2c1ac65e550ec3ba9eec20fb27d2a0d513bb0060515c884"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/FunctionalCoefficient.lean",
+      "mode": "100644",
+      "bytes": 10112,
+      "sha256": "60a98fb70e81ace48e20947da08dd8b71660227a5f48771d4915b6169628ce7e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/GeneratedReduction.lean",
+      "mode": "100644",
+      "bytes": 1295,
+      "sha256": "c3bacf990911cb22ebcd7945ac3e7b26143a578c033a2ed7bbc254da607fd311"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/MatrixTwo.lean",
+      "mode": "100644",
+      "bytes": 10095,
+      "sha256": "d2ac342cc6bc80e188807ef2e1da6e102f7e598050ba1b36e4d4360b4d861876"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/MinimalProjection.lean",
+      "mode": "100644",
+      "bytes": 3689,
+      "sha256": "4ab90010c969c4983ecce5861186b277ff74353639e0482b4dfa33f2ad322f3b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/MinimalProjectionDensity.lean",
+      "mode": "100644",
+      "bytes": 1761,
+      "sha256": "7f39167d25d91f3cc996de33618164751597df036a46072c31170923e4f2d8fd"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean",
+      "mode": "100644",
+      "bytes": 6105,
+      "sha256": "310216d56c948ea7fb6c70d0b288eac81c13dc5c9f8c76aa742b0ed64141a8ee"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+      "mode": "100644",
+      "bytes": 4838,
+      "sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean",
+      "mode": "100644",
+      "bytes": 5064,
+      "sha256": "8de4be03e6c52cfef4deba306bfb6cd4be96d9940dbde63df19b18ae7d542ce2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/RankOneProjection.lean",
+      "mode": "100644",
+      "bytes": 4295,
+      "sha256": "a8a3de4a150af4bfa2bf50dc695197c0bbfa608246ef996350cacfd7a0a4640e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/SeparableCardinality.lean",
+      "mode": "100644",
+      "bytes": 1355,
+      "sha256": "a94424d75ffdb5fa49aef033dc2b9dd914ddf3c844d693df051f55db22eccf77"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/ShellReconstruction.lean",
+      "mode": "100644",
+      "bytes": 12286,
+      "sha256": "3960e558d226b0f5d4fceba1111af0c9f34b36844814361c837c650a17a17693"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/SimpleFaithful.lean",
+      "mode": "100644",
+      "bytes": 1755,
+      "sha256": "2a2d255a05ce9d01dab5116c9e66e45097bf77067221a6a2e5f85fbf5eb1d34c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean",
+      "mode": "100644",
+      "bytes": 1985,
+      "sha256": "860f0f4c097101bc50e28b0863237bce6e6161eb2e0240d639b544f228563b3b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/UniqueModelConsequences.lean",
+      "mode": "100644",
+      "bytes": 1915,
+      "sha256": "10601cc9a29ab7e3fc401aa4d971e23354bbb8d458c3538fce773637d2463a9a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/VectorFunctional.lean",
+      "mode": "100644",
+      "bytes": 5211,
+      "sha256": "0ef8aa5529c4c5f3b02ddde07f1083c22aaef8ad7fbe97c72c44a43d037c1e40"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowPerturbation.lean",
+      "mode": "100644",
+      "bytes": 5129,
+      "sha256": "548568e3e00b195d9f4862bd604d8f139b46c3dd3de7249cb33ec0d11cc31704"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/ApproximateRankOnePath.lean",
+      "mode": "100644",
+      "bytes": 7828,
+      "sha256": "889101b072fd6c017735b0dd12f7912461c79b81a5f05a34007af71314e1d119"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/Average.lean",
+      "mode": "100644",
+      "bytes": 2101,
+      "sha256": "5991b0c5beab760fc2b30ecf029b3c82ca397abc4b90bf269e0943fea1f950a2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/CompactGlobal.lean",
+      "mode": "100644",
+      "bytes": 2721,
+      "sha256": "8eb422c0a7555bf814f72019b18f0497574253a8f6691be20cdac04dfbc90afe"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/CompactPath.lean",
+      "mode": "100644",
+      "bytes": 5363,
+      "sha256": "5080c70d0588880449ee16f8eeb558be26d25a081d1f6f6b5023e30e8a1ae478"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/CorrectedPath.lean",
+      "mode": "100644",
+      "bytes": 7249,
+      "sha256": "fa264635473da5816821ac5089cea578148554962dcf8f9928ceb335952cdfe5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/Estimate.lean",
+      "mode": "100644",
+      "bytes": 6212,
+      "sha256": "85dcc4cf7bef4558b2f64a5ba5a1dbf30eebea6fabee9ccfd8a7293372a119f5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/Exponential.lean",
+      "mode": "100644",
+      "bytes": 15242,
+      "sha256": "9b7b470c68dce294375b39270ae5fe90d979e873b6442b8dad06f65c252b908a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/ExponentialPath.lean",
+      "mode": "100644",
+      "bytes": 3832,
+      "sha256": "6d5eea44d399e4d29f1adebd47b69c9ea0a95af50fa1351a2d158d8ebe0552f1"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/FiniteAverageRow.lean",
+      "mode": "100644",
+      "bytes": 3361,
+      "sha256": "05f0a0c2f1fa793b116b34ccf251e09f842f7c9928a52c6827f33942333a9632"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/GNSTwoLeg.lean",
+      "mode": "100644",
+      "bytes": 3122,
+      "sha256": "54bfda561485a245facbed247e508ddaf85fbf2d23e646cfe6abec3a7280d10e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/GlobalPath.lean",
+      "mode": "100644",
+      "bytes": 3226,
+      "sha256": "56ff0d3afdb4027db21ba6e039ef5edbbc089cd2a3ec4a87cdc93fb79a59107e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/GlobalState.lean",
+      "mode": "100644",
+      "bytes": 2330,
+      "sha256": "477374a195c55b15517d95417cbf22808afe597323e470cddca910d79d934d30"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/Gram.lean",
+      "mode": "100644",
+      "bytes": 2520,
+      "sha256": "6209986bfb243af04630cfb2df467b1203f12f13b36ef88bd93ebdb4d99d1bf7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/GramAssistedTwoLeg.lean",
+      "mode": "100644",
+      "bytes": 6737,
+      "sha256": "11c2bb31891cfc59a920ab84987aeaced544f1e4dd947c6bd920866b2ae1b300"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/GramMoment.lean",
+      "mode": "100644",
+      "bytes": 2493,
+      "sha256": "3d1a296054853cb489ac52cf0e2a35ce0dbb1135e62bfe098bd7d3f0df102d9f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/GramMomentSupplier.lean",
+      "mode": "100644",
+      "bytes": 2249,
+      "sha256": "e9ffb0f0b9e0d3953e0f35038bfc8862fa3c82d755814c3b79c7a3e91fb6c19d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/Involution.lean",
+      "mode": "100644",
+      "bytes": 3588,
+      "sha256": "807a91ce70993b7a28a9d93b4aa64a28639b8323345088aebba5542dfeadedf6"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/KernelGlobalState.lean",
+      "mode": "100644",
+      "bytes": 2236,
+      "sha256": "27b21abea32e3a71521587a864f2eb20ead81357a8cba815cb6fa35dee2112ed"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/Local.lean",
+      "mode": "100644",
+      "bytes": 6741,
+      "sha256": "b81215c6c115552c08ae63de843504373a03426857d2ee67bd4527faf0418994"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/OmegaBridge.lean",
+      "mode": "100644",
+      "bytes": 2550,
+      "sha256": "dd030a0dea6421d4017fc7a33ed7882ff69f5035ac2c1825531bace4024d3f9e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/OrthogonalPath.lean",
+      "mode": "100644",
+      "bytes": 3502,
+      "sha256": "21c140d5bd8af41bb0a271ad3ca2e7a0e0f1027668c051c6b0e9fbf592147ded"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/PathCompose.lean",
+      "mode": "100644",
+      "bytes": 4680,
+      "sha256": "7e1ed1406caf14ec8ad7d88f71bf67d542630a660edc40ede104cf75f1714da5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/ProtectedState.lean",
+      "mode": "100644",
+      "bytes": 5041,
+      "sha256": "58d13eddb98e934df63b52d75f45ad6235b11023acc361d6acf1fb723ae7be3f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/SmallPath.lean",
+      "mode": "100644",
+      "bytes": 4038,
+      "sha256": "fc8cf1f15f6576ea09eb811f890d714ad831cd40b1be566e6375fd4c035bee23"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/SupportMoment.lean",
+      "mode": "100644",
+      "bytes": 1569,
+      "sha256": "0b00d3b92a864c5dfdab9e9b3350c75404af7a105ea65163be95c7d04bc876af"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/RowTransport/TwoLegPath.lean",
+      "mode": "100644",
+      "bytes": 3203,
+      "sha256": "7c212e1d049da567ef7b8a4b7e3af56c16c781b582266d11d976ee202906d199"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/Schur.lean",
+      "mode": "100644",
+      "bytes": 8569,
+      "sha256": "b8a77a59882ce5e86bb0903ce9a28507c97b492814adc5ef255d25bdf0f53caf"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/ShellMatching.lean",
+      "mode": "100644",
+      "bytes": 2017,
+      "sha256": "76c78c66e4c05317fc35d929e6a887498e29db5b731c57bc1ec2be00357ecc4d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/SmallUnitary.lean",
+      "mode": "100644",
+      "bytes": 8701,
+      "sha256": "559b5edca7dd7c13a180d22ab30e3ec1c4291eb97b020218d240455caf085bee"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/Basic.lean",
+      "mode": "100644",
+      "bytes": 5566,
+      "sha256": "494185e21da77c3a4b882fba7aeac7bbaa981e680469d66e74c801fc584391a9"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/Centralizer.lean",
+      "mode": "100644",
+      "bytes": 3776,
+      "sha256": "7f6d9807b6140ed7c947c77410903668ffb67eb05e765f96ac36d5062278f227"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/CompactMoment.lean",
+      "mode": "100644",
+      "bytes": 2190,
+      "sha256": "4b203efa90f52c52394f34ba5db457d6ab9d3bd946f0c91b174c9bdf21db0ab7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/CompactPhase.lean",
+      "mode": "100644",
+      "bytes": 2365,
+      "sha256": "e0a58efab658e49f9f5603575bd28b0c49cbcf4a3c6d7d2c960b905d5ce0d14d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean",
+      "mode": "100644",
+      "bytes": 11317,
+      "sha256": "e87160cb5331aadba28f4fe599179671b019a2056bc0ff45052cfb9696a642e1"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/ExtensionOfEmbedding.lean",
+      "mode": "100644",
+      "bytes": 4108,
+      "sha256": "5f17b6494252d7817538676a7f446caabb8d89b4c546eeb2bb4b668df22417f0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/FiniteFullImage.lean",
+      "mode": "100644",
+      "bytes": 9659,
+      "sha256": "361ce9be25b8ca222881d41097bbbeb0d5eafa509c8b6c2b7f9a579d9bcdc9f0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/GNSKernel.lean",
+      "mode": "100644",
+      "bytes": 4595,
+      "sha256": "f9e59d4ec36ecdbb3592b6dea6fff8ad743e8767e08c71187a99d1bead21504d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/Ideal.lean",
+      "mode": "100644",
+      "bytes": 4080,
+      "sha256": "8dc19aaa0fc72371476322efe071bdaec5133d0139a3912b6e37b87744aa0e2f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean",
+      "mode": "100644",
+      "bytes": 6131,
+      "sha256": "bf443f8eafa4b65a43f7538ad37d856d9e49a67e994338ce2bc6256099b7fd77"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/KernelVectorApproximation.lean",
+      "mode": "100644",
+      "bytes": 8097,
+      "sha256": "a5641b736a1e507fa11a25732c0a1d87a05e333ec20c648ecd48da2587782db1"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/NonUnitalApproximation.lean",
+      "mode": "100644",
+      "bytes": 22238,
+      "sha256": "5c3dbc9484014e48b3270fedb23a7fbbc9a8f1f811b06dc41298dd91194c4d7f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/NonUnitalGNSKernel.lean",
+      "mode": "100644",
+      "bytes": 9502,
+      "sha256": "11656c9256bc790aeb15612435b62d65abf0b05591af604dbc44570ba8e41aba"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/Purity.lean",
+      "mode": "100644",
+      "bytes": 4453,
+      "sha256": "56d3896b5432c13239c9ffd749555bdc75e8525a77b5330217dcda2ef0f2fbae"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/State/VectorApproximation.lean",
+      "mode": "100644",
+      "bytes": 18907,
+      "sha256": "dc3b65b5639b78296b1d46882da5998c4b6fd1f76be8c5f77557f047068fb1de"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/BidualCStarLaws.lean",
+      "mode": "100644",
+      "bytes": 5449,
+      "sha256": "7c2042c978acec438cf235abc19826fc8d0a64c38f1cd0fca86cfef41464d581"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/BidualPullback.lean",
+      "mode": "100644",
+      "bytes": 4233,
+      "sha256": "1ff3cad8d6b40b330dda9bf284252597bb947f596c06dd223e14ef074624fb25"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/CStarBidualModel.lean",
+      "mode": "100644",
+      "bytes": 6465,
+      "sha256": "3cb4f7479ac1bf12f91f025aa359400dd86dd25803bf9794e8fcc6e82ceda9e6"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/CStarBidualTopology.lean",
+      "mode": "100644",
+      "bytes": 5571,
+      "sha256": "63b3c196716e5c829cfa1c3f658e5e02baadce0acf679312522fb451fce6b80d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/CanonicalMoment.lean",
+      "mode": "100644",
+      "bytes": 6101,
+      "sha256": "77eacaa094e19f380112895c84bd4eef1f76a96182a52199e869a31d6306067d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/CentralKernelSection.lean",
+      "mode": "100644",
+      "bytes": 8314,
+      "sha256": "163af4e8cfffe26137bf885d9d8f38cfbff6034938d53c250b8f8c5cf4022cc1"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/CompactCornerContinuity.lean",
+      "mode": "100644",
+      "bytes": 3296,
+      "sha256": "719cfce2a555f03c5e170cc481ce7ec6db10407f2a84eb86d2a5f303677c42bb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/ContractiveStarSampling.lean",
+      "mode": "100644",
+      "bytes": 6841,
+      "sha256": "e687a1b4f52f91c12e9f5a73783f1149f1ff503ce2083bc5f35a19c6ce0d2675"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/ContractiveWordSampling.lean",
+      "mode": "100644",
+      "bytes": 5800,
+      "sha256": "7be1f843ab8e8e3bf11cf714bda42a3b785a207986aa5c1d6493d75917ce246f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/EscapeGauge.lean",
+      "mode": "100644",
+      "bytes": 8613,
+      "sha256": "c9449e78f475873fedf943f6594e21a88d525735131c812f8edcad3b57beac9a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/ExactRow.lean",
+      "mode": "100644",
+      "bytes": 4793,
+      "sha256": "78691b338af8bc73673c0aae58189e7d68fc7d006aa7920a17a449c85272a7a2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteAveragePoint.lean",
+      "mode": "100644",
+      "bytes": 7875,
+      "sha256": "321a1bc433ebd8971dd5817066e814639554fa97e92d9cc4b2f01c1e3e2e4d29"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/BasisOperators.lean",
+      "mode": "100644",
+      "bytes": 7552,
+      "sha256": "b8a933f730de3d917a78537eb04cdca90637277f330438b23773ec79421b3b01"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/Compression.lean",
+      "mode": "100644",
+      "bytes": 9706,
+      "sha256": "fc2e973f161ca19ae083905f532d54ddf32df21feb9f1fa7c4c41483cfe1cf05"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/CornerSpan.lean",
+      "mode": "100644",
+      "bytes": 4841,
+      "sha256": "f6253d28d7619f10d56668664c1c90bd8fc7c7e5b76376d2c147b507e67d522e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/EscapingIsometry.lean",
+      "mode": "100644",
+      "bytes": 4886,
+      "sha256": "7737f3c1543dc0de9180783a878ff1f1d43ec76e6d61b963ca37eb70aedd6752"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/Existence.lean",
+      "mode": "100644",
+      "bytes": 8010,
+      "sha256": "43517f41c82db08c2a80cfee387d76b2682f9986c0174e5f9a1c68bd117f12d5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/InfiniteIndex.lean",
+      "mode": "100644",
+      "bytes": 3391,
+      "sha256": "c8727cea82417cea06ac3801e67611923b1927fa131b638f24f0a9dc82152252"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/ProbabilityOrbit.lean",
+      "mode": "100644",
+      "bytes": 2889,
+      "sha256": "e1cf6019a61121471665a3a15b73647320005a586474b518f2edfdffd82e8980"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/SignedOperators.lean",
+      "mode": "100644",
+      "bytes": 6504,
+      "sha256": "a0aff268cb031c9fa45e7e877066d57e5d97bb066313310c732d99a9b4eef882"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/SignedPermutations.lean",
+      "mode": "100644",
+      "bytes": 4114,
+      "sha256": "7f218930b72eb1ac567bcf6b9edcf663f156f35d694a0e562bfbde7990a689ce"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteCentral/UnconditionalOmega.lean",
+      "mode": "100644",
+      "bytes": 2810,
+      "sha256": "92335e288e14cfa1afde51eec38c2c0332fe4a87126c43ffc5767657af335c44"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteGroupBalance.lean",
+      "mode": "100644",
+      "bytes": 4226,
+      "sha256": "4fe022a22ff38d0288ad304469c738781d1eedaae10204aec4aa28f94296a733"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteIsometryAverage.lean",
+      "mode": "100644",
+      "bytes": 7954,
+      "sha256": "3eca00164422765e3254ab2017a0dc58d941de2689cc82765778a33cb72a43dd"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteMatrixRow.lean",
+      "mode": "100644",
+      "bytes": 7588,
+      "sha256": "f59744343f2e6090fd28be9e35ddfabca9d23d9fdb640a767873e53af1c05e54"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteRankBridge.lean",
+      "mode": "100644",
+      "bytes": 14533,
+      "sha256": "17f16f77ca91a03cbc011c1758d004511dfdca6eb948d6bf41de9e52584b384b"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/FiniteRow.lean",
+      "mode": "100644",
+      "bytes": 7974,
+      "sha256": "3058f6b20329cb6400dc585878f075b25df4d585c0ce845ede98173265e8b271"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/MeanCentrality.lean",
+      "mode": "100644",
+      "bytes": 2551,
+      "sha256": "29a3a9db1444b50110c95035c80a4d09a8251162447bc75aab138b2db02bb5f0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/MeanGaugeApprox.lean",
+      "mode": "100644",
+      "bytes": 5381,
+      "sha256": "381c5cb114a925a43056ae66cf42cd1c7316161cb7461aca05cbf54707a468e4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/MeanSampling.lean",
+      "mode": "100644",
+      "bytes": 4517,
+      "sha256": "0b4c227d7a31a50e45de45ebcf4ac67d0b4a6d2a248e74f601238f3853309dae"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/MeanVectorMoment.lean",
+      "mode": "100644",
+      "bytes": 4293,
+      "sha256": "11eb476c002df132973e2d9933aab7741444b830b2ee27c069d73ab46b47bece"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/NormalStateDomination.lean",
+      "mode": "100644",
+      "bytes": 11716,
+      "sha256": "1fdfe8add13b6a85233d2e51853b2188fa41cff179a5bf5cc9c3af98871d2627"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/OmegaCompactSelection.lean",
+      "mode": "100644",
+      "bytes": 6402,
+      "sha256": "598b96fa843e14ba3831788aa93111b431c838e87c05a5b3f3a8f5352fdfc1b2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/OmegaFromMean.lean",
+      "mode": "100644",
+      "bytes": 1946,
+      "sha256": "02a1b82383a3d1237c88009c8011ee8062ad666e328da8cb54e103c75febb6b7"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/ProjectionBridge.lean",
+      "mode": "100644",
+      "bytes": 1925,
+      "sha256": "b9fed59557f1e884ff0d6ccbba4281e520a7c84551f3f8f5537ffa3dead8667f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RankOneRow.lean",
+      "mode": "100644",
+      "bytes": 3697,
+      "sha256": "09a4e04bdef3d7b2ecaf05ca3ea3c3d9a66541a4287c8a85b2203e05d46b9af2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedBidual.lean",
+      "mode": "100644",
+      "bytes": 9910,
+      "sha256": "a621d8a71d0966aa23c81d92cca030ff5f51472d9fc5400c62f43f6b74b90ad6"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedBidualBall.lean",
+      "mode": "100644",
+      "bytes": 10079,
+      "sha256": "181dcd4f3a22eb691c221c6a67e6c272199712c3d534c855fec24bfd5513ffac"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedBidualProduct.lean",
+      "mode": "100644",
+      "bytes": 9996,
+      "sha256": "8793e2e9e0f739f695a52dc9ad36b06d3877e18cdabad93b8ea1f79fe0ad16db"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedBidualSeparation.lean",
+      "mode": "100644",
+      "bytes": 6888,
+      "sha256": "5f7b3a4ffcb6292f2c7a55cffc60721ec60825769c59e70d5523c96e1d7aa67e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedBidualStar.lean",
+      "mode": "100644",
+      "bytes": 7002,
+      "sha256": "b4350b106b4e654c44bb63542e6d66a540523e8fd6baafa866fa50fde2a44a92"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedCentralCorner.lean",
+      "mode": "100644",
+      "bytes": 7291,
+      "sha256": "2119fb1e741c5bb4c5f6a90945f0849aaf7140cd9f604d4e49e3e055d41c778e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedCornerForms.lean",
+      "mode": "100644",
+      "bytes": 10059,
+      "sha256": "4981f2f63899e452ed500e2eb0131185e32e52e51f08b08a06eca71d7d6ae8e0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedCornerGauge.lean",
+      "mode": "100644",
+      "bytes": 8788,
+      "sha256": "9c47f2965d782242e98338924189fc116f057c828f7e0d2ab783cedefa89b6ef"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedCornerStates.lean",
+      "mode": "100644",
+      "bytes": 5847,
+      "sha256": "5a270759bdc964dcc8167404d8c8569e0783763ca67dc2535a772a9647476eb8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedEnvelope.lean",
+      "mode": "100644",
+      "bytes": 1368,
+      "sha256": "f136b766e7ec785037121637af948673a6ecaf188806a155507bd8e8e672a324"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedStrongApprox.lean",
+      "mode": "100644",
+      "bytes": 3262,
+      "sha256": "1e82674c3b51de638d9e61469438d4ef1a5fda6c4a414f0e903f0e984062a02c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RepresentedVonNeumann.lean",
+      "mode": "100644",
+      "bytes": 1435,
+      "sha256": "ff9b60cc1e24ec3770f76271adc5b203db6aa57b222452c3e475a793ece524ab"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/RowTestConvergence.lean",
+      "mode": "100644",
+      "bytes": 8603,
+      "sha256": "6dc0ec4866cd44b0b838c35f009131c9451b2f981fd2e1a80d42932f4d052c1c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/StateBidualNormal.lean",
+      "mode": "100644",
+      "bytes": 7367,
+      "sha256": "3fb76c857da3e3df9a5cd1bf0704f7a9273e16fac434b4dd9bf30393a6e40fb1"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/StateControlGauge.lean",
+      "mode": "100644",
+      "bytes": 6954,
+      "sha256": "8ffa8084f2f07b9aac0b6b6e61319bae6714d26cff470a460e38bad251bc731a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/StateGaugeSampling.lean",
+      "mode": "100644",
+      "bytes": 6525,
+      "sha256": "66770bc87ea06b40a17d33602780c49a5bb669dea8e43af5cfadb77aada84c77"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/UniversalNormalTests.lean",
+      "mode": "100644",
+      "bytes": 5765,
+      "sha256": "e3f6858409f6c0d98868aab5c07bd02d960b650a879b8fd561a917a3373b9267"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/UniversalStarApproximation.lean",
+      "mode": "100644",
+      "bytes": 9127,
+      "sha256": "f2b9cdb26c9900022952c119c49f13ab6fc1dfab371c297135435228782157fc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/UniversalStarNet.lean",
+      "mode": "100644",
+      "bytes": 5465,
+      "sha256": "90676a5a223f6f909a73ecb85a8b3728f66b0c5f6dbb7028f688273645ce9ceb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/VectorDomination.lean",
+      "mode": "100644",
+      "bytes": 12108,
+      "sha256": "c393b7d546fbc92d95ca47fab552b06108a0a2dc03b52b79a3b6d2c628e0b326"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/VectorForms.lean",
+      "mode": "100644",
+      "bytes": 7253,
+      "sha256": "2dfba559575018cb729cc5e6e259ee862f77ec6d388be54247db4b6723b8fb45"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/VectorMomentForm.lean",
+      "mode": "100644",
+      "bytes": 4303,
+      "sha256": "c3a6c3d48d8a6635be34c48f6047fe1cbff7f58c5c7d94880d83b11dbc042fb4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/WeakCompactIdealSupport.lean",
+      "mode": "100644",
+      "bytes": 7933,
+      "sha256": "64238632d5b3008c19f82adc1689ffb8afce1ba9aef281b9626db51ae17e09d8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TensorAveraging/WeakStarQuotientCorner.lean",
+      "mode": "100644",
+      "bytes": 6250,
+      "sha256": "8027a931afe41f7aefa4b2073b12c1ca93372b586ed4d772ed6f67d0e8e7b34e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/TwoSidedInterpolation.lean",
+      "mode": "100644",
+      "bytes": 5602,
+      "sha256": "c079f562227203ff085b0e57e2668009454edeba7f4a404bc4813db459d7c9ed"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/CStarAlgebra/VectorGram.lean",
+      "mode": "100644",
+      "bytes": 3797,
+      "sha256": "c912632392dc4f274a39612a2be4b0c50f56e392bb5554dc26d475d96b35ef8d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Calculus/BilipschitzOrientation.lean",
+      "mode": "100644",
+      "bytes": 240,
+      "sha256": "c2efcf6e49876c394d8226834456d2b8fcef6b56f983ee9f0fb01a41625940bb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean",
+      "mode": "100644",
+      "bytes": 11709,
+      "sha256": "261dab30b30d5a5702b1e929065f1df4107bdb7065c5b506cc0506b3064948b8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Constancy.lean",
+      "mode": "100644",
+      "bytes": 4409,
+      "sha256": "ac1def7085667b088f820463c5cafbfcc53fd450ff7489c07fae85e506455344"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean",
+      "mode": "100644",
+      "bytes": 19703,
+      "sha256": "1c2e97dc2192aad8225b6cfeb101cbf7fa549cf96d909aa97f25d4d62aa0dcab"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Calculus/FDeriv/SeminormBound.lean",
+      "mode": "100644",
+      "bytes": 3510,
+      "sha256": "6581a2d6809d41cd95a40e57eca852154adc077d44c69154142f39b34034490e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Calculus/Mollification.lean",
+      "mode": "100644",
+      "bytes": 38468,
+      "sha256": "91a3b3d2a2a7f9e8ee89c7f49821bfca608323bb1cdea6906cdde6d916f25bdb"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Calculus/Piola.lean",
+      "mode": "100644",
+      "bytes": 34144,
+      "sha256": "61a95658b8b443d4e940fc3aff49bfb1028d0d3f49f314a66c81df905d7c3b2d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Convex/CompactHull.lean",
+      "mode": "100644",
+      "bytes": 5898,
+      "sha256": "b1812d94ca93809e01c1030c9fd98c98ce6798016a8f7ea43a90c12f333ff2b8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Convex/LexicographicSelection.lean",
+      "mode": "100644",
+      "bytes": 15808,
+      "sha256": "1e03bdbcd9f4cc2d0d482506590e62504952d85f59ce5ca1d4b45d5e925d5c12"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Convex/Milman.lean",
+      "mode": "100644",
+      "bytes": 6953,
+      "sha256": "8e6b67397f07ebe87451793d69d65af101cd059a215b10796e8de628b2e12458"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Convex/PluckerBody.lean",
+      "mode": "100644",
+      "bytes": 4168,
+      "sha256": "62b03275281c947b27bbe384f78353a48e709e789980378079e2582562e80796"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Distribution/Divergence.lean",
+      "mode": "100644",
+      "bytes": 2689,
+      "sha256": "4a35a012698b8e6f52a5a8cfe098f47187ed2c6bb3306cdfa060f720eefe1a78"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Distribution/TestField.lean",
+      "mode": "100644",
+      "bytes": 2581,
+      "sha256": "0d0baa718378b9784f404a04571931cc6063355c52ac5a9541bd72bc53926998"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Distribution/WeakGradient.lean",
+      "mode": "100644",
+      "bytes": 2034,
+      "sha256": "bb7fb4c71dc681bc013f36330b006dc0652e40af2ac80324727b1f3a75e686cf"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Distribution/WeakGradient/Basic.lean",
+      "mode": "100644",
+      "bytes": 885,
+      "sha256": "d6c9cdb57136fbd6df9ca3af4024fc92e412a6ecd171d74abd07f624c0dcc473"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean",
+      "mode": "100644",
+      "bytes": 23031,
+      "sha256": "b9b1277987d122e403175cd5bb9f7a3a485853d2f7260163d7a619fbe4c707ea"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/BidualRecovery.lean",
+      "mode": "100644",
+      "bytes": 7395,
+      "sha256": "91b6758f786695eb6c7e981a85fe31e20ddf842c5b82bccddf6c07bd361eec84"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/CommonFixed.lean",
+      "mode": "100644",
+      "bytes": 3054,
+      "sha256": "2c0e68f58daeee3b6222b8bb08ed9d2a97b14efd98c4c410370f59346e1d6515"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/DecreasingProjection.lean",
+      "mode": "100644",
+      "bytes": 2733,
+      "sha256": "3fb6d831a2e4d957326a58de9cd245d764b8673d761e4009709008000a41d2f8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/DenseTransport.lean",
+      "mode": "100644",
+      "bytes": 3575,
+      "sha256": "5a7371a6d9ebdc77a18278aa992458a5c5b877380c0fe7a66e19387d962f6b99"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/FiniteEmbedding.lean",
+      "mode": "100644",
+      "bytes": 1728,
+      "sha256": "4620b0e70075ab003d8a3ef9bf1eddcc6cfdc345f08cad558f2300736c9a8d48"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/GramPerturbation.lean",
+      "mode": "100644",
+      "bytes": 28019,
+      "sha256": "f429353201ea8b6036658206ac03045f22aa814e3928adc5fc6d2240827cb78f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/GramUnitary.lean",
+      "mode": "100644",
+      "bytes": 16303,
+      "sha256": "0c2fa37892b014d5e53f8c12b3174ba6d914dea183a1aa7bdd44e446965a72d8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/HilbertSum.lean",
+      "mode": "100644",
+      "bytes": 4186,
+      "sha256": "99f8aae7141eea3a6fa3ae7ce05b31450712fe5ca36810db07934a64af717d40"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/HilbertSumCoordinates.lean",
+      "mode": "100644",
+      "bytes": 3075,
+      "sha256": "146c364c6587a04f22d327df59f600d6b4089efd54e1654e0b24f8db2c8f5791"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/InvolutionExponential.lean",
+      "mode": "100644",
+      "bytes": 2415,
+      "sha256": "dd28d887ba3a1129140ce92cd9d2ebf199a4b578f0c374f197dc17a4adec9da4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/OrthogonalSum.lean",
+      "mode": "100644",
+      "bytes": 9085,
+      "sha256": "18627a21d90f9b948b95912bc19e5c2d8a96608958e355ed5d85f93689c61196"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/ProjectionLimit.lean",
+      "mode": "100644",
+      "bytes": 5505,
+      "sha256": "05ce6d304641b6cd335190487dc735881df9b44791192f469aba30a719381f1a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/ProjectionShell.lean",
+      "mode": "100644",
+      "bytes": 13801,
+      "sha256": "7afc4f3898960d9906e3f00e746dad1776b279248f35aa3c411570ae2baf5b2f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/RankOne.lean",
+      "mode": "100644",
+      "bytes": 6611,
+      "sha256": "fbf84e4efdef21fe282a676a3e6068c629ff069725274b9d12da5b3be6156079"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/RankOneCompletion.lean",
+      "mode": "100644",
+      "bytes": 10897,
+      "sha256": "c90092af3481562be7ee761876e3747182ae050254f4eb0153c76ec094d59eb4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/Reduction.lean",
+      "mode": "100644",
+      "bytes": 3896,
+      "sha256": "e6c70c30b95c506b6e0411d630f7cd150a140a58c54093669ada86d289a62959"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/StrongOperator.lean",
+      "mode": "100644",
+      "bytes": 4492,
+      "sha256": "eba77393942da36023fb005d3b272b12a68b22a17dc4937682d0743028099631"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/TwoVectorUnitary.lean",
+      "mode": "100644",
+      "bytes": 18374,
+      "sha256": "15ea52f12172ca00f89644260e62331753ee9ef7f948680aebe79c5eb89b071e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/UnitaryCompletion.lean",
+      "mode": "100644",
+      "bytes": 13077,
+      "sha256": "52ed3c227f0bb2879e910ec68e4c2a8dcc50d29cc57a1e3ae9d677de9a73d388"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/InnerProductSpace/UnitaryExtension.lean",
+      "mode": "100644",
+      "bytes": 5313,
+      "sha256": "bcaf3cd90673df219df03f5f585086e1e07b4587465f03105f2d5f2677315a03"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/LocallyConvex/CompactAnnihilator.lean",
+      "mode": "100644",
+      "bytes": 2739,
+      "sha256": "523d03343fcf37f4511cb2f92f5c404028e0707f8fe7b395c65f62faf3b42616"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/LocallyConvex/FiniteApproximation.lean",
+      "mode": "100644",
+      "bytes": 10214,
+      "sha256": "28115cad2bef4d7a7243af6e28181a07073b03049676f3785c1c1d1da554e1cc"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/LocallyConvex/FiniteBallApproximation.lean",
+      "mode": "100644",
+      "bytes": 5676,
+      "sha256": "72a4d5b1e3fb0313489a2b1566c7d2e92a5e1efae03a9dc746135d9a35c2c6a4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/LocallyConvex/FiniteBallNet.lean",
+      "mode": "100644",
+      "bytes": 3796,
+      "sha256": "623de8b8ca0dd870d36089ffb25cfd87834836916a9c0f4076f285c06b846924"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension.lean",
+      "mode": "100644",
+      "bytes": 303,
+      "sha256": "b12d906ee545c7e9855ee98ae4bd1f20c51256d0e99f16b5e5ea5807fdcf246e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+      "mode": "100644",
+      "bytes": 3129,
+      "sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+      "mode": "100644",
+      "bytes": 3639,
+      "sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "mode": "100644",
+      "bytes": 33105,
+      "sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+      "mode": "100644",
+      "bytes": 5989,
+      "sha256": "310c616b8fddb9564dada72f3eab8550634db706e2b85ada8feee63ab7b83d0a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+      "mode": "100644",
+      "bytes": 4037,
+      "sha256": "2206e447833f35910561aa666c22e5ea0b0d9b65605bcd52a8e108435dde6bb0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Ball/VolumeRigidity.lean",
+      "mode": "100644",
+      "bytes": 10736,
+      "sha256": "9756f57fc5d714669feddb9a043df622911ef2308dcdd67bb5c8f4a9d9e6a0e8"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Bilinear/Bidual.lean",
+      "mode": "100644",
+      "bytes": 18280,
+      "sha256": "79ea07865759ebaa105a0e09d0f5a1421b713e873bd3fac84a4506915e015cb0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean",
+      "mode": "100644",
+      "bytes": 28390,
+      "sha256": "20cc2318e3dd5aadd56a90ccb13401f499b78fefa0293a5166d2603931804e39"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Dual/Satellite.lean",
+      "mode": "100644",
+      "bytes": 48251,
+      "sha256": "dc5391d72ece72d9b73efe21b5e5e06e492113cbd1952696f8c391eee168d79a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Module/BidualRealification.lean",
+      "mode": "100644",
+      "bytes": 3969,
+      "sha256": "6f80d5a680b3cdfb968ff6a70c35c9d971b7bbbefd65862ed1a7b36c8ba9af9e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm.lean",
+      "mode": "100644",
+      "bytes": 2576,
+      "sha256": "470a0b031a2fdc2403b83105bc8cfc49430da846aa3767d9544a1a073d9e0b3c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm/Topology.lean",
+      "mode": "100644",
+      "bytes": 2498,
+      "sha256": "434641d83d4ce6a852aec0840e5d14cc3f25ae82708de5944278fe2edb5f63f0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm/Transport.lean",
+      "mode": "100644",
+      "bytes": 7717,
+      "sha256": "335f3a472ebbc29fc092ec099388ef6fa4b423fe3ce8913b81332f1d30314800"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Module/Goldstine.lean",
+      "mode": "100644",
+      "bytes": 7478,
+      "sha256": "bb678c70e7dff36c80b199f0e3d236352ff518587db4a233ffa147b3312b2b19"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Operator/Cardinality.lean",
+      "mode": "100644",
+      "bytes": 1373,
+      "sha256": "2715ff5f34d433d4fc84242075b04107eb79fd1674b6157a2850f9930893820c"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Operator/Determinant.lean",
+      "mode": "100644",
+      "bytes": 14654,
+      "sha256": "a2af7024d672cb34a28b10892eb63ee49bbb14abd07d933a150a7bb7f59454fa"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Operator/FiniteRecovery.lean",
+      "mode": "100644",
+      "bytes": 32351,
+      "sha256": "9c2cf65f17cc92604de0ab3341e2ff2774d6034febd820346c19bda586f15b0a"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Operator/FiniteSup.lean",
+      "mode": "100644",
+      "bytes": 27790,
+      "sha256": "ab41f983d882eab1e57f1391925bbd27b1ba4246437468abdad28d3f3c240bf3"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Operator/PluckerSupport.lean",
+      "mode": "100644",
+      "bytes": 22250,
+      "sha256": "0226eda2bee3545d2c2cfda5e4b87fdcf310c06b6b91faab5ab468f39b6c94e4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Operator/SelectedMinor.lean",
+      "mode": "100644",
+      "bytes": 4934,
+      "sha256": "cb6f6b426577787508eb7c2ed062ed004f4def4c92d941d6dc6581e091723680"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Operator/WeakCompact.lean",
+      "mode": "100644",
+      "bytes": 13398,
+      "sha256": "66c606645d1bd551d759f827827c54ab68f96a463721f99b34c1aaa1c3f468b0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Plucker/Average.lean",
+      "mode": "100644",
+      "bytes": 5983,
+      "sha256": "f450a3f5c738498efd79b44b8c8aafd6eb16903b78bd7e156f651c2706c2933e"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Plucker/BodyInvariance.lean",
+      "mode": "100644",
+      "bytes": 10195,
+      "sha256": "231e7d502211b789f3f2a9eea0e9c3bf390d817f1b44ae3e302e812173346d45"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Plucker/BoundaryExtension.lean",
+      "mode": "100644",
+      "bytes": 7985,
+      "sha256": "899c36a39a25963bd441d26ce8f3b57b70dd022005ed54b7a18ce7914b240594"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean",
+      "mode": "100644",
+      "bytes": 16707,
+      "sha256": "22cee7e78f9c85a5707fad2f6db5fc60b107ed6b49773eba5844826167e64e48"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Plucker/ModelRigidity.lean",
+      "mode": "100644",
+      "bytes": 2944,
+      "sha256": "1f7615d3b4d553ea6cbfb6fe43ddaeb9ffa6346102f4750034ef61a2414bc694"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Plucker/RadialAverage.lean",
+      "mode": "100644",
+      "bytes": 19495,
+      "sha256": "876b973a9d3e1e1695978fbe6bb95f00b57110d3cc3263c3af3537611ea45fca"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Plucker/RecoveryCertificate.lean",
+      "mode": "100644",
+      "bytes": 47467,
+      "sha256": "2a6ea631ab1d43e05f8bea6fe9827290e795bd6818a0e40d5e1e63952eb71290"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sequence/FunctionalAttainment.lean",
+      "mode": "100644",
+      "bytes": 6141,
+      "sha256": "884b1ae6d69446346ac243dad45e60ba41bf126bd11613271bbfa403aee0cd80"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sequence/GeneralizedLimit.lean",
+      "mode": "100644",
+      "bytes": 5345,
+      "sha256": "1aa3ed299988a8c46f5c6b4f87a7f5b0feb7a1db3ef7cd2e88ad35b76efdca7f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sphere/Basic.lean",
+      "mode": "100644",
+      "bytes": 1529,
+      "sha256": "e514916d29cb77634a592e6b35b7620b67ef4eee938045a72ed16b3875bc3ee0"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sphere/Dimension.lean",
+      "mode": "100644",
+      "bytes": 3462,
+      "sha256": "77927b2a729508ff8b5e30202510e9a62168e6b646a6d8909a8c322ab605121d"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sphere/MetricRigidity.lean",
+      "mode": "100644",
+      "bytes": 9246,
+      "sha256": "4d34a01932f617710d599879ed5beaa06be7be56648dcfab1d586eeb430c75a4"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sphere/ModelTransport.lean",
+      "mode": "100644",
+      "bytes": 1137,
+      "sha256": "8f49cf178d21a784f28d443b6601b550b464d2a0d5c56d7c7956efc56b5f499f"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sphere/RadialBall.lean",
+      "mode": "100644",
+      "bytes": 7456,
+      "sha256": "0fd43a4cc57d6fd7d0a5786ec7649f498a76e553862a81d844748758d4dc2a62"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sphere/RadialExtension.lean",
+      "mode": "100644",
+      "bytes": 11648,
+      "sha256": "da87920da97c82d84089e8991089f17f30ce14fb837c65ea3d90baee398af253"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/Sphere/RadialJacobian.lean",
+      "mode": "100644",
+      "bytes": 14706,
+      "sha256": "ce65c4c3b7ba730fa7a460453c9ffd90ee84de73800b9ea5707c3ca7dd971abe"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/TensorProduct/Algebra.lean",
+      "mode": "100644",
+      "bytes": 7409,
+      "sha256": "b3dac07695ac49cddd5b4cc35c0b87e7a7d14af153135ca35bff4f396d0021fa"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/TensorProduct/BidualForms.lean",
+      "mode": "100644",
+      "bytes": 13757,
+      "sha256": "d80e0a25a564a43c3518bc931ca655a9d2cec152f60eb6d4d9afc9cf1cc4d9d5"
+    },
+    {
+      "path": "MathlibAnnex/Analysis/Normed/TensorProduct/Projective.lean",
+      "mode": "100644",
+      "bytes": 31778,
+      "sha256": "c17cab0512e9fe03030e75b2fef4b9525f8c76a4bc17840d8211e2072c180ac9"
+    },
+    {
+      "path": "MathlibAnnex/LinearAlgebra/Matrix/MaximalMinor.lean",
+      "mode": "100644",
+      "bytes": 8071,
+      "sha256": "1a6382282d47b1563ff4bba1d5419316dbaf690b705ffd1e5e8c26bc114949d2"
+    },
+    {
+      "path": "MathlibAnnex/LinearAlgebra/Matrix/MaximalMinorFactorization.lean",
+      "mode": "100644",
+      "bytes": 16615,
+      "sha256": "c294648d235847f5aa67540ecfdcda1fde5e6f11dbe637fa56fe21fd3c9a7d13"
+    },
+    {
+      "path": "MathlibAnnex/LinearAlgebra/Matrix/VolumeScaledMaximalMinor.lean",
+      "mode": "100644",
+      "bytes": 2509,
+      "sha256": "f75ed23283769b2afd7fdba26469315ae93b21b58d4000c80ed84b85b4856e38"
+    },
+    {
+      "path": "MathlibAnnex/MeasureTheory/Function/AEConstant.lean",
+      "mode": "100644",
+      "bytes": 8056,
+      "sha256": "bd4be526ee7605be5bfaefcecf5ede26a87d4b053f053084dd20db58535a0030"
+    },
+    {
+      "path": "MathlibAnnex/MeasureTheory/Integral/DeterminantContinuity.lean",
+      "mode": "100644",
+      "bytes": 18513,
+      "sha256": "54b7bbcf8117b0bb210cebc74ddf735bdb534751deb421e1da69dc1525a64195"
+    },
+    {
+      "path": "MathlibAnnex/MeasureTheory/Integral/MaximalMinor.lean",
+      "mode": "100644",
+      "bytes": 11813,
+      "sha256": "51edd4b2bd9fc8fc7eb8aca1fcb5cd2690dca536e835bd0d023231e4a672d3d8"
+    },
+    {
+      "path": "MathlibAnnex/MeasureTheory/Integral/MaximalMinorBoundary.lean",
+      "mode": "100644",
+      "bytes": 14601,
+      "sha256": "3b7d1ebc3c867898609f7275779c8d5ef0aa6646bc04f964057958404c10f925"
+    },
+    {
+      "path": "MathlibAnnex/MeasureTheory/Measure/EquivalentSeminormBall.lean",
+      "mode": "100644",
+      "bytes": 1151,
+      "sha256": "8badba08252e453969cf9982306d2c74cbad5e3ed0454b4f62cc50f62b23c639"
+    },
+    {
+      "path": "MathlibAnnex/Projects/Mankiewicz.lean",
+      "mode": "100644",
+      "bytes": 217,
+      "sha256": "c1d5be872e56c41be3c37e503b64467a5fc6ea098dc13bb66a3e53dc7b55036c"
+    },
+    {
+      "path": "MathlibAnnex/Projects/Naimark.lean",
+      "mode": "100644",
+      "bytes": 513,
+      "sha256": "c46c345b3f7ad2d17c632f500e4501cad2c49c07b3eb01bf76a4618bb6363b7c"
+    },
+    {
+      "path": "MathlibAnnex/Projects/PureStateHomogeneity.lean",
+      "mode": "100644",
+      "bytes": 177,
+      "sha256": "e2b00827024b7fea4440df307e84bcd290bd89e04a7e0e7e778151a694cef206"
+    },
+    {
+      "path": "MathlibAnnex/Projects/Rosenberg.lean",
+      "mode": "100644",
+      "bytes": 489,
+      "sha256": "155e67e65adc3d0ddea227795651104a878bb5d78a6baf87b2f4c9f7052615a3"
+    },
+    {
+      "path": "MathlibAnnex/Projects/SphereRigidity.lean",
+      "mode": "100644",
+      "bytes": 161,
+      "sha256": "b2d65019159b56484a87ec139ce8ec9ebd8f7a51cfdf7eaf44a97d8c99a05f80"
+    },
+    {
+      "path": "MathlibAnnex/Topology/CompactCardinality.lean",
+      "mode": "100644",
+      "bytes": 9195,
+      "sha256": "2c1da75f435a9c660cb758b640212876c64c09c97996fa391fb7d4df68aceb66"
+    },
+    {
+      "path": "MathlibAnnex/Topology/CountableBaire.lean",
+      "mode": "100644",
+      "bytes": 874,
+      "sha256": "b6a60bb2da18d93e26f86459c3588d6eb15325b057285d1bf5970706db7277c2"
+    },
+    {
+      "path": "MathlibAnnex/Topology/DensityCharacter.lean",
+      "mode": "100644",
+      "bytes": 2055,
+      "sha256": "eef98feb3de949a1370dd64396093f58e144e8fe3e39ac839ff28654f555817c"
+    },
+    {
+      "path": "MathlibAnnex/Topology/InfinitePath.lean",
+      "mode": "100644",
+      "bytes": 3782,
+      "sha256": "ff3a585bb53cc3fda623310a615263bf4705c9d067b85c59aed7b1261121707a"
+    },
+    {
+      "path": "MathlibAnnex/Topology/MetricSpace/DenseCardinality.lean",
+      "mode": "100644",
+      "bytes": 4379,
+      "sha256": "643be7bface36951ae41dc8aacbf271a5b2ef85cc338d36c1f0c4ffc6ac9ac0e"
+    },
+    {
+      "path": "MathlibAnnex/Topology/MetricSpace/DenseCauchy.lean",
+      "mode": "100644",
+      "bytes": 6565,
+      "sha256": "c01fd1890c86535fb154ce280a511428f0154f11a03f62d63b0c2bc11abd1218"
+    },
+    {
+      "path": "MathlibAnnex/Topology/MetricSpace/SeparableCardinality.lean",
+      "mode": "100644",
+      "bytes": 1557,
+      "sha256": "79b0db8e0896cbd70d3618ab4348d9a257ede5c632de0a8fe61346e7ce884d50"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "bytes": 6330,
+      "sha256": "87688a209c61bb75b9a86d3a90bbf8d775dc09d7c1cb4144249e619e9288ae08"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "mode": "100644",
+      "bytes": 1359,
+      "sha256": "de94c2fd6c3847f475b980978c86f52deb7f685cb821970907349f1c65fa845d"
+    },
+    {
+      "path": "VERIFICATION.md",
+      "mode": "100644",
+      "bytes": 5896,
+      "sha256": "a6e2f417c121df76a914e523d2aa53394d26510a610e2bdcfb9e787e2a505598"
+    },
+    {
+      "path": "docs/development/cache-retention.md",
+      "mode": "100644",
+      "bytes": 1126,
+      "sha256": "65798f60c5149e0c0dfa856a2070f53eeabea3baf324bc789542b3df386ac3d0"
+    },
+    {
+      "path": "docs/naming-migration-v0.4.0.md",
+      "mode": "100644",
+      "bytes": 1483,
+      "sha256": "4d34cf780d68e9b0fbd30e457bf580a2525788fb6fb841cb6f05ffc989b26188"
+    },
+    {
+      "path": "docs/projects/MATHLIBANNEX_PROJECT_SOURCE_MANIFESTS.json",
+      "mode": "100644",
+      "bytes": 1572,
+      "sha256": "e64823f0e34ab935c4975665b514f792b8cd3e0b252c93ff3bffdff331caad8a"
+    },
+    {
+      "path": "docs/projects/mankiewicz.json",
+      "mode": "100644",
+      "bytes": 6070,
+      "sha256": "2937c5d157507471d01e201e3e5897b0fb8dc3cf8e9e6e5c6e62c1f76b78688b"
+    },
+    {
+      "path": "docs/projects/naimark.json",
+      "mode": "100644",
+      "bytes": 141199,
+      "sha256": "3991cef0be51e37112b44d16c124fc34d252a0f783ff8da8257726ebd6924655"
+    },
+    {
+      "path": "docs/projects/pure-state-homogeneity.json",
+      "mode": "100644",
+      "bytes": 96175,
+      "sha256": "3952a15db07c490f6814109a92748869b3467f34bc6e3cc78bde2aa62688b11a"
+    },
+    {
+      "path": "docs/projects/rosenberg.json",
+      "mode": "100644",
+      "bytes": 32558,
+      "sha256": "f1c8c88099c2d95bc753d330dc8a9f8447c24e7dbd2f71aeb78713bb423f2060"
+    },
+    {
+      "path": "docs/projects/sphere-rigidity.json",
+      "mode": "100644",
+      "bytes": 21438,
+      "sha256": "03dec5f0fa93a923aad0ec7fe86960ad131be9a76fc9c32aa04e7c560fbfd7e0"
+    },
+    {
+      "path": "docs/qualification/github-release-qualification-receipt-v3.schema.json",
+      "mode": "100644",
+      "bytes": 2452,
+      "sha256": "59588249efab354fa696804d97ab35c1676b239996c4ccf14e20b8fb8ec0f97d"
+    },
+    {
+      "path": "docs/qualification/github-release-qualification-receipt-v4.schema.json",
+      "mode": "100644",
+      "bytes": 2896,
+      "sha256": "694d45aa3da1bad53db9f34953c8d662bf7de7f93cabdf79748e0987adb937d7"
+    },
+    {
+      "path": "docs/releases/v0.3.0-source-manifest.json",
+      "mode": "100644",
+      "bytes": 22689,
+      "sha256": "378f695708780c32b2d21caf48c5eed26123a3bb16cb22c1db54a9f558cc42f3"
+    },
+    {
+      "path": "docs/releases/v0.3.0.md",
+      "mode": "100644",
+      "bytes": 747,
+      "sha256": "42348f20bc03b1db90c6215969ad949a8a3f65916f3d946c8d9d0f4e608e2c3b"
+    },
+    {
+      "path": "examples/DensityCHSmoke.lean",
+      "mode": "100644",
+      "bytes": 3110,
+      "sha256": "17e8d9e4ded10113acc65bbd26e38b16bedb98df0290d8d1ea465e15806d2e11"
+    },
+    {
+      "path": "examples/Import.lean",
+      "mode": "100644",
+      "bytes": 707,
+      "sha256": "80f2026a6725692834a24e89f1329d72a1481bb4d883b42318209b9526cf8667"
+    },
+    {
+      "path": "examples/ImportMankiewicz.lean",
+      "mode": "100644",
+      "bytes": 326,
+      "sha256": "5e8c45416634b0f04b4827e5e07fa3e356eaa2467892e5dd6e0e733305b4c4bf"
+    },
+    {
+      "path": "examples/ImportNaimark.lean",
+      "mode": "100644",
+      "bytes": 254,
+      "sha256": "1cb37638b04099ae3a3f572d302aa7ed588dcc0cf6a04d46e65ce1e46fddfd06"
+    },
+    {
+      "path": "examples/ImportPureStateHomogeneity.lean",
+      "mode": "100644",
+      "bytes": 316,
+      "sha256": "4e37d207b4d4a8c716d4c68a0d9a5eb723c03f77d60fc43509f26742c7aee14f"
+    },
+    {
+      "path": "examples/ImportRosenberg.lean",
+      "mode": "100644",
+      "bytes": 266,
+      "sha256": "2303b40dd8c0a618ecf2da939090c7ff25e0a4032788e5a25f1cb9e2f62ca212"
+    },
+    {
+      "path": "examples/ImportSphereRigidity.lean",
+      "mode": "100644",
+      "bytes": 149,
+      "sha256": "ab94f29412c14a397c2e052a9f84a943caa6ab90ce8a949a01cb5624cdb42d4c"
+    },
+    {
+      "path": "examples/RosenbergDensitySmoke.lean",
+      "mode": "100644",
+      "bytes": 4004,
+      "sha256": "0a5c90168c630af20759677c59b5e2a6e734fc11f9071731b28028ccb15ea502"
+    },
+    {
+      "path": "examples/SeparableFaithfulSmoke.lean",
+      "mode": "100644",
+      "bytes": 2038,
+      "sha256": "1a94b8c03317d77c3270d2680b70f47933b78efcd669ffe10f4bb4f9b3c6e798"
+    },
+    {
+      "path": "lake-manifest.json",
+      "mode": "100644",
+      "bytes": 3167,
+      "sha256": "ba2675150a9443e1d9200d37fc2d4a50f03087ed8f56232a85d121afea0f0c90"
+    },
+    {
+      "path": "lakefile.toml",
+      "mode": "100644",
+      "bytes": 523,
+      "sha256": "676f36018840569c5d6985461c60467a77e8b80edd00578704aca4df08b4c0e9"
+    },
+    {
+      "path": "lean-toolchain",
+      "mode": "100644",
+      "bytes": 29,
+      "sha256": "72681913b978b3f7c2f48229836771f736f6e97d833917726b2263afbc6108ed"
+    },
+    {
+      "path": "scripts/DensityCHInventory.lean",
+      "mode": "100644",
+      "bytes": 2548,
+      "sha256": "42427258f03bfde696e9c147a6c5867b9eebe892be97604244fac1c49b698cdb"
+    },
+    {
+      "path": "scripts/DensityCHModuleAxioms.lean",
+      "mode": "100644",
+      "bytes": 2582,
+      "sha256": "fca9349472ae41360e06f74d4dff33f6057fb094466629f36a9abe2ad6a83afd"
+    },
+    {
+      "path": "scripts/PrintDensityCHAxioms.lean",
+      "mode": "100644",
+      "bytes": 7542,
+      "sha256": "74c0cd1abfebaa3222c24a33825704973b161ad0054b0a0433a35b91ed331cd9"
+    },
+    {
+      "path": "scripts/PrintSeparableFaithfulAxioms.lean",
+      "mode": "100644",
+      "bytes": 10917,
+      "sha256": "eb27b0454568ec08f9c667058826b2d463d2d020a39eadea676710a8e95b5aa4"
+    },
+    {
+      "path": "scripts/ProjectEntryParser.lean",
+      "mode": "100644",
+      "bytes": 2198,
+      "sha256": "10d01ca9df437f3af4346d85ab2bdcba361ddefdbcf16d3fca030c08a4b20d18"
+    },
+    {
+      "path": "scripts/release_qualification.py",
+      "mode": "100644",
+      "bytes": 14888,
+      "sha256": "08bff1ad7f88d7163d6d96226eddc5308591c5a8b04655fe1688fe2a8409ad8f"
+    },
+    {
+      "path": "scripts/validate_candidate_cleanliness.py",
+      "mode": "100644",
+      "bytes": 5141,
+      "sha256": "56a1f9c12a6d403f0d01998272198f0bf91940729132fdf7b46e39d2d56c204c"
+    }
+  ]
+}

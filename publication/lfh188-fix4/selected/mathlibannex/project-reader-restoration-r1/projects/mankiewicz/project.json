@@ -1,0 +1,530 @@
+{
+  "boundary_inputs": {
+    "count": 961,
+    "record": "boundary-projection.accepted.json",
+    "resolution_counts": {
+      "EXACT_PROVIDER_LOCATOR": 896,
+      "EXACT_SOURCE_DECLARATION": 65
+    }
+  },
+  "cards": [
+    {
+      "assumptions": "Real normed vector spaces E and F; s is open and connected; t is open; f is a surjective isometry from s to t.",
+      "canonical_card_link": "/mathlibannex/cards/30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ffd0c21c4c389feaa7abe9e5ca64bc9546fb5736d9768da63c049de11648ba84",
+        "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "There is a unique ambient real affine isometry equivalence whose restriction to s is f.",
+      "display_title": "Mankiewicz extension on open connected domains",
+      "level": 6,
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+      "natural_language_statement": "Let f be a surjective isometry from an open connected subset s of a real normed space onto an open subset t of another real normed space. Then there exists a unique ambient real affine isometry equivalence A agreeing with f on all of s. Target connectedness is not a separate assumption.",
+      "proof_summary": "At each source point, openness of s and t supplies matching small ambient balls. The local chart theorem gives an affine isometry agreeing with f on a smaller ball around that point. These local charts agree on overlaps and therefore form a locally constant chart-valued map; connectedness of s makes it constant. The resulting global chart is the unique extension.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean",
+      "source_sha256": "235562fa4eb1df95ac0320f53756178e6bf8a0739e3a536a6f3afd3069b8ec91",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean#L120-L147",
+      "stable_card_id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    {
+      "assumptions": "Real normed vector spaces; f is an isometry equivalence between open balls with radii r > 0 and R > 0.",
+      "canonical_card_link": "/mathlibannex/cards/d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "0010c8ccb8965671842243a51487d560ec2424c0e83c8ce493dd7a161cdd859c",
+        "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "f extends uniquely to an ambient real affine isometry equivalence. The two positive radii need not be assumed equal.",
+      "display_title": "Affine extension from open balls",
+      "level": 7,
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_ball",
+      "natural_language_statement": "Let f be a surjective isometry from the open ball ball(c,r) onto the open ball ball(d,R) in real normed spaces, where r>0 and R>0; the two radii need not be equal. Then there is a unique ambient real affine isometry equivalence A such that A(x)=f(x) for every x in the source ball.",
+      "proof_summary": "Both balls are open, and the source ball is connected because its radius is positive. These facts put the isometry directly within the scope of the open-connected extension theorem.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+      "source_sha256": "81913268d8f7f5d2e3ee5097edf683fee537074f09480b15fbe3d4cce2f1d369",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean#L24-L33",
+      "stable_card_id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+    },
+    {
+      "assumptions": "Real normed vector spaces; f is an isometry equivalence between closed balls with the same radius r > 0.",
+      "canonical_card_link": "/mathlibannex/cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "17f27f1cddaac7817c4669469925411815ac3e0475b586fd47b2e04f5d14e0d3",
+        "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "f extends uniquely to an ambient real affine isometry equivalence.",
+      "display_title": "Affine extension from equal-radius closed balls",
+      "level": 8,
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall",
+      "natural_language_statement": "Let f be a surjective isometry between the closed balls closedBall(c,r) and closedBall(d,r) of the same radius r>0 in real normed spaces. Then f has a unique ambient real affine isometry-equivalence extension agreeing with f on the whole source closed ball.",
+      "proof_summary": "The center-transport theorem shows that f sends c to d because both closed balls are bounded and invariant under reflection about their centers. Distance preservation then identifies membership in the two ambient interiors, which are the corresponding open balls. The convex extension theorem completes the proof.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+      "source_sha256": "81913268d8f7f5d2e3ee5097edf683fee537074f09480b15fbe3d4cce2f1d369",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean#L41-L78",
+      "stable_card_id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+    },
+    {
+      "assumptions": "Real normed vector spaces; the source s is convex with nonempty interior; f is an isometry equivalence s to t; x is interior to s exactly when f(x) is interior to t.",
+      "canonical_card_link": "/mathlibannex/cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "7dc5136edabd6e33db77b7a9f9a2122488e5b12c078056cb01de6e0ab95ce426",
+        "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "f extends uniquely to an ambient real affine isometry equivalence. No additional convexity assumption on t is stated.",
+      "display_title": "Convex-set extension via ambient interiors",
+      "level": 7,
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+      "natural_language_statement": "Let f be a surjective isometry from a convex subset s of a real normed space onto a subset t. Assume the ambient interior of s is nonempty and, for every x in s, x lies in interior(s) if and only if f(x) lies in interior(t). Then f extends uniquely to an ambient real affine isometry equivalence. No separate convexity assumption on t is required by this statement.",
+      "proof_summary": "Restrict f to an isometry between the two ambient interiors. Convexity and nonempty interior make the source interior connected, so the open-connected theorem yields an affine extension on the interiors. The interior of a convex set with nonempty interior is dense in the set; continuity therefore extends agreement to all of s. Uniqueness is inherited by restriction to the interior.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+      "source_sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean#L51-L95",
+      "stable_card_id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+    },
+    {
+      "assumptions": "Real normed vector spaces; f is an isometry equivalence s to t; R > 0; radius-R balls about c and f(c) are contained in s and t.",
+      "canonical_card_link": "/mathlibannex/cards/c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "57980774b7bb9d703dad9b73dc930e03203d182af996346c7408eb373b1e0322",
+        "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "An ambient affine isometry equivalence agrees with f on the ball about c of radius R/8.",
+      "display_title": "Local affine-isometry chart on a smaller ball",
+      "level": 5,
+      "name": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+      "natural_language_statement": "Suppose a set isometry f:s≃ᵢt is defined on subsets containing the ambient balls ball(c,R) and ball(f(c),R), with R>0. Then there is an ambient real affine isometry equivalence A that agrees with f at every source point lying in the smaller ball ball(c,R/8).",
+      "proof_summary": "A radial extension centered at c is built from values of f on the sphere of radius R/8. Local midpoint preservation and positive homogeneity make the radial map globally midpoint-preserving; norm preservation then turns it into a real linear isometry. Its range contains an open ball, so it is surjective. Translating this linear equivalence produces the required affine chart, and the local radial formula proves agreement with f.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L695-L786",
+      "stable_card_id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    {
+      "assumptions": "Real normed affine spaces; source and target sets contain their centers and are invariant under reflection through those centers; the source is bounded; f is an isometry equivalence.",
+      "canonical_card_link": "/mathlibannex/cards/078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "a97a1976b14207fc263907ee8fef3f37bda326fe215a2ac5516026cc01017806",
+        "uid": "lfh:lfh-declaration-card:sha256:078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "f maps the source reflection center to the target reflection center.",
+      "display_title": "Center transport under bounded point-reflection symmetry",
+      "level": 0,
+      "name": "MathlibAnnex.IsometryEquiv.map_center_of_reflectionInvariant",
+      "natural_language_statement": "Let f:s≃ᵢt be an isometry equivalence between subsets of real normed affine spaces. Suppose c∈s and d∈t, the source set s is bounded, and s and t are invariant under point reflection about c and d respectively. Then f(c)=d as subtype points.",
+      "proof_summary": "Conjugate the target reflection about d by f to obtain a self-isometry g of s. Every self-isometry of the bounded source reflection space fixes c. Translating that fixed-point equation back through f shows that f(c) is fixed by reflection about d, hence equals d.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/Reflection.lean",
+      "source_sha256": "f289f13a3b7459b738604ee35278417298da58619c6daa14e3491944fc851982",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean#L74-L91",
+      "stable_card_id": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "assumptions": "Real normed vector spaces; radius-R balls about c and f(c) lie in the source and target; R > 0; x,y lie in the radius-R/4 source ball; a lies in [0,1].",
+      "canonical_card_link": "/mathlibannex/cards/0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "4efc62d8a56c8dfa3372c385987153dc2be7eb7c3e7d7266df28cec985605db0",
+        "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "f preserves the affine combination (1-a)x + ay, with the exact subtype membership witnesses supplied in Lean.",
+      "display_title": "Affine-segment preservation on a quarter ball",
+      "level": 4,
+      "name": "MathlibAnnex.IsometryEquiv.map_lineMap_of_mem_ball",
+      "natural_language_statement": "Under the same ambient-ball hypotheses as the local midpoint theorem, if x and y lie in ball(c,R/4), then for every a in [0,1], f sends the affine point lineMap(x,y,a) to lineMap(f(x),f(y),a).",
+      "proof_summary": "Restrict the domain to the convex quarter ball and view f there as a continuous map into the ambient target space. The preceding local midpoint theorem supplies midpoint preservation on that convex set. A general midpoint-to-line-map lemma then gives preservation of every segment parameter.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L353-L386",
+      "stable_card_id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "assumptions": "Real normed vector spaces; radius-R balls about c and f(c) lie in the source and target; R > 0; x,y lie in the radius-R/4 source ball.",
+      "canonical_card_link": "/mathlibannex/cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "81c408d08caad98e784a6f6c6f5aaacbe2736834dee2eb84cce9af3ab14ccf02",
+        "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "f sends the midpoint of x and y to the midpoint of f(x) and f(y).",
+      "display_title": "Midpoint preservation on a quarter ball",
+      "level": 3,
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+      "natural_language_statement": "Let f:s≃ᵢt and let c∈s. Assume R>0, ball(c,R)⊆s, and ball(f(c),R)⊆t. If x,y∈s both lie in ball(c,R/4), then f sends their midpoint to the midpoint of f(x) and f(y).",
+      "proof_summary": "The two endpoints are less than R/2 apart. Their symmetric lens of radius R/2 lies in the source R-ball, and the corresponding target lens lies in the target R-ball. The subset-local lens theorem therefore applies.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L137-L192",
+      "stable_card_id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "assumptions": "Real normed vector spaces; an isometry equivalence between symmetric lenses of the same radius r; both half-distances between the respective foci are at most r.",
+      "canonical_card_link": "/mathlibannex/cards/4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "21daf8652777c81a08e94a4a7a3eff63eef5bfd09483b15da2b62d60227b0e87",
+        "uid": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "The isometry maps the midpoint of the source foci to the midpoint of the target foci.",
+      "display_title": "Midpoint preservation on a symmetric lens",
+      "level": 1,
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+      "natural_language_statement": "Assume the midpoint of x,y belongs to symmetricLens(x,y,r), and likewise the midpoint of x′,y′ belongs to symmetricLens(x′,y′,r), as expressed by the two half-distance inequalities. Any isometry equivalence between these lenses maps midpoint(x,y) to midpoint(x′,y′).",
+      "proof_summary": "A symmetric lens is bounded and invariant under point reflection about the midpoint of its foci. The center-transport theorem therefore sends the source midpoint to the target midpoint.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L66-L80",
+      "stable_card_id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "assumptions": "Real normed vector spaces; f is an isometry equivalence s to t; radius-r symmetric lenses about x,y and f(x),f(y) lie in s and t; half the distance from x to y is at most r.",
+      "canonical_card_link": "/mathlibannex/cards/e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "b8c28fe867604d317c6bb50248b4684deb39c56fb6fcd964b2329c93e42d14b6",
+        "uid": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "f preserves the midpoint of x and y. The target half-distance bound follows from the isometry.",
+      "display_title": "Midpoint preservation under lens containment",
+      "level": 2,
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+      "natural_language_statement": "Let f:s≃ᵢt and x,y∈s. If the symmetric lens of radius r around x,y lies in s, the corresponding lens around f(x),f(y) lies in t, and half the distance between x and y is at most r, then f sends midpoint(x,y) to midpoint(f(x),f(y)).",
+      "proof_summary": "Restrict f and its inverse to the two contained lenses. Distance preservation transports the half-distance bound to the target foci. The lens-level midpoint theorem applied to this restricted isometry gives the result.",
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L120-L135",
+      "stable_card_id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "assumptions": "A normed additive commutative group E; points x and y; a real radius r.",
+      "canonical_card_link": "/mathlibannex/cards/b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a/",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "8ec9c339586d12c353b6eeece0fed3c279aef6a9933e7bea978a68d85a9c2ca7",
+        "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+      },
+      "card_resolution": "PUBLIC",
+      "conclusion": "The symmetric lens is the intersection of the closed radius-r balls centered at x and y. This definition needs no positivity assumption.",
+      "display_title": "Symmetric lens",
+      "level": 0,
+      "name": "MathlibAnnex.symmetricLens",
+      "natural_language_statement": "`symmetricLens x y r` is the intersection of the two closed balls of radius r centered at x and y.",
+      "proof_summary": null,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "3902a71a10200e7d787caca81f0d4cd9f5655b91c7309954793958b754f6fd2e",
+      "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L30-L32",
+      "stable_card_id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    }
+  ],
+  "graph": {
+    "card_count": 11,
+    "display_edges": 10,
+    "maximum_level": 8,
+    "reachability_pairs": 52
+  },
+  "identity": {
+    "slug": "mankiewicz",
+    "title": "Mankiewicz Extension Theorem"
+  },
+  "overview": {
+    "bridges": [
+      {
+        "card_refs": [
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "8ec9c339586d12c353b6eeece0fed3c279aef6a9933e7bea978a68d85a9c2ca7",
+            "uid": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+          },
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "a97a1976b14207fc263907ee8fef3f37bda326fe215a2ac5516026cc01017806",
+            "uid": "lfh:lfh-declaration-card:sha256:078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+          },
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "81c408d08caad98e784a6f6c6f5aaacbe2736834dee2eb84cce9af3ab14ccf02",
+            "uid": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+          }
+        ],
+        "text": "A bounded symmetric lens is reflection-invariant about the midpoint. Center rigidity sends that midpoint to the target midpoint, first on lenses and then on contained balls.",
+        "title": "Reflection to midpoint rigidity"
+      },
+      {
+        "card_refs": [
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "4efc62d8a56c8dfa3372c385987153dc2be7eb7c3e7d7266df28cec985605db0",
+            "uid": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+          },
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "57980774b7bb9d703dad9b73dc930e03203d182af996346c7408eb373b1e0322",
+            "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+          }
+        ],
+        "text": "Midpoint preservation yields line-map preservation. Radial-map support declarations, including private technical lemmas, connect this result to a local affine isometric extension. The path witnesses retain these declarations even though they are outside the selected Card scope.",
+        "title": "Local affinity through omitted support lemmas"
+      },
+      {
+        "card_refs": [
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "ffd0c21c4c389feaa7abe9e5ca64bc9546fb5736d9768da63c049de11648ba84",
+            "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+          },
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "7dc5136edabd6e33db77b7a9f9a2122488e5b12c078056cb01de6e0ab95ce426",
+            "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+          },
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "0010c8ccb8965671842243a51487d560ec2424c0e83c8ce493dd7a161cdd859c",
+            "uid": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+          },
+          {
+            "record_type": "LFH_DECLARATION_CARD",
+            "revision": 1,
+            "sha256": "17f27f1cddaac7817c4669469925411815ac3e0475b586fd47b2e04f5d14e0d3",
+            "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+          }
+        ],
+        "text": "Local extensions agree and assemble over an open connected domain. A convex source with nonempty ambient interior, together with exact preservation of ambient-interior membership, yields the convex specialization; open- and closed-ball corollaries follow under their exact radius conditions. The closed-ball route also uses reflection rigidity.",
+        "title": "Global assembly and specializations"
+      }
+    ],
+    "hypotheses": "Real normed spaces and an isometry equivalence. The principal theorem requires an open connected source and an open target. The convex specialization requires a convex source set with nonempty ambient interior and exact preservation of ambient-interior membership; the target set is not separately assumed convex. Exact assumptions, including radius conditions for balls, remain in the linked exact declarations.",
+    "principal_result": "An isometry equivalence from an open connected subset onto an open subset of real normed spaces extends uniquely to an affine isometry equivalence of the ambient spaces. The selected route also reaches convex-domain and ball specializations.",
+    "scope_limits": "The eleven declaration explanations are reviewed for source-exposition correspondence. This does not claim a line-by-line human proof audit. Boundary Inputs include Lean Core, Mathlib, and omitted MathlibAnnex support declarations.",
+    "why_it_matters": "Local distance information becomes a rigid affine structure. This Project exposes the reusable chain from reflection and midpoint geometry to global extension."
+  },
+  "presentation": {
+    "canonical_card_links": 11,
+    "first_publication_date": null,
+    "hosting_release_note": "Availability and publication history of this Project view are recorded by the hosting release.",
+    "independent_project": true,
+    "kind_label": "Theorem Project",
+    "profile": "PROJECT_PUBLIC_PRESENTATION_R1",
+    "public_cards": 11,
+    "revision": "R1"
+  },
+  "project_kind": "THEOREM_PROJECT",
+  "qualification_reuse": {
+    "status": "PASS_REUSED",
+    "summary": "The eleven accepted Card bodies and source-exposition review records are unchanged. Their five source files are byte-identical in MathlibAnnex v0.2.0, and the exact v0.2.0 hosted qualification passed the Mankiewicz Project-entry import. This successor changes only the source-release binding and Project presentation; it does not rerun Lean or alter Card content."
+  },
+  "reader_experience": {
+    "anchor_rule": "decl-<stable_card_id>",
+    "canonical_card_action_count": 11,
+    "display_edge_count": 10,
+    "exact_source_action_count": 11,
+    "level_count": 9,
+    "level_order": "ASCENDING_DEPENDENCY_FIRST",
+    "navigation": [
+      {
+        "anchor": "decl-078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+        "canonical_card_link": "../../cards/078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281/",
+        "id": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+        "level": 0,
+        "name": "MathlibAnnex.IsometryEquiv.map_center_of_reflectionInvariant",
+        "prerequisites": [],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean#L74-L91",
+        "used_by": [
+          "decl-4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+        ]
+      },
+      {
+        "anchor": "decl-b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+        "canonical_card_link": "../../cards/b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a/",
+        "id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+        "level": 0,
+        "name": "MathlibAnnex.symmetricLens",
+        "prerequisites": [],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L30-L32",
+        "used_by": [
+          "decl-4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+        ]
+      },
+      {
+        "anchor": "decl-4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+        "canonical_card_link": "../../cards/4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36/",
+        "id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+        "level": 1,
+        "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+        "prerequisites": [
+          "decl-078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "decl-b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L66-L80",
+        "used_by": [
+          "decl-e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "anchor": "decl-e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+        "canonical_card_link": "../../cards/e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8/",
+        "id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+        "level": 2,
+        "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+        "prerequisites": [
+          "decl-4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L120-L135",
+        "used_by": [
+          "decl-d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+        ]
+      },
+      {
+        "anchor": "decl-d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+        "canonical_card_link": "../../cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/",
+        "id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+        "level": 3,
+        "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+        "prerequisites": [
+          "decl-e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L137-L192",
+        "used_by": [
+          "decl-0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+        ]
+      },
+      {
+        "anchor": "decl-0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+        "canonical_card_link": "../../cards/0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04/",
+        "id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+        "level": 4,
+        "name": "MathlibAnnex.IsometryEquiv.map_lineMap_of_mem_ball",
+        "prerequisites": [
+          "decl-d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L353-L386",
+        "used_by": [
+          "decl-c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+        ]
+      },
+      {
+        "anchor": "decl-c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+        "canonical_card_link": "../../cards/c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3/",
+        "id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+        "level": 5,
+        "name": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+        "prerequisites": [
+          "decl-0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L695-L786",
+        "used_by": [
+          "decl-30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+        ]
+      },
+      {
+        "anchor": "decl-30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+        "canonical_card_link": "../../cards/30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373/",
+        "id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+        "level": 6,
+        "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+        "prerequisites": [
+          "decl-c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean#L120-L147",
+        "used_by": [
+          "decl-45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "decl-d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed"
+        ]
+      },
+      {
+        "anchor": "decl-45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+        "canonical_card_link": "../../cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/",
+        "id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+        "level": 7,
+        "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+        "prerequisites": [
+          "decl-30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean#L51-L95",
+        "used_by": [
+          "decl-92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+        ]
+      },
+      {
+        "anchor": "decl-d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+        "canonical_card_link": "../../cards/d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed/",
+        "id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+        "level": 7,
+        "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_ball",
+        "prerequisites": [
+          "decl-30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean#L24-L33",
+        "used_by": []
+      },
+      {
+        "anchor": "decl-92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+        "canonical_card_link": "../../cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/",
+        "id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+        "level": 8,
+        "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall",
+        "prerequisites": [
+          "decl-45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+        ],
+        "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean#L41-L78",
+        "used_by": []
+      }
+    ],
+    "revision": "R1",
+    "schema": "mathlibannex.project-reader-experience-restoration.v1",
+    "tile_count": 11
+  },
+  "record_type": "LFH_PROJECT_MANIFEST",
+  "revision": "R1",
+  "schema": "mathlibannex.lfh-theorem-project-profile.v1",
+  "source_binding": {
+    "commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+    "entry_path": "MathlibAnnex/Projects/Mankiewicz.lean",
+    "entry_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Projects/Mankiewicz.lean",
+    "manifest_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/docs/projects/mankiewicz.json",
+    "qualification_run": 35086615666,
+    "repository": "https://github.com/r-tanaka-math/mathlib-annex",
+    "tag": "v0.2.0",
+    "tree": "b3378851a5287f5e3c8418f668e4d0ba52718739"
+  },
+  "status": {
+    "canonical_links_emitted": 11,
+    "cards_public": 11,
+    "cards_reviewed": 11,
+    "exposure": "HOSTING_RELEASE_RECORD",
+    "lfh_content_terms": "EFFECTIVE_EXACT_MATHEMATICS_CONTENT_TERMS",
+    "website_effect": "NONE"
+  }
+}

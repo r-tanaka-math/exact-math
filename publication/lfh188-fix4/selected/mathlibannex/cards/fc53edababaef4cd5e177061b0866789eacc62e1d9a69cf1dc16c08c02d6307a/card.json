@@ -1,0 +1,108 @@
+{
+  "schema": "exact.hp.public-facing-card-candidate.v1",
+  "stable_card_id": "fc53edababaef4cd5e177061b0866789eacc62e1d9a69cf1dc16c08c02d6307a",
+  "content": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Fix the source map j and the ambient inclusion πₐₜ from that same construction. Comparison spaces K are arbitrary complete complex Hilbert spaces in the independent comparison universe; no separability is required.",
+    "conclusion": "The result of this abbreviation is a proposition consisting of the listed ten source fields. Defining that proposition is distinct from proving it; the counterexample theorem for A supplies the proof.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "A is nontrivial and norm closed in B(Hₐₜ).\n\nThe CAR source map j: C → A is injective and satisfies j(1) = 1.\n\nA is infinite-dimensional over ℂ.\n\nThe inclusion πₐₜ: A → B(Hₐₜ) is faithful, nonzero, and irreducible.\n\nFor every complex Hilbert space K and every nonzero irreducible *-representation σ: A → B(K), not initially required to preserve the unit, there is a surjective complex-linear isometry U: Hₐₜ → K with U(πₐₜ(a)x) = σ(a)(Ux) for all a ∈ A and x ∈ Hₐₜ.\n\nEvery norm-closed two-sided ideal of A is either {0} or A.\n\nFor every complex Hilbert space K, there is no injective complex-linear *-homomorphism e: A → B(K), not required to preserve the unit, whose image consists of compact operators and contains every compact operator on K.",
+    "display_title": "The complete ordinary counterexample assertion",
+    "language_tag": "en",
+    "lean_realization_notes": "Source kind: abbrev with result Prop. Exact name: AtomicCounterexampleEndpoint. The seven displayed groups preserve all ten fields of ShellFamilyEndpoint: nontrivial_target, isClosed_target, source_injective, source_unital, not_finiteDimensional_target, ambient_injective, isIrreducible_ambient, captures_nonunital, closedIdeal_dichotomy, not_compactOperatorModel. Here irreducibility includes nonzeroness. The last field is an exclusion of a model of the entire compact-operator algebra, not of one particular embedding. No separable, trace, cardinality, or density condition is part of this definition.",
+    "natural_language_statement": "For the fixed CAR-based algebra A, its CAR map j: C → A, and its atomic inclusion πₐₜ: A → B(Hₐₜ), define the ordinary counterexample assertion to be the conjunction of the properties listed below.",
+    "one_sentence_role": "Names the precise collection of properties later established for the fixed algebra.",
+    "proof_steps": [],
+    "proof_summary": null
+  },
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "0e0dcb2302827d125d7dbd94b5cd58de45152fb64dc29f81686b47253b995036",
+    "uid": "lfh:lfh-declaration-card:sha256:fc53edababaef4cd5e177061b0866789eacc62e1d9a69cf1dc16c08c02d6307a"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "181e50c5834e6c5b8704381fcef3561447c84893a9555e5f24a5eaee4c19b14d",
+    "uid": "lfh:lfh-card-exposition:sha256:86d23d7ceb3f58e646ee4fb8a69a6624c01e1004ad45adcbd607ff1313210201"
+  },
+  "source_binding": {
+    "declaration_kind_from_source": "abbrev",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.AtomicCounterexampleEndpoint",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_lines": [
+      91,
+      93
+    ],
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_repository": "r-tanaka-math/mathlib-annex",
+    "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L91-L93"
+  },
+  "citations": [
+    {
+      "citation_kind": "SOURCE_ATTRIBUTION",
+      "target": {
+        "kind": "EXACT_PROVIDER_LOCATOR",
+        "module_name": "MathlibAnnex.Analysis.CStarAlgebra.CAR.AtomicEndpoint",
+        "provider": "PROJECT",
+        "provider_source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ShellFamilyEndpoint"
+      }
+    }
+  ],
+  "presentation": {
+    "assumptions": "Let A ⊆ B(Hₐₜ) be the fixed unital C*-algebra obtained by adjoining the chosen shell-link unitaries to the atomic representation of the CAR algebra C, and then taking the norm-closed unital *-algebra they generate. Fix the source map j and the ambient inclusion πₐₜ from that same construction. Comparison spaces K are arbitrary complete complex Hilbert spaces in the independent comparison universe; no separability is required.",
+    "conclusion": "The result of this abbreviation is a proposition consisting of the listed ten source fields. Defining that proposition is distinct from proving it; the counterexample theorem for A supplies the proof.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "A is nontrivial and norm closed in B(Hₐₜ).\n\nThe CAR source map j: C → A is injective and satisfies j(1) = 1.\n\nA is infinite-dimensional over ℂ.\n\nThe inclusion πₐₜ: A → B(Hₐₜ) is faithful, nonzero, and irreducible.\n\nFor every complex Hilbert space K and every nonzero irreducible *-representation σ: A → B(K), not initially required to preserve the unit, there is a surjective complex-linear isometry U: Hₐₜ → K with U(πₐₜ(a)x) = σ(a)(Ux) for all a ∈ A and x ∈ Hₐₜ.\n\nEvery norm-closed two-sided ideal of A is either {0} or A.\n\nFor every complex Hilbert space K, there is no injective complex-linear *-homomorphism e: A → B(K), not required to preserve the unit, whose image consists of compact operators and contains every compact operator on K.",
+    "display_title": "The complete ordinary counterexample assertion",
+    "language_tag": "en",
+    "lean_realization_notes": "Source kind: abbrev with result Prop. Exact name: AtomicCounterexampleEndpoint. The seven displayed groups preserve all ten fields of ShellFamilyEndpoint: nontrivial_target, isClosed_target, source_injective, source_unital, not_finiteDimensional_target, ambient_injective, isIrreducible_ambient, captures_nonunital, closedIdeal_dichotomy, not_compactOperatorModel. Here irreducibility includes nonzeroness. The last field is an exclusion of a model of the entire compact-operator algebra, not of one particular embedding. No separable, trace, cardinality, or density condition is part of this definition.",
+    "natural_language_statement": "For the fixed CAR-based algebra A, its CAR map j: C → A, and its atomic inclusion πₐₜ: A → B(Hₐₜ), define the ordinary counterexample assertion to be the conjunction of the properties listed below.",
+    "one_sentence_role": "Names the precise collection of properties later established for the fixed algebra.",
+    "proof_steps": [],
+    "proof_summary": null,
+    "stable_card_id": "fc53edababaef4cd5e177061b0866789eacc62e1d9a69cf1dc16c08c02d6307a",
+    "name": "MathlibAnnex.CStarAlgebra.CAR.AtomicCounterexampleEndpoint",
+    "declaration_kind": "abbrev",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+    "source_locator": {
+      "start_line": 91,
+      "end_line": 93
+    },
+    "source_signature": {
+      "text": "/-- Fully expanded ordinary endpoint for the single target chosen above. -/\nabbrev AtomicCounterexampleEndpoint : Prop :=\n  ShellFamilyEndpoint.{v} homogeneityShellFamily"
+    },
+    "card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 2,
+      "sha256": "0e0dcb2302827d125d7dbd94b5cd58de45152fb64dc29f81686b47253b995036",
+      "uid": "lfh:lfh-declaration-card:sha256:fc53edababaef4cd5e177061b0866789eacc62e1d9a69cf1dc16c08c02d6307a"
+    },
+    "exposition_ref": {
+      "record_type": "LFH_CARD_EXPOSITION",
+      "revision": 2,
+      "sha256": "181e50c5834e6c5b8704381fcef3561447c84893a9555e5f24a5eaee4c19b14d",
+      "uid": "lfh:lfh-card-exposition:sha256:86d23d7ceb3f58e646ee4fb8a69a6624c01e1004ad45adcbd607ff1313210201"
+    },
+    "citations": [
+      {
+        "label": "MathlibAnnex.CStarAlgebra.CAR.ShellFamilyEndpoint",
+        "text": "Exact source attribution.",
+        "website_href": "../../sources/naimark20/a6761076ef2fc29915d78c2c/index.html#L193"
+      }
+    ]
+  },
+  "website_metadata": {
+    "publication_state": "PUBLIC_CURRENT",
+    "publication_authorized": true,
+    "first_publication_date": "2026-09-24",
+    "this_revision_publication_date": "2026-09-24",
+    "source_release": "v0.4.0",
+    "source_exposition_correspondence": "APPROVED",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/fc53edababaef4cd5e177061b0866789eacc62e1d9a69cf1dc16c08c02d6307a/",
+    "catalog_current": true,
+    "approval_scope": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "publication_batch": "EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1"
+  }
+}

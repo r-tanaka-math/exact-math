@@ -1,0 +1,223 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+    "source_range": {
+      "end_line": 79,
+      "start_line": 70
+    },
+    "source_sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem existsUnique_tracial_state (family : RepresentativeShellFamily) :\n    ∃! φ : ShellFamilyTarget family →L[ℂ] ℂ,\n      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) ∧\n        ∀ a b, φ (a * b) = φ (b * a)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+    "source_sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+      "source_sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4",
+      "start_line": 70,
+      "start_column": 1,
+      "end_line": 79,
+      "end_column": 76
+    },
+    "start_byte": 3146,
+    "end_byte": 3404,
+    "sha256": "d9616be03bf1f37107e291058c9b4567c3482f114198ecb6d4b99c687513b78c",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "The fixed shell target has a unique tracial state",
+    "one_sentence_role": "Every tracial state is forced back to the CAR trace and hence to its unique extension.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. There exists exactly one state $\\phi:T\\to\\mathbb C$ such that $\\phi(ab)=\\phi(ba)$ for all $a,b\\in T$.",
+    "definition_explanation": null,
+    "assumptions": "The representative shell family is fixed. A competing functional is required to be a state and tracial on $T$; equality with $\\tau$ on the source is derived, not assumed.",
+    "conclusion": "The unique tracial state is the chosen extension `traceExtension family`. This uniqueness quantifies all tracial states on $T$, whereas extension uniqueness quantifies all states with the prescribed source restriction.",
+    "proof_summary": "Produce the tracial extension, restrict any other tracial state to the source, and invoke the two uniqueness results in that order.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The extension theorem gives a state $\\phi$ with $\\phi\\circ\\iota=\\tau$, and `traceExtension_mul_comm` proves it tracial on $T$. This supplies the existence part."
+      },
+      {
+        "step_id": "s2",
+        "text": "For any tracial state $\\psi$ on $T$, the functional $f=\\psi\\circ\\iota$ is continuous and complex linear. Since $\\iota$ preserves $1$ and products,\n\n$$f(1)=1,\\qquad f(ab)=\\psi(\\iota(a)\\iota(b))=\\psi(\\iota(b)\\iota(a))=f(ba).$$\n\nCAR trace uniqueness, `eq_trace_of_apply_one_of_mul_comm`, therefore gives $f=\\tau$. That source theorem determines values on matrix units and extends from finite stages by density; no target-separability hypothesis is used."
+      },
+      {
+        "step_id": "s3",
+        "text": "Now $\\psi$ is a state extension of $\\tau$. The extension-equality theorem applies and gives $\\psi=\\phi$. In the source, these two steps are `apply_shellFamilySourceHom_eq_trace_of_apply_one_of_mul_comm` followed by `eq_traceExtension_of_mem_stateSpace_of_mul_comm`."
+      }
+    ],
+    "lean_realization_notes": "Faithfulness of a representation and faithfulness of this state are different assertions. This theorem asserts existence and uniqueness of a tracial state. The separate result `traceExtension_star_mul_self_eq_zero_iff` concerns state faithfulness and is not an additional hypothesis here.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean#L70-L79",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+        "source_range": {
+          "end_line": 79,
+          "start_line": 70
+        },
+        "source_sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed concrete target and source map",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the source embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L78-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 78
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The chosen extension is tracial",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionTracial.lean#L161-L174",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionTracial.lean",
+        "source_range": {
+          "end_line": 174,
+          "start_line": 161
+        },
+        "source_sha256": "113279f9d1a887018cf2cc00dbdb3682d413c4aeca1e1d9e0f9a65dd17cfdd5a",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Uniqueness with prescribed source trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean#L52-L60",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean",
+        "source_range": {
+          "end_line": 60,
+          "start_line": 52
+        },
+        "source_sha256": "e0638efaeae226a48c0d3b65526b5cd83f0bc7572055b030837638b7817b47e9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Uniqueness of the normalized continuous CAR trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean#L82-L91",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.eq_trace_of_apply_one_of_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean",
+        "source_range": {
+          "end_line": 91,
+          "start_line": 82
+        },
+        "source_sha256": "10674c694dea95e8eb078d49f5cc70686f83d2b87eede56578e0236519222678",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Restriction of any target trace is the CAR trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean#L40-L59",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.apply_shellFamilySourceHom_eq_trace_of_apply_one_of_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+        "source_range": {
+          "end_line": 59,
+          "start_line": 40
+        },
+        "source_sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Identification of an arbitrary tracial state",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean#L61-L68",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.eq_traceExtension_of_mem_stateSpace_of_mul_comm",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+        "source_range": {
+          "end_line": 68,
+          "start_line": 61
+        },
+        "source_sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Separate state-faithfulness assertion",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean#L23-L37",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceExtension_star_mul_self_eq_zero_iff",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean",
+        "source_sha256": "7091bf74e936f6849fe50e870f69c164ed88bf133b9ba890a4a2a99f3e4904e4",
+        "source_range": {
+          "start_line": 23,
+          "end_line": 37
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "b44fc1eb359af758468f55442e998fc4f91a92be8dcf566311f37e8b000bc06f",
+    "uid": "lfh:lfh-declaration-card:sha256:b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "0bd44fead9f058ef6ab97fcb1774f55d403cba3f128d6d1f602d5374423d3282",
+    "uid": "lfh:lfh-card-exposition:sha256:05591b8bbf33a866d1b3d09caffeeee833fd1dba16492e6a0322ce1cab082328"
+  },
+  "guide": "`∃! φ` ranges over continuous functionals on `ShellFamilyTarget family`; the predicate includes state-space membership and the identity for all `a b`. In contrast to the extension-uniqueness signature, it does not prescribe source values. The proof derives those values using CAR trace uniqueness before applying extension uniqueness.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee/versions/n69-0bd44fead9f058ef/index.html",
+    "pdf": "card.pdf"
+  }
+}

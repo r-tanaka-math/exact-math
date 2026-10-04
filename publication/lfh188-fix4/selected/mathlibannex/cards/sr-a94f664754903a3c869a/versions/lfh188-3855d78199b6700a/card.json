@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.EquivalentSeminorm.IsContraction",
+  "title": "Continuous linear maps bounded by a seminorm",
+  "stable_card_id": null,
+  "identity_key": "c0f7d9c3e84288769caecf6c925c8ebd39af2c050f9d3baf6d4fa529f7160c3c",
+  "source_url": "mathlibannex/sources/lfh188/b0930cb0f0889381fac23858/index.html#L56",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "245886987c6c4a8f8b4fe476e4497ea3c64ce8e6af7173c5290f20b2a233e85c",
+  "accepted_guide_sha256": "0f7bd7c93f0c59ccb6dc93c0c53b81f66c485175711361c3f7bc696bb025655f",
+  "content": {
+    "display_title": "Continuous linear maps bounded by a seminorm",
+    "one_sentence_role": "Defines the pointwise contraction condition relative to a stored equivalent seminorm.",
+    "natural_language_statement": "Let $X,Y$ be real normed spaces and let $p$ be the seminorm of an equivalent-seminorm datum on $X$, with stored constants $c,C>0$ satisfying $c\\|x\\|\\le p(x)\\le C\\|x\\|$ for every $x\\in X$ and with $p$ continuous. A continuous real-linear map $A:X\\to Y$ is a contraction relative to this datum exactly when $\\|Ax\\|\\le p(x)$ for every $x\\in X$.",
+    "definition_explanation": "For the given continuous linear map $A$, define\n\n$$\\operatorname{IsContraction}_p(A)\\quad\\Longleftrightarrow\\quad\\forall x\\in X,\\ \\|Ax\\|\\le p(x).$$\n\nHere $p$ is evaluated on the domain vector, and the norm is the codomain norm.",
+    "assumptions": "The map $A$ is already continuous and real-linear. The domain carries its reference norm and an equivalent-seminorm datum $p$ with positive comparison constants and continuity. The codomain $Y$ is any real normed space, with the norm appearing on the left of the inequality. No dimension, completeness or bijectivity condition is imposed.",
+    "conclusion": "The declaration defines a proposition about the given map $A$. The separately defined contraction set is precisely $\\{A:X\\to Y\\text{ continuous and real-linear}:\\ \\forall x,\\ \\|Ax\\|\\le p(x)\\}$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "When a later application takes $Y=\\mathbb R^N$ in the form of real functions on a finite index set, its default norm is the supremum norm. This is a specialization of the same predicate. The definition itself supplies neither an operator nor an inverse.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

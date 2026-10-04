@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.WeakDivergenceZero",
+  "title": "Vanishing weak gradient tested by divergence",
+  "stable_card_id": null,
+  "identity_key": "deb60b15c3e52f574b4dc982bc5c97588de92438f83ebbdcfa6cbcbde849de8f",
+  "source_url": "mathlibannex/sources/lfh188/da5f5a2418e2621b12a28230/index.html#L11",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Distribution/WeakGradient/Basic.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "ccdf776449c3dbc9c6659797735ca2313bb61789dfe48eed40962dfed471a60c",
+  "accepted_guide_sha256": "08563edf1c679f0f913bf0d903821ed154a1849e372d0de93f2e1b2e2eef27f7",
+  "content": {
+    "display_title": "Vanishing weak gradient tested by divergence",
+    "one_sentence_role": "Expresses a weak equation through compactly supported continuously differentiable vector fields.",
+    "natural_language_statement": "Let $E$ be a finite-dimensional real normed vector space equipped with a measurable structure, let $\\mu$ be any measure on $E$, let $U\\subseteq E$, and let $u:E\\to\\mathbb R$. For a $C^1$ vector field $W:E\\to E$, write $DW(z)$ for its real Fréchet derivative and $\\operatorname{div}W(z)=\\operatorname{tr}(DW(z))$. The weak equation considered here is\n$$\\int_U u(z)\\operatorname{div}W(z)\\,d\\mu(z)=0$$\nfor every $C^1$ vector field $W:E\\to E$ supplied with a compact carrier $K\\subseteq U$ containing its nonzero set. The integral is with respect to $\\mu|_U$.",
+    "definition_explanation": "Using $\\operatorname{div}W=\\operatorname{tr}(DW)$, the complete condition is\n$$\\forall K\\subseteq E\\ \\text{compact},\\quad\n\\forall W\\in C^1(E,E),\\quad\n\\{z:W(z)\\ne0\\}\\subseteq K\\subseteq U\n\\ \\Longrightarrow\\ \n\\int_Uu(z)\\operatorname{div}W(z)\\,d\\mu(z)=0.$$\nThe source packages $K$ and $W$ together as a compact test field. Without integrability hypotheses, the integral has the total Bochner-integral convention; no distribution-theoretic regularity is silently added.",
+    "assumptions": "The predicate itself assumes no openness of $U$, compatibility between the topology and measurable structure, Haar property of $\\mu$, or local integrability of $u$. These are separate hypotheses in its analytic uses. The zero-dimensional case is included.",
+    "conclusion": "The result of the definition is a proposition about $u$, $U$, and $\\mu$. It asks for the displayed equality for every admissible pair $(K,W)$, rather than for a derivative of $u$. In the later Haar setting, with $U$ open and $u$ locally integrable on $U$, the compact support and continuous bounded divergence make these test integrals ordinary integrable pairings.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "A carrier is a chosen compact containing $\\{z:W(z)\\ne0\\}$; it need not equal that set or its closure. Since $E$ is Hausdorff, $K$ is closed and also contains $\\overline{\\{z:W(z)\\ne0\\}}$. If $z\\notin K$, the field is zero on the open neighborhood $E\\setminus K$, hence $DW(z)=0$ and $\\operatorname{div}W(z)=0$. This neighborhood argument, not merely $W(z)=0$ at one point, confines the divergence to $K$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

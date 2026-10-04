@@ -1,0 +1,167 @@
+{
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "orientation": "prerequisite_to_dependent",
+  "node_count": 6,
+  "reachability_count": 9,
+  "display_edge_count": 6,
+  "maximum_level": 2,
+  "reachability": [
+    {
+      "prerequisite": "nm-0144abb32be361326949",
+      "dependent": "nm-6eb349f7597271739a5a"
+    },
+    {
+      "prerequisite": "nm-0144abb32be361326949",
+      "dependent": "nm-707e84fb6e8413e92eee"
+    },
+    {
+      "prerequisite": "nm-4d0b6d81f1b4a7e79ce8",
+      "dependent": "nm-5402f91dcb909d02fa8a"
+    },
+    {
+      "prerequisite": "nm-4d0b6d81f1b4a7e79ce8",
+      "dependent": "nm-6eb349f7597271739a5a"
+    },
+    {
+      "prerequisite": "nm-4d0b6d81f1b4a7e79ce8",
+      "dependent": "nm-707e84fb6e8413e92eee"
+    },
+    {
+      "prerequisite": "nm-5402f91dcb909d02fa8a",
+      "dependent": "nm-707e84fb6e8413e92eee"
+    },
+    {
+      "prerequisite": "nm-cfa03bdf62a93cc0f58a",
+      "dependent": "nm-0144abb32be361326949"
+    },
+    {
+      "prerequisite": "nm-cfa03bdf62a93cc0f58a",
+      "dependent": "nm-6eb349f7597271739a5a"
+    },
+    {
+      "prerequisite": "nm-cfa03bdf62a93cc0f58a",
+      "dependent": "nm-707e84fb6e8413e92eee"
+    }
+  ],
+  "nodes": [
+    {
+      "selected_node_id": "nm-cfa03bdf62a93cc0f58a",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-0144abb32be361326949"
+      ]
+    },
+    {
+      "selected_node_id": "nm-4d0b6d81f1b4a7e79ce8",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_liftedCornerExponential_apply_eq_involution",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-5402f91dcb909d02fa8a",
+        "nm-6eb349f7597271739a5a"
+      ]
+    },
+    {
+      "selected_node_id": "nm-0144abb32be361326949",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+      "level": 1,
+      "prerequisites": [
+        "nm-cfa03bdf62a93cc0f58a"
+      ],
+      "used_by": [
+        "nm-6eb349f7597271739a5a",
+        "nm-707e84fb6e8413e92eee"
+      ]
+    },
+    {
+      "selected_node_id": "nm-5402f91dcb909d02fa8a",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+      "level": 1,
+      "prerequisites": [
+        "nm-4d0b6d81f1b4a7e79ce8"
+      ],
+      "used_by": [
+        "nm-707e84fb6e8413e92eee"
+      ]
+    },
+    {
+      "selected_node_id": "nm-707e84fb6e8413e92eee",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx",
+      "level": 2,
+      "prerequisites": [
+        "nm-0144abb32be361326949",
+        "nm-5402f91dcb909d02fa8a"
+      ],
+      "used_by": []
+    },
+    {
+      "selected_node_id": "nm-6eb349f7597271739a5a",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitary_crossRepresentation_path_approx",
+      "level": 2,
+      "prerequisites": [
+        "nm-0144abb32be361326949",
+        "nm-4d0b6d81f1b4a7e79ce8"
+      ],
+      "used_by": []
+    }
+  ],
+  "display_edges": [
+    {
+      "prerequisite": "nm-0144abb32be361326949",
+      "dependent": "nm-6eb349f7597271739a5a",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_unitary_crossRepresentation_path_approx",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage"
+      ]
+    },
+    {
+      "prerequisite": "nm-0144abb32be361326949",
+      "dependent": "nm-707e84fb6e8413e92eee",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage"
+      ]
+    },
+    {
+      "prerequisite": "nm-4d0b6d81f1b4a7e79ce8",
+      "dependent": "nm-5402f91dcb909d02fa8a",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_delta_exact_unitary_path_apply_eq_and_stage_commutator",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_delta_stageCentral_unitary_path_apply_sub_norm_lt",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_delta_liftedCornerUnitary_path_apply_sub_norm_lt",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_liftedCornerExponential_apply_eq_involution"
+      ]
+    },
+    {
+      "prerequisite": "nm-4d0b6d81f1b4a7e79ce8",
+      "dependent": "nm-6eb349f7597271739a5a",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_unitary_crossRepresentation_path_approx",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_delta_exact_unitary_path_apply_eq_and_stage_commutator",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_delta_stageCentral_unitary_path_apply_sub_norm_lt",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_delta_liftedCornerUnitary_path_apply_sub_norm_lt",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_liftedCornerExponential_apply_eq_involution"
+      ]
+    },
+    {
+      "prerequisite": "nm-5402f91dcb909d02fa8a",
+      "dependent": "nm-707e84fb6e8413e92eee",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt"
+      ]
+    },
+    {
+      "prerequisite": "nm-cfa03bdf62a93cc0f58a",
+      "dependent": "nm-0144abb32be361326949",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram"
+      ]
+    }
+  ]
+}

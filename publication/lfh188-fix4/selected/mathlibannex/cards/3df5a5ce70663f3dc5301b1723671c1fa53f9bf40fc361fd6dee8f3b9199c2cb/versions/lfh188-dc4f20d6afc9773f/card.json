@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram",
+  "title": "Realizing a finite Gram matrix in a represented CAR corner",
+  "stable_card_id": "3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb",
+  "identity_key": "lfh:lfh-declaration-card:sha256:3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb",
+  "source_url": "mathlibannex/sources/lfh188/26464daad26ff56b596dde28/index.html#L214",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "5eb20e338e4667d68fe4fa0cc032f4f85d5495a2d970cb9f8159b36b668b3b76",
+  "accepted_guide_sha256": "ae7a06a6d21656725bc075b158eb1e8d84c2297cf912d11bb2c50c795a57e622",
+  "content": {
+    "display_title": "Realizing a finite Gram matrix in a represented CAR corner",
+    "one_sentence_role": "The infinite-dimensional root corner contains an isometric copy of any finite family of vectors.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. Fix an irreducible representation $\\pi:A\\to B(H)$ and a stage $n$. Set $P=\\pi(e_{00}^{(n)})$ and $R=\\operatorname{ran}P$. Given any finite family $(v_i)_{i\\in I}$ in a complex inner product space $K$, there are vectors $w_i\\in R$ with $\\langle w_i,w_j\\rangle=\\langle v_i,v_j\\rangle$ for every $i,j\\in I$.",
+    "definition_explanation": null,
+    "assumptions": "The space $H$ is a complex Hilbert space and $\\pi$ has nonzero irreducible action. The space $K$ is only required to be a complex inner product space; completeness is not assumed. The finite index set may be empty, and the vectors need not be independent or normalized.",
+    "conclusion": "The entire Gram matrix is preserved inside one fixed represented root corner. Consequently all the norms and inner products of the family are retained. The corner and the stage are chosen before the input family is realized.",
+    "proof_summary": "The represented root projection has closed range, making $R$ a Hilbert space. Its range is infinite-dimensional, since otherwise its nonzero image would be compact. Embed the finite-dimensional span of the input family isometrically into $R$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The finite matrix projection $E_{00}$ is self-adjoint and idempotent, and so is $P=\\pi(e_{00}^{(n)})$. Thus its range is closed and complete. The finite-corner identities underlying this choice are recorded in the short root-corner explanation linked below."
+      },
+      {
+        "step_id": "s2",
+        "text": "If $R$ were finite-dimensional, $P$ would have finite rank and hence be compact. The no-compact-image theorem would imply $e_{00}^{(n)}=0$, contradicting the injective stage inclusion. The precise result is `not_finiteDimensional_range_rootCorner`."
+      },
+      {
+        "step_id": "s3",
+        "text": "The subspace $S=\\operatorname{span}\\{v_i:i\\in I\\}$ is finite-dimensional. The finite-dimensional embedding theorem supplies a complex-linear isometry $L:S\\to R$. Define $w_i=L(v_i)$, viewing each $v_i$ in $S$. Preservation of inner products gives the required equalities."
+      }
+    ],
+    "lean_realization_notes": "The finite-stage projection $E_{00}$ has rank one in $A_n$, but $R$ is infinite-dimensional. The distinction is essential: the representation is of the completed algebra. The result gives a family in $R$, not a preferred or unique choice of that family.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

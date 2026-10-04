@@ -1,0 +1,26 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.UnitaryEquivalent",
+  "title": "Unitary equivalence of two representations",
+  "stable_card_id": "caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6",
+  "identity_key": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6",
+  "source_url": "mathlibannex/sources/lfh188/de6a5196b38d8c340deb4e90/index.html#L43",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 5,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "098cb190191b380a9c3446b3de808b5737235cbd46c11ee75113ccf4ca622ea0",
+  "accepted_guide_sha256": "6a635660384b2f89fd8a4b3786b7fcf4bc221d50a0b2942732d496444b8c3e7f",
+  "content": {
+    "display_title": "Unitary equivalence of two representations",
+    "one_sentence_role": "Defines equivalence by one surjective isometry intertwining all algebra actions.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed, and let $\\pi:A\\to\\mathcal B(H)$ and $\\rho:A\\to\\mathcal B(K)$ be $*$-representations on complex Hilbert spaces. They are unitarily equivalent precisely when the following condition holds.",
+    "definition_explanation": "There exists a surjective complex-linear isometry $U:H\\to K$ such that $$U(\\pi(a)x)=\\rho(a)(Ux)\\qquad\\text{for every }a\\in A\\text{ and }x\\in H.$$ Equivalently, $U\\pi(a)=\\rho(a)U$ for all $a$, or $\\rho(a)=U\\pi(a)U^{-1}$. The inverse exists because $U$ is onto as well as isometric. An abstract isomorphism of $H$ and $K$ without these intertwining equations is not the defined condition.",
+    "assumptions": "Both representations have the same source algebra. Neither irreducibility, nonzero action, separability, nor finite dimension is required.",
+    "conclusion": "One unitary from $H$ onto $K$ intertwines the two actions of every algebra element.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": []
+  }
+}

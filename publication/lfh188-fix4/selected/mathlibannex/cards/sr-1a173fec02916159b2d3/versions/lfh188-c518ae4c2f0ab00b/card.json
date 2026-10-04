@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.Sphere.finiteDimensional_codomain",
+  "title": "Finite-dimensionality transfers across a sphere isometry",
+  "stable_card_id": null,
+  "identity_key": "6b8fdef7d7262c4687c379abdcbd1f21f6588323bf58de37b82ac75af5a7361f",
+  "source_url": "mathlibannex/sources/lfh188/abd32d1a5bcff833901d53db/index.html#L37",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Sphere/Dimension.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "6c804f309c6c2063cd8517656164e90d1419c13749b356e1e11001c2a2747929",
+  "accepted_guide_sha256": "1e6ec3108116a9319e90c42787a35a1bca0dda4996e96387e1a45a05b56b6902",
+  "content": {
+    "display_title": "Finite-dimensionality transfers across a sphere isometry",
+    "one_sentence_role": "Uses the radial homeomorphism to transfer local compactness, then applies the finite-dimensionality criterion for real normed spaces.",
+    "natural_language_statement": "Let $X,Y$ be real normed spaces. Put $S_X=\\{x\\in X:\\|x\\|_X=1\\}$ and $S_Y=\\{y\\in Y:\\|y\\|_Y=1\\}$, each with its ambient chord distance. Let $\\Delta:S_X\\to S_Y$ be a bijective isometry of their unit spheres with the ambient chord metrics. If $X$ is finite-dimensional over $\\mathbb R$, then $Y$ is finite-dimensional over $\\mathbb R$.",
+    "definition_explanation": null,
+    "assumptions": "Only $X$ is assumed finite-dimensional at the start. Both spaces have real normed-vector-space structures, and $\\Delta$ is a sphere isometry equivalence. There is no initial completeness or finite-dimensionality assumption on $Y$; the zero-dimensional case is included. The two carriers may have different universes in the formal statement.",
+    "conclusion": "The codomain $Y$ is finite-dimensional. Applying the theorem to $\\Delta^{-1}$ transfers finite-dimensionality in the opposite direction; that is the separately cited domain theorem.",
+    "proof_summary": "For clarity, the radial map is $R_\\Delta(0)=0$ and $R_\\Delta(x)=\\|x\\|_X\\Delta(x/\\|x\\|_X)$ for $x\\ne0$, with inverse $R_{\\Delta^{-1}}$. Use the homeomorphism $R_\\Delta:X\\to Y$, whose continuity and inverse continuity follow from the two $3$-Lipschitz estimates. Finite-dimensional real normed spaces are proper, so every closed bounded ball in $X$ is compact. Each point therefore has a compact neighbourhood, making $X$ locally compact. A homeomorphism carries a compact neighbourhood to a compact neighbourhood, so $Y$ is locally compact. The local-compactness criterion for a real normed space now implies that $Y$ is finite-dimensional:\n\n$$\\begin{gathered}\n\\dim_{\\mathbb R}X<\\infty\\ \\Longrightarrow\\ X\\text{ locally compact}\\\\\n\\Longrightarrow Y\\text{ locally compact}\\ \\Longrightarrow\\ \\dim_{\\mathbb R}Y<\\infty.\n\\end{gathered}$$",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Finite-dimensionality of $X$ supplies its proper-space structure. This is where the dimension hypothesis is used."
+      },
+      {
+        "step_id": "s2",
+        "text": "Transfer local compactness through $R_\\Delta$. The criterion is then applied to the real normed space $Y$, with the newly obtained local compactness; it requires no separately assumed completeness of $Y$."
+      }
+    ],
+    "lean_realization_notes": "The map used to carry the topology is the radial homeomorphism $R_\\Delta$, with inverse $R_{\\Delta^{-1}}$. This step asserts transfer of finite-dimensionality; a linear isometry is not constructed here.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

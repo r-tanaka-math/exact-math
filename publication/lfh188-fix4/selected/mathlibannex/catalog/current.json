@@ -1,0 +1,1889 @@
+{
+  "schema": "exact.hp.public-catalog.v1",
+  "state": "PUBLIC_CURRENT",
+  "card_count": 188,
+  "formal_CURRENT_changed": false,
+  "cards": [
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.IsCompactOperatorModel",
+      "title": "A compact-operator model for a representation",
+      "stable_card_id": "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+      "identity_key": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384/versions/lfh188-ed2a0cc573631368/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.IsMaximalAbelian",
+      "title": "Maximal abelian $*$-subalgebras",
+      "stable_card_id": "005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb",
+      "identity_key": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb/versions/lfh188-ec8bd9fd950baad6/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 4
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.IsPureState",
+      "title": "Pure states as real extreme points",
+      "stable_card_id": "2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840",
+      "identity_key": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840/versions/lfh188-bca6f7f29653abec/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 5
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation",
+      "title": "Representations without a unit-preservation requirement",
+      "stable_card_id": "fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824",
+      "identity_key": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824/versions/lfh188-963b601c12dce03f/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 5
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsIrreducible",
+      "title": "Nonzero irreducibility without a unit assumption",
+      "stable_card_id": "c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6",
+      "identity_key": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6/versions/lfh188-f1163d4b627ae091/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 5
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsSingletonIrreducibleModel",
+      "title": "A representative of the unique irreducible class",
+      "stable_card_id": "15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff",
+      "identity_key": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff/versions/lfh188-c7b4a0cde6e596f7/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.UnitaryEquivalent",
+      "title": "Unitary equivalence of two representations",
+      "stable_card_id": "caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6",
+      "identity_key": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6/versions/lfh188-e377a53c4708e423/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 5
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.countable_characterSpace_of_nonUnital_singleton",
+      "title": "The full character space is countable",
+      "stable_card_id": "ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584",
+      "identity_key": "lfh:lfh-declaration-card:sha256:ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/ff5886cf6420336dbe578275731ad0361f521340e5e9760ec098cd284273b584/versions/lfh188-2ecf0e57b5c62679/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_isolated_character_ne_infinity",
+      "title": "An isolated character away from the scalar character",
+      "stable_card_id": "f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9",
+      "identity_key": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9/versions/lfh188-64965216c54aea39/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 8
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_rankOne_map",
+      "title": "A projection represented by a rank-one operator",
+      "stable_card_id": "c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4",
+      "identity_key": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4/versions/lfh188-ea84d18aa982d455/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_scalar_corner",
+      "title": "A nonzero projection with scalar corner",
+      "stable_card_id": "964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130",
+      "identity_key": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130/versions/lfh188-160fb8cbe20f6d2d/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 8
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_of_compact_singleton",
+      "title": "Compact operators lie in a singleton representation range",
+      "stable_card_id": "0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8",
+      "identity_key": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8/versions/lfh188-c5a991fcc3702ef3/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_rankOne_of_singleton",
+      "title": "Every rank-one operator has an algebra preimage",
+      "stable_card_id": "155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb",
+      "identity_key": "lfh:lfh-declaration-card:sha256:155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/155676cd74606a102aa274be40c9fb294971cfef6df06897084c9fc89322f2cb/versions/lfh188-c43c80915a3d4c00/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_unit_eigenvector_of_character_ne_infinity",
+      "title": "A character becomes a joint unit eigenvector",
+      "stable_card_id": "7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a",
+      "identity_key": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a/versions/lfh188-bde888bc81504635/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 8
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.faithful_and_compactOperatorModel_of_singleton",
+      "title": "A singleton model is faithful and exactly compact-valued",
+      "stable_card_id": "4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537",
+      "identity_key": "lfh:lfh-declaration-card:sha256:4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537/versions/lfh188-fe2376bd8763c888/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacter",
+      "title": "The scalar character of the unitization",
+      "stable_card_id": "6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f",
+      "identity_key": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f/versions/lfh188-c3566440ee464d08/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.injective_of_singleton",
+      "title": "Faithfulness from a unique irreducible class",
+      "stable_card_id": "66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2",
+      "identity_key": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2/versions/lfh188-6d66671d6d1c5fb2/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.isCompactOperator_map_of_singleton",
+      "title": "Every operator in a singleton image is compact",
+      "stable_card_id": "be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85",
+      "identity_key": "lfh:lfh-declaration-card:sha256:be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/be93429f16421fb0cf8eb8bb91861473c1fd7b52af3892ee1ff2d10e1fb20c85/versions/lfh188-7b3ab78606660c7b/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 8
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital",
+      "title": "Singleton condition tested against all irreducible representations",
+      "stable_card_id": "637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794",
+      "identity_key": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794/versions/lfh188-eaacee0feb82f73f/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.faithful_and_compactOperatorModel_of_singleton_amongNonUnital",
+      "title": "Compact-operator conclusion for the unital singleton condition",
+      "stable_card_id": "8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141",
+      "identity_key": "lfh:lfh-declaration-card:sha256:8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141/versions/lfh188-72e23eaae3c89722/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital",
+      "title": "Finite-dimensional algebra in the unital singleton case",
+      "stable_card_id": "f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9",
+      "identity_key": "lfh:lfh-declaration-card:sha256:f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/f34adabc1cac70dceb32acb212d5f7c0b85c259c2c330087932a6f3fe9f5e8a9/versions/lfh188-8f197716a6fafc9e/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton",
+      "title": "A unital singleton model acts in finite dimension",
+      "stable_card_id": "956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298",
+      "identity_key": "lfh:lfh-declaration-card:sha256:956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298/versions/lfh188-3b62eb608f3e0b07/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton_amongNonUnital",
+      "title": "Finite-dimensional representation space in the unital singleton case",
+      "stable_card_id": "fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d",
+      "identity_key": "lfh:lfh-declaration-card:sha256:fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d/versions/lfh188-e564c4e825ded16a/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.isSimpleCStarAlgebra_of_singleton_of_injective",
+      "title": "A faithful singleton model forces simplicity",
+      "stable_card_id": "106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03",
+      "identity_key": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03/versions/lfh188-d4814475b4f820e3/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.not_singleton_amongNonUnital_of_infiniteDimensional",
+      "title": "An infinite-dimensional unital algebra has no separable singleton model",
+      "stable_card_id": "f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467",
+      "identity_key": "lfh:lfh-declaration-card:sha256:f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467/versions/lfh188-05e961acabd9b416/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.surjective_of_irreducible_of_finiteDimensional",
+      "title": "Full operator image in finite dimension",
+      "stable_card_id": "a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00",
+      "identity_key": "lfh:lfh-declaration-card:sha256:a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/a6b19f4652225ea9cada7c02f05c27707d0bf713859210f56ebbbf0df233cd00/versions/lfh188-431e6d607c364908/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 7
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_character_annihilating_closedIdeal_of_not_mem",
+      "title": "A character separating a closed ideal",
+      "stable_card_id": "1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f",
+      "identity_key": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f/versions/lfh188-c44368b2fb119181/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 4
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_maximalAbelian_containing_isSelfAdjoint",
+      "title": "A maximal abelian subalgebra containing a self-adjoint element",
+      "stable_card_id": "d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5",
+      "identity_key": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5/versions/lfh188-aee1512224f50681/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 4
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_extension",
+      "title": "A character extends to a pure state",
+      "stable_card_id": "f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226",
+      "identity_key": "lfh:lfh-declaration-card:sha256:f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/f7ac96c3bcdff8225f7123d411c404580fab1d79b3975d601484f61837409226/versions/lfh188-f19000a4c8e26467/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_nonzero_on_star_mul_self",
+      "title": "A pure state detects a nonzero square",
+      "stable_card_id": "23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013",
+      "identity_key": "lfh:lfh-declaration-card:sha256:23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013/versions/lfh188-5cba2327ad22f188/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 5
+    },
+    {
+      "name": "MathlibAnnex.Analysis.CStarAlgebra.isIrreducible_pureState_gnsStarAlgHom",
+      "title": "The GNS representation of a pure state is irreducible",
+      "stable_card_id": "68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a",
+      "identity_key": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a/versions/lfh188-757260b037bfce98/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 6
+    },
+    {
+      "name": "MathlibAnnex.BilipschitzOrientation.BiLipschitzOpenData",
+      "title": "Inverse maps on open sets with global metric bounds",
+      "stable_card_id": null,
+      "identity_key": "92460ce033fa8ba25305ca5d3089dbd8c398ffd02ee0bccad30721ba501fbba6",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-fad364f1f0dc73e6be93/versions/lfh188-04d6825b3d016bff/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.BilipschitzOrientation.fderiv_lower_bound",
+      "title": "A positive lower metric bound passes to the derivative",
+      "stable_card_id": null,
+      "identity_key": "324ce9b095744f9a4275b5147520093fab2b757117ac1818b3c5df1c73c2140e",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-81cd34afb979a5f67fd4/versions/lfh188-126a18ccdcabcc36/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.BilipschitzOrientation.integral_det_fderiv_eq_signed_volume",
+      "title": "The signed Jacobian integral is a sign times target volume",
+      "stable_card_id": null,
+      "identity_key": "f18dc0c7a7fb9b662830dde74406049fdcdfb70409266933986a86e3778f2947",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-3a5a303e927e93f2ea28/versions/lfh188-320d9b9862aabf32/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.BilipschitzOrientation.signed_area_transfer",
+      "title": "Signed transfer from the absolute Jacobian formula",
+      "stable_card_id": null,
+      "identity_key": "a65df9250334c2a0f63cd3a10a84e724c4b51f63451c9427802836b2481dd55a",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-ba793937145244061827/versions/lfh188-9962c1b578fb5811/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.BilipschitzOrientation.targetJacobianSign_ae_const",
+      "title": "Almost-everywhere constancy of the sign on a preconnected target",
+      "stable_card_id": null,
+      "identity_key": "259753e9d2fa9c42c03638d3892b059eb5fc2cad5d1dac32fa6043a764205581",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-5e70c50d906023b162a6/versions/lfh188-a1ee92a7f082c33e/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.BilipschitzOrientation.weakDivergenceZero_targetJacobianSign",
+      "title": "The transported Jacobian sign has zero weak gradient",
+      "stable_card_id": null,
+      "identity_key": "630b33d84c2595cb34b35666d140d8f7b6d4a683755488984072a3eb7058fb65",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-e5fb633afdb33c8b6829/versions/lfh188-91a5decacc58de05/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.BilipschitzOrientation.weak_piola",
+      "title": "Weak Piola identity for a compactly supported test field",
+      "stable_card_id": null,
+      "identity_key": "253162bda56b659cce783d2218fa6c27a485a4959c3283f8208d2b41b09a71ff",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-ccf74ff891ffa01f8e5d/versions/lfh188-6a2da7af0cb2c57d/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.concreteTarget",
+      "title": "The closed operator algebra generated by a representation and extra operators",
+      "stable_card_id": "b05645c888ce4601c51f1b4fcfe1fa9e0fc9f8489024601e9bf3e1e9811d4e26",
+      "identity_key": "lfh:lfh-declaration-card:sha256:b05645c888ce4601c51f1b4fcfe1fa9e0fc9f8489024601e9bf3e1e9811d4e26",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/b05645c888ce4601c51f1b4fcfe1fa9e0fc9f8489024601e9bf3e1e9811d4e26/versions/lfh188-7d7f0cea435e9b61/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+      "title": "An irreducible operator algebra constructed from projection shells",
+      "stable_card_id": "2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e",
+      "identity_key": "lfh:lfh-declaration-card:sha256:2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e/versions/lfh188-880df2b1babfec60/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+      "title": "The atomic-shell construction on selected pure-GNS fibers",
+      "stable_card_id": "39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a",
+      "identity_key": "lfh:lfh-declaration-card:sha256:39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a/versions/lfh188-bf9607f700962042/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.AtomicCounterexampleAlgebra",
+      "title": "The C*-algebra generated by the CAR representation and the shell unitaries",
+      "stable_card_id": "a1397f366783063d30db5ab13e31d3e5339a0d31518fb16b965d5299478b8142",
+      "identity_key": "lfh:lfh-declaration-card:sha256:a1397f366783063d30db5ab13e31d3e5339a0d31518fb16b965d5299478b8142",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/a1397f366783063d30db5ab13e31d3e5339a0d31518fb16b965d5299478b8142/versions/lfh188-36cde464b57deb71/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence",
+      "title": "A two-sided inner intertwining sequence for two states",
+      "stable_card_id": "3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152",
+      "identity_key": "lfh:lfh-declaration-card:sha256:3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152/versions/lfh188-cb2c55ea71aba263/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+      "title": "The CAR algebra as a completion of finite matrix stages",
+      "stable_card_id": "ce382ff1e89d804269092f5f9b219d81b789e39081e5f7a8e2dcd4763c85acfa",
+      "identity_key": "lfh:lfh-declaration-card:sha256:ce382ff1e89d804269092f5f9b219d81b789e39081e5f7a8e2dcd4763c85acfa",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/ce382ff1e89d804269092f5f9b219d81b789e39081e5f7a8e2dcd4763c85acfa/versions/lfh188-46c22a6631381732/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity",
+      "title": "Approximately inner homogeneity of pure CAR states",
+      "stable_card_id": "395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb",
+      "identity_key": "lfh:lfh-declaration-card:sha256:395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb/versions/lfh188-45506ce96fc075f5/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+      "title": "A fixed representative family of CAR shell data",
+      "stable_card_id": "3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66",
+      "identity_key": "lfh:lfh-declaration-card:sha256:3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66/versions/lfh188-3afc9ee07692f17e/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.ambientInclusion_unitaryEquivalent",
+      "title": "Every irreducible representation is unitarily equivalent to the inclusion",
+      "stable_card_id": "eb751b0f22dde8fb7e06ff32bb25d5db1cd55259e2b97594d65e2f3fc7657452",
+      "identity_key": "lfh:lfh-declaration-card:sha256:eb751b0f22dde8fb7e06ff32bb25d5db1cd55259e2b97594d65e2f3fc7657452",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/eb751b0f22dde8fb7e06ff32bb25d5db1cd55259e2b97594d65e2f3fc7657452/versions/lfh188-c7cb474454edeaba/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+      "title": "A simple C*-algebra with a unique irreducible representation class",
+      "stable_card_id": "fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470",
+      "identity_key": "lfh:lfh-declaration-card:sha256:fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470/versions/lfh188-72b9de438731413d/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+      "title": "A separably represented C*-algebra with no separable irreducible representation",
+      "stable_card_id": "496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241",
+      "identity_key": "lfh:lfh-declaration-card:sha256:496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241/versions/lfh188-64dba135242d5105/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleRepresentation",
+      "title": "The ambient representation of the fixed algebra",
+      "stable_card_id": "e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa",
+      "identity_key": "lfh:lfh-declaration-card:sha256:e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/e4cb90a633cf73821fb0608918e5b50c598cc2a23fc76340409b027afff8c9fa/versions/lfh188-ebf08e1bb4cb781a/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.continuum_eq_aleph_one_iff_existsNaimarkCounterexampleOfDensity",
+      "title": "CH and a Naimark counterexample of norm density aleph one",
+      "stable_card_id": "49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c",
+      "identity_key": "lfh:lfh-declaration-card:sha256:49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/49b78f91c5e53fc7fff64fc366388f4d162fb65ecd6cb16fafe5785a8f2a236c/versions/lfh188-bd4c651b64ccebd6/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.eq_trace_of_apply_one_of_mul_comm",
+      "title": "Normalization and the trace identity determine the CAR trace",
+      "stable_card_id": "e409951550e6bcc3cae01d9629ee27cb7ecfa02f4c8c15e123c847dd0e9a3483",
+      "identity_key": "lfh:lfh-declaration-card:sha256:e409951550e6bcc3cae01d9629ee27cb7ecfa02f4c8c15e123c847dd0e9a3483",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/e409951550e6bcc3cae01d9629ee27cb7ecfa02f4c8c15e123c847dd0e9a3483/versions/lfh188-114b99e62069f1ea/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.eq_zero_of_isCompactOperator_image",
+      "title": "An irreducible CAR representation has no nonzero compact image",
+      "stable_card_id": "681004362f65370ff8743e0b17874135c5c9f291724bf7cd44c92d7fccd93c47",
+      "identity_key": "lfh:lfh-declaration-card:sha256:681004362f65370ff8743e0b17874135c5c9f291724bf7cd44c92d7fccd93c47",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/681004362f65370ff8743e0b17874135c5c9f291724bf7cd44c92d7fccd93c47/versions/lfh188-97fd51a3f61c7b82/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+      "title": "A Naimark counterexample of continuum norm density",
+      "stable_card_id": "9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461",
+      "identity_key": "lfh:lfh-declaration-card:sha256:9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461/versions/lfh188-76ef6b438b5ec0e4/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+      "title": "Uniqueness among all state extensions of the CAR trace",
+      "stable_card_id": "a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27",
+      "identity_key": "lfh:lfh-declaration-card:sha256:a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27/versions/lfh188-9e346478b39a8c2d/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state",
+      "title": "The fixed shell target has a unique tracial state",
+      "stable_card_id": "b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee",
+      "identity_key": "lfh:lfh-declaration-card:sha256:b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee/versions/lfh188-eaa8974fe573e36d/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_completedAtomicShellModel",
+      "title": "Realizing a shell family by a faithful irreducible operator algebra",
+      "stable_card_id": "1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f",
+      "identity_key": "lfh:lfh-declaration-card:sha256:1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f/versions/lfh188-ca8e85e38b1e25eb/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_liftedCornerExponential_apply_eq_involution",
+      "title": "Lifting a corner involution to an ambient CAR unitary",
+      "stable_card_id": "68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32",
+      "identity_key": "lfh:lfh-declaration-card:sha256:68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32/versions/lfh188-d1e3f8fd7ca0bb5d/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_nonzero_targetFixedSpace",
+      "title": "An irreducible target representation has a surviving fixed space",
+      "stable_card_id": "a78c4de54da4fbe1ab39f1d488112128a74cc98680c7764d29e113cb74ba0efc",
+      "identity_key": "lfh:lfh-declaration-card:sha256:a78c4de54da4fbe1ab39f1d488112128a74cc98680c7764d29e113cb74ba0efc",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/a78c4de54da4fbe1ab39f1d488112128a74cc98680c7764d29e113cb74ba0efc/versions/lfh188-a33d09bcb00fb767/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_pointed_unitary_of_trace_of_cyclic",
+      "title": "Pointed unitary transport between trace-cyclic target representations",
+      "stable_card_id": "c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23",
+      "identity_key": "lfh:lfh-declaration-card:sha256:c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/c41bda62e5281a979102c633562d73a42b5079e8eeef6d65928a8701f3d3ae23/versions/lfh188-263f2939e5bec5df/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootCornerFamily_with_gram",
+      "title": "Realizing a finite Gram matrix in a represented CAR corner",
+      "stable_card_id": "3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb",
+      "identity_key": "lfh:lfh-declaration-card:sha256:3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/3df5a5ce70663f3dc5301b1723671c1fa53f9bf40fc361fd6dee8f3b9199c2cb/versions/lfh188-dc4f20d6afc9773f/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_selectedAtomicCyclicIsometry",
+      "title": "Assembling selected GNS cyclic subspaces into an isometric source representation",
+      "stable_card_id": "67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77",
+      "identity_key": "lfh:lfh-declaration-card:sha256:67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77/versions/lfh188-55f5e2b2715f6252/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx",
+      "title": "Cross-representation state approximation with a protected finite set",
+      "stable_card_id": "fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110",
+      "identity_key": "lfh:lfh-declaration-card:sha256:fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110/versions/lfh188-fc4dd3086568b521/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+      "title": "Exact vector transport along an almost central unitary path",
+      "stable_card_id": "b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f",
+      "identity_key": "lfh:lfh-declaration-card:sha256:b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f/versions/lfh188-d8d3a2e86e99406e/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+      "title": "Extending the CAR trace to the fixed shell target",
+      "stable_card_id": "38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b",
+      "identity_key": "lfh:lfh-declaration-card:sha256:38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b/versions/lfh188-221c1168c586ba21/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_surjective_selectedAtomicCyclicIsometry",
+      "title": "The cyclic sum fills every irreducible target representation",
+      "stable_card_id": "0efa27a129d831d1ec7063acc030ac436bf2943bf9740b72e0581bfdea44cb03",
+      "identity_key": "lfh:lfh-declaration-card:sha256:0efa27a129d831d1ec7063acc030ac436bf2943bf9740b72e0581bfdea44cb03",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/0efa27a129d831d1ec7063acc030ac436bf2943bf9740b72e0581bfdea44cb03/versions/lfh188-bc9fc515e793a5fb/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectorFamily",
+      "title": "A common root vector realizes every selected state through the generators",
+      "stable_card_id": "4888d88a4c7efeb37acd75ea32c5fe01cbce3d3cac678038c63b5954797902df",
+      "identity_key": "lfh:lfh-declaration-card:sha256:4888d88a4c7efeb37acd75ea32c5fe01cbce3d3cac678038c63b5954797902df",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/4888d88a4c7efeb37acd75ea32c5fe01cbce3d3cac678038c63b5954797902df/versions/lfh188-f4f80bf645b82cfe/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_targetShellReconstruction",
+      "title": "Reconstructing a represented unitary from its shells and residual corner",
+      "stable_card_id": "dd981a41d92677a67b76470021a431fddfac41e1292a8e9d3c1b5b5b6c6e7aef",
+      "identity_key": "lfh:lfh-declaration-card:sha256:dd981a41d92677a67b76470021a431fddfac41e1292a8e9d3c1b5b5b6c6e7aef",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/dd981a41d92677a67b76470021a431fddfac41e1292a8e9d3c1b5b5b6c6e7aef/versions/lfh188-abda9825d7b8a044/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1_FIX2"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitVector_vectorFunctional_eq_on_stage",
+      "title": "Purifying a vector state on a finite CAR stage",
+      "stable_card_id": "01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1",
+      "identity_key": "lfh:lfh-declaration-card:sha256:01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/01114f6a304958dac0148625cc7265d07805d6e12fa9bd365d3804095d9c2fc1/versions/lfh188-20cc49a48c9af342/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitary_crossRepresentation_path_approx",
+      "title": "Approximating another vector state along a unitary path",
+      "stable_card_id": "5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16",
+      "identity_key": "lfh:lfh-declaration-card:sha256:5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16/versions/lfh188-1a55edf739348846/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra",
+      "title": "Exact norm density of the fixed atomic algebra",
+      "stable_card_id": "e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f",
+      "identity_key": "lfh:lfh-declaration-card:sha256:e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/e184de0db0422d3780170324fd831e1a89afcbecc672ebf5b54159a4f9478b4f/versions/lfh188-d0e6a8e315bed3d8/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.hasInnerIntertwiningSequence_of_pure",
+      "title": "Pure CAR states admit two-sided inner intertwining sequences",
+      "stable_card_id": "3dfe02286dcb40387b6decbe45dddfbd82a2a7dfe7a6612c592255e76b2fac33",
+      "identity_key": "lfh:lfh-declaration-card:sha256:3dfe02286dcb40387b6decbe45dddfbd82a2a7dfe7a6612c592255e76b2fac33",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/3dfe02286dcb40387b6decbe45dddfbd82a2a7dfe7a6612c592255e76b2fac33/versions/lfh188-dd8c2bc483d587a4/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+      "title": "Pure-state homogeneity of the completed CAR algebra",
+      "stable_card_id": "c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41",
+      "identity_key": "lfh:lfh-declaration-card:sha256:c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41/versions/lfh188-5a51c41e0db2c134/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+      "title": "Choosing the CAR shell family from proved homogeneity",
+      "stable_card_id": "c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9",
+      "identity_key": "lfh:lfh-declaration-card:sha256:c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9/versions/lfh188-bf41e78d63bdb0e1/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+      "title": "Two-sided inner sequences imply pure-state homogeneity",
+      "stable_card_id": "956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1",
+      "identity_key": "lfh:lfh-declaration-card:sha256:956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1/versions/lfh188-12702984fa91fa98/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+      "title": "The atomic common range is one embedded GNS line",
+      "stable_card_id": "33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e",
+      "identity_key": "lfh:lfh-declaration-card:sha256:33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e/versions/lfh188-aa32479d36c0bdad/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.isPureState_rootState",
+      "title": "Purity of the completed root state",
+      "stable_card_id": "8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424",
+      "identity_key": "lfh:lfh-declaration-card:sha256:8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424/versions/lfh188-6b25f5fbf4bb1d22/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.isSimpleCStarAlgebra_limit",
+      "title": "Simplicity of the completed CAR algebra",
+      "stable_card_id": "d01780d70500992bccb2c17598d8cea950b7abc05535fe00cccfa4b9c4c41ee1",
+      "identity_key": "lfh:lfh-declaration-card:sha256:d01780d70500992bccb2c17598d8cea950b7abc05535fe00cccfa4b9c4c41ee1",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/d01780d70500992bccb2c17598d8cea950b7abc05535fe00cccfa4b9c4c41ee1/versions/lfh188-f8ed4ef872d3af2b/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.isSimpleCStarAlgebra_shellFamilyTarget",
+      "title": "Closed-ideal simplicity of the shell-generated algebra",
+      "stable_card_id": "2f74196f22042b6e02ddfbd323ee500f1cd0f3bc297f30b91ccaed55116f7c26",
+      "identity_key": "lfh:lfh-declaration-card:sha256:2f74196f22042b6e02ddfbd323ee500f1cd0f3bc297f30b91ccaed55116f7c26",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/2f74196f22042b6e02ddfbd323ee500f1cd0f3bc297f30b91ccaed55116f7c26/versions/lfh188-f4eed84d82c572ef/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional",
+      "title": "The completed CAR algebra is infinite-dimensional",
+      "stable_card_id": "65d7b879c0b5f0d302e831d587a4e6e555fe9c2d15bae7acacfc893ed9bcbcf2",
+      "identity_key": "lfh:lfh-declaration-card:sha256:65d7b879c0b5f0d302e831d587a4e6e555fe9c2d15bae7acacfc893ed9bcbcf2",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/65d7b879c0b5f0d302e831d587a4e6e555fe9c2d15bae7acacfc893ed9bcbcf2/versions/lfh188-a56a6a8546dfd69e/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.not_isCompactOperatorModel_shellFamilyTarget",
+      "title": "The shell-generated algebra is not an algebra of all compact operators",
+      "stable_card_id": "613fdafd1f323fb659d8b89d248b1f5902a2cc42585e5fe30392ece18490eeea",
+      "identity_key": "lfh:lfh-declaration-card:sha256:613fdafd1f323fb659d8b89d248b1f5902a2cc42585e5fe30392ece18490eeea",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/613fdafd1f323fb659d8b89d248b1f5902a2cc42585e5fe30392ece18490eeea/versions/lfh188-d2843f04d0958c92/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+      "title": "No nonzero irreducible representation on a separable Hilbert space",
+      "stable_card_id": "a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65",
+      "identity_key": "lfh:lfh-declaration-card:sha256:a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65/versions/lfh188-cd7e752e447f66fb/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.ofStage_commute_rowAverage",
+      "title": "A finite-row average centralizes its matrix stage",
+      "stable_card_id": "6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05",
+      "identity_key": "lfh:lfh-declaration-card:sha256:6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05/versions/lfh188-1d6e74475b46df1d/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag",
+      "title": "The decreasing root projections in the CAR completion",
+      "stable_card_id": "27e0170273342fc6efeaf3843aed281ae48f8d3bf83e8272e35334315ef432f0",
+      "identity_key": "lfh:lfh-declaration-card:sha256:27e0170273342fc6efeaf3843aed281ae48f8d3bf83e8272e35334315ef432f0",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/27e0170273342fc6efeaf3843aed281ae48f8d3bf83e8272e35334315ef432f0/versions/lfh188-ab51d6712412aa3f/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.rootState",
+      "title": "The product-vector state on the completed CAR algebra",
+      "stable_card_id": "40a210ab270847d874db7bbe7090d71a22bdf29970b3f0c379b59095ad3fb767",
+      "identity_key": "lfh:lfh-declaration-card:sha256:40a210ab270847d874db7bbe7090d71a22bdf29970b3f0c379b59095ad3fb767",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/40a210ab270847d874db7bbe7090d71a22bdf29970b3f0c379b59095ad3fb767/versions/lfh188-c70a3828c57663aa/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+      "title": "The atomic direct sum of the selected CAR representations",
+      "stable_card_id": "6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2",
+      "identity_key": "lfh:lfh-declaration-card:sha256:6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2/versions/lfh188-b6456b1d61a5c336/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_rankOne",
+      "title": "The matching GNS fiber retains exactly its cyclic line",
+      "stable_card_id": "d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61",
+      "identity_key": "lfh:lfh-declaration-card:sha256:d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61/versions/lfh188-bd7bf862835234f0/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+      "title": "An inequivalent GNS fiber has no residual common range",
+      "stable_card_id": "956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c",
+      "identity_key": "lfh:lfh-declaration-card:sha256:956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/956892255e121725c840997f319eef96516a3851d30e8764b3781400c2588c2c/versions/lfh188-510cba1638975190/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation",
+      "title": "The fixed algebra on the CAR trace Hilbert space",
+      "stable_card_id": "f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611",
+      "identity_key": "lfh:lfh-declaration-card:sha256:f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/f0336a753a8f202333b869aaaeb1d7630c9a50e9edb8c7ec3a05b58fb89ab611/versions/lfh188-e1dcaf896f4fc615/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+      "title": "Faithfulness of the representation on the CAR trace Hilbert space",
+      "stable_card_id": "d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09",
+      "identity_key": "lfh:lfh-declaration-card:sha256:d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/d56473ecdc9e94ee50a17bbf8196f8a40160186b88f4c3a14e76126565a08c09/versions/lfh188-1e1e06694a8e7b0e/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyEndpoint",
+      "title": "Structural properties of one shell-generated C*-algebra",
+      "stable_card_id": "c2533b47d2800cf40bedcc7a2969c4296ab1b60fe6986fe527e1247ef3862788",
+      "identity_key": "lfh:lfh-declaration-card:sha256:c2533b47d2800cf40bedcc7a2969c4296ab1b60fe6986fe527e1247ef3862788",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/c2533b47d2800cf40bedcc7a2969c4296ab1b60fe6986fe527e1247ef3862788/versions/lfh188-e2973e141dc3095a/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion",
+      "title": "The ambient inclusion of the fixed shell-family target",
+      "stable_card_id": "ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d",
+      "identity_key": "lfh:lfh-declaration-card:sha256:ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d/versions/lfh188-938f49aed9a3c518/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion_unitaryEquivalent_nonUnital",
+      "title": "Unitary equivalence without an initial unitality assumption",
+      "stable_card_id": "b6748daf1c41f393446af30ae98ca1dda1b7f3f027f7efa07a934eff56065fd4",
+      "identity_key": "lfh:lfh-declaration-card:sha256:b6748daf1c41f393446af30ae98ca1dda1b7f3f027f7efa07a934eff56065fd4",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/b6748daf1c41f393446af30ae98ca1dda1b7f3f027f7efa07a934eff56065fd4/versions/lfh188-900565639f363655/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+      "title": "The CAR source map into the fixed shell-family target",
+      "stable_card_id": "f812ae1994c38c2084553fa23f888662511d3ca528cc035a090b656e5c38b152",
+      "identity_key": "lfh:lfh-declaration-card:sha256:f812ae1994c38c2084553fa23f888662511d3ca528cc035a090b656e5c38b152",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/f812ae1994c38c2084553fa23f888662511d3ca528cc035a090b656e5c38b152/versions/lfh188-081711a22f2d0d39/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.stageTrace",
+      "title": "The normalized trace on a finite CAR stage",
+      "stable_card_id": "0047cafd9294f990a20362b56c9f7b905407ae2c02f2b9df80a3dba01bf1254b",
+      "identity_key": "lfh:lfh-declaration-card:sha256:0047cafd9294f990a20362b56c9f7b905407ae2c02f2b9df80a3dba01bf1254b",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/0047cafd9294f990a20362b56c9f7b905407ae2c02f2b9df80a3dba01bf1254b/versions/lfh188-282271a3ac03ec12/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_norm_compressionError",
+      "title": "Root compression becomes scalar in norm",
+      "stable_card_id": "5d44ee0aca9e46791d96b1f135b1092607d2b62670313827b2f813e5fe6e9be3",
+      "identity_key": "lfh:lfh-declaration-card:sha256:5d44ee0aca9e46791d96b1f135b1092607d2b62670313827b2f813e5fe6e9be3",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/5d44ee0aca9e46791d96b1f135b1092607d2b62670313827b2f813e5fe6e9be3/versions/lfh188-ab0d0bda8e7bbebb/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_transportedFlag_orbit_zero",
+      "title": "Transported flags vanish on vectors generated by a trace vector",
+      "stable_card_id": "f96955493b7d58c74b287570a9cb14f2c543dd94a8fb260bd3afdd4344070a5f",
+      "identity_key": "lfh:lfh-declaration-card:sha256:f96955493b7d58c74b287570a9cb14f2c543dd94a8fb260bd3afdd4344070a5f",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/f96955493b7d58c74b287570a9cb14f2c543dd94a8fb260bd3afdd4344070a5f/versions/lfh188-37537525e188f365/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.trace",
+      "title": "Constructing the normalized trace on the completed CAR algebra",
+      "stable_card_id": "ed2d0efd1c9929149eff4009da5c9011d720f4f178e084f1e099945c923d6987",
+      "identity_key": "lfh:lfh-declaration-card:sha256:ed2d0efd1c9929149eff4009da5c9011d720f4f178e084f1e099945c923d6987",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/ed2d0efd1c9929149eff4009da5c9011d720f4f178e084f1e099945c923d6987/versions/lfh188-01b5fde692173c78/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.traceExtension_mul_comm",
+      "title": "The unique trace extension is tracial on the whole target",
+      "stable_card_id": "e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d",
+      "identity_key": "lfh:lfh-declaration-card:sha256:e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/e91b9d16b1dc479cabfbf77a25af3492bd670817663d12902ea7a6c683829d5d/versions/lfh188-2092c95bbf2e0628/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation",
+      "title": "The target represented on the CAR trace GNS space",
+      "stable_card_id": "bd015ee41f91bc2a37747d438f714880780826893cb63ee7e84310a987b0611e",
+      "identity_key": "lfh:lfh-declaration-card:sha256:bd015ee41f91bc2a37747d438f714880780826893cb63ee7e84310a987b0611e",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/bd015ee41f91bc2a37747d438f714880780826893cb63ee7e84310a987b0611e/versions/lfh188-f1ce5e5f26f96b34/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.traceModelRepresentation_injective",
+      "title": "Faithfulness of the representation on the CAR trace Hilbert space",
+      "stable_card_id": "258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e",
+      "identity_key": "lfh:lfh-declaration-card:sha256:258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/258daaeaf0a6caefd2a19aba5c4244ab2dd8f7cc41e99be671bfe548cc8bf77e/versions/lfh188-f58b81d17fcf658c/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag",
+      "title": "Shell matching fixes the trace of transported flags",
+      "stable_card_id": "6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e",
+      "identity_key": "lfh:lfh-declaration-card:sha256:6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/6293f0d949a9d46a65ced9dd45fafd88ff8f5e06fc7a4ab38a0a439f8b1feb1e/versions/lfh188-4d64c7cb162cfb63/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+      "title": "The GNS representation of the target trace extension",
+      "stable_card_id": "6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137",
+      "identity_key": "lfh:lfh-declaration-card:sha256:6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137/versions/lfh188-3bbfa6f231e89035/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+      "title": "Faithfulness of the target-state GNS representation",
+      "stable_card_id": "4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3",
+      "identity_key": "lfh:lfh-declaration-card:sha256:4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3/versions/lfh188-d888843f3b8f733b/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+      "title": "Distinct GNS classes have no unitary intertwiner",
+      "stable_card_id": "178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e",
+      "identity_key": "lfh:lfh-declaration-card:sha256:178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e/versions/lfh188-cff90542b34cfe9b/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+      "title": "The selected GNS representation of a pure-state class",
+      "stable_card_id": "ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26",
+      "identity_key": "lfh:lfh-declaration-card:sha256:ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26/versions/lfh188-5637c064ec92d6c5/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.compactPreimageIdeal",
+      "title": "The preimage ideal of the compact operators",
+      "stable_card_id": "9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6",
+      "identity_key": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6/versions/lfh188-2a6a6f0d27f895c8/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 5
+    },
+    {
+      "name": "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner",
+      "title": "Exact projection links for one approximately inner automorphism",
+      "stable_card_id": "d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5",
+      "identity_key": "lfh:lfh-declaration-card:sha256:d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5",
+      "project": "naimark-problem",
+      "url": "mathlibannex/cards/d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5/versions/lfh188-ed5a83def83fe9c5/index.html",
+      "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+      "revision": "SOURCE_TABLE_APPROVED_R1"
+    },
+    {
+      "name": "MathlibAnnex.ContinuousLinearMap.abs_det_sub_le_max",
+      "title": "A determinant difference bound in the sup operator norm",
+      "stable_card_id": null,
+      "identity_key": "0cbcd85b9064ef94c7977caf225abdf7885312f992485a6c6d0700a2242015a6",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-aef87eb8747c4018198a/versions/lfh188-871e7769424751bc/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.DeterminantFrame.determinantMaximum_pos",
+      "title": "Positivity of the determinant maximum",
+      "stable_card_id": null,
+      "identity_key": "1a5fff1c6ed445dd614fcd0129028953d5254cf60872de25c8fb0ed97e527293",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-e92bc3d59b1ef9745c8a/versions/lfh188-e90721709c6b2c63/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.DeterminantFrame.exists_maximizingFrame",
+      "title": "An attained absolute determinant maximum",
+      "stable_card_id": null,
+      "identity_key": "b56e035fcecbdeb3b46f8b7d6dc4852c5d647fd6ed78a480fb4df7a468ee25ba",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-e91789abf2549daed40b/versions/lfh188-1d9f810877aeca14/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.DeterminantFrame.inverseBoundConstant_bound",
+      "title": "A common inverse estimate from row Cramer",
+      "stable_card_id": null,
+      "identity_key": "7fd1d042b8771a88000ec69bacd34b4e730678c1d1108a32a111e31ec25f4d5f",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-641ac05ee858e831eeba/versions/lfh188-0b99029f131cae54/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.DeterminantFrame.nearMaxFrames",
+      "title": "The set of near-maximal dual frames",
+      "stable_card_id": null,
+      "identity_key": "606ec10954a2832002b17b028164cf3a0ccf7b351e76d9c7b4028b8d0d163612",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-d53c0f7b688ae4513d9c/versions/lfh188-1f573d9b9677f28c/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.EquivalentSeminorm",
+      "title": "A seminorm with two-sided bounds against a reference norm",
+      "stable_card_id": null,
+      "identity_key": "2a7cb4d225a9979780479aa12b9ec68b358cc4eff73a924e5432590016bf2be6",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-70322028158e876dde84/versions/lfh188-ca17415068a9d46c/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.EquivalentSeminorm.IsContraction",
+      "title": "Continuous linear maps bounded by a seminorm",
+      "stable_card_id": null,
+      "identity_key": "c0f7d9c3e84288769caecf6c925c8ebd39af2c050f9d3baf6d4fa529f7160c3c",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-a94f664754903a3c869a/versions/lfh188-3855d78199b6700a/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.EquivalentSeminorm.nonempty_linearIsometryEquiv_of_pluckerBodies_eq",
+      "title": "All Plücker bodies determine the norm up to linear isometry",
+      "stable_card_id": null,
+      "identity_key": "3c272fa744121ae69c875a97aba6d154a2b93eab0ea82e71726f9cfd0a67d340",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-6c7de51e72fba84be48a/versions/lfh188-b05f49c3238f2bdd/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.FDeriv.norm_apply_le_seminorm_of_lipschitz",
+      "title": "A seminorm increment bound passes to every derivative direction",
+      "stable_card_id": null,
+      "identity_key": "0121a9abff991b5acade05c212ea6fd925683ba330f0cefbf9c99d24e1442fd6",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-746c677772eb4a3ba680/versions/lfh188-9f8ab345dc11274f/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.FiniteRecovery.nonempty_almostIsometryMatch_of_all_body_eq",
+      "title": "Equal Plücker bodies yield matching generators with an almost-isometric representative",
+      "stable_card_id": null,
+      "identity_key": "8fbe17f2901b616bdd02683ff457767f9182ee363c3c39dae6e8feeaa112c319",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-5c807abc184c8030b5c4/versions/lfh188-85e979c22cfc31e1/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.FiniteRecovery.targetRawSupportMaximizer_good",
+      "title": "The chosen support slice consists of almost-isometric generators",
+      "stable_card_id": null,
+      "identity_key": "cbfa6c441c8a8db8e22d160dc5ba6c253de89a266b156df09838b8aa9ffc8e2c",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-02db8f42e4eec90bf573/versions/lfh188-ede0b79d3af28cf1/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.FiniteSup.FinMapAlmostIsometric",
+      "title": "A strict lower bound on a norm's unit sphere",
+      "stable_card_id": null,
+      "identity_key": "7ade5334f6e1a4c6f3bb6fa2725e6ebd9012f6f2bc3034e059a8f65aba517dc1",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-8b6a7fcf32adb3fd7ce2/versions/lfh188-bee6047702b68bce/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+      "title": "Mankiewicz extension on open connected domains",
+      "stable_card_id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "identity_key": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373/versions/lfh188-86a1e983fe8e07cd/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_ball",
+      "title": "Affine extension from open balls",
+      "stable_card_id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "identity_key": "lfh:lfh-declaration-card:sha256:d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed/versions/lfh188-10cfcef92f212df8/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall",
+      "title": "Affine extension from equal-radius closed balls",
+      "stable_card_id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "identity_key": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/versions/lfh188-813fdb1740063678/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+      "title": "Convex-set extension via ambient interiors",
+      "stable_card_id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "identity_key": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/versions/lfh188-e8aca8922f611e74/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+      "title": "Local affine-isometry chart on a smaller ball",
+      "stable_card_id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "identity_key": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3/versions/lfh188-503d3d94d06608f1/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 3
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection",
+      "title": "Center transport under bounded point-reflection symmetry",
+      "stable_card_id": "e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0",
+      "identity_key": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0/versions/lfh188-41b4456c1c5527d4/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 3
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.map_lineMap_of_mem_ball",
+      "title": "Affine-segment preservation on a quarter ball",
+      "stable_card_id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "identity_key": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04/versions/lfh188-efb7beb2e5ecee26/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+      "title": "Midpoint preservation on a quarter ball",
+      "stable_card_id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "identity_key": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87/versions/lfh188-8944447e2e0b36ca/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+      "title": "Midpoint preservation on a symmetric lens",
+      "stable_card_id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "identity_key": "lfh:lfh-declaration-card:sha256:4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36/versions/lfh188-10edf82fb495075d/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+      "title": "Midpoint preservation under lens containment",
+      "stable_card_id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "identity_key": "lfh:lfh-declaration-card:sha256:e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8/versions/lfh188-85411b126a8ff629/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    },
+    {
+      "name": "MathlibAnnex.Matrix.ballVolumeScaledMaximalMinors",
+      "title": "Maximal minors scaled by the reference ball volume",
+      "stable_card_id": null,
+      "identity_key": "c58a142f5e0c86f1eb305127618aa51ef16cf62c2ed8741f12f7b4fa3242ec23",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-cb62815f6c657a7b920e/versions/lfh188-1e71712cf81a51e5/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Matrix.det_smul_vecMul_nonsingInv_eq_updateRowDet",
+      "title": "Cramer’s rule for coordinates of a row",
+      "stable_card_id": null,
+      "identity_key": "3c371546ac3b8bd2ade5ba7819f97dc4f35eb267cc6005e0304401e1f55c0680",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-2e32963c6aa0e8493b4d/versions/lfh188-f5ccad57cc0193fe/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.Matrix.existsUnique_factor_of_orientedMaximalMinorsProportional",
+      "title": "A unique right factor from proportional oriented maximal minors",
+      "stable_card_id": null,
+      "identity_key": "1574f466d0e103182fa5959afeea49be1fc8284c37e048fe559633a932a66ec5",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-baee73709395e17ff169/versions/lfh188-d2a6dc4717c07e2d/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r6"
+    },
+    {
+      "name": "MathlibAnnex.Matrix.maximalMinors",
+      "title": "The family of maximal minors in increasing row order",
+      "stable_card_id": null,
+      "identity_key": "0783b1ed37225e85f4b057a01b756e35612404bab1996fe00dd5487988a40ee8",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-1b506d8a89bcea55dce1/versions/lfh188-e410d6ce78ff6112/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.Matrix.maximalMinors_mul",
+      "title": "Right multiplication scales every maximal minor by one determinant",
+      "stable_card_id": null,
+      "identity_key": "bb9346c24171968bf6eb7956095c9b191a834ab4a77573509ed4308a6bc259da",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-ebde9cab2220e559bb45/versions/lfh188-a9796f4a66711a55/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.MeasureTheory.tendsto_integral_det_of_strongLn",
+      "title": "Determinant integrals under strong $L^n$ convergence",
+      "stable_card_id": null,
+      "identity_key": "b818f88272bded6172560f397463979bae62bdfdcc9af010edec1a24a866bdc3",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-42b152a08a133f1f094d/versions/lfh188-7d6fd31ff1edddd9/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Mollification.mollify",
+      "title": "Mollification by a normalized smooth kernel",
+      "stable_card_id": null,
+      "identity_key": "5fc62dcf5d09696160cab08918064ba7347d3d85250c9ae688518918ac6dd799",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-e72b8867a5a4b9e3631f/versions/lfh188-179f7d9ec1bbbf99/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Mollification.tendsto_eLpNorm_fderiv_mollify_sub",
+      "title": "Strong local convergence of mollified derivatives",
+      "stable_card_id": null,
+      "identity_key": "c89e408facb1f8a7c35cf2ec92108a6019da216a4101e02ab6dd2d7694e71857",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-5ab998bf18f28f5f2b5b/versions/lfh188-e000145e34a5d24e/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.NullLagrangian.integral_maximalMinor_eq_of_pointwise_boundary_eq",
+      "title": "Boundary agreement determines maximal-minor integrals",
+      "stable_card_id": null,
+      "identity_key": "8ffc1ca46338498f2c4b5484621f6dcc4207d407eb67552ef8be93fb28229ecc",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-c82c4c8fdab71f7748ca/versions/lfh188-82f35dbba20e8d8a/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.NullLagrangian.integral_maximalMinor_fderiv_add_sub_eq_zero_of_lipschitzWith",
+      "title": "Maximal-minor integral differences for Lipschitz perturbations",
+      "stable_card_id": null,
+      "identity_key": "421273218b3444978c0511a7450fe7f471933a58de559d212f12d6620b3b17ec",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-c0dbd2cca403206a11b5/versions/lfh188-702d76fac729ef63/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Piola.cofactorRow",
+      "title": "A cofactor row by row replacement",
+      "stable_card_id": null,
+      "identity_key": "bae9d4c4ef77e1e152fc34bb20a9b9fa57ec3107bbc085b41de7fa531e65cae6",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-d5bb31e0c3961b9aa857/versions/lfh188-c355f9d9998e8559/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Piola.divergence_cofactorRowField_eq_zero",
+      "title": "The divergence-free cofactor identity",
+      "stable_card_id": null,
+      "identity_key": "5ec72c0913aa4130a9d28a1a1df45bd1a92eb814d64bf2d84493e88776b3b0b5",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-73f58357cbfac7b2cbc2/versions/lfh188-83a3c3280e149e74/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.Piola.divergence_componentFlux_eq_det_sub",
+      "title": "A component flux gives a determinant difference",
+      "stable_card_id": null,
+      "identity_key": "3ed411dd52658da27e30492ddbb8672cec8c6f70175a7c33aa25d28c332e3d8e",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-d6ee2fe746be0bb59a43/versions/lfh188-4e1ed446735357ed/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.Piola.integral_coordinateDivergence_eq_zero_of_contDiff_hasCompactSupport",
+      "title": "Zero integral of a compactly supported divergence",
+      "stable_card_id": null,
+      "identity_key": "29f829a025711f8d55ff8f152e2c6eb739ba1873c230de11cd2ccf2e7132c0e2",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-daf76b58cff0bb86bc8e/versions/lfh188-6300c59d06333119/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.Piola.integral_det_fderiv_add_sub_eq_zero_of_contDiff",
+      "title": "Smooth compact perturbations preserve the determinant integral difference",
+      "stable_card_id": null,
+      "identity_key": "2fdc6b710bcf0b6fd36c748b0f7415556fc0dd7cd8445db08cf9eb812df0591d",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-9f178bc8cf129ba816f1/versions/lfh188-170ace47df00d5dd/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Plucker.derivativeAverage",
+      "title": "The set average of derivative generators",
+      "stable_card_id": null,
+      "identity_key": "881a7e8ca047438b0707f1e1c0c5c735066cc90245e42f394357aea49f6a7691",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-287a38dbd3712976184b/versions/lfh188-526567daac9602e1/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Plucker.derivativeAverage_comp_linear_radial",
+      "title": "A common orientation sign for the radial derivative average",
+      "stable_card_id": null,
+      "identity_key": "90180d56601a12ab1187ce9f6fcaf8d459e25077705108cab56d342ba3be404c",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-e6c6d7f2b697ed432f62/versions/lfh188-760708d9f8b14f5e/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.Plucker.derivativeAverage_mem_body",
+      "title": "The average of contractive derivative generators lies in the body",
+      "stable_card_id": null,
+      "identity_key": "3e83bba1009eb0f03f0925be83ba8046c9f6a88b237b88e1c306acf37cb2ca3c",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-c5e0d7d0d5e6094e5e23/versions/lfh188-a9eef9988c176041/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Plucker.exists_extension_with_derivativeAverage_mem",
+      "title": "One boundary extension with all five analytic properties",
+      "stable_card_id": null,
+      "identity_key": "d16864477e0b83ebd6b11e4a1b6c99b419b26313ffd36b72950ccaa6802a76fa",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-a722754ad54e6cfd17eb/versions/lfh188-13723f0b6b4255e7/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.PluckerBody.body",
+      "title": "The symmetric convex body of contraction minors",
+      "stable_card_id": null,
+      "identity_key": "71151c47e2354561250a4e7c8ae8b6adb1752070d5bcff05d9c6af7a07aef5fd",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-2846a9da56103d89c1a6/versions/lfh188-be5de01123fa6394/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.PluckerBody.eq_of_sphereIsometry",
+      "title": "Sphere isometries preserve the Plücker body",
+      "stable_card_id": null,
+      "identity_key": "53f7bc1299ddb98375af1cc502cee8334e09a87f345f0e148533487a148dd609",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-75ad8b28d3b7fd89660d/versions/lfh188-fa7fee8f125f222a/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.PluckerBody.isCompact_generators",
+      "title": "Compactness of the signed generator set",
+      "stable_card_id": null,
+      "identity_key": "be5ac9c5a5bae77ab6ab237c892037042a1800148d9cf87b73b01fb3ca7a4dbd",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-169ca115ce8be7ae9127/versions/lfh188-fe94a6bf42a5bb1d/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.PluckerBody.normalizedGenerator_mem_of_sphereIsometry",
+      "title": "A target contraction generator lies in the source body",
+      "stable_card_id": null,
+      "identity_key": "487f23f1b28e8a5e7c45ca775cbec78f67cbf4d6b92645df70301a46e272a772",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-fc2dec93cb5f570c8f5d/versions/lfh188-8e18becd124e5a39/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.PluckerRecovery.LimitCertificate.image_unitBall_eq",
+      "title": "The recovered contraction maps one unit ball onto the other",
+      "stable_card_id": null,
+      "identity_key": "8ff64315b0212d1561fcc4501a787a4f3327d810020848249841aadb4506241b",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-ead60a340da35b34d130/versions/lfh188-156e930522949204/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.PluckerRecovery.nonempty_limitCertificate_of_pluckerBodies_eq",
+      "title": "A volume-normalized linear contraction obtained by a limit",
+      "stable_card_id": null,
+      "identity_key": "1f7ca1d57237f20d54f0e157a5c7089d9f9281d6b65d8ded28c06c7cc8e2a754",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-bd3ba2044b63ba00de25/versions/lfh188-be6fc9cf886e6893/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.PluckerRecovery.nonempty_linearCertificate_of_pluckerBodies_eq",
+      "title": "Almost-contractive linear recovery with exact volume scaling",
+      "stable_card_id": null,
+      "identity_key": "5fda28d69f346dec8b6cf50c4c0c8bb4b3f42b541cbec4a70d28666b41643e50",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-f19c24561000b7be81df/versions/lfh188-4c93b49958a9c6e5/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.PluckerSupport.pluckerPairing_satelliteCoefficients_maximalMinors",
+      "title": "The satellite polynomial is linear in the maximal-minor vector",
+      "stable_card_id": null,
+      "identity_key": "ad8d5daec57e8662e42f9dde856245d767d7ab04a53a3269f305be5917a4c5cf",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-0c4050c87aed1ff05cee/versions/lfh188-568654646e517a7d/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Satellite.abs_eval_lower_of_norms_nearby",
+      "title": "A nearby norming point gives an almost-norming evaluation",
+      "stable_card_id": null,
+      "identity_key": "db5359dbf59d830842867376244d1e08f85dc78a69fd70924f85f50060b3b72f",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-ff3f11f05579b19ee959/versions/lfh188-fbab088a5259593e/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.Satellite.absoluteMaximizer_base_nearMax",
+      "title": "Absolute maximization forces a near-maximal base",
+      "stable_card_id": null,
+      "identity_key": "c93701940275afd4192bb4e5ca2125d554655352826df15f7ae17134ddfa442f",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-a2fe500330d54a1f7e4b/versions/lfh188-9afdf8491908766f/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.Satellite.absoluteMaximizer_satellite_norms_preimage",
+      "title": "Each satellite norms its coefficient preimage in absolute value",
+      "stable_card_id": null,
+      "identity_key": "d56006808046bf9d691178d1930aa1c7207f1e13ed673deb2d859bd99b11ad91",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-f9e1bdfe1126b906b754/versions/lfh188-ca95698bc53a1675/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.Satellite.absoluteMaximizer_satellites_almost_norm",
+      "title": "One fixed satellite family almost norms every detected unit vector",
+      "stable_card_id": null,
+      "identity_key": "1c23f6590ac612d557acafd1520f40356ad35cb018eafed1186a016b2eeeb3b5",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-cc02738029d227f92f50/versions/lfh188-54a967d8a9cee87b/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Satellite.exists_goodSatellitePackage",
+      "title": "A finite absolute-maximizing family almost norms the unit sphere",
+      "stable_card_id": null,
+      "identity_key": "47ab094fa07728933b707299b127d4076986069950d93dfec28340fa6f0d24ad",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-9b354b9e028fe28791a1/versions/lfh188-dbdb8e1aa354e0f2/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Satellite.satellitePolynomial",
+      "title": "A weighted determinant polynomial with satellites",
+      "stable_card_id": null,
+      "identity_key": "c253ac61d38a96e61ce5fc496578e7e1c1ca5c3583bc6e17d5fd48c4cc1ffac5",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-76f327538ed8391daab8/versions/lfh188-50ce04219f7c98e0/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.SeminormBall.map_eq",
+      "title": "Equality of seminorm balls under a linear bijection preserves the seminorms",
+      "stable_card_id": null,
+      "identity_key": "b9bead0331444581e4f118134d1d62f814409476ca37a163f9c555f1c5ec689a",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-18d74ebc8b3d616e3b77/versions/lfh188-ce5a0009cee3edeb/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.SeminormBall.measure_lt",
+      "title": "A compact proper subset of a seminorm ball has smaller Haar measure",
+      "stable_card_id": null,
+      "identity_key": "461f355efa7341d4b765c6fe3d72a2dc48a40b0487e65a81cd2a080180b463a3",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-195b1242897f9fbb8a9e/versions/lfh188-915dedf6ef2368a5/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.Sphere.finiteDimensional_codomain",
+      "title": "Finite-dimensionality transfers across a sphere isometry",
+      "stable_card_id": null,
+      "identity_key": "6b8fdef7d7262c4687c379abdcbd1f21f6588323bf58de37b82ac75af5a7361f",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-1a173fec02916159b2d3/versions/lfh188-c518ae4c2f0ab00b/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.Sphere.finrank_eq",
+      "title": "Isometric unit spheres force equal finite dimensions",
+      "stable_card_id": null,
+      "identity_key": "9a72d19802f0e564e6e71bb6da80c13c776f90f987867bd89014b6f28dcfc1ce",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-31274c36334b9b3c9ad7/versions/lfh188-3c49f924c489a27b/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.Sphere.lipschitzWith_radialExtension",
+      "title": "The radial extension is 3-Lipschitz",
+      "stable_card_id": null,
+      "identity_key": "46d1195928106417b790018ca79e1bb28a9ea0fb1c411a74679553bc71c317ff",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-cda1986139abea6e5ce1/versions/lfh188-276b9b1aeb485d93/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Sphere.nonempty_isometryEquiv_iff_nonempty_linearIsometryEquiv_of_finiteDimensional",
+      "title": "The unit-sphere chord metric determines the ambient normed space",
+      "stable_card_id": null,
+      "identity_key": "f7d305ec9ae212101460d7fcb67a6bb7b8513536b94862923b893b12a9597847",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-5b2551a420ffdf6e0968/versions/lfh188-890c4216824d9d06/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.Sphere.radialExtension",
+      "title": "Radial extension of an isometry between unit spheres",
+      "stable_card_id": null,
+      "identity_key": "79ff0f563a8ec7debebe7394a730be2e70da80c555dec20be8c1fa6c9c88c7dc",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-2eb3a7ccc5a47aef1165/versions/lfh188-ebeed7ef6ce97fe2/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.Sphere.radialExtension_integral_abs_det",
+      "title": "The absolute Jacobian integral of a radial sphere extension",
+      "stable_card_id": null,
+      "identity_key": "30f9867eb4ea4a422298bd413a19a1fb2bd6e43badd81823b7e923a857f9bdc0",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-0ac67e70932d82c4fcce/versions/lfh188-f5e9aae69afd7326/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.Sphere.radialExtension_leftInverse",
+      "title": "The inverse sphere isometry gives the inverse radial map",
+      "stable_card_id": null,
+      "identity_key": "a48d1310711807d6438a6d46ca5cd45bcefed0e9d3d21eef6654c6331583092a",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-2283d4b57f27544e3e10/versions/lfh188-d3860b5920c3fdb7/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.Topology.exists_isOpen_singleton",
+      "title": "An isolated point in a countable Baire space",
+      "stable_card_id": "9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4",
+      "identity_key": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4",
+      "project": "rosenberg",
+      "url": "mathlibannex/cards/9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4/versions/lfh188-03bb5b5dee3d606c/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 4
+    },
+    {
+      "name": "MathlibAnnex.WeakDivergenceZero",
+      "title": "Vanishing weak gradient tested by divergence",
+      "stable_card_id": null,
+      "identity_key": "deb60b15c3e52f574b4dc982bc5c97588de92438f83ebbdcfa6cbcbde849de8f",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-9b05919ec9006097774f/versions/lfh188-0233ac620d36143d/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.WeakDivergenceZero.exists_aeConstantOn",
+      "title": "Global almost-everywhere constancy on a preconnected domain",
+      "stable_card_id": null,
+      "identity_key": "c2b78d57a63746925f56b095766dbaa4040f5d953533fa43d5262c5e02c1aeed",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-845f1c95a322f59b65fd/versions/lfh188-329fd3bcebc37f3c/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.WeakDivergenceZero.exists_eqOn",
+      "title": "A continuous function with zero weak gradient is constant",
+      "stable_card_id": null,
+      "identity_key": "8acb82dffc8e9fba60636077fe3b3268420fc49aefcd3dd60b6e9e72d9cb78b9",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-0d45767a065ecea3c552/versions/lfh188-20a539e15ec6056f/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.WeakDivergenceZero.nonempty_localAEConstantAt",
+      "title": "Local almost-everywhere constancy from the weak equation",
+      "stable_card_id": null,
+      "identity_key": "93947ac5582628868b9a4960d52ba627c5c3255a5b01d1506a685f087c6200b5",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-aae3044b5ccd971d34c0/versions/lfh188-9156ae18963002af/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.WeakGradient.localMollification_fderiv_apply",
+      "title": "Differentiating a local mollification through its kernel",
+      "stable_card_id": null,
+      "identity_key": "aaf25e6d1afc1f8fde144f4721d80b7b2299e5a7d9423b147a995db46d74f195",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-b021dfe780e142efad72/versions/lfh188-093b7b800a14b58d/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.WeakGradient.localMollification_fderiv_apply_eq_zero",
+      "title": "Zero weak gradient gives zero derivatives of local mollifications",
+      "stable_card_id": null,
+      "identity_key": "4d267e2a1016f37933b1d940ec4b6b93ce2fa6bb23c3a5068557721dbd2c739d",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-7807c47150bfccfbd728/versions/lfh188-32db8bb3d4828b38/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.aeConstantOn_of_countableCover",
+      "title": "Gluing one almost-everywhere constant over a countable cover",
+      "stable_card_id": null,
+      "identity_key": "afef0c134761c64d2d0095f214d1faff119dcd9106310336462d93a6c5135bbb",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-6f26e5b248069f5a501e/versions/lfh188-1b4a55a3f93663ab/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.aeConstants_eq_of_open_overlap",
+      "title": "Identifying constants on an open overlap",
+      "stable_card_id": null,
+      "identity_key": "a02bb8e7cb1179cf572b9d9e736167b4986aeaaa8740004b810dee58f629daff",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-bede09ad1dec2b0caf82/versions/lfh188-34d3e1173fde1a3d/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.convexHull_maxSlice_eq_supportFace",
+      "title": "A support face is the convex hull of the maximizing generators",
+      "stable_card_id": null,
+      "identity_key": "6db5089f0e7bf897999165efaf6458e98e4bf82986aa4131483cc3f76396b122",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-ef57429c53fb8fbba0eb/versions/lfh188-519c1df3f96d24b5/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r6"
+    },
+    {
+      "name": "MathlibAnnex.divergence",
+      "title": "Divergence as the trace of a derivative",
+      "stable_card_id": null,
+      "identity_key": "88f8b7fd8078faa8e3e6de7d95ddbf823984035470676419d1d90affad6298fd",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-7b37529f4122d7e24782/versions/lfh188-39c349872e94c951/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r2"
+    },
+    {
+      "name": "MathlibAnnex.exists_aeConstantOn_of_local",
+      "title": "From local to global almost-everywhere constancy",
+      "stable_card_id": null,
+      "identity_key": "ca52dc2a5619e122453c60efb289697673b61fc437b02905964486298b0f1eca",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-fd80fb5b16361b156700/versions/lfh188-884dae1052d49f90/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.exists_common_of_convexHull_eq",
+      "title": "A common generator selected from equal convex hulls",
+      "stable_card_id": null,
+      "identity_key": "5e741799ad49fbf4ec68d15415e9b99ec00aae6b535a53e0f8b0284607f01695",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-9de51ff0fd1ac625244f/versions/lfh188-450717f9ae270b78/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r4"
+    },
+    {
+      "name": "MathlibAnnex.isCompact_convexHull_pi",
+      "title": "The convex hull of a compact set in a finite real coordinate space",
+      "stable_card_id": null,
+      "identity_key": "63c6c9947d0859f0df0262b86d546aa77558e7e9a09a508cba8c2a45c121eb7e",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-98c2604daf198f3f6591/versions/lfh188-0a04752a02dc1386/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r3"
+    },
+    {
+      "name": "MathlibAnnex.lexicographicRefine",
+      "title": "Successive maximum refinement by an ordered list of functionals",
+      "stable_card_id": null,
+      "identity_key": "198ede8425d2e29c25ba96385f2004b2e7328f7fb1207c823162a0b6381bfc79",
+      "project": "sphere-rigidity",
+      "url": "mathlibannex/cards/sr-0fb06a5a7a46cf350ec9/versions/lfh188-4b5a417c02e6b22a/index.html",
+      "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+      "revision": "r5"
+    },
+    {
+      "name": "MathlibAnnex.symmetricLens",
+      "title": "Symmetric lens",
+      "stable_card_id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+      "identity_key": "lfh:lfh-declaration-card:sha256:b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+      "project": "mankiewicz",
+      "url": "mathlibannex/cards/b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a/versions/lfh188-d656f85851cea23e/index.html",
+      "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+      "revision": 2
+    }
+  ],
+  "publication_date": "2026-10-04"
+}

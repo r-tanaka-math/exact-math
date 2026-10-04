@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.Piola.integral_coordinateDivergence_eq_zero_of_contDiff_hasCompactSupport",
+  "title": "Zero integral of a compactly supported divergence",
+  "stable_card_id": null,
+  "identity_key": "29f829a025711f8d55ff8f152e2c6eb739ba1873c230de11cd2ccf2e7132c0e2",
+  "source_url": "mathlibannex/sources/lfh188/430417f02b098b06a9430daf/index.html#L609",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/Piola.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "6615269efd172654102c91e02a3056f51f399018a4faa42e1acd7c85d2b63488",
+  "accepted_guide_sha256": "9284ee529653d2155bcbe3ebf7302736c29081fc1b35539edec2dc2ff6c5bed0",
+  "content": {
+    "display_title": "Zero integral of a compactly supported divergence",
+    "one_sentence_role": "Makes all faces in a box divergence formula vanish by placing the support strictly inside the box.",
+    "natural_language_statement": "Fix $n\\geq1$. Let $F:\\mathbb R^n\\to\\mathbb R^n$ be $C^1$ and have compact topological support. Let $DF(x)$ denote the real Fréchet derivative and $e_j$ the $j$th standard coordinate vector. Write\n$$F_j(x):=(F(x))_j,\\qquad\n\\partial_jF_j(x):=(DF(x)e_j)_j,\\qquad\n\\operatorname{div}F(x):=\\sum_{j=1}^n\\partial_jF_j(x).$$\nFor Lebesgue measure on the coordinate space,\n$$\\int_{\\mathbb R^n}\\operatorname{div}F(x)\\,dx=0.$$",
+    "definition_explanation": null,
+    "assumptions": "The support convention throughout this card is\n$$\\operatorname{supp}F:=\\overline{\\{x\\in\\mathbb R^n:F(x)\\ne0\\}}.$$\nThis closed set is assumed compact. The differentiability hypothesis is exactly $C^1$. The domain has its coordinate sup norm. No externally specified integration domain or boundary-regularity assumption is needed.",
+    "conclusion": "The divergence is integrable and its whole-space integral vanishes. Compact support is imposed on $F$, which also forces the divergence to vanish off that support.",
+    "proof_summary": "Choose a box with the support strictly inside it. Write the box divergence formula as a sum of upper-face minus lower-face integrals. Each face value is zero, and the divergence is zero outside the box, so the whole-space integral is zero.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Enclose the support and justify integrability.** Choose $R>0$ such that\n$$\\operatorname{supp}F\\subset(-R,R)^n,\\qquad Q=[-R,R]^n.$$\nIf $x\\notin\\operatorname{supp}F$, some neighborhood of $x$ is disjoint from the nonzero set of $F$. On that neighborhood $F=0$, and hence $DF(x)=0$. Therefore\n$$x\\notin\\operatorname{supp}F\\ \\Longrightarrow\\ \\partial_jF_j(x)=0\\ \\text{for every }j\n\\ \\Longrightarrow\\ \\operatorname{div}F(x)=0.$$\nThe divergence is continuous because $F$ is $C^1$, so it is integrable on compact $Q$. It is zero on $Q^c$, and is therefore integrable on $\\mathbb R^n$ as well."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Spell out the face formula.** Fix $i$. Let $Q_{\\widehat i}=\\prod_{k\\ne i}[-R,R]$ and write $y=(y_k)_{k\\ne i}$. Insert the missing coordinate by\n$$\\bigl(\\iota_i(t,y)\\bigr)_k=\n\\begin{cases}t,&k=i,\\\\y_k,&k\\ne i.\\end{cases}$$\nFor fixed $y$, the scalar function $t\\mapsto F_i(\\iota_i(t,y))$ is $C^1$ and\n$$\\frac{d}{dt}F_i(\\iota_i(t,y))\n=(DF(\\iota_i(t,y))e_i)_i=\\partial_iF_i(\\iota_i(t,y)).$$\nThe face expression in the box divergence theorem is precisely the following repeated-integral calculation (Fubini on the compact box, followed by the one-dimensional fundamental theorem of calculus):\n$$\\begin{aligned}\n\\int_Q\\partial_iF_i(x)\\,dx\n&=\\int_{Q_{\\widehat i}}\\left[\\int_{-R}^{R}\n\\frac{d}{dt}F_i(\\iota_i(t,y))\\,dt\\right]dy\\\\\n&=\\int_{Q_{\\widehat i}}\\left[F_i(\\iota_i(R,y))-F_i(\\iota_i(-R,y))\\right]dy.\n\\end{aligned}$$\nSum over $i$ to obtain $\\int_Q\\operatorname{div}F$. In the source this sum is obtained directly from the cited box divergence theorem: $C^1$ supplies continuity and a derivative everywhere, the exceptional set is empty, and Step 1 supplies integrability. The calculation above explains its face terms."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Set the face values to zero and pass to the whole space.** The $i$th coordinate of $\\iota_i(\\pm R,y)$ is $\\pm R$. Hence\n$$\\iota_i(\\pm R,y)\\notin(-R,R)^n\n\\quad\\Longrightarrow\\quad\n\\iota_i(\\pm R,y)\\notin\\operatorname{supp}F\n\\quad\\Longrightarrow\\quad F_i(\\iota_i(\\pm R,y))=0.$$\nEach integrand in the last line of Step 2 is thus $0-0$. Since Step 1 also gives $\\operatorname{div}F=0$ on $Q^c$,\n$$\\begin{aligned}\n\\int_{\\mathbb R^n}\\operatorname{div}F\n&=\\int_Q\\operatorname{div}F+\\int_{Q^c}\\operatorname{div}F\\\\\n&=\\sum_{i=1}^n\\int_{Q_{\\widehat i}}(0-0)\\,dy+0=0.\n\\end{aligned}$$\nFor $n=1$, $Q_{\\widehat i}$ is the zero-dimensional one-point product; the formula is simply the difference of the two endpoint values."
+      }
+    ],
+    "lean_realization_notes": "For $n=1$ the two faces are endpoints and the same formula is the fundamental theorem of calculus. The source represents face coordinates by inserting one fixed coordinate into an $(n-1)$-tuple.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.Sphere.finrank_eq",
+  "title": "Isometric unit spheres force equal finite dimensions",
+  "stable_card_id": null,
+  "identity_key": "9a72d19802f0e564e6e71bb6da80c13c776f90f987867bd89014b6f28dcfc1ce",
+  "source_url": "mathlibannex/sources/lfh188/2f1585ca80e276a0393d9e76/index.html#L77",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Sphere/Dimension.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "2c49c2c27a365647a173f2444ec55264f482baf0c87529e776c4b4361b783ff8",
+  "accepted_guide_sha256": "0ac27177223449fcb58a31f86aba75b2be5119a0b4d4097a76a3d18258a8885f",
+  "content": {
+    "display_title": "Isometric unit spheres force equal finite dimensions",
+    "one_sentence_role": "Compares Hausdorff dimensions in both directions using the surjective Lipschitz radial maps.",
+    "natural_language_statement": "Let $X,Y$ be finite-dimensional real normed spaces and let $\\Delta:S_X\\to S_Y$ be a bijective isometry for the chord metrics inherited from their ambient norms. Here $S_X=\\{u\\in X:\\|u\\|=1\\}$ and $S_Y=\\{v\\in Y:\\|v\\|=1\\}$ are the unit spheres. Then\n\n$$\\dim_{\\mathbb R}X=\\dim_{\\mathbb R}Y.$$",
+    "definition_explanation": null,
+    "assumptions": "Both $X$ and $Y$ are finite-dimensional in this exact theorem. Each carries a real normed-space structure and $\\Delta$ is a sphere isometry equivalence. If only one space is known to be finite-dimensional, the separate transfer theorem first supplies the other hypothesis. No positive-dimension assumption is needed.",
+    "conclusion": "The natural-number dimensions of the two real vector spaces agree. The intermediate invariant is the Hausdorff dimension of the entire ambient metric space, which is an extended nonnegative real number; its identification with linear dimension is a separate finite-dimensional theorem.",
+    "proof_summary": "Write $\\dim_H(X)$ for the Hausdorff dimension of the whole metric space $X$. The map $R_\\Delta:X\\to Y$ is $3$-Lipschitz, and the inverse identities show it is surjective. The Lipschitz range theorem therefore gives\n\n$$\\dim_H(Y)=\\dim_H(R_\\Delta(X))\\le\\dim_H(X).$$\n\nFor the inverse sphere isometry, $R_{\\Delta^{-1}}:Y\\to X$ is likewise surjective and $3$-Lipschitz, giving\n\n$$\\dim_H(X)=\\dim_H(R_{\\Delta^{-1}}(Y))\\le\\dim_H(Y).$$\n\nThus the Hausdorff dimensions are equal. For each finite-dimensional real normed space the Hausdorff dimension of the whole space equals its real-linear dimension, viewed in $[0,\\infty]$. Applying that theorem to both spaces and using injectivity of the natural-number cast gives the asserted equality of linear dimensions.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Use the forward radial map with the Lipschitz range bound, then replace its range by all of $Y$ using surjectivity. This proves the inequality in the direction from $Y$ to $X$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Repeat with the inverse sphere isometry to obtain the opposite inequality. Hence the Hausdorff dimensions agree. For finite-dimensional real normed spaces these equal the real-linear dimensions, including in dimension zero."
+      }
+    ],
+    "lean_realization_notes": "The proof compares the forward and inverse radial maps. It neither uses an unproved invariance of topological dimension nor identifies either radial map with a linear map.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

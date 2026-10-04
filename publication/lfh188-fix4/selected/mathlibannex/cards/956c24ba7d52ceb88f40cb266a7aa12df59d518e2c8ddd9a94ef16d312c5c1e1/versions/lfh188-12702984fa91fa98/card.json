@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+  "title": "Two-sided inner sequences imply pure-state homogeneity",
+  "stable_card_id": "956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1",
+  "identity_key": "lfh:lfh-declaration-card:sha256:956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1",
+  "source_url": "mathlibannex/sources/lfh188/d0f9cf462b9d5dec67d1d1e6/index.html#L89",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "9d39da76b45ea1078f777c8f3b580d700e08440140502d9bc4ab0f385760bf8d",
+  "accepted_guide_sha256": "832ce53cff998750706bf07c3fb3f7cc61bd334be9358103bfbe869b1bcc373e",
+  "content": {
+    "display_title": "Two-sided inner sequences imply pure-state homogeneity",
+    "one_sentence_role": "The forward and inverse limits close the homogeneity argument once an intertwining sequence is supplied for every pure-state pair.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. A state means a positive continuous complex-linear functional taking value $1$ at the identity; a pure state is an extreme point of this convex state space. Assume that every pair of pure states $\\varphi,\\psi$ admits inner automorphisms $\\alpha_n$ such that $\\alpha_n(a)$ and $\\alpha_n^{-1}(a)$ are norm-Cauchy for every $a$, and $\\varphi(\\alpha_n(a))\\to\\psi(a)$. Then there is an automorphism $\\alpha$ with $\\varphi\\circ\\alpha=\\psi$, and for every finite $F\\subset A$ and $\\varepsilon>0$ a unitary $u$ satisfies $\\|\\alpha(a)-uau^*\\|<\\varepsilon$ for every $a\\in F$.",
+    "definition_explanation": null,
+    "assumptions": "The supplier assumption quantifies over all pure-state pairs and gives the sequence conditions just stated. The theorem is conditional on this supplier. Completeness is a property of the completed CAR algebra, not a claim that a merely dense algebraic union already has these limits.",
+    "conclusion": "The algebra has the pure-state homogeneity property. The inverse Cauchy condition is what supplies surjectivity of the limit; approximate innerness then follows by choosing one sufficiently late term for each finite set.",
+    "proof_summary": "Fix a supplied sequence and define $\\alpha(a)=\\lim_n\\alpha_n(a)$ and $\\beta(a)=\\lim_n\\alpha_n^{-1}(a)$. Operations pass through the limits, and isometry lets the exact inverse identities pass through moving inputs. Thus $\\alpha$ and $\\beta$ are mutually inverse star homomorphisms. Continuity transports the state equation to the limit, and a common late index yields the finite-set approximation.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Each automorphism is an isometry. Norm completeness and the two Cauchy hypotheses therefore give the two pointwise limits. Continuity of addition, multiplication, scalar multiplication, and involution makes the forward limit a unital complex star homomorphism; the inverse limit has the same properties."
+      },
+      {
+        "step_id": "s2",
+        "text": "For fixed $a$, use $\\alpha_n(\\alpha_n^{-1}(a))=a$. The difference between $\\alpha_n(\\beta(a))$ and this constant value has norm $\\|\\beta(a)-\\alpha_n^{-1}(a)\\|\\to0$. Passing to the limit at the fixed input $\\beta(a)$ gives $\\alpha(\\beta(a))=a$. Interchanging the two sequences gives $\\beta(\\alpha(a))=a$. This proves bijectivity rather than only injectivity."
+      },
+      {
+        "step_id": "s3",
+        "text": "Continuity of $\\varphi$ gives $\\varphi(\\alpha_n(a))\\to\\varphi(\\alpha(a))$. The supplied state limit and uniqueness of limits imply $\\varphi(\\alpha(a))=\\psi(a)$."
+      },
+      {
+        "step_id": "s4",
+        "text": "For a finite set $F$, choose a single index $N$ beyond the convergence thresholds for all $a\\in F$. If $\\alpha_N=\\operatorname{Ad}(u_N)$, then $\\|\\alpha(a)-u_Nau_N^*\\|<\\varepsilon$ on $F$. For the empty set the requirement is vacuous."
+      }
+    ],
+    "lean_realization_notes": "This assembly theorem does not itself construct the sequences. The separate pure-state supplier discharges that hypothesis for CAR. It neither uses nor proves the general all-simple-separable-algebras KOS proposition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

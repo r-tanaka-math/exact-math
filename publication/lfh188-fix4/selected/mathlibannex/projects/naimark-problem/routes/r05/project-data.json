@@ -1,0 +1,156 @@
+{
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "orientation": "prerequisite_to_dependent",
+  "node_count": 8,
+  "reachability_count": 6,
+  "display_edge_count": 5,
+  "maximum_level": 2,
+  "reachability": [
+    {
+      "prerequisite": "nm-2c0d3fdb0398d095fb6d",
+      "dependent": "nm-00fed78a11301a9b212a"
+    },
+    {
+      "prerequisite": "nm-615ead16275b381b4621",
+      "dependent": "nm-6d2b53592011c4e8f54d"
+    },
+    {
+      "prerequisite": "nm-8e59a4785711702e4c67",
+      "dependent": "nm-00fed78a11301a9b212a"
+    },
+    {
+      "prerequisite": "nm-91838f8609d34ee3ce2c",
+      "dependent": "nm-f7d88a03842d36cfe6c6"
+    },
+    {
+      "prerequisite": "nm-9211e2dd1b1d5889ae97",
+      "dependent": "nm-91838f8609d34ee3ce2c"
+    },
+    {
+      "prerequisite": "nm-9211e2dd1b1d5889ae97",
+      "dependent": "nm-f7d88a03842d36cfe6c6"
+    }
+  ],
+  "nodes": [
+    {
+      "selected_node_id": "nm-615ead16275b381b4621",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-6d2b53592011c4e8f54d"
+      ]
+    },
+    {
+      "selected_node_id": "nm-2c0d3fdb0398d095fb6d",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_rankOne",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-00fed78a11301a9b212a"
+      ]
+    },
+    {
+      "selected_node_id": "nm-8e59a4785711702e4c67",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-00fed78a11301a9b212a"
+      ]
+    },
+    {
+      "selected_node_id": "nm-9211e2dd1b1d5889ae97",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_targetShellReconstruction",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-91838f8609d34ee3ce2c"
+      ]
+    },
+    {
+      "selected_node_id": "nm-6d2b53592011c4e8f54d",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_transportedFlag_orbit_zero",
+      "level": 1,
+      "prerequisites": [
+        "nm-615ead16275b381b4621"
+      ],
+      "used_by": []
+    },
+    {
+      "selected_node_id": "nm-00fed78a11301a9b212a",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+      "level": 1,
+      "prerequisites": [
+        "nm-2c0d3fdb0398d095fb6d",
+        "nm-8e59a4785711702e4c67"
+      ],
+      "used_by": []
+    },
+    {
+      "selected_node_id": "nm-91838f8609d34ee3ce2c",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_nonzero_targetFixedSpace",
+      "level": 1,
+      "prerequisites": [
+        "nm-9211e2dd1b1d5889ae97"
+      ],
+      "used_by": [
+        "nm-f7d88a03842d36cfe6c6"
+      ]
+    },
+    {
+      "selected_node_id": "nm-f7d88a03842d36cfe6c6",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectorFamily",
+      "level": 2,
+      "prerequisites": [
+        "nm-91838f8609d34ee3ce2c"
+      ],
+      "used_by": []
+    }
+  ],
+  "display_edges": [
+    {
+      "prerequisite": "nm-2c0d3fdb0398d095fb6d",
+      "dependent": "nm-00fed78a11301a9b212a",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+        "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_rankOne"
+      ]
+    },
+    {
+      "prerequisite": "nm-615ead16275b381b4621",
+      "dependent": "nm-6d2b53592011c4e8f54d",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.tendsto_transportedFlag_orbit_zero",
+        "MathlibAnnex.CStarAlgebra.CAR.trace_transportedFlag"
+      ]
+    },
+    {
+      "prerequisite": "nm-8e59a4785711702e4c67",
+      "dependent": "nm-00fed78a11301a9b212a",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+        "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_zero"
+      ]
+    },
+    {
+      "prerequisite": "nm-91838f8609d34ee3ce2c",
+      "dependent": "nm-f7d88a03842d36cfe6c6",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectorFamily",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_targetDefectVectors",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_nonzero_targetFixedSpace"
+      ]
+    },
+    {
+      "prerequisite": "nm-9211e2dd1b1d5889ae97",
+      "dependent": "nm-91838f8609d34ee3ce2c",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_nonzero_targetFixedSpace",
+        "MathlibAnnex.CStarAlgebra.CAR.isIrreducible_restrictedRepresentation_of_all_fixed_bot",
+        "MathlibAnnex.CStarAlgebra.CAR.exists_targetShellReconstruction"
+      ]
+    }
+  ]
+}

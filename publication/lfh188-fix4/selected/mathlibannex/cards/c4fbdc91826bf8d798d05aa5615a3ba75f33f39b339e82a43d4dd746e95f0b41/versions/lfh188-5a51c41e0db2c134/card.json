@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity",
+  "title": "Pure-state homogeneity of the completed CAR algebra",
+  "stable_card_id": "c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41",
+  "identity_key": "lfh:lfh-declaration-card:sha256:c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41",
+  "source_url": "mathlibannex/sources/lfh188/953f82dbb3a89b692b273524/index.html#L1330",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/GlobalTransport.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "ef48b1d1569542be91e2565f91106dc8c5338ccceecbaa3999c5e4490e6f92c6",
+  "accepted_guide_sha256": "1170fb89d9e609e1bdbc4ca5c9a6f0bb3d6747927bf59e896aa2f8f351241e97",
+  "content": {
+    "display_title": "Pure-state homogeneity of the completed CAR algebra",
+    "one_sentence_role": "The constructed inner intertwining sequences discharge the supplier hypothesis and give an approximately inner transporting automorphism.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. A state means a positive continuous complex-linear functional taking value $1$ at the identity; a pure state is an extreme point of this convex state space. Given any pure states $\\varphi,\\psi$ on $A$, there is a complex star automorphism $\\alpha$ such that $\\varphi(\\alpha(a))=\\psi(a)$ for every $a\\in A$. For every finite set $F\\subset A$ and every $\\varepsilon>0$, a unitary $u\\in A$ can be chosen with $\\|\\alpha(a)-uau^*\\|<\\varepsilon$ for all $a\\in F$.",
+    "definition_explanation": null,
+    "assumptions": "The algebra is the fixed CAR completion, and the functionals are pure states. There is no additional intertwining-sequence hypothesis and no general Kishimoto–Ozawa–Sakai assumption.",
+    "conclusion": "The approximately inner automorphism transports $\\varphi$ to $\\psi$ in the direction $\\varphi\\circ\\alpha=\\psi$. It is surjective because the construction controls actual inverse automorphisms as well as forward maps.",
+    "proof_summary": "The pure-state sequence theorem provides inner automorphisms with forward and inverse pointwise Cauchy behavior and the transported-state limit. The conditional homogeneity theorem applies its two-sided limit construction to this supplier. These two results are exactly the dependencies composed in the selected proof.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For the chosen pure-state pair, apply the pure-state supplier theorem. Its alternating GNS construction uses the summable budget $2^{-n}$, which also tends to zero for the state estimates; the route explanation below records where each supporting dense-test estimate enters."
+      },
+      {
+        "step_id": "s2",
+        "text": "Apply the conditional two-sided-limit theorem to this supplier for all pairs. Forward and actual inverse limits are inverse to one another. Continuity preserves the state equation, and a sufficiently late inner automorphism approximates the limit simultaneously on any finite set."
+      }
+    ],
+    "lean_realization_notes": "This theorem asserts homogeneity for CAR. It does not prove the separately defined statement for all simple separable C*-algebras. Approximate innerness does not assert that the two GNS representations are already unitarily equivalent. The adjacent asymptotically inner result carries extra path data and is not the direct proof used by this declaration.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

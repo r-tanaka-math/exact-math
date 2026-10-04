@@ -1,0 +1,106 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/45f3a1a7d6682d525b71a767/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/45f3a1a7d6682d525b71a767/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean</code>, lines 22–32.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb/versions/n69-b52e1fdd8374862f/index.html">Back to Approximately inner homogeneity of pure CAR states</a> · <a href="../../../cards/c4fbdc91826bf8d798d05aa5615a3ba75f33f39b339e82a43d4dd746e95f0b41/versions/n69-4081c8ebb5e78e14/index.html">Back to Pure-state homogeneity of the completed CAR algebra</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.ApproximateIntertwining</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.FiniteAverage</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.NoCompacts</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import MathlibAnnex.Analysis.CStarAlgebra.PureStateHomogeneity.KishimotoOzawaSakai</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a></span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>/-!</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a># The CAR homogeneity endpoint and its two-sided limit adapter</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>`PureStateHomogeneity` is the exact CAR-specialized endpoint (`K_CAR`).  The</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>second definition records the constructive output still required from the</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>local pure-state movement argument.  The theorem in this file closes that</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>output by the proved two-sided point-norm limit machinery; it does not assume</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>an automorphism or homogeneity as an input.</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>-/</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>set_option autoImplicit false</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>open Filter</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line selected" id="L22"><a class="line-no" href="#L22">22</a>/-- Approximate-inner homogeneity for the actual completed CAR algebra.  This</span>
+<span class="source-line selected" id="L23"><a class="line-no" href="#L23">23</a>is the exact `K_CAR` proposition and is deliberately distinct from the</span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a>all-simple-algebras statement `MathlibAnnex.CStarAlgebra.KishimotoOzawaSakaiProperty`. -/</span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>def PureStateHomogeneity : Prop :=</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>  ∀ (phi psi : Limit →L[ℂ] ℂ), MathlibAnnex.CStarAlgebra.IsPureState Limit phi →</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a>    MathlibAnnex.CStarAlgebra.IsPureState Limit psi →</span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>      ∃ alpha : Limit ≃⋆ₐ[ℂ] Limit,</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>        (∀ a : Limit, phi (alpha a) = psi a) ∧</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>        ∀ (F : Finset Limit) (epsilon : ℝ), 0 &lt; epsilon →</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>          ∃ v : unitary Limit, ∀ a ∈ F,</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>            ‖alpha a - (v : Limit) * a * star (v : Limit)‖ &lt; epsilon</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a></span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>/-- Asymptotically-inner homogeneity for the completed CAR algebra.  The</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>implementing path is parametrized by `ℝ` and starts at one.  Negative-time</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>constancy is a property of the concrete path built below, not a field of this</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>predicate.  Both the automorphisms and their actual inverses converge</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>point-norm. -/</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>def AsymptoticallyInnerPureStateHomogeneity : Prop :=</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>  ∀ (phi psi : Limit →L[ℂ] ℂ), MathlibAnnex.CStarAlgebra.IsPureState Limit phi →</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    MathlibAnnex.CStarAlgebra.IsPureState Limit psi →</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>      ∃ alpha : Limit ≃⋆ₐ[ℂ] Limit, ∃ U : ℝ → unitary Limit,</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>        Continuous U ∧ U 0 = 1 ∧</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>        (∀ a : Limit, phi (alpha a) = psi a) ∧</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>        (∀ a : Limit, Tendsto</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>          (fun t ↦ Unitary.conjStarAlgAut ℂ Limit (U t) a)</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>          atTop (nhds (alpha a))) ∧</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>        ∀ a : Limit, Tendsto</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>          (fun t ↦ (Unitary.conjStarAlgAut ℂ Limit (U t)).symm a)</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>          atTop (nhds (alpha.symm a))</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a></span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>/-- Forgetting the path, asymptotically-inner homogeneity implies the</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>original point-norm approximately-inner endpoint. -/</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>theorem homogeneity_of_asymptoticallyInner</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    (h : AsymptoticallyInnerPureStateHomogeneity) : PureStateHomogeneity := by</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  intro phi psi hphi hpsi</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  obtain ⟨alpha, U, _hU, _hU0, hstate, hforward, _hinverse⟩ :=</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    h phi psi hphi hpsi</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  refine ⟨alpha, hstate, ?_⟩</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  intro F epsilon hepsilon</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>  have hfinite : ∀ᶠ t in atTop, ∀ a ∈ F,</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>      ‖alpha a - Unitary.conjStarAlgAut ℂ Limit (U t) a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>    apply (F.eventually_all).2</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    intro a _ha</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    have ha := (hforward a) (Metric.ball_mem_nhds _ hepsilon)</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>    filter_upwards [ha] with t ht</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    change dist (Unitary.conjStarAlgAut ℂ Limit (U t) a) (alpha a) &lt; epsilon at ht</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    rw [dist_eq_norm, norm_sub_rev] at ht</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    exact ht</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  obtain ⟨t, ht⟩ := hfinite.exists</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>  refine ⟨U t, ?_⟩</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  intro a ha</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>  change ‖alpha a - Unitary.conjStarAlgAut ℂ Limit (U t) a‖ &lt; epsilon</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>  exact ht a ha</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a></span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>/-- Concrete two-sided output expected from an alternating local movement</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>construction.  It asks for inner automorphisms, pointwise Cauchy control of</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>both them and their actual inverses, and convergence of the transported</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>state.  It contains no endpoint automorphism field. -/</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>def HasInnerIntertwiningSequence (phi psi : Limit →L[ℂ] ℂ) : Prop :=</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>  ∃ f : ℕ → StarAlgEquiv ℂ Limit Limit,</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>    (∀ a, CauchySeq (fun n =&gt; f n a)) ∧</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    (∀ a, CauchySeq (fun n =&gt; (f n).symm a)) ∧</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>    (∀ n, ∃ u : unitary Limit,</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>      f n = Unitary.conjStarAlgAut ℂ Limit u) ∧</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>    ∀ a, Tendsto (fun n =&gt; phi (f n a)) atTop (nhds (psi a))</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a></span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>/-- The proved two-sided limit turns the exact constructive sequence contract</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>into the exact CAR endpoint.  In particular, surjectivity is not inferred</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>from a forward pointwise limit alone. -/</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>theorem homogeneity_of_innerIntertwiningSequences</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    (hlocal : ∀ (phi psi : Limit →L[ℂ] ℂ),</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>      MathlibAnnex.CStarAlgebra.IsPureState Limit phi → MathlibAnnex.CStarAlgebra.IsPureState Limit psi →</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>        HasInnerIntertwiningSequence phi psi) :</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    PureStateHomogeneity := by</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>  intro phi psi hphi hpsi</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>  obtain ⟨f, hf, hfinv, hinner, hstate⟩ := hlocal phi psi hphi hpsi</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>  let alpha := MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit f hf hfinv</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>  have hend :=</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>    MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit_state_and_approximatelyInner</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>      f hf hfinv hinner phi psi hstate</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>  refine ⟨alpha, hend.1, ?_⟩</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>  exact hend.2</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a></span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

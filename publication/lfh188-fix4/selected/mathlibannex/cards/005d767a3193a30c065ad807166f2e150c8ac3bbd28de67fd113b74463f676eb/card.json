@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "b3c6c11de871c76e01fa1da09b676196f6b64eebc2f05419911454a7668d20a3",
+  "approved_card_model_sha256": "8bc30b877f08c882b8c139e635d293e5c7dc49b059cc19b41e2ec46e8252007c",
+  "assumptions": "Let D be a unital star subalgebra of a unital complex C*-algebra A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "6ecd9d4cd166a51597108ebc647b9591f3f695086b94c6969a58bccef565a979",
+    "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+  },
+  "citations": [],
+  "conclusion": "D is commutative, and any commutative unital star subalgebra E containing D is contained in D; thus D is maximal for inclusion among such subalgebras.",
+  "declaration_kind": "def",
+  "definition_equation": "IsMaximalAbelian D ↔ IsMulCommutative D ∧ ∀ E, IsMulCommutative E → D ≤ E → E ≤ D.",
+  "definition_explanation": "IsMaximalAbelian D ↔ IsMulCommutative D ∧ ∀ E, IsMulCommutative E → D ≤ E → E ≤ D.",
+  "display_title": "Maximal abelian star subalgebra",
+  "exact_elaborated_lean_type": "{A : Type u} → [inst : CStarAlgebra A] → StarSubalgebra ℂ A → Prop",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "4c14a0a65a9342dc7d1fbea8a2829b6ad99e4832b3fd931ae2cd04b9aea899f5",
+    "uid": "lfh:lfh-card-exposition:sha256:fdd9dc3e1e3bcc5e6a6ef6b0f03d893d213f16607d033d71885399a7eeb92d1b"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "f830f627c6907964206109bd4182cbe0f7c1693ca9fda1d2aa89b88f8cb10731",
+    "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "4c14a0a65a9342dc7d1fbea8a2829b6ad99e4832b3fd931ae2cd04b9aea899f5",
+    "uid": "lfh:lfh-card-exposition:sha256:fdd9dc3e1e3bcc5e6a6ef6b0f03d893d213f16607d033d71885399a7eeb92d1b"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "f830f627c6907964206109bd4182cbe0f7c1693ca9fda1d2aa89b88f8cb10731",
+      "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.IsMaximalAbelian",
+  "natural_language_statement": "Let D be a unital star subalgebra of a unital complex C*-algebra A. D is commutative, and any commutative unital star subalgebra E containing D is contained in D; thus D is maximal for inclusion among such subalgebras.",
+  "one_sentence_role": "Defines maximal abelian unital star subalgebras by commutativity and maximality under inclusion.",
+  "owner_review_item_sha256": "cf0685e63042f97e2c991cd091f7c8b2222e7959167f4452557f8e08d17e7c63",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → [inst : CStarAlgebra A] → StarSubalgebra ℂ A → Prop"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsMaximalAbelian D ↔ IsMulCommutative D ∧ ∀ E, IsMulCommutative E → D ≤ E → E ≤ D."
+    },
+    {
+      "step_id": "source_route",
+      "text": "This definition does not itself add a closedness conjunct. Closedness, when needed later, comes from a separate theorem about maximal abelian subalgebras."
+    }
+  ],
+  "proof_summary": "This definition does not itself add a closedness conjunct. Closedness, when needed later, comes from a separate theorem about maximal abelian subalgebras.",
+  "source_excerpt": {
+    "bytes": 289,
+    "sha256": "cc447eba3b173c2017d55db43fc5e88fc90a52de3a6359eace8067a77c9c99fc"
+  },
+  "source_locator": {
+    "end_column": 65,
+    "end_line": 29,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelian.lean",
+    "source_sha256": "97ae04433e2f96c0c9733a73e4a1415b51f624ddb2afd2aa45d584f8795aacb7",
+    "start_column": 1,
+    "start_line": 25
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelian.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "9afa42deaa36f53d0f06356dd477c6e6af230d267a1a30f9d3aaea67e2e7d2d5",
+    "uid": "lfh:lfh-source-build-binding:sha256:b63e6e5e47091fdab51529ea3cd343208e4469dcfffeab25bce20a13eeccba43"
+  },
+  "source_sha256": "97ae04433e2f96c0c9733a73e4a1415b51f624ddb2afd2aa45d584f8795aacb7",
+  "source_signature": {
+    "end_byte": 738,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "b8870cb660a4e8ef2c90f8fff9237a003e71452589a02fc8dceda08c739cc8bb",
+    "source_command_range": {
+      "end_column": 65,
+      "end_line": 29,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelian.lean",
+      "source_sha256": "97ae04433e2f96c0c9733a73e4a1415b51f624ddb2afd2aa45d584f8795aacb7",
+      "start_column": 1,
+      "start_line": 25
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelian.lean",
+    "source_sha256": "97ae04433e2f96c0c9733a73e4a1415b51f624ddb2afd2aa45d584f8795aacb7",
+    "start_byte": 684,
+    "text": "def IsMaximalAbelian (D : StarSubalgebra ℂ A) : Prop"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelian.lean#L25-L29",
+  "stable_card_id": "005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

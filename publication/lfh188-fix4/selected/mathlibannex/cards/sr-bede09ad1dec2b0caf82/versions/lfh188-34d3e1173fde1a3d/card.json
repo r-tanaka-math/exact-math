@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.aeConstants_eq_of_open_overlap",
+  "title": "Identifying constants on an open overlap",
+  "stable_card_id": null,
+  "identity_key": "a02bb8e7cb1179cf572b9d9e736167b4986aeaaa8740004b810dee58f629daff",
+  "source_url": "mathlibannex/sources/lfh188/bed3b7a270f86eb49175af9d/index.html#L92",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/MeasureTheory/Function/AEConstant.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "4e5de888bc0c487988483f96f900779ad93931a4d8d21fc6add9be9d938246f3",
+  "accepted_guide_sha256": "dfdbe70d1af7ebaba4806aeb68fd5e86d82bc7bac0050ab42fe7350de7477119",
+  "content": {
+    "display_title": "Identifying constants on an open overlap",
+    "one_sentence_role": "Uses positive measure to find a point where both almost-everywhere equalities hold.",
+    "natural_language_statement": "Let $X$ have a topology and a measurable structure, and let $\\mu$ be a measure that assigns positive measure to every nonempty open set. Let $Y$ be any set, $u:X\\to Y$, and $c,d\\in Y$. Suppose $V,W\\subseteq X$ are open, $V\\cap W\\ne\\varnothing$, and\n$$u=c\\quad\\mu|_V\\text{-almost everywhere},\\qquad\nu=d\\quad\\mu|_W\\text{-almost everywhere}.$$\nThen $c=d$.",
+    "definition_explanation": null,
+    "assumptions": "No topology or measurable structure on $Y$ is required. There is no Haar, finite-measure, or Borel-compatibility assumption. Openness and nonempty overlap are used through positivity of that overlap, rather than through an assumed measurable-set identity.",
+    "conclusion": "The two constants coincide as elements of $Y$. A selected point of $V\\cap W$ need not satisfy either equality; positivity permits choosing a point outside both exceptional sets.",
+    "proof_summary": "Restrict both equalities to the intersection, combine them there, and use positive measure to obtain a common good point.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Restrict the equalities.** Put $O=V\\cap W$. Monotonicity of restriction transports the first almost-everywhere equality from $V$ to $O$, and the second from $W$ to $O$. Their conjunction holds almost everywhere for $\\mu|_O$:\n$$u(y)=c\\ \\text{and}\\ u(y)=d\\qquad\\text{for }\\mu|_O\\text{-almost every }y.$$\nTaking this finite conjunction is legitimate without any countable-cover assumption."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Choose a good point.** The set $O$ is nonempty and open, so $0<\\mu(O)$. The [positive-measure existence lemma](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/MeasureTheory/Measure/Restrict.lean#L416-L419) applied to the preceding conjunction supplies a point $y\\in O$ at which both equalities hold. Therefore\n$$c=u(y)=d.$$\nThis is the step that would fail if the overlap merely contained a point but had measure zero."
+      }
+    ],
+    "lean_realization_notes": "As throughout the gluing argument, $u=c$ almost everywhere on $V$ means almost everywhere for the restricted measure $\\mu|_V$. The measure of the overlap may be infinite; only its being nonzero is needed.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

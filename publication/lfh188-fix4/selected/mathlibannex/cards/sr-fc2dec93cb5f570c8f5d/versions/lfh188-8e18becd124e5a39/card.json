@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.PluckerBody.normalizedGenerator_mem_of_sphereIsometry",
+  "title": "A target contraction generator lies in the source body",
+  "stable_card_id": null,
+  "identity_key": "487f23f1b28e8a5e7c45ca775cbec78f67cbf4d6b92645df70301a46e272a772",
+  "source_url": "mathlibannex/sources/lfh188/4ebab55d64d1ad39a166b9d9/index.html#L134",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Plucker/BodyInvariance.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d0157f88f3d702b5365e3797e3b8a11c8764945986637091085e6fd4585ebec1",
+  "accepted_guide_sha256": "bb5e9ff6f537f5d87b15ac86e9a8f0a428a9316f1dd69f711ce424e2ef96083b",
+  "content": {
+    "display_title": "A target contraction generator lies in the source body",
+    "one_sentence_role": "Transfers membership through two extensions with the same boundary trace.",
+    "natural_language_statement": "Let $m,N\\in\\mathbb N_0$, put $n=m+1>0$, and give $E=\\mathbb R^n$ and $F=\\mathbb R^N$ their coordinate sup norms. Let $\\lambda_n$ be the fixed coordinate Lebesgue measure on $E$. Let $p,q:E\\to\\mathbb R$ be continuous real seminorms with specified positive constants $a_p,b_p,a_q,b_q$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty,\\qquad a_q\\|x\\|_\\infty\\le q(x)\\le b_q\\|x\\|_\\infty\\quad(x\\in E).$$\n\nBoth $p$ and $q$ are norms. For each $s\\in\\{p,q\\}$ define the closed unit ball, unit sphere, and real reference volume by\n$$K_s=\\{x:s(x)\\le1\\},\\qquad\\Sigma_s=\\{x:s(x)=1\\},\\qquad v_s=\\lambda_n(K_s)\\in(0,\\infty).$$\nThe finite measure is read as a real number when used as a scalar.\n\nLet $\\mathcal I_{n,N}$ be the finite set of increasing $n$-tuples of distinct rows from $\\{1,\\ldots,N\\}$. The minor-coordinate space $\\mathbb R^{\\mathcal I_{n,N}}$ carries its sup norm. For a linear map $B:E\\to F$, put $B_{ij}=(Be_j)_i$ in the standard coordinate basis. Write $\\Pi_n(B)$ for its maximal-minor vector and $\\mathcal V_p(B),\\mathcal V_q(B)$ for its two volume-scaled versions. Their coordinates and scaling are\n$$\\Pi_n(B)_I=\\det(B_{i_a,j})_{a,j=1}^n,\\qquad\\mathcal V_s(B)=v_s\\Pi_n(B)\\ (s\\in\\{p,q\\})\\quad(I=(i_1<\\cdots<i_n)).$$\n\nA $p$-contraction is a linear map $B:E\\to F$ satisfying $\\|Bz\\|_\\infty\\le p(z)$ for every $z\\in E$. Write $\\mathcal C_p^N$ for these maps. Write $\\mathcal G_p^N$ for the signed generator set and $\\mathcal P_p^N$ for its real convex hull, so\n$$\\mathcal G_p^N=\\{\\mathcal V_p(B),-\\mathcal V_p(B):B\\in\\mathcal C_p^N\\},\\qquad\\mathcal P_p^N=\\operatorname{conv}_{\\mathbb R}(\\mathcal G_p^N).$$\n\nLet $\\Delta:\\Sigma_p\\to\\Sigma_q$ be a bijection preserving chord distances, so\n$$q(\\Delta(u)-\\Delta(v))=p(u-v)\\qquad(u,v\\in\\Sigma_p).$$\nRead its radial extension on the reference coordinates:\n$$R_\\Delta(0)=0,\\qquad R_\\Delta(x)=p(x)\\Delta(x/p(x))\\quad(x\\ne0).$$\nFor $x\\ne0$, positivity of $p(x)$ makes $x/p(x)\\in\\Sigma_p$, so this is defined.\n\nLet $A:E\\to F$ be a $q$-contraction, meaning $\\|Az\\|_\\infty\\le q(z)$ for all $z\\in E$. Then its target generator belongs to the source body:\n$$\\mathcal V_q(A)\\in\\mathcal P_p^N.$$",
+    "definition_explanation": null,
+    "assumptions": "The dimension is $n=m+1>0$. The norms $p,q$ have the stated continuity and positive comparison constants; $\\Delta$ is a bijective chord-distance isometry. Here $A$ must be a $q$-contraction. The integration measure remains fixed, and $N$ is any nonnegative integer.",
+    "conclusion": "The positively signed target vector $v_q\\Pi_n(A)$ belongs to $\\mathcal P_p^N$, regardless of the orientation sign of the radial extension.",
+    "proof_summary": "Extend the boundary contraction, compare its average with a radial average, then use sign symmetry.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Form the boundary map and extend it.** Let $h(u)=A\\Delta(u)$ for $u\\in\\Sigma_p$. Then\n$$\\|h(u)-h(v)\\|_\\infty=\\|A(\\Delta(u)-\\Delta(v))\\|_\\infty\\le q(\\Delta(u)-\\Delta(v))=p(u-v).$$\nThe contraction hypothesis and chord isometry supply exactly the input of [the boundary-extension theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/BoundaryExtension.lean#L95-L109). Choose its single witness $f$. For any $k:E\\to F$, write $Dk(x)$ for its Fréchet derivative where it exists and for zero otherwise. Define\n$$G_{p,k}(x)=v_p\\Pi_n(Dk(x)),\\qquad \\mathcal A_p(k)=v_p^{-1}\\int_{K_p}G_{p,k}(x)\\,d\\lambda_n(x).$$ The five outputs are\n$$\\begin{gathered}\\|f(x)-f(y)\\|_\\infty\\le p(x-y),\\qquad f|_{\\Sigma_p}=h,\\\\Df(x)\\in\\mathcal C_p^N\\ \\text{a.e. on }K_p,\\qquad G_{p,f}\\in L^1(K_p),\\qquad\\mathcal A_p(f)\\in\\mathcal P_p^N.\\end{gathered}$$"
+      },
+      {
+        "step_id": "s2",
+        "text": "**Compare two extensions only on the boundary.** Put $H=A\\circ R_\\Delta$. For every $u\\in\\Sigma_p$,\n$$f(u)=h(u)=A\\Delta(u)=A(R_\\Delta(u))=H(u).$$\nThe equality $R_\\Delta(u)=\\Delta(u)$ holds because $p(u)=1$. The maps may differ away from the boundary. Let $\\|A\\|_{\\mathrm{op}}$ denote the operator norm for the two coordinate sup norms. Their global reference-norm estimates are\n$$\\begin{aligned}\\|f(x)-f(y)\\|_\\infty&\\le b_p\\|x-y\\|_\\infty,\\\\\n\\|H(x)-H(y)\\|_\\infty&\\le\\|A\\|_{\\mathrm{op}}\\frac{3b_p}{a_q}\\|x-y\\|_\\infty.\\end{aligned}$$\nFor the second, use linearity of $A$ and the radial $3$-Lipschitz estimate with the comparison constants; it is not a $1$-Lipschitz assertion for the radial extension."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Transfer the minor integrals and normalize.** For each $I\\in\\mathcal I_{n,N}$, the boundary comparison gives\n$$\\int_{K_p}\\Pi_n(Df(x))_I\\,d\\lambda_n(x)=\\int_{K_p}\\Pi_n(DH(x))_I\\,d\\lambda_n(x).$$\nApply [the boundary-equality theorem for maximal-minor integrals](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Integral/MaximalMinorBoundary.lean#L297-L309) with the continuous seminorm $p$, compact ball $K_p$, positive dimension $n=m+1$, maps $f,H$, and the global Lipschitz bounds of Step 2. Its remaining hypothesis is exactly $f(u)=H(u)$ on $\\Sigma_p$, also established in Step 2. This produces the displayed equality for the same row selection $I$.\n[Compact-set integrability of derivative generators](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/Average.lean#L83-L114) applied separately to $f$ and $H$ on $K_p$ justifies their vector integrals. For either $k=f$ or $k=H$,\n$$\\begin{aligned}(\\mathcal A_p(k))_I\n&=v_p^{-1}\\int_{K_p}v_p\\Pi_n(Dk(x))_I\\,d\\lambda_n(x)\\\\\n&=\\int_{K_p}\\Pi_n(Dk(x))_I\\,d\\lambda_n(x).\n\\end{aligned}$$\nThe cancellation uses $v_p>0$. Substituting the equal minor integrals yields\n$$\\mathcal A_p(f)=\\mathcal A_p(H).$$\nThis is [the average comparison from boundary traces](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/BodyInvariance.lean#L120-L131); it compares the averages, not the functions away from their common boundary."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Insert the signed radial average and remove its sign.** [The common-sign radial-average theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/RadialAverage.lean#L331-L363) supplies $\\sigma\\in\\{1,-1\\}$ and\n$$\\sigma\\mathcal V_q(A)=\\mathcal A_p(H)=\\mathcal A_p(f)\\in\\mathcal P_p^N.$$\nRead from the known member at the right: Step 1 gives $\\mathcal A_p(f)\\in\\mathcal P_p^N$; Step 3 identifies this vector with $\\mathcal A_p(H)$; the radial-average formula identifies it with $\\sigma\\mathcal V_q(A)$. If $\\sigma=1$, this already gives the conclusion. If $\\sigma=-1$, [body sign symmetry](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L41-L50) applied to $-\\mathcal V_q(A)$ gives $\\mathcal V_q(A)\\in\\mathcal P_p^N$."
+      }
+    ],
+    "lean_realization_notes": "The historical name “normalized generator” refers here to the volume-multiplied vector $v_q\\Pi_n(A)$. It is not division by $v_q$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

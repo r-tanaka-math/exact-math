@@ -1,0 +1,390 @@
+{
+  "boundary_inputs": {
+    "curated_count": 15,
+    "featured": [
+      {
+        "name": "NormedAddCommGroup",
+        "provider_module": "Mathlib.Analysis.Normed.Group.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+          "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+        ]
+      },
+      {
+        "name": "NormedAddCommGroup.toSeminormedAddCommGroup",
+        "provider_module": "Mathlib.Analysis.Normed.Group.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+          "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+        ]
+      },
+      {
+        "name": "Real",
+        "provider_module": "Mathlib.Data.Real.Basic",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+          "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+        ]
+      },
+      {
+        "name": "Set",
+        "provider_module": "Mathlib.Data.Set.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+          "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+        ]
+      },
+      {
+        "name": "AddCommGroup.toDivisionAddCommMonoid",
+        "provider_module": "Mathlib.Algebra.Group.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddCommMonoidWithOne.toAddMonoidWithOne",
+        "provider_module": "Mathlib.Data.Nat.Cast.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddGroup.toSubNegMonoid",
+        "provider_module": "Mathlib.Algebra.Group.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddGroupWithOne.toAddGroup",
+        "provider_module": "Mathlib.Data.Int.Cast.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddGroupWithOne.toAddMonoidWithOne",
+        "provider_module": "Mathlib.Data.Int.Cast.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddMonoid.toAddSemigroup",
+        "provider_module": "Mathlib.Algebra.Group.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddMonoidWithOne",
+        "provider_module": "Mathlib.Data.Nat.Cast.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddMonoidWithOne.toNatCast",
+        "provider_module": "Mathlib.Data.Nat.Cast.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddMonoidWithOne.toOne",
+        "provider_module": "Mathlib.Data.Nat.Cast.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AddSemigroup.toAdd",
+        "provider_module": "Mathlib.Algebra.Group.Defs",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      },
+      {
+        "name": "AffineIsometryEquiv",
+        "provider_module": "Mathlib.Analysis.Normed.Affine.Isometry",
+        "role": "Compiled external provider used by selected Project declarations.",
+        "used_by_selected_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+          "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+          "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+        ]
+      }
+    ],
+    "raw_count": 961,
+    "summary": "961 exact Boundary Inputs: EXTERNAL_COMPILED_DECLARATION 896, OMITTED_INTERNAL_NATIVE_DECLARATION 65. Selected reachability is retained through every omitted internal declaration."
+  },
+  "graph": {
+    "display_edge_count": 10,
+    "full_formal_graph_sha256": "e0c69751546f310fb7e15d2915c7e7b0f6a710eb0bc33269b24c2b228bcb5425",
+    "full_project_level_map_sha256": "94a7e1f85ab4daea5f376726ef3bed0314a591c2aff64bde72e29e33e0a9bcfa",
+    "maximum_level": 8,
+    "naive_induced_lost_pairs": 40,
+    "node_count": 11,
+    "orientation": "dependent_to_prerequisite",
+    "reachability_count": 52
+  },
+  "identity": {
+    "slug": "mankiewicz",
+    "title": "Mankiewicz Extension Theorem"
+  },
+  "overview": {
+    "bridges": [
+      {
+        "terminal_node_ids": [
+          "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+          "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+          "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+        ],
+        "text": "A bounded symmetric lens is reflection-invariant about the midpoint. Center rigidity sends that midpoint to the target midpoint, first on lenses and then on contained balls.",
+        "title": "Reflection to midpoint rigidity"
+      },
+      {
+        "terminal_node_ids": [
+          "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+          "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+        ],
+        "text": "Midpoint preservation yields line-map preservation. Radial-map support declarations, including private technical lemmas, connect this result to a local affine isometric extension. The path witnesses retain these declarations even though they are outside the selected Card scope.",
+        "title": "Local affinity through omitted support lemmas"
+      },
+      {
+        "terminal_node_ids": [
+          "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+          "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+          "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+          "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+        ],
+        "text": "Local extensions agree and assemble over an open connected domain. A convex source with nonempty ambient interior, together with exact preservation of ambient-interior membership, yields the convex specialization; open- and closed-ball corollaries follow under their exact radius conditions. The closed-ball route also uses reflection rigidity.",
+        "title": "Global assembly and specializations"
+      }
+    ],
+    "hypotheses": "Real normed spaces and an isometry equivalence. The principal theorem requires an open connected source and an open target. The convex specialization requires a convex source set with nonempty ambient interior and exact preservation of ambient-interior membership; the target set is not separately assumed convex. Exact assumptions, including radius conditions for balls, remain in the linked exact declarations.",
+    "principal_result": "An isometry equivalence from an open connected subset onto an open subset of real normed spaces extends uniquely to an affine isometry equivalence of the ambient spaces. The selected route also reaches convex-domain and ball specializations.",
+    "scope_limits": "The eleven declaration explanations are reviewed for source-exposition correspondence. This does not claim a line-by-line human proof audit. Boundary Inputs include Lean Core, Mathlib, and omitted MathlibAnnex support declarations.",
+    "why_it_matters": "Local distance information becomes a rigid affine structure. This Project exposes the reusable chain from reflection and midpoint geometry to global extension."
+  },
+  "presentation": {
+    "kind_label": "Theorem Project",
+    "notice": "Eleven reviewed canonical Declaration Cards remain independent records. Project relations navigate within this page."
+  },
+  "project_kind": "card-backed",
+  "record_type": "LFH_PROJECT_SUCCESSOR_CANDIDATE",
+  "revision": "R1",
+  "route_presets": [
+    {
+      "expected_visible_count": 8,
+      "expected_visible_node_ids_sha256": "d540c7fa47e09a3672090ba9e28ac8068261541cb622a14e784f1cd4eb62c1dd",
+      "focus_semantics": "ANCESTOR_CLOSURE_IN_PROJECT",
+      "full_project_level_map_sha256": "94a7e1f85ab4daea5f376726ef3bed0314a591c2aff64bde72e29e33e0a9bcfa",
+      "id": "mankiewicz",
+      "label": "Mankiewicz theorem",
+      "review_state": "EXISTING_OVERVIEW_PRESERVED_NATIVE_TERMINALS_RECHECKED",
+      "status": "ACTIVE",
+      "terminal_node_ids": [
+        "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+      ]
+    }
+  ],
+  "schema": "exact.lfh.project-successor-candidate.v1",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "entry_path": "MathlibAnnex/Projects/Mankiewicz.lean",
+    "entry_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Projects/Mankiewicz.lean",
+    "lfh_publication_state": "PUBLIC",
+    "manifest_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/docs/projects/mankiewicz.json",
+    "release_id": 392532070,
+    "release_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0",
+    "source_publication_state": "PUBLIC_RELEASE_READBACK_COMPLETE",
+    "tag": "v0.4.0",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "status": {
+    "active_public_canonical_links": 11,
+    "catalog_current": true,
+    "lfh_publication_state": "PUBLIC",
+    "owner_card_review": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+    "owner_project_overview_review": "UNCHANGED_PROSE_NO_REPEAT_REVIEW_REQUIRED",
+    "public_cards": 11,
+    "source_release": "PUBLIC_V040",
+    "state": "PUBLIC_BOUND_TO_V040_SOURCE",
+    "website_effect": "PUBLIC_CURRENT"
+  },
+  "technical_identity": {
+    "boundary_inputs_all": 961,
+    "boundary_inputs_curated": 15,
+    "card_successor_map_sha256": "5fe53789e6616006309c72df76279cdd829004007a61651bdbfa297c6b9ff16a",
+    "display_edges": 10,
+    "fixture": "CURRENT_PUBLIC_MANKIEWICZ",
+    "full_native_graph_sha256": "e0c69751546f310fb7e15d2915c7e7b0f6a710eb0bc33269b24c2b228bcb5425",
+    "graph_portable_sha256": "b7c488ac9860f5cb6729b9e4c9cdba9f3fdd107df2201bf9489c0923f3b0735f",
+    "maximum_level": 8,
+    "public_cards": 11,
+    "reachability_pairs": 52,
+    "selected_cards": 11,
+    "source_tag": "v0.4.0"
+  },
+  "website_presentation": {
+    "notice": "Eleven reviewed canonical Declaration Cards remain independent records. Project relations navigate within this page.",
+    "card_action_label": "Open Declaration Card",
+    "publication_authorized": true
+  },
+  "website_publication": {
+    "publication_authorized": true,
+    "publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/projects/mankiewicz/",
+    "batch": "EM_FULL_HP_PUBLICATION_R1",
+    "owner_whole_site_publication_authorized": true,
+    "new_mathematical_review": false
+  }
+}

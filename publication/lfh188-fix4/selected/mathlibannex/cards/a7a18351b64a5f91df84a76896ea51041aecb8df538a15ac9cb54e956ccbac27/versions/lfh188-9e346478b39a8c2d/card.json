@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_state_extension_trace",
+  "title": "Uniqueness among all state extensions of the CAR trace",
+  "stable_card_id": "a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27",
+  "identity_key": "lfh:lfh-declaration-card:sha256:a7a18351b64a5f91df84a76896ea51041aecb8df538a15ac9cb54e956ccbac27",
+  "source_url": "mathlibannex/sources/lfh188/3b6b0d10c202606d3800d8a4/index.html#L52",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceExtensionUnique.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "7cc334a512bcad3c43e64c59aa327eebe3bab0ab009cb16edc4bb10ead4246c0",
+  "accepted_guide_sha256": "47b788ef24df2c4709a275c1dd408f69f0c1c06a10ced2368a90d8c8cf3f452f",
+  "content": {
+    "display_title": "Uniqueness among all state extensions of the CAR trace",
+    "one_sentence_role": "Pointed transport identifies arbitrary state extensions before traciality is proved.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. There is exactly one state $\\phi$ on $T$ such that $\\phi\\circ\\iota=\\tau$. Uniqueness here ranges over all state extensions, including those not assumed tracial.",
+    "definition_explanation": null,
+    "assumptions": "Only the fixed representative shell family is given. A competing functional $\\psi$ must be a state on $T$ and satisfy $\\psi(\\iota(a))=\\tau(a)$ for every $a\\in A$.",
+    "conclusion": "Every such $\\psi$ equals the chosen extension $\\phi$. The existence and uniqueness refer to the same fixed algebra $T$.",
+    "proof_summary": "Construct the two target GNS representations and apply pointed unitary transport from their common source trace. Equality of the vector functionals then gives equality of states.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Existence is `exists_state_extension_trace`. For an arbitrary competing state $\\psi$, let $(H_\\psi,\\rho_\\psi,\\xi_\\psi)$ be its GNS representation; define $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$ for the chosen extension. Both target orbits are dense and their source vector functionals are $\\tau$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Apply `exists_pointed_unitary_of_trace_of_cyclic` with the $\\psi$ representation first and the $\\phi$ representation second. Its hypotheses are exactly the two restriction equalities and target cyclicity. It gives a unitary\n\n$$E_\\psi:H_\\psi\\longrightarrow H_\\phi,\\quad E_\\psi\\xi_\\psi=\\xi_\\phi,\\quad E_\\psi\\rho_\\psi(t)=\\rho_\\phi(t)E_\\psi\\quad(t\\in T).$$"
+      },
+      {
+        "step_id": "s3",
+        "text": "For every $t\\in T$, preservation of the inner product and these two identities give\n\n$$\\begin{aligned}\n\\psi(t)&=\\langle\\xi_\\psi,\\rho_\\psi(t)\\xi_\\psi\\rangle\\\\\n&=\\langle E_\\psi\\xi_\\psi,E_\\psi\\rho_\\psi(t)\\xi_\\psi\\rangle\\\\\n&=\\langle\\xi_\\phi,\\rho_\\phi(t)\\xi_\\phi\\rangle=\\phi(t).\n\\end{aligned}$$\n\nThis is the pointwise equality used by `eq_traceExtension_of_mem_stateSpace_of_apply_shellFamilySourceHom_eq_trace`; extensionality then gives $\\psi=\\phi$."
+      }
+    ],
+    "lean_realization_notes": "The argument does not use uniqueness among tracial states to prove this stronger extension uniqueness. The unitary below compares the GNS representations of two possibly different extension states; it is not an identification of independently chosen vectors without a transport theorem.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

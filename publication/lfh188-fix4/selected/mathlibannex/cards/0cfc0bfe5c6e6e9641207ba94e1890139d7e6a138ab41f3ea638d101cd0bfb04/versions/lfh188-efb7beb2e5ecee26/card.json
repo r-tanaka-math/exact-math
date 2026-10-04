@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.map_lineMap_of_mem_ball",
+  "title": "Affine-segment preservation on a quarter ball",
+  "stable_card_id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+  "identity_key": "lfh:lfh-declaration-card:sha256:0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+  "source_url": "mathlibannex/sources/lfh188/90d30392902e13f21cf2330d/index.html#L353",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d615f4324cf6c19ea0b4850824feec7c1afce45a9859e5a7809367e9a78ca67f",
+  "accepted_guide_sha256": "5e52d4375dbd277c1b17fc4a7d1b7119053d67200a81615ab306c3335b7e8535",
+  "content": {
+    "display_title": "Affine-segment preservation on a quarter ball",
+    "one_sentence_role": "Passes from midpoint preservation to every real parameter in a segment.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $f:S\\to T$ a bijective isometry between subsets, and $c\\in S$. Assume $R>0$, $B(c,R)\\subseteq S$ and $B(f(c),R)\\subseteq T$. For $x,y\\in S\\cap B(c,R/4)$ and $a\\in[0,1]$, $$f((1-a)x+ay)=(1-a)f(x)+af(y).$$",
+    "definition_explanation": null,
+    "assumptions": "Both radius-$R$ open balls are contained in their respective sets. Both endpoints lie in the source quarter ball. The parameter is restricted to $0\\le a\\le1$.",
+    "conclusion": "The same isometry preserves every point of the segment between these endpoints, with the same parameter $a$.",
+    "proof_summary": "On the convex quarter ball, midpoint preservation gives an arithmetic progression at rational subdivision points. Continuity then gives all real parameters in the interval.",
+    "proof_steps": [
+      "Put $U=B(c,R/4)$. If $x,y\\in U$ and $0\\le a\\le1$, then $$\\begin{aligned}\\|(1-a)x+ay-c\\|&\\le(1-a)\\|x-c\\|+a\\|y-c\\|\\\\&<(1-a)\\frac R4+a\\frac R4=\\frac R4.\\end{aligned}$$ Hence $(1-a)x+ay\\in U\\subseteq S$. Restrict $f$ to $g:U\\to F$. By [Quarter-ball midpoint theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L137-L192), $g((z+w)/2)=(g(z)+g(w))/2$ for all $z,w\\in U$.",
+      "Fix $n\\ge1$ and set $$z_k=\\left(1-\\frac{k}{n}\\right)x+\\frac{k}{n}y,\\qquad w_k=g(z_k)\\quad(0\\le k\\le n).$$ Step 1 puts every $z_k$ in $U$. Since $z_k=(z_{k-1}+z_{k+1})/2$, midpoint preservation gives $$2w_k=w_{k-1}+w_{k+1},\\qquad w_{k+1}-w_k=w_k-w_{k-1}.$$ Thus the successive differences are constant.",
+      "Summing the constant differences and using $w_0=g(x)$, $w_n=g(y)$ gives $$w_k=\\left(1-\\frac{k}{n}\\right)g(x)+\\frac{k}{n}g(y).$$ This proves the desired formula for every rational parameter in $[0,1]$.",
+      "For real $a\\in[0,1]$, choose rationals $a_j\\to a$. The isometry is continuous, and $$\\|g((1-a_j)x+a_jy)-g((1-a)x+ay)\\|=|a_j-a|\\,\\|y-x\\|\\longrightarrow0.$$ The affine combination on the right is continuous as well, so the rational identity passes to the limit. Replacing $g$ by the restriction of $f$ proves the theorem."
+    ],
+    "lean_realization_notes": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.FiniteSup.FinMapAlmostIsometric",
+  "title": "A strict lower bound on a norm's unit sphere",
+  "stable_card_id": null,
+  "identity_key": "7ade5334f6e1a4c6f3bb6fa2725e6ebd9012f6f2bc3034e059a8f65aba517dc1",
+  "source_url": "mathlibannex/sources/lfh188/9ad0f99f9d9bed6e69f3522b/index.html#L571",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Operator/FiniteSup.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "3b1d3694d59b5457f69416dabdb2c3ae98b432fd5a9968ea35784da3fced8782",
+  "accepted_guide_sha256": "28e913dd8990bfacf62235626b388bfff35b2bcb90841d5c427467e0aa70fb59",
+  "content": {
+    "display_title": "A strict lower bound on a norm's unit sphere",
+    "one_sentence_role": "Defines the strict lower condition on a fixed norm unit sphere.",
+    "natural_language_statement": "Let $n,N\\in\\mathbb N$ be arbitrary, including zero. Use reference coordinates $V=\\mathbb R^n$ with the sup norm and standard basis. The supplied continuous seminorm $p$ has constants $a_p,b_p>0$ satisfying\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty\\quad(x\\in V).$$\nThus $p$ is a norm; it can differ from the reference sup norm. Fix any $\\varepsilon\\in\\mathbb R$ and continuous real linear $A:V\\to\\mathbb R^N$, with the target sup norm. Define the property by\n$$\\forall x\\in V,\\quad p(x)=1\\ \\Longrightarrow\\ 1-\\varepsilon<\\|Ax\\|_\\infty.$$",
+    "definition_explanation": "The property requires the displayed strict lower bound at every $p$-unit vector. It is a condition on the given map $A$, not a construction of a new map.",
+    "assumptions": "The inputs are the continuous seminorm $p$ with its positive two-sided comparison bounds, any real $\\varepsilon$, and the fixed continuous real linear map $A$. Neither an upper estimate on $A$, positivity of $\\varepsilon$, nor injectivity of $A$ is an input to this definition.",
+    "conclusion": "This is only the lower unit-sphere condition. In dimension zero the unit sphere is empty and the condition is vacuous.",
+    "proof_summary": null,
+    "proof_steps": null,
+    "lean_realization_notes": "As a separate consequence, let $x\\ne0$. Positive definiteness gives $p(x)>0$, and\n$$p(x/p(x))=1,\\qquad \\|A(x/p(x))\\|_\\infty=\\|Ax\\|_\\infty/p(x).$$\nApply the condition at that same vector and multiply by $p(x)>0$ to obtain\n$$(1-\\varepsilon)p(x)<\\|Ax\\|_\\infty.$$\nThis is [the lower bound away from zero](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/FiniteSup.lean#L575-L598). It adds no upper estimate.",
+    "content_completeness": "REVISED_EXACT_SOURCE_BOUND_OWNER_PENDING",
+    "language_tag": "en"
+  }
+}

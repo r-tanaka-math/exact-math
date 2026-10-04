@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton",
+  "title": "A unital singleton model acts in finite dimension",
+  "stable_card_id": "956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298",
+  "identity_key": "lfh:lfh-declaration-card:sha256:956f7a6ee326f4d3fe0fff3198e6dde0fb0903ec6f51cfb6ad39f61c2663e298",
+  "source_url": "mathlibannex/sources/lfh188/8ddb9e48ce5dee04790e8d8f/index.html#L24",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/FiniteDimension.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "a4f79a7fa90ac053be76ab39d9bd079b721167a74f9b9d274ffaa13cc80310d8",
+  "accepted_guide_sha256": "5a6b7d3c8b56391e3b141b5fc8d4ccb21b4f0ac304ac0a26efb3996846deac4a",
+  "content": {
+    "display_title": "A unital singleton model acts in finite dimension",
+    "one_sentence_role": "Uses simplicity to put the identity operator in the compact image ideal.",
+    "natural_language_statement": "Let $A$ be a nonzero unital complex $C^*$-algebra and let $\\pi:A\\to\\mathcal B(H)$ be a nonzero irreducible unital $*$-representation. Assume every nonzero irreducible unital $*$-representation of $A$ is unitarily equivalent to $\\pi$. Then $H$ is finite dimensional over $\\mathbb C$.",
+    "definition_explanation": null,
+    "assumptions": "The uniqueness-of-class condition is essential to the argument; mere irreducibility is not asserted to force finite dimension. Separability is assumed for $H$, not for $A$.",
+    "conclusion": "The representation space has a finite complex basis.",
+    "proof_summary": "Obtain faithfulness and simplicity, find a nonzero compact image, and use the resulting nonzero closed ideal to make the identity compact.",
+    "proof_steps": [
+      "Apply [Faithfulness of a unital singleton representation](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Faithful.lean#L67-L108) to the given nonzero ordered unital $A$ and singleton $\\pi$ to obtain injectivity. Then [Simplicity from a faithful singleton model](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean#L29-L55) applies with that injectivity and shows that every closed two-sided ideal of $A$ is $0$ or $A$.",
+      "Use [A scalar-corner projection in the unital algebra](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/MinimalProjection.lean#L67-L91) with this singleton representation on separable $H$ to obtain a nonzero projection $p\\in A$ with $pap\\in\\mathbb Cp$ for every $a\\in A$. Injectivity gives $\\pi(p)\\ne0$. Irreducibility, this nonzero image, and the scalar-corner equations are precisely the inputs of [A nonzero represented scalar corner is compact](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/RankOneProjection.lean#L98-L110), whose output is compactness of $\\pi(p)$.",
+      "Let $I=\\{a\\in A:\\pi(a)\\text{ is compact}\\}$, the two-sided ideal of [The compact-preimage ideal](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean#L28-L63). It is norm closed by [Closedness of the compact-preimage ideal](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean#L72-L92). Since $p\\in I$ and $p\\ne0$, $I\\ne0$; simplicity therefore forces $I=A$. In particular $1_A\\in I$.",
+      "By the definition of $I$, $\\pi(1_A)$ is compact. Unitality now matters: $$\\pi(1_A)=I_H\\in\\mathcal K(H).$$ The [Compact-identity criterion applied to the same H](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/FiniteDimension.lean#L24-L66) gives $\\dim_{\\mathbb C}H<\\infty$, as used in the final source step."
+    ],
+    "lean_realization_notes": []
+  }
+}

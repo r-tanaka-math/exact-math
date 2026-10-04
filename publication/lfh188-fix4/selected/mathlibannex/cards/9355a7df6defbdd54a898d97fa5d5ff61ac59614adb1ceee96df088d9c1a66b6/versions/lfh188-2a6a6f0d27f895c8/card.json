@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.compactPreimageIdeal",
+  "title": "The preimage ideal of the compact operators",
+  "stable_card_id": "9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6",
+  "identity_key": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6",
+  "source_url": "mathlibannex/sources/lfh188/cdb98db82de8997cb36009a6/index.html#L28",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 5,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "dc3b994b4cd43b9806c2a04378c1261b000f9df6f30e545a54cb93ac7e4cc361",
+  "accepted_guide_sha256": "b60f0e39d1a37f8662a4bda7b1d8cc4e869a3c7cbedbd6bcee9e8b6fc384b75a",
+  "content": {
+    "display_title": "The preimage ideal of the compact operators",
+    "one_sentence_role": "Defines the two-sided ideal $J_\\rho=\\rho^{-1}(\\mathcal K(H))$.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed, let $H$ be a complex Hilbert space, and let $\\rho:A\\to\\mathcal B(H)$ be a $*$-representation. Define $$J_\\rho=\\rho^{-1}(\\mathcal K(H))=\\{a\\in A:\\rho(a)\\text{ is compact}\\}.$$ The declaration packages this set as a two-sided ideal of $A$.",
+    "definition_explanation": "The ideal laws follow from $$\\rho(0)=0,\\quad \\rho(a+b)=\\rho(a)+\\rho(b),\\quad \\rho(-a)=-\\rho(a),\\quad \\rho(ab)=\\rho(a)\\rho(b),$$ together with the facts that compact operators are closed under sums, negatives, and composition on either side by a bounded operator.",
+    "assumptions": "No unit, separability, irreducibility or faithfulness assumption is used.",
+    "conclusion": "The result is the algebraic two-sided ideal $J_\\rho$. The definition does not assert norm closedness here.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": [
+      "The later theorem [Norm closedness of the compact-preimage ideal](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean#L72-L92) proves norm closedness: $\\rho$ is contractive and hence continuous, and $I_\\rho=\\rho^{-1}(\\mathcal K(H))$ is the inverse image of the norm-closed set of compact operators. This observation is kept separate from the algebraic construction."
+    ]
+  }
+}

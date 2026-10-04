@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.faithful_and_compactOperatorModel_of_singleton",
+  "title": "A singleton model is faithful and exactly compact-valued",
+  "stable_card_id": "4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537",
+  "identity_key": "lfh:lfh-declaration-card:sha256:4448c461ec5cd20bf403d08c42baa0de790b14987f7d2ab766036cdccc4b7537",
+  "source_url": "mathlibannex/sources/lfh188/a4b00149d87f87687358e5e4/index.html#L41",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactModel.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "eed3881f6dc85cb263d42bfa06504b8c4dc4fba1eb04fb1915765d936bdec28a",
+  "accepted_guide_sha256": "c45f6044a98837da67009d9746af5e60edc6faaa8db76c0dd652cb843d317d2f",
+  "content": {
+    "display_title": "A singleton model is faithful and exactly compact-valued",
+    "one_sentence_role": "Combines faithfulness with both inclusions needed to identify the represented range.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed, and let $\\pi:A\\to\\mathcal B(H)$ represent the unique unitary-equivalence class of nonzero irreducible $*$-representations on a separable complex Hilbert space $H$. Then $$\\ker\\pi=\\{0\\},\\qquad \\pi(A)=\\mathcal K(H).$$ Equivalently, $\\pi$ is a faithful $*$-representation and implements a $*$-isomorphism $A\\cong_*\\mathcal K(H)$.",
+    "definition_explanation": null,
+    "assumptions": "There is no assumption that $A$ is separable, simple, or already faithfully represented. The singleton condition quantifies over nonzero irreducible comparison representations, without restricting them to separable spaces.",
+    "conclusion": "$\\pi$ is injective and satisfies the compact-operator model predicate: every $\\pi(a)$ is compact and each compact operator has a preimage in $A$.",
+    "proof_summary": "Apply the three established results to the same singleton representation and assemble their outputs.",
+    "proof_steps": [
+      "Apply [Faithfulness of a singleton representation](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean#L33-L94) to $A$ and the given singleton $\\pi$. Nontriviality and the usual $C^*$-algebra order are among the present assumptions; no separability is needed in that step. Its output is injectivity of this $\\pi$.",
+      "Apply [Every represented operator is compact](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactExclusion.lean#L68-L182) to the same $A,H,\\pi$. Its additional hypothesis is precisely the assumed separability of $H$. For every $a\\in A$ it gives compactness of $\\pi(a)$, hence $\\pi(A)\\subseteq\\mathcal K(H)$.",
+      "For any compact $T:H\\to H$, apply [Every compact operator has a preimage](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean#L211-L222) using these same assumptions and that particular $T$. The result is $a\\in A$ with $\\pi(a)=T$, hence $\\mathcal K(H)\\subseteq\\pi(A)$. Substituting all three outputs into [The three clauses of a compact-operator model](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean#L26-L33) proves the model property, alongside the explicitly stated injectivity."
+    ],
+    "lean_realization_notes": []
+  }
+}

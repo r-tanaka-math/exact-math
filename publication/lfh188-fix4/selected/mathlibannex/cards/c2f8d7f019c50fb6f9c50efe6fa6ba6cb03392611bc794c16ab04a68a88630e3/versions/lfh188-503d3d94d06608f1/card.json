@@ -1,0 +1,34 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+  "title": "Local affine-isometry chart on a smaller ball",
+  "stable_card_id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+  "identity_key": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+  "source_url": "mathlibannex/sources/lfh188/0c5f2aa35b4088c8e63ef40c/index.html#L695",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 3,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "1dfa395e4a0993253ed4a48829331d9c687da7154627e150226d684d94ead2c5",
+  "accepted_guide_sha256": "963c571770da523baa90c7fc770e157436055dcb00b1c1d5e569aed54b966b12",
+  "content": {
+    "display_title": "Local affine-isometry chart on a smaller ball",
+    "one_sentence_role": "Constructs one ambient surjective affine isometry from the same radial map throughout.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $S\\subseteq E$, $T\\subseteq F$, and $f:S\\to T$ a bijective isometry. Suppose $c\\in S$, $R>0$, $B(c,R)\\subseteq S$ and $B(f(c),R)\\subseteq T$. There exists a surjective real affine isometry $A:E\\to F$ such that $$A(x)=f(x)\\qquad(x\\in S,\\ \\|x-c\\|<R/8).$$",
+    "definition_explanation": null,
+    "assumptions": "Both ambient radius-$R$ balls must lie in the corresponding subsets. No finite dimensionality or completeness is assumed for either real normed space.",
+    "conclusion": "One ambient affine isometry agrees with $f$ on the smaller ball $B(c,R/8)$. The quantified assertion is existence; its agreement here is not asserted on all of $S$.",
+    "proof_summary": "Extend the translated local map radially, prove that this same map is a linear isometry, obtain surjectivity from the target ball, and translate back.",
+    "proof_steps": [
+      "Set $r=R/8$; this is the radius used throughout the construction. In [Radial-map definition](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L388-L409), define $L_c(0)=0$ and, for $v\\ne0$, $$L_c(v)=\\frac{\\|v\\|}{r}\\left[f\\!\\left(c+\\frac r{\\|v\\|}v\\right)-f(c)\\right].$$ The evaluation point is at distance $r<R$ from $c$, hence belongs to $S$.",
+      "For $a>0$, the evaluation point for $av$ equals that for $v$, and the prefactor is multiplied by $a$. Thus [Positive homogeneity of the radial map](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L430-L452) gives $L_c(av)=aL_c(v)$. Distance preservation gives [Norm of the radial map](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L501-L517) in the concrete form $$\\|L_c(v)\\|=\\frac{\\|v\\|}{r}\\left\\|f\\!\\left(c+\\frac r{\\|v\\|}v\\right)-f(c)\\right\\|=\\frac{\\|v\\|}{r}r=\\|v\\|.$$ The case $v=0$ follows from the definition.",
+      "If $0<\\|v\\|<r$, first write the point $c+v$ as the explicit convex combination $$\\boxed{c+v=\\left(1-\\frac{\\|v\\|}{r}\\right)c+\\frac{\\|v\\|}{r}\\left(c+\\frac r{\\|v\\|}v\\right).}$$ The coefficient $\\|v\\|/r$ lies in $(0,1)$, and both endpoints lie in $B(c,R/4)$ because $r=R/8$. Apply [Quarter-ball segment theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L353-L386) to these two endpoints. It gives $$f(c+v)-f(c)=\\frac{\\|v\\|}{r}\\left[f\\!\\left(c+\\frac r{\\|v\\|}v\\right)-f(c)\\right]=L_c(v).$$ The equality also holds for $v=0$. This is [Local agreement with the translated isometry](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L578-L630).",
+      "For $\\|v\\|,\\|w\\|<r$, their midpoint also has norm less than $r$. Substitute the local agreement into [Quarter-ball midpoint theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L137-L192) for $c+v,c+w$ to obtain $$L_c((v+w)/2)=(L_c(v)+L_c(w))/2.$$ This verifies the local identity in [Local midpoint identity for the radial map](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L632-L693). For arbitrary $v,w$, choose $\\lambda=r/(\\|v\\|+\\|w\\|+1)>0$. Both $\\lambda v,\\lambda w$ lie in $B(0,r)$. Apply the local identity to these two vectors and use positive homogeneity for the same $L_c$: $$\\begin{aligned}\\lambda L_c((v+w)/2)&=L_c((\\lambda v+\\lambda w)/2)\\\\&=(L_c(\\lambda v)+L_c(\\lambda w))/2\\\\&=\\lambda(L_c(v)+L_c(w))/2.\\end{aligned}$$ Since $\\lambda>0$, division by $\\lambda$ gives the midpoint identity for the original $v,w$. This is the application of [Rescaling local midpoint identities](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L519-L549) that proves the global midpoint identity.",
+      "Putting $w=0$ in the midpoint identity gives $L_c(v/2)=L_c(v)/2$. It follows that $L_c(v+w)=L_c(v)+L_c(w)$. Consequently $$\\|L_c(v)-L_c(w)\\|=\\|L_c(v-w)\\|=\\|v-w\\|.$$ Thus $L_c$ is continuous and additive, hence real-linear by rational approximation. [The same midpoint map as a linear isometry](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L551-L576) equips this same function with the linear-isometry structure; it does not replace it by a different map.",
+      "Let $\\|y\\|<r$. The target ball inclusion puts $f(c)+y$ in $T$. Take $x=f^{-1}(f(c)+y)$. Isometry gives $\\|x-c\\|=\\|y\\|<r$, so local agreement yields $$L_c(x-c)=f(x)-f(c)=y.$$ Hence $B(0,r)\\subseteq\\operatorname{ran}L_c$. This range is a real vector subspace. For arbitrary $y$, the scalar $b=r/(2(\\|y\\|+1))>0$ puts $by$ in that ball; if $L_c(v)=by$, then $L_c(v/b)=y$. Thus $L_c$ is surjective, without any dimension argument.",
+      "Define $A(x)=L_c(x-c)+f(c)$. Real linearity, norm preservation and surjectivity of the same $L_c$ make $A$ a surjective affine isometry. When $\\|x-c\\|<r$, substitute $v=x-c$ into local agreement to obtain $A(x)=f(x)$."
+    ],
+    "lean_realization_notes": []
+  }
+}

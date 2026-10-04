@@ -1,0 +1,26 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsIrreducible",
+  "title": "Nonzero irreducibility without a unit assumption",
+  "stable_card_id": "c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6",
+  "identity_key": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6",
+  "source_url": "mathlibannex/sources/lfh188/5d68c7ab94086fdcba778df9/index.html#L40",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 5,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "aa751ea4410d8355c45121a59a85d0ab17c226cd1e7f3cd8c34029d23bd0d1c3",
+  "accepted_guide_sha256": "cf556951fbe8a29a172dc5d8b4612d1ae29b0418a509394655d6ff179929d52c",
+  "content": {
+    "display_title": "Nonzero irreducibility without a unit assumption",
+    "one_sentence_role": "Requires nonzero action as well as the absence of proper closed reducing subspaces.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed, $H$ a complex Hilbert space, and $\\pi:A\\to\\mathcal B(H)$ a $*$-representation. The following predicate defines nonzero irreducibility.",
+    "definition_explanation": "The first condition is $$\\exists a\\in A:\\ \\pi(a)\\ne0.$$ The second says: for every complex linear subspace $L\\subseteq H$ which is closed and satisfies $$\\pi(a)x\\in L,\\qquad\\pi(a)^*x\\in L\\quad(a\\in A,\\ x\\in L),$$ one has $L=0$ or $L=H$. These are the definitions of nonzero action and reduction in [Nonzero action and closed reducing subspaces](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean#L30-L42). Because $\\pi(a)^*=\\pi(a^*)$ and $A$ is closed under adjoints, invariance under every $\\pi(a)$ also gives the stated adjoint invariance; the source records both explicitly.",
+    "assumptions": "No separability or injectivity is assumed. The nonzero requirement is a property of the action $\\pi$, not merely of its underlying Hilbert space.",
+    "conclusion": "The zero representation is excluded, and every closed reducing complex subspace is either $0$ or $H$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": []
+  }
+}

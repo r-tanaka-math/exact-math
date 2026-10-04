@@ -1,0 +1,146 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+  "declaration_kind": "structure",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+    "source_range": {
+      "end_line": 46,
+      "start_line": 39
+    },
+    "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "structure RepresentativeShellFamily where\n  data : ∀ j : MathlibAnnex.CStarAlgebra.PureState.GNSClass Limit, RepresentativeShellData j\n  root_alpha : (data completedRootPureState.classOf).alpha =\n    StarAlgEquiv.refl ℂ Limit\n  root_link : ∀ n, (data completedRootPureState.classOf).link n = rootShell n",
+    "start_byte": 1599,
+    "end_byte": 1908,
+    "sha256": "d2bff7ed9ea98d6f53b55a4ac0b96a8f5507f8f1903e93f2cd488b7a91dbbad1",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+    "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+      "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+      "start_line": 39,
+      "start_column": 1,
+      "end_line": 46,
+      "end_column": 79
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_STRUCTURE"
+  },
+  "content": {
+    "display_title": "A fixed representative family of CAR shell data",
+    "one_sentence_role": "One family records a transporting automorphism and exact shell links for each selected pure-state class, with an explicitly fixed root component.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. Write $\\iota_n:A_n\\to A$ for the canonical inclusion, $\\omega(\\iota_n(a))=a_{00}$ for the root state, $f_n=\\iota_n(E_{00})$ for its decreasing root projections, and $p_n=f_n-f_{n+1}$ for the difference shells. Each $p_n$ is a self-adjoint projection. Let $I$ be the set of unitary-equivalence classes of pure-state Gelfand–Naimark–Segal (GNS) representations of $A$. Choose a representative pure state $\\varphi_j$ for each $j\\in I$, with the distinguished class $o=[\\omega]$ represented by $\\varphi_o=\\omega$. A representative shell family assigns to each $j\\in I$ an automorphism $\\alpha_j$ and links $w_{j,n}\\in A$ with $\\varphi_j(\\alpha_j(a))=\\omega(a)$ for every $a$, $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$, and $w_{j,n}w_{j,n}^*=p_n$ for every $n$. At the distinguished class it further requires $\\alpha_o=\\mathrm{id}_A$ and $w_{o,n}=p_n$.",
+    "definition_explanation": "The component structure stores $\\alpha_j$, the equation $\\varphi_j\\circ\\alpha_j=\\omega$, the sequence $(w_{j,n})$, and its initial and final supports. The family structure chooses a component for every class and adds the root equations. They normalize a distinguished component of this chosen family; they do not impose equality between arbitrary choices made in unrelated existence statements.",
+    "assumptions": "The CAR system, root state, and selected representatives are fixed. A family is supplied as data of this structure. There is no restriction that $I$ be countable, and this structure declaration does not itself prove the existence of such a family.",
+    "conclusion": "The fields are the component data for every class and the two root equations. Each component contains one automorphism, its state-transport equation, its link sequence, and both support equations. The root shell $p_n=f_n-f_{n+1}$ is distinguished from the nested flag projection $f_n$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "No rank-one, capture, simplicity, compactness, or approximate-innerness conclusion is stored in this structure. A later constructor can use approximate innerness to build the links, but that construction property is not an extra field required of every supplied family.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L39-L46",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellFamily",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 46,
+          "start_line": 39
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Exact component fields",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L26-L37",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.RepresentativeShellData",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean",
+        "source_range": {
+          "end_line": 37,
+          "start_line": 26
+        },
+        "source_sha256": "03f09a1c56c924095646d8f13e8df188d201faed113daf7e05f9950ab10337c7",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Difference shell definition",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/DifferenceShell.lean#L19-L21",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootShell",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/DifferenceShell.lean",
+        "source_range": {
+          "end_line": 21,
+          "start_line": 19
+        },
+        "source_sha256": "363a539037423c94c3bbcc4cd8da7e9eced2f588c48c185cdf4ac749c41f6fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Projection property of each difference shell",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/DifferenceShell.lean#L28-L34",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isStarProjection_rootShell",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/DifferenceShell.lean",
+        "source_range": {
+          "end_line": 34,
+          "start_line": 28
+        },
+        "source_sha256": "363a539037423c94c3bbcc4cd8da7e9eced2f588c48c185cdf4ac749c41f6fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The identity component satisfies the required equations",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/DifferenceShell.lean#L77-L93",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootShell_identity_family",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/DifferenceShell.lean",
+        "source_range": {
+          "end_line": 93,
+          "start_line": 77
+        },
+        "source_sha256": "363a539037423c94c3bbcc4cd8da7e9eced2f588c48c185cdf4ac749c41f6fdd",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "1c532d64db83192c067a4e726afa6d4c4cd941d770a97dbf2687faf8544821f7",
+    "uid": "lfh:lfh-declaration-card:sha256:3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 2,
+    "sha256": "ab4382383328c50b9b99ff1d004e2458b9c7fe0f4829510848d1999feb971733",
+    "uid": "lfh:lfh-card-exposition:sha256:be75ac1d7a6f1648b3a5d32d0be2548616820e6b3ed6f5f84232ae7e9e4b27b0"
+  },
+  "guide": "Here `completedRootPureState` is the root state bundled with its purity proof. `data j` contains $(\\alpha_j,(w_{j,n})_n)$ and the equations of `RepresentativeShellData j`. `root_alpha` and `root_link` fix the component at `completedRootPureState.classOf`, namely $o$. `rootShell n` is $p_n$, whereas `rootFlag n` is $f_n$. The separate exact excerpt below shows the component's full fields.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/3e800cc2482d039e0c10ab2af30dfa967a720a6eaf1fd7a550ad235a099cef66/versions/n69-ab4382383328c50b/index.html",
+    "pdf": "card.pdf"
+  }
+}

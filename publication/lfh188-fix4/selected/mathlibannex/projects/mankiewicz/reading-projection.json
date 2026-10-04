@@ -1,0 +1,373 @@
+{
+  "state": "APPLIED_PRIVATE_HP_DERIVED_PROJECTION",
+  "source_or_math_changed": false,
+  "formal_CURRENT_or_native_changed": false,
+  "orientation": "dependent_to_prerequisite",
+  "full_graph_semantic_sha256": "cd521cd9699e7b7e5d37f612476e2f968e19b97e254cd56c3baff3ba818a7884",
+  "full_nodes": 11,
+  "full_edges": 10,
+  "full_reachability_pairs": 52,
+  "selected_nodes": 11,
+  "selected_reachability_pairs": 52,
+  "selected_display_edges": 10,
+  "selected_level_min": 0,
+  "selected_level_max": 8,
+  "pairs_lost_by_naive_induced_subgraph": 0,
+  "nodes": [
+    {
+      "id": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection",
+      "level": 0,
+      "source_graph_level": 0,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a",
+      "qualified_name": "MathlibAnnex.symmetricLens",
+      "level": 0,
+      "source_graph_level": 0,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens",
+      "level": 1,
+      "source_graph_level": 1,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_symmetricLens_subset",
+      "level": 2,
+      "source_graph_level": 2,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+      "level": 3,
+      "source_graph_level": 3,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.map_lineMap_of_mem_ball",
+      "level": 4,
+      "source_graph_level": 4,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+      "level": 5,
+      "source_graph_level": 5,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+      "level": 6,
+      "source_graph_level": 6,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_ball",
+      "level": 7,
+      "source_graph_level": 7,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+      "level": 7,
+      "source_graph_level": 7,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    },
+    {
+      "id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "qualified_name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall",
+      "level": 8,
+      "source_graph_level": 8,
+      "historical_route_tags": [
+        "mankiewicz"
+      ]
+    }
+  ],
+  "display_edges": [
+    {
+      "dependent": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "prerequisite": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    {
+      "dependent": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+    },
+    {
+      "dependent": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "prerequisite": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    {
+      "dependent": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    }
+  ],
+  "reachability": [
+    {
+      "dependent": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "prerequisite": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "dependent": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "dependent": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "dependent": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "dependent": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "prerequisite": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "dependent": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "prerequisite": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "dependent": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "0cfc0bfe5c6e6e9641207ba94e1890139d7e6a138ab41f3ea638d101cd0bfb04"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87"
+    },
+    {
+      "dependent": "d53fe8e4dd14b54afcbe429368e93867012aae1050cc51eff076031144a34aed",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    },
+    {
+      "dependent": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+      "prerequisite": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8"
+    },
+    {
+      "dependent": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "prerequisite": "078cf36ae52c92c7dc2f32abc038c608c14c167df35f6f1db0514b019f459281"
+    },
+    {
+      "dependent": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "prerequisite": "4a485c9aabdc6f37ae97b47bfba6021a6bedf685894a44120f0290571e459c36"
+    },
+    {
+      "dependent": "e55f926ea1e3391b9a6426100e98fe7349c95254cdc2437a77d973137bea95c8",
+      "prerequisite": "b6295e62b69808246ec83346365d7b0e00269f627c02dcd6ce3d253fb920949a"
+    }
+  ],
+  "route_membership_inferred_here": false,
+  "boundary_note": "Retain exact external/boundary records and the full graph. This file does not replace their provenance or define route membership.",
+  "use_condition": "Compare the current staged full graph semantics to the inspected input before using this proposal. Any mismatch requires impact review, not reset or automatic replacement.",
+  "input_full_graph_sha256": "08872acb6f287197d19eac3a9988cbda87ce111dd31b7f1f2bed2bc091279780"
+}

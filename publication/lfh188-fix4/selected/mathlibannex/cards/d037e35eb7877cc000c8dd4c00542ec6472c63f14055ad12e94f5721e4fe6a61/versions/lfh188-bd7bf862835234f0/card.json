@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.selected_commonFixedProjection_eq_rankOne",
+  "title": "The matching GNS fiber retains exactly its cyclic line",
+  "stable_card_id": "d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61",
+  "identity_key": "lfh:lfh-declaration-card:sha256:d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61",
+  "source_url": "mathlibannex/sources/lfh188/20947335a491ef7f61c43546/index.html#L189",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "592494ead91c6e58a7191a41c23cfeadeaf4d5be767542f719be4bc348994b40",
+  "accepted_guide_sha256": "7c1c4f170c5476575fcb7c1b1e4b7da8b955aa88da1f8a0c63dc9a0204f8d1b3",
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra, the completion of the matrix stages $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit. These are decreasing projections with $f_0=1$. Write $\\iota_n$ for the canonical embedding of stage $n$. The root state $\\omega$ is determined by $\\omega(\\iota_n(a))=a_{00}$ on every stage.\n\nChoose one pure state $\\varphi_j$ from each unitary-equivalence class $j\\in I$ of pure-state Gelfand-Naimark-Segal (GNS) representations, retaining $\\omega$ at the root index $o$. Write $(H_j,\\pi_j,\\xi_j)$ for its complete complex GNS space, unital star representation and unit cyclic vector. Thus $\\varphi_j(a)=\\langle\\xi_j,\\pi_j(a)\\xi_j\\rangle$, and the vectors $\\pi_j(a)\\xi_j$ are dense in $H_j$. Inner products are linear in the second argument.\n\nA fixed shell family supplies unital complex star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ with $\\varphi_j\\circ\\alpha_j=\\omega$, $w_{j,n}^*w_{j,n}=\\alpha_j(f_n-f_{n+1})$, and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$. At the root, $\\alpha_o$ is the identity and $w_{o,n}=f_n-f_{n+1}$. Fix $i\\in I$ and put $f_{i,n}=\\alpha_i(f_n)$. The family is supplied; its existence is not an extra conclusion here.",
+    "conclusion": "The one-dimensional common range is a proved property of the transported flag, not a field imposed on the shell family. Since $Q_n$ are decreasing orthogonal projections, the cited decreasing-projection theorem also gives $Q_nx\\to\\langle\\xi_i,x\\rangle\\xi_i$ in norm for each fixed $x\\in H_i$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The matching GNS fiber retains exactly its cyclic line",
+    "language_tag": "en",
+    "lean_realization_notes": "The exact declaration identifies the common fixed projection. The pointwise convergence just stated is a consequence using the separately cited decreasing-projection theorem. Neither statement asserts operator-norm convergence, and no strong limit is transported through a representation of a different algebra.",
+    "natural_language_statement": "For the fixed shell family and index $i$ described below, set $Q_n=\\pi_i(f_{i,n})$ and $F_i=\\bigcap_{n\\geq0}\\operatorname{ran}Q_n$. The orthogonal projection $P_i$ onto $F_i$ satisfies $P_i x=\\langle\\xi_i,x\\rangle\\xi_i$ for every $x\\in H_i$. In particular, $F_i=\\mathbb C\\xi_i$.",
+    "one_sentence_role": "Identifies the residual projection of a transported CAR flag in its matching pure-state representation.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For a projection $Q_n$, the identity $\\langle\\xi_i,Q_n\\xi_i\\rangle=1=\\|\\xi_i\\|^2$ implies $\\|(I-Q_n)\\xi_i\\|^2=0$. Therefore $P_i\\xi_i=\\xi_i$."
+      },
+      {
+        "step_id": "s2",
+        "text": "On vectors fixed by every $Q_n$, the matrix coefficient of the represented compression error is independent of $n$ and tends to zero. This proves the displayed compressed-operator identity. The source error converges in the norm of $A$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Consequently $P_i\\pi_i(b)\\xi_i=\\varphi_i(b)\\xi_i=\\langle\\xi_i,\\pi_i(b)\\xi_i\\rangle\\xi_i$. Both sides are continuous linear maps of the orbit vector, and that orbit is dense. The unit norm of $\\xi_i$ identifies the resulting rank-one map as an orthogonal projection."
+      }
+    ],
+    "proof_summary": "The state identity gives $\\varphi_i(f_{i,n})=1$, so every $Q_n$ fixes $\\xi_i$. [The transported CAR compression estimate](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L150-L161) gives $\\|f_{i,n} b f_{i,n}-\\varphi_i(b)f_{i,n}\\|\\to0$ for each $b\\in A$. Contractivity of $\\pi_i$ and fixedness of vectors in $F_i$ yield $P_i\\pi_i(b)P_i=\\varphi_i(b)P_i$. Applying this to $\\xi_i$ determines $P_i$ on its dense cyclic orbit and hence on all of $H_i$."
+  }
+}

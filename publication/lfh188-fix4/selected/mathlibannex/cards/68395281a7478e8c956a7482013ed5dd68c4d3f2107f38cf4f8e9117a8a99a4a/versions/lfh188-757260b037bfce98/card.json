@@ -1,0 +1,33 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.isIrreducible_pureState_gnsStarAlgHom",
+  "title": "The GNS representation of a pure state is irreducible",
+  "stable_card_id": "68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a",
+  "identity_key": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a",
+  "source_url": "mathlibannex/sources/lfh188/5bfe368c739eae1277b2d187/index.html#L127",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "a06c2fefa7ef3ba2809a91d4191be765fce148e7cfb0384d0d2ff0e3dfb01184",
+  "accepted_guide_sha256": "14c3741bb3641fc6585c7e3dbc8271befe699a74b5c18c7bfd822ee9ee2e24af",
+  "content": {
+    "display_title": "The GNS representation of a pure state is irreducible",
+    "one_sentence_role": "Applies the cyclic pure-state criterion to the space and vector constructed from the same state.",
+    "natural_language_statement": "Let $A$ be a unital complex $C^*$-algebra, and let $\\varphi$ be a pure state: a positive normalized continuous complex-linear functional extreme in the real state space. Let $(H_\\varphi,\\rho_\\varphi,\\xi_\\varphi)$ be its GNS representation. Then the only closed reducing subspaces of $H_\\varphi$ for $\\rho_\\varphi$ are $0$ and $H_\\varphi$.",
+    "definition_explanation": null,
+    "assumptions": "The representation and space in the conclusion are the canonical GNS construction from $\\varphi$, not an independently chosen representation on an arbitrary Hilbert space. No separability hypothesis is present.",
+    "conclusion": "The canonical GNS star-algebra homomorphism is irreducible. Its norm-one cyclic vector also ensures that its Hilbert space is nonzero.",
+    "proof_summary": "Verify the norm, cyclicity and pure vector-functional hypotheses of the cyclic irreducibility criterion.",
+    "proof_steps": [
+      "The GNS construction for the positive functional underlying $\\varphi$ supplies $$\\|\\xi_\\varphi\\|=1,\\qquad \\overline{\\{\\rho_\\varphi(a)\\xi_\\varphi:a\\in A\\}}=H_\\varphi.$$ Normalization $\\varphi(1)=1$ gives the first equation; cyclicity of the construction gives the second.",
+      "For every $a\\in A$, the GNS inner-product identity is $$\\langle\\xi_\\varphi,\\rho_\\varphi(a)\\xi_\\varphi\\rangle=\\varphi(a).$$ Hence the entire vector functional of $\\xi_\\varphi$ equals the same pure state $\\varphi$, rather than merely agreeing at the unit.",
+      "Apply [Cyclic pure vector states force irreducibility](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean#L22-L125) with $\\rho_\\varphi$ and $\\xi_\\varphi$. Step 1 verifies the norm-one and dense-orbit inputs; Step 2 transports the given purity to its vector-functional input. The output is exactly irreducibility of $\\rho_\\varphi$.",
+      "To see the mechanism of the criterion, let $K\\subseteq H_\\varphi$ be a closed reducing subspace, and let $P$ be its orthogonal projection. Then $P^*=P=P^2$ and $P\\rho_\\varphi(a)=\\rho_\\varphi(a)P$ for every $a$. Define the positive functional $$\\psi(a)=\\langle P\\xi_\\varphi,\\rho_\\varphi(a)P\\xi_\\varphi\\rangle.$$ Orthogonality of $K$ and $K^\\perp$, and invariance of both, give $$\\varphi(a)=\\psi(a)+\\langle(I-P)\\xi_\\varphi,\\rho_\\varphi(a)(I-P)\\xi_\\varphi\\rangle.$$ Hence $0\\le\\psi(a)\\le\\varphi(a)$ for every positive $a$. Apply [A positive functional dominated by a pure state](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Purity.lean#L38-L44) to the given pure $\\varphi$ and this $\\psi$: there is $t\\in[0,1]$ such that $\\psi=t\\varphi$.",
+      "For arbitrary $a,b\\in A$, self-adjointness and idempotence of $P$, followed by its commutation with the representation, yield $$\\begin{aligned}\\langle\\rho_\\varphi(a)\\xi_\\varphi,P\\rho_\\varphi(b)\\xi_\\varphi\\rangle&=\\langle P\\rho_\\varphi(a)\\xi_\\varphi,P\\rho_\\varphi(b)\\xi_\\varphi\\rangle\\\\&=\\langle\\rho_\\varphi(a)P\\xi_\\varphi,\\rho_\\varphi(b)P\\xi_\\varphi\\rangle\\\\&=\\psi(a^*b)=t\\varphi(a^*b)\\\\&=t\\langle\\rho_\\varphi(a)\\xi_\\varphi,\\rho_\\varphi(b)\\xi_\\varphi\\rangle.\\end{aligned}$$ Here the inner product is linear in its second argument. For fixed $b$, density of the vectors $\\rho_\\varphi(a)\\xi_\\varphi$ makes $P\\rho_\\varphi(b)\\xi_\\varphi=t\\rho_\\varphi(b)\\xi_\\varphi$. Density in $b$ and continuity now give $P=tI$ on all of $H_\\varphi$.",
+      "Finally $P^2=P$ implies $(t^2-t)\\xi_\\varphi=0$. The norm-one vector $\\xi_\\varphi$ is nonzero, so $t^2=t$ and $t\\in\\{0,1\\}$. Thus $P=0$ or $P=I$, and its range $K$ is respectively $0$ or $H_\\varphi$, as required."
+    ],
+    "lean_realization_notes": []
+  }
+}

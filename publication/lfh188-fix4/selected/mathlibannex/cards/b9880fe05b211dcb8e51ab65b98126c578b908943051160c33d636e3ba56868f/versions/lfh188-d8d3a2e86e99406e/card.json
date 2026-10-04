@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt",
+  "title": "Exact vector transport along an almost central unitary path",
+  "stable_card_id": "b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f",
+  "identity_key": "lfh:lfh-declaration-card:sha256:b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f",
+  "source_url": "mathlibannex/sources/lfh188/047b8eb5f741a4712623103d/index.html#L486",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "4ecae37fb3730b21e78322eac8be7116da10bce283a2a5933d6221cf29568ce0",
+  "accepted_guide_sha256": "863815c7f5df11510bf9144042514a61a6de3932c77fc5badbda8170be1532c7",
+  "content": {
+    "display_title": "Exact vector transport along an almost central unitary path",
+    "one_sentence_role": "Finite matrix-state tests ensure exact transport while protecting a prescribed finite set throughout the path.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. We use the inner product conjugate linear in its first argument and write $\\varphi_{\\pi,v}(a)=\\langle v,\\pi(a)v\\rangle$ for the vector functional. Fix an irreducible representation $\\pi:A\\to B(H)$ on a nonzero complex Hilbert space. Given a finite set $F\\subset A$ and $\\varepsilon>0$, one can choose a stage $n$ and $\\delta>0$ such that the following holds for every pair of unit vectors $\\xi,\\eta\\in H$. If $|\\varphi_{\\pi,\\xi}(e_{ij}^{(n)})-\\varphi_{\\pi,\\eta}(e_{ij}^{(n)})|<\\delta$ for all $i,j$, there is $u\\in U(A)$ with $\\pi(u)\\xi=\\eta$ and a norm-continuous path $p:[0,1]\\to U(A)$ from $1$ to $u$. At every time and for every $a\\in F$, both $\\|p(t)ap(t)^*-a\\|<\\varepsilon$ and $\\|p(t)^*ap(t)-a\\|<\\varepsilon$ hold.",
+    "definition_explanation": null,
+    "assumptions": "The representation is unital and irreducible, and $H$ is complete and nonzero. The finite set and positive error are fixed first. The stage and tolerance are chosen before either unit vector; there is no hypothesis that the two vectors are already close in norm.",
+    "conclusion": "The endpoint transport is exact. The protection of $F$ is approximate, in both conjugation directions, uniformly for the entire path. The stage tests compare vector states, not the vectors themselves.",
+    "proof_summary": "Approximate $F$ inside one finite stage. Close stage states give close Gram matrices of the root-corner components. Corner involutions yield a stage-central path moving the first vector near the second; a short final unitary correction makes the transport exact. Quantitative commutator bounds then transfer to the original finite set.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For fixed stage $n$, decompose a unit vector as $\\xi=\\sum_i\\pi(e_{i0}^{(n)})v_i$, where $v_i=\\pi(e_{0i}^{(n)})\\xi$. The sums of squared component norms equal $1$, and $\\langle v_i,v_j\\rangle=\\varphi_{\\pi,\\xi}(e_{ij}^{(n)})$. Thus entrywise state tests are Gram-matrix tests."
+      },
+      {
+        "step_id": "s2",
+        "text": "The corner Gram-perturbation result uses an auxiliary isometric family orthogonal to both input families. Two unitary involutions move through that family with small errors. Lifting them to corner exponentials gives a path centralizing the whole stage at every time. Reconstructing the vectors converts small component errors into a small vector error."
+      },
+      {
+        "step_id": "s3",
+        "text": "The fixed-stage exact-transport lemma follows by correcting this endpoint with a unitary near $1$ and concatenating its short path with the stage-central path. For any prescribed $\\gamma>0$, its path satisfies $\\|[p(t),\\iota_n(c)]\\|\\leq\\gamma\\|\\iota_n(c)\\|$ for all stage elements and all times, while the endpoint sends $\\xi$ exactly to $\\eta$."
+      },
+      {
+        "step_id": "s4",
+        "text": "Choose stage approximants to each $a\\in F$ within $\\varepsilon/8$, and choose $\\gamma$ small relative to their common norm bound. The commutator of $p(t)$ with $a$ is bounded by twice the approximation error plus the stage commutator bound, which is strictly below $\\varepsilon$. Multiplication by the appropriate unitary converts that commutator bound into each of the two conjugation inequalities."
+      }
+    ],
+    "lean_realization_notes": "The path need not centralize $F$ exactly. The tolerance is an existential modulus and no numerical value is claimed. The conditions require all the matrix entries at the chosen stage, not only the diagonal ones.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

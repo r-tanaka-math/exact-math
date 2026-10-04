@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.DeterminantFrame.nearMaxFrames",
+  "title": "The set of near-maximal dual frames",
+  "stable_card_id": null,
+  "identity_key": "606ec10954a2832002b17b028164cf3a0ccf7b351e76d9c7b4028b8d0d163612",
+  "source_url": "mathlibannex/sources/lfh188/f208f980249824c68e774872/index.html#L391",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "2e4630db79e0df938f8e4afb4714f26bd877d3aa885d1ca0198f18d1d3320355",
+  "accepted_guide_sha256": "41ba9ced61ced25e983319b10170466a0d3db2d2c939c300353d611f7b2c90a1",
+  "content": {
+    "display_title": "The set of near-maximal dual frames",
+    "one_sentence_role": "Records a determinant deficit while keeping all dual rows contractive.",
+    "natural_language_statement": "Let $n\\in\\mathbb N$, let $E$ be a finite-dimensional real normed vector space, and fix an ordered basis $b=(b_j)_{j=1}^n$. Write $C_b:E\\to\\mathbb R^n$ for the coordinate isomorphism, defined by $x=\\sum_{j=1}^n(C_bx)_j b_j$, and give its coordinate space the sup norm $\\|c\\|_\\infty=\\max_j|c_j|$ (zero in dimension zero). A frame is an ordered family $F=(\\ell_i)_{i=1}^n$ of continuous real linear functionals, with no independence assumed. Its matrix and evaluation map are\n$$M_F=(\\ell_i(b_j))_{i,j},\\qquad T_Fx=(\\ell_i(x))_i=M_FC_bx.$$\nThe admissible frames form the product of closed dual unit balls\n$$\\mathcal U=\\{F:\\|\\ell_i\\|_{E^*}\\le1\\text{ for every }i\\}.$$\nThe norm on $E$ need not be a coordinate sup norm. Write $D_b=\\max_{F\\in\\mathcal U}|\\det M_F|$. For any $\\eta\\in\\mathbb R$, define a set of frames $\\mathcal N_{b,\\eta}$.",
+    "definition_explanation": "The complete defining set is\n$$\\mathcal N_{b,\\eta}=\\{F\\in\\mathcal U:D_b-\\eta\\le|\\det M_F|\\}.$$",
+    "assumptions": "The space, basis and any real number $\\eta$ are inputs. Neither $\\eta\\ge0$ nor $\\eta<D_b$ is required to define this set.",
+    "conclusion": "A frame belongs precisely when it is admissible and its absolute determinant is at least $D_b-\\eta$. This definition neither chooses a frame nor asserts invertibility.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "For every real $\\eta$, [compactness of the near-maximal set](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L396-L402) follows by intersecting compact $\\mathcal U$ with the closed inequality set. If $\\eta\\ge0$, [nonemptiness with nonnegative deficit](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L404-L410) uses an absolute maximizing frame $F_*$, since $D_b-\\eta\\le D_b$. If $\\eta<D_b$, membership gives $|\\det M_F|\\ge D_b-\\eta>0$ and hence invertibility. These are separate consequences with different hypotheses.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

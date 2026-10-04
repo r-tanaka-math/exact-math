@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+  "title": "The selected GNS representation of a pure-state class",
+  "stable_card_id": "ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26",
+  "identity_key": "lfh:lfh-declaration-card:sha256:ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26",
+  "source_url": "mathlibannex/sources/lfh188/00d97398d3e1442a6e2b3b8e/index.html#L33",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "03a298e788ee0db85d5beb7267b35048408970cdbf4e2bccc8c0f5163ee51b84",
+  "accepted_guide_sha256": "ce6f62005374b949f2186d0a6ac7e0ed796f2b9cbdb22c8fc03e4289ac0bdef7",
+  "content": {
+    "display_title": "The selected GNS representation of a pure-state class",
+    "one_sentence_role": "A choice of representative pure states, fixed literally at a root, gives one concrete GNS representation per equivalence class.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra, with the positive order used for its states, and fix a pure state $\\omega$. A pure state is an extreme point of the normalized positive continuous linear functionals. Let $I$ be the set of pure-state GNS representations modulo unitary equivalence. For each $j\\in I$, choose a pure state $\\varphi_j$ in that class, retaining $\\varphi_o=\\omega$ literally at $o=[\\omega]$. Write $(H_j,\\pi_j,\\xi_j)$ for its GNS space, representation and canonical cyclic vector. The selected representation is the GNS action $\\pi_j:A\\to B(H_j)$ associated to this particular $\\varphi_j$. The choice concerns the representative state; the construction then uses its actual GNS Hilbert space and action.",
+    "definition_explanation": "Take the chosen state $\\varphi_j$, regard it as a positive linear functional, and form its GNS completion $H_j$. Left multiplication induces the bounded action $\\pi_j$ on that completion. The selected vector $\\xi_j$ is the GNS cyclic vector. Its orbit $\\pi_j(A)\\xi_j$ is dense. The vector-functional identity and purity of $\\varphi_j$, together with this cyclicity and normalization, supply the separate irreducibility theorem.",
+    "assumptions": "The class $j\\in I$ and the root pure state $\\omega$ are given. GNS representations here are unital complex-linear star homomorphisms on complete complex Hilbert spaces. No separability or faithfulness of $\\pi_j$ is assumed.",
+    "conclusion": "The definition specifies $\\pi_j$ on $H_j$. The separate selected-vector and pure-GNS results give $\\|\\xi_j\\|=1$, $\\varphi_j(a)=\\langle\\xi_j,\\pi_j(a)\\xi_j\\rangle$, and irreducibility of $\\pi_j$. These properties explain why this selected family supplies the summands of the direct-sum representation.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The inner product is conjugate linear in its first argument. Irreducibility means that the only closed reducing subspaces are $0$ and $H_j$; this Hilbert space is nonzero because it contains the unit vector $\\xi_j$. The definition does not itself prove those properties, and it does not claim that different pure states always have inequivalent GNS representations.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

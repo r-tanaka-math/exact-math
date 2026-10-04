@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.WeakDivergenceZero.exists_eqOn",
+  "title": "A continuous function with zero weak gradient is constant",
+  "stable_card_id": null,
+  "identity_key": "8acb82dffc8e9fba60636077fe3b3268420fc49aefcd3dd60b6e9e72d9cb78b9",
+  "source_url": "mathlibannex/sources/lfh188/8885002beab4af6109dfb4a9/index.html#L30",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Distribution/WeakGradient.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "c3b9910b26ffee458232ba0247b83cbe8decac623616d870480cff8481d8c2e6",
+  "accepted_guide_sha256": "f8158618bd8f1f8986c7790011350a07218014fb772889a6977df8bc59261760",
+  "content": {
+    "display_title": "A continuous function with zero weak gradient is constant",
+    "one_sentence_role": "Removes the exceptional set using continuity and positivity of open sets.",
+    "natural_language_statement": "Let $E$ be a finite-dimensional real normed vector space with its Borel structure and an additive Haar measure $\\mu$. Let $U\\subseteq E$ be open and preconnected. Let $u:E\\to\\mathbb R$ be locally integrable and continuous on $U$, and suppose\n$$\\int_Uu(z)\\operatorname{div}W(z)\\,d\\mu(z)=0$$\nfor every $C^1$ vector field $W:E\\to E$ for which a compact set $K_W$ satisfies\n$$\\overline{\\{z\\in E:W(z)\\ne0\\}}\\subseteq K_W\\subseteq U.$$\nHere $\\operatorname{div}W(z):=\\operatorname{tr}(DW(z))$. Then there is $c\\in\\mathbb R$ such that\n$$u(x)=c\\qquad\\text{for every }x\\in U.$$",
+    "definition_explanation": null,
+    "assumptions": "Preconnectedness means that $U$ has no partition into two disjoint nonempty relatively open subsets; the empty set is allowed. In addition to openness, this condition, local integrability on $U$, and the weak equation, continuity is required only on $U$. The ambient space may have dimension zero. No global regularity, boundedness, or normalization of Haar measure is required.",
+    "conclusion": "The same constant obtained by the almost-everywhere theorem works pointwise on $U$. There is no assertion about values outside $U$.",
+    "proof_summary": "First obtain a common constant almost everywhere. If a point had a different value, continuity would create a nonempty open neighborhood of different values, contradicting almost-everywhere equality.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Fix the almost-everywhere constant.** Apply [the global almost-everywhere constancy theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient.lean#L21-L28) to openness, preconnectedness, local integrability, and the weak equation. It gives a real $c$ with\n$$u=c\\qquad\\mu|_U\\text{-almost everywhere}.$$\nThis step does not use continuity."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Exclude any exceptional point.** The [open-set continuity lemma](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/MeasureTheory/Measure/OpenPos.lean#L113-L127) applies to $u$ and the constant function with this same $c$: both are continuous on the open set $U$, they agree almost everywhere there, and every nonempty open set has positive measure. Its contradiction argument is as follows. Suppose $x\\in U$ and $u(x)\\ne c$. Set $\\delta=|u(x)-c|/2>0$. Continuity on the open set $U$ provides an open neighborhood $V$ of $x$, contained in $U$, such that $|u(y)-u(x)|<\\delta$ for all $y\\in V$. Then\n$$|u(y)-c|\\geq |u(x)-c|-|u(y)-u(x)|>\\delta\\qquad(y\\in V).$$\nThe almost-everywhere equality restricted to $V$ says $u=c$ there almost everywhere. But $V$ is nonempty and open, so $\\mu(V)>0$ and it contains a point satisfying that equality, a contradiction. Thus no such $x$ exists and $u=c$ on $U$. If $U$ is empty, the pointwise conclusion is vacuous."
+      }
+    ],
+    "lean_realization_notes": "Pointwise equality and almost-everywhere equality are different conclusions. The upgrade here uses both continuity and the positive measure of every nonempty open subset; the weak equation alone does not justify changing values on an exceptional set into pointwise information.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

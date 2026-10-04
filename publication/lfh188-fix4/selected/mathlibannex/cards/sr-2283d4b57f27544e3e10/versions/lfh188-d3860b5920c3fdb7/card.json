@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.Sphere.radialExtension_leftInverse",
+  "title": "The inverse sphere isometry gives the inverse radial map",
+  "stable_card_id": null,
+  "identity_key": "a48d1310711807d6438a6d46ca5cd45bcefed0e9d3d21eef6654c6331583092a",
+  "source_url": "mathlibannex/sources/lfh188/e4ad4d7764e0bffdd2c9a79e/index.html#L154",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Sphere/RadialExtension.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "f4b36c4bba7b01e5b91e5f67807a1af635a3a1a37ad7f2c34241664648a17c2d",
+  "accepted_guide_sha256": "05d14289010c491e1a0f957983be3c821710f385641919ae73f36bb4bcdb679d",
+  "content": {
+    "display_title": "The inverse sphere isometry gives the inverse radial map",
+    "one_sentence_role": "Shows that extending the inverse sphere isometry radially undoes the forward radial extension.",
+    "natural_language_statement": "Let $X,Y$ be real normed spaces and $\\Delta:S_X\\to S_Y$ a bijective isometry for the ambient chord metrics. Here $S_X=\\{u\\in X:\\|u\\|=1\\}$ and $S_Y=\\{v\\in Y:\\|v\\|=1\\}$ are the unit spheres. Write $R_\\Delta(0)=0$ and $R_\\Delta(x)=\\|x\\|\\Delta(x/\\|x\\|)$ for $x\\ne0$, and define $R_{\\Delta^{-1}}$ in the same way. Then\n\n$$R_{\\Delta^{-1}}(R_\\Delta(x))=x\\qquad(x\\in X).$$",
+    "definition_explanation": null,
+    "assumptions": "The only geometric assumptions are that $X,Y$ are real normed spaces and $\\Delta$ is a bijective isometry between their unit spheres. The inverse used here is the inverse of that same $\\Delta$. Completeness, finite-dimensionality and a positive dimension are not required.",
+    "conclusion": "The map $R_{\\Delta^{-1}}$ is a left inverse of $R_\\Delta$. Applying this result to $\\Delta^{-1}$ gives $R_\\Delta(R_{\\Delta^{-1}}(y))=y$ for all $y\\in Y$, recorded separately as the right-inverse theorem. The two radial maps therefore give a bijection of the ambient spaces.",
+    "proof_summary": "For $x=0$ both maps give zero. For $x\\ne0$, set $r=\\|x\\|>0$, $u=x/r$ and $y=R_\\Delta(x)=r\\Delta(u)$. Since $\\Delta(u)\\in S_Y$, norm preservation gives $\\|y\\|=r>0$, so $y\\ne0$ and $y/\\|y\\|=\\Delta(u)$. Substitution into the inverse radial formula gives\n\n$$R_{\\Delta^{-1}}(y)=r\\Delta^{-1}(\\Delta(u))=ru=x.$$\n\nThe cancellation uses the inverse of the given sphere equivalence, and positive normalization makes the argument of that inverse exactly $\\Delta(u)$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For $x\\ne0$, the norm identity rules out $R_\\Delta(x)=0$. Thus the nonzero branch of the inverse radial definition is applicable."
+      },
+      {
+        "step_id": "s2",
+        "text": "Normalize $r\\Delta(u)$ using $r>0$ and $\\|\\Delta(u)\\|=1$. Its unit direction is $\\Delta(u)$, so the inverse sphere map returns $u$, and multiplication by the preserved radius returns $x$."
+      }
+    ],
+    "lean_realization_notes": "Bundling these two maps as `radialExtensionEquiv` uses precisely these inverse identities. The later homeomorphism uses the same maps with continuity proofs. Neither bundling chooses a new map.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

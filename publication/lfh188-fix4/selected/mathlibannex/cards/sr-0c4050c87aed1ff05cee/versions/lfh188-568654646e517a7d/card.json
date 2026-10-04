@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.PluckerSupport.pluckerPairing_satelliteCoefficients_maximalMinors",
+  "title": "The satellite polynomial is linear in the maximal-minor vector",
+  "stable_card_id": null,
+  "identity_key": "ad8d5daec57e8662e42f9dde856245d767d7ab04a53a3269f305be5917a4c5cf",
+  "source_url": "mathlibannex/sources/lfh188/3596d1d1640133ce870ba0df/index.html#L313",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Operator/PluckerSupport.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "6e0ca039827a0b6cb429f09633300fba57157e6ded5ee257f28f89a65861dcc9",
+  "accepted_guide_sha256": "f27d35366b349169534b09e4b62851a73ff429d3cef0c28c2b98fbb2eed96c5c",
+  "content": {
+    "display_title": "The satellite polynomial is linear in the maximal-minor vector",
+    "one_sentence_role": "Expresses the configuration polynomial as a linear pairing with maximal minors.",
+    "natural_language_statement": "Let $n=m+1>0$ and let $J$ be finite, possibly empty. On $V=\\mathbb R^n$ fix real linear functionals $F=(\\ell_i)_{i=1}^n$ and $s=(s_a)_{a\\in J}$. Put $M_F=(\\ell_i(e_j))_{i,j}$ in the standard basis, and let $M_F[i\\leftarrow s_a]$ replace row $i$ by $(s_a(e_j))_j$. Set\n$$A_{(F,s)}x=((\\ell_i(x))_i,(s_a(x))_a)\\in\\mathbb R^{n+|J|}.$$\nEnumerate $J$ to place its rows after the base rows. For a real linear map $A:V\\to\\mathbb R^{n+|J|}$, let $A_{ij}=(Ae_j)_i$. For each increasing $n$-row index $I$, put $\\Pi_n(A)_I=\\det(A_{I,*})$. Let $I_0$ select all base rows and $I_{i,a}$ select all base rows except $i$, followed by satellite $a$. Let $e_I$ denote a minor-coordinate unit vector. Given any $w\\in\\mathbb R$ and coefficients $c_a\\in V$, put\n$$\\Omega_{w,c}=we_{I_0}+\\sum_{a\\in J}\\sum_{i=1}^n(c_a)_i(-1)^{n-i} e_{I_{i,a}},$$\n$$\\Phi_{w,c}(F,s)=w\\det M_F+\\sum_{a\\in J}\\sum_{i=1}^n(c_a)_i\\det M_F[i\\leftarrow s_a].$$\nThen the finite dot product satisfies\n$$\\langle\\Omega_{w,c},\\Pi_n(A_{(F,s)})\\rangle=\\Phi_{w,c}(F,s).$$",
+    "definition_explanation": null,
+    "assumptions": "The finite families, arbitrary real weight and coefficients are the only inputs. No norm model, admissibility or maximizing condition is assumed.",
+    "conclusion": "The same configuration appears in the map and polynomial. The parity corrects increasing-row order to row-replacement order.",
+    "proof_summary": "Read the row sign, expand both finite sums, and substitute their determinant identities.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "**Correct the selected row order.** Moving the last selected satellite row into position $i$ crosses $n-i$ rows. Therefore\n$$(-1)^{n-i}\\Pi_n(A_{(F,s)})_{I_{i,a}}=\\det M_F[i\\leftarrow s_a],\\qquad\n\\Pi_n(A_{(F,s)})_{I_0}=\\det M_F.$$\nThe [inverse cycle in the source](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/PluckerSupport.lean#L225-L227) maps position $i$ to the last selected row. [the parity-corrected minor lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/PluckerSupport.lean#L292-L303) applies to this same configuration, $i$ and $a$. In zero-based source indexing $i_0=i-1$, the parity is $(-1)^{m-i_0}=(-1)^{n-i}$. The pinned [row-permutation determinant formula](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean#L213-L215) says $\\det(M_{\\sigma,*})=\\operatorname{sign}(\\sigma)\\det M$; substitute the inverse cycle that moves the last selected row to $i$."
+      },
+      {
+        "step_id": "2",
+        "text": "**Show both sums in the pairing.** Bilinearity gives\n$$\\begin{aligned}\n\\langle\\Omega_{w,c},\\Pi_n(A_{(F,s)})\\rangle\n&=w\\Pi_n(A_{(F,s)})_{I_0}\\\\\n&\\quad+\\sum_{a\\in J}\\sum_{i=1}^n(c_a)_i(-1)^{n-i}\n \\Pi_n(A_{(F,s)})_{I_{i,a}}\\\\\n&=w\\det M_F+\\sum_{a\\in J}\\sum_{i=1}^n(c_a)_i\\det M_F[i\\leftarrow s_a]\\\\\n&=\\Phi_{w,c}(F,s).\n\\end{aligned}$$\nThe first equality expands [the coefficient vector RHS](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/PluckerSupport.lean#L305-L311); the second substitutes Step 1. If $J$ is empty the sums vanish and the identity reduces to $w\\det M_F$."
+      }
+    ],
+    "lean_realization_notes": "The [product-indexed map](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/FiniteSup.lean#L372-L375) and [finite-coordinate map](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/FiniteSup.lean#L464-L467) both send $x$ to its base and satellite evaluations, as in the displayed definition of $A_{(F,s)}$. Extracting the rows of a linear map and reassembling them gives that same map, by [the reconstruction identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/FiniteSup.lean#L529-L542).\n\nFor the later volume-scaled application, let $p$ be a norm, $K_p=\\{x:p(x)\\le1\\}$ and $v_p=\\lambda(K_p)$ its reference Lebesgue volume. The [volume-scaling identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/LinearAlgebra/Matrix/VolumeScaledMaximalMinor.lean#L29-L38) gives\n$$\\langle\\Omega_{w,c},v_p\\Pi_n(A_{(F,s)})\\rangle=v_p\\Phi_{w,c}(F,s).$$\nNeither the norm nor the volume factor is an input to the unscaled theorem above.",
+    "content_completeness": "REVISED_EXACT_SOURCE_BOUND_OWNER_PENDING",
+    "language_tag": "en"
+  }
+}

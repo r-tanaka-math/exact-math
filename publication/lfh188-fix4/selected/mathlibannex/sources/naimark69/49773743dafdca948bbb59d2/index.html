@@ -1,0 +1,254 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>ContinuousLinearMap.exists_rankOneCompletion_of_projectionShells | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/49773743dafdca948bbb59d2/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/49773743dafdca948bbb59d2/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>ContinuousLinearMap.exists_rankOneCompletion_of_projectionShells</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/InnerProductSpace/RankOneCompletion.lean</code>, lines 200–200.</p><p><a href="../../../raw/MathlibAnnex/Analysis/InnerProductSpace/RankOneCompletion.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e/versions/n69-95487527d395cd99/index.html">Back to An irreducible operator algebra constructed from projection shells</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.InnerProductSpace.RankOne</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.InnerProductSpace.ProjectionShell</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.InnerProductSpace.UnitaryCompletion</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># Rank-one completion of a one-dimensional defect</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>The input operator has initial and final defects equal to the projections onto</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>two displayed unit vectors.  The missing rank-one link completes it to a</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>unitary.  In particular, no cross-term vanishing is assumed: it is derived</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>from the two defect-product identities.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option autoImplicit false</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open Filter Topology</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>open scoped InnerProduct</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>namespace ContinuousLinearMap</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>variable {H : Type*}</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a></span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>/-- The initial defect identity forces the partial isometry to vanish on its</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>displayed initial defect vector. -/</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>theorem apply_eq_zero_of_adjoint_comp_eq_one_sub_rankOne</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>    (S : H →L[ℂ] H) (b : H) (hb : ‖b‖ = 1)</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>    (hS : (S†).comp S = 1 - InnerProductSpace.rankOne ℂ b b) :</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    S b = 0 := by</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>  have hnorm : ‖S b‖ ^ 2 = 0 := by</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    rw [apply_norm_sq_eq_inner_adjoint_left, hS]</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    simp [InnerProductSpace.rankOne_apply, inner_self_eq_norm_sq_to_K, hb]</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  exact norm_eq_zero.mp (sq_eq_zero_iff.mp hnorm)</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>/-- The final defect identity forces the adjoint partial isometry to vanish on</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>its displayed final defect vector. -/</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>theorem adjoint_apply_eq_zero_of_comp_adjoint_eq_one_sub_rankOne</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    (S : H →L[ℂ] H) (a : H) (ha : ‖a‖ = 1)</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>    (hS : S.comp (S†) = 1 - InnerProductSpace.rankOne ℂ a a) :</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>    (S†) a = 0 := by</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>  have hnorm : ‖(S†) a‖ ^ 2 = 0 := by</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    rw [apply_norm_sq_eq_inner_adjoint_left, adjoint_adjoint, hS]</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    simp [InnerProductSpace.rankOne_apply, inner_self_eq_norm_sq_to_K, ha]</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>  exact norm_eq_zero.mp (sq_eq_zero_iff.mp hnorm)</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a></span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>/-- A partial isometry with displayed one-dimensional initial and final</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>defects becomes a unitary after adding the rank-one link from `b` to `a`.</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>The conclusion also records its action on the source defect vector. -/</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>theorem add_rankOne_mem_unitary</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>    (S : H →L[ℂ] H) (a b : H) (ha : ‖a‖ = 1) (hb : ‖b‖ = 1)</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    (hInitial : (S†).comp S = 1 - InnerProductSpace.rankOne ℂ b b)</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    (hFinal : S.comp (S†) = 1 - InnerProductSpace.rankOne ℂ a a) :</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    S + InnerProductSpace.rankOne ℂ a b ∈ unitary (H →L[ℂ] H) ∧</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>      (S + InnerProductSpace.rankOne ℂ a b) b = a := by</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>  let V : H →L[ℂ] H := InnerProductSpace.rankOne ℂ a b</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>  let P : H →L[ℂ] H := InnerProductSpace.rankOne ℂ b b</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  let Q : H →L[ℂ] H := InnerProductSpace.rankOne ℂ a a</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  have hSb : S b = 0 :=</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>    apply_eq_zero_of_adjoint_comp_eq_one_sub_rankOne S b hb hInitial</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  have hSa : (S†) a = 0 :=</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    adjoint_apply_eq_zero_of_comp_adjoint_eq_one_sub_rankOne S a ha hFinal</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>  have hVstar : V† = InnerProductSpace.rankOne ℂ b a := by</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    simpa [V] using InnerProductSpace.adjoint_rankOne a b</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>  have hSVstar : S.comp (V†) = 0 := by</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>    rw [hVstar, InnerProductSpace.comp_rankOne, hSb]</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    simp</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>  have hVstarS : (V†).comp S = 0 := by</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    rw [hVstar, InnerProductSpace.rankOne_comp, hSa]</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    simp</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>  have hSstarV : (S†).comp V = 0 := by</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>    dsimp [V]</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>    rw [InnerProductSpace.comp_rankOne, hSa]</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>    simp</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>  have hVSstar : V.comp (S†) = 0 := by</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    dsimp [V]</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    rw [InnerProductSpace.rankOne_comp, adjoint_adjoint, hSb]</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    simp</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>  have hVstarV : (V†).comp V = P := by</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    ext x</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>    simp [V, P, InnerProductSpace.rankOne_apply,</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>      InnerProductSpace.adjoint_rankOne, ha]</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>  have hVVstar : V.comp (V†) = Q := by</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>    ext x</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    simp [V, Q, InnerProductSpace.rankOne_apply,</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>      InnerProductSpace.adjoint_rankOne, hb]</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>  constructor</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>  · rw [Unitary.mem_iff]</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    constructor</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>    · change (S + V)† * (S + V) = 1</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>      rw [map_add]</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>      calc</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>        (S† + V†) * (S + V) =</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>            ((S†).comp S + (S†).comp V) +</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>              ((V†).comp S + (V†).comp V) := by</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>          ext x</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>          simp [ContinuousLinearMap.mul_apply]</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>        _ = 1 := by</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>          rw [hInitial, hSstarV, hVstarS, hVstarV]</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>          simp [P]</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>    · change (S + V) * (S + V)† = 1</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>      rw [map_add]</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>      calc</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>        (S + V) * (S† + V†) =</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>            (S.comp (S†) + S.comp (V†)) +</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>              (V.comp (S†) + V.comp (V†)) := by</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>          ext x</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>          simp [ContinuousLinearMap.mul_apply]</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>        _ = 1 := by</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>          rw [hFinal, hSVstar, hVSstar, hVVstar]</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>          simp [Q]</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>  · change S b + V b = a</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>    rw [hSb]</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>    simp [V, InnerProductSpace.rankOne_apply,</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>      inner_self_eq_norm_sq_to_K, hb]</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a></span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>/-- A strong sum of supported projection shells restricts to the original</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>shell map on every shell. -/</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>theorem StronglyConverges.comp_projectionShell_eq</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>    (W : ℕ → H →L[ℂ] H) (U : ℕ → Submodule ℂ H)</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>    [∀ n, (U n).HasOrthogonalProjection]</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>    (hU : Antitone U)</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>    (hInitial : ∀ n, ((W n)†).comp (W n) = Submodule.projectionShell U n)</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>    (S : H →L[ℂ] H) (hS : StronglyConverges (partialSum W) atTop S)</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>    (n : ℕ) :</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>    S.comp (Submodule.projectionShell U n) = W n := by</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>  have horth := pairwiseInitialOrthogonal_of_projectionShells W U hU hInitial</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>  have hsupport : (W n).comp (Submodule.projectionShell U n) = W n :=</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>    comp_projection_eq_self_of_adjoint_comp_self_eq</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>      (W n) (Submodule.projectionShell U n)</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>      (Submodule.projectionShell_adjoint U n)</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>      (Submodule.projectionShell_idempotent U hU n) (hInitial n)</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>  have hpartial {N : ℕ} (hN : n &lt; N) :</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>      (partialSum W N).comp (Submodule.projectionShell U n) = W n := by</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>    rw [partialSum, finsetSum_comp, Finset.sum_eq_single n]</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>    · exact hsupport</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    · intro m hm hmn</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>      calc</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>        (W m).comp (Submodule.projectionShell U n) =</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>            ((W m).comp ((W n)†)).comp (W n) := by</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>          rw [← hInitial n]</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>          rfl</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>        _ = 0 := by rw [horth hmn]; simp</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>    · intro hnmem</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>      exact (hnmem (Finset.mem_range.mpr hN)).elim</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>  intro x</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>  apply tendsto_nhds_unique ((hS.comp_right (Submodule.projectionShell U n)) x)</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>  refine Filter.Tendsto.congr&#x27; ?_ tendsto_const_nhds</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>  exact Filter.eventually_atTop.2 ⟨n + 1, fun N hN ↦</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>    congrArg (fun T : H →L[ℂ] H ↦ T x)</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>      (hpartial (Nat.lt_of_succ_le hN)).symm⟩</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a></span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>/-- A bounded operator which fixes every shell of a normalized decreasing</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>projection flag and fixes the unit vector spanning the limiting defect is the</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>identity.  This is the root-normalization argument: fixing the defect vector</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>alone is not used as a substitute for fixing the complementary shell sum. -/</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>theorem eq_one_of_comp_projectionShell_eq_self_of_rankOne_iInf</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    (L : H →L[ℂ] H) (U : ℕ → Submodule ℂ H)</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>    [∀ n, (U n).HasOrthogonalProjection]</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>    [(⨅ n, U n).HasOrthogonalProjection]</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>    (hU : Antitone U) (hU0 : U 0 = ⊤)</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>    (b : H) (hb : ‖b‖ = 1)</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>    (hUinf : (⨅ n, U n).starProjection =</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>      InnerProductSpace.rankOne ℂ b b)</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>    (hShell : ∀ n, L.comp (Submodule.projectionShell U n) =</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>      Submodule.projectionShell U n)</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>    (hLb : L b = b) :</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>    L = 1 := by</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>  let P : H →L[ℂ] H := (⨅ n, U n).starProjection</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>  have hComplement : StronglyConverges</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>      (fun n ↦ 1 - (U n).starProjection) atTop (1 - P) :=</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>    (StronglyConverges.const (ι := ℕ) (l := atTop) (1 : H →L[ℂ] H)).sub</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>      (Submodule.stronglyConverges_starProjection_iInf U hU)</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>  have hFinite (N : ℕ) :</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>      L.comp (1 - (U N).starProjection) = 1 - (U N).starProjection := by</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>    rw [← Submodule.partialSum_projectionShell U hU0]</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>    exact comp_partialSum_eq_of_comp_eq L</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>      (Submodule.projectionShell U) (Submodule.projectionShell U) hShell N</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>  intro x</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>  have hComplementFixed : L ((1 - P) x) = (1 - P) x := by</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>    apply tendsto_nhds_unique ((hComplement.comp_left L) x)</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>    refine (hComplement x).congr&#x27; ?_</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>    filter_upwards [] with N</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>    exact congrArg (fun T : H →L[ℂ] H ↦ T x) (hFinite N).symm</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>  have hDefectFixed : L (P x) = P x := by</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>    change L ((⨅ n, U n).starProjection x) =</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>      (⨅ n, U n).starProjection x</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>    rw [hUinf]</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>    simp [InnerProductSpace.rankOne_apply, hLb]</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>  calc</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    L x = L ((1 - P) x + P x) := by simp</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>    _ = L ((1 - P) x) + L (P x) := map_add L _ _</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>    _ = (1 - P) x + P x := by rw [hComplementFixed, hDefectFixed]</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>    _ = x := by simp</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a></span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>/-- Raw decreasing projection-shell data whose limiting defects are two</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>displayed unit-vector lines yields an actual unitary rank-one completion.</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>Both strong sums and the completed unitary are conclusions. -/</span>
+<span class="source-line selected" id="L200"><a class="line-no" href="#L200">200</a>theorem exists_rankOneCompletion_of_projectionShells</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>    (W : ℕ → H →L[ℂ] H)</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>    (U V : ℕ → Submodule ℂ H)</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>    [∀ n, (U n).HasOrthogonalProjection]</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>    [∀ n, (V n).HasOrthogonalProjection]</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>    [(⨅ n, U n).HasOrthogonalProjection]</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>    [(⨅ n, V n).HasOrthogonalProjection]</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>    (hU : Antitone U) (hV : Antitone V)</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>    (hU0 : U 0 = ⊤) (hV0 : V 0 = ⊤)</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>    (hInitial : ∀ n, ((W n)†).comp (W n) = Submodule.projectionShell U n)</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>    (hFinal : ∀ n, (W n).comp ((W n)†) = Submodule.projectionShell V n)</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>    (a b : H) (ha : ‖a‖ = 1) (hb : ‖b‖ = 1)</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>    (hUinf : (⨅ n, U n).starProjection = InnerProductSpace.rankOne ℂ b b)</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>    (hVinf : (⨅ n, V n).starProjection = InnerProductSpace.rankOne ℂ a a) :</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>    ∃ S : H →L[ℂ] H,</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>      StronglyConverges (partialSum W) atTop S ∧</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>      (S + InnerProductSpace.rankOne ℂ a b) ∈ unitary (H →L[ℂ] H) ∧</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>      (S + InnerProductSpace.rankOne ℂ a b) b = a ∧</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>      ∀ n, (S + InnerProductSpace.rankOne ℂ a b).comp</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>        (Submodule.projectionShell U n) = W n := by</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>  obtain ⟨S, _, hS, _, _, _, _, hProdU, hProdV⟩ :=</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>    exists_strongSums_of_projectionShells</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>      W U V hU hV hU0 hV0 hInitial hFinal</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>  have hInitialS : (S†).comp S =</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>      1 - InnerProductSpace.rankOne ℂ b b := by</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>    simpa [hUinf] using hProdU</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>  have hFinalS : S.comp (S†) =</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>      1 - InnerProductSpace.rankOne ℂ a a := by</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>    simpa [hVinf] using hProdV</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>  obtain ⟨hunitary, hmap⟩ :=</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>    add_rankOne_mem_unitary S a b ha hb hInitialS hFinalS</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>  refine ⟨S, hS, hunitary, hmap, ?_⟩</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>  intro n</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>  have hSshell := StronglyConverges.comp_projectionShell_eq</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>    W U hU hInitial S hS n</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>  have hbmem : b ∈ ⨅ k, U k := by</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>    apply (⨅ k, U k).starProjection_eq_self_iff.mp</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>    rw [hUinf]</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>    simp [InnerProductSpace.rankOne_apply,</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>      inner_self_eq_norm_sq_to_K, hb]</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>  have hbshell : Submodule.projectionShell U n b = 0 := by</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>    have hball : ∀ k, b ∈ U k := (Submodule.mem_iInf U).mp hbmem</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>    have hbn : b ∈ U n := hball n</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>    have hbnext : b ∈ U (n + 1) := hball (n + 1)</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>    simp [Submodule.projectionShell,</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>      Submodule.starProjection_eq_self_iff.mpr hbn,</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>      Submodule.starProjection_eq_self_iff.mpr hbnext]</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>  have hrank : (InnerProductSpace.rankOne ℂ a b).comp</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>      (Submodule.projectionShell U n) = 0 := by</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>    rw [InnerProductSpace.rankOne_comp,</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>      Submodule.projectionShell_adjoint, hbshell]</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>    simp</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>  rw [add_comp, hSshell, hrank, add_zero]</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a></span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>end ContinuousLinearMap</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

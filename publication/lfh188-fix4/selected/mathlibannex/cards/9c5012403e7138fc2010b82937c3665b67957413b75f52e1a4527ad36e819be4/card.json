@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "c53a59e440d9fb8f867ac021cf9e0c21524fc703fcf868c0662c4d97081d088c",
+  "approved_card_model_sha256": "ba149f5423ec82ddf501edfe2e832c24fd54d1e23b70f06a146e2b1e7674e637",
+  "assumptions": "Let X be nonempty, countable, T1 and Baire.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "819701b501957cdcf19003e34a0cad05ad728f597d7dc5224d359463cbf86461",
+    "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+  },
+  "citations": [],
+  "conclusion": "At least one singleton {x} is open in X.",
+  "declaration_kind": "theorem",
+  "definition_equation": "∃ x : X, IsOpen ({x} : Set X).",
+  "definition_explanation": "∃ x : X, IsOpen ({x} : Set X).",
+  "display_title": "An isolated point in a countable Baire space",
+  "exact_elaborated_lean_type": "∀ {X : Type u} [inst : TopologicalSpace X] [Nonempty X] [Countable X] [T1Space X] [BaireSpace X], ∃ x, IsOpen {x}",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "e7ebb402978675eecd0e30a14444040541ac38228fa9eb4be2b5a22c3f488f53",
+    "uid": "lfh:lfh-card-exposition:sha256:764ec2381cc351653e7b900df4c81fb259557cfbab64887619a0f082dac38897"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "4ecf52facbfa192694b2ab029ccd63d65033842d10f07f66e6252dfaf9e0e7fb",
+    "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "e7ebb402978675eecd0e30a14444040541ac38228fa9eb4be2b5a22c3f488f53",
+    "uid": "lfh:lfh-card-exposition:sha256:764ec2381cc351653e7b900df4c81fb259557cfbab64887619a0f082dac38897"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "4ecf52facbfa192694b2ab029ccd63d65033842d10f07f66e6252dfaf9e0e7fb",
+      "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Topology.exists_isOpen_singleton",
+  "natural_language_statement": "Let X be nonempty, countable, T1 and Baire. At least one singleton {x} is open in X.",
+  "one_sentence_role": "Extracts an isolated point from a nonempty countable T1 Baire space.",
+  "owner_review_item_sha256": "cd1ee0336f8930b61d0bdd5bbc869f9ba4628d2b48166dd6c00f8e01c7032874",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {X : Type u} [inst : TopologicalSpace X] [Nonempty X] [Countable X] [T1Space X] [BaireSpace X], ∃ x, IsOpen {x}"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∃ x : X, IsOpen ({x} : Set X)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "T1 makes each singleton closed. The countable union of those closed singletons is X; Mathlib's Baire closed-cover lemma gives one with nonempty interior. Since that interior lies inside a singleton, the singleton is open."
+    }
+  ],
+  "proof_summary": "T1 makes each singleton closed. The countable union of those closed singletons is X; Mathlib's Baire closed-cover lemma gives one with nonempty interior. Since that interior lies inside a singleton, the singleton is open.",
+  "source_excerpt": {
+    "bytes": 586,
+    "sha256": "6e52a0e0bf3a315464cc632faa7c97167f1c96c8471cfe399ce80eb8c69b49ac"
+  },
+  "source_locator": {
+    "end_column": 66,
+    "end_line": 28,
+    "source_path": "MathlibAnnex/Topology/CountableBaire.lean",
+    "source_sha256": "b6a60bb2da18d93e26f86459c3588d6eb15325b057285d1bf5970706db7277c2",
+    "start_column": 1,
+    "start_line": 18
+  },
+  "source_path": "MathlibAnnex/Topology/CountableBaire.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "6e00e9ccaf8c1e06467724b8ed39d2e1d876f6483f87438b6518643a579580a2",
+    "uid": "lfh:lfh-source-build-binding:sha256:a1061a89c137fc55162426648f478b9a9d1ee80476e28fa254ce56f7a428cc72"
+  },
+  "source_sha256": "b6a60bb2da18d93e26f86459c3588d6eb15325b057285d1bf5970706db7277c2",
+  "source_signature": {
+    "end_byte": 450,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "ecd9fcfdbb5961bab5ae147837b78b0acec2a2ba32764fd48a3f442276938294",
+    "source_command_range": {
+      "end_column": 66,
+      "end_line": 28,
+      "source_path": "MathlibAnnex/Topology/CountableBaire.lean",
+      "source_sha256": "b6a60bb2da18d93e26f86459c3588d6eb15325b057285d1bf5970706db7277c2",
+      "start_column": 1,
+      "start_line": 18
+    },
+    "source_path": "MathlibAnnex/Topology/CountableBaire.lean",
+    "source_sha256": "b6a60bb2da18d93e26f86459c3588d6eb15325b057285d1bf5970706db7277c2",
+    "start_byte": 327,
+    "text": "theorem exists_isOpen_singleton [Nonempty X] [Countable X] [T1Space X]\n    [BaireSpace X] : ∃ x : X, IsOpen ({x} : Set X)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Topology/CountableBaire.lean#L18-L28",
+  "stable_card_id": "9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

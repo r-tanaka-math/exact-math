@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "c548af792d12e9cc89f8faf14dd142e3dac00ab4422373e5ddc0c351eae0a332",
+  "approved_card_model_sha256": "8d4b4f6e223d1d7b7e07de457d49ace63235788fa36ccc32b5ac572d748d8c9a",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital, and H a complex Hilbert space.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "5f6518c19b7ddf2cefa410727daa089f8bcd028d40af5d7507d33d3490084f9c",
+    "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+  },
+  "citations": [],
+  "conclusion": "A representation of A on H is a complex-linear nonunital star-algebra homomorphism into the bounded complex-linear operators on H. It preserves addition, multiplication, complex scalar multiplication and involution; neither preservation of a unit nor faithfulness is built in.",
+  "declaration_kind": "abbrev",
+  "definition_equation": "NonUnitalCStarRepresentation A H = A →⋆ₙₐ[ℂ] (H →L[ℂ] H).",
+  "definition_explanation": "NonUnitalCStarRepresentation A H = A →⋆ₙₐ[ℂ] (H →L[ℂ] H).",
+  "display_title": "Possibly nonunital representation",
+  "exact_elaborated_lean_type": "(A : Type u) → [NonUnitalCStarAlgebra A] → (H : Type v) → [inst : NormedAddCommGroup H] → [InnerProductSpace ℂ H] → [CompleteSpace H] → Type (max u v)",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "e32575dcb8092983f11062f6e018dbbc1312144f3e1739c99e73953d9b2db371",
+    "uid": "lfh:lfh-card-exposition:sha256:995f1d34b96393e95ffc01a571a4423674f0389dca36265f0bb4da63721a1339"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "b2aa767e7e85af3303a011a55aae3db93675da34615cda0b89fee35a254b06d4",
+    "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "e32575dcb8092983f11062f6e018dbbc1312144f3e1739c99e73953d9b2db371",
+    "uid": "lfh:lfh-card-exposition:sha256:995f1d34b96393e95ffc01a571a4423674f0389dca36265f0bb4da63721a1339"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "b2aa767e7e85af3303a011a55aae3db93675da34615cda0b89fee35a254b06d4",
+      "uid": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital, and H a complex Hilbert space. A representation of A on H is a complex-linear nonunital star-algebra homomorphism into the bounded complex-linear operators on H. It preserves addition, multiplication, complex scalar multiplication and involution; neither preservation of a unit nor faithfulness is built in.",
+  "one_sentence_role": "Names nonunital complex star-algebra homomorphisms into bounded operators as the representation type.",
+  "owner_review_item_sha256": "57c7761ecbc107af89c713413fc369aae159a8c3a905c319b6da71965043ab7e",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: (A : Type u) → [NonUnitalCStarAlgebra A] → (H : Type v) → [inst : NormedAddCommGroup H] → [InnerProductSpace ℂ H] → [CompleteSpace H] → Type (max u v)"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "NonUnitalCStarRepresentation A H = A →⋆ₙₐ[ℂ] (H →L[ℂ] H)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "This is a type abbreviation. Unfolding it gives the nonunital star-homomorphism type; later theorems separately assume nonzero action, irreducibility or injectivity."
+    }
+  ],
+  "proof_summary": "This is a type abbreviation. Unfolding it gives the nonunital star-homomorphism type; later theorems separately assume nonzero action, irreducibility or injectivity.",
+  "source_excerpt": {
+    "bytes": 286,
+    "sha256": "35aaf1b7cbd8da5a62c0e72381b5f5c3be009b37fdf39dadf5c658ea97d6c308"
+  },
+  "source_locator": {
+    "end_column": 24,
+    "end_line": 27,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+    "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+    "start_column": 1,
+    "start_line": 22
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "f6d88bc048ef5fdc3f420370f97e310a31e6bb8eba30c2eac34faddcd3718b19",
+    "uid": "lfh:lfh-source-build-binding:sha256:d10de03d86f92a30d6272993cf10865905be8ead51354ad52d0ea3184d60dfb2"
+  },
+  "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+  "source_signature": {
+    "end_byte": 894,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "eecc39549a28cf304365f53b7e096408e3daf4557038d67f905835268261e9df",
+    "source_command_range": {
+      "end_column": 24,
+      "end_line": 27,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+      "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+      "start_column": 1,
+      "start_line": 22
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean",
+    "source_sha256": "3fce6a44b2330caf8944634bfb54277edb4a983640d064306d4fd544902696ae",
+    "start_byte": 732,
+    "text": "abbrev NonUnitalCStarRepresentation (A : Type u)\n    [NonUnitalCStarAlgebra A] (H : Type v)\n    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean#L22-L27",
+  "stable_card_id": "fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

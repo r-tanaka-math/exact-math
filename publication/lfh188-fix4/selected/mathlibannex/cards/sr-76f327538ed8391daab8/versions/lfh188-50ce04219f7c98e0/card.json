@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Satellite.satellitePolynomial",
+  "title": "A weighted determinant polynomial with satellites",
+  "stable_card_id": null,
+  "identity_key": "c253ac61d38a96e61ce5fc496578e7e1c1ca5c3583bc6e17d5fd48c4cc1ffac5",
+  "source_url": "mathlibannex/sources/lfh188/784f1b82726c11e12d4afc7e/index.html#L149",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "7f1e367358fd0f9445e65155eb71ac09f762d2092a022b0976220b0009be4cef",
+  "accepted_guide_sha256": "87ecf606c5b515afdb6d64d8d5ebc76efe3e2c7843f82e8fadc33b2b69e129b0",
+  "content": {
+    "display_title": "A weighted determinant polynomial with satellites",
+    "one_sentence_role": "Adds linear row-replacement contributions to a base determinant.",
+    "natural_language_statement": "Let $n\\in\\mathbb N$, $V=\\mathbb R^n$ with reference sup norm, and $J$ a finite index set. Let $F=(\\ell_i)_{i=1}^n$ be a family of continuous real linear functionals on $V$, and $s=(s_a)_{a\\in J}$ another such family. Choose $w\\in\\mathbb R$ and coefficients $c_a\\in V$. Let $e_1,\\ldots,e_n$ be the standard coordinate vectors. Put $M_F=(\\ell_i(e_j))_{i,j}$ and replace row $i$ by $(s_a(e_j))_j$ when writing $M_F[i\\leftarrow s_a]$.",
+    "definition_explanation": "The full defining expression is\n$$\\Phi_{w,c}(F,s)=w\\det M_F+\\sum_{a\\in J}\\sum_{i=1}^n(c_a)_i\\det M_F[i\\leftarrow s_a].$$\nBoth sums are finite. If $J$ is empty, only $w\\det M_F$ remains. If $n=0$, the empty determinant is $1$ and the inner sum is empty, so the value is $w$.",
+    "assumptions": "Only the finite indices, the real weight, coefficient vectors and the two families of continuous linear functionals are inputs. There is no norm model $p$, contraction condition, positive-weight hypothesis or invertibility hypothesis.",
+    "conclusion": "The definition returns the scalar $\\Phi_{w,c}(F,s)$. The satellites are additional dual functionals, not vectors or points of a net.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The private coordinate and row-replacement aliases in [the exact local aliases](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean#L13-L23) identify reference vectors, frame rows, and standard-basis matrices. They do not restrict the defining polynomial to admissible configurations; such a restriction is imposed only in later theorems.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

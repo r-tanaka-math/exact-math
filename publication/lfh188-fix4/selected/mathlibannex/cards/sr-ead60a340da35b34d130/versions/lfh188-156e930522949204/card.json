@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.PluckerRecovery.LimitCertificate.image_unitBall_eq",
+  "title": "The recovered contraction maps one unit ball onto the other",
+  "stable_card_id": null,
+  "identity_key": "8ff64315b0212d1561fcc4501a787a4f3327d810020848249841aadb4506241b",
+  "source_url": "mathlibannex/sources/lfh188/104d218c6c3a1e3fcabb9dc6/index.html#L359",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "9501ca8701e9c87788eae411cbaa361d60bc02a27377e052226e41abc195b98f",
+  "accepted_guide_sha256": "a2dd665ae677fb439f3e4ca1bb955f05ebbff224ae739b17b62a4e93d591738b",
+  "content": {
+    "display_title": "The recovered contraction maps one unit ball onto the other",
+    "one_sentence_role": "Upgrades ball inclusion to equality by strict compact-subset volume comparison.",
+    "natural_language_statement": "Let $n=m+1>0$ and $V=\\mathbb R^n$ with the reference sup norm and standard Lebesgue measure $\\lambda$. The continuous norms $p,q$ have fixed positive comparison constants\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty,\\qquad\na_q\\|x\\|_\\infty\\le q(x)\\le b_q\\|x\\|_\\infty.$$\nSet $K_p=\\{x:p(x)\\le1\\}$, $K_q=\\{x:q(x)\\le1\\}$ and $v_p=\\lambda(K_p)$, $v_q=\\lambda(K_q)$, as positive finite real numbers. Let $L:V\\to V$ be a real linear map with the following properties: $q(Lx)\\le p(x)$ for every $x$, $L(K_p)\\subseteq K_q$, $v_p|\\det L|=v_q$, $\\det L\\ne0$, and $L$ is bijective. Then\n$$L(K_p)=K_q.$$",
+    "definition_explanation": null,
+    "assumptions": "The two norm models and one already fixed real linear map $L$ with the seven displayed certificate properties are inputs. In particular, its ball inclusion and determinant-volume equation must concern the same $L$. Equality of Plücker bodies is not an input to this theorem.",
+    "conclusion": "Every image of a $p$-unit-ball vector is in $K_q$, and every point in $K_q$ is such an image.",
+    "proof_summary": "Compute the image volume for the same map and exclude a proper compact subset of the target unit ball.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "**Compute the volume of this same linear image.** The change-of-variables formula gives\n$$\\begin{aligned}\n\\lambda(L(K_p))\n &=|\\det L|\\lambda(K_p)\\\\\n &=|\\det L|v_p\\\\\n &=v_q=\\lambda(K_q).\n\\end{aligned}$$\nHere the first equality is the [linear image-volume formula](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean#L313-L315), used with Lebesgue measure $\\lambda$, the continuous linear map $L$, and the set $K_p$. The second uses $v_p=\\lambda(K_p)$; the third uses the assumed identity $v_p|\\det L|=v_q$. This is the [image-volume calculation](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L321-L327) for the map in the supplied certificate.\n\nAll volumes in this calculation are finite: $K_p,K_q$ are compact, $L$ is continuous, and Lebesgue measure is finite on compact sets. We therefore identify these finite measures with the same nonnegative real numbers throughout. The resulting [equality of image and target measures](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L350-L357) concerns the same $L(K_p)$ and $K_q$ that occur in the inclusion hypothesis."
+      },
+      {
+        "step_id": "2",
+        "text": "**Rule out a proper compact subset.** Continuity of $L$ makes $L(K_p)$ compact. If its known inclusion in $K_q$ were proper, [strict measure loss inside a seminorm ball](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Ball/VolumeRigidity.lean#L120-L149) would give\n$$\\lambda(L(K_p))<\\lambda(K_q).$$\nThe inputs at this use are Lebesgue measure, continuous seminorm $q$, compactness of the subset, inclusion and inequality of the sets. The output contradicts Step 1. Thus $L(K_p)=K_q$. Equal measures of arbitrary sets alone would not justify equality."
+      }
+    ],
+    "lean_realization_notes": "The norm comparisons provide compact unit balls and positive finite volumes. Every volume used in the proof is finite; no infinite measure is treated as a real number.",
+    "content_completeness": "REVISED_EXACT_SOURCE_BOUND_OWNER_PENDING",
+    "language_tag": "en"
+  }
+}

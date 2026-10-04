@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.iInf_range_atomic_transportedFlag_eq_span",
+  "title": "The atomic common range is one embedded GNS line",
+  "stable_card_id": "33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e",
+  "identity_key": "lfh:lfh-declaration-card:sha256:33faef4a7aeea0e449fc97d78875cdf9559b511956c357898bd723b6e6b9090e",
+  "source_url": "mathlibannex/sources/lfh188/8ab1b2acd439be2ec035cc33/index.html#L242",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d818b9e9438681168b843bf6da06bd7fcced608354bbee6789c028f530cc3fbe",
+  "accepted_guide_sha256": "9ce6ca9d690304828da3587072e1ca48d4efc889bdb6fe28a41a830dae1e8104",
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra, the completion of the matrix stages $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$. Write $f_n$ for the image of the first diagonal matrix unit. These are decreasing projections with $f_0=1$. Write $\\iota_n$ for the canonical embedding of stage $n$. The root state $\\omega$ is determined by $\\omega(\\iota_n(a))=a_{00}$ on every stage.\n\nChoose one pure state $\\varphi_j$ from each unitary-equivalence class $j\\in I$ of pure-state Gelfand-Naimark-Segal (GNS) representations, retaining $\\omega$ at the root index $o$. Write $(H_j,\\pi_j,\\xi_j)$ for its complete complex GNS space, unital star representation and unit cyclic vector. Thus $\\varphi_j(a)=\\langle\\xi_j,\\pi_j(a)\\xi_j\\rangle$, and the vectors $\\pi_j(a)\\xi_j$ are dense in $H_j$. Inner products are linear in the second argument.\n\nA fixed shell family supplies unital complex star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$ with $\\varphi_j\\circ\\alpha_j=\\omega$, $w_{j,n}^*w_{j,n}=\\alpha_j(f_n-f_{n+1})$, and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$. At the root, $\\alpha_o$ is the identity and $w_{o,n}=f_n-f_{n+1}$. Fix $i\\in I$ and put $f_{i,n}=\\alpha_i(f_n)$. The family is supplied; its existence is not an extra conclusion here. The Hilbert direct sum consists of square-summable families $x=(x_j)_{j\\in I}$, and $\\pi(a)$ acts coordinatewise. No countability of $I$ is assumed. The coordinate embedding is isometric, so $e_i(\\xi_i)$ is a unit vector.",
+    "conclusion": "The orthogonal projection onto this common range is the rank-one map $x\\mapsto\\langle e_i(\\xi_i),x\\rangle e_i(\\xi_i)$. The decreasing-projection theorem therefore gives strong convergence of $\\pi(f_{i,n})$ to this map. In the construction of the shell unitaries, this is the one-dimensional residual space joined to the root residual line when the difference-shell maps are completed to a unitary.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The atomic common range is one embedded GNS line",
+    "language_tag": "en",
+    "lean_realization_notes": "The exact declaration is the equality of subspaces, and its identity remains separate from the two fiber declarations. The rank-one and strong-limit assertions are explained consequences. The coordinate proof works for an arbitrary index set; it does not exchange an uncountable sum with a limit or assert operator-norm convergence.",
+    "natural_language_statement": "For a fixed shell family and $i\\in I$ as below, let $\\mathcal H=\\bigoplus_{j\\in I}H_j$ and $\\pi=\\bigoplus_{j\\in I}\\pi_j$. Denote the coordinate embedding by $e_i:H_i\\to \\mathcal H$. Then $\\bigcap_{n\\geq0}\\operatorname{ran}\\pi(f_{i,n})=\\mathbb C e_i(\\xi_i)$, where $f_{i,n}=\\alpha_i(f_n)$.",
+    "one_sentence_role": "Assembles the matching and inequivalent fiber calculations in an arbitrary Hilbert direct sum.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For a vector in the common range, apply each coordinate evaluation to $\\pi(f_{i,n})x=x$. This gives fixedness in every fiber without a sum-limit argument."
+      },
+      {
+        "step_id": "s2",
+        "text": "The common projection in fiber $i$ sends $x_i$ to $\\langle\\xi_i,x_i\\rangle\\xi_i$; since $x_i$ is fixed it equals that value. For $j\\ne i$, the common projection is zero, so fixedness gives $x_j=0$. Therefore $x=\\langle\\xi_i,x_i\\rangle e_i(\\xi_i)$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Every flag projection fixes $\\xi_i$ in the matching fiber. Acting coordinatewise therefore fixes every scalar multiple of $e_i(\\xi_i)$, proving the reverse inclusion. The unit norm then identifies the projection onto the resulting line."
+      }
+    ],
+    "proof_summary": "A vector is in the range of an orthogonal projection exactly when that projection fixes it. Thus a vector $x\\in \\mathcal H$ belongs to the common range exactly when every coordinate $x_j$ is fixed by all $\\pi_j(f_{i,n})$. [The matching-fiber common-range theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L189-L212) forces $x_i$ to be a scalar multiple of $\\xi_i$, while [the inequivalent-fiber common-range theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicSource.lean#L214-L240) forces $x_j=0$ for $j\\ne i$. Conversely, the embedded vector $e_i(\\xi_i)$ and all its scalar multiples are fixed by every $\\pi(f_{i,n})$."
+  }
+}

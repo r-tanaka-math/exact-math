@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacter",
+  "title": "The scalar character of the unitization",
+  "stable_card_id": "6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f",
+  "identity_key": "lfh:lfh-declaration-card:sha256:6cdd5b20c1ae2e69ab7bda0400ecc3876509dbfa7420f6561394f5c962b3509f",
+  "source_url": "mathlibannex/sources/lfh188/df13a80a51b400c5b6744bce/index.html#L25",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "ba526c504b2c136abc501aaf70f88d96a67a20afa87f80f735d24b7398059540",
+  "accepted_guide_sha256": "35ef3ad0e85d28d6088d53affb966ecf16525d7f1ca2023518cf583713e01b0d",
+  "content": {
+    "display_title": "The scalar character of the unitization",
+    "one_sentence_role": "Names the character which reads the scalar coordinate and annihilates the embedded original algebra.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed. Write its complex unitization as $\\widetilde A=\\mathbb C\\oplus A$, with elements $(\\lambda,a)$ and inclusion $\\iota(a)=(0,a)$. The scalar character is a character of $\\widetilde A$.",
+    "definition_explanation": "Multiplication in the unitization is given by $(\\lambda,a)(\\mu,b)=(\\lambda\\mu,\\lambda b+\\mu a+ab)$. Thus $$\\chi_\\infty:\\widetilde A\\to\\mathbb C,\\qquad\\chi_\\infty(\\lambda,a)=\\lambda$$ is a complex algebra homomorphism with $\\chi_\\infty(1,0)=1$, hence a nonzero character. The RHS below presents this very scalar-coordinate homomorphism as an element of the character space.",
+    "assumptions": "There is no nontriviality, order, separability, or representation-space hypothesis in this definition.",
+    "conclusion": "The resulting character satisfies $\\chi_\\infty(\\lambda,a)=\\lambda$, and consequently $\\chi_\\infty(\\iota(a))=0$ for every $a\\in A$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": [
+      "For a closed unital $*$-subalgebra $D\\subseteq\\widetilde A$, the separate definition `infinityCharacterOn D` is its restriction $\\chi_\\infty|_D$. It is not a new character of $A$."
+    ]
+  }
+}

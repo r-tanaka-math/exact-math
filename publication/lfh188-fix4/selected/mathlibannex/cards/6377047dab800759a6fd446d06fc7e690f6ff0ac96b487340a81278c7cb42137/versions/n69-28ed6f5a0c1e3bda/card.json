@@ -1,0 +1,322 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+    "source_range": {
+      "end_line": 71,
+      "start_line": 68
+    },
+    "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def tracialRepresentation (family : RepresentativeShellFamily) :\n    Representation (ShellFamilyTarget family) (TracialHilbertSpace family) :=\n  (traceExtensionPositive family).gnsStarAlgHom",
+    "start_byte": 3101,
+    "end_byte": 3305,
+    "sha256": "a370c0cb19afa7c04be31227ae68e916e610287e5d140a7deb960517953c1a0a",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+    "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+      "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+      "start_line": 68,
+      "start_column": 1,
+      "end_line": 71,
+      "end_column": 49
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "The GNS representation of the target trace extension",
+    "one_sentence_role": "The chosen state on the existing target supplies its cyclic GNS representation.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Let $\\phi$ be the chosen state extension of $\\tau$ to $T$. Define $\\rho_\\phi:T\\to B(H_\\phi)$ to be its GNS representation.",
+    "definition_explanation": "Choose $\\phi$ from `exists_state_extension_trace` and regard that same functional as a positive linear map. Form the GNS completion of $T$ modulo its null vectors, set $H_\\phi$ to that Hilbert space, and let $\\xi_\\phi=[1]$. The induced left action is\n\n$$\\rho_\\phi(t)[b]=[tb],\\qquad \\phi(t)=\\langle\\xi_\\phi,\\rho_\\phi(t)\\xi_\\phi\\rangle.$$\n\nThe right-hand side of the definition is exactly the GNS star homomorphism of `traceExtensionPositive family`. This positive-map bundle has the same values as $\\phi$; it is not another state. Normalization gives $\\|\\xi_\\phi\\|=1$, so $\\xi_\\phi\\ne0$ and $H_\\phi$ is nonzero. The GNS construction gives the dense $T$-orbit. Its restriction realizes $\\tau$ because $\\phi\\circ\\iota=\\tau$. The actual-representation source-cyclicity theorem applies to these two facts and proves the source orbit dense; it is not an assumption smuggled into the definition.",
+    "assumptions": "A representative shell family is fixed first. The chosen extension is positive and normalized; its traciality is not needed to perform the GNS construction.",
+    "conclusion": "With its canonical unit vector $\\xi_\\phi$, this representation realizes $\\phi$ and has dense target orbit. The separately proved source-cyclicity result also gives\n\n$$\\overline{\\{\\rho_\\phi(\\iota(a))\\xi_\\phi:a\\in A\\}}=H_\\phi.$$\n\nConsequently $H_\\phi$ is separable, since $A$ is separable and the displayed orbit map is continuous.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "Separability here is a conclusion about the Hilbert space. The algebra $T$ is not assumed norm separable. Injectivity of $\\rho_\\phi$ is a separate theorem; irreducibility or purity of $\\phi$ is not asserted.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L68-L71",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 71,
+          "start_line": 68
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed concrete target and source map",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the source embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L78-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 78
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Existence used to choose the state",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L22-L28",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 28,
+          "start_line": 22
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The chosen extension",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L30-L33",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceExtension",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 33,
+          "start_line": 30
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The positive-map bundle",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L45-L49",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.traceExtensionPositive",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 49,
+          "start_line": 45
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The target-state GNS Hilbert space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L60-L62",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.TracialHilbertSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 62,
+          "start_line": 60
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The canonical target-state vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L64-L66",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialVector",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 66,
+          "start_line": 64
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Normalization of the vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L73-L76",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_tracialVector",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 76,
+          "start_line": 73
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Nonzero target-state vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L78-L83",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.tracialVector_ne_zero",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 83,
+          "start_line": 78
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Nontriviality of its Hilbert space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L85-L88",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.nontrivial_tracialHilbertSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 88,
+          "start_line": 85
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The GNS vector-state identity",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L90-L95",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.inner_tracialVector_tracialRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 95,
+          "start_line": 90
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The source restriction realizes the trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L97-L105",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.vectorFunctional_tracialRepresentation_source",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 105,
+          "start_line": 97
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Target cyclicity from GNS",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L107-L109",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.denseRange_tracialRepresentation_orbit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 109,
+          "start_line": 107
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Source cyclicity is proved",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L111-L118",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.denseRange_tracialRepresentation_source_orbit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 118,
+          "start_line": 111
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Separable target-state GNS space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L120-L124",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableSpace_tracialHilbertSpace",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "source_range": {
+          "start_line": 120,
+          "end_line": 124
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "e7f55b2b92580ed875a6b30248ba272b68f833012f770d7de23e7ba34c99bfa1",
+    "uid": "lfh:lfh-declaration-card:sha256:6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "28ed6f5a0c1e3bda2549e37112e3a88f6db68b67018d877e48c8119f116b8cb7",
+    "uid": "lfh:lfh-card-exposition:sha256:1bb041ea645278ee1fc322e80b2c42144203993e35f858fcaa2d6c37545cbc11"
+  },
+  "guide": "`traceExtension` is $\\phi$, and `traceExtensionPositive` is its positive-map bundle. `TracialHilbertSpace` and `tracialVector` denote $H_\\phi$ and $\\xi_\\phi$. The complete defining RHS below `:=` is `(traceExtensionPositive family).gnsStarAlgHom`. The norm, vector-functional, density and separability statements are separately cited theorems, not omitted fields of this definition.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137/versions/n69-28ed6f5a0c1e3bda/index.html",
+    "pdf": "card.pdf"
+  }
+}

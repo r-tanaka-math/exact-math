@@ -1,0 +1,44 @@
+{
+  "schema": "exact.report-citation.public.v1",
+  "documents": [
+    {
+      "document": "naimark_brief",
+      "title": "Naimark's problem",
+      "version": "Draft R1",
+      "path": "reports/naimark-problem/draft-r1/naimark-brief-report.pdf",
+      "bytes": 327459,
+      "sha256": "88f9e2c78553a99558b76c00328470c967b8a981e67a0cc7652472e1ea6e6b88",
+      "pages": 9,
+      "prepared_date": "2026-09-21",
+      "first_publication_date": "2026-09-21",
+      "this_version_publication_date": "2026-09-21",
+      "accepted_pdf_sha256": "f629e75b819adba69c7f3c084ce0b8dfedd7fbdbc77f21ab5292a5ce19f64f48",
+      "authors": [],
+      "responsible_for_publication": "Ryotaro Tanaka",
+      "url": "/reports/naimark-problem/draft-r1/naimark-brief-report.pdf",
+      "canonical_url": "https://exactmathematics.org/reports/naimark-problem/draft-r1/naimark-brief-report.pdf",
+      "publication_authorized": true,
+      "publication_batch": "EM_FULL_HP_PUBLICATION_R1"
+    },
+    {
+      "document": "naimark_prior_art",
+      "title": "Naimark's problem: Prior-Art Search",
+      "version": "R1",
+      "path": "reports/naimark-problem/prior-art/r1/naimark-prior-art-search.pdf",
+      "bytes": 254335,
+      "sha256": "75d6d04c768850e7b5ac6d2c9a55b06eb6c6d37b64994da2568081e53f0cb0d0",
+      "pages": 4,
+      "prepared_date": "2026-09-21",
+      "first_publication_date": "2026-09-21",
+      "this_version_publication_date": "2026-09-21",
+      "accepted_pdf_sha256": "1e8f4d9512e48be160e8df29bf5f3d4b74858f67e41fe75229861f676ca65951",
+      "authors": [],
+      "responsible_for_publication": "Ryotaro Tanaka",
+      "search_cutoff": "2026-09-20",
+      "url": "/reports/naimark-problem/prior-art/r1/naimark-prior-art-search.pdf",
+      "canonical_url": "https://exactmathematics.org/reports/naimark-problem/prior-art/r1/naimark-prior-art-search.pdf",
+      "publication_authorized": true,
+      "publication_batch": "EM_FULL_HP_PUBLICATION_R1"
+    }
+  ]
+}

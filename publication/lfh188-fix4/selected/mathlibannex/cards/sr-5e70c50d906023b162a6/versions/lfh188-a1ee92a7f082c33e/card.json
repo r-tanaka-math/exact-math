@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.BilipschitzOrientation.targetJacobianSign_ae_const",
+  "title": "Almost-everywhere constancy of the sign on a preconnected target",
+  "stable_card_id": null,
+  "identity_key": "259753e9d2fa9c42c03638d3892b059eb5fc2cad5d1dac32fa6043a764205581",
+  "source_url": "mathlibannex/sources/lfh188/97d9db80c7ece374fa369832/index.html#L50",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Constancy.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "66a3ddb7214180414637adb6147bcf1e39e79598327f5cab7379f850f75d28b9",
+  "accepted_guide_sha256": "abf8fd774ca33384b054ab12b0a595ab02009197b7effd1ed1edf9f02540da73",
+  "content": {
+    "display_title": "Almost-everywhere constancy of the sign on a preconnected target",
+    "one_sentence_role": "Obtains one constant from the weak equation and preconnectedness of the target.",
+    "natural_language_statement": "Let $n\\in\\mathbb N_0$ and let $E=\\mathbb R^n$ have the sup norm $\\|\\cdot\\|_\\infty$. Let $S,T\\subseteq E$ be open, and let $f,g:E\\to E$ be globally Lipschitz maps whose restrictions $f|_S:S\\to T$ and $g|_T:T\\to S$ are mutually inverse. Fix a number $\\ell>0$ such that\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\qquad(x,x'\\in E).$$\n\nThe target $T$ is **preconnected**: it cannot be written as the union of two disjoint, nonempty, relatively open subsets. The empty set is allowed.\n\nWrite $Df(x):E\\to E$ for the Fréchet derivative of $f$ at $x$ when it exists, and set $Df(x)=0$ at other points. Define the signed Jacobian by $J_f(x)=\\det Df(x)$.\n\nDefine the source sign $s_f:E\\to\\{-1,1\\}$ and its transport $\\sigma_f:E\\to\\{-1,1\\}$ by\n$$s_f(x)=\\begin{cases}1,&J_f(x)\\ge0,\\\\-1,&J_f(x)<0,\\end{cases}\\qquad \\sigma_f(y)=s_f(g(y)).$$\nIn particular, a zero determinant gives sign $+1$, and $|\\sigma_f(y)|=1$ for every $y$.\n\nLet $\\lambda$ be Lebesgue measure on $E$. Then there exists $c\\in\\mathbb R$ such that\n$$\\lambda\\bigl(\\{y\\in T:\\sigma_f(y)\\ne c\\}\\bigr)=0.$$\nEquivalently, $\\sigma_f(y)=c$ for Lebesgue-almost every $y\\in T$.",
+    "definition_explanation": null,
+    "assumptions": "The target $T$ is **preconnected**: it cannot be written as the union of two disjoint, nonempty, relatively open subsets. The empty set is allowed. This is an explicit hypothesis in addition to openness of $T$. No positive-measure or finite-measure hypothesis is imposed.\n\nThe sets $S,T\\subseteq E$ are open. The inverse and image conditions are\n$$\\begin{aligned}\nf(S)&\\subseteq T,&g(T)&\\subseteq S,\\\\\ng(f(x))&=x\\quad(x\\in S),&f(g(y))&=y\\quad(y\\in T).\n\\end{aligned}$$\nThe global bounds use specified constants $C_f,C_g\\ge0$ and $\\ell>0$:\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\le C_f\\|x-x'\\|_\\infty\\qquad(x,x'\\in E),$$\n$$\\|g(y)-g(y')\\|_\\infty\\le C_g\\|y-y'\\|_\\infty\\qquad(y,y'\\in E).$$\nThe estimates hold on all of $E$, not just on $S$ or $T$. The inverse identities are required only on $S$ and $T$.",
+    "conclusion": "A single real number $c$ agrees with the transported Jacobian sign outside a null subset of $T$. If $T=\\varnothing$, every $c$ satisfies this equality; this declaration does not constrain that choice to $\\{-1,1\\}$ in the empty case.",
+    "proof_summary": "The sign is locally integrable and satisfies the zero-weak-gradient equation. Apply the constancy theorem with domain $T$ and scalar function $\\sigma_f$, using the explicit preconnectedness hypothesis.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Supply local integrability and the weak equation.** Since $|\\sigma_f|=1$, every compact set $K\\subseteq T$ satisfies\n$$\\int_K|\\sigma_f(y)|\\,d\\lambda(y)=\\lambda(K)<\\infty.$$\nThe total derivative is measurable, the determinant and its two-valued sign are measurable, and $g$ is continuous. Thus $\\sigma_f$ is measurable and locally integrable on $T$, as recorded by [local integrability of the transported sign](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Constancy.lean#L27-L48). The absolute-value equality is recorded by [the source-sign bound](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L170-L174) and [the transported-sign bound](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L176-L179).\n\nFor every $C^1$ vector field $W:E\\to E$ that is zero outside a compact subset of $T$, write $\\operatorname{div}W=\\operatorname{tr}DW$. Then\n$$\\int_T\\sigma_f(y)\\operatorname{div}W(y)\\,d\\lambda(y)=0.$$\nThis is [the zero-weak-gradient theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean#L429-L446) for the same maps, target set and Lebesgue measure."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Apply constancy on this target.** The hypotheses now read\n$$T\\text{ open and preconnected},\\qquad \\sigma_f\\in L^1_{\\mathrm{loc}}(T,\\lambda),\\qquad \\nabla\\sigma_f=0\\text{ weakly on }T.$$\nApply [the preconnected-domain constancy theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient.lean#L21-L28) with ambient space $E=\\mathbb R^n$, Lebesgue measure $\\lambda$, open set $U=T$, and scalar function $u=\\sigma_f$. Openness and preconnectedness are assumptions; Step 1 supplies local integrability and the weak equation. Its output is\n$$\\exists c\\in\\mathbb R:\\quad\\lambda\\bigl(\\{y\\in T:\\sigma_f(y)\\ne c\\}\\bigr)=0,$$\nwhich is exactly the asserted conclusion. This application allows both $n=0$ and $T=\\varnothing$."
+      }
+    ],
+    "lean_realization_notes": "The pointwise bound $|\\sigma_f|=1$ supplies local integrability even if $T$ has infinite measure. When $T$ has positive measure, a chosen almost-everywhere constant can be identified with an actual sign value.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

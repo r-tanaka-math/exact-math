@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall",
+  "title": "Affine extension from equal-radius closed balls",
+  "stable_card_id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+  "identity_key": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+  "source_url": "mathlibannex/sources/lfh188/1350a7611b0d384d3a5bcc60/index.html#L41",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "93ee3fb8ea6016e4cf22a8d0dd08598f35d25e7692b18900b60029c4bb08440a",
+  "accepted_guide_sha256": "5ff02130063b573e80b93db94627f81a20dada94b0e0125838e13f4defd5c9e7",
+  "content": {
+    "display_title": "Affine extension from equal-radius closed balls",
+    "one_sentence_role": "Recovers the centers, matches the interiors, and then extends across the boundary.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $c\\in E$, $d\\in F$, and $r>0$. Write $\\overline B(c,r)=\\{x:\\|x-c\\|\\le r\\}$. Every bijective isometry $f:\\overline B(c,r)\\to\\overline B(d,r)$ extends uniquely to a surjective real affine isometry $A:E\\to F$. The extension satisfies $A(x)=f(x)$ for every point of the source closed ball.",
+    "definition_explanation": null,
+    "assumptions": "The source and target closed balls have the same positive radius $r$. No completeness or finite dimensionality is assumed.",
+    "conclusion": "There is one and only one ambient affine isometry agreeing with the given $f$ on the entire closed ball, including its boundary.",
+    "proof_summary": "Use bounded reflection symmetry to send the centers to each other. The resulting distance-to-center identity verifies the interior equivalence required by the convex extension theorem.",
+    "proof_steps": [
+      "The centers belong to their balls since $r>0$, and the source ball is bounded. Reflection through $c$ preserves its ball because $\\|(2c-x)-c\\|=\\|x-c\\|$, and similarly for $d$; see [Center reflection preserves a closed ball](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean#L35-L39). Apply [Center transport by point reflection](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/Reflection.lean#L74-L91) to these two balls and their centers to obtain $f(c)=d$.",
+      "For every $x\\in\\overline B(c,r)$, $$\\|f(x)-d\\|=\\|f(x)-f(c)\\|=\\|x-c\\|.$$ For a positive radius, the ambient interior of each closed ball is its corresponding open ball. Therefore $$\\begin{aligned}x\\in\\operatorname{int}\\overline B(c,r)&\\Longleftrightarrow\\|x-c\\|<r\\\\&\\Longleftrightarrow\\|f(x)-d\\|<r\\\\&\\Longleftrightarrow f(x)\\in\\operatorname{int}\\overline B(d,r).\\end{aligned}$$ The common radius is used in the middle equivalence.",
+      "The source closed ball is convex and its interior contains $c$. These facts and Step 2 verify [Extension through a dense convex interior](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean#L51-L95) for the same $f$. That theorem returns the unique ambient extension with agreement on the whole source set, so it includes the boundary points as well."
+    ],
+    "lean_realization_notes": []
+  }
+}

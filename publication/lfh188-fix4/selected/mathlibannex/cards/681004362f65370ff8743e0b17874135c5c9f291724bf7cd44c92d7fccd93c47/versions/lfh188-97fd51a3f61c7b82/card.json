@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.eq_zero_of_isCompactOperator_image",
+  "title": "An irreducible CAR representation has no nonzero compact image",
+  "stable_card_id": "681004362f65370ff8743e0b17874135c5c9f291724bf7cd44c92d7fccd93c47",
+  "identity_key": "lfh:lfh-declaration-card:sha256:681004362f65370ff8743e0b17874135c5c9f291724bf7cd44c92d7fccd93c47",
+  "source_url": "mathlibannex/sources/lfh188/da3719e7d8961042ec7e3dc2/index.html#L34",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/NoCompacts.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "00fd316c67ed3da3aa765b70633ce2e24039a792d2d14401f89ba81c6f781460",
+  "accepted_guide_sha256": "d13fb3e33c31eaaa8e29c6302e742e4b39b2390883c7c3d82240697ce08bfe6a",
+  "content": {
+    "display_title": "An irreducible CAR representation has no nonzero compact image",
+    "one_sentence_role": "Simplicity and infinite dimensionality rule out compact operators coming from nonzero CAR elements.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. Let $\\pi:A\\to B(H)$ be irreducible on a complex Hilbert space $H$. If $a\\in A$ and $\\pi(a)$ is compact, then $a=0$. In particular $\\pi(A)\\cap\\mathcal K(H)=\\{0\\}$.",
+    "definition_explanation": null,
+    "assumptions": "The representation is unital and irreducible in the nonzero, closed-reducing-subspace sense. The space $H$ is complete. Compactness is assumed only for the represented operator $\\pi(a)$.",
+    "conclusion": "No nonzero element of $A$ can act compactly in this representation. Faithfulness makes the vanishing conclusion a statement about $a$ itself, not merely about its image.",
+    "proof_summary": "Simplicity makes the nonzero unital representation faithful. The preimage of the compact operators is a closed two-sided ideal of $A$. If it were all of $A$, the identity on $H$ would be compact; this would make $H$, and then the faithfully represented algebra $A$, finite-dimensional. That contradicts infinite dimensionality of the CAR limit.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The exact result `representation_injective` gives injectivity of $\\pi$ from simplicity and the nonzero irreducible action."
+      },
+      {
+        "step_id": "s2",
+        "text": "Let $J=\\{x\\in A:\\pi(x)\\text{ is compact}\\}$. Compact operators form a norm-closed two-sided ideal in $B(H)$, and the representation is continuous, so $J$ is a norm-closed two-sided ideal in $A$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Simplicity yields $J=\\{0\\}$ or $J=A$. In the second case $\\pi(1)=I_H$ is compact, so $H$ is finite-dimensional. Injectivity then embeds $A$ linearly in the finite-dimensional space $B(H)$, a contradiction. Therefore $J=\\{0\\}$ and $a=0$."
+      }
+    ],
+    "lean_realization_notes": "This does not say that $B(H)$ has no compact operators. It describes the intersection of its compact ideal with the represented CAR algebra. Infinite dimensionality of $A$ is a proved property of the fixed CAR limit, not an extra assumption on an arbitrary algebra.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+  "title": "An irreducible operator algebra constructed from projection shells",
+  "stable_card_id": "2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e",
+  "identity_key": "lfh:lfh-declaration-card:sha256:2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e",
+  "source_url": "mathlibannex/sources/lfh188/30c337d48a0ab068fcdcc477/index.html#L35",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/AtomicShell.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "77e0a54c03e386b803b453c056cf6dcf9056619942baa7d959860ce7e7ca25fe",
+  "accepted_guide_sha256": "c182998e8d9e3eef16ac366b622efd73282f9b091f26c24054e7318990451d64",
+  "content": {
+    "display_title": "An irreducible operator algebra constructed from projection shells",
+    "one_sentence_role": "Shell partial isometries with rank-one limiting defects can be completed to unitary links that join inequivalent irreducible fibers.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra and $(\\pi_i:A\\to B(H_i))_{i\\in I}$ a family of pairwise unitarily inequivalent irreducible unital representations on nonzero complete complex Hilbert spaces. Fix a root $o\\in I$ and unit vectors $\\xi_i\\in H_i$. On $\\mathcal H=\\bigoplus_iH_i$, let $e_i$ be coordinate inclusion, $b_i=e_i\\xi_i$, and $\\pi=\\bigoplus_i\\pi_i$. For shell data satisfying the conditions below, there are unitaries $L_i\\in B(\\mathcal H)$ such that $L_i b_i=b_o$ and $L_i(P_{i,n}-P_{i,n+1})=W_{i,n}$ for all $i,n$. The literal inclusion into $B(\\mathcal H)$ of the norm-closed unital star algebra $T=C^*(\\pi(A),\\{L_i:i\\in I\\})$ is irreducible.",
+    "definition_explanation": null,
+    "assumptions": "For each $i\\in I$, let $(U_{i,n})_{n\\geq0}$ and $(V_{i,n})_{n\\geq0}$ be decreasing subspaces of $\\mathcal H$, with $U_{i,0}=V_{i,0}=\\mathcal H$. All these subspaces and both intersections admit orthogonal projections. Write $P_{i,n}=P_{U_{i,n}}$, $Q_{i,n}=P_{V_{i,n}}$, and $P_{i,\\infty}=P_{\\bigcap_nU_{i,n}}$, $Q_{i,\\infty}=P_{\\bigcap_nV_{i,n}}$. The given bounded shell maps $W_{i,n}$ satisfy $W_{i,n}^*W_{i,n}=P_{i,n}-P_{i,n+1}$ and $W_{i,n}W_{i,n}^*=Q_{i,n}-Q_{i,n+1}$. Their limiting defects are prescribed: $P_{i,\\infty}=\\theta_{b_i,b_i}$ and $Q_{i,\\infty}=\\theta_{b_o,b_o}$. Here $\\theta_{a,b}x=\\langle b,x\\rangle a$, with the inner product linear in its second variable. No finite, countable or separable restriction is placed on the family. The rank-one conditions are input hypotheses of this generic theorem.",
+    "conclusion": "The same chosen family $(L_i)_i$ simultaneously has the unitary, vector-link and termwise-shell properties, and its concrete generated target acts irreducibly on $\\mathcal H$. All closed reducing subspaces of that target action are therefore $0$ or $\\mathcal H$.",
+    "proof_summary": "For each $i$, sum the orthogonal shell maps strongly to an operator $S_i$, then fill its one-dimensional defect by $L_i=S_i+\\theta_{b_o,b_i}$. To prove irreducibility, a bounded operator commuting with the target first has scalar diagonal blocks and zero off-diagonal blocks relative to the atomic source. Commuting with the links forces all those scalars to agree.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Apply the cited projection-shell rank-one completion theorem separately to each $i$, with initial vector $b_i$ and final vector $b_o$. Coordinate inclusion is isometric, so both vectors have norm one. The decreasing normalized flags, the two support equations and the two limiting projection identities are exactly its hypotheses. It supplies $S_i$ with strong convergence $\\sum_{n<N}W_{i,n}\\to S_i$ and the unitary completion $L_i=S_i+\\theta_{b_o,b_i}$. Choose these witnesses once for all $i$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The completion theorem also gives $L_i b_i=b_o$ and $L_i(P_{i,n}-P_{i,n+1})=W_{i,n}$. The rank-one correction vanishes on every initial difference shell because $b_i$ belongs to the limiting intersection. Thus the correction does not change any prescribed shell action."
+      },
+      {
+        "step_id": "s3",
+        "text": "Let $R\\in B(\\mathcal H)$ commute with $T$. Since $\\pi(A)\\subseteq T$ and $L_i\\in T$, it commutes with the atomic source and every link. The cited atomic-commutant theorem applies to the given irreducible, inequivalent fibers: each matrix block $e_j^*Re_i$ intertwines the corresponding actions; the Schur argument makes diagonal blocks scalar, while irreducibility and unitary inequivalence force off-diagonal blocks to vanish."
+      },
+      {
+        "step_id": "s4",
+        "text": "Write $Re_i x=e_i(z_i x)$. Commuting with $L_i$ and evaluating at $b_i$ gives $z_i b_o=z_o b_o$, hence $z_i=z_o$ since $\\|b_o\\|=1$. Finite-support vectors are dense in the arbitrary-index Hilbert sum, so continuity yields $R=z_o1$ on all of $\\mathcal H$. Finally, the projection onto any closed reducing subspace commutes with $T$; being a scalar projection, it is $0$ or $1$. This is the cited scalar-commutant irreducibility criterion."
+      }
+    ],
+    "lean_realization_notes": "This theorem does not assert $L_o=1$, simplicity of $T$, faithfulness of $\\pi$, or capture of every irreducible representation of $T$. Its shell operators $W_{i,n}$ are not the cyclic-assembly map $W$ used in the later capture results. The star on operators is the Hilbert adjoint.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

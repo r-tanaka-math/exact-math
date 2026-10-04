@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.not_singleton_amongNonUnital_of_infiniteDimensional",
+  "title": "An infinite-dimensional unital algebra has no separable singleton model",
+  "stable_card_id": "f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467",
+  "identity_key": "lfh:lfh-declaration-card:sha256:f2686115c0a5647dbadc2b23862bf82db33c3680599f938b1b6342daaf7d4467",
+  "source_url": "mathlibannex/sources/lfh188/ddba92b30113c788127bff04/index.html#L105",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "ad46eedc9d849a091ae1c205d9dc8bc7c7b9b7ae0b2e16f87b70500f544777fd",
+  "accepted_guide_sha256": "bceb9d4a4d4382a64f449b77417ad81888162ae4179842d387732732c9460f69",
+  "content": {
+    "display_title": "An infinite-dimensional unital algebra has no separable singleton model",
+    "one_sentence_role": "Uses the finite-dimensional algebra conclusion to contradict the proposed singleton condition.",
+    "natural_language_statement": "Let $A$ be an infinite-dimensional nonzero unital complex $C^*$-algebra, let $H$ be a separable complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ be a unital $*$-representation. Then $\\pi$ cannot satisfy the singleton condition of R11.",
+    "definition_explanation": null,
+    "assumptions": "Infinite dimensionality is a hypothesis on $A$. The conclusion excludes the conjunction of nonzero irreducibility and unitary equivalence with every nonzero irreducible $*$-representation of $A$.",
+    "conclusion": "The specified $\\pi$ cannot represent a unique irreducible class. This does not rule out separable irreducible representations in general or construct a particular competing representation.",
+    "proof_summary": "Assume the singleton condition and apply the preceding theorem for the dimension of the algebra.",
+    "proof_steps": [
+      "If this $\\pi$ satisfied the proposed condition, then [Finite dimension of the algebra from an unrestricted singleton model](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean#L96-L103) would apply: $A$ is nonzero and unital, $H$ is separable, and the assumed condition supplies its remaining input. It would give $\\dim_{\\mathbb C}A<\\infty$, contrary to the stated infinite dimensionality. Therefore that condition cannot hold."
+    ],
+    "lean_realization_notes": []
+  }
+}

@@ -1,0 +1,21 @@
+@font-face{font-family:Project;src:url(DejaVuSans.ttf)}
+@font-face{font-family:Project;src:url(DejaVuSans-Bold.ttf);font-weight:700}
+@font-face{font-family:Lean;src:url(lean-main-4bee0719801e.woff2);unicode-range:U+0000-2A05,U+2A07-10FFFF}
+@font-face{font-family:Lean;src:url(lean-nary-6b21e0df2fbc.woff2);unicode-range:U+2A06}
+*{box-sizing:border-box;min-width:0}body{margin:0;background:#f7f6f2;color:#23333d;font:16px/1.7 Project,sans-serif}
+header{background:#1d3541;color:white;padding:44px max(20px,calc((100vw - 1060px)/2))}
+header a{color:#e0d8b5}h1{font-size:clamp(27px,4vw,46px);line-height:1.2;max-width:950px}
+h1,h2,h3,p,li,a,code,dd,td,th,summary{overflow-wrap:anywhere}h2{font-size:24px;margin:32px 0 12px}h3{font-size:18px}
+main{max-width:1100px;margin:auto;padding:24px 20px}nav{display:flex;flex-wrap:wrap;gap:12px 22px}
+a{color:#235b74;text-underline-offset:3px}a:focus-visible,summary:focus-visible{outline:3px solid #b95f00;outline-offset:4px}
+.skip{position:absolute;top:-100px;background:white;padding:12px;z-index:10}.skip:focus{top:0}
+.eyebrow{font-size:11px;letter-spacing:.14em}.intro{max-width:900px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:20px}
+.tile,article{background:#fff;border:1px solid #d4dbda;border-radius:6px;padding:22px;margin:18px 0}.tile{margin:0}
+.level{border-left:3px solid #b7c4c4;padding-left:18px;margin:26px 0}.meta{font-size:12px;color:#52636b}
+details{padding:14px;background:#eeefea;margin:18px 0}summary{cursor:pointer;padding:5px;font-weight:700}
+pre,code{font-family:Lean,monospace;font-synthesis:none}pre{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-size:13px;line-height:1.8;background:#eef2f3;padding:16px}
+.source-line{display:block;white-space:pre-wrap}.source-line:target,.selected{background:#fff0bc}.line-no{display:inline-block;width:3.6em;color:#476877;font-size:11px;text-decoration:none}
+table{table-layout:fixed;border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid #d5dcd9}
+footer{max-width:1100px;margin:40px auto 0;padding:24px 20px;border-top:1px solid #becbca;font-size:12px}
+.route-meta{font-size:13px;border-top:1px solid #d5dcda;padding-top:12px;margin-top:16px}
+@media(max-width:420px){header{padding:30px 16px}main{padding:18px 16px}.tile,article{padding:16px}.level{padding-left:12px}pre{padding:8px;font-size:12px}}

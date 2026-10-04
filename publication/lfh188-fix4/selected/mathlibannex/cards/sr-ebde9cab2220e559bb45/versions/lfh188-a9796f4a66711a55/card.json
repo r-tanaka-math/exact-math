@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.Matrix.maximalMinors_mul",
+  "title": "Right multiplication scales every maximal minor by one determinant",
+  "stable_card_id": null,
+  "identity_key": "bb9346c24171968bf6eb7956095c9b191a834ab4a77573509ed4308a6bc259da",
+  "source_url": "mathlibannex/sources/lfh188/f7ceb9546ec776feba781d79/index.html#L107",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/LinearAlgebra/Matrix/MaximalMinor.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "9916875d513ea3e76b5ac1edecfe40877bd5507f8995d8f9d5bef680d2162599",
+  "accepted_guide_sha256": "f363e4d8026edadd112bd44cc8a2453a44d1ae7b27e265816c59cac58317124d",
+  "content": {
+    "display_title": "Right multiplication scales every maximal minor by one determinant",
+    "one_sentence_role": "Turns a square right factor into a common scalar on the family of maximal minors.",
+    "natural_language_statement": "For an $I$-by-$n$ matrix $A$ and an $n$-by-$n$ matrix $L$ over a commutative ring, with $I$ linearly ordered, write $\\mathcal M(A)$ for the family of determinants of all $n$-row submatrices in increasing row order. Then\n\n$$\\mathcal M(AL)=(\\det L)\\,\\mathcal M(A).$$\n\nThe equality is pointwise on $n$-element row subsets, using increasing row order on both sides.",
+    "definition_explanation": null,
+    "assumptions": "The integer $n$ may be zero; the row set may be infinite. The coefficient ring is commutative. The square factor $L$ need not be invertible.",
+    "conclusion": "For each selected subset $S$, $\\det((AL)_S)=(\\det L)\\det(A_S)$. Thus one scalar, independent of $S$, scales the whole family.",
+    "proof_summary": "Select the same rows before and after multiplication, then apply multiplicativity of the square determinant.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For an $n$-element subset $S$, matrix multiplication is a sum over the finite column set. Hence selecting rows commutes with that sum: $(AL)_S=A_SL$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Both selected matrices are square over a commutative ring, so determinant multiplicativity applies:\n\n$$\\mathcal M(AL)(S)=\\det(A_SL)=\\det(A_S)\\det L=(\\det L)\\mathcal M(A)(S).$$\n\nCommutativity gives the scalar in the stated order. Since this holds for every $S$, the two functions are equal. For $n=0$ the same calculation reads $1=1\\cdot1$."
+      }
+    ],
+    "lean_realization_notes": "Related identities in the same source distinguish scalar multiplication from right multiplication: $\\mathcal M(cA)=c^n\\mathcal M(A)$. The zero-matrix family vanishes when $n>0$; this restriction matters, because the empty determinant for $n=0$ is $1$. Selection commutes also with application to a column vector: $(Av)|_S=A_Sv$. These are separate identities, not invertibility assumptions for the displayed theorem.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

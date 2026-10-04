@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.isCompact_convexHull_pi",
+  "title": "The convex hull of a compact set in a finite real coordinate space",
+  "stable_card_id": null,
+  "identity_key": "63c6c9947d0859f0df0262b86d546aa77558e7e9a09a508cba8c2a45c121eb7e",
+  "source_url": "mathlibannex/sources/lfh188/a55484023c9a34f9c3a06662/index.html#L137",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Convex/CompactHull.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "633d0464ffe5488ae67fed616e5f051d32b01a50d72b4cf622df995cadeb3022",
+  "accepted_guide_sha256": "7292b73db6cba78516738507b2391a8ffbcff037f3a60a62414b99c0bb305964",
+  "content": {
+    "display_title": "The convex hull of a compact set in a finite real coordinate space",
+    "one_sentence_role": "Realizes the ordinary convex hull as a finite union of compact images of bounded-length convex combinations.",
+    "natural_language_statement": "If $I$ is finite and $K\\subseteq\\mathbb R^I$ is compact, then $\\operatorname{conv}(K)$ is compact. The set $K$ may be empty.",
+    "definition_explanation": null,
+    "assumptions": "The coordinate space is real and has finitely many coordinates. Only compactness of $K$ is assumed; no convexity or nonemptiness of $K$ is required.",
+    "conclusion": "The ordinary convex hull itself is compact. No closure is added to the statement. In particular the conclusion includes $\\operatorname{conv}(\\varnothing)=\\varnothing$.",
+    "proof_summary": "Bound the length of every convex combination by the dimension plus one, then take the finite union of the corresponding compact images.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Write $d=|I|$. For $0\\le k\\le d+1$, put\n\n$$\\begin{gathered}\n\\Delta_k=\\{t\\in\\mathbb R^k:t_i\\ge0,\\ \\sum_{i=1}^{k}t_i=1\\},\\\\\nF_k:\\Delta_k\\times K^k\\longrightarrow\\mathbb R^I,\\qquad\nF_k(t,x)=\\sum_{i=1}^{k}t_ix_i,\\\\\nC_k=F_k(\\Delta_k\\times K^k).\n\\end{gathered}$$\n\nFor $k>0$, $\\Delta_k$ is closed and $0\\le t_i\\le1$, so it is compact in finite dimensions. For $k=0$, it is empty and hence compact. The finite product $\\Delta_k\\times K^k$ is compact, and $F_k$ is continuous as a finite sum of scalar multiplications. Thus every $C_k$ is compact."
+      },
+      {
+        "step_id": "s2",
+        "text": "Every $C_k$ lies in $\\operatorname{conv}(K)$ by the defining property of convex combinations. Conversely, the affinely independent representation of a point in the convex hull provides finitely many points in $K$ with positive weights summing to $1$. An affinely independent family in a $d$-dimensional space has at most $d+1$ points: after choosing one point, its difference vectors are linearly independent and there are at most $d$ of them. Reindexing the representation by $1,\\ldots,k$ puts the point in $C_k$ for some $k\\le d+1$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Thus\n\n$$\\operatorname{conv}(K)=\\bigcup_{k=0}^{d+1}C_k.$$\n\nThe right side is a finite union of compact sets and hence compact. For $k=0$, the empty weight sum is $0$, so $\\Delta_0$ is empty. If $K$ is empty, $K^k$ is empty for every $k>0$; therefore all the images are empty, and the same union proves the empty-set case."
+      }
+    ],
+    "lean_realization_notes": "The finite dimension is used to bound the number of points in a convex representation. Compactness then comes from finitely many parameter spaces, not from an unrestricted union over all possible lengths.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

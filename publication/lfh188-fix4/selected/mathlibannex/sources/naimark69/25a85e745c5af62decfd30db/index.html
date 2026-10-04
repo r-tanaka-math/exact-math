@@ -1,0 +1,140 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/25a85e745c5af62decfd30db/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/25a85e745c5af62decfd30db/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean</code>, lines 68–71.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137/versions/n69-28ed6f5a0c1e3bda/index.html">Back to The GNS representation of the target trace extension</a> · <a href="../../../cards/4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3/versions/n69-5b192ccbb19e7e60/index.html">Back to Faithfulness of the target-state GNS representation</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.TracialCyclic</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.State.ExtensionOfEmbedding</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.SimpleFaithful</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>/-!</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a># A separable faithful representation of the same shell-family target</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>The state is extended onto the existing concrete algebra before any new</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>representation is introduced. Its ordinary GNS representation is then proved</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>separable, and the already established closed-ideal dichotomy proves it</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>faithful. No irreducibility of this representation is assumed.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option autoImplicit false</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open scoped ComplexOrder InnerProduct</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>/-- The CAR trace extends to a state of the actual target. -/</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>theorem exists_state_extension_trace (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>    ∃ φ : ShellFamilyTarget family →L[ℂ] ℂ,</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) ∧</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>      ∀ b, φ (shellFamilySourceHom family b) = trace b :=</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>  exists_state_extension_of_injective (shellFamilySourceHom family)</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>    (shellFamilySourceHom_injective family) trace trace_one norm_trace_le</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a></span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>/-- A state extension of the source trace, chosen on the same concrete algebra. -/</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>noncomputable def traceExtension (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    ShellFamilyTarget family →L[ℂ] ℂ :=</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  Classical.choose (exists_state_extension_trace family)</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>theorem traceExtension_mem_stateSpace (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>    traceExtension family ∈</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>      MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) :=</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  (Classical.choose_spec (exists_state_extension_trace family)).1</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a></span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>@[simp]</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>theorem traceExtension_shellFamilySourceHom (family : RepresentativeShellFamily) (b : Limit) :</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    traceExtension family (shellFamilySourceHom family b) = trace b :=</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>  (Classical.choose_spec (exists_state_extension_trace family)).2 b</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a></span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>/-- The positive-linear-map bundle of the chosen extension. -/</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>noncomputable def traceExtensionPositive (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    ShellFamilyTarget family →ₚ[ℂ] ℂ :=</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  positiveLinearMapOfMemStateSpace (traceExtension family)</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>    (traceExtension_mem_stateSpace family)</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a></span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>@[simp]</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>theorem traceExtensionPositive_apply (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    (a : ShellFamilyTarget family) :</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>    traceExtensionPositive family a = traceExtension family a := rfl</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a></span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>@[simp]</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>theorem traceExtensionPositive_one (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    traceExtensionPositive family 1 = 1 := (traceExtension_mem_stateSpace family).2</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a></span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>/-- The ordinary GNS Hilbert space of the state on the actual target. -/</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>abbrev TracialHilbertSpace (family : RepresentativeShellFamily) :=</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>  (traceExtensionPositive family).GNS</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a></span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>/-- The canonical unit vector of the target-state GNS construction. -/</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>noncomputable def tracialVector (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>    TracialHilbertSpace family := (traceExtensionPositive family).gnsCyclicVector</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a></span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>/-- The target&#x27;s GNS representation, not merely a representation of its CAR source. -/</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>noncomputable def tracialRepresentation (family : RepresentativeShellFamily) :</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>    Representation (ShellFamilyTarget family) (TracialHilbertSpace family) :=</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>  (traceExtensionPositive family).gnsStarAlgHom</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a></span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>@[simp]</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>theorem norm_tracialVector (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    ‖tracialVector family‖ = 1 :=</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>  (traceExtensionPositive family).norm_gnsCyclicVector (traceExtensionPositive_one family)</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a></span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>theorem tracialVector_ne_zero (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>    tracialVector family ≠ 0 := by</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>  intro hzero</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>  have h := norm_tracialVector family</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>  rw [hzero, norm_zero] at h</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  exact zero_ne_one h</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a></span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>/-- This nontriviality proof remains separate from the representation proof. -/</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>theorem nontrivial_tracialHilbertSpace (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>    Nontrivial (TracialHilbertSpace family) :=</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>  nontrivial_of_ne (tracialVector family) 0 (tracialVector_ne_zero family)</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a></span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>@[simp]</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>theorem inner_tracialVector_tracialRepresentation (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>    (a : ShellFamilyTarget family) :</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    inner ℂ (tracialVector family) (tracialRepresentation family a (tracialVector family)) =</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>      traceExtension family a :=</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>  (traceExtensionPositive family).inner_gnsCyclicVector_gnsStarAlgHom a</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a></span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>/-- The source restriction implements the original CAR trace exactly. -/</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>theorem vectorFunctional_tracialRepresentation_source (family : RepresentativeShellFamily)</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>    (b : Limit) :</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>    Representation.vectorFunctional</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>      ((tracialRepresentation family).comp (shellFamilySourceHom family))</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>      (tracialVector family) b = trace b := by</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>  change inner ℂ (tracialVector family)</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>    (tracialRepresentation family (shellFamilySourceHom family b) (tracialVector family)) = _</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>  rw [inner_tracialVector_tracialRepresentation, traceExtension_shellFamilySourceHom]</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a></span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>theorem denseRange_tracialRepresentation_orbit (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>    DenseRange (fun a ↦ tracialRepresentation family a (tracialVector family)) :=</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>  (traceExtensionPositive family).denseRange_gnsStarAlgHom_apply_gnsCyclicVector</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a></span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>/-- The CAR orbit, although smaller than the target orbit algebraically,</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>is already dense in this Hilbert space. -/</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>theorem denseRange_tracialRepresentation_source_orbit (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    DenseRange (fun b ↦ tracialRepresentation family</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>      (shellFamilySourceHom family b) (tracialVector family)) :=</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>  denseRange_source_orbit_of_trace_of_cyclic family (tracialRepresentation family)</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>    (tracialVector family) (vectorFunctional_tracialRepresentation_source family)</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>    (denseRange_tracialRepresentation_orbit family)</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a></span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>theorem separableSpace_tracialHilbertSpace (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>    TopologicalSpace.SeparableSpace (TracialHilbertSpace family) :=</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>  separableSpace_of_trace_of_cyclic family (tracialRepresentation family)</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>    (tracialVector family) (vectorFunctional_tracialRepresentation_source family)</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>    (denseRange_tracialRepresentation_orbit family)</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a></span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>/-- Faithfulness follows from the previously proved ideal dichotomy of the</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>same target, after the representation has actually been constructed. -/</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>theorem tracialRepresentation_injective (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>    Function.Injective (tracialRepresentation family) := by</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>  letI : Nontrivial (TracialHilbertSpace family) := nontrivial_tracialHilbertSpace family</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>  exact Representation.injective_of_closed_ideal_dichotomy</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>    (shellFamilyTarget_closedIdeal_dichotomy family) (tracialRepresentation family)</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a></span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>theorem isometry_tracialRepresentation (family : RepresentativeShellFamily) :</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>    Isometry (tracialRepresentation family) :=</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>  AddMonoidHomClass.isometry_of_norm (tracialRepresentation family)</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>    (NonUnitalStarAlgHom.norm_map (tracialRepresentation family)</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>      (tracialRepresentation_injective family))</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a></span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

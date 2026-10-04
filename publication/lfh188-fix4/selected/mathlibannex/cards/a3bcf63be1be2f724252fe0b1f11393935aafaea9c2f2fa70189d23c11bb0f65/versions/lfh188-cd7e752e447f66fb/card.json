@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+  "title": "No nonzero irreducible representation on a separable Hilbert space",
+  "stable_card_id": "a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65",
+  "identity_key": "lfh:lfh-declaration-card:sha256:a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65",
+  "source_url": "mathlibannex/sources/lfh188/593599791d4382e086c71776/index.html#L24",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "56b457a745a07c1d9b89ef96a06408fcc196b1a68e62f25848dbc6fe40238e48",
+  "accepted_guide_sha256": "2931c34cbe7d5f4ac2a273c9f01fa5faea97a4c7a4868bd9743ce52f1b1cb764",
+  "content": {
+    "display_title": "No nonzero irreducible representation on a separable Hilbert space",
+    "one_sentence_role": "Rules out irreducible representations of $T$ on separable Hilbert spaces by the finite-dimensionality theorem for a single irreducible representation class.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra. Let $\\pi:A\\to B(\\mathcal H)$ be the direct sum of one chosen GNS representation from each pure-state GNS equivalence class, and let $(L_i)_{i\\in I}$ be the unitaries obtained from the fixed CAR homogeneity and shell construction. Put $T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})\\subseteq B(\\mathcal H)$, and write $\\iota(a)=\\pi(a)$ for the embedding into $T$. For every separable complex Hilbert space $H$, there is no nonzero irreducible $*$-representation $$\\rho:T\\longrightarrow B(H).$$ Preservation of the identity is not assumed. Here irreducibility means that the only closed subspaces of $H$ invariant under every $\\rho(t)$ are $\\{0\\}$ and $H$; for a $*$-representation these subspaces also reduce the representation.",
+    "definition_explanation": null,
+    "assumptions": "The algebra $T$ is the particular algebra constructed above, not an arbitrary C*-algebra. Its established properties are infinite dimensionality and a faithful irreducible inclusion $\\rho_0:T\\to B(\\mathcal H)$ to which every nonzero irreducible representation is unitarily equivalent. Separability is required of $H$, not of $T$; faithfulness and preservation of the identity are not assumptions on $\\rho$.",
+    "conclusion": "Every nonzero $*$-representation of $T$ on a separable Hilbert space is reducible. This does not rule out irreducible representations on nonseparable spaces: the inclusion $\\rho_0$ is one.",
+    "proof_summary": "Suppose that a nonzero irreducible representation $\\rho$ exists on a separable $H$. It must preserve the identity. Composing its unitary equivalence with $\\rho_0$ with the equivalence for an arbitrary irreducible representation shows that $\\rho$ represents the unique irreducible representation class. The cited finite-dimensionality theorem then contradicts the infinite dimensionality of $T$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Put $P=\\rho(1)$. The $*$-representation identities give $P^*=P$, $P^2=P$, and $P\\rho(t)=\\rho(t)P=\\rho(t)$. Thus $P$ is an orthogonal projection with reducing range. Since $\\rho\\ne0$, one has $P\\ne0$; irreducibility therefore forces $P=I_H$. The same representation $\\rho$ is consequently unital; no new map is introduced."
+      },
+      {
+        "step_id": "s2",
+        "text": "The classification theorem gives a unitary $U_\\rho:\\mathcal H\\to H$ with $U_\\rho\\rho_0(t)=\\rho(t)U_\\rho$. For any nonzero irreducible $*$-representation $\\sigma:T\\to B(K)$, the same theorem gives a unitary $U_\\sigma:\\mathcal H\\to K$ with $U_\\sigma\\rho_0(t)=\\sigma(t)U_\\sigma$. There is no separability assumption on $K$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Set $V=U_\\sigma U_\\rho^{-1}:H\\to K$. For every $t\\in T$, $$\\begin{aligned}V\\rho(t)&=U_\\sigma\\rho_0(t)U_\\rho^{-1}\\\\&=\\sigma(t)U_\\sigma U_\\rho^{-1}=\\sigma(t)V.\\end{aligned}$$ Hence every nonzero irreducible representation $\\sigma$ is unitarily equivalent to $\\rho$."
+      },
+      {
+        "step_id": "s4",
+        "text": "The cited finite-dimensionality theorem applies to a nonzero unital C*-algebra with exactly one unitary-equivalence class of nonzero irreducible representations, when that class has a representative on a separable Hilbert space. The representation $\\rho$ on $H$ satisfies precisely these hypotheses, so $\\dim_{\\mathbb C}T<\\infty$. But $\\iota$ embeds the infinite-dimensional CAR algebra into $T$. This is the contradiction."
+      }
+    ],
+    "lean_realization_notes": "The theorem places no separability restriction on the Hilbert space of another irreducible representation used for comparison. It asserts nonexistence only for the proposed representation on $H$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

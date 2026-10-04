@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.ofStage_commute_rowAverage",
+  "title": "A finite-row average centralizes its matrix stage",
+  "stable_card_id": "6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05",
+  "identity_key": "lfh:lfh-declaration-card:sha256:6fbe44dcc304a80eafd8327b9ab6680b8df6ab9e4189faf651c71fdb0a348d05",
+  "source_url": "mathlibannex/sources/lfh188/85109e68f1f1008795821393/index.html#L225",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/FiniteAverage.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "cde53de8986802a317b2b01e7281c4754c3e5407d24c71f3e3d8cfabb35ba5ff",
+  "accepted_guide_sha256": "6dffda1c90b38e08225752072d3f58cfb597143b82ad23aa7d54c72877bbaf34",
+  "content": {
+    "assumptions": "The integer $n\\geq0$ is arbitrary. Both $c$ and $b$ are arbitrary elements of the indicated algebras; neither positivity nor self-adjointness is assumed. The matrix units belong to one fixed stage and satisfy $e_{ij}e_{kl}=\\delta_{jk}e_{il}$, $e_{ij}^*=e_{ji}$, and $\\sum_i e_{ii}=1$.",
+    "conclusion": "The range of $\\Phi_n$ lies in the relative commutant of $\\iota_n(A_n)$ inside $A$, namely the set of elements commuting with every member of that stage. The same finite-row formula works for every $b\\in A$ once $n$ is fixed.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "A finite-row average centralizes its matrix stage",
+    "language_tag": "en",
+    "lean_realization_notes": "The formula is a corner-based finite-row average, not an average over a unitary group. Separate cited results show $\\Phi_n(1)=1$, positivity, and the dimension-independent bound $\\|\\Phi_n(b)\\|\\leq4\\|b\\|$. The present theorem establishes exact commutation with this stage; it does not assert that $\\Phi_n(b)$ lies in the center of all of $A$.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra obtained from $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, and write $\\iota_n:A_n\\to A$ for the stage embedding. Set $d=2^n$ and $e_{ij}=\\iota_n(E_{ij})$, where $E_{ij}$ are the standard matrix units, indexed from $0$ to $d-1$. Define $\\Phi_n(b)=\\sum_{i=0}^{d-1}e_{i0}b e_{0i}$. Then $\\iota_n(c)\\Phi_n(b)=\\Phi_n(b)\\iota_n(c)$ for every $c\\in A_n$ and every $b\\in A$.",
+    "one_sentence_role": "Turns an arbitrary element of the completed CAR algebra into one commuting with a prescribed finite matrix stage.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Use the matrix-unit relations to compute $e_{kl}\\Phi_n(b)=e_{k0}b e_{0l}$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The same relations give $\\Phi_n(b)e_{kl}=e_{k0}b e_{0l}$. Thus every matrix unit commutes with $\\Phi_n(b)$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Expand $\\iota_n(c)=\\sum_{k,l}c_{kl}e_{kl}$ and distribute multiplication through the finite sums and scalar multiples."
+      }
+    ],
+    "proof_summary": "First test commutation against a matrix unit $e_{kl}$. Multiplying the defining sum on the left leaves only its term with index $l$, while multiplying on the right leaves only its term with index $k$. Both products are $e_{k0}b e_{0l}$. Every matrix $c$ is the finite linear combination $\\sum_{k,l}c_{kl}E_{kl}$, so bilinearity gives the assertion for $\\iota_n(c)$."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation",
+  "title": "The GNS representation of the target trace extension",
+  "stable_card_id": "6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137",
+  "identity_key": "lfh:lfh-declaration-card:sha256:6377047dab800759a6fd446d06fc7e690f6ff0ac96b487340a81278c7cb42137",
+  "source_url": "mathlibannex/sources/lfh188/267c897c5eb26c66023dbb4f/index.html#L68",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "608e2baffcb6f361677647944fc9d4669b6c768cc3a00f237c75e86491d9ffd0",
+  "accepted_guide_sha256": "98e514d3c6652e2c852aa4b414b7c043552622512e266fe5a930290449f9d235",
+  "content": {
+    "display_title": "The GNS representation of the target trace extension",
+    "one_sentence_role": "The chosen state on the existing target supplies its cyclic GNS representation.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Let $\\phi$ be the chosen state extension of $\\tau$ to $T$. Define $\\rho_\\phi:T\\to B(H_\\phi)$ to be its GNS representation.",
+    "definition_explanation": "Choose $\\phi$ from `exists_state_extension_trace` and regard that same functional as a positive linear map. Form the GNS completion of $T$ modulo its null vectors, set $H_\\phi$ to that Hilbert space, and let $\\xi_\\phi=[1]$. The induced left action is\n\n$$\\rho_\\phi(t)[b]=[tb],\\qquad \\phi(t)=\\langle\\xi_\\phi,\\rho_\\phi(t)\\xi_\\phi\\rangle.$$\n\nThe right-hand side of the definition is exactly the GNS star homomorphism of `traceExtensionPositive family`. This positive-map bundle has the same values as $\\phi$; it is not another state. Normalization gives $\\|\\xi_\\phi\\|=1$, so $\\xi_\\phi\\ne0$ and $H_\\phi$ is nonzero. The GNS construction gives the dense $T$-orbit. Its restriction realizes $\\tau$ because $\\phi\\circ\\iota=\\tau$. The actual-representation source-cyclicity theorem applies to these two facts and proves the source orbit dense; it is not an assumption smuggled into the definition.",
+    "assumptions": "A representative shell family is fixed first. The chosen extension is positive and normalized; its traciality is not needed to perform the GNS construction.",
+    "conclusion": "With its canonical unit vector $\\xi_\\phi$, this representation realizes $\\phi$ and has dense target orbit. The separately proved source-cyclicity result also gives\n\n$$\\overline{\\{\\rho_\\phi(\\iota(a))\\xi_\\phi:a\\in A\\}}=H_\\phi.$$\n\nConsequently $H_\\phi$ is separable, since $A$ is separable and the displayed orbit map is continuous.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "Separability here is a conclusion about the Hilbert space. The algebra $T$ is not assumed norm separable. Injectivity of $\\rho_\\phi$ is a separate theorem; irreducibility or purity of $\\phi$ is not asserted.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

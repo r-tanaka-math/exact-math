@@ -1,0 +1,468 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.liftedCornerExponential | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/b04f2b7a891e368ae60959b9/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/b04f2b7a891e368ae60959b9/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.liftedCornerExponential</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/CornerLift.lean</code>, lines 262–268.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/CornerLift.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32/versions/n69-9bdd04f8f82e2692/index.html">Back to Lifting a corner involution to an ambient CAR unitary</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.InvariantExponential</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.FiniteAverage</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import Mathlib.Analysis.CStarAlgebra.Exponential</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>import Mathlib.Analysis.CStarAlgebra.Unitary.Connected</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a></span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>/-!</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a># Unitary lift from a finite CAR corner</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>This is the algebraic finite-corner part of the local transport construction.</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>It is stated inside the completed CAR algebra and uses the actual stage matrix</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>units.  No representation or homogeneity statement is assumed.</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>-/</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>set_option autoImplicit false</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a></span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>open scoped Real</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a></span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>/-- A unitary in the `e₀₀` corner, with the corner projection as its unit. -/</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>def IsRootCornerUnitary (n : ℕ) (z : Limit) : Prop :=</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>  let e := limitMatrixUnit n 0 0</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>  star z * z = e ∧ z * star z = e ∧ e * z = z ∧ z * e = z</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a></span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>theorem isStarProjection_limitMatrixUnit_zero_zero (n : ℕ) :</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>    IsStarProjection (limitMatrixUnit n 0 0) := by</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>  constructor</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>  · rw [isIdempotentElem_iff]</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    simp</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>  · rw [isSelfAdjoint_iff]</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>    simp</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>/-- Matrix amplification of an element in the root corner. -/</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>noncomputable def cornerLift (n : ℕ) (z : Limit) : Limit :=</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>  ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a></span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>theorem cornerLift_eq_rowAverageLinear (n : ℕ) (z : Limit) :</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    cornerLift n z = rowAverageLinear n z := rfl</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a></span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>@[simp]</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>theorem cornerLift_zero (n : ℕ) : cornerLift n 0 = 0 := by</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  simp [cornerLift]</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a></span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>theorem star_cornerLift (n : ℕ) (z : Limit) :</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>    star (cornerLift n z) = cornerLift n (star z) := by</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  classical</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  simp only [cornerLift, star_sum, star_mul, star_limitMatrixUnit]</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>  intro i _</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>  noncomm_ring</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a></span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>private theorem cornerLift_mul_term (n : ℕ) (z : Limit)</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    (hz : IsRootCornerUnitary n z) (i j : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    (limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>        (limitMatrixUnit n j 0 * star z * limitMatrixUnit n 0 j) =</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>      if i = j then limitMatrixUnit n i i else 0 := by</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>  classical</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>  by_cases hij : i = j</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>  · subst j</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    rw [if_pos rfl]</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>    calc</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>      (limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>          (limitMatrixUnit n i 0 * star z * limitMatrixUnit n 0 i) =</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>          limitMatrixUnit n i 0 * z *</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>            (limitMatrixUnit n 0 i * limitMatrixUnit n i 0) *</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>              star z * limitMatrixUnit n 0 i := by noncomm_ring</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>      _ = limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 0 *</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>              star z * limitMatrixUnit n 0 i := by simp</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>      _ = limitMatrixUnit n i 0 * (z * limitMatrixUnit n 0 0) *</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>              star z * limitMatrixUnit n 0 i := by noncomm_ring</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>      _ = limitMatrixUnit n i 0 * (z * star z) *</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>              limitMatrixUnit n 0 i := by rw [hz.2.2.2]; noncomm_ring</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>      _ = limitMatrixUnit n i 0 * limitMatrixUnit n 0 0 *</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>              limitMatrixUnit n 0 i := by rw [hz.2.1]</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>      _ = limitMatrixUnit n i i := by simp</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>  · rw [if_neg hij]</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>    calc</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>      (limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>          (limitMatrixUnit n j 0 * star z * limitMatrixUnit n 0 j) =</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>          limitMatrixUnit n i 0 * z *</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>            (limitMatrixUnit n 0 i * limitMatrixUnit n j 0) *</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>              star z * limitMatrixUnit n 0 j := by noncomm_ring</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>      _ = 0 := by rw [limitMatrixUnit_mul]; simp [hij]</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a></span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>private theorem cornerLift_star_mul_term (n : ℕ) (z : Limit)</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>    (hz : IsRootCornerUnitary n z) (i j : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>    (limitMatrixUnit n i 0 * star z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>        (limitMatrixUnit n j 0 * z * limitMatrixUnit n 0 j) =</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>      if i = j then limitMatrixUnit n i i else 0 := by</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>  classical</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>  by_cases hij : i = j</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>  · subst j</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    rw [if_pos rfl]</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>    calc</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>      (limitMatrixUnit n i 0 * star z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>          (limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i) =</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>          limitMatrixUnit n i 0 * star z *</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>            (limitMatrixUnit n 0 i * limitMatrixUnit n i 0) *</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>              z * limitMatrixUnit n 0 i := by noncomm_ring</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>      _ = limitMatrixUnit n i 0 * star z * limitMatrixUnit n 0 0 *</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>              z * limitMatrixUnit n 0 i := by simp</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>      _ = limitMatrixUnit n i 0 * star z *</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>              (limitMatrixUnit n 0 0 * z) * limitMatrixUnit n 0 i := by</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>                noncomm_ring</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>      _ = limitMatrixUnit n i 0 * (star z * z) *</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>              limitMatrixUnit n 0 i := by rw [hz.2.2.1]; noncomm_ring</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>      _ = limitMatrixUnit n i 0 * limitMatrixUnit n 0 0 *</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>              limitMatrixUnit n 0 i := by rw [hz.1]</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>      _ = limitMatrixUnit n i i := by simp</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>  · rw [if_neg hij]</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    calc</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>      (limitMatrixUnit n i 0 * star z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>          (limitMatrixUnit n j 0 * z * limitMatrixUnit n 0 j) =</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>          limitMatrixUnit n i 0 * star z *</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>            (limitMatrixUnit n 0 i * limitMatrixUnit n j 0) *</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>              z * limitMatrixUnit n 0 j := by noncomm_ring</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>      _ = 0 := by rw [limitMatrixUnit_mul]; simp [hij]</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a></span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>/-- A corner unitary amplifies to a unitary of the completed CAR algebra. -/</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>theorem cornerLift_mem_unitary (n : ℕ) (z : Limit)</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>    (hz : IsRootCornerUnitary n z) : cornerLift n z ∈ unitary Limit := by</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>  classical</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>  rw [Unitary.mem_iff, star_cornerLift]</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>  constructor</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>  · simp only [cornerLift, Finset.sum_mul, Finset.mul_sum]</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>    calc</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>      ∑ j, ∑ i,</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>          (limitMatrixUnit n i 0 * star z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>            (limitMatrixUnit n j 0 * z * limitMatrixUnit n 0 j) =</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>          ∑ j, ∑ i, if i = j then limitMatrixUnit n i i else 0 := by</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>            apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>            intro i _</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>            apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>            intro j _</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>            exact cornerLift_star_mul_term n z hz j i</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>      _ = 1 := by simp [sum_limitMatrixUnit_diag]</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>  · simp only [cornerLift, Finset.sum_mul, Finset.mul_sum]</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>    calc</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>      ∑ j, ∑ i,</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>          (limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>            (limitMatrixUnit n j 0 * star z * limitMatrixUnit n 0 j) =</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>          ∑ j, ∑ i, if i = j then limitMatrixUnit n i i else 0 := by</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>            apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>            intro i _</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>            apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>            intro j _</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>            exact cornerLift_mul_term n z hz j i</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>      _ = 1 := by simp [sum_limitMatrixUnit_diag]</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a></span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>private theorem cornerLift_mul_matrixUnit (n : ℕ) (z : Limit)</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>    (p q : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>    cornerLift n z * limitMatrixUnit n p q =</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>      limitMatrixUnit n p 0 * z * limitMatrixUnit n 0 q := by</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>  classical</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>  simp only [cornerLift, Finset.sum_mul]</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>  rw [Finset.sum_eq_single p]</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>  · calc</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>      (limitMatrixUnit n p 0 * z * limitMatrixUnit n 0 p) *</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>          limitMatrixUnit n p q =</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>          limitMatrixUnit n p 0 * z *</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>            (limitMatrixUnit n 0 p * limitMatrixUnit n p q) := by</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>              noncomm_ring</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>      _ = _ := by simp</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>  · intro i _ hip</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>    calc</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>      (limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i) *</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>          limitMatrixUnit n p q =</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>          limitMatrixUnit n i 0 * z *</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>            (limitMatrixUnit n 0 i * limitMatrixUnit n p q) := by</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>              noncomm_ring</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>      _ = 0 := by rw [limitMatrixUnit_mul]; simp [hip]</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>  · simp</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a></span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>private theorem matrixUnit_mul_cornerLift (n : ℕ) (z : Limit)</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>    (p q : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>    limitMatrixUnit n p q * cornerLift n z =</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>      limitMatrixUnit n p 0 * z * limitMatrixUnit n 0 q := by</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>  classical</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>  simp only [cornerLift, Finset.mul_sum]</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>  rw [Finset.sum_eq_single q]</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>  · calc</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>      limitMatrixUnit n p q *</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>          (limitMatrixUnit n q 0 * z * limitMatrixUnit n 0 q) =</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>          (limitMatrixUnit n p q * limitMatrixUnit n q 0) * z *</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>            limitMatrixUnit n 0 q := by noncomm_ring</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>      _ = _ := by simp</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>  · intro i _ hiq</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    calc</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>      limitMatrixUnit n p q *</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>          (limitMatrixUnit n i 0 * z * limitMatrixUnit n 0 i) =</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>          (limitMatrixUnit n p q * limitMatrixUnit n i 0) * z *</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>            limitMatrixUnit n 0 i := by noncomm_ring</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>      _ = 0 := by rw [limitMatrixUnit_mul]; simp [Ne.symm hiq]</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>  · simp</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a></span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>/-- The amplified corner unitary commutes exactly with every matrix unit in</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>the chosen finite stage. -/</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>theorem cornerLift_commute_matrixUnit (n : ℕ) (z : Limit)</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>    (p q : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>    Commute (cornerLift n z) (limitMatrixUnit n p q) := by</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>  rw [Commute, SemiconjBy,</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>    cornerLift_mul_matrixUnit n z p q,</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>    matrixUnit_mul_cornerLift n z p q]</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a></span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>/-- The lift centralizes the whole chosen finite matrix stage, not merely its</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>displayed matrix units. -/</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>theorem ofStage_commute_cornerLift (n : ℕ) (c : Stage n) (z : Limit) :</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>    Commute (ofStage n c) (cornerLift n z) := by</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>  rw [cornerLift_eq_rowAverageLinear]</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>  exact ofStage_commute_rowAverage n c z</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a></span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>/-- The exponential of a supported self-adjoint corner element, with the</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>corner projection inserted as the corner unit. -/</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>noncomputable def cornerExponential (n : ℕ) (h : selfAdjoint Limit) : Limit :=</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>  limitMatrixUnit n 0 0 * (selfAdjoint.expUnitary h : Limit)</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a></span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>/-- A supported self-adjoint element exponentiates to a genuine unitary in</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>the root corner. -/</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>theorem isRootCornerUnitary_cornerExponential (n : ℕ)</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>    (h : selfAdjoint Limit)</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>    (heh : limitMatrixUnit n 0 0 * (h : Limit) = h)</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>    (hhe : (h : Limit) * limitMatrixUnit n 0 0 = h) :</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>    IsRootCornerUnitary n (cornerExponential n h) := by</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>  let e : Limit := limitMatrixUnit n 0 0</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>  let u : Limit := selfAdjoint.expUnitary h</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>  have heidem : e * e = e := by simp [e]</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>  have hestar : star e = e := by simp [e]</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>  have heu : Commute e u := by</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>    have hehcomm : Commute e (h : Limit) := by</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>      rw [Commute, SemiconjBy]</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>      exact heh.trans hhe.symm</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>    dsimp [u]</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>    exact (hehcomm.smul_right Complex.I).exp_right</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>  have hu : u ∈ unitary Limit := (selfAdjoint.expUnitary h).property</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>  change star (e * u) * (e * u) = e ∧</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>    (e * u) * star (e * u) = e ∧ e * (e * u) = e * u ∧</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>      (e * u) * e = e * u</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>  constructor</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>  · calc</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>      star (e * u) * (e * u) = star u * e * (e * u) := by rw [star_mul, hestar]</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>      _ = star u * ((e * e) * u) := by noncomm_ring</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>      _ = star u * (e * u) := by rw [heidem]</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>      _ = star u * (u * e) := by rw [heu.eq]</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>      _ = (star u * u) * e := by rw [mul_assoc]</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>      _ = e := by rw [hu.1, one_mul]</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>  constructor</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>  · calc</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>      (e * u) * star (e * u) = e * u * (star u * e) := by rw [star_mul, hestar]</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>      _ = e * (u * star u) * e := by noncomm_ring</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>      _ = e := by rw [hu.2, mul_one, heidem]</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a>  constructor</span>
+<span class="source-line" id="L256"><a class="line-no" href="#L256">256</a>  · rw [← mul_assoc, heidem]</span>
+<span class="source-line" id="L257"><a class="line-no" href="#L257">257</a>  · calc</span>
+<span class="source-line" id="L258"><a class="line-no" href="#L258">258</a>      (e * u) * e = e * (u * e) := by rw [mul_assoc]</span>
+<span class="source-line" id="L259"><a class="line-no" href="#L259">259</a>      _ = e * (e * u) := by rw [heu.eq]</span>
+<span class="source-line" id="L260"><a class="line-no" href="#L260">260</a>      _ = e * u := by rw [← mul_assoc, heidem]</span>
+<span class="source-line" id="L261"><a class="line-no" href="#L261">261</a></span>
+<span class="source-line selected" id="L262"><a class="line-no" href="#L262">262</a>/-- The fully amplified corner exponential as an ambient CAR unitary. -/</span>
+<span class="source-line selected" id="L263"><a class="line-no" href="#L263">263</a>noncomputable def liftedCornerExponential (n : ℕ) (h : selfAdjoint Limit)</span>
+<span class="source-line selected" id="L264"><a class="line-no" href="#L264">264</a>    (heh : limitMatrixUnit n 0 0 * (h : Limit) = h)</span>
+<span class="source-line selected" id="L265"><a class="line-no" href="#L265">265</a>    (hhe : (h : Limit) * limitMatrixUnit n 0 0 = h) : unitary Limit :=</span>
+<span class="source-line selected" id="L266"><a class="line-no" href="#L266">266</a>  ⟨cornerLift n (cornerExponential n h),</span>
+<span class="source-line selected" id="L267"><a class="line-no" href="#L267">267</a>    cornerLift_mem_unitary n (cornerExponential n h)</span>
+<span class="source-line selected" id="L268"><a class="line-no" href="#L268">268</a>      (isRootCornerUnitary_cornerExponential n h heh hhe)⟩</span>
+<span class="source-line" id="L269"><a class="line-no" href="#L269">269</a></span>
+<span class="source-line" id="L270"><a class="line-no" href="#L270">270</a>/-- The canonical path from the ambient unit to a lifted corner exponential.</span>
+<span class="source-line" id="L271"><a class="line-no" href="#L271">271</a>Every intermediate generator remains supported in the same root corner. -/</span>
+<span class="source-line" id="L272"><a class="line-no" href="#L272">272</a>noncomputable def liftedCornerExponentialPath (n : ℕ) (h : selfAdjoint Limit)</span>
+<span class="source-line" id="L273"><a class="line-no" href="#L273">273</a>    (heh : limitMatrixUnit n 0 0 * (h : Limit) = h)</span>
+<span class="source-line" id="L274"><a class="line-no" href="#L274">274</a>    (hhe : (h : Limit) * limitMatrixUnit n 0 0 = h) :</span>
+<span class="source-line" id="L275"><a class="line-no" href="#L275">275</a>    Path 1 (liftedCornerExponential n h heh hhe) where</span>
+<span class="source-line" id="L276"><a class="line-no" href="#L276">276</a>  toFun t := liftedCornerExponential n ((t : ℝ) • h)</span>
+<span class="source-line" id="L277"><a class="line-no" href="#L277">277</a>    (by</span>
+<span class="source-line" id="L278"><a class="line-no" href="#L278">278</a>      change limitMatrixUnit n 0 0 * ((t : ℝ) • (h : Limit)) =</span>
+<span class="source-line" id="L279"><a class="line-no" href="#L279">279</a>        (t : ℝ) • (h : Limit)</span>
+<span class="source-line" id="L280"><a class="line-no" href="#L280">280</a>      rw [mul_smul_comm, heh])</span>
+<span class="source-line" id="L281"><a class="line-no" href="#L281">281</a>    (by</span>
+<span class="source-line" id="L282"><a class="line-no" href="#L282">282</a>      change ((t : ℝ) • (h : Limit)) * limitMatrixUnit n 0 0 =</span>
+<span class="source-line" id="L283"><a class="line-no" href="#L283">283</a>        (t : ℝ) • (h : Limit)</span>
+<span class="source-line" id="L284"><a class="line-no" href="#L284">284</a>      rw [smul_mul_assoc, hhe])</span>
+<span class="source-line" id="L285"><a class="line-no" href="#L285">285</a>  continuous_toFun := by</span>
+<span class="source-line" id="L286"><a class="line-no" href="#L286">286</a>    apply continuous_induced_rng.mpr</span>
+<span class="source-line" id="L287"><a class="line-no" href="#L287">287</a>    change Continuous (fun t : Set.Icc (0 : ℝ) 1 =&gt;</span>
+<span class="source-line" id="L288"><a class="line-no" href="#L288">288</a>      rowAverage n (limitMatrixUnit n 0 0 *</span>
+<span class="source-line" id="L289"><a class="line-no" href="#L289">289</a>        (selfAdjoint.expUnitary ((t : ℝ) • h) : Limit)))</span>
+<span class="source-line" id="L290"><a class="line-no" href="#L290">290</a>    have hsmul : Continuous (fun t : Set.Icc (0 : ℝ) 1 =&gt; (t : ℝ) • h) := by</span>
+<span class="source-line" id="L291"><a class="line-no" href="#L291">291</a>      apply continuous_induced_rng.mpr</span>
+<span class="source-line" id="L292"><a class="line-no" href="#L292">292</a>      change Continuous (fun t : Set.Icc (0 : ℝ) 1 =&gt;</span>
+<span class="source-line" id="L293"><a class="line-no" href="#L293">293</a>        ((t : ℝ) : ℂ) • (h : Limit))</span>
+<span class="source-line" id="L294"><a class="line-no" href="#L294">294</a>      fun_prop</span>
+<span class="source-line" id="L295"><a class="line-no" href="#L295">295</a>    have hexp : Continuous (fun t : Set.Icc (0 : ℝ) 1 =&gt;</span>
+<span class="source-line" id="L296"><a class="line-no" href="#L296">296</a>        (selfAdjoint.expUnitary ((t : ℝ) • h) : Limit)) :=</span>
+<span class="source-line" id="L297"><a class="line-no" href="#L297">297</a>      continuous_subtype_val.comp</span>
+<span class="source-line" id="L298"><a class="line-no" href="#L298">298</a>        (selfAdjoint.continuous_expUnitary.comp hsmul)</span>
+<span class="source-line" id="L299"><a class="line-no" href="#L299">299</a>    exact (rowAverage n).continuous.comp (continuous_const.mul hexp)</span>
+<span class="source-line" id="L300"><a class="line-no" href="#L300">300</a>  source&#x27; := by</span>
+<span class="source-line" id="L301"><a class="line-no" href="#L301">301</a>    apply Subtype.ext</span>
+<span class="source-line" id="L302"><a class="line-no" href="#L302">302</a>    simp [liftedCornerExponential, cornerExponential, cornerLift,</span>
+<span class="source-line" id="L303"><a class="line-no" href="#L303">303</a>      sum_limitMatrixUnit_diag]</span>
+<span class="source-line" id="L304"><a class="line-no" href="#L304">304</a>  target&#x27; := by</span>
+<span class="source-line" id="L305"><a class="line-no" href="#L305">305</a>    apply Subtype.ext</span>
+<span class="source-line" id="L306"><a class="line-no" href="#L306">306</a>    have hone : ((1 : ℝ) • h : selfAdjoint Limit) = h := by</span>
+<span class="source-line" id="L307"><a class="line-no" href="#L307">307</a>      apply Subtype.ext</span>
+<span class="source-line" id="L308"><a class="line-no" href="#L308">308</a>      change ((1 : ℝ) : ℂ) • (h : Limit) = (h : Limit)</span>
+<span class="source-line" id="L309"><a class="line-no" href="#L309">309</a>      simp</span>
+<span class="source-line" id="L310"><a class="line-no" href="#L310">310</a>    change cornerLift n (cornerExponential n ((1 : ℝ) • h)) =</span>
+<span class="source-line" id="L311"><a class="line-no" href="#L311">311</a>      cornerLift n (cornerExponential n h)</span>
+<span class="source-line" id="L312"><a class="line-no" href="#L312">312</a>    rw [hone]</span>
+<span class="source-line" id="L313"><a class="line-no" href="#L313">313</a></span>
+<span class="source-line" id="L314"><a class="line-no" href="#L314">314</a>/-- Representation formula for the lifted corner action. -/</span>
+<span class="source-line" id="L315"><a class="line-no" href="#L315">315</a>theorem representation_cornerLift_apply</span>
+<span class="source-line" id="L316"><a class="line-no" href="#L316">316</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L317"><a class="line-no" href="#L317">317</a>    (ρ : Representation Limit H) (n : ℕ) (z : Limit) (ξ : H) :</span>
+<span class="source-line" id="L318"><a class="line-no" href="#L318">318</a>    ρ (cornerLift n z) ξ =</span>
+<span class="source-line" id="L319"><a class="line-no" href="#L319">319</a>      ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L320"><a class="line-no" href="#L320">320</a>        ρ (limitMatrixUnit n i 0)</span>
+<span class="source-line" id="L321"><a class="line-no" href="#L321">321</a>          (ρ z (ρ (limitMatrixUnit n 0 i) ξ)) := by</span>
+<span class="source-line" id="L322"><a class="line-no" href="#L322">322</a>  simp [cornerLift, map_sum, map_mul]</span>
+<span class="source-line" id="L323"><a class="line-no" href="#L323">323</a></span>
+<span class="source-line" id="L324"><a class="line-no" href="#L324">324</a>/-- Every lifted corner exponential centralizes its source stage exactly. -/</span>
+<span class="source-line" id="L325"><a class="line-no" href="#L325">325</a>theorem liftedCornerExponential_commute_stage (n : ℕ) (h : selfAdjoint Limit)</span>
+<span class="source-line" id="L326"><a class="line-no" href="#L326">326</a>    (heh : limitMatrixUnit n 0 0 * (h : Limit) = h)</span>
+<span class="source-line" id="L327"><a class="line-no" href="#L327">327</a>    (hhe : (h : Limit) * limitMatrixUnit n 0 0 = h) (c : Stage n) :</span>
+<span class="source-line" id="L328"><a class="line-no" href="#L328">328</a>    Commute (ofStage n c) (liftedCornerExponential n h heh hhe : Limit) :=</span>
+<span class="source-line" id="L329"><a class="line-no" href="#L329">329</a>  ofStage_commute_cornerLift n c (cornerExponential n h)</span>
+<span class="source-line" id="L330"><a class="line-no" href="#L330">330</a></span>
+<span class="source-line" id="L331"><a class="line-no" href="#L331">331</a>/-- The lifted exponential centralizes the source stage at every time along</span>
+<span class="source-line" id="L332"><a class="line-no" href="#L332">332</a>its canonical path, not only at the endpoint. -/</span>
+<span class="source-line" id="L333"><a class="line-no" href="#L333">333</a>theorem liftedCornerExponentialPath_commute_stage (n : ℕ)</span>
+<span class="source-line" id="L334"><a class="line-no" href="#L334">334</a>    (h : selfAdjoint Limit)</span>
+<span class="source-line" id="L335"><a class="line-no" href="#L335">335</a>    (heh : limitMatrixUnit n 0 0 * (h : Limit) = h)</span>
+<span class="source-line" id="L336"><a class="line-no" href="#L336">336</a>    (hhe : (h : Limit) * limitMatrixUnit n 0 0 = h)</span>
+<span class="source-line" id="L337"><a class="line-no" href="#L337">337</a>    (t : Set.Icc (0 : ℝ) 1) (c : Stage n) :</span>
+<span class="source-line" id="L338"><a class="line-no" href="#L338">338</a>    Commute (ofStage n c) (liftedCornerExponentialPath n h heh hhe t : Limit) := by</span>
+<span class="source-line" id="L339"><a class="line-no" href="#L339">339</a>  exact liftedCornerExponential_commute_stage n ((t : ℝ) • h)</span>
+<span class="source-line" id="L340"><a class="line-no" href="#L340">340</a>    (by</span>
+<span class="source-line" id="L341"><a class="line-no" href="#L341">341</a>      change limitMatrixUnit n 0 0 * ((t : ℝ) • (h : Limit)) =</span>
+<span class="source-line" id="L342"><a class="line-no" href="#L342">342</a>        (t : ℝ) • (h : Limit)</span>
+<span class="source-line" id="L343"><a class="line-no" href="#L343">343</a>      rw [mul_smul_comm, heh])</span>
+<span class="source-line" id="L344"><a class="line-no" href="#L344">344</a>    (by</span>
+<span class="source-line" id="L345"><a class="line-no" href="#L345">345</a>      change ((t : ℝ) • (h : Limit)) * limitMatrixUnit n 0 0 =</span>
+<span class="source-line" id="L346"><a class="line-no" href="#L346">346</a>        (t : ℝ) • (h : Limit)</span>
+<span class="source-line" id="L347"><a class="line-no" href="#L347">347</a>      rw [smul_mul_assoc, hhe]) c</span>
+<span class="source-line" id="L348"><a class="line-no" href="#L348">348</a></span>
+<span class="source-line" id="L349"><a class="line-no" href="#L349">349</a>/-- The pointwise product of two lifted corner-exponential paths. -/</span>
+<span class="source-line" id="L350"><a class="line-no" href="#L350">350</a>noncomputable def liftedCornerExponentialPairPath (n : ℕ)</span>
+<span class="source-line" id="L351"><a class="line-no" href="#L351">351</a>    (h₁ h₂ : selfAdjoint Limit)</span>
+<span class="source-line" id="L352"><a class="line-no" href="#L352">352</a>    (heh₁ : limitMatrixUnit n 0 0 * (h₁ : Limit) = h₁)</span>
+<span class="source-line" id="L353"><a class="line-no" href="#L353">353</a>    (hh₁e : (h₁ : Limit) * limitMatrixUnit n 0 0 = h₁)</span>
+<span class="source-line" id="L354"><a class="line-no" href="#L354">354</a>    (heh₂ : limitMatrixUnit n 0 0 * (h₂ : Limit) = h₂)</span>
+<span class="source-line" id="L355"><a class="line-no" href="#L355">355</a>    (hh₂e : (h₂ : Limit) * limitMatrixUnit n 0 0 = h₂) :</span>
+<span class="source-line" id="L356"><a class="line-no" href="#L356">356</a>    Path 1</span>
+<span class="source-line" id="L357"><a class="line-no" href="#L357">357</a>      (liftedCornerExponential n h₂ heh₂ hh₂e *</span>
+<span class="source-line" id="L358"><a class="line-no" href="#L358">358</a>        liftedCornerExponential n h₁ heh₁ hh₁e) where</span>
+<span class="source-line" id="L359"><a class="line-no" href="#L359">359</a>  toFun t := liftedCornerExponentialPath n h₂ heh₂ hh₂e t *</span>
+<span class="source-line" id="L360"><a class="line-no" href="#L360">360</a>    liftedCornerExponentialPath n h₁ heh₁ hh₁e t</span>
+<span class="source-line" id="L361"><a class="line-no" href="#L361">361</a>  continuous_toFun := by fun_prop</span>
+<span class="source-line" id="L362"><a class="line-no" href="#L362">362</a>  source&#x27; := by simp</span>
+<span class="source-line" id="L363"><a class="line-no" href="#L363">363</a>  target&#x27; := by</span>
+<span class="source-line" id="L364"><a class="line-no" href="#L364">364</a>    exact congrArg₂ (· * ·)</span>
+<span class="source-line" id="L365"><a class="line-no" href="#L365">365</a>      (liftedCornerExponentialPath n h₂ heh₂ hh₂e).target</span>
+<span class="source-line" id="L366"><a class="line-no" href="#L366">366</a>      (liftedCornerExponentialPath n h₁ heh₁ hh₁e).target</span>
+<span class="source-line" id="L367"><a class="line-no" href="#L367">367</a></span>
+<span class="source-line" id="L368"><a class="line-no" href="#L368">368</a>/-- Both factors of the paired path centralize the source stage at every</span>
+<span class="source-line" id="L369"><a class="line-no" href="#L369">369</a>time, hence so does their product. -/</span>
+<span class="source-line" id="L370"><a class="line-no" href="#L370">370</a>theorem liftedCornerExponentialPairPath_commute_stage (n : ℕ)</span>
+<span class="source-line" id="L371"><a class="line-no" href="#L371">371</a>    (h₁ h₂ : selfAdjoint Limit)</span>
+<span class="source-line" id="L372"><a class="line-no" href="#L372">372</a>    (heh₁ : limitMatrixUnit n 0 0 * (h₁ : Limit) = h₁)</span>
+<span class="source-line" id="L373"><a class="line-no" href="#L373">373</a>    (hh₁e : (h₁ : Limit) * limitMatrixUnit n 0 0 = h₁)</span>
+<span class="source-line" id="L374"><a class="line-no" href="#L374">374</a>    (heh₂ : limitMatrixUnit n 0 0 * (h₂ : Limit) = h₂)</span>
+<span class="source-line" id="L375"><a class="line-no" href="#L375">375</a>    (hh₂e : (h₂ : Limit) * limitMatrixUnit n 0 0 = h₂)</span>
+<span class="source-line" id="L376"><a class="line-no" href="#L376">376</a>    (t : Set.Icc (0 : ℝ) 1) (c : Stage n) :</span>
+<span class="source-line" id="L377"><a class="line-no" href="#L377">377</a>    Commute (ofStage n c)</span>
+<span class="source-line" id="L378"><a class="line-no" href="#L378">378</a>      (liftedCornerExponentialPairPath n h₁ h₂ heh₁ hh₁e heh₂ hh₂e t : Limit) :=</span>
+<span class="source-line" id="L379"><a class="line-no" href="#L379">379</a>  (liftedCornerExponentialPath_commute_stage n h₂ heh₂ hh₂e t c).mul_right</span>
+<span class="source-line" id="L380"><a class="line-no" href="#L380">380</a>    (liftedCornerExponentialPath_commute_stage n h₁ heh₁ hh₁e t c)</span>
+<span class="source-line" id="L381"><a class="line-no" href="#L381">381</a></span>
+<span class="source-line" id="L382"><a class="line-no" href="#L382">382</a>/-- CAR specialization of the supported quantitative Kadison theorem.  The</span>
+<span class="source-line" id="L383"><a class="line-no" href="#L383">383</a>witness is already a self-adjoint element of the actual finite-stage root</span>
+<span class="source-line" id="L384"><a class="line-no" href="#L384">384</a>corner, ready for corner exponentiation and amplification. -/</span>
+<span class="source-line" id="L385"><a class="line-no" href="#L385">385</a>theorem exists_rootCornerSupported_selfAdjoint_norm_le_one_apply_sub_norm_lt</span>
+<span class="source-line" id="L386"><a class="line-no" href="#L386">386</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L387"><a class="line-no" href="#L387">387</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L388"><a class="line-no" href="#L388">388</a>    (ρ : Representation Limit H) (hρ : StarAlgHom.IsIrreducible ρ)</span>
+<span class="source-line" id="L389"><a class="line-no" href="#L389">389</a>    (n : ℕ) {I : Type*} [Fintype I] [DecidableEq I]</span>
+<span class="source-line" id="L390"><a class="line-no" href="#L390">390</a>    (ξ : I → H) (hξ : ∀ i, ρ (limitMatrixUnit n 0 0) (ξ i) = ξ i)</span>
+<span class="source-line" id="L391"><a class="line-no" href="#L391">391</a>    (T : H →L[ℂ] H) (hT : IsSelfAdjoint T) (hTnorm : ‖T‖ ≤ 1)</span>
+<span class="source-line" id="L392"><a class="line-no" href="#L392">392</a>    (hTrange : ρ (limitMatrixUnit n 0 0) * T = T)</span>
+<span class="source-line" id="L393"><a class="line-no" href="#L393">393</a>    {ε : ℝ} (hε : 0 &lt; ε) :</span>
+<span class="source-line" id="L394"><a class="line-no" href="#L394">394</a>    ∃ h : selfAdjoint Limit, ‖(h : Limit)‖ ≤ 1 ∧</span>
+<span class="source-line" id="L395"><a class="line-no" href="#L395">395</a>      limitMatrixUnit n 0 0 * (h : Limit) = h ∧</span>
+<span class="source-line" id="L396"><a class="line-no" href="#L396">396</a>      (h : Limit) * limitMatrixUnit n 0 0 = h ∧</span>
+<span class="source-line" id="L397"><a class="line-no" href="#L397">397</a>      ‖atomicRepresentation (fun _ : I =&gt; ρ) (h : Limit) (finiteHilbertSum ξ) -</span>
+<span class="source-line" id="L398"><a class="line-no" href="#L398">398</a>        diagonal (fun _ : I =&gt; T) ‖T‖ (norm_nonneg T) (fun _ =&gt; le_rfl)</span>
+<span class="source-line" id="L399"><a class="line-no" href="#L399">399</a>          (finiteHilbertSum ξ)‖ &lt; ε := by</span>
+<span class="source-line" id="L400"><a class="line-no" href="#L400">400</a>  obtain ⟨a, ha, hanorm, haleft, haright, happ⟩ :=</span>
+<span class="source-line" id="L401"><a class="line-no" href="#L401">401</a>    ρ.exists_cornerSupported_selfAdjoint_norm_le_one_atomic_apply_sub_norm_lt</span>
+<span class="source-line" id="L402"><a class="line-no" href="#L402">402</a>      hρ (isStarProjection_limitMatrixUnit_zero_zero n) ξ hξ T hT hTnorm</span>
+<span class="source-line" id="L403"><a class="line-no" href="#L403">403</a>        hTrange hε</span>
+<span class="source-line" id="L404"><a class="line-no" href="#L404">404</a>  exact ⟨⟨a, ha⟩, hanorm, haleft, haright, happ⟩</span>
+<span class="source-line" id="L405"><a class="line-no" href="#L405">405</a></span>
+<span class="source-line" id="L406"><a class="line-no" href="#L406">406</a>/-- Exact, coarse-norm CAR corner interpolation on a finite-dimensional active</span>
+<span class="source-line" id="L407"><a class="line-no" href="#L407">407</a>subspace.  This is the exact counterpart of the one-shot approximation above. -/</span>
+<span class="source-line" id="L408"><a class="line-no" href="#L408">408</a>theorem exists_rootCornerSupported_selfAdjoint_norm_le_two_mul_and_eq_on</span>
+<span class="source-line" id="L409"><a class="line-no" href="#L409">409</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L410"><a class="line-no" href="#L410">410</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L411"><a class="line-no" href="#L411">411</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L412"><a class="line-no" href="#L412">412</a>    (n : ℕ) (E : Submodule ℂ H) [E.HasOrthogonalProjection]</span>
+<span class="source-line" id="L413"><a class="line-no" href="#L413">413</a>    [FiniteDimensional ℂ E]</span>
+<span class="source-line" id="L414"><a class="line-no" href="#L414">414</a>    (hE : ∀ x : H, x ∈ E → rho (limitMatrixUnit n 0 0) x = x)</span>
+<span class="source-line" id="L415"><a class="line-no" href="#L415">415</a>    (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)</span>
+<span class="source-line" id="L416"><a class="line-no" href="#L416">416</a>    (hTrange : rho (limitMatrixUnit n 0 0) * T = T) :</span>
+<span class="source-line" id="L417"><a class="line-no" href="#L417">417</a>    ∃ h : selfAdjoint Limit, ‖(h : Limit)‖ ≤ 2 * ‖T‖ ∧</span>
+<span class="source-line" id="L418"><a class="line-no" href="#L418">418</a>      limitMatrixUnit n 0 0 * (h : Limit) = h ∧</span>
+<span class="source-line" id="L419"><a class="line-no" href="#L419">419</a>      (h : Limit) * limitMatrixUnit n 0 0 = h ∧</span>
+<span class="source-line" id="L420"><a class="line-no" href="#L420">420</a>      ∀ x : H, x ∈ E → rho (h : Limit) x = T x := by</span>
+<span class="source-line" id="L421"><a class="line-no" href="#L421">421</a>  obtain ⟨a, ha, hanorm, haleft, haright, hexact⟩ :=</span>
+<span class="source-line" id="L422"><a class="line-no" href="#L422">422</a>    rho.exists_cornerSupported_selfAdjoint_norm_le_two_mul_and_eq_on</span>
+<span class="source-line" id="L423"><a class="line-no" href="#L423">423</a>      hrho (isStarProjection_limitMatrixUnit_zero_zero n) E hE T hT hTrange</span>
+<span class="source-line" id="L424"><a class="line-no" href="#L424">424</a>  exact ⟨⟨a, ha⟩, hanorm, haleft, haright, hexact⟩</span>
+<span class="source-line" id="L425"><a class="line-no" href="#L425">425</a></span>
+<span class="source-line" id="L426"><a class="line-no" href="#L426">426</a>/-- A finite-dimensional invariant self-adjoint operator can be lifted into the</span>
+<span class="source-line" id="L427"><a class="line-no" href="#L427">427</a>root CAR corner so that the corresponding corner exponential has exactly the</span>
+<span class="source-line" id="L428"><a class="line-no" href="#L428">428</a>prescribed exponential action on the active subspace. -/</span>
+<span class="source-line" id="L429"><a class="line-no" href="#L429">429</a>theorem exists_rootCornerSupported_exponential_eq_on</span>
+<span class="source-line" id="L430"><a class="line-no" href="#L430">430</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L431"><a class="line-no" href="#L431">431</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L432"><a class="line-no" href="#L432">432</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L433"><a class="line-no" href="#L433">433</a>    (n : ℕ) (E : Submodule ℂ H) [E.HasOrthogonalProjection]</span>
+<span class="source-line" id="L434"><a class="line-no" href="#L434">434</a>    [FiniteDimensional ℂ E]</span>
+<span class="source-line" id="L435"><a class="line-no" href="#L435">435</a>    (hE : ∀ x : H, x ∈ E → rho (limitMatrixUnit n 0 0) x = x)</span>
+<span class="source-line" id="L436"><a class="line-no" href="#L436">436</a>    (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)</span>
+<span class="source-line" id="L437"><a class="line-no" href="#L437">437</a>    (hTrange : rho (limitMatrixUnit n 0 0) * T = T)</span>
+<span class="source-line" id="L438"><a class="line-no" href="#L438">438</a>    (hTmap : Set.MapsTo T E E) :</span>
+<span class="source-line" id="L439"><a class="line-no" href="#L439">439</a>    ∃ h : selfAdjoint Limit, ‖(h : Limit)‖ ≤ 2 * ‖T‖ ∧</span>
+<span class="source-line" id="L440"><a class="line-no" href="#L440">440</a>      limitMatrixUnit n 0 0 * (h : Limit) = h ∧</span>
+<span class="source-line" id="L441"><a class="line-no" href="#L441">441</a>      (h : Limit) * limitMatrixUnit n 0 0 = h ∧</span>
+<span class="source-line" id="L442"><a class="line-no" href="#L442">442</a>      ∀ x : H, x ∈ E →</span>
+<span class="source-line" id="L443"><a class="line-no" href="#L443">443</a>        rho (cornerExponential n h) x =</span>
+<span class="source-line" id="L444"><a class="line-no" href="#L444">444</a>          NormedSpace.exp (Complex.I • T) x := by</span>
+<span class="source-line" id="L445"><a class="line-no" href="#L445">445</a>  obtain ⟨h, hnorm, heh, hhe, hexact⟩ :=</span>
+<span class="source-line" id="L446"><a class="line-no" href="#L446">446</a>    exists_rootCornerSupported_selfAdjoint_norm_le_two_mul_and_eq_on</span>
+<span class="source-line" id="L447"><a class="line-no" href="#L447">447</a>      rho hrho n E hE T hT hTrange</span>
+<span class="source-line" id="L448"><a class="line-no" href="#L448">448</a>  refine ⟨h, hnorm, heh, hhe, fun x hx =&gt; ?_⟩</span>
+<span class="source-line" id="L449"><a class="line-no" href="#L449">449</a>  have hehcomm : Commute (limitMatrixUnit n 0 0) (h : Limit) := by</span>
+<span class="source-line" id="L450"><a class="line-no" href="#L450">450</a>    rw [Commute, SemiconjBy]</span>
+<span class="source-line" id="L451"><a class="line-no" href="#L451">451</a>    exact heh.trans hhe.symm</span>
+<span class="source-line" id="L452"><a class="line-no" href="#L452">452</a>  have heexp : Commute (limitMatrixUnit n 0 0)</span>
+<span class="source-line" id="L453"><a class="line-no" href="#L453">453</a>      (selfAdjoint.expUnitary h : Limit) := by</span>
+<span class="source-line" id="L454"><a class="line-no" href="#L454">454</a>    simpa only [selfAdjoint.expUnitary_coe] using</span>
+<span class="source-line" id="L455"><a class="line-no" href="#L455">455</a>      (hehcomm.smul_right Complex.I).exp_right</span>
+<span class="source-line" id="L456"><a class="line-no" href="#L456">456</a>  calc</span>
+<span class="source-line" id="L457"><a class="line-no" href="#L457">457</a>    rho (cornerExponential n h) x =</span>
+<span class="source-line" id="L458"><a class="line-no" href="#L458">458</a>        rho (limitMatrixUnit n 0 0)</span>
+<span class="source-line" id="L459"><a class="line-no" href="#L459">459</a>          (rho (selfAdjoint.expUnitary h : Limit) x) := by</span>
+<span class="source-line" id="L460"><a class="line-no" href="#L460">460</a>      simp [cornerExponential, map_mul]</span>
+<span class="source-line" id="L461"><a class="line-no" href="#L461">461</a>    _ = rho (selfAdjoint.expUnitary h : Limit)</span>
+<span class="source-line" id="L462"><a class="line-no" href="#L462">462</a>          (rho (limitMatrixUnit n 0 0) x) := by</span>
+<span class="source-line" id="L463"><a class="line-no" href="#L463">463</a>      exact congrArg (fun S : H →L[ℂ] H =&gt; S x) (heexp.map rho).eq</span>
+<span class="source-line" id="L464"><a class="line-no" href="#L464">464</a>    _ = rho (selfAdjoint.expUnitary h : Limit) x := by rw [hE x hx]</span>
+<span class="source-line" id="L465"><a class="line-no" href="#L465">465</a>    _ = NormedSpace.exp (Complex.I • T) x :=</span>
+<span class="source-line" id="L466"><a class="line-no" href="#L466">466</a>      rho.expUnitary_apply_eq_of_eqOn_of_mapsTo h T E hexact hTmap hx</span>
+<span class="source-line" id="L467"><a class="line-no" href="#L467">467</a></span>
+<span class="source-line" id="L468"><a class="line-no" href="#L468">468</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

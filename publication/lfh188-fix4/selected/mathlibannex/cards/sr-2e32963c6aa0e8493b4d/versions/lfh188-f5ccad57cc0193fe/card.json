@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.Matrix.det_smul_vecMul_nonsingInv_eq_updateRowDet",
+  "title": "Cramer’s rule for coordinates of a row",
+  "stable_card_id": null,
+  "identity_key": "3c371546ac3b8bd2ade5ba7819f97dc4f35eb267cc6005e0304401e1f55c0680",
+  "source_url": "mathlibannex/sources/lfh188/f3c131ec14ca9af3246f3e7f/index.html#L86",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/LinearAlgebra/Matrix/MaximalMinorFactorization.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "5659e9ecb00331a1bc04662532630b0fe758fa8181059313bc07568e406a91dd",
+  "accepted_guide_sha256": "095d5a0faa50d2de6a7f4eb7f83600df7d366888ba9f8f6f290e4a22f7351bb3",
+  "content": {
+    "display_title": "Cramer’s rule for coordinates of a row",
+    "one_sentence_role": "Expresses a row in the basis of the rows of an invertible square matrix through row-replacement determinants.",
+    "natural_language_statement": "Let $A$ be an $n$-by-$n$ matrix over a field, with $\\det A\\ne0$, and let $r$ be a row of length $n$. If $A[j\\leftarrow r]$ denotes replacement of row $j$ by $r$, then\n\n$$ (\\det A)(rA^{-1})_j=\\det(A[j\\leftarrow r])\\qquad(1\\le j\\le n).$$",
+    "definition_explanation": null,
+    "assumptions": "The scalar system is an arbitrary field, $n\\ge0$, and $r$ is any row. Nonvanishing of $\\det A$ is the exact condition ensuring that the matrix inverse is an inverse.",
+    "conclusion": "The coordinate row $c=rA^{-1}$ satisfies $cA=r$, and each coordinate is $c_j=\\det(A[j\\leftarrow r])/\\det A$. If $n=0$, the equality is between the two empty coordinate families.",
+    "proof_summary": "Apply Cramer’s rule to the transpose, then identify each transposed replacement determinant.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Write $c=rA^{-1}$. Since $\\det A\\ne0$, the inverse exists and\n\n$$cA=r\\quad\\Longleftrightarrow\\quad A^{\\mathsf T}c^{\\mathsf T}=r^{\\mathsf T}.$$\n\nApply the column form of Cramer's rule to the system on the right. Its coefficient matrix satisfies $\\det(A^{\\mathsf T})=\\det A\\ne0$, so it gives\n\n$$(\\det A)c_j=\\det\\bigl((A^{\\mathsf T})[\\text{column }j\\leftarrow r^{\\mathsf T}]\\bigr).$$"
+      },
+      {
+        "step_id": "s2",
+        "text": "The replaced-column matrix is exactly the transpose of the replaced-row matrix:\n\n$$\\begin{aligned}\n(A^{\\mathsf T})[\\text{column }j\\leftarrow r^{\\mathsf T}]\n   &=(A[j\\leftarrow r])^{\\mathsf T},\\\\\n(\\det A)(rA^{-1})_j\n   &=\\det((A[j\\leftarrow r])^{\\mathsf T})\\\\\n   &=\\det(A[j\\leftarrow r]).\n\\end{aligned}$$\n\nDividing by $\\det A\\ne0$ gives the stated coordinate formula. For $n=0$ there is no coordinate $j$ to check."
+      }
+    ],
+    "lean_realization_notes": "The row convention is essential: the unknown coordinates multiply $A$ on the left. The source obtains this formula by applying the column form of Cramer’s rule to the transpose; replacing a column of the transpose replaces the corresponding row before transposition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

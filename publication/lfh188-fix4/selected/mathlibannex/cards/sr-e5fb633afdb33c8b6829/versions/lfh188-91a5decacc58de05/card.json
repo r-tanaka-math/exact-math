@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.BilipschitzOrientation.weakDivergenceZero_targetJacobianSign",
+  "title": "The transported Jacobian sign has zero weak gradient",
+  "stable_card_id": null,
+  "identity_key": "630b33d84c2595cb34b35666d140d8f7b6d4a683755488984072a3eb7058fb65",
+  "source_url": "mathlibannex/sources/lfh188/38f7241657e47467feafae95/index.html#L429",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "4c3f7d4ed1c2ead75b23d6380f07535eb5fc21fb74de4b8b7e4f913aee4411d8",
+  "accepted_guide_sha256": "64c0658743eb29f824c419c2cc8ad85c03e2fa02e241a7b69b3e1b87a6c4519c",
+  "content": {
+    "display_title": "The transported Jacobian sign has zero weak gradient",
+    "one_sentence_role": "Uses signed transfer and weak Piola with the same test field to obtain the weak equation on the target.",
+    "natural_language_statement": "Let $n\\in\\mathbb N_0$ and let $E=\\mathbb R^n$ have the sup norm $\\|\\cdot\\|_\\infty$. Let $S,T\\subseteq E$ be open, and let $f,g:E\\to E$ be globally Lipschitz maps whose restrictions $f|_S:S\\to T$ and $g|_T:T\\to S$ are mutually inverse. Fix a number $\\ell>0$ such that\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\qquad(x,x'\\in E).$$\n\nWrite $Df(x):E\\to E$ for the Fréchet derivative of $f$ at $x$ when it exists, and set $Df(x)=0$ at other points. Define the signed Jacobian by $J_f(x)=\\det Df(x)$.\n\nDefine the source sign $s_f:E\\to\\{-1,1\\}$ and its transport $\\sigma_f:E\\to\\{-1,1\\}$ by\n$$s_f(x)=\\begin{cases}1,&J_f(x)\\ge0,\\\\-1,&J_f(x)<0,\\end{cases}\\qquad \\sigma_f(y)=s_f(g(y)).$$\nIn particular, a zero determinant gives sign $+1$, and $|\\sigma_f(y)|=1$ for every $y$.\n\nLet $W:E\\to E$ be a $C^1$ vector field that vanishes outside a compact set $K\\subseteq T$. Its divergence is $\\operatorname{div}W(y)=\\operatorname{tr}DW(y)$. With $\\lambda$ denoting Lebesgue measure,\n$$\\int_T\\sigma_f(y)\\operatorname{div}W(y)\\,d\\lambda(y)=0.$$\nThe assertion holds for every such $W$ and $K$.",
+    "definition_explanation": null,
+    "assumptions": "The test field is $C^1$ on all of $E$, and its chosen compact set satisfies $K\\subseteq T$ and $W=0$ on $E\\setminus K$. Neither connectedness nor finite measure of $T$ is assumed.\n\nThe sets $S,T\\subseteq E$ are open. The inverse and image conditions are\n$$\\begin{aligned}\nf(S)&\\subseteq T,&g(T)&\\subseteq S,\\\\\ng(f(x))&=x\\quad(x\\in S),&f(g(y))&=y\\quad(y\\in T).\n\\end{aligned}$$\nThe global bounds use specified constants $C_f,C_g\\ge0$ and $\\ell>0$:\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\le C_f\\|x-x'\\|_\\infty\\qquad(x,x'\\in E),$$\n$$\\|g(y)-g(y')\\|_\\infty\\le C_g\\|y-y'\\|_\\infty\\qquad(y,y'\\in E).$$\nThe estimates hold on all of $E$, not just on $S$ or $T$. The inverse identities are required only on $S$ and $T$.",
+    "conclusion": "The scalar function $\\sigma_f$ has zero weak gradient on $T$: its product with the divergence of every admissible test field has integral zero. This is the integral formulation of a weak equation for a scalar function, not the divergence of a vector-valued sign.",
+    "proof_summary": "The divergence of the test field is integrable. Substitute this function into signed transfer; the resulting source integral is zero by weak Piola.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Verify integrability of the observable.** Put $\\phi(y)=\\operatorname{div}W(y)$. Then\n$$\\phi(y)=0\\quad(y\\notin K),\\qquad\n\\int_E|\\phi(y)|\\,d\\lambda(y)=\\int_K|\\operatorname{div}W(y)|\\,d\\lambda(y)<\\infty.$$\nIndeed, $DW$ is continuous because $W$ is $C^1$, and it vanishes off $K$ because $W$ vanishes locally there. Its trace is therefore continuous and zero off the compact set $K$. This is [integrability of the compact-field divergence](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean#L397-L427), applied to this same $W$ and $K$. In particular, $\\phi\\in L^1(T,\\lambda)$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Insert the observable into the two integral identities.** The complete substitution is\n$$\\begin{aligned}\n\\int_T\\sigma_f(y)\\operatorname{div}W(y)\\,d\\lambda(y)\n&=\\int_T\\phi(y)\\sigma_f(y)\\,d\\lambda(y)\\\\\n&=\\int_S\\phi(f(x))J_f(x)\\,d\\lambda(x)\\\\\n&=\\int_S(\\operatorname{div}W)(f(x))J_f(x)\\,d\\lambda(x)=0.\n\\end{aligned}$$\nThe second line is [signed transfer](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L205-L280) with the maps $f,g$, the sets $S,T$, and the observable $\\phi=\\operatorname{div}W$; Step 1 supplies its integrability hypothesis. The last equality is [weak Piola](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean#L375-L395) for the same $f,g,W$ and the inclusion $K\\subseteq T$. Since $W$ and $K$ were arbitrary, the weak equation follows."
+      }
+    ],
+    "lean_realization_notes": "Compactness is imposed on a set outside which the test field vanishes, not on the open set $T$. The statement itself does not require or assert that the sign is constant.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

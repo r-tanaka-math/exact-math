@@ -1,0 +1,194 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_range": {
+      "end_line": 598,
+      "start_line": 596
+    },
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def rootFlag (n : ℕ) : Limit :=\n  ofStage n (rootProjection n)",
+    "start_byte": 24987,
+    "end_byte": 25065,
+    "sha256": "76860a7853012d8de7f42fda789f4e2ac41427a1b84bffa47c6601b5d7019c53",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+    "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+      "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+      "start_line": 596,
+      "start_column": 1,
+      "end_line": 598,
+      "end_column": 32
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "The decreasing root projections in the CAR completion",
+    "one_sentence_role": "The distinguished stage corners give a nested sequence of projections supporting the root state.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. Let $\\omega$ be the product-vector state determined by $\\omega(\\iota_n(a))=a_{00}$. Define $f_n=\\iota_n(E_{00})=e_{00}^{(n)}$. This sequence is the root flag.",
+    "definition_explanation": "At stage $n$, the matrix $E_{00}$ has a single nonzero entry, equal to $1$ at the distinguished diagonal position. Send it into $A$ by $\\iota_n$. At the next stage, the new distinguished projection lies under the image of the preceding one, giving the decreasing relation. The finite matrix identity $E_{00}aE_{00}=a_{00}E_{00}$, together with the coordinate-preserving embeddings, explains the compression formula at later stages.",
+    "assumptions": "The zero coordinate is the same distinguished coordinate used by the standard stage inclusions. The index $n$ ranges over all natural numbers.",
+    "conclusion": "Each $f_n$ is a self-adjoint projection, $f_0=1$, $\\omega(f_n)=1$, and $f_{n+1}\\leq f_n$. For an element from stage $m$, compression by $f_n$ at any later stage $n\\geq m$ is exactly scalar: $f_n\\iota_m(a)f_n=a_{00}f_n$. The cited results establish these properties of the defined sequence.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The term rank one refers to $E_{00}$ inside the finite matrix algebra. It does not assert that the image of $f_n$ has one-dimensional range in a representation of the completed algebra. No norm or strong limit of the flag is part of this definition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L596-L598",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 598,
+          "start_line": 596
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Finite root projection",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean#L20-L22",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootProjection",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean",
+        "source_range": {
+          "end_line": 22,
+          "start_line": 20
+        },
+        "source_sha256": "fe2c9e8ff50baff00d584846accb3633966bdf891c8faa900c1c32ed3e2a574f",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Finite root compression",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean#L24-L38",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootProjection_mul_mul",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/RootCorner.lean",
+        "source_range": {
+          "end_line": 38,
+          "start_line": 24
+        },
+        "source_sha256": "fe2c9e8ff50baff00d584846accb3633966bdf891c8faa900c1c32ed3e2a574f",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Initial root projection",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L600-L609",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag_zero",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 609,
+          "start_line": 600
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Projection property",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L611-L612",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isStarProjection_rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 612,
+          "start_line": 611
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "State support",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L614-L617",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootState_rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 617,
+          "start_line": 614
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Decreasing root flag",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L627-L628",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.antitone_rootFlag",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 628,
+          "start_line": 627
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Compression at later stages",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean#L635-L645",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootFlag_mul_ofStage_mul",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean",
+        "source_range": {
+          "end_line": 645,
+          "start_line": 635
+        },
+        "source_sha256": "efa3cafa723f37b62b3c808cac4eb5e40c379aab3ed109eef42fcd9746fa9e8d",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "e0f42c4aaa7c4b27b8b71167fb72f6b0b1075f96e0c31037194b8940c4c8b8d2",
+    "uid": "lfh:lfh-declaration-card:sha256:27e0170273342fc6efeaf3843aed281ae48f8d3bf83e8272e35334315ef432f0"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "f3c5e9f442221bcc55839f30bd10708e53d3460616f2f5c42bf45970d89e4ea4",
+    "uid": "lfh:lfh-card-exposition:sha256:6819890c8d42972a984d146d9764969f481200dbfba31b5dc5414360e89f1aa7"
+  },
+  "guide": "Here `rootProjection n` is $E_{00}\\in A_n$, `ofStage n` is $\\iota_n$, and `rootFlag n` is $f_n\\in A$. The exact right-hand side uses these two operations only. The state $\\omega$ in the prose is `rootState`; the projection, order, and compression facts have their own exact declarations.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/27e0170273342fc6efeaf3843aed281ae48f8d3bf83e8272e35334315ef432f0/versions/n69-f3c5e9f442221bcc/index.html",
+    "pdf": "card.pdf"
+  }
+}

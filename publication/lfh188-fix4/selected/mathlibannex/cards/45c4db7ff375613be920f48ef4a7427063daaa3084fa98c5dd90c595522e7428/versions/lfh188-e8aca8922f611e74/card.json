@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+  "title": "Convex-set extension via ambient interiors",
+  "stable_card_id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+  "identity_key": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+  "source_url": "mathlibannex/sources/lfh188/e4027545384a1ee97ed65127/index.html#L51",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "8d4893dc8dafda5a811b5fb7daebb9a1e9bf5eec8cd0e5b26ee341c678b80344",
+  "accepted_guide_sha256": "d8926125e429ee9012acf47833a3008541fb229bfa58c4384d28ce2238886d48",
+  "content": {
+    "display_title": "Convex-set extension via ambient interiors",
+    "one_sentence_role": "Extends agreement from a convex interior to all source points by continuity.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces and let $f:S\\to T$ be a bijective isometry between subsets. Assume $S$ is convex, its interior in $E$ is nonempty, and $$x\\in\\operatorname{int}_E(s)\\quad\\Longleftrightarrow\\quad f(x)\\in\\operatorname{int}_F(t)\\qquad(x\\in S).$$ Then there is a unique surjective real affine isometry $A:E\\to F$ such that $A(x)=f(x)$ for every $x\\in S$.",
+    "definition_explanation": null,
+    "assumptions": "The stated interiors are ambient interiors, not relative interiors in affine spans. Convexity is assumed only for $S$. Both directions of the displayed interior-membership equivalence are hypotheses for the given $f$.",
+    "conclusion": "The unique ambient affine extension agrees on all of $S$, including points outside its interior. No separate target convexity or completeness assumption is needed.",
+    "proof_summary": "Restrict the isometry to the two ambient interiors, use the open connected theorem, and extend equality from the dense interior inside the source set.",
+    "proof_steps": [
+      "For $x\\in\\operatorname{int}_E(s)$ the forward implication puts $f(x)$ in $\\operatorname{int}_F(t)$. If $y\\in\\operatorname{int}_F(t)$, let $x=f^{-1}(y)\\in S$; the reverse implication puts $x$ in $\\operatorname{int}_E(s)$. Thus [The isometry restricted to ambient interiors](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean#L24-L49) gives a bijective isometry $f:\\operatorname{int}_E(s)\\to\\operatorname{int}_F(t)$, with the original forward and inverse values.",
+      "The source interior is convex and nonempty, hence connected, and both interiors are open. These verify every hypothesis of [Open connected extension theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean#L120-L147) for the restricted isometry. It yields a unique ambient affine isometry $A$ with $A=f$ on $\\operatorname{int}_E(s)$.",
+      "Convexity and nonempty interior give $s\\subseteq\\overline{\\operatorname{int}_E(s)}$. Concretely, choose $c\\in\\operatorname{int}_E(s)$ and $\\rho>0$ with $B(c,\\rho)\\subseteq S$. For $x\\in S$ and $0<a\\le1$, the point $x_a=(1-a)x+ac$ satisfies $B(x_a,a\\rho)\\subseteq S$ by convexity, and $x_a\\to x$ as $a\\downarrow0$. Thus the interior points are dense in the subspace $S$, the density step used in [Extension through a dense convex interior](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean#L51-L95).",
+      "The two functions $A|_S$ and $f:S\\to F$ are continuous. Their equality set is closed in $S$, because $F$ is a metric space, and contains the dense interior subset. Hence $A(x)=f(x)$ for all $x\\in S$. Any other extension restricts to an extension on the source interior; uniqueness from Step 2 makes it equal to $A$."
+    ],
+    "lean_realization_notes": []
+  }
+}

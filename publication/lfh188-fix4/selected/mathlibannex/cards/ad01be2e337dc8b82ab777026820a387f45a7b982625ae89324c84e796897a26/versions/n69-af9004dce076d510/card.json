@@ -1,0 +1,194 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+    "source_range": {
+      "end_line": 36,
+      "start_line": 33
+    },
+    "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def selectedRepresentation (root : PureState A) (j : GNSClass A) :\n    MathlibAnnex.Analysis.CStarAlgebra.Representation A (SelectedGNS root j) :=\n  (representative root j).positiveFunctional.gnsStarAlgHom",
+    "start_byte": 1057,
+    "end_byte": 1276,
+    "sha256": "00fdec4eeaae55b967c9b4eb57d8e7b5d9807fcf7965ba20f902009f90337bcf",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+    "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+      "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+      "start_line": 33,
+      "start_column": 1,
+      "end_line": 36,
+      "end_column": 60
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "The selected GNS representation of a pure-state class",
+    "one_sentence_role": "A choice of representative pure states, fixed literally at a root, gives one concrete GNS representation per equivalence class.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra, with the positive order used for its states, and fix a pure state $\\omega$. A pure state is an extreme point of the normalized positive continuous linear functionals. Let $I$ be the set of pure-state GNS representations modulo unitary equivalence. For each $j\\in I$, choose a pure state $\\varphi_j$ in that class, retaining $\\varphi_o=\\omega$ literally at $o=[\\omega]$. Write $(H_j,\\pi_j,\\xi_j)$ for its GNS space, representation and canonical cyclic vector. The selected representation is the GNS action $\\pi_j:A\\to B(H_j)$ associated to this particular $\\varphi_j$. The choice concerns the representative state; the construction then uses its actual GNS Hilbert space and action.",
+    "definition_explanation": "Take the chosen state $\\varphi_j$, regard it as a positive linear functional, and form its GNS completion $H_j$. Left multiplication induces the bounded action $\\pi_j$ on that completion. The selected vector $\\xi_j$ is the GNS cyclic vector. Its orbit $\\pi_j(A)\\xi_j$ is dense. The vector-functional identity and purity of $\\varphi_j$, together with this cyclicity and normalization, supply the separate irreducibility theorem.",
+    "assumptions": "The class $j\\in I$ and the root pure state $\\omega$ are given. GNS representations here are unital complex-linear star homomorphisms on complete complex Hilbert spaces. No separability or faithfulness of $\\pi_j$ is assumed.",
+    "conclusion": "The definition specifies $\\pi_j$ on $H_j$. The separate selected-vector and pure-GNS results give $\\|\\xi_j\\|=1$, $\\varphi_j(a)=\\langle\\xi_j,\\pi_j(a)\\xi_j\\rangle$, and irreducibility of $\\pi_j$. These properties explain why this selected family supplies the summands of the direct-sum representation.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The inner product is conjugate linear in its first argument. Irreducibility means that the only closed reducing subspaces are $0$ and $H_j$; this Hilbert space is nonzero because it contains the unit vector $\\xi_j$. The definition does not itself prove those properties, and it does not claim that different pure states always have inequivalent GNS representations.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L33-L36",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 36,
+          "start_line": 33
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Root-preserving choice of a pure state in each GNS class",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean#L83-L83",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.representative",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean",
+        "source_sha256": "8de4be03e6c52cfef4deba306bfb6cd4be96d9940dbde63df19b18ae7d542ce2",
+        "source_range": {
+          "start_line": 83,
+          "end_line": 83
+        }
+      }
+    },
+    {
+      "label": "The selected GNS Hilbert space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L29-L31",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.SelectedGNS",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 31,
+          "start_line": 29
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The selected cyclic vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L38-L41",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedVector",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 41,
+          "start_line": 38
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Normalization of the selected cyclic vector",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L43-L45",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.norm_selectedVector",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 45,
+          "start_line": 43
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The selected state as a vector functional",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L47-L56",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selected_vectorFunctional",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 56,
+          "start_line": 47
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Density of the selected GNS orbit",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean#L124-L124",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.denseRange_representative_gns_orbit",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/PureStateRepresentatives.lean",
+        "source_sha256": "8de4be03e6c52cfef4deba306bfb6cd4be96d9940dbde63df19b18ae7d542ce2",
+        "source_range": {
+          "start_line": 124,
+          "end_line": 124
+        }
+      }
+    },
+    {
+      "label": "Irreducibility supplied by purity and cyclicity",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L65-L73",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.isIrreducible_selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 73,
+          "start_line": 65
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "dc502af1f12012931543b84153b5333bda1d2d5ab24463cec516f75c4482f1ee",
+    "uid": "lfh:lfh-declaration-card:sha256:ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "af9004dce076d51049a2e04d5af836787c064af87a8d49609c96985a418fbc9c",
+    "uid": "lfh:lfh-card-exposition:sha256:901d526cefb405b0b3eb49de3b3c49cb7bae669f3948845dc4810a7fb97ad9a3"
+  },
+  "guide": "Here `root` is $\\omega$, `j` is a GNS equivalence class, `representative root j` is $\\varphi_j$, and `SelectedGNS root j` is $H_j$. The RHS `positiveFunctional.gnsStarAlgHom` is $\\pi_j$. The vector $\\xi_j$ is named `selectedVector root j` in its separate cited definition; the normalization, vector-functional identity and irreducibility are separate cited theorems, not extra fields of this definition.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26/versions/n69-af9004dce076d510/index.html",
+    "pdf": "card.pdf"
+  }
+}

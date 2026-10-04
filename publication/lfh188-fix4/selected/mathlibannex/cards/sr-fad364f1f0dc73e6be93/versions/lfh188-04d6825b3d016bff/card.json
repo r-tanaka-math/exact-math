@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.BilipschitzOrientation.BiLipschitzOpenData",
+  "title": "Inverse maps on open sets with global metric bounds",
+  "stable_card_id": null,
+  "identity_key": "92460ce033fa8ba25305ca5d3089dbd8c398ffd02ee0bccad30721ba501fbba6",
+  "source_url": "mathlibannex/sources/lfh188/366f1cf87b54f21c9b95210e/index.html#L31",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "2cb8ff50fae1852b9922b699e50793a4a370c98a0b8828ddf16612476ea59dd1",
+  "accepted_guide_sha256": "a78937ec2575d77bd8162a507b3294f547e4b83134239def82f836ba597adb92",
+  "content": {
+    "display_title": "Inverse maps on open sets with global metric bounds",
+    "one_sentence_role": "Records the maps, their inverse relations, and the quantitative bounds used in the orientation argument.",
+    "natural_language_statement": "Fix $n\\in\\mathbb N_0$ and put $E=\\mathbb R^n$ with the sup norm $\\|\\cdot\\|_\\infty$. The structure specifies open sets $S,T\\subseteq E$ and maps $f,g:E\\to E$. Their restrictions $f|_S:S\\to T$ and $g|_T:T\\to S$ are inverse bijections. Both maps have global Lipschitz bounds, and $f$ has a positive global lower bound.",
+    "definition_explanation": "Choose $S,T,f,g$ as above, constants $C_f,C_g\\ge0$, and a real number $\\ell>0$. Require the image and inverse relations\n$$\\begin{aligned}\nf(S)&\\subseteq T,&g(T)&\\subseteq S,\\\\\ng(f(x))&=x\\quad(x\\in S),&f(g(y))&=y\\quad(y\\in T),\n\\end{aligned}$$\nand the three metric estimates\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\le C_f\\|x-x'\\|_\\infty\\qquad(x,x'\\in E),$$\n$$\\|g(y)-g(y')\\|_\\infty\\le C_g\\|y-y'\\|_\\infty\\qquad(y,y'\\in E).$$\nThus the upper and lower estimates concern all ambient points. They are additional global requirements; the inverse relations themselves are imposed only on the two open sets.",
+    "assumptions": "The dimension $n$ may be zero. The sets $S$ and $T$ are open; neither connectedness, nonemptiness nor finite measure is required. The maps $f$ and $g$ are defined on all of $E$.",
+    "conclusion": "The specified restrictions are inverse bijections between $S$ and $T$, with the displayed global bounds available for subsequent arguments. The definition does not require $f$ and $g$ to be inverse at every point outside those sets.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "These are chosen objects together with their stated properties, not an orientation or volume theorem. In particular, the global injectivity of $f$ is a consequence of the lower estimate, rather than an additional stored condition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.exists_shell_family_of_approximately_inner",
+  "title": "Exact projection links for one approximately inner automorphism",
+  "stable_card_id": "d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5",
+  "identity_key": "lfh:lfh-declaration-card:sha256:d3588f1d2ec0d2fc4e2e95c0239994d0cc5b385bd89b3bf834ac79de13ae3fd5",
+  "source_url": "mathlibannex/sources/lfh188/36d7e9b2db266616b0a2786d/index.html#L43",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/ShellMatching.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "7b5e7b90798dbd5ec276058cb2ce1adcd7e4c29e68375875478b7ba75774a9f8",
+  "accepted_guide_sha256": "a230e2e80d7461106b2ebd36e31ab8a848be8cef9db391c301e39f6b46751bcf",
+  "content": {
+    "display_title": "Exact projection links for one approximately inner automorphism",
+    "one_sentence_role": "A point-norm approximation followed by close-projection conjugacy gives exact support identities for an arbitrary projection family.",
+    "natural_language_statement": "Let $A$ be a nonzero unital complex C*-algebra with its usual positive order, and let $\\alpha:A\\to A$ be a complex star automorphism. Suppose that for every finite $F\\subset A$ and $\\varepsilon>0$ there is $g\\in U(A)$ satisfying $\\|\\alpha(a)-gag^*\\|<\\varepsilon$ for all $a\\in F$. For any set $I$ and family of self-adjoint projections $(q_i)_{i\\in I}$ in $A$, there are elements $(w_i)_{i\\in I}$ such that $w_i^*w_i=\\alpha(q_i)$ and $w_iw_i^*=q_i$ for every $i$.",
+    "definition_explanation": null,
+    "assumptions": "The same automorphism $\\alpha$ and its finite-set approximation property are fixed for the whole family. The index set is arbitrary. The projections need not be nonzero, orthogonal, or countably indexed, and no condition on their sum is imposed.",
+    "conclusion": "Each $w_i$ is a partial-isometry link with initial support $\\alpha(q_i)$ and final support $q_i$. The resulting links all use the one specified $\\alpha$, although the auxiliary approximating and correcting unitaries may depend on $i$.",
+    "proof_summary": "For one projection $q$, approximate $\\alpha(q)$ within distance $1$ by $gqg^*$. Close self-adjoint projections are exactly unitarily conjugate, so choose $t$ with $t\\alpha(q)t^*=gqg^*$. Then $w=g^*t\\alpha(q)$ has the required supports. Apply this argument separately to each index and choose one link at each index.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Approximate on the singleton $\\{q\\}$ with tolerance $1$. Both $e=\\alpha(q)$ and $gqg^*$ are self-adjoint projections and $\\|e-gqg^*\\|<1$. The close-projection conjugacy theorem supplies $t\\in U(A)$ with $tet^*=gqg^*$."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $w=g^*te$, the unitary identities and $e=e^*=e^2$ give $w^*w=e t^*gg^*te=e$. The other support is $ww^*=g^*tet^*g=q$. Thus the direction of the two support equations is fixed."
+      },
+      {
+        "step_id": "s3",
+        "text": "Use choice on the individual existence statements for $q_i$. This produces a function $i\\mapsto w_i$ with both equations at every index, including the vacuous case of an empty index set."
+      }
+    ],
+    "lean_realization_notes": "The result gives algebraic support equations for the family. It asserts no convergence of a sum of links, no common correcting unitary, and no uniqueness of the chosen links. No pure-state or homogeneity hypothesis is needed once $\\alpha$ and its approximate innerness are supplied.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

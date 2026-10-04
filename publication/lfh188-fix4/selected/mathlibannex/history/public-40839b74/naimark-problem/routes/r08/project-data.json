@@ -1,0 +1,197 @@
+{
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "orientation": "prerequisite_to_dependent",
+  "node_count": 7,
+  "reachability_count": 13,
+  "display_edge_count": 7,
+  "maximum_level": 3,
+  "reachability": [
+    {
+      "prerequisite": "nm-08cf116265cbf1cd6b0f",
+      "dependent": "nm-3a46b28091046b26805f"
+    },
+    {
+      "prerequisite": "nm-08cf116265cbf1cd6b0f",
+      "dependent": "nm-a2ce3635a173e25000b9"
+    },
+    {
+      "prerequisite": "nm-1cea858b3efb57f308f1",
+      "dependent": "nm-a2ce3635a173e25000b9"
+    },
+    {
+      "prerequisite": "nm-27fa6bdad9df8852dffe",
+      "dependent": "nm-1cea858b3efb57f308f1"
+    },
+    {
+      "prerequisite": "nm-27fa6bdad9df8852dffe",
+      "dependent": "nm-a2ce3635a173e25000b9"
+    },
+    {
+      "prerequisite": "nm-3a46b28091046b26805f",
+      "dependent": "nm-a2ce3635a173e25000b9"
+    },
+    {
+      "prerequisite": "nm-498378abde2aed278236",
+      "dependent": "nm-1cea858b3efb57f308f1"
+    },
+    {
+      "prerequisite": "nm-498378abde2aed278236",
+      "dependent": "nm-a2ce3635a173e25000b9"
+    },
+    {
+      "prerequisite": "nm-77e7a7d2e41c6d44cf9c",
+      "dependent": "nm-08cf116265cbf1cd6b0f"
+    },
+    {
+      "prerequisite": "nm-77e7a7d2e41c6d44cf9c",
+      "dependent": "nm-1cea858b3efb57f308f1"
+    },
+    {
+      "prerequisite": "nm-77e7a7d2e41c6d44cf9c",
+      "dependent": "nm-27fa6bdad9df8852dffe"
+    },
+    {
+      "prerequisite": "nm-77e7a7d2e41c6d44cf9c",
+      "dependent": "nm-3a46b28091046b26805f"
+    },
+    {
+      "prerequisite": "nm-77e7a7d2e41c6d44cf9c",
+      "dependent": "nm-a2ce3635a173e25000b9"
+    }
+  ],
+  "nodes": [
+    {
+      "selected_node_id": "nm-77e7a7d2e41c6d44cf9c",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.AtomicCounterexampleAlgebra",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-08cf116265cbf1cd6b0f",
+        "nm-27fa6bdad9df8852dffe"
+      ]
+    },
+    {
+      "selected_node_id": "nm-498378abde2aed278236",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-1cea858b3efb57f308f1"
+      ]
+    },
+    {
+      "selected_node_id": "nm-27fa6bdad9df8852dffe",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleRepresentation",
+      "level": 1,
+      "prerequisites": [
+        "nm-77e7a7d2e41c6d44cf9c"
+      ],
+      "used_by": [
+        "nm-1cea858b3efb57f308f1"
+      ]
+    },
+    {
+      "selected_node_id": "nm-08cf116265cbf1cd6b0f",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation",
+      "level": 1,
+      "prerequisites": [
+        "nm-77e7a7d2e41c6d44cf9c"
+      ],
+      "used_by": [
+        "nm-3a46b28091046b26805f"
+      ]
+    },
+    {
+      "selected_node_id": "nm-3a46b28091046b26805f",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+      "level": 2,
+      "prerequisites": [
+        "nm-08cf116265cbf1cd6b0f"
+      ],
+      "used_by": [
+        "nm-a2ce3635a173e25000b9"
+      ]
+    },
+    {
+      "selected_node_id": "nm-1cea858b3efb57f308f1",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+      "level": 2,
+      "prerequisites": [
+        "nm-27fa6bdad9df8852dffe",
+        "nm-498378abde2aed278236"
+      ],
+      "used_by": [
+        "nm-a2ce3635a173e25000b9"
+      ]
+    },
+    {
+      "selected_node_id": "nm-a2ce3635a173e25000b9",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+      "level": 3,
+      "prerequisites": [
+        "nm-1cea858b3efb57f308f1",
+        "nm-3a46b28091046b26805f"
+      ],
+      "used_by": []
+    }
+  ],
+  "display_edges": [
+    {
+      "prerequisite": "nm-08cf116265cbf1cd6b0f",
+      "dependent": "nm-3a46b28091046b26805f",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+        "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-1cea858b3efb57f308f1",
+      "dependent": "nm-a2ce3635a173e25000b9",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+        "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable"
+      ]
+    },
+    {
+      "prerequisite": "nm-27fa6bdad9df8852dffe",
+      "dependent": "nm-1cea858b3efb57f308f1",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+        "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-3a46b28091046b26805f",
+      "dependent": "nm-a2ce3635a173e25000b9",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+        "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective"
+      ]
+    },
+    {
+      "prerequisite": "nm-498378abde2aed278236",
+      "dependent": "nm-1cea858b3efb57f308f1",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+        "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint"
+      ]
+    },
+    {
+      "prerequisite": "nm-77e7a7d2e41c6d44cf9c",
+      "dependent": "nm-08cf116265cbf1cd6b0f",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation",
+        "MathlibAnnex.CStarAlgebra.CAR.AtomicCounterexampleAlgebra"
+      ]
+    },
+    {
+      "prerequisite": "nm-77e7a7d2e41c6d44cf9c",
+      "dependent": "nm-27fa6bdad9df8852dffe",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleRepresentation",
+        "MathlibAnnex.CStarAlgebra.CAR.AtomicCounterexampleAlgebra"
+      ]
+    }
+  ]
+}

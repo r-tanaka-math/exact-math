@@ -1,0 +1,259 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isSimpleCStarAlgebra_limit",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isSimpleCStarAlgebra_limit",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+    "source_range": {
+      "end_line": 247,
+      "start_line": 242
+    },
+    "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem isSimpleCStarAlgebra_limit : MathlibAnnex.CStarAlgebra.IsSimpleCStarAlgebra Limit",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+    "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+      "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+      "start_line": 242,
+      "start_column": 1,
+      "end_line": 247,
+      "end_column": 30
+    },
+    "start_byte": 10754,
+    "end_byte": 10843,
+    "sha256": "a96ca55074f190a5b4460596423a1d40d37f92c06235de4a6fa7790b872946fa",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Simplicity of the completed CAR algebra",
+    "one_sentence_role": "Every nonzero closed two-sided ideal of the CAR algebra contains the identity.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. Then $A$ is nonzero and simple as a C*-algebra: for every norm-closed two-sided ideal $I\\subseteq A$, either $I=\\{0\\}$ or $I=A$.",
+    "definition_explanation": null,
+    "assumptions": "The algebra is the fixed completed CAR system above. Ideals are two-sided, and the stated simplicity property quantifies over norm-closed ideals. No representation is an extra assumption.",
+    "conclusion": "There is no proper nonzero closed two-sided ideal. The proof finds a finite-stage root projection in any nonzero ideal and uses simplicity of a full matrix algebra to force the unit into that ideal.",
+    "proof_summary": "Use the product-vector state $\\omega$, characterized by $\\omega(\\iota_n(a))=a_{00}$, and its root projections $f_n=\\iota_n(E_{00})$. Its GNS representation is faithful. Thus a nonzero ideal contains an element $y$ with $\\omega(y)\\ne0$. Root compression approximates $\\omega(y)f_n$ closely enough to recover $f_n$ by multiplication with an invertible element. The ideal then contains the whole finite stage and hence $1$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Let $\\pi_\\omega$ be the GNS representation of the positive normalized functional $\\omega$. Left multiplication obeys $\\|xy\\|_{\\mathrm{GNS}}\\leq\\|x\\|\\|y\\|_{\\mathrm{GNS}}$, so the action extends to the GNS completion and is contractive. On each full matrix stage it is injective and isometric. Density of the stage union extends the norm equality to every $x\\in A$, proving faithfulness."
+      },
+      {
+        "step_id": "s2",
+        "text": "If $0\\ne x\\in I$, the matrix-coefficient separation result for the cyclic root vector gives $b,c\\in A$ with $\\lambda=\\omega(bxc)\\ne0$. Put $y=bxc\\in I$. Indeed, vanishing of all these coefficients would force the GNS operator of $x$ to vanish on its dense cyclic orbit, contradicting faithfulness."
+      },
+      {
+        "step_id": "s3",
+        "text": "For sufficiently large $n$, set $q=f_n$ and $z=qyq\\in I$. The root-compression estimate gives $\\|q-\\lambda^{-1}z\\|<1$. Hence $u=1-(q-\\lambda^{-1}z)$ is invertible by the Neumann-series criterion. Since $uq=\\lambda^{-1}z$, it follows that $q=u^{-1}\\lambda^{-1}z\\in I$."
+      },
+      {
+        "step_id": "s4",
+        "text": "The inverse image of $I$ in $A_n$ is a two-sided ideal containing the nonzero matrix unit $E_{00}$. Simplicity of the full matrix algebra makes that inverse image all of $A_n$. Its identity maps to $1\\in I$, so $I=A$."
+      }
+    ],
+    "lean_realization_notes": "The source obtains a stronger algebraic ideal fact on the way, but this Card states the selected closed-ideal simplicity theorem. The GNS representation used in the argument is constructed from the root state, rather than supplied as an additional hypothesis.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L242-L247",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isSimpleCStarAlgebra_limit",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 247,
+          "start_line": 242
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Positive root state used for GNS",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L19-L21",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootPositiveState",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 21,
+          "start_line": 19
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Bounded left multiplication before GNS completion",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L36-L56",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_leftMulMapPreGNS_apply_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 56,
+          "start_line": 36
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Contractivity on the GNS completion",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L63-L73",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_rootRepresentation_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 73,
+          "start_line": 63
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Continuous dependence on the algebra element",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L75-L79",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootRepresentationCLM",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 79,
+          "start_line": 75
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness on finite stages",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L85-L87",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootRepresentation_stage_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 87,
+          "start_line": 85
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Norm equality on finite stages",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L89-L93",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_rootRepresentation_stage",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 93,
+          "start_line": 89
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Norm equality by density",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L95-L104",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_rootRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 104,
+          "start_line": 95
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the root representation",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L106-L110",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.rootRepresentation_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 110,
+          "start_line": 106
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Cyclic matrix coefficients separate nonzero elements",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L112-L154",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootState_mul_ne_zero",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 154,
+          "start_line": 112
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "A nonzero ideal contains a root projection",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean#L161-L220",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_rootFlag_mem_of_ne_zero_mem",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Simplicity.lean",
+        "source_range": {
+          "end_line": 220,
+          "start_line": 161
+        },
+        "source_sha256": "719cb1afdfcef692a3f3a6d084b666f485db17124f936585c7a14cfa7f0eaec4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "2244ff28318d41f3e5b2a408f2bedc931a02313217d3dbf06bda30342d3f9497",
+    "uid": "lfh:lfh-declaration-card:sha256:d01780d70500992bccb2c17598d8cea950b7abc05535fe00cccfa4b9c4c41ee1"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "acd5f695f6a7ac65a56746c2b970998868a6a24d1740ad2aaaebb48b0cd12d2a",
+    "uid": "lfh:lfh-card-exposition:sha256:de82dc927a2a0240a55ae053a23fff04be482bbe51064520720e9e3e6af326df"
+  },
+  "guide": "Here `Limit` is $A$, and `IsSimpleCStarAlgebra Limit` asserts nontriviality and the closed-two-sided-ideal alternative in the Statement. `rootPositiveState` is the positive form of $\\omega$; its `gnsStarAlgHom` is $\\pi_\\omega$. These objects occur in the cited proof route, not as extra parameters of the short final theorem.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/d01780d70500992bccb2c17598d8cea950b7abc05535fe00cccfa4b9c4c41ee1/versions/n69-acd5f695f6a7ac65/index.html",
+    "pdf": "card.pdf"
+  }
+}

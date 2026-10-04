@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.existsUnique_tracial_state",
+  "title": "The fixed shell target has a unique tracial state",
+  "stable_card_id": "b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee",
+  "identity_key": "lfh:lfh-declaration-card:sha256:b236c960b8ba284e9d9a4316ce2b081f991bd025a1efb7fb735342b686e38cee",
+  "source_url": "mathlibannex/sources/lfh188/f586ec88780957cab731eb05/index.html#L70",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceState.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d5f53c2203ea9706a87a450b8a5bf899e58fdfcadcf555dea645e6613ebc82d4",
+  "accepted_guide_sha256": "76bfcb9157448d43db1de5128c1d282c39747e29c2f09b046e566eace27b79d8",
+  "content": {
+    "display_title": "The fixed shell target has a unique tracial state",
+    "one_sentence_role": "Every tracial state is forced back to the CAR trace and hence to its unique extension.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. There exists exactly one state $\\phi:T\\to\\mathbb C$ such that $\\phi(ab)=\\phi(ba)$ for all $a,b\\in T$.",
+    "definition_explanation": null,
+    "assumptions": "The representative shell family is fixed. A competing functional is required to be a state and tracial on $T$; equality with $\\tau$ on the source is derived, not assumed.",
+    "conclusion": "The unique tracial state is the chosen extension `traceExtension family`. This uniqueness quantifies all tracial states on $T$, whereas extension uniqueness quantifies all states with the prescribed source restriction.",
+    "proof_summary": "Produce the tracial extension, restrict any other tracial state to the source, and invoke the two uniqueness results in that order.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The extension theorem gives a state $\\phi$ with $\\phi\\circ\\iota=\\tau$, and `traceExtension_mul_comm` proves it tracial on $T$. This supplies the existence part."
+      },
+      {
+        "step_id": "s2",
+        "text": "For any tracial state $\\psi$ on $T$, the functional $f=\\psi\\circ\\iota$ is continuous and complex linear. Since $\\iota$ preserves $1$ and products,\n\n$$f(1)=1,\\qquad f(ab)=\\psi(\\iota(a)\\iota(b))=\\psi(\\iota(b)\\iota(a))=f(ba).$$\n\nCAR trace uniqueness, `eq_trace_of_apply_one_of_mul_comm`, therefore gives $f=\\tau$. That source theorem determines values on matrix units and extends from finite stages by density; no target-separability hypothesis is used."
+      },
+      {
+        "step_id": "s3",
+        "text": "Now $\\psi$ is a state extension of $\\tau$. The extension-equality theorem applies and gives $\\psi=\\phi$. In the source, these two steps are `apply_shellFamilySourceHom_eq_trace_of_apply_one_of_mul_comm` followed by `eq_traceExtension_of_mem_stateSpace_of_mul_comm`."
+      }
+    ],
+    "lean_realization_notes": "Faithfulness of a representation and faithfulness of this state are different assertions. This theorem asserts existence and uniqueness of a tracial state. The separate result `traceExtension_star_mul_self_eq_zero_iff` concerns state faithfulness and is not an additional hypothesis here.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

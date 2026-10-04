@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Matrix.maximalMinors",
+  "title": "The family of maximal minors in increasing row order",
+  "stable_card_id": null,
+  "identity_key": "0783b1ed37225e85f4b057a01b756e35612404bab1996fe00dd5487988a40ee8",
+  "source_url": "mathlibannex/sources/lfh188/a9411c1e60b2c5e6563e64d2/index.html#L65",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/LinearAlgebra/Matrix/MaximalMinor.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "e36602fe7b0cea677f7e40dd18e13681e6a283ead24981066f7dba1e68b10ec7",
+  "accepted_guide_sha256": "8d0a2a88b83a5a141ec526ab489ab034737bc88227364e7f3262cf2946c560e8",
+  "content": {
+    "display_title": "The family of maximal minors in increasing row order",
+    "one_sentence_role": "Collects the determinants of all square submatrices with all columns and an increasing selection of rows.",
+    "natural_language_statement": "Let $R$ be a commutative ring, $I$ a linearly ordered set, and $A$ an $I$-by-$n$ matrix over $R$. The family of maximal minors is\n\n$$\\begin{gathered}\n\\mathcal M(A):\\{S\\subseteq I:|S|=n\\}\\longrightarrow R,\\\\\nS=\\{s_1<\\cdots<s_n\\}\\longmapsto\n\\det\\!\\bigl((A_{s_i,j})_{1\\le i,j\\le n}\\bigr).\n\\end{gathered}$$\n\nThus the rows are taken in the indicated increasing order, and the columns remain in their original order. Only finite subsets of size $n$ occur in the domain.",
+    "definition_explanation": "For every selected subset, the ordering convention is part of the defining formula:\n\n$$\\begin{gathered}\nS=\\{s_1<\\cdots<s_n\\},\\qquad A_S:=(A_{s_i,j})_{1\\le i,j\\le n},\\\\\n\\mathcal M(A)(S):=\\det A_S.\n\\end{gathered}$$\n\nThe increasing enumeration fixes the row order and hence the sign. This is not the determinant of rows arranged in an unspecified order.",
+    "assumptions": "The number $n$ is any nonnegative integer. The row set $I$ is linearly ordered and may be infinite. No field, nonzero-minor or rank assumption is made.",
+    "conclusion": "Each component is a determinant with the same increasing-row convention. When $n=0$, the unique selected subset is empty and its empty determinant is $1$. If there are no $n$-element subsets, the family has empty domain.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "An increasing injection from the $n$ column positions into $I$ determines its range subset; the cited adapter lemmas identify the selected matrix and minor with that injection. An arbitrary ordered tuple of rows carries additional order information and is treated separately in the factorization theorem. Selection also commutes with right multiplication: $(AL)_S=A_SL$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

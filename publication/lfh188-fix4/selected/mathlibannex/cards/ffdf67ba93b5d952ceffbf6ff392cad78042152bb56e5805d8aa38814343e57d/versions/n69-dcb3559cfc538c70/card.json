@@ -1,0 +1,210 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+    "source_range": {
+      "end_line": 76,
+      "start_line": 71
+    },
+    "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def shellFamilyInclusion (family : RepresentativeShellFamily) :\n    Representation (ShellFamilyTarget family)\n      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState) :=\n  MathlibAnnex.CStarAlgebra.AtomicConstruction.ambientInclusion selectedAtomicRepresentation\n    (shellFamilyLinks family)",
+    "start_byte": 3309,
+    "end_byte": 3647,
+    "sha256": "a61bce75172a10087824d5bebaffac33cdcf1c3284cf7494435313367660be91",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+    "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+      "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+      "start_line": 71,
+      "start_column": 1,
+      "end_line": 76,
+      "end_column": 31
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "The ambient inclusion of the fixed shell-family target",
+    "one_sentence_role": "The same concrete target has a literal representation on the selected atomic Hilbert space.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the unital matrix system $M_{2^n}(\\mathbb C)$ with embeddings $a\\mapsto a\\otimes I_2$. Let $\\omega$ be its distinguished pure product-vector state. Index pure-state GNS equivalence classes by $I$, choose one representative $\\varphi_j$ in each class with $\\varphi_o=\\omega$ at $o=[\\omega]$, and denote its GNS data by $(H_j,\\pi_j,\\xi_j)$. Write $\\mathcal H=\\bigoplus_{j\\in I}H_j$ for the Hilbert direct sum, $e_j:H_j\\to\\mathcal H$ for coordinate inclusion, and $\\pi(a)(x_j)_j=(\\pi_j(a)x_j)_j$. Here the sum consists of square-summable families and has no countability restriction on $I$. Fix a representative shell family: for each class $j$ it gives an automorphism $\\alpha_j$ with $\\varphi_j\\circ\\alpha_j=\\omega$ and shell links $w_{j,n}$ satisfying $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$ and $w_{j,n}w_{j,n}^*=p_n$. Here $f_n$ is the image of the distinguished matrix projection $E_{00}\\in M_{2^n}(\\mathbb C)$ in $A$, and $p_n=f_n-f_{n+1}$. At $o$, the family specifies $\\alpha_o=\\mathrm{id}$ and $w_{o,n}=p_n$. Choose once the family of unitary operators $L=(L_j)_j$ supplied for this shell family by the completed CAR atomic-shell realization theorem, and fix $T=C^*(\\pi(A),\\{L_j:j\\in I\\})\\subseteq B(\\mathcal H)$. The ambient inclusion is $\\rho_0:T\\to B(\\mathcal H)$, $\\rho_0(t)=t$. With the source map $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, it satisfies $\\rho_0\\circ\\iota=\\pi$.",
+    "definition_explanation": "The generic ambient-inclusion construction takes a concrete generated star algebra to its inclusion in the existing operator algebra. Using the atomic CAR action and the fixed links gives exactly $t\\mapsto t$. Since $\\iota(a)$ is the same operator $\\pi(a)$ regarded as an element of $T$, composing with this inclusion recovers $\\pi(a)$ for every $a$; no new operator is constructed by the composition.",
+    "assumptions": "The representative shell family is the only input beyond the fixed CAR construction. Both $T$ and its ambient Hilbert space $\\mathcal H$ have already been determined by that family and its once-chosen links $L$. The target is a concrete norm-closed unital star subalgebra of $B(\\mathcal H)$.",
+    "conclusion": "The definition supplies the displayed unital representation $\\rho_0$ of this same $T$ on this same $\\mathcal H$. Its injectivity is the injectivity of literal inclusion. The separately cited irreducibility theorem uses the construction of the chosen shell unitaries $L$ to show that this representation has no proper nonzero closed reducing subspace.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The inclusion and source map have different domains: $\\rho_0$ acts on $T$ and $\\iota$ on $A$. Irreducibility and universal capture are separate results, not fields of this definition. This construction does not identify arbitrary target representations or change the choice of $L$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L71-L76",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 76,
+          "start_line": 71
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The CAR atomic representation on the ambient Hilbert space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean#L26-L32",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+        "source_range": {
+          "end_line": 32,
+          "start_line": 26
+        },
+        "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "One fixed choice of the realized unitary links",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L26-L33",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyLinks",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 33,
+          "start_line": 26
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The concrete target from that choice",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L62-L64",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.ShellFamilyTarget",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 64,
+          "start_line": 62
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Generic literal ambient inclusion",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean#L67-L72",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.ambientInclusion",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean",
+        "source_range": {
+          "end_line": 72,
+          "start_line": 67
+        },
+        "source_sha256": "c49eb34791db9639db8ac6e68e63da2a420368f9aced46af9215dd41add4be97",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The source map into the same target",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Underlying-operator identity giving the composition",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean#L41-L45",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.sourceHom_coe",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/Concrete.lean",
+        "source_range": {
+          "end_line": 45,
+          "start_line": 41
+        },
+        "source_sha256": "c49eb34791db9639db8ac6e68e63da2a420368f9aced46af9215dd41add4be97",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Separate injectivity of this inclusion",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L107-L110",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilyInclusion_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 110,
+          "start_line": 107
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Separate irreducibility from the CAR realization",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L112-L116",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isIrreducible_shellFamilyInclusion",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 116,
+          "start_line": 112
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "608748718c9b2fa8d4a3f8b34ab899dc76f70c13f6b41b13231b5aa918686622",
+    "uid": "lfh:lfh-declaration-card:sha256:ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "dcb3559cfc538c702d2b99364db637cf2e502471606b7a64efecd50aae28b11e",
+    "uid": "lfh:lfh-card-exposition:sha256:5dcada97208552bbea8db2d41cfce79909820994b501a9345ad8e5e62d4f1896"
+  },
+  "guide": "Here `family` fixes the shell data, `shellFamilyLinks family` is $L$, and `ShellFamilyTarget family` is $T$. `completedRootPureState` is the CAR root state $\\omega$ bundled with its purity proof, so `SelectedAtomicHilbert completedRootPureState` is $\\mathcal H$. The RHS `AtomicConstruction.ambientInclusion` is $\\rho_0$. The separately defined `shellFamilySourceHom family` is $\\iota$; the underlying-operator formula gives $\\rho_0\\circ\\iota=\\pi$. The cited irreducibility theorem is separate from this defining RHS.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/ffdf67ba93b5d952ceffbf6ff392cad78042152bb56e5805d8aa38814343e57d/versions/n69-dcb3559cfc538c70/index.html",
+    "pdf": "card.pdf"
+  }
+}

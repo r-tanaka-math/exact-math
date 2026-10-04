@@ -1,0 +1,194 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+  "declaration_kind": "def",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+    "source_range": {
+      "end_line": 32,
+      "start_line": 26
+    },
+    "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "noncomputable def selectedAtomicRepresentation :\n    Representation Limit\n      (MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert completedRootPureState) :=\n  atomicRepresentation\n    (MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation completedRootPureState)",
+    "start_byte": 895,
+    "end_byte": 1171,
+    "sha256": "8b938d4fd66d516c63cb80c0080a65a48e775a5ff7f55d8f8844147a8da22abf",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+    "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+      "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+      "start_line": 26,
+      "start_column": 1,
+      "end_line": 32,
+      "end_column": 89
+    },
+    "extraction_profile": "EXACT_SOURCE_FULL_SHORT_DEFINITION"
+  },
+  "content": {
+    "display_title": "The atomic direct sum of the selected CAR representations",
+    "one_sentence_role": "All selected pure-GNS fibers of the completed CAR algebra act together on one Hilbert direct sum.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the unital matrix system $M_{2^n}(\\mathbb C)$ with embeddings $a\\mapsto a\\otimes I_2$. Let $\\omega$ be its distinguished pure product-vector state. Index pure-state GNS equivalence classes by $I$, choose one representative $\\varphi_j$ in each class with $\\varphi_o=\\omega$ at $o=[\\omega]$, and denote its GNS data by $(H_j,\\pi_j,\\xi_j)$. Write $\\mathcal H=\\bigoplus_{j\\in I}H_j$ for the Hilbert direct sum, $e_j:H_j\\to\\mathcal H$ for coordinate inclusion, and $\\pi(a)(x_j)_j=(\\pi_j(a)x_j)_j$. Here the sum consists of square-summable families and has no countability restriction on $I$. The selected atomic representation is this coordinatewise unital representation $\\pi:A\\to B(\\mathcal H)$.",
+    "definition_explanation": "The common estimate $\\|\\pi_j(a)\\|\\leq\\|a\\|$ bounds every coordinate action uniformly in $j$. Hence the coordinatewise formula defines a bounded operator on the square-summable families, with $\\|\\pi(a)\\|\\leq\\|a\\|$. Multiplication, the unit and complex linearity hold coordinatewise. The inner product on the direct sum shows that taking adjoints also holds coordinatewise, giving $\\pi(a^*)=\\pi(a)^*$. The existing arbitrary-index atomic construction packages these properties.",
+    "assumptions": "The completed CAR algebra and its root pure state are fixed. Every fiber is the complete GNS Hilbert space of the chosen state. The index set need not be countable, and the Hilbert direct sum is not assumed separable.",
+    "conclusion": "For every $a\\in A$, $x\\in\\mathcal H$ and $j\\in I$, the defining formula is $(\\pi(a)x)_j=\\pi_j(a)x_j$. In particular, $\\pi(a)e_jx=e_j\\pi_j(a)x$ for $x\\in H_j$. Thus the selected individual actions are the coordinate restrictions of one displayed representation.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The symbol $\\pi_j$ denotes one fiber action and $\\pi$ denotes their direct sum. The cited faithfulness theorem is a separate property of this CAR representation, obtained from its faithful root summand; faithfulness is not a new input or a field added to this definition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "Definition and its exact construction",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean#L26-L32",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+        "source_range": {
+          "end_line": 32,
+          "start_line": 26
+        },
+        "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The selected individual GNS action",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L33-L36",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 36,
+          "start_line": 33
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The Hilbert direct sum of selected fibers",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L90-L92",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.SelectedAtomicHilbert",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 92,
+          "start_line": 90
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Coordinate inclusion into that Hilbert direct sum",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean#L94-L98",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedEmbedding",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean",
+        "source_range": {
+          "end_line": 98,
+          "start_line": 94
+        },
+        "source_sha256": "4b815d1dd7e647a094ef534aac00a1470c41b641719728198d7e7935155419ce",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Uniformly bounded coordinatewise operator",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Atomic.lean#L30-L30",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.atomicAction",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Atomic.lean",
+        "source_sha256": "4b3bc96f389cb0dba56461e10eec436011177b959047713dc13ef4b82cebe8fc",
+        "source_range": {
+          "start_line": 30,
+          "end_line": 30
+        }
+      }
+    },
+    {
+      "label": "The arbitrary-index star representation",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Atomic.lean#L44-L44",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.atomicRepresentation",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Atomic.lean",
+        "source_sha256": "4b3bc96f389cb0dba56461e10eec436011177b959047713dc13ef4b82cebe8fc",
+        "source_range": {
+          "start_line": 44,
+          "end_line": 44
+        }
+      }
+    },
+    {
+      "label": "Coordinate formula for the atomic action",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Atomic.lean#L96-L96",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.atomicRepresentation_apply",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/Atomic.lean",
+        "source_sha256": "4b3bc96f389cb0dba56461e10eec436011177b959047713dc13ef4b82cebe8fc",
+        "source_range": {
+          "start_line": 96,
+          "end_line": 96
+        }
+      }
+    },
+    {
+      "label": "Separate faithfulness of the selected CAR sum",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean#L44-L50",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicModel.lean",
+        "source_range": {
+          "end_line": 50,
+          "start_line": 44
+        },
+        "source_sha256": "4b7834d0d30b0654ab4e99a62b4c3645e56b8d4d7520f1e3158e47aec5beda99",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "9ccd7ecf1c2ae85210b5d4a7cd51926d338f2d63e25f48dbd37f5bc2ae17f10a",
+    "uid": "lfh:lfh-declaration-card:sha256:6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "eef00c8bf449e3fb5c88398f4f34f0238652095faa6a606cc548c26ce3086715",
+    "uid": "lfh:lfh-card-exposition:sha256:9fdc755da3523db0dadd521911b08ad7ed862bc7ecac466fa8fb0b97bffa3114"
+  },
+  "guide": "Here `Limit` is $A$ and `completedRootPureState` is $\\omega$ bundled with its purity proof. `PureState.selectedRepresentation completedRootPureState` is the family $(\\pi_j)_{j\\in I}$. The RHS `atomicRepresentation` assembles this family into $\\pi$ on `SelectedAtomicHilbert`, which is $\\mathcal H$. Coordinate inclusions $e_j$ are the separately defined `selectedEmbedding`; they are used to state the coordinate restriction formula.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2/versions/n69-eef00c8bf449e3fb/index.html",
+    "pdf": "card.pdf"
+  }
+}

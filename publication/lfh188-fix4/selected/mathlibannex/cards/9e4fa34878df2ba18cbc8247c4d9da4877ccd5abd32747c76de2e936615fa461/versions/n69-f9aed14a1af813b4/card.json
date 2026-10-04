@@ -1,0 +1,171 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+    "source_range": {
+      "end_line": 32,
+      "start_line": 18
+    },
+    "source_sha256": "4bac0c0f2ab5ed31cd5d1986e3b15f332aaee9bf83881822b988264f9c6199a4",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem existsNaimarkCounterexampleOfDensity_continuum :\n    ExistsNaimarkCounterexampleOfDensity (Cardinal.continuum : Cardinal.{0})",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+    "source_sha256": "4bac0c0f2ab5ed31cd5d1986e3b15f332aaee9bf83881822b988264f9c6199a4",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+      "source_sha256": "4bac0c0f2ab5ed31cd5d1986e3b15f332aaee9bf83881822b988264f9c6199a4",
+      "start_line": 18,
+      "start_column": 1,
+      "end_line": 32,
+      "end_column": 81
+    },
+    "start_byte": 786,
+    "end_byte": 919,
+    "sha256": "2f65c53190eadf8d11dd45715899c993fe42cbe4de2f33a47222e65facbd9f5a",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "A Naimark counterexample of continuum norm density",
+    "one_sentence_role": "Gives a C*-algebra of norm density $\\mathfrak c$ whose nonzero irreducible representations form one unitary-equivalence class, without an identification with the compact operators.",
+    "natural_language_statement": "There exist a nonzero complex C*-algebra $B$, not required to be unital, a complex Hilbert space $K$, and a nonzero irreducible $*$-representation $\\sigma:B\\to B(K)$ with the following properties. Every nonzero irreducible $*$-representation of $B$ is unitarily equivalent to $\\sigma$. The representation $\\sigma$ is not both injective and surjective onto $\\mathcal K(K)$, the full algebra of compact operators on $K$. Finally, $$\\operatorname{dens}_{\\|\\cdot\\|}(B)=\\mathfrak c,\\qquad\\mathfrak c=2^{\\aleph_0}.$$ Here density refers to the norm topology. None of the representations is required in advance to preserve an identity.",
+    "definition_explanation": null,
+    "assumptions": "This is an existence theorem with no CH hypothesis. Its statement allows nonunital C*-algebras and places no requirement on the existence of a faithful representation on a separable Hilbert space.",
+    "conclusion": "One may take $B=T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})$, where $A$ is CAR, $\\pi$ is the selected GNS direct sum, and $L_i$ are the unitaries from the fixed homogeneity and shell construction. Take $K=\\mathcal H$ and $\\sigma=\\rho_0$, the inclusion of this concrete algebra in $B(\\mathcal H)$. Thus the constructed example is unital, even though unitality is not required by the existence statement.",
+    "proof_summary": "Use the constructed algebra $T$ and its inclusion representation $\\rho_0$. The classification theorem gives the single unitary-equivalence class, the compact-operator exclusion applies to $\\rho_0$, and the density theorem gives the required value $\\mathfrak c$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Take the algebra $T$, its selected GNS direct sum $\\mathcal H$, and the inclusion $\\rho_0$. The representation-classification theorem says that $\\rho_0$ is nonzero irreducible and that, for any nonzero irreducible $*$-representation $\\rho:T\\to B(H)$, a unitary $U:\\mathcal H\\to H$ satisfies $U\\rho_0(t)=\\rho(t)U$. This statement does not require $\\rho(1)=I_H$ as an initial assumption."
+      },
+      {
+        "step_id": "s2",
+        "text": "The compact-operator exclusion rules out every injective representation of $T$ onto the full algebra of compact operators, in particular the specified inclusion $\\rho_0$. The density theorem gives $\\operatorname{dens}_{\\|\\cdot\\|}(T)=\\mathfrak c$. These are precisely the other conditions of the existential predicate in the Lean statement."
+      }
+    ],
+    "lean_realization_notes": "The fixed example also admits a faithful representation on a separable Hilbert space, but that is not a condition in this existence statement and is not asserted for every C*-algebra satisfying it.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean#L18-L32",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.existsNaimarkCounterexampleOfDensity_continuum",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/ContinuumHypothesis.lean",
+        "source_range": {
+          "end_line": 32,
+          "start_line": 18
+        },
+        "source_sha256": "4bac0c0f2ab5ed31cd5d1986e3b15f332aaee9bf83881822b988264f9c6199a4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The exact counterexample and density conditions",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityCharacter.lean#L56-L72",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.ExistsNaimarkCounterexampleOfDensity",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityCharacter.lean",
+        "source_sha256": "2c7894874f20caefdd4442114bccd0891ccf6d324f192583d852708df18568ae",
+        "source_range": {
+          "start_line": 56,
+          "end_line": 72
+        }
+      }
+    },
+    {
+      "label": "Unitary equivalence without an initial identity-preservation assumption",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L146-L153",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.isUniqueIrreducibleModelAmongNonUnital_shellFamilyInclusion",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 153,
+          "start_line": 146
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The same equivalence-class condition for the nonunital-algebra API",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityCharacter.lean#L21-L32",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital.isSingletonIrreducibleModel_toNonUnitalStarAlgHom",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/DensityCharacter.lean",
+        "source_sha256": "2c7894874f20caefdd4442114bccd0891ccf6d324f192583d852708df18568ae",
+        "source_range": {
+          "start_line": 21,
+          "end_line": 32
+        }
+      }
+    },
+    {
+      "label": "Exclusion of an injective representation onto the compact operators",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L182-L191",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isCompactOperatorModel_shellFamilyTarget",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 191,
+          "start_line": 182
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Exact norm density of the constructed algebra",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean#L42-L47",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.hasDensityCharacter_atomicCounterexampleAlgebra",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Cardinality.lean",
+        "source_range": {
+          "end_line": 47,
+          "start_line": 42
+        },
+        "source_sha256": "d5b1b23f7a2e7c7a62a414d7872ff382b5bcfa8932b49cecefbdb0603ce395d8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "228ba19d3e6f019d7447205532137a8eabdb20491d59bbae4fa507ce55cb654f",
+    "uid": "lfh:lfh-declaration-card:sha256:9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "f9aed14a1af813b49cd2d48d81057a30890a81ebf2926060f799249cafc0e381",
+    "uid": "lfh:lfh-card-exposition:sha256:1bdbbd0308459ba5504601d7e42f0cb8d4849f0b1f7c1f55f9be65d304ddbb14"
+  },
+  "guide": "`(Cardinal.continuum : Cardinal.{0})` denotes the continuum $\\mathfrak c=2^{\\aleph_0}$, explicitly typed as a cardinal of types in `Type 0` (also written `Type`). The colon is a type annotation, and `.{0}` specifies a universe level: it is not the cardinal number zero and imposes no countability assumption. [The cardinal universe convention](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/SetTheory/Cardinal/Defs.lean#L15-L40) explains this type. The separately linked `ExistsNaimarkCounterexampleOfDensity` quantifies over the algebra, Hilbert space and representations in that universe. In the linked proof, `AtomicCounterexampleAlgebra` is $T$, `SelectedAtomicHilbert completedRootPureState` is $\\mathcal H$, and `.toNonUnitalStarAlgHom` retains the same inclusion $\\rho_0$ while forgetting the requirement to preserve the identity. `inferInstance` supplies the existing C*-algebra, Hilbert-space and spectral-order structures; these are not extra hypotheses of the theorem.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/9e4fa34878df2ba18cbc8247c4d9da4877ccd5abd32747c76de2e936615fa461/versions/n69-f9aed14a1af813b4/index.html",
+    "pdf": "card.pdf"
+  }
+}

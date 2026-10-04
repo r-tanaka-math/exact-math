@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.NullLagrangian.integral_maximalMinor_eq_of_pointwise_boundary_eq",
+  "title": "Boundary agreement determines maximal-minor integrals",
+  "stable_card_id": null,
+  "identity_key": "8ffc1ca46338498f2c4b5484621f6dcc4207d407eb67552ef8be93fb28229ecc",
+  "source_url": "mathlibannex/sources/lfh188/efbf712a3b678de08ab3b9be/index.html#L297",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/MeasureTheory/Integral/MaximalMinorBoundary.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "0149c1ed2c440df531b6391bff4bc0fdcadb76b36f1764e2fde5fa3a8cabb6e7",
+  "accepted_guide_sha256": "526fb4ea936abf392ef576e64ad13117584ddb161fe88cac0343d4032842a630",
+  "content": {
+    "display_title": "Boundary agreement determines maximal-minor integrals",
+    "one_sentence_role": "Turns pointwise equality on a seminorm sphere into a compactly supported Lipschitz perturbation.",
+    "natural_language_statement": "Fix $n\\geq1$, and let $p$ be a continuous real seminorm on $\\mathbb R^n$ whose closed unit ball $K=\\{x:p(x)\\leq1\\}$ is compact. Let $F,G:\\mathbb R^n\\to\\mathbb R^N$ be globally Lipschitz and satisfy $F(x)=G(x)$ whenever $p(x)=1$. For a fixed increasing selection $s=\\{s_1<\\cdots<s_n\\}$ of output coordinates, put $\\pi_s(y)=(y_{s_1},\\ldots,y_{s_n})$ and $M_s(f)=\\det(\\pi_s\\circ Df)$. Then\n$$\\int_KM_s(F)(x)\\,dx=\\int_KM_s(G)(x)\\,dx.$$",
+    "definition_explanation": null,
+    "assumptions": "There are constants $C_F,C_G\\geq0$ for which\n$$\\|F(x)-F(y)\\|_\\infty\\leq C_F\\|x-y\\|_\\infty,\\qquad\n\\|G(x)-G(y)\\|_\\infty\\leq C_G\\|x-y\\|_\\infty\\qquad(x,y\\in\\mathbb R^n).$$\nThe other hypotheses are continuity of $p$, compactness of $\\{p\\leq1\\}$, and pointwise equality $F(x)=G(x)$ on $\\{p=1\\}$. No smoothness or strict convexity of that sphere, Sobolev trace hypothesis, or separate definiteness assumption on $p$ is added.",
+    "conclusion": "The integrals of the same signed, increasingly ordered maximal minor agree on $K$. Each integral is finite by the Lipschitz derivative bound on the compact set.",
+    "proof_summary": "Extend the boundary-zero difference by zero, prove its Lipschitz bound across the sphere, and apply the compact-perturbation identity to a patched map.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Put $u=F-G$ and define $u_0(x)=u(x)$ on $K$, $u_0(x)=0$ outside. The map $u$ is $(C_F+C_G)$-Lipschitz and vanishes on $\\{p=1\\}$. If $x\\in K$ and $y\\notin K$, continuity of $p$ along the segment from $x$ to $y$ supplies $z=(1-t)x+ty$, with $0\\leq t\\leq1$, such that $p(z)=1$. For $p(x)=1$ take $z=x$. Since $\\|x-z\\|=t\\|x-y\\|$, the mixed-side estimate is\n$$\\|u_0(x)-u_0(y)\\|=\\|u(x)-u(z)\\|\\leq(C_F+C_G)\\|x-z\\|\\leq(C_F+C_G)\\|x-y\\|.$$\nThe same-side cases follow from the bound for $u$ or from both values being zero; reversing $x,y$ handles the other mixed case. Thus $u_0$ is globally Lipschitz with this constant. Its topological support satisfies $\\operatorname{supp}u_0:=\\overline{\\{x:u_0(x)\\ne0\\}}\\subseteq K$, because $K$ is closed. It is therefore compact."
+      },
+      {
+        "step_id": "s2",
+        "text": "Let $H=G+u_0$. Then $H=F$ on $K$ and $H=G$ outside. Apply the Lipschitz compact-perturbation theorem with base $G$, perturbation $u_0$, and the fixed $s$. The hypotheses just verified give\n$$\\int_{\\mathbb R^n}(M_s(H)-M_s(G))=0.$$\nThis difference is integrable: its restriction to the compact support is a difference of integrable Lipschitz minors, and it vanishes outside that support."
+      },
+      {
+        "step_id": "s3",
+        "text": "To compare derivatives, use local equality, rather than merely equality at one point. On the open set $\\{p<1\\}$, $H$ agrees locally with $F$, hence $DH=DF$. On the open complement of $K$, $H$ agrees locally with $G$, hence $DH=DG$. The excluded set is $\\{p=1\\}$. The seminorm gauge identity identifies it with the frontier of $\\{p<1\\}$; this set is convex and contains a neighborhood of $0$ by continuity and the positive radius. The convex-frontier Haar-measure theorem therefore gives $|\\{p=1\\}|=0$. These are the hypotheses used by the linked private sphere-null lemma."
+      },
+      {
+        "step_id": "s4",
+        "text": "The local identities from Step 3 give\n$$M_s(H)-M_s(G)=M_s(F)-M_s(G)\\quad\\text{almost everywhere on }K,$$\nand $M_s(H)-M_s(G)=0$ on $K^c$. The integrable difference from Step 2 can therefore be split as\n$$\\begin{aligned}\n0&=\\int_{\\mathbb R^n}(M_s(H)-M_s(G))\\\\\n &=\\int_K(M_s(H)-M_s(G))+\\int_{K^c}(M_s(H)-M_s(G))\\\\\n &=\\int_K(M_s(F)-M_s(G))+0\\\\\n &=\\int_KM_s(F)-\\int_KM_s(G).\n\\end{aligned}$$\nThe last line uses the integrability of each Lipschitz minor on compact $K$. This proves the claimed equality."
+      }
+    ],
+    "lean_realization_notes": "The sphere has measure zero for a specific reason: it is the frontier of the open convex seminorm ball, which is a neighborhood of the origin. Compactness of a general set would not by itself imply that its boundary has measure zero.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

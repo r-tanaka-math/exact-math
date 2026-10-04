@@ -1,0 +1,636 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.exists_delta_exact_unitary_path_apply_eq_and_stage_commutator | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/58b1952a1f9a7d4c1c17e37d/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/58b1952a1f9a7d4c1c17e37d/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.exists_delta_exact_unitary_path_apply_eq_and_stage_commutator</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean</code>, lines 353–455.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/b9880fe05b211dcb8e51ab65b98126c578b908943051160c33d636e3ba56868f/versions/n69-53f094249210aff8/index.html">Back to Exact vector transport along an almost central unitary path</a> · <a href="../../../cards/5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16/versions/n69-9e5ffe2c1b5b2c5d/index.html">Back to Approximating another vector state along a unitary path</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.InvolutionLift</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.InnerProductSpace.GramPerturbation</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>import MathlibAnnex.Analysis.InnerProductSpace.FiniteEmbedding</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a></span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>set_option autoImplicit false</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>noncomputable section</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a></span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>open MathlibAnnex.Analysis.InnerProductSpace</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>open MathlibAnnex.InnerProductSpace</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>set_option maxHeartbeats 1000000 in</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>theorem exists_delta_liftedCornerUnitary_path_apply_sub_norm_lt</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>    (n d : ℕ) {tau : ℝ} (htau : 0 &lt; tau) :</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>    ∃ delta &gt; 0,</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>      ∀ (v w : Fin d → rootCornerSubspace rho n),</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>        (∑ i, ‖v i‖ ^ 2) ≤ 1 → (∑ i, ‖w i‖ ^ 2) ≤ 1 →</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>        (∀ i j, ‖inner ℂ (v i) (v j) - inner ℂ (w i) (w j)‖ &lt; delta) →</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>        ∃ u : unitary Limit,</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>          (∀ c : Stage n, Commute (ofStage n c) (u : Limit)) ∧</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>          (∃ p : Path 1 u, ∀ t c,</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>            Commute (ofStage n c) (p t : Limit)) ∧</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>          ∀ i, ‖rho (u : Limit) (v i : H) - (w i : H)‖ &lt; tau := by</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>  obtain ⟨delta, hdelta, hperturb⟩ :=</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    exists_delta_orthogonalGramPerturbation (n := d) (half_pos htau)</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>  refine ⟨delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  intro v w hv hw hgram</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>  let e : Limit := limitMatrixUnit n 0 0</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>  let K : Submodule ℂ H := rootCornerSubspace rho n</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>  have hroot : IsStarProjection (rho e) :=</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    (isStarProjection_limitMatrixUnit_zero_zero n).map rho</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  letI : CompleteSpace K := IsComplete.completeSpace_coe</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>    (ContinuousLinearMap.IsIdempotentElem.isClosed_range</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>      hroot.isIdempotentElem).isComplete</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>  have hKnot : ¬ FiniteDimensional ℂ K := by</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    simpa [K, e, rootCornerSubspace] using</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>      not_finiteDimensional_range_rootCorner rho</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>        ((Representation.isIrreducible_iff_starAlgHom rho).mpr hrho) n</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  let V : Submodule ℂ K :=</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>    Submodule.span ℂ (Set.range v ∪ Set.range w)</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>  letI : FiniteDimensional ℂ V :=</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>    FiniteDimensional.span_of_finite ℂ</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>      ((Set.finite_range v).union (Set.finite_range w))</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  letI : V.HasOrthogonalProjection := inferInstance</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  let R : Submodule ℂ K := Vᗮ</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>  letI : CompleteSpace R := IsComplete.completeSpace_coe</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    (show IsClosed (R : Set K) by</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>      simpa [R] using Submodule.isClosed_orthogonal V).isComplete</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>  have hRnot : ¬ FiniteDimensional ℂ R := by</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    intro hR</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    letI : FiniteDimensional ℂ R := hR</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    have htop : V ⊔ R = ⊤ := by</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>      simpa [R] using</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>        (Submodule.sup_orthogonal_of_hasOrthogonalProjection (K := V))</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    letI : FiniteDimensional ℂ (V ⊔ R : Submodule ℂ K) := inferInstance</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>    apply hKnot</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    exact FiniteDimensional.of_surjective (V ⊔ R).subtype (fun x =&gt;</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>      ⟨⟨x, by rw [htop]; simp⟩, rfl⟩)</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>  let S : Submodule ℂ K := Submodule.span ℂ (Set.range v)</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>  letI : FiniteDimensional ℂ S :=</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>    FiniteDimensional.span_of_finite ℂ (Set.finite_range v)</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>  obtain ⟨L⟩ :=</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    nonempty_linearIsometry_of_finiteDimensional_of_not_finiteDimensional</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>      (E := S) (F := R) hRnot</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  let vS : Fin d → S := fun i =&gt;</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>    ⟨v i, Submodule.subset_span (Set.mem_range_self i)⟩</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>  let z : Fin d → K := fun i =&gt; (L (vS i) : R)</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>  have hvV (i : Fin d) : v i ∈ V :=</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    Submodule.subset_span (Or.inl (Set.mem_range_self i))</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>  have hwV (i : Fin d) : w i ∈ V :=</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    Submodule.subset_span (Or.inr (Set.mem_range_self i))</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>  have hzR (i : Fin d) : z i ∈ R := (L (vS i)).property</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>  have hzgram (i j : Fin d) :</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>      inner ℂ (z i) (z j) = inner ℂ (v i) (v j) := by</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>    change inner ℂ (L (vS i)) (L (vS j)) = inner ℂ (vS i) (vS j)</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>    exact L.inner_map_map (vS i) (vS j)</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  have hzsum : (∑ i, ‖z i‖ ^ 2) ≤ 1 := by</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    calc</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>      (∑ i, ‖z i‖ ^ 2) = ∑ i, ‖v i‖ ^ 2 := by</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>        apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>        intro i _</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>        rw [show ‖z i‖ = ‖v i‖ by exact L.norm_map (vS i)]</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>      _ ≤ 1 := hv</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>  have hvzorth : ∀ i j, inner ℂ (v i) (z j) = 0 := by</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    intro i j</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>    exact V.inner_right_of_mem_orthogonal (hvV i) (hzR j)</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>  have hzworth : ∀ i j, inner ℂ (z i) (w j) = 0 := by</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>    intro i j</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>    exact V.inner_left_of_mem_orthogonal (hwV j) (hzR i)</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>  obtain ⟨U1, hU1, -, hU1sq, hU1finite⟩ :=</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>    hperturb v z hv hzsum hvzorth (by</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>      intro i j</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>      rw [hzgram]</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>      simpa using hdelta)</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>  obtain ⟨U2, hU2, -, hU2sq, hU2finite⟩ :=</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>    hperturb z w hzsum hw hzworth (by</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>      intro i j</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>      rw [hzgram]</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>      exact hgram i j)</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>  letI : FiniteDimensional ℂ</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>      (LinearMap.range (U1.toLinearMap - LinearMap.id)) := hU1finite</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>  obtain ⟨h1, heh1, hhe1, hu1exact⟩ :=</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>    exists_liftedCornerExponential_apply_eq_involution</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>      rho hrho n d v U1 hU1sq</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>  letI : FiniteDimensional ℂ</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>      (LinearMap.range (U2.toLinearMap - LinearMap.id)) := hU2finite</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>  obtain ⟨h2, heh2, hhe2, hu2exact⟩ :=</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    exists_liftedCornerExponential_apply_eq_involution</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>      rho hrho n d z U2 hU2sq</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>  let u1 : unitary Limit := liftedCornerExponential n h1 heh1 hhe1</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>  let u2 : unitary Limit := liftedCornerExponential n h2 heh2 hhe2</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>  let u : unitary Limit := u2 * u1</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>  refine ⟨u, ?_, ?_, ?_⟩</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>  · intro c</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>    exact (liftedCornerExponential_commute_stage n h2 heh2 hhe2 c).mul_right</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>      (liftedCornerExponential_commute_stage n h1 heh1 hhe1 c)</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>  · refine ⟨liftedCornerExponentialPairPath n h1 h2 heh1 hhe1 heh2 hhe2, ?_⟩</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>    intro t c</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>    exact liftedCornerExponentialPairPath_commute_stage</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>      n h1 h2 heh1 hhe1 heh2 hhe2 t c</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>  · intro i</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>    have hu2unit : rho (u2 : Limit) ∈ unitary (H →L[ℂ] H) :=</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>      Unitary.map_mem rho u2.property</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>    change ‖rho ((u2 : Limit) * (u1 : Limit)) (v i : H) - (w i : H)‖ &lt; tau</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>    rw [map_mul, mul_apply_eq_comp, hu1exact i]</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>    have hdecomp :</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>        rho (u2 : Limit) (U1 (v i) : H) - (w i : H) =</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>          rho (u2 : Limit) ((U1 (v i) : H) - (z i : H)) +</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>            (rho (u2 : Limit) (z i : H) - (w i : H)) := by</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>      rw [map_sub]</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>      module</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>    rw [hdecomp]</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>    calc</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>      _ ≤ ‖rho (u2 : Limit) ((U1 (v i) : H) - (z i : H))‖ +</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>          ‖rho (u2 : Limit) (z i : H) - (w i : H)‖ := norm_add_le _ _</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>      _ = ‖(U1 (v i) : H) - (z i : H)‖ +</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>          ‖(U2 (z i) : H) - (w i : H)‖ := by</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>        rw [(rho (u2 : Limit)).norm_map_of_mem_unitary hu2unit,</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>          hu2exact i]</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>      _ &lt; tau / 2 + tau / 2 := add_lt_add (hU1 i) (hU2 i)</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>      _ = tau := by ring</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a></span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>set_option maxHeartbeats 1000000 in</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>/-- Compatibility form of finite-corner local transport, retaining the</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>endpoint statement while the stronger theorem also returns its canonical</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>all-time stage-central path. -/</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>theorem exists_delta_liftedCornerUnitary_apply_sub_norm_lt</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>    (n d : ℕ) {tau : ℝ} (htau : 0 &lt; tau) :</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>    ∃ delta &gt; 0,</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>      ∀ (v w : Fin d → rootCornerSubspace rho n),</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>        (∑ i, ‖v i‖ ^ 2) ≤ 1 → (∑ i, ‖w i‖ ^ 2) ≤ 1 →</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>        (∀ i j, ‖inner ℂ (v i) (v j) - inner ℂ (w i) (w j)‖ &lt; delta) →</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>        ∃ u : unitary Limit,</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>          (∀ c : Stage n, Commute (ofStage n c) (u : Limit)) ∧</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>          ∀ i, ‖rho (u : Limit) (v i : H) - (w i : H)‖ &lt; tau := by</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>  obtain ⟨delta, hdelta, hmain⟩ :=</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>    exists_delta_liftedCornerUnitary_path_apply_sub_norm_lt</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>      rho hrho n d htau</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>  refine ⟨delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>  intro v w hv hw hgram</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>  obtain ⟨u, hcomm, -, hmove⟩ := hmain v w hv hw hgram</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>  exact ⟨u, hcomm, hmove⟩</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a></span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>/-- Entrywise closeness of the two vector states on one full CAR stage gives</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>an ambient unitary which centralizes that stage and moves the first vector</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>close to the second.  The modulus is fixed before the vectors. -/</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>theorem exists_delta_stageCentral_unitary_path_apply_sub_norm_lt</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>    (n : ℕ) {tau : ℝ} (htau : 0 &lt; tau) :</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>    ∃ delta &gt; 0, ∀ (xi eta : H), ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>          Representation.vectorFunctional rho eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>      ∃ u : unitary Limit,</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>        (∀ c : Stage n, Commute (ofStage n c) (u : Limit)) ∧</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>        (∃ p : Path 1 u, ∀ t c,</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>          Commute (ofStage n c) (p t : Limit)) ∧</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>        ‖rho (u : Limit) xi - eta‖ &lt; tau := by</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>  obtain ⟨delta, hdelta, hmain⟩ :=</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    exists_delta_liftedCornerUnitary_path_apply_sub_norm_lt</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>      rho hrho n (2 ^ n) (div_pos htau (by positivity : (0 : ℝ) &lt; 2 ^ n))</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>  refine ⟨delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>  intro xi eta hxi heta hstate</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>  let v : Fin (2 ^ n) → rootCornerSubspace rho n := fun i =&gt;</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>    ⟨rho (limitMatrixUnit n 0 i) xi, by</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>      refine ⟨rho (limitMatrixUnit n 0 i) xi, ?_⟩</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>      change (rho (limitMatrixUnit n 0 0) *</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>        rho (limitMatrixUnit n 0 i)) xi = _</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>      rw [← map_mul]</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>      simp⟩</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a>  let w : Fin (2 ^ n) → rootCornerSubspace rho n := fun i =&gt;</span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>    ⟨rho (limitMatrixUnit n 0 i) eta, by</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>      refine ⟨rho (limitMatrixUnit n 0 i) eta, ?_⟩</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>      change (rho (limitMatrixUnit n 0 0) *</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>        rho (limitMatrixUnit n 0 i)) eta = _</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>      rw [← map_mul]</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>      simp⟩</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>  have hvsum : (∑ i, ‖v i‖ ^ 2) ≤ 1 := by</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>    have hv := sum_norm_sq_map_limitMatrixUnit_star rho n xi</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>    rw [hxi] at hv</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>    simpa [v] using hv.le</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>  have hwsum : (∑ i, ‖w i‖ ^ 2) ≤ 1 := by</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>    have hw := sum_norm_sq_map_limitMatrixUnit_star rho n eta</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>    rw [heta] at hw</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>    simpa [w] using hw.le</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>  obtain ⟨u, hcomm, hpath, hmove⟩ := hmain v w hvsum hwsum (by</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>    intro i j</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>    change ‖inner ℂ (rho (limitMatrixUnit n 0 i) xi)</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>      (rho (limitMatrixUnit n 0 j) xi) -</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a>      inner ℂ (rho (limitMatrixUnit n 0 i) eta)</span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>        (rho (limitMatrixUnit n 0 j) eta)‖ &lt; delta</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>    rw [show inner ℂ (rho (limitMatrixUnit n 0 i) xi)</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>          (rho (limitMatrixUnit n 0 j) xi) =</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>        Representation.vectorFunctional rho xi (limitMatrixUnit n i j) by</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>      simpa using Representation.inner_map_star_apply rho xi</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>        (limitMatrixUnit n i 0) (limitMatrixUnit n j 0)]</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>    rw [show inner ℂ (rho (limitMatrixUnit n 0 i) eta)</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>          (rho (limitMatrixUnit n 0 j) eta) =</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>        Representation.vectorFunctional rho eta (limitMatrixUnit n i j) by</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>      simpa using Representation.inner_map_star_apply rho eta</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>        (limitMatrixUnit n i 0) (limitMatrixUnit n j 0)]</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>    exact hstate i j)</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>  refine ⟨u, hcomm, hpath, ?_⟩</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>  have hxiDecomp :</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>      xi = ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>        rho (limitMatrixUnit n i 0) (v i : H) := by</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>    calc</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>      xi = rho 1 xi := by simp</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>      _ = rho (∑ i : Fin (2 ^ n), limitMatrixUnit n i i) xi := by</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>        rw [sum_limitMatrixUnit_diag]</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>      _ = ∑ i : Fin (2 ^ n), rho (limitMatrixUnit n i i) xi := by</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>        rw [map_sum]</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>        let ev : (H →L[ℂ] H) →+ H :=</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>          { toFun := fun T =&gt; T xi</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>            map_zero&#x27; := by simp</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>            map_add&#x27; := by intro S T; simp }</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>        exact map_sum ev _ _</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>      _ = ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>          rho (limitMatrixUnit n i 0) (v i : H) := by</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>        apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>        intro i _</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>        change rho (limitMatrixUnit n i i) xi =</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a>          rho (limitMatrixUnit n i 0) (rho (limitMatrixUnit n 0 i) xi)</span>
+<span class="source-line" id="L256"><a class="line-no" href="#L256">256</a>        rw [← mul_apply_eq_comp, ← map_mul]</span>
+<span class="source-line" id="L257"><a class="line-no" href="#L257">257</a>        simp</span>
+<span class="source-line" id="L258"><a class="line-no" href="#L258">258</a>  have hetaDecomp :</span>
+<span class="source-line" id="L259"><a class="line-no" href="#L259">259</a>      eta = ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L260"><a class="line-no" href="#L260">260</a>        rho (limitMatrixUnit n i 0) (w i : H) := by</span>
+<span class="source-line" id="L261"><a class="line-no" href="#L261">261</a>    calc</span>
+<span class="source-line" id="L262"><a class="line-no" href="#L262">262</a>      eta = rho 1 eta := by simp</span>
+<span class="source-line" id="L263"><a class="line-no" href="#L263">263</a>      _ = rho (∑ i : Fin (2 ^ n), limitMatrixUnit n i i) eta := by</span>
+<span class="source-line" id="L264"><a class="line-no" href="#L264">264</a>        rw [sum_limitMatrixUnit_diag]</span>
+<span class="source-line" id="L265"><a class="line-no" href="#L265">265</a>      _ = ∑ i : Fin (2 ^ n), rho (limitMatrixUnit n i i) eta := by</span>
+<span class="source-line" id="L266"><a class="line-no" href="#L266">266</a>        rw [map_sum]</span>
+<span class="source-line" id="L267"><a class="line-no" href="#L267">267</a>        let ev : (H →L[ℂ] H) →+ H :=</span>
+<span class="source-line" id="L268"><a class="line-no" href="#L268">268</a>          { toFun := fun T =&gt; T eta</span>
+<span class="source-line" id="L269"><a class="line-no" href="#L269">269</a>            map_zero&#x27; := by simp</span>
+<span class="source-line" id="L270"><a class="line-no" href="#L270">270</a>            map_add&#x27; := by intro S T; simp }</span>
+<span class="source-line" id="L271"><a class="line-no" href="#L271">271</a>        exact map_sum ev _ _</span>
+<span class="source-line" id="L272"><a class="line-no" href="#L272">272</a>      _ = ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L273"><a class="line-no" href="#L273">273</a>          rho (limitMatrixUnit n i 0) (w i : H) := by</span>
+<span class="source-line" id="L274"><a class="line-no" href="#L274">274</a>        apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L275"><a class="line-no" href="#L275">275</a>        intro i _</span>
+<span class="source-line" id="L276"><a class="line-no" href="#L276">276</a>        change rho (limitMatrixUnit n i i) eta =</span>
+<span class="source-line" id="L277"><a class="line-no" href="#L277">277</a>          rho (limitMatrixUnit n i 0) (rho (limitMatrixUnit n 0 i) eta)</span>
+<span class="source-line" id="L278"><a class="line-no" href="#L278">278</a>        rw [← mul_apply_eq_comp, ← map_mul]</span>
+<span class="source-line" id="L279"><a class="line-no" href="#L279">279</a>        simp</span>
+<span class="source-line" id="L280"><a class="line-no" href="#L280">280</a>  have haction :</span>
+<span class="source-line" id="L281"><a class="line-no" href="#L281">281</a>      rho (u : Limit) xi - eta =</span>
+<span class="source-line" id="L282"><a class="line-no" href="#L282">282</a>        ∑ i : Fin (2 ^ n), rho (limitMatrixUnit n i 0)</span>
+<span class="source-line" id="L283"><a class="line-no" href="#L283">283</a>          (rho (u : Limit) (v i : H) - (w i : H)) := by</span>
+<span class="source-line" id="L284"><a class="line-no" href="#L284">284</a>    rw [hxiDecomp, hetaDecomp, map_sum]</span>
+<span class="source-line" id="L285"><a class="line-no" href="#L285">285</a>    rw [← Finset.sum_sub_distrib]</span>
+<span class="source-line" id="L286"><a class="line-no" href="#L286">286</a>    apply Finset.sum_congr rfl</span>
+<span class="source-line" id="L287"><a class="line-no" href="#L287">287</a>    intro i _</span>
+<span class="source-line" id="L288"><a class="line-no" href="#L288">288</a>    rw [map_sub]</span>
+<span class="source-line" id="L289"><a class="line-no" href="#L289">289</a>    have hc := (hcomm (matrixUnit n i 0)).map rho</span>
+<span class="source-line" id="L290"><a class="line-no" href="#L290">290</a>    have hcapp := congrArg (fun T : H →L[ℂ] H =&gt; T (v i : H)) hc.eq</span>
+<span class="source-line" id="L291"><a class="line-no" href="#L291">291</a>    simpa [limitMatrixUnit, mul_apply_eq_comp] using hcapp.symm</span>
+<span class="source-line" id="L292"><a class="line-no" href="#L292">292</a>  have hmatrixNorm (i : Fin (2 ^ n)) :</span>
+<span class="source-line" id="L293"><a class="line-no" href="#L293">293</a>      ‖rho (limitMatrixUnit n i 0)‖ ≤ 1 := by</span>
+<span class="source-line" id="L294"><a class="line-no" href="#L294">294</a>    have hsquare :</span>
+<span class="source-line" id="L295"><a class="line-no" href="#L295">295</a>        ‖rho (limitMatrixUnit n i 0)‖ * ‖rho (limitMatrixUnit n i 0)‖ =</span>
+<span class="source-line" id="L296"><a class="line-no" href="#L296">296</a>          ‖rho (limitMatrixUnit n 0 0)‖ := by</span>
+<span class="source-line" id="L297"><a class="line-no" href="#L297">297</a>      rw [← CStarRing.norm_star_mul_self, ← map_star, ← map_mul]</span>
+<span class="source-line" id="L298"><a class="line-no" href="#L298">298</a>      simp</span>
+<span class="source-line" id="L299"><a class="line-no" href="#L299">299</a>    have hproj := IsStarProjection.norm_le (rho (limitMatrixUnit n 0 0))</span>
+<span class="source-line" id="L300"><a class="line-no" href="#L300">300</a>      ((isStarProjection_limitMatrixUnit_zero_zero n).map rho)</span>
+<span class="source-line" id="L301"><a class="line-no" href="#L301">301</a>    nlinarith [norm_nonneg (rho (limitMatrixUnit n i 0))]</span>
+<span class="source-line" id="L302"><a class="line-no" href="#L302">302</a>  rw [haction]</span>
+<span class="source-line" id="L303"><a class="line-no" href="#L303">303</a>  calc</span>
+<span class="source-line" id="L304"><a class="line-no" href="#L304">304</a>    _ ≤ ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L305"><a class="line-no" href="#L305">305</a>        ‖rho (limitMatrixUnit n i 0)</span>
+<span class="source-line" id="L306"><a class="line-no" href="#L306">306</a>          (rho (u : Limit) (v i : H) - (w i : H))‖ := norm_sum_le _ _</span>
+<span class="source-line" id="L307"><a class="line-no" href="#L307">307</a>    _ ≤ ∑ i : Fin (2 ^ n),</span>
+<span class="source-line" id="L308"><a class="line-no" href="#L308">308</a>        ‖rho (u : Limit) (v i : H) - (w i : H)‖ := by</span>
+<span class="source-line" id="L309"><a class="line-no" href="#L309">309</a>      apply Finset.sum_le_sum</span>
+<span class="source-line" id="L310"><a class="line-no" href="#L310">310</a>      intro i _</span>
+<span class="source-line" id="L311"><a class="line-no" href="#L311">311</a>      calc</span>
+<span class="source-line" id="L312"><a class="line-no" href="#L312">312</a>        _ ≤ ‖rho (limitMatrixUnit n i 0)‖ *</span>
+<span class="source-line" id="L313"><a class="line-no" href="#L313">313</a>            ‖rho (u : Limit) (v i : H) - (w i : H)‖ :=</span>
+<span class="source-line" id="L314"><a class="line-no" href="#L314">314</a>          (rho (limitMatrixUnit n i 0)).le_opNorm _</span>
+<span class="source-line" id="L315"><a class="line-no" href="#L315">315</a>        _ ≤ 1 * ‖rho (u : Limit) (v i : H) - (w i : H)‖ := by</span>
+<span class="source-line" id="L316"><a class="line-no" href="#L316">316</a>          gcongr</span>
+<span class="source-line" id="L317"><a class="line-no" href="#L317">317</a>          exact hmatrixNorm i</span>
+<span class="source-line" id="L318"><a class="line-no" href="#L318">318</a>        _ = _ := one_mul _</span>
+<span class="source-line" id="L319"><a class="line-no" href="#L319">319</a>    _ &lt; ∑ _i : Fin (2 ^ n), tau / (2 ^ n : ℝ) := by</span>
+<span class="source-line" id="L320"><a class="line-no" href="#L320">320</a>      apply Finset.sum_lt_sum_of_nonempty Finset.univ_nonempty</span>
+<span class="source-line" id="L321"><a class="line-no" href="#L321">321</a>      intro i _</span>
+<span class="source-line" id="L322"><a class="line-no" href="#L322">322</a>      exact hmove i</span>
+<span class="source-line" id="L323"><a class="line-no" href="#L323">323</a>    _ = tau := by</span>
+<span class="source-line" id="L324"><a class="line-no" href="#L324">324</a>      simp only [Finset.sum_const, Finset.card_fin, nsmul_eq_mul]</span>
+<span class="source-line" id="L325"><a class="line-no" href="#L325">325</a>      field_simp</span>
+<span class="source-line" id="L326"><a class="line-no" href="#L326">326</a>      norm_cast</span>
+<span class="source-line" id="L327"><a class="line-no" href="#L327">327</a></span>
+<span class="source-line" id="L328"><a class="line-no" href="#L328">328</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L329"><a class="line-no" href="#L329">329</a>/-- Compatibility endpoint for stage-central transport.  The strengthened</span>
+<span class="source-line" id="L330"><a class="line-no" href="#L330">330</a>form above additionally retains an explicit path which is exactly</span>
+<span class="source-line" id="L331"><a class="line-no" href="#L331">331</a>stage-central at every time. -/</span>
+<span class="source-line" id="L332"><a class="line-no" href="#L332">332</a>theorem exists_delta_stageCentral_unitary_apply_sub_norm_lt</span>
+<span class="source-line" id="L333"><a class="line-no" href="#L333">333</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L334"><a class="line-no" href="#L334">334</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L335"><a class="line-no" href="#L335">335</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L336"><a class="line-no" href="#L336">336</a>    (n : ℕ) {tau : ℝ} (htau : 0 &lt; tau) :</span>
+<span class="source-line" id="L337"><a class="line-no" href="#L337">337</a>    ∃ delta &gt; 0, ∀ (xi eta : H), ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line" id="L338"><a class="line-no" href="#L338">338</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L339"><a class="line-no" href="#L339">339</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line" id="L340"><a class="line-no" href="#L340">340</a>          Representation.vectorFunctional rho eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L341"><a class="line-no" href="#L341">341</a>      ∃ u : unitary Limit,</span>
+<span class="source-line" id="L342"><a class="line-no" href="#L342">342</a>        (∀ c : Stage n, Commute (ofStage n c) (u : Limit)) ∧</span>
+<span class="source-line" id="L343"><a class="line-no" href="#L343">343</a>        ‖rho (u : Limit) xi - eta‖ &lt; tau := by</span>
+<span class="source-line" id="L344"><a class="line-no" href="#L344">344</a>  obtain ⟨delta, hdelta, hmain⟩ :=</span>
+<span class="source-line" id="L345"><a class="line-no" href="#L345">345</a>    exists_delta_stageCentral_unitary_path_apply_sub_norm_lt</span>
+<span class="source-line" id="L346"><a class="line-no" href="#L346">346</a>      rho hrho n htau</span>
+<span class="source-line" id="L347"><a class="line-no" href="#L347">347</a>  refine ⟨delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L348"><a class="line-no" href="#L348">348</a>  intro xi eta hxi heta hstate</span>
+<span class="source-line" id="L349"><a class="line-no" href="#L349">349</a>  obtain ⟨u, hcomm, -, hmove⟩ := hmain xi eta hxi heta hstate</span>
+<span class="source-line" id="L350"><a class="line-no" href="#L350">350</a>  exact ⟨u, hcomm, hmove⟩</span>
+<span class="source-line" id="L351"><a class="line-no" href="#L351">351</a></span>
+<span class="source-line" id="L352"><a class="line-no" href="#L352">352</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line selected" id="L353"><a class="line-no" href="#L353">353</a>/-- Once a stage is fixed, entrywise closeness of two unit vector states on</span>
+<span class="source-line selected" id="L354"><a class="line-no" href="#L354">354</a>that stage gives an exact vector transport.  The implementing unitary has a</span>
+<span class="source-line selected" id="L355"><a class="line-no" href="#L355">355</a>commutator bound on the whole stage.  The exact correction is made after a</span>
+<span class="source-line selected" id="L356"><a class="line-no" href="#L356">356</a>stage-central finite-corner transport, so its modulus is chosen before the</span>
+<span class="source-line selected" id="L357"><a class="line-no" href="#L357">357</a>vectors. -/</span>
+<span class="source-line selected" id="L358"><a class="line-no" href="#L358">358</a>theorem exists_delta_exact_unitary_path_apply_eq_and_stage_commutator</span>
+<span class="source-line selected" id="L359"><a class="line-no" href="#L359">359</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line selected" id="L360"><a class="line-no" href="#L360">360</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line selected" id="L361"><a class="line-no" href="#L361">361</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line selected" id="L362"><a class="line-no" href="#L362">362</a>    (n : ℕ) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line selected" id="L363"><a class="line-no" href="#L363">363</a>    ∃ delta &gt; 0, ∀ (xi eta : H), ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line selected" id="L364"><a class="line-no" href="#L364">364</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line selected" id="L365"><a class="line-no" href="#L365">365</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line selected" id="L366"><a class="line-no" href="#L366">366</a>          Representation.vectorFunctional rho eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line selected" id="L367"><a class="line-no" href="#L367">367</a>      ∃ u : unitary Limit,</span>
+<span class="source-line selected" id="L368"><a class="line-no" href="#L368">368</a>        rho (u : Limit) xi = eta ∧</span>
+<span class="source-line selected" id="L369"><a class="line-no" href="#L369">369</a>        ∃ p : Path 1 u, ∀ t c,</span>
+<span class="source-line selected" id="L370"><a class="line-no" href="#L370">370</a>          ‖(p t : Limit) * ofStage n c - ofStage n c * (p t : Limit)‖ ≤</span>
+<span class="source-line selected" id="L371"><a class="line-no" href="#L371">371</a>            epsilon * ‖ofStage n c‖ := by</span>
+<span class="source-line selected" id="L372"><a class="line-no" href="#L372">372</a>  let epsilon0 : ℝ := min (epsilon / 2) 1</span>
+<span class="source-line selected" id="L373"><a class="line-no" href="#L373">373</a>  have hepsilon0 : 0 &lt; epsilon0 := by</span>
+<span class="source-line selected" id="L374"><a class="line-no" href="#L374">374</a>    dsimp only [epsilon0]</span>
+<span class="source-line selected" id="L375"><a class="line-no" href="#L375">375</a>    positivity</span>
+<span class="source-line selected" id="L376"><a class="line-no" href="#L376">376</a>  obtain ⟨tau, htau, hsmall⟩ :=</span>
+<span class="source-line selected" id="L377"><a class="line-no" href="#L377">377</a>    StarAlgHom.exists_unitary_apply_eq_and_norm_sub_one_lt</span>
+<span class="source-line selected" id="L378"><a class="line-no" href="#L378">378</a>      rho hrho hepsilon0</span>
+<span class="source-line selected" id="L379"><a class="line-no" href="#L379">379</a>  obtain ⟨delta, hdelta, hstage⟩ :=</span>
+<span class="source-line selected" id="L380"><a class="line-no" href="#L380">380</a>    exists_delta_stageCentral_unitary_path_apply_sub_norm_lt rho hrho n htau</span>
+<span class="source-line selected" id="L381"><a class="line-no" href="#L381">381</a>  refine ⟨delta, hdelta, ?_⟩</span>
+<span class="source-line selected" id="L382"><a class="line-no" href="#L382">382</a>  intro xi eta hxi heta hstate</span>
+<span class="source-line selected" id="L383"><a class="line-no" href="#L383">383</a>  obtain ⟨u0, hcentral, ⟨p0, hp0⟩, hclose⟩ :=</span>
+<span class="source-line selected" id="L384"><a class="line-no" href="#L384">384</a>    hstage xi eta hxi heta hstate</span>
+<span class="source-line selected" id="L385"><a class="line-no" href="#L385">385</a>  have hu0map : rho (u0 : Limit) ∈ unitary (H →L[ℂ] H) :=</span>
+<span class="source-line selected" id="L386"><a class="line-no" href="#L386">386</a>    Unitary.map_mem rho u0.property</span>
+<span class="source-line selected" id="L387"><a class="line-no" href="#L387">387</a>  have hzeta : ‖rho (u0 : Limit) xi‖ = 1 := by</span>
+<span class="source-line selected" id="L388"><a class="line-no" href="#L388">388</a>    rw [(rho (u0 : Limit)).norm_map_of_mem_unitary hu0map, hxi]</span>
+<span class="source-line selected" id="L389"><a class="line-no" href="#L389">389</a>  obtain ⟨v, hvapply, hvnorm⟩ :=</span>
+<span class="source-line selected" id="L390"><a class="line-no" href="#L390">390</a>    hsmall (rho (u0 : Limit) xi) eta hzeta heta hclose</span>
+<span class="source-line selected" id="L391"><a class="line-no" href="#L391">391</a>  have hvhalf : ‖(v : Limit) - 1‖ &lt; epsilon / 2 :=</span>
+<span class="source-line selected" id="L392"><a class="line-no" href="#L392">392</a>    hvnorm.trans_le (min_le_left _ _)</span>
+<span class="source-line selected" id="L393"><a class="line-no" href="#L393">393</a>  have hvTwo : ‖(v : Limit) - 1‖ &lt; 2 := by</span>
+<span class="source-line selected" id="L394"><a class="line-no" href="#L394">394</a>    calc</span>
+<span class="source-line selected" id="L395"><a class="line-no" href="#L395">395</a>      _ &lt; 1 := hvnorm.trans_le (min_le_right _ _)</span>
+<span class="source-line selected" id="L396"><a class="line-no" href="#L396">396</a>      _ &lt; 2 := by norm_num</span>
+<span class="source-line selected" id="L397"><a class="line-no" href="#L397">397</a>  let pv : Path (1 : unitary Limit) v := Unitary.path 1 v (by</span>
+<span class="source-line selected" id="L398"><a class="line-no" href="#L398">398</a>    simpa using hvTwo)</span>
+<span class="source-line selected" id="L399"><a class="line-no" href="#L399">399</a>  let u : unitary Limit := v * u0</span>
+<span class="source-line selected" id="L400"><a class="line-no" href="#L400">400</a>  let q : Path u0 u :=</span>
+<span class="source-line selected" id="L401"><a class="line-no" href="#L401">401</a>    { toFun := fun t =&gt; pv t * u0</span>
+<span class="source-line selected" id="L402"><a class="line-no" href="#L402">402</a>      continuous_toFun := by fun_prop</span>
+<span class="source-line selected" id="L403"><a class="line-no" href="#L403">403</a>      source&#x27; := by rw [pv.source]; simp</span>
+<span class="source-line selected" id="L404"><a class="line-no" href="#L404">404</a>      target&#x27; := by rw [pv.target] }</span>
+<span class="source-line selected" id="L405"><a class="line-no" href="#L405">405</a>  let p : Path 1 u := p0.trans q</span>
+<span class="source-line selected" id="L406"><a class="line-no" href="#L406">406</a>  refine ⟨u, ?_, p, ?_⟩</span>
+<span class="source-line selected" id="L407"><a class="line-no" href="#L407">407</a>  · change rho ((v : Limit) * (u0 : Limit)) xi = eta</span>
+<span class="source-line selected" id="L408"><a class="line-no" href="#L408">408</a>    rw [map_mul, mul_apply_eq_comp, hvapply]</span>
+<span class="source-line selected" id="L409"><a class="line-no" href="#L409">409</a>  · have hp0bound (t : Set.Icc (0 : ℝ) 1) (c : Stage n) :</span>
+<span class="source-line selected" id="L410"><a class="line-no" href="#L410">410</a>        ‖(p0 t : Limit) * ofStage n c -</span>
+<span class="source-line selected" id="L411"><a class="line-no" href="#L411">411</a>            ofStage n c * (p0 t : Limit)‖ ≤</span>
+<span class="source-line selected" id="L412"><a class="line-no" href="#L412">412</a>          epsilon * ‖ofStage n c‖ := by</span>
+<span class="source-line selected" id="L413"><a class="line-no" href="#L413">413</a>      rw [(hp0 t c).eq]</span>
+<span class="source-line selected" id="L414"><a class="line-no" href="#L414">414</a>      simp only [sub_self, norm_zero]</span>
+<span class="source-line selected" id="L415"><a class="line-no" href="#L415">415</a>      positivity</span>
+<span class="source-line selected" id="L416"><a class="line-no" href="#L416">416</a>    have hqbound (t : Set.Icc (0 : ℝ) 1) (c : Stage n) :</span>
+<span class="source-line selected" id="L417"><a class="line-no" href="#L417">417</a>        ‖(q t : Limit) * ofStage n c -</span>
+<span class="source-line selected" id="L418"><a class="line-no" href="#L418">418</a>            ofStage n c * (q t : Limit)‖ ≤</span>
+<span class="source-line selected" id="L419"><a class="line-no" href="#L419">419</a>          epsilon * ‖ofStage n c‖ := by</span>
+<span class="source-line selected" id="L420"><a class="line-no" href="#L420">420</a>      have hpvnorm : ‖(pv t : Limit) - 1‖ ≤ ‖(v : Limit) - 1‖ := by</span>
+<span class="source-line selected" id="L421"><a class="line-no" href="#L421">421</a>        have h := Unitary.norm_expUnitary_smul_argSelfAdjoint_sub_one_le</span>
+<span class="source-line selected" id="L422"><a class="line-no" href="#L422">422</a>          v t.2 hvTwo</span>
+<span class="source-line selected" id="L423"><a class="line-no" href="#L423">423</a>        simpa [pv, Unitary.path] using h</span>
+<span class="source-line selected" id="L424"><a class="line-no" href="#L424">424</a>      have hcommEq :</span>
+<span class="source-line selected" id="L425"><a class="line-no" href="#L425">425</a>          (q t : Limit) * ofStage n c - ofStage n c * (q t : Limit) =</span>
+<span class="source-line selected" id="L426"><a class="line-no" href="#L426">426</a>            (((pv t : Limit) - 1) * ofStage n c -</span>
+<span class="source-line selected" id="L427"><a class="line-no" href="#L427">427</a>              ofStage n c * ((pv t : Limit) - 1)) * (u0 : Limit) := by</span>
+<span class="source-line selected" id="L428"><a class="line-no" href="#L428">428</a>        change (((pv t : unitary Limit) * u0 : unitary Limit) : Limit) *</span>
+<span class="source-line selected" id="L429"><a class="line-no" href="#L429">429</a>            ofStage n c - ofStage n c *</span>
+<span class="source-line selected" id="L430"><a class="line-no" href="#L430">430</a>              ((((pv t : unitary Limit) * u0 : unitary Limit) : Limit)) = _</span>
+<span class="source-line selected" id="L431"><a class="line-no" href="#L431">431</a>        simp only [Submonoid.coe_mul]</span>
+<span class="source-line selected" id="L432"><a class="line-no" href="#L432">432</a>        noncomm_ring [(hcentral c).eq]</span>
+<span class="source-line selected" id="L433"><a class="line-no" href="#L433">433</a>      rw [hcommEq, CStarRing.norm_mul_coe_unitary]</span>
+<span class="source-line selected" id="L434"><a class="line-no" href="#L434">434</a>      calc</span>
+<span class="source-line selected" id="L435"><a class="line-no" href="#L435">435</a>        _ ≤ ‖((pv t : Limit) - 1) * ofStage n c‖ +</span>
+<span class="source-line selected" id="L436"><a class="line-no" href="#L436">436</a>            ‖ofStage n c * ((pv t : Limit) - 1)‖ := norm_sub_le _ _</span>
+<span class="source-line selected" id="L437"><a class="line-no" href="#L437">437</a>        _ ≤ ‖(pv t : Limit) - 1‖ * ‖ofStage n c‖ +</span>
+<span class="source-line selected" id="L438"><a class="line-no" href="#L438">438</a>            ‖ofStage n c‖ * ‖(pv t : Limit) - 1‖ := by</span>
+<span class="source-line selected" id="L439"><a class="line-no" href="#L439">439</a>          exact add_le_add (norm_mul_le _ _) (norm_mul_le _ _)</span>
+<span class="source-line selected" id="L440"><a class="line-no" href="#L440">440</a>        _ = 2 * ‖(pv t : Limit) - 1‖ * ‖ofStage n c‖ := by ring</span>
+<span class="source-line selected" id="L441"><a class="line-no" href="#L441">441</a>        _ ≤ 2 * ‖(v : Limit) - 1‖ * ‖ofStage n c‖ := by</span>
+<span class="source-line selected" id="L442"><a class="line-no" href="#L442">442</a>          gcongr</span>
+<span class="source-line selected" id="L443"><a class="line-no" href="#L443">443</a>        _ ≤ epsilon * ‖ofStage n c‖ := by</span>
+<span class="source-line selected" id="L444"><a class="line-no" href="#L444">444</a>          have hmul := mul_le_mul_of_nonneg_right hvhalf.le</span>
+<span class="source-line selected" id="L445"><a class="line-no" href="#L445">445</a>            (norm_nonneg (ofStage n c))</span>
+<span class="source-line selected" id="L446"><a class="line-no" href="#L446">446</a>          nlinarith</span>
+<span class="source-line selected" id="L447"><a class="line-no" href="#L447">447</a>    intro t c</span>
+<span class="source-line selected" id="L448"><a class="line-no" href="#L448">448</a>    have ht : p t ∈ Set.range p0 ∪ Set.range q := by</span>
+<span class="source-line selected" id="L449"><a class="line-no" href="#L449">449</a>      rw [← Path.trans_range]</span>
+<span class="source-line selected" id="L450"><a class="line-no" href="#L450">450</a>      exact ⟨t, rfl⟩</span>
+<span class="source-line selected" id="L451"><a class="line-no" href="#L451">451</a>    rcases ht with ⟨s, hs⟩ | ⟨s, hs⟩</span>
+<span class="source-line selected" id="L452"><a class="line-no" href="#L452">452</a>    · rw [show p t = p0 s by exact hs.symm]</span>
+<span class="source-line selected" id="L453"><a class="line-no" href="#L453">453</a>      exact hp0bound s c</span>
+<span class="source-line selected" id="L454"><a class="line-no" href="#L454">454</a>    · rw [show p t = q s by exact hs.symm]</span>
+<span class="source-line selected" id="L455"><a class="line-no" href="#L455">455</a>      exact hqbound s c</span>
+<span class="source-line" id="L456"><a class="line-no" href="#L456">456</a></span>
+<span class="source-line" id="L457"><a class="line-no" href="#L457">457</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L458"><a class="line-no" href="#L458">458</a>/-- Endpoint compatibility form of exact stage transport.  The stronger</span>
+<span class="source-line" id="L459"><a class="line-no" href="#L459">459</a>theorem above supplies a path with the same commutator bound at every time. -/</span>
+<span class="source-line" id="L460"><a class="line-no" href="#L460">460</a>theorem exists_delta_exact_unitary_apply_eq_and_stage_commutator</span>
+<span class="source-line" id="L461"><a class="line-no" href="#L461">461</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L462"><a class="line-no" href="#L462">462</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L463"><a class="line-no" href="#L463">463</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L464"><a class="line-no" href="#L464">464</a>    (n : ℕ) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L465"><a class="line-no" href="#L465">465</a>    ∃ delta &gt; 0, ∀ (xi eta : H), ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line" id="L466"><a class="line-no" href="#L466">466</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L467"><a class="line-no" href="#L467">467</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line" id="L468"><a class="line-no" href="#L468">468</a>          Representation.vectorFunctional rho eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L469"><a class="line-no" href="#L469">469</a>      ∃ u : unitary Limit,</span>
+<span class="source-line" id="L470"><a class="line-no" href="#L470">470</a>        rho (u : Limit) xi = eta ∧</span>
+<span class="source-line" id="L471"><a class="line-no" href="#L471">471</a>        ∀ c : Stage n,</span>
+<span class="source-line" id="L472"><a class="line-no" href="#L472">472</a>          ‖(u : Limit) * ofStage n c - ofStage n c * (u : Limit)‖ ≤</span>
+<span class="source-line" id="L473"><a class="line-no" href="#L473">473</a>            epsilon * ‖ofStage n c‖ := by</span>
+<span class="source-line" id="L474"><a class="line-no" href="#L474">474</a>  obtain ⟨delta, hdelta, hmain⟩ :=</span>
+<span class="source-line" id="L475"><a class="line-no" href="#L475">475</a>    exists_delta_exact_unitary_path_apply_eq_and_stage_commutator</span>
+<span class="source-line" id="L476"><a class="line-no" href="#L476">476</a>      rho hrho n hepsilon</span>
+<span class="source-line" id="L477"><a class="line-no" href="#L477">477</a>  refine ⟨delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L478"><a class="line-no" href="#L478">478</a>  intro xi eta hxi heta hstate</span>
+<span class="source-line" id="L479"><a class="line-no" href="#L479">479</a>  obtain ⟨u, huapply, p, hp⟩ := hmain xi eta hxi heta hstate</span>
+<span class="source-line" id="L480"><a class="line-no" href="#L480">480</a>  refine ⟨u, huapply, ?_⟩</span>
+<span class="source-line" id="L481"><a class="line-no" href="#L481">481</a>  intro c</span>
+<span class="source-line" id="L482"><a class="line-no" href="#L482">482</a>  have h := hp (1 : Set.Icc (0 : ℝ) 1) c</span>
+<span class="source-line" id="L483"><a class="line-no" href="#L483">483</a>  simpa only [p.target] using h</span>
+<span class="source-line" id="L484"><a class="line-no" href="#L484">484</a></span>
+<span class="source-line" id="L485"><a class="line-no" href="#L485">485</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L486"><a class="line-no" href="#L486">486</a>/-- Local exact transport in path form for the alternating construction.</span>
+<span class="source-line" id="L487"><a class="line-no" href="#L487">487</a>For a prescribed finite set, one stage and one entrywise state tolerance are</span>
+<span class="source-line" id="L488"><a class="line-no" href="#L488">488</a>fixed first.  Any two unit vectors meeting those tests are related exactly by</span>
+<span class="source-line" id="L489"><a class="line-no" href="#L489">489</a>an inner unitary, along a path whose forward and inverse conjugations are</span>
+<span class="source-line" id="L490"><a class="line-no" href="#L490">490</a>uniformly small on the prescribed set at every time. -/</span>
+<span class="source-line" id="L491"><a class="line-no" href="#L491">491</a>theorem exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt</span>
+<span class="source-line" id="L492"><a class="line-no" href="#L492">492</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L493"><a class="line-no" href="#L493">493</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L494"><a class="line-no" href="#L494">494</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L495"><a class="line-no" href="#L495">495</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L496"><a class="line-no" href="#L496">496</a>    ∃ n, ∃ delta &gt; 0, ∀ (xi eta : H), ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line" id="L497"><a class="line-no" href="#L497">497</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L498"><a class="line-no" href="#L498">498</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line" id="L499"><a class="line-no" href="#L499">499</a>          Representation.vectorFunctional rho eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L500"><a class="line-no" href="#L500">500</a>      ∃ u : unitary Limit,</span>
+<span class="source-line" id="L501"><a class="line-no" href="#L501">501</a>        rho (u : Limit) xi = eta ∧</span>
+<span class="source-line" id="L502"><a class="line-no" href="#L502">502</a>        ∃ p : Path 1 u, ∀ t, ∀ a ∈ F,</span>
+<span class="source-line" id="L503"><a class="line-no" href="#L503">503</a>          ‖(p t : Limit) * a * star (p t : Limit) - a‖ &lt; epsilon ∧</span>
+<span class="source-line" id="L504"><a class="line-no" href="#L504">504</a>          ‖star (p t : Limit) * a * (p t : Limit) - a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L505"><a class="line-no" href="#L505">505</a>  classical</span>
+<span class="source-line" id="L506"><a class="line-no" href="#L506">506</a>  let M : ℝ := (∑ a ∈ F, ‖a‖) + epsilon / 8 + 1</span>
+<span class="source-line" id="L507"><a class="line-no" href="#L507">507</a>  have hsum : 0 ≤ ∑ a ∈ F, ‖a‖ := Finset.sum_nonneg (fun _ _ =&gt; norm_nonneg _)</span>
+<span class="source-line" id="L508"><a class="line-no" href="#L508">508</a>  have hM : 0 &lt; M := by</span>
+<span class="source-line" id="L509"><a class="line-no" href="#L509">509</a>    dsimp only [M]</span>
+<span class="source-line" id="L510"><a class="line-no" href="#L510">510</a>    linarith</span>
+<span class="source-line" id="L511"><a class="line-no" href="#L511">511</a>  obtain ⟨n, hn⟩ := exists_common_stage_approx F</span>
+<span class="source-line" id="L512"><a class="line-no" href="#L512">512</a>    (show 0 &lt; epsilon / 8 by positivity)</span>
+<span class="source-line" id="L513"><a class="line-no" href="#L513">513</a>  let gamma : ℝ := epsilon / (4 * M)</span>
+<span class="source-line" id="L514"><a class="line-no" href="#L514">514</a>  have hgamma : 0 &lt; gamma := by</span>
+<span class="source-line" id="L515"><a class="line-no" href="#L515">515</a>    dsimp only [gamma]</span>
+<span class="source-line" id="L516"><a class="line-no" href="#L516">516</a>    positivity</span>
+<span class="source-line" id="L517"><a class="line-no" href="#L517">517</a>  obtain ⟨delta, hdelta, hlocal⟩ :=</span>
+<span class="source-line" id="L518"><a class="line-no" href="#L518">518</a>    exists_delta_exact_unitary_path_apply_eq_and_stage_commutator</span>
+<span class="source-line" id="L519"><a class="line-no" href="#L519">519</a>      rho hrho n hgamma</span>
+<span class="source-line" id="L520"><a class="line-no" href="#L520">520</a>  refine ⟨n, delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L521"><a class="line-no" href="#L521">521</a>  intro xi eta hxi heta hstate</span>
+<span class="source-line" id="L522"><a class="line-no" href="#L522">522</a>  obtain ⟨u, huapply, p, hcomm⟩ := hlocal xi eta hxi heta hstate</span>
+<span class="source-line" id="L523"><a class="line-no" href="#L523">523</a>  refine ⟨u, huapply, p, ?_⟩</span>
+<span class="source-line" id="L524"><a class="line-no" href="#L524">524</a>  intro t a ha</span>
+<span class="source-line" id="L525"><a class="line-no" href="#L525">525</a>  let ut : unitary Limit := p t</span>
+<span class="source-line" id="L526"><a class="line-no" href="#L526">526</a>  obtain ⟨c, hc⟩ := hn a ha</span>
+<span class="source-line" id="L527"><a class="line-no" href="#L527">527</a>  have haSum : ‖a‖ ≤ ∑ x ∈ F, ‖x‖ :=</span>
+<span class="source-line" id="L528"><a class="line-no" href="#L528">528</a>    Finset.single_le_sum (fun x _ =&gt; norm_nonneg x) ha</span>
+<span class="source-line" id="L529"><a class="line-no" href="#L529">529</a>  have hcM : ‖ofStage n c‖ &lt; M := by</span>
+<span class="source-line" id="L530"><a class="line-no" href="#L530">530</a>    calc</span>
+<span class="source-line" id="L531"><a class="line-no" href="#L531">531</a>      ‖ofStage n c‖ = ‖a - (a - ofStage n c)‖ := by</span>
+<span class="source-line" id="L532"><a class="line-no" href="#L532">532</a>        congr 1</span>
+<span class="source-line" id="L533"><a class="line-no" href="#L533">533</a>        module</span>
+<span class="source-line" id="L534"><a class="line-no" href="#L534">534</a>      _ ≤ ‖a‖ + ‖a - ofStage n c‖ := norm_sub_le _ _</span>
+<span class="source-line" id="L535"><a class="line-no" href="#L535">535</a>      _ &lt; ‖a‖ + epsilon / 8 := by linarith</span>
+<span class="source-line" id="L536"><a class="line-no" href="#L536">536</a>      _ ≤ (∑ x ∈ F, ‖x‖) + epsilon / 8 := by</span>
+<span class="source-line" id="L537"><a class="line-no" href="#L537">537</a>        simpa only [add_comm] using add_le_add_right haSum (epsilon / 8)</span>
+<span class="source-line" id="L538"><a class="line-no" href="#L538">538</a>      _ &lt; M := by dsimp only [M]; linarith</span>
+<span class="source-line" id="L539"><a class="line-no" href="#L539">539</a>  have hgammaM : gamma * ‖ofStage n c‖ &lt; epsilon / 4 := by</span>
+<span class="source-line" id="L540"><a class="line-no" href="#L540">540</a>    calc</span>
+<span class="source-line" id="L541"><a class="line-no" href="#L541">541</a>      _ &lt; gamma * M := mul_lt_mul_of_pos_left hcM hgamma</span>
+<span class="source-line" id="L542"><a class="line-no" href="#L542">542</a>      _ = epsilon / 4 := by</span>
+<span class="source-line" id="L543"><a class="line-no" href="#L543">543</a>        dsimp only [gamma]</span>
+<span class="source-line" id="L544"><a class="line-no" href="#L544">544</a>        field_simp</span>
+<span class="source-line" id="L545"><a class="line-no" href="#L545">545</a>  have hcommA :</span>
+<span class="source-line" id="L546"><a class="line-no" href="#L546">546</a>      ‖(ut : Limit) * a - a * (ut : Limit)‖ &lt; epsilon := by</span>
+<span class="source-line" id="L547"><a class="line-no" href="#L547">547</a>    have hdecomp :</span>
+<span class="source-line" id="L548"><a class="line-no" href="#L548">548</a>        (ut : Limit) * a - a * (ut : Limit) =</span>
+<span class="source-line" id="L549"><a class="line-no" href="#L549">549</a>          (ut : Limit) * (a - ofStage n c) +</span>
+<span class="source-line" id="L550"><a class="line-no" href="#L550">550</a>            ((ut : Limit) * ofStage n c - ofStage n c * (ut : Limit)) +</span>
+<span class="source-line" id="L551"><a class="line-no" href="#L551">551</a>              (ofStage n c - a) * (ut : Limit) := by noncomm_ring</span>
+<span class="source-line" id="L552"><a class="line-no" href="#L552">552</a>    rw [hdecomp]</span>
+<span class="source-line" id="L553"><a class="line-no" href="#L553">553</a>    calc</span>
+<span class="source-line" id="L554"><a class="line-no" href="#L554">554</a>      _ ≤ ‖(ut : Limit) * (a - ofStage n c)‖ +</span>
+<span class="source-line" id="L555"><a class="line-no" href="#L555">555</a>          ‖(ut : Limit) * ofStage n c - ofStage n c * (ut : Limit)‖ +</span>
+<span class="source-line" id="L556"><a class="line-no" href="#L556">556</a>            ‖(ofStage n c - a) * (ut : Limit)‖ := by</span>
+<span class="source-line" id="L557"><a class="line-no" href="#L557">557</a>        exact (norm_add_le _ _).trans</span>
+<span class="source-line" id="L558"><a class="line-no" href="#L558">558</a>          (add_le_add_left (norm_add_le _ _) _)</span>
+<span class="source-line" id="L559"><a class="line-no" href="#L559">559</a>      _ = ‖a - ofStage n c‖ +</span>
+<span class="source-line" id="L560"><a class="line-no" href="#L560">560</a>          ‖(ut : Limit) * ofStage n c - ofStage n c * (ut : Limit)‖ +</span>
+<span class="source-line" id="L561"><a class="line-no" href="#L561">561</a>            ‖ofStage n c - a‖ := by</span>
+<span class="source-line" id="L562"><a class="line-no" href="#L562">562</a>        rw [CStarRing.norm_coe_unitary_mul, CStarRing.norm_mul_coe_unitary]</span>
+<span class="source-line" id="L563"><a class="line-no" href="#L563">563</a>      _ ≤ ‖a - ofStage n c‖ + gamma * ‖ofStage n c‖ +</span>
+<span class="source-line" id="L564"><a class="line-no" href="#L564">564</a>            ‖ofStage n c - a‖ := by</span>
+<span class="source-line" id="L565"><a class="line-no" href="#L565">565</a>        gcongr</span>
+<span class="source-line" id="L566"><a class="line-no" href="#L566">566</a>        exact hcomm t c</span>
+<span class="source-line" id="L567"><a class="line-no" href="#L567">567</a>      _ &lt; epsilon := by</span>
+<span class="source-line" id="L568"><a class="line-no" href="#L568">568</a>        rw [norm_sub_rev (ofStage n c) a]</span>
+<span class="source-line" id="L569"><a class="line-no" href="#L569">569</a>        nlinarith</span>
+<span class="source-line" id="L570"><a class="line-no" href="#L570">570</a>  have hconj :</span>
+<span class="source-line" id="L571"><a class="line-no" href="#L571">571</a>      (ut : Limit) * a * star (ut : Limit) - a =</span>
+<span class="source-line" id="L572"><a class="line-no" href="#L572">572</a>        ((ut : Limit) * a - a * (ut : Limit)) * star (ut : Limit) := by</span>
+<span class="source-line" id="L573"><a class="line-no" href="#L573">573</a>    symm</span>
+<span class="source-line" id="L574"><a class="line-no" href="#L574">574</a>    calc</span>
+<span class="source-line" id="L575"><a class="line-no" href="#L575">575</a>        ((ut : Limit) * a - a * (ut : Limit)) * star (ut : Limit) =</span>
+<span class="source-line" id="L576"><a class="line-no" href="#L576">576</a>          ((ut : Limit) * a) * star (ut : Limit) -</span>
+<span class="source-line" id="L577"><a class="line-no" href="#L577">577</a>            (a * (ut : Limit)) * star (ut : Limit) := sub_mul _ _ _</span>
+<span class="source-line" id="L578"><a class="line-no" href="#L578">578</a>      _ = (ut : Limit) * a * star (ut : Limit) - a := by</span>
+<span class="source-line" id="L579"><a class="line-no" href="#L579">579</a>        have huunit : (ut : Limit) * star (ut : Limit) = 1 :=</span>
+<span class="source-line" id="L580"><a class="line-no" href="#L580">580</a>          Unitary.mul_star_self_of_mem ut.property</span>
+<span class="source-line" id="L581"><a class="line-no" href="#L581">581</a>        rw [mul_assoc a (ut : Limit) (star (ut : Limit)), huunit, mul_one]</span>
+<span class="source-line" id="L582"><a class="line-no" href="#L582">582</a>  constructor</span>
+<span class="source-line" id="L583"><a class="line-no" href="#L583">583</a>  · rw [hconj]</span>
+<span class="source-line" id="L584"><a class="line-no" href="#L584">584</a>    have hstar : star (ut : Limit) = ((star ut : unitary Limit) : Limit) := rfl</span>
+<span class="source-line" id="L585"><a class="line-no" href="#L585">585</a>    rw [hstar, CStarRing.norm_mul_coe_unitary]</span>
+<span class="source-line" id="L586"><a class="line-no" href="#L586">586</a>    exact hcommA</span>
+<span class="source-line" id="L587"><a class="line-no" href="#L587">587</a>  · have hconjInv :</span>
+<span class="source-line" id="L588"><a class="line-no" href="#L588">588</a>        star (ut : Limit) * a * (ut : Limit) - a =</span>
+<span class="source-line" id="L589"><a class="line-no" href="#L589">589</a>          star (ut : Limit) * (a * (ut : Limit) - (ut : Limit) * a) := by</span>
+<span class="source-line" id="L590"><a class="line-no" href="#L590">590</a>      have huunit : star (ut : Limit) * (ut : Limit) = 1 :=</span>
+<span class="source-line" id="L591"><a class="line-no" href="#L591">591</a>        Unitary.star_mul_self_of_mem ut.property</span>
+<span class="source-line" id="L592"><a class="line-no" href="#L592">592</a>      symm</span>
+<span class="source-line" id="L593"><a class="line-no" href="#L593">593</a>      calc</span>
+<span class="source-line" id="L594"><a class="line-no" href="#L594">594</a>        star (ut : Limit) * (a * (ut : Limit) - (ut : Limit) * a) =</span>
+<span class="source-line" id="L595"><a class="line-no" href="#L595">595</a>            star (ut : Limit) * (a * (ut : Limit)) -</span>
+<span class="source-line" id="L596"><a class="line-no" href="#L596">596</a>              star (ut : Limit) * ((ut : Limit) * a) := mul_sub _ _ _</span>
+<span class="source-line" id="L597"><a class="line-no" href="#L597">597</a>        _ = (star (ut : Limit) * a) * (ut : Limit) -</span>
+<span class="source-line" id="L598"><a class="line-no" href="#L598">598</a>              (star (ut : Limit) * (ut : Limit)) * a := by</span>
+<span class="source-line" id="L599"><a class="line-no" href="#L599">599</a>            rw [mul_assoc, mul_assoc]</span>
+<span class="source-line" id="L600"><a class="line-no" href="#L600">600</a>        _ = star (ut : Limit) * a * (ut : Limit) - a := by</span>
+<span class="source-line" id="L601"><a class="line-no" href="#L601">601</a>            rw [huunit, one_mul]</span>
+<span class="source-line" id="L602"><a class="line-no" href="#L602">602</a>    rw [hconjInv]</span>
+<span class="source-line" id="L603"><a class="line-no" href="#L603">603</a>    have hstar : star (ut : Limit) = ((star ut : unitary Limit) : Limit) := rfl</span>
+<span class="source-line" id="L604"><a class="line-no" href="#L604">604</a>    rw [hstar, CStarRing.norm_coe_unitary_mul]</span>
+<span class="source-line" id="L605"><a class="line-no" href="#L605">605</a>    rw [show a * (ut : Limit) - (ut : Limit) * a =</span>
+<span class="source-line" id="L606"><a class="line-no" href="#L606">606</a>        -((ut : Limit) * a - a * (ut : Limit)) by module, norm_neg]</span>
+<span class="source-line" id="L607"><a class="line-no" href="#L607">607</a>    exact hcommA</span>
+<span class="source-line" id="L608"><a class="line-no" href="#L608">608</a></span>
+<span class="source-line" id="L609"><a class="line-no" href="#L609">609</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L610"><a class="line-no" href="#L610">610</a>/-- Endpoint compatibility form of finite-set exact local transport. -/</span>
+<span class="source-line" id="L611"><a class="line-no" href="#L611">611</a>theorem exists_stageTests_exact_unitary_apply_eq_and_conjugate_sub_norm_lt</span>
+<span class="source-line" id="L612"><a class="line-no" href="#L612">612</a>    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]</span>
+<span class="source-line" id="L613"><a class="line-no" href="#L613">613</a>    [CompleteSpace H] [Nontrivial H]</span>
+<span class="source-line" id="L614"><a class="line-no" href="#L614">614</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L615"><a class="line-no" href="#L615">615</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L616"><a class="line-no" href="#L616">616</a>    ∃ n, ∃ delta &gt; 0, ∀ (xi eta : H), ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line" id="L617"><a class="line-no" href="#L617">617</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L618"><a class="line-no" href="#L618">618</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line" id="L619"><a class="line-no" href="#L619">619</a>          Representation.vectorFunctional rho eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L620"><a class="line-no" href="#L620">620</a>      ∃ u : unitary Limit,</span>
+<span class="source-line" id="L621"><a class="line-no" href="#L621">621</a>        rho (u : Limit) xi = eta ∧</span>
+<span class="source-line" id="L622"><a class="line-no" href="#L622">622</a>        ∀ a ∈ F,</span>
+<span class="source-line" id="L623"><a class="line-no" href="#L623">623</a>          ‖(u : Limit) * a * star (u : Limit) - a‖ &lt; epsilon ∧</span>
+<span class="source-line" id="L624"><a class="line-no" href="#L624">624</a>          ‖star (u : Limit) * a * (u : Limit) - a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L625"><a class="line-no" href="#L625">625</a>  obtain ⟨n, delta, hdelta, hmain⟩ :=</span>
+<span class="source-line" id="L626"><a class="line-no" href="#L626">626</a>    exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt</span>
+<span class="source-line" id="L627"><a class="line-no" href="#L627">627</a>      rho hrho F hepsilon</span>
+<span class="source-line" id="L628"><a class="line-no" href="#L628">628</a>  refine ⟨n, delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L629"><a class="line-no" href="#L629">629</a>  intro xi eta hxi heta hstate</span>
+<span class="source-line" id="L630"><a class="line-no" href="#L630">630</a>  obtain ⟨u, huapply, p, hp⟩ := hmain xi eta hxi heta hstate</span>
+<span class="source-line" id="L631"><a class="line-no" href="#L631">631</a>  refine ⟨u, huapply, ?_⟩</span>
+<span class="source-line" id="L632"><a class="line-no" href="#L632">632</a>  intro a ha</span>
+<span class="source-line" id="L633"><a class="line-no" href="#L633">633</a>  have h := hp (1 : Set.Icc (0 : ℝ) 1) a ha</span>
+<span class="source-line" id="L634"><a class="line-no" href="#L634">634</a>  simpa only [p.target] using h</span>
+<span class="source-line" id="L635"><a class="line-no" href="#L635">635</a></span>
+<span class="source-line" id="L636"><a class="line-no" href="#L636">636</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.tendsto_norm_compressionError",
+  "title": "Root compression becomes scalar in norm",
+  "stable_card_id": "5d44ee0aca9e46791d96b1f135b1092607d2b62670313827b2f813e5fe6e9be3",
+  "identity_key": "lfh:lfh-declaration-card:sha256:5d44ee0aca9e46791d96b1f135b1092607d2b62670313827b2f813e5fe6e9be3",
+  "source_url": "mathlibannex/sources/lfh188/eb831731089cf7b295b92581/index.html#L683",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "c20769bed4b33c151af3f6e392b8c4571fb0e88f7a2955851bc1fe11c0e2c476",
+  "accepted_guide_sha256": "4f1a7868b114bf8dfae79ced8603c5ec487e2738937f61d31f25c49520c1ed82",
+  "content": {
+    "assumptions": "The stages are linked by $a\\mapsto a\\otimes I_2$, and $A$ is their norm completion. The functional $\\omega$ is the continuous root state. Each $f_n$ is a self-adjoint projection of norm at most one. The element $x$ is arbitrary but fixed while $n$ tends to infinity.",
+    "conclusion": "Writing $E_n(x)=f_nxf_n-\\omega(x)f_n$, the theorem gives $\\lim_{n\\to\\infty}\\|E_n(x)\\|=0$ for every $x\\in A$. The error $E_n(x)$ is an element of $A$; its norm is the real-valued quantity that converges.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Root compression becomes scalar in norm",
+    "language_tag": "en",
+    "lean_realization_notes": "This is pointwise convergence in $x$, not convergence in operator norm uniformly over the unit ball. It also does not assert norm convergence of the projections $f_n$. The displayed projections have rank one at their defining finite stage; no rank-one assertion in an arbitrary representation of $A$ is used.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra with stage maps $\\iota_n:M_{2^n}(\\mathbb C)\\to A$ and root state $\\omega(\\iota_n(a))=a_{00}$. Put $f_n=\\iota_n(E_{00})$, where $E_{00}$ is the projection onto the first coordinate. Then, for every fixed $x\\in A$, $\\|f_nxf_n-\\omega(x)f_n\\|\\longrightarrow0$ as $n\\to\\infty$.",
+    "one_sentence_role": "Extends an exact rank-one compression identity on finite stages to a pointwise norm limit on the completed algebra.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For $\\varepsilon>0$, choose $y=\\iota_m(a)$ with $\\|x-y\\|<\\varepsilon/(\\|\\omega\\|+2)$, using density of the stages."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $n\\geq m$, the exact finite-stage compression identity gives $E_n(y)=0$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Linearity gives $E_n(x)=E_n(x-y)$. Hence $\\|E_n(x)\\|\\leq(1+\\|\\omega\\|)\\|x-y\\|<\\varepsilon$."
+      },
+      {
+        "step_id": "s4",
+        "text": "This bound holds for every $n\\geq m$, which is the required norm limit."
+      }
+    ],
+    "proof_summary": "If $y=\\iota_m(a)$ lies in a finite stage, rank-one compression gives $E_n(y)=0$ whenever $n\\geq m$. For arbitrary $z\\in A$, the projection norm bound and boundedness of $\\omega$ give $\\|E_n(z)\\|\\leq(1+\\|\\omega\\|)\\|z\\|$, uniformly in $n$. Approximate the fixed $x$ by such a $y$, and apply this estimate to $x-y$."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "MathlibAnnex.Matrix.existsUnique_factor_of_orientedMaximalMinorsProportional",
+  "title": "A unique right factor from proportional oriented maximal minors",
+  "stable_card_id": null,
+  "identity_key": "1574f466d0e103182fa5959afeea49be1fc8284c37e048fe559633a932a66ec5",
+  "source_url": "mathlibannex/sources/lfh188/ea2fd706ab06c6aa8cfa21df/index.html#L244",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/LinearAlgebra/Matrix/MaximalMinorFactorization.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r6",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "ee813a627f4b80001e5edf28439adb3034b15e6c5c1f0c8306a3e0164e66cf6e",
+  "accepted_guide_sha256": "c465f63f209d9fa55fd71e5d2c19abf7e285f8574f16a90f907281ed6df239b4",
+  "content": {
+    "display_title": "A unique right factor from proportional oriented maximal minors",
+    "one_sentence_role": "Recovers a square factor and its determinant from proportional determinants of every ordered row tuple.",
+    "natural_language_statement": "Let $A,B$ be $I$-by-$n$ matrices over a field and let $\\lambda\\ne0$. For an ordered tuple $\\rho:\\{1,\\ldots,n\\}\\to I$, let $A_\\rho,B_\\rho$ be the selected square matrices, retaining the order and any repetitions in $\\rho$. Assume\n\n$$\\det A_\\rho=\\lambda\\det B_\\rho\\quad\\text{for every }\\rho.$$\n\nSuppose one tuple $\\rho_0$ satisfies $\\det B_{\\rho_0}\\ne0$. There is a unique square matrix $L$ with $BL=A$ and $\\det L=\\lambda$.",
+    "definition_explanation": null,
+    "assumptions": "The coefficient system is any field; $I$ is any set, without an order or finiteness assumption. The scalar $\\lambda$ is nonzero, proportionality holds for all ordered tuples, and the same chosen tuple $\\rho_0$ supplies the nonzero minor. The case $n=0$ is included.",
+    "conclusion": "Writing $A_0=A_{\\rho_0}$ and $B_0=B_{\\rho_0}$, the factor is\n\n$$L=B_0^{-1}A_0.$$\n\nIt satisfies $BL=A$ and $\\det L=\\lambda\\ne0$, hence is invertible. The uniqueness already follows from $BL=A$.",
+    "proof_summary": "Use the same nonzero selected minor to compare every row’s coordinates by Cramer’s rule. The coordinate equality supplies the global factorization; the selected square equation supplies its determinant and uniqueness.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Proportionality at $\\rho_0$ gives $\\det A_0=\\lambda\\det B_0$. Since $\\lambda$ and $\\det B_0$ are nonzero in a field, $\\det A_0\\ne0$. Thus both $A_0$ and $B_0$ are invertible. Define $L=B_0^{-1}A_0$; immediately $B_0L=A_0$."
+      },
+      {
+        "step_id": "s2",
+        "text": "Fix any row index $i\\in I$ and write $a_i,b_i$ for the corresponding rows. For every position $j$, replace the $j$th entry of $\\rho_0$ by $i$. The hypothesis applies even if this creates a repeated entry. The selected matrices are $A_0[j\\leftarrow a_i]$ and $B_0[j\\leftarrow b_i]$, so Cramer’s row formula gives\n\n$$\\begin{aligned}\n(\\det A_0)(a_iA_0^{-1})_j&=\\det(A_0[j\\leftarrow a_i])\\\\\n&=\\lambda\\det(B_0[j\\leftarrow b_i])\\\\\n&=\\lambda(\\det B_0)(b_iB_0^{-1})_j\n=(\\det A_0)(b_iB_0^{-1})_j.\n\\end{aligned}$$\n\nCancellation of $\\det A_0\\ne0$ proves $a_iA_0^{-1}=b_iB_0^{-1}$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Multiply the last row identity on the right by $A_0$:\n\n$$a_i=(a_iA_0^{-1})A_0=(b_iB_0^{-1})A_0=b_iL.$$\n\nIt holds for every $i$, hence $BL=A$. Taking determinants in the selected equation $B_0L=A_0$ gives $(\\det B_0)\\det L=\\det A_0=\\lambda\\det B_0$; canceling the nonzero factor $\\det B_0$ yields $\\det L=\\lambda$."
+      },
+      {
+        "step_id": "s4",
+        "text": "If another matrix $L'$ satisfies $BL'=A$, selecting the same rows gives $B_0L'=A_0$. Multiplication by $B_0^{-1}$ forces $L'=B_0^{-1}A_0=L$. This proves uniqueness even before imposing the determinant condition."
+      },
+      {
+        "step_id": "s5",
+        "text": "To pass from increasing minors to arbitrary tuples when an order on $I$ is available, write an injective tuple as an increasing enumeration composed with a permutation $\\sigma$. Both determinants gain the factor $\\operatorname{sgn}(\\sigma)$, so their proportionality is unchanged. A noninjective tuple has two equal rows and both determinants vanish. For $n=0$, there is one empty tuple, both determinants are $1$, and the hypothesis reads $1=\\lambda\\cdot1$, forcing $\\lambda=1$; the unique empty matrix is the required factor."
+      }
+    ],
+    "lean_realization_notes": "If $I$ has a linear order, proportionality of the increasing-row minor families implies the ordered-tuple hypothesis: sorting an injective tuple introduces the same permutation sign for both matrices, while a repeated row makes both determinants zero. This adapter is separate from the theorem’s order-free assumptions. A nonzero selected minor also implies that multiplication by $B$ on column vectors is injective: restrict $Bv=0$ to the selected rows and multiply by $B_0^{-1}$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

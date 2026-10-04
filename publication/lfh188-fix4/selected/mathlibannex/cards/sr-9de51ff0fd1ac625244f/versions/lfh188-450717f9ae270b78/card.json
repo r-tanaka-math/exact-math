@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.exists_common_of_convexHull_eq",
+  "title": "A common generator selected from equal convex hulls",
+  "stable_card_id": null,
+  "identity_key": "5e741799ad49fbf4ec68d15415e9b99ec00aae6b535a53e0f8b0284607f01695",
+  "source_url": "mathlibannex/sources/lfh188/b82324c390fba75850416113/index.html#L287",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Convex/LexicographicSelection.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "186aa41ab8d1e99bcfd35e3c06411f17c94c55ab94d9e59d5ff5725fbdd783a8",
+  "accepted_guide_sha256": "e60e678a126d7010d305842cd57f9657029df77d7b0cc816f889b35d60c37877",
+  "content": {
+    "display_title": "A common generator selected from equal convex hulls",
+    "one_sentence_role": "Uses a first maximizing slice and a separating sequence to obtain an original common point carrying a prescribed property.",
+    "natural_language_statement": "Let $K,L$ be nonempty compact subsets of a finite-dimensional real normed space with $\\operatorname{conv}(K)=\\operatorname{conv}(L)$. Let $\\boldsymbol\\eta$ be a finite ordered list of continuous linear functionals that separates points of the ambient space. Fix another continuous linear functional $\\ell_0$ and a property $P$ such that every maximizer of $\\ell_0$ in $L$ satisfies $P$. Then there exists $z\\in K\\cap L$ with $P(z)$.",
+    "definition_explanation": null,
+    "assumptions": "Point separation means that if $\\eta(x)=\\eta(y)$ for every functional in the list, then $x=y$. The property $P$ is arbitrary; no continuity or closedness is assumed for it. It is required on every point of the maximum slice of $L$ for $\\ell_0$. Both original sets are nonempty compact, their convex hulls agree, and the ambient space is finite-dimensional over the reals.",
+    "conclusion": "The point belongs to both original generating sets and has the prescribed property. The proof obtains it in the first maximum slice of $L$, which is what permits the final application of the assumption on $P$.",
+    "proof_summary": "Equal convex hulls give equal maximum values and equal convex hulls after every refinement. The separating list makes a final refined set a singleton; its common convex hull then forces the same surviving original point on both sides.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For any continuous linear functional $\\ell$, a bound on $K$ is preserved by convex combinations. Since $K\\subseteq\\operatorname{conv}(K)$ and the maximum is attained in $K$, this gives\n\n$$\\max_K\\ell=\\max_{\\operatorname{conv}(K)}\\ell\n=\\max_{\\operatorname{conv}(L)}\\ell=\\max_L\\ell.$$\n\nApply this with $\\ell=\\ell_0$, and call the common value $m_0$. Let $K_0=\\{x\\in K:\\ell_0(x)=m_0\\}$ and $L_0=\\{x\\in L:\\ell_0(x)=m_0\\}$. The support-face identity then gives\n\n$$\\begin{aligned}\n\\operatorname{conv}(K_0)\n&=\\operatorname{conv}(K)\\cap\\{x:\\ell_0(x)=m_0\\}\\\\\n&=\\operatorname{conv}(L)\\cap\\{x:\\ell_0(x)=m_0\\}\n=\\operatorname{conv}(L_0).\n\\end{aligned}$$"
+      },
+      {
+        "step_id": "s2",
+        "text": "Write the separating list as $\\boldsymbol\\eta=(\\eta_1,\\ldots,\\eta_r)$. Given nonempty compact $K_{j-1},L_{j-1}$ with equal convex hulls, Step 1 supplies the same maximum\n\n$$m_j=\\max_{K_{j-1}}\\eta_j=\\max_{L_{j-1}}\\eta_j.$$\n\nSet $K_j=\\{x\\in K_{j-1}:\\eta_j(x)=m_j\\}$ and $L_j=\\{x\\in L_{j-1}:\\eta_j(x)=m_j\\}$. These sets are nonempty compact. The support-face identity gives\n\n$$\\begin{aligned}\n\\operatorname{conv}(K_j)\n&=\\operatorname{conv}(K_{j-1})\\cap\\{x:\\eta_j(x)=m_j\\}\\\\\n&=\\operatorname{conv}(L_{j-1})\\cap\\{x:\\eta_j(x)=m_j\\}\n=\\operatorname{conv}(L_j).\n\\end{aligned}$$\n\nInduction gives this equality at every stage. For $K_*=K_r$ and $L_*=L_r$ it yields\n\n$$\\operatorname{conv}(K_*)=\\operatorname{conv}(L_*),\\qquad\nK_*\\subseteq K_0\\subseteq K,\\quad L_*\\subseteq L_0\\subseteq L.$$\n\nThe maximum used at stage $j$ is taken on the preceding retained sets, not on the original $K,L$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Two survivors in $L_*$ have equal values under every functional in the list: at the stage for a functional, both lie on that stage’s maximum level, and later stages only remove points. Point separation therefore makes any two survivors equal. Since $L_*$ is nonempty, choose $y\\in L_*$ and conclude $L_*=\\{y\\}$. Choose $x\\in K_*$. Then\n\n$$x\\in\\operatorname{conv}(K_*)=\\operatorname{conv}(L_*)=\\operatorname{conv}(\\{y\\})=\\{y\\},$$\n\nso $x=y$. The inclusions from the previous step show that this same point belongs to $K$ and $L$."
+      },
+      {
+        "step_id": "s4",
+        "text": "Moreover $y\\in L_*\\subseteq L_0$, the initial maximum slice for $\\ell_0$. The hypothesis on that slice yields $P(y)$. Setting $z=y$ proves the full conclusion, including the property. An empty separating list is allowed only when its separation condition holds, in which case the ambient space has at most one point and the same argument still applies."
+      }
+    ],
+    "lean_realization_notes": "For a finite real coordinate space, take the coordinate projections in any enumeration. Equality under every projection is equality of all coordinates, so this list separates points. The cited coordinate specialization supplies the same common-generator conclusion without asking the caller to construct a separating list.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

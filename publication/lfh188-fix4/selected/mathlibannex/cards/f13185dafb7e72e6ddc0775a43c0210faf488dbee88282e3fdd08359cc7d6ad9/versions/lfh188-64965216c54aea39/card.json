@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_isolated_character_ne_infinity",
+  "title": "An isolated character away from the scalar character",
+  "stable_card_id": "f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9",
+  "identity_key": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9",
+  "source_url": "mathlibannex/sources/lfh188/ad2f97153d9542696e96f256/index.html#L34",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 8,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "765870c00eab1c0710f2c61041171ef3b65347d5aff7049c94991e04903047fc",
+  "accepted_guide_sha256": "a6235f03b3079e4a690a58aa6cf570ff2747ec427946e82818a381d66ccd558d",
+  "content": {
+    "display_title": "An isolated character away from the scalar character",
+    "one_sentence_role": "Finds an isolated point in the open complement of the distinguished scalar character.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed. On $\\widetilde A=\\mathbb C\\oplus A$, write $\\chi_\\infty(\\lambda,a)=\\lambda$. Let $D$ be a norm-closed commutative unital $*$-subalgebra of $\\widetilde A$, and assume its character space $X$ is countable. Let $d\\in D$ be nonzero and have scalar coordinate zero. Then there is $\\chi\\in X$ distinct from the scalar character $\\chi_\\infty|_D$ such that $\\{\\chi\\}$ is open in $X$.",
+    "definition_explanation": null,
+    "assumptions": "This theorem has no representation $\\pi$ or singleton-representation hypothesis. Countability of the character space is an explicit input.",
+    "conclusion": "The same character is both different from the distinguished scalar character and isolated in the full character space.",
+    "proof_summary": "Use the nonzero element to show that the complement of the scalar character is nonempty, apply the countable Baire lemma in that open subspace, and transfer openness back.",
+    "proof_steps": [
+      "If every character vanished on $d$, its Gelfand transform would be zero. Injectivity of the Gelfand transform would then give $d=0$, a contradiction. Thus some $\\chi_0$ satisfies $\\chi_0(d)\\ne0$. The scalar character has value zero at $d$ by the given scalar-coordinate condition, so $\\chi_0\\ne\\chi_\\infty|_D$.",
+      "Set $U=X\\setminus\\{\\chi_\\infty|_D\\}$. The character space of the unital commutative $C^*$-algebra $D$ is compact Hausdorff; hence the distinguished singleton is closed and $U$ is open. Step 1 shows $U\\ne\\varnothing$. It is countable and $T_1$ as a subspace of $X$, and it is Baire, since an open subspace of this locally compact Hausdorff space is locally compact Hausdorff.",
+      "Apply [An isolated point in a nonempty countable Baire space](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Topology/CountableBaire.lean#L18-L28) to this very subspace $U$, using the four properties just verified. It supplies $\\chi\\in U$ for which $\\{\\chi\\}$ is open in $U$. The inclusion of an open subspace is an open map, so the same singleton is open in $X$. Membership in $U$ is precisely $\\chi\\ne\\chi_\\infty|_D$."
+    ],
+    "lean_realization_notes": []
+  }
+}

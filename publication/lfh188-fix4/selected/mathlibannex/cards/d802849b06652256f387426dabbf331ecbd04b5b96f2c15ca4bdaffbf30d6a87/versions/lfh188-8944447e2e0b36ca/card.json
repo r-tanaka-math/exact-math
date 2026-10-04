@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.map_midpoint_of_mem_ball",
+  "title": "Midpoint preservation on a quarter ball",
+  "stable_card_id": "d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+  "identity_key": "lfh:lfh-declaration-card:sha256:d802849b06652256f387426dabbf331ecbd04b5b96f2c15ca4bdaffbf30d6a87",
+  "source_url": "mathlibannex/sources/lfh188/010a1a142dc96fdb8d77c07d/index.html#L137",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "e19ce25a3ad10fdfca363466e027beec33a87addbaa5acb304642b4fe1ed3caf",
+  "accepted_guide_sha256": "bfc080efac19e4c51ee91abba08bb204ed986f22a088cd8eef3c8d572fa2d97c",
+  "content": {
+    "display_title": "Midpoint preservation on a quarter ball",
+    "one_sentence_role": "Supplies both lens inclusions from matching ambient balls.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $S\\subseteq E$, $T\\subseteq F$, and $f:S\\to T$ a bijective isometry. Let $c\\in S$ and $R>0$ satisfy $B(c,R)\\subseteq S$ and $B(f(c),R)\\subseteq T$, where $B(c,R)=\\{z:\\|z-c\\|<R\\}$. For $x,y\\in S\\cap B(c,R/4)$, $$f\\!\\left(\\frac{x+y}{2}\\right)=\\frac{f(x)+f(y)}2.$$",
+    "definition_explanation": null,
+    "assumptions": "Both ambient open-ball inclusions, positivity of $R$, and membership of both $x,y$ in the quarter ball are required. The sets $S,T$ need not themselves be open or convex.",
+    "conclusion": "The midpoint belongs to $S$, and the same isometry preserves that midpoint.",
+    "proof_summary": "Use radius $R/2$ for the source and target lenses. The quarter-ball bounds leave enough room for both lenses inside the given radius-$R$ balls.",
+    "proof_steps": [
+      "The triangle inequality gives $\\|x-y\\|\\le\\|x-c\\|+\\|y-c\\|<R/2$, so $\\|x-y\\|/2<R/4<R/2$. Also $$\\left\\|\\frac{x+y}{2}-c\\right\\|\\le\\frac{\\|x-c\\|+\\|y-c\\|}{2}<R/4<R.$$ Thus the midpoint is a valid argument of $f$.",
+      "For $z\\in \\Lambda_{R/2}(x,y)=\\overline B(x,R/2)\\cap\\overline B(y,R/2)$, $$\\|z-c\\|\\le\\|z-x\\|+\\|x-c\\|<R/2+R/4<R.$$ Hence this entire lens lies in $B(c,R)\\subseteq S$.",
+      "Isometry gives $\\|f(x)-f(c)\\|=\\|x-c\\|<R/4$. If $w\\in \\Lambda_{R/2}(f(x),f(y))$, then $$\\|w-f(c)\\|\\le\\|w-f(x)\\|+\\|f(x)-f(c)\\|<R/2+R/4<R.$$ The target ball assumption now puts the entire target lens in $T$.",
+      "Apply [Midpoint preservation under two lens inclusions](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L120-L135) to this $f$, the points $x,y$, and the radius $R/2$. Step 1 supplies its half-distance bound, and Steps 2–3 supply its two inclusions. Its output is exactly the claimed midpoint equation."
+    ],
+    "lean_realization_notes": []
+  }
+}

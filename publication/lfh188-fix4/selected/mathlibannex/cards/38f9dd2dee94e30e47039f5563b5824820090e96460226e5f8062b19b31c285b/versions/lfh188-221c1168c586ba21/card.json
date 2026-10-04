@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+  "title": "Extending the CAR trace to the fixed shell target",
+  "stable_card_id": "38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b",
+  "identity_key": "lfh:lfh-declaration-card:sha256:38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b",
+  "source_url": "mathlibannex/sources/lfh188/dd508571a2f928ec4e31beab/index.html#L22",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "867b4ec58322b80e7e5c2d43b2671be8a1db6b0e89399e04dc3f15c0be43e16c",
+  "accepted_guide_sha256": "23d26b9219a18be51018302dbf3500258971b5bc55e33d45d4fe39b4a056d96f",
+  "content": {
+    "display_title": "Extending the CAR trace to the fixed shell target",
+    "one_sentence_role": "The source trace first becomes a state on the existing target algebra.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the completion of the matrix system $M_{2^n}(\\mathbb C)$, and let $\\tau$ be its normalized trace. Fix a representative shell family: for each chosen pure-GNS class $j$ it specifies an automorphism $\\alpha_j$ and partial isometries $w_{j,n}$ between the transported and root shells. Fix the links $L_j$ chosen by this family in the selected atomic representation $\\pi$. Throughout this Card,\n\n$$T=C^*(\\pi(A),\\{L_j\\}),\\qquad \\iota:A\\longrightarrow T,\\quad \\iota(a)=\\pi(a).$$\n\nThus $T$ is the already constructed concrete unital C*-algebra, and $\\iota$ is its injective source map. The links and target are kept fixed. A state means a positive continuous complex linear functional taking $1$ to $1$. There exists a state $\\phi$ on $T$ satisfying $\\phi(\\iota(a))=\\tau(a)$ for every $a\\in A$.",
+    "definition_explanation": null,
+    "assumptions": "The representative shell family is fixed. No representation of the target is an additional input to this extension theorem.",
+    "conclusion": "The set of state extensions of $\\tau$ to this same $T$ is nonempty. Traciality on all of $T$ and uniqueness of the extension are separate results.",
+    "proof_summary": "Transfer $\\tau$ to the isometric copy $\\iota(A)$, extend the bounded functional, and use normalization to obtain positivity.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The injective unital C*-homomorphism $\\iota$ is isometric. Consequently $\\lambda(\\iota(a))=\\tau(a)$ is well-defined and satisfies\n\n$$|\\lambda(\\iota(a))|\\leq\\|a\\|=\\|\\iota(a)\\|,\\qquad \\lambda(1)=1.$$\n\nThe input bounds are `norm_trace_le` and `trace_one`, and injectivity is `shellFamilySourceHom_injective`."
+      },
+      {
+        "step_id": "s2",
+        "text": "Apply the state-extension theorem for an injective unital star homomorphism, `exists_state_extension_of_injective`, with source functional $\\tau$. Its Hahn–Banach step extends $\\lambda$ with norm at most $1$; its normalized-contraction positivity argument makes the extension a state. Its restriction equality gives exactly $\\phi\\circ\\iota=\\tau$."
+      }
+    ],
+    "lean_realization_notes": "The extension theorem supplies an existence witness. The later definition `traceExtension` chooses one such witness; it does not change $T$ or create a universal completion.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

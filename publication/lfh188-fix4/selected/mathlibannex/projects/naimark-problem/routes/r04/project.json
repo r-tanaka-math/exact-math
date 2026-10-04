@@ -1,0 +1,72 @@
+{
+  "title": "Direct sums of GNS representations and shell unitaries",
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "node_count": 7,
+  "candidate": false,
+  "cards": [
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "dc502af1f12012931543b84153b5333bda1d2d5ab24463cec516f75c4482f1ee",
+        "uid": "lfh:lfh-declaration-card:sha256:ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26"
+      },
+      "url": "/mathlibannex/cards/ad01be2e337dc8b82ab777026820a387f45a7b982625ae89324c84e796897a26/versions/n69-af9004dce076d510/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "66b7b6935dd913a75006fffad6343b623e595b2a5ebbf7846d262b0d4849e125",
+        "uid": "lfh:lfh-declaration-card:sha256:b05645c888ce4601c51f1b4fcfe1fa9e0fc9f8489024601e9bf3e1e9811d4e26"
+      },
+      "url": "/mathlibannex/cards/b05645c888ce4601c51f1b4fcfe1fa9e0fc9f8489024601e9bf3e1e9811d4e26/versions/n69-8655c1a4a3f7e3a7/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "8c78f205e340bea56aec97118cab2578ff73f99177c73f7ce3982828a4d49537",
+        "uid": "lfh:lfh-declaration-card:sha256:178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e"
+      },
+      "url": "/mathlibannex/cards/178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e/versions/n69-557337b0dc01c1fe/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "9ccd7ecf1c2ae85210b5d4a7cd51926d338f2d63e25f48dbd37f5bc2ae17f10a",
+        "uid": "lfh:lfh-declaration-card:sha256:6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2"
+      },
+      "url": "/mathlibannex/cards/6728563ecff2ea0750784ae6ac3f2b35793447d5d5134f17f7cb2dfa417d6bc2/versions/n69-eef00c8bf449e3fb/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "2826da4e5a31e6b86b2bb133a8680ced9042a70adb452d4344a5f8f6b22f5791",
+        "uid": "lfh:lfh-declaration-card:sha256:2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e"
+      },
+      "url": "/mathlibannex/cards/2a90feae201a5ca31d5819e8ae349bc1c0ce60ba7b014b05aa3d7d8b1889f42e/versions/n69-95487527d395cd99/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "e244b62ef37cd89bb88e21906ffcf366d76ae4d38f5c2da2ce82cef0f7bb177b",
+        "uid": "lfh:lfh-declaration-card:sha256:39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a"
+      },
+      "url": "/mathlibannex/cards/39c92e26710d4fb48d5d04f63b9e645279916a2fd6073c40e022f9ddece88d6a/versions/n69-288200e633113b2b/index.html"
+    },
+    {
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ee9b781557606ba28fdda63633cfb3efeb167a9f8fbebfe6a215537bd661711d",
+        "uid": "lfh:lfh-declaration-card:sha256:1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f"
+      },
+      "url": "/mathlibannex/cards/1ee4a51c5a889e36f8bce5ebb44b8bdb3f459aa589225113d4e8aa518643807f/versions/n69-e7453e7f2b99e61e/index.html"
+    }
+  ],
+  "publication_date": "2026-09-28"
+}

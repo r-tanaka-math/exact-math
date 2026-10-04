@@ -1,0 +1,140 @@
+{
+  "accepted_type_fingerprint_sha256": "b4b22bde778db61d646b0a71aca602b2265a82f686b7e829a5dc0ff338487247",
+  "approved_card_model_sha256": "ed6803eda34c6643583d8ac4d09c806ebd3134bd0c5fe03c407bf52790f77526",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and π a representation of A on H.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "c089732cc79ef2a1a463e42c0bd496ccda8b2525b493dc8bcde5e4da70950bdb",
+    "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsIrreducible",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "bc9645084bd34c210153e9a1ceb61fa2f603b776edf5ab668678f9356e023b96",
+        "uid": "lfh:lfh-declaration-card:sha256:c6768fb635e387f90ed7c53fa90f5b4dfebcf526a42da7af360fbfdefc2284b6"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.UnitaryEquivalent",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "a8e25386a77ea847a8782daf3e66b3684a80f4986143acac07d0377f2fbd2dff",
+        "uid": "lfh:lfh-declaration-card:sha256:caeef92045d974a18cb5eb41cd4c36b68c457337d1569671d296e8f3c437fec6"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "The representation π is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A: π is nonzero and irreducible, and every nonzero irreducible representation of A on any complex Hilbert space is unitarily equivalent to π. The definition does not assume faithfulness or separability of A or H.",
+  "declaration_kind": "def",
+  "definition_equation": "IsSingletonIrreducibleModel π ↔ IsIrreducible π ∧ ∀ K ρ, IsIrreducible ρ → UnitaryEquivalent π ρ.",
+  "definition_explanation": "IsSingletonIrreducibleModel π ↔ IsIrreducible π ∧ ∀ K ρ, IsIrreducible ρ → UnitaryEquivalent π ρ.",
+  "display_title": "Representative of the unique irreducible-representation class",
+  "exact_elaborated_lean_type": "{A : Type u} → [inst : NonUnitalCStarAlgebra A] → {H : Type v} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H → Prop",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "692de46deb53242bcac4b1e3ae634370f422245d1a38f6efdf00ff80fa583aec",
+    "uid": "lfh:lfh-card-exposition:sha256:94e619d8898fe0dd059b9514ab2f1b9fc258f04a6a5142118560ce215d020e1d"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "5553da7b5d1552857c513a050d63babbc8218f58ae95bb7b5ea08befeba4f6d2",
+    "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "692de46deb53242bcac4b1e3ae634370f422245d1a38f6efdf00ff80fa583aec",
+    "uid": "lfh:lfh-card-exposition:sha256:94e619d8898fe0dd059b9514ab2f1b9fc258f04a6a5142118560ce215d020e1d"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "5553da7b5d1552857c513a050d63babbc8218f58ae95bb7b5ea08befeba4f6d2",
+      "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsSingletonIrreducibleModel",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and π a representation of A on H. The representation π is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A: π is nonzero and irreducible, and every nonzero irreducible representation of A on any complex Hilbert space is unitarily equivalent to π. The definition does not assume faithfulness or separability of A or H.",
+  "one_sentence_role": "Defines when a nonzero irreducible representation π is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A.",
+  "owner_review_item_sha256": "62040b652b3c3423e07576a8ede0c5b8fa3511db44ef1e05951c7c382857aaa8",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → [inst : NonUnitalCStarAlgebra A] → {H : Type v} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H → Prop"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsSingletonIrreducibleModel π ↔ IsIrreducible π ∧ ∀ K ρ, IsIrreducible ρ → UnitaryEquivalent π ρ."
+    },
+    {
+      "step_id": "source_route",
+      "text": "Unfold the source predicate and its irreducibility/equivalence definitions. The definition-level K is independently quantified; later uses specialize universes as {u,v,u} rather than asserting this is the full ConstantInfo parameter order."
+    }
+  ],
+  "proof_summary": "Unfold the source predicate and its irreducibility/equivalence definitions. The definition-level K is independently quantified; later uses specialize universes as {u,v,u} rather than asserting this is the full ConstantInfo parameter order.",
+  "source_excerpt": {
+    "bytes": 504,
+    "sha256": "ab9a56b93fec37fa4d8835b54347772e2b9bcac7258b5bb8f42ad5bd25664f97"
+  },
+  "source_locator": {
+    "end_column": 51,
+    "end_line": 31,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+    "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+    "start_column": 1,
+    "start_line": 23
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "9b7bb56ec602001e65f02c21312dadbab4ca79d90caaef3403f0e45ac6d07978",
+    "uid": "lfh:lfh-source-build-binding:sha256:8f98697270abb8d0332c3fbf4ca967d3e2ee30d5b7996effd5fc859e55bcf94d"
+  },
+  "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+  "source_signature": {
+    "end_byte": 858,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "9999882e4840b9131278416b0145ba400a3198a7be2e092ad9c9ddbb0390f3df",
+    "source_command_range": {
+      "end_column": 51,
+      "end_line": 31,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+      "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+      "start_column": 1,
+      "start_line": 23
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+    "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+    "start_byte": 776,
+    "text": "def IsSingletonIrreducibleModel\n    (pi : NonUnitalCStarRepresentation A H) : Prop"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean#L23-L31",
+  "stable_card_id": "15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

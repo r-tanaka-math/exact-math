@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.injective_of_singleton",
+  "title": "Faithfulness from a unique irreducible class",
+  "stable_card_id": "66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2",
+  "identity_key": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2",
+  "source_url": "mathlibannex/sources/lfh188/4ad3bbd17742ba222e9c62c2/index.html#L33",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "726046b9971256077466b6abf602fbead45b711fab5f18643e07f1dc30fc8426",
+  "accepted_guide_sha256": "1ba4b9c85e4b62339a1564e27eddd8c98de64f97996aa740c4d07d3f91d20ce5",
+  "content": {
+    "display_title": "Faithfulness from a unique irreducible class",
+    "one_sentence_role": "Uses a pure state on the unitization to detect any hypothetical nonzero element of the kernel.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed, and let $\\pi:A\\to\\mathcal B(H)$ represent the unique unitary-equivalence class of nonzero irreducible $*$-representations of $A$. Then $\\pi$ is injective: $$\\pi(x)=\\pi(y)\\Longrightarrow x=y.$$",
+    "definition_explanation": null,
+    "assumptions": "No separability of $A$ or $H$ is required. Faithfulness of the representation of the unitization is neither assumed nor concluded.",
+    "conclusion": "The original representation of $A$ has zero kernel.",
+    "proof_summary": "A nonzero kernel element would be detected in a pure GNS representation of the unitization. Its nonzero irreducible restriction is compared with the given representation, forcing that detected operator to be zero.",
+    "proof_steps": [
+      "If $\\pi(x)=\\pi(y)$, put $a=x-y$, so $\\pi(a)=0$. Suppose $a\\ne0$ and let $\\iota:A\\to\\widetilde A$ be the canonical injective inclusion into the complex unitization. Then $\\iota(a)\\ne0$. Apply [Pure-state detection of a nonzero square](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/Faithful.lean#L27-L64) in the nonzero unital ordered $C^*$-algebra $\\widetilde A$ to this element. It gives a pure state $\\varphi$ with $\\varphi(\\iota(a)^*\\iota(a))\\ne0$.",
+      "Let $(H_\\varphi,\\rho_U,\\xi)$ be its GNS representation with $\\|\\xi\\|=1$. By [Irreducibility of the GNS representation of a pure state](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean#L127-L144), purity makes $\\rho_U$ irreducible. Restrict it to $A$ by $\\rho(b)=\\rho_U(\\iota(b))$. The GNS identity gives $$\\|\\rho(a)\\xi\\|^2=\\varphi(\\iota(a)^*\\iota(a))\\ne0,$$ so $\\rho(a)\\ne0$ and the restriction is a nonzero representation.",
+      "A closed subspace reducing $\\rho(A)$ also reduces all $\\rho_U(\\lambda,b)=\\lambda I+\\rho(b)$, and conversely. Thus irreducibility of $\\rho_U$, together with the nonzero restriction established in Step 2, gives nonzero irreducibility of $\\rho$. This is the restriction criterion applied in the exact proof.",
+      "The singleton condition applied to this $\\rho$ supplies a unitary $U:H\\to H_\\varphi$ with $\\rho(b)U=U\\pi(b)$. Since $U$ is surjective, every $z\\in H_\\varphi$ equals $Uq$ for some $q\\in H$, and $$\\rho(a)z=\\rho(a)Uq=U\\pi(a)q=0.$$ Hence $\\rho(a)=0$, contradicting Step 2. Therefore $a=0$ and $x=y$."
+    ],
+    "lean_realization_notes": []
+  }
+}

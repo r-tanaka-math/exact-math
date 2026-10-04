@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.WeakDivergenceZero.exists_aeConstantOn",
+  "title": "Global almost-everywhere constancy on a preconnected domain",
+  "stable_card_id": null,
+  "identity_key": "c2b78d57a63746925f56b095766dbaa4040f5d953533fa43d5262c5e02c1aeed",
+  "source_url": "mathlibannex/sources/lfh188/f1ed12caa49e9937a5657884/index.html#L21",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Distribution/WeakGradient.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "da4869ee31e90d1ecb36f261ae536a47cf7c036ad939cf2fc7aa54baea534bf0",
+  "accepted_guide_sha256": "b5fd40e9b66a265ee25a744293adb0245db63c0bfbc898bb4a3f6ea9f8a628ae",
+  "content": {
+    "display_title": "Global almost-everywhere constancy on a preconnected domain",
+    "one_sentence_role": "Combines local weak-gradient rigidity with topological and countable gluing.",
+    "natural_language_statement": "Let $E$ be a finite-dimensional real normed vector space with its Borel structure and an additive Haar measure $\\mu$. Let $U\\subseteq E$ be open and preconnected, and let $u:E\\to\\mathbb R$ be locally integrable on $U$. Suppose\n$$\\int_Uu(z)\\operatorname{div}W(z)\\,d\\mu(z)=0$$\nfor every $C^1$ vector field $W:E\\to E$ for which a compact set $K_W$ satisfies\n$$\\overline{\\{z\\in E:W(z)\\ne0\\}}\\subseteq K_W\\subseteq U.$$\nHere $\\operatorname{div}W(z):=\\operatorname{tr}(DW(z))$. Then there exists $c\\in\\mathbb R$ such that\n$$u=c\\qquad\\mu|_U\\text{-almost everywhere}.$$",
+    "definition_explanation": null,
+    "assumptions": "Preconnectedness means that $U$ cannot be partitioned into two disjoint nonempty relatively open subsets. It permits $U=\\varnothing$; nonemptiness is not required. The dimension of $E$ may be zero. The assumptions are local integrability on $U$ and the weak test equation, together with openness and preconnectedness. There is no bounded-domain, positive-dimension, global $L^1$, Lipschitz, or continuity hypothesis.",
+    "conclusion": "There is one constant on the whole domain in the restricted almost-everywhere sense. Continuity would be an additional assumption for pointwise equality. The empty domain admits any constant, for example zero.",
+    "proof_summary": "Obtain local almost-everywhere data from the weak equation, then apply the preconnected version of the general gluing theorem. That version handles the empty domain separately.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Produce local data.** At every $x\\in U$, [the local weak-gradient constancy theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient.lean#L14-L19) applies to the given hypotheses: the same open $U$, local integrability, and weak equation. It supplies an open $V_x$ and $c_x\\in\\mathbb R$ with\n$$x\\in V_x\\subseteq U,\\qquad u=c_x\\quad\\mu|_{V_x}\\text{-almost everywhere}.$$\nNo connectedness assumption is needed for this local step."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Check and apply the global hypotheses.** The measure is positive on nonempty open sets by its Haar property. Second countability of $E$ supplies the Lindelöf property of $U$. If $U$ is empty, $\\mu|_U=0$ and $c=0$ works. If $U$ is nonempty, preconnectedness together with nonemptiness makes it connected. [The connected local-to-global gluing theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Function/AEConstant.lean#L148-L162) now applies to the data in Step 1 and gives\n$$\\exists c\\in\\mathbb R,\\qquad u=c\\quad\\mu|_U\\text{-almost everywhere}.$$\nWithin that theorem, positive open overlaps identify constants, connectedness propagates a fixed constant, and a countable subcover permits measure-theoretic gluing. [The preconnected gluing theorem used in the exact proof](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Function/AEConstant.lean#L164-L172) combines these two cases; it uses nonemptiness of the codomain, here supplied by $0\\in\\mathbb R$."
+      }
+    ],
+    "lean_realization_notes": "Finite-dimensional normed spaces are second countable, so every subset is Lindelöf. Additive Haar measure is positive on nonempty open sets. These two consequences of the ambient hypotheses supply the topological gluing theorem's hypotheses; they are not additional restrictions on $U$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.Piola.integral_det_fderiv_add_sub_eq_zero_of_contDiff",
+  "title": "Smooth compact perturbations preserve the determinant integral difference",
+  "stable_card_id": null,
+  "identity_key": "2fdc6b710bcf0b6fd36c748b0f7415556fc0dd7cd8445db08cf9eb812df0591d",
+  "source_url": "mathlibannex/sources/lfh188/a557518c71c4abd8574ce0ac/index.html#L847",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/Piola.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "a793404962f66d63ae5b1099565e0fcb6b449d11285c7f82cf00c7117b2ef924",
+  "accepted_guide_sha256": "3b922fceda2d66468f42d46e654bb7524c00fdb0a0f47c4a94db8fad7d5e21f1",
+  "content": {
+    "display_title": "Smooth compact perturbations preserve the determinant integral difference",
+    "one_sentence_role": "Builds a finite telescope from single-output perturbations with compactly supported fluxes.",
+    "natural_language_statement": "Fix $n\\geq1$ and let $g,u:\\mathbb R^n\\to\\mathbb R^n$ be $C^\\infty$, with $u$ compactly supported. Then\n$$\\int_{\\mathbb R^n}\\bigl(\\det D(g+u)(x)-\\det Dg(x)\\bigr)\\,dx=0.$$",
+    "definition_explanation": null,
+    "assumptions": "Both maps are smooth of all finite orders, as stated in the exact theorem. Only $u$ must have compact support. No decay or global integrability is assumed for $g$ or for its determinant separately. Here and below $g_j(x):=(g(x))_j$ and $u_j(x):=(u(x))_j$ are scalar coordinate maps. Compact support means that $\\operatorname{supp}u:=\\overline{\\{x:u(x)\\ne0\\}}$ is compact.",
+    "conclusion": "The determinant difference is integrable and has integral zero. This statement is an integral of a difference; it does not assert equality of two separately integrable whole-space determinants.",
+    "proof_summary": "Add the components of $u$ one at a time, prove each determinant increment integrable with zero integral, and add the finitely many increments.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "For $S\\subseteq\\{1,\\ldots,n\\}$, define the smooth hybrid map by its coordinates:\n$$(g_S(x))_j=\\begin{cases}g_j(x)+u_j(x),&j\\in S,\\\\g_j(x),&j\\notin S.\\end{cases}$$\nThen $g_\\varnothing=g$, $g_{\\{1,\\ldots,n\\}}=g+u$, and for $i\\notin S$,\n$$g_{S\\cup\\{i\\}}(x)=g_S(x)+u_i(x)e_i.$$\nEach scalar coordinate $u_i$ is smooth and has compact support, since\n$$\\{x:u_i(x)\\ne0\\}\\subseteq\\{x:u(x)\\ne0\\}\n\\quad\\Longrightarrow\\quad\\operatorname{supp}u_i\\subseteq\\operatorname{supp}u.$$"
+      },
+      {
+        "step_id": "s2",
+        "text": "Apply the component-flux identity with base $g_S$, scalar $u_i$, and row $i$. Smoothness supplies the required $C^2$ and $C^1$ hypotheses. The flux $u_i C_i(Dg_S)$ is $C^1$ and compactly supported because its support is contained in that of $u_i$. The compact-support divergence theorem gives\n$$\\int_{\\mathbb R^n}\\bigl(\\det Dg_{S\\cup\\{i\\}}-\\det Dg_S\\bigr)=0.$$\nThis increment is integrable: it is continuous and vanishes outside the compact support of $u_i$, since there $u_i$ is locally zero and its derivative is zero."
+      },
+      {
+        "step_id": "s3",
+        "text": "Choose any ordering of the $n$ coordinates and write its successive subsets as $S_0,\\ldots,S_n$. Pointwise telescoping gives\n$$\\det D(g+u)-\\det Dg=\\sum_{r=0}^{n-1}\\bigl(\\det Dg_{S_{r+1}}-\\det Dg_{S_r}\\bigr).$$\nEvery summand is integrable by the preceding step. Linearity of the integral is therefore legitimate for this finite sum, and its integral is the sum of $n$ zeros. No splitting into the two unrestricted determinant integrals is used."
+      }
+    ],
+    "lean_realization_notes": "The one-coordinate integral lemma needs only a $C^2$ base map and a $C^1$ compactly supported scalar perturbation. The theorem here retains its stronger stated $C^\\infty$ hypotheses and applies that lemma to each smooth hybrid.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

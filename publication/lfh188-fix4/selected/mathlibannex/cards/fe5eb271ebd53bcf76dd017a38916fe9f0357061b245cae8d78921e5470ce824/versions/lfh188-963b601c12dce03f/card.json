@@ -1,0 +1,26 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation",
+  "title": "Representations without a unit-preservation requirement",
+  "stable_card_id": "fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824",
+  "identity_key": "lfh:lfh-declaration-card:sha256:fe5eb271ebd53bcf76dd017a38916fe9f0357061b245cae8d78921e5470ce824",
+  "source_url": "mathlibannex/sources/lfh188/a410a2faa67f0d3a539e337b/index.html#L22",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Representation.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 5,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d540acbe030253d81f4fb82cc96f4c7815a17c9b722d5ebe4363a1407930e3e0",
+  "accepted_guide_sha256": "08c4aa46c05d4d43d72447d03b53f3e9dfc8f244ee40997d20a9c032f9cb24fc",
+  "content": {
+    "display_title": "Representations without a unit-preservation requirement",
+    "one_sentence_role": "Names $*$-representations of a complex $C^*$-algebra on a Hilbert space when no unit equation is required.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra considered without assuming a unit, and let $H$ be a complex Hilbert space. `NonUnitalCStarRepresentation A H` is the type of $*$-representations $$\\pi:A\\longrightarrow\\mathcal B(H)$$ for which no equation involving a unit is required.",
+    "definition_explanation": "For $a,b\\in A$ and $z\\in\\mathbb C$, such a map satisfies $$\\pi(a+b)=\\pi(a)+\\pi(b),\\qquad \\pi(za)=z\\pi(a),$$ $$\\pi(ab)=\\pi(a)\\pi(b),\\qquad \\pi(a^*)=\\pi(a)^*,\\qquad \\pi(0)=0.$$ Each $\\pi(a)$ is a bounded complex-linear operator. Nonzero action, irreducibility, injectivity and unit preservation are separate conditions in later declarations.",
+    "assumptions": "The Hilbert space is complete. Neither $A$ nor $H$ is required to be separable or nonzero. A unital algebra is allowed; the abbreviation merely does not require the representation to preserve its unit.",
+    "conclusion": "The result is a type of $*$-representations, not a theorem asserting that a chosen representation is nonzero, irreducible or faithful.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": []
+  }
+}

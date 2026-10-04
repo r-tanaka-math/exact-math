@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.FDeriv.norm_apply_le_seminorm_of_lipschitz",
+  "title": "A seminorm increment bound passes to every derivative direction",
+  "stable_card_id": null,
+  "identity_key": "0121a9abff991b5acade05c212ea6fd925683ba330f0cefbf9c99d24e1442fd6",
+  "source_url": "mathlibannex/sources/lfh188/f2b60027d4295a726b50cb0f/index.html#L24",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/FDeriv/SeminormBound.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "5b41411f5dc056e27160fcebab5aa5e88e29a47ac8906cf19dabab8f075a2596",
+  "accepted_guide_sha256": "0ee2158dfd51abb0dd4d0afc25dfcffcfada4614c2964db213f54bb54f75f398",
+  "content": {
+    "display_title": "A seminorm increment bound passes to every derivative direction",
+    "one_sentence_role": "Takes a difference-quotient limit without imposing a positive lower bound.",
+    "natural_language_statement": "Let $n,N\\in\\mathbb N_0$, let $E=\\mathbb R^n$ and $F=\\mathbb R^N$ have the sup norms, and let $p:E\\to\\mathbb R$ be a real seminorm. Let $f:E\\to F$ satisfy\n$$\\|f(y)-f(z)\\|_\\infty\\le p(y-z)\\qquad(y,z\\in E).$$\nFix a point $x\\in E$ at which $f$ is Fréchet differentiable, and write $Df(x)$ for its derivative. Then\n$$\\|Df(x)v\\|_\\infty\\le p(v)\\qquad(v\\in E).$$",
+    "definition_explanation": null,
+    "assumptions": "The seminorm may be degenerate. Neither norm equivalence nor a positive lower comparison is assumed. The increment estimate holds globally; differentiability is assumed only at the chosen point. Both dimensions may be zero.",
+    "conclusion": "The same seminorm bounds $Df(x)v$ for every direction, including zero.",
+    "proof_summary": "Apply the increment estimate on one affine line, then pass to its derivative.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Estimate one directional quotient.** Fix $v\\in E$ and let $\\phi(t)=f(x+tv)$. The increment assumption and seminorm homogeneity give\n$$\\|\\phi(t)-\\phi(0)\\|_\\infty\\le p(tv)=|t|p(v).$$\nFor every real $t\\ne0$, division by $|t|>0$ gives\n$$\\left\\|\\frac{f(x+tv)-f(x)}{t}\\right\\|_\\infty\\le p(v).$$\nThis also applies to $v=0$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Take the derivative limit.** Differentiability at $x$ gives\n$$\\frac{f(x+tv)-f(x)}{t}\\longrightarrow Df(x)v\\qquad(t\\to0,\\ t\\ne0).$$\nContinuity of the norm therefore yields\n$$\\|Df(x)v\\|_\\infty=\\lim_{t\\to0,\\ t\\ne0}\\left\\|\\frac{f(x+tv)-f(x)}{t}\\right\\|_\\infty\\le p(v).$$\nThe source's local derivative-bound argument uses $\\phi$, $d=Df(x)v$ and $C=p(v)$. The previous estimate and this derivative limit are its inputs; its output is exactly the asserted inequality."
+      }
+    ],
+    "lean_realization_notes": "Let $\\lambda_n$ denote coordinate Lebesgue measure on $E$. [The separate almost-everywhere wrapper](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/FDeriv/SeminormBound.lean#L60-L71) additionally takes $U\\ge0$ with $p(z)\\le U\\|z\\|_\\infty$. Then $\\|f(y)-f(z)\\|_\\infty\\le U\\|y-z\\|_\\infty$, so Rademacher gives differentiability almost everywhere for reference Lebesgue measure. Restriction to any set $s\\subseteq E$ and the pointwise result give the bound for every $v$, for $\\lambda_n|_s$-almost every $x$. The extra upper comparison is an input of this wrapper.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

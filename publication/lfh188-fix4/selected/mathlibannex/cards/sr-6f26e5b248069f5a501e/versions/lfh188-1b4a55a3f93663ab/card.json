@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.aeConstantOn_of_countableCover",
+  "title": "Gluing one almost-everywhere constant over a countable cover",
+  "stable_card_id": null,
+  "identity_key": "afef0c134761c64d2d0095f214d1faff119dcd9106310336462d93a6c5135bbb",
+  "source_url": "mathlibannex/sources/lfh188/2902f712b8ec15f0dffc8901/index.html#L24",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/MeasureTheory/Function/AEConstant.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "7073f259f8ecabc04b8f2aca208c67c5742d15bea096432658b0aefe35a6057b",
+  "accepted_guide_sha256": "edf9847bd4ae748ce15f59448e57dfea1082708eb4241091f282939ecb186b40",
+  "content": {
+    "display_title": "Gluing one almost-everywhere constant over a countable cover",
+    "one_sentence_role": "Combines local exceptional sets using an inequality between restricted measures.",
+    "natural_language_statement": "Let $(X,\\mu)$ be a measure space, $Y$ any set of values, $u:X\\to Y$, and $c\\in Y$. Let $U\\subseteq X$, let $(V_i)_{i\\in I}$ be any family of subsets, and let $T\\subseteq I$ be countable. Suppose\n$$U\\subseteq\\bigcup_{i\\in T}V_i,\\qquad\nu=c\\quad\\mu|_{V_i}\\text{-almost everywhere for every }i\\in T.$$\nThen $u=c$ almost everywhere for $\\mu|_U$.",
+    "definition_explanation": null,
+    "assumptions": "There is no topology on $X$ or $Y$ in this statement. The function $u$, the cover members $V_i$, and $U$ need not be measurable. Only $T$ is countable; the index set $I$ need not be. All members use the same constant $c$.",
+    "conclusion": "The one exceptional set $\\{x:u(x)\\ne c\\}$ has measure zero for $\\mu|_U$. The result includes the empty cover: the covering hypothesis then forces $U=\\varnothing$.",
+    "proof_summary": "Compare $\\mu|_U$ with the sum of the restricted measures of the countable cover, and evaluate this inequality on the exceptional set.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Form a countable family of measures.** Reindex by $i\\in T$ itself and write $B=\\{x\\in X:u(x)\\ne c\\}$. Restriction is monotone in its restricting set, and restriction to a countable union is bounded by the sum of the restrictions. Thus\n$$\\mu|_U\\ \\leq\\ \\mu|_{\\bigcup_{i\\in T}V_i}\\ \\leq\\ \\sum_{i\\in T}\\mu|_{V_i}.$$\nThese are measure inequalities; the restriction-to-union inequality does not require measurable cover members."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Evaluate on the exceptional set.** Almost-everywhere equality on $V_i$ says $(\\mu|_{V_i})(B)=0$. Evaluation of a countable sum of measures on any set therefore gives\n$$0\\leq(\\mu|_U)(B)\n\\leq\\left(\\sum_{i\\in T}\\mu|_{V_i}\\right)(B)\n=\\sum_{i\\in T}(\\mu|_{V_i})(B)=0.$$\nHence $(\\mu|_U)(B)=0$, which is exactly the required almost-everywhere equality. No uncountable union of null sets enters this argument."
+      }
+    ],
+    "lean_realization_notes": "The notation $\\mu|_V$ means restriction of a measure to a set in the library's sense, which is defined even for a nonmeasurable $V$. The proof uses inequalities of measures and does not replace every restricted evaluation by an intersection formula requiring measurability.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

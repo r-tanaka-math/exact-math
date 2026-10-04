@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.lexicographicRefine",
+  "title": "Successive maximum refinement by an ordered list of functionals",
+  "stable_card_id": null,
+  "identity_key": "198ede8425d2e29c25ba96385f2004b2e7328f7fb1207c823162a0b6381bfc79",
+  "source_url": "mathlibannex/sources/lfh188/2070b005c6be46db5ae4e391/index.html#L211",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Convex/LexicographicSelection.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "6958ff7e499de016a5c4ec9b2d88c97a1a6a2fa0b9f7c199ed0e6adcb03777f6",
+  "accepted_guide_sha256": "0e928aff04d7d85e813d48de09ff7f81540307222a38f660ed03fb6d5ef8b898",
+  "content": {
+    "display_title": "Successive maximum refinement by an ordered list of functionals",
+    "one_sentence_role": "Defines a nonempty compact set of survivors after maximizing finitely many functionals in order.",
+    "natural_language_statement": "For a nonempty compact set $K$ in a real normed space and a finite ordered list $\\boldsymbol\\ell=(\\ell_1,\\ldots,\\ell_r)$ of continuous linear functionals, successively retain the points maximizing $\\ell_1$, then those maximizing $\\ell_2$ on the retained set, and so on. The resulting set is denoted $\\mathcal R_{\\boldsymbol\\ell}(K)$.",
+    "definition_explanation": "Let $K_\\ell=\\{x\\in K:\\ell(x)=\\max_{y\\in K}\\ell(y)\\}$. The complete recursion is\n\n$$\\mathcal R_{()}(K)=K,\\qquad\\mathcal R_{(\\ell,\\boldsymbol\\eta)}(K)=\\mathcal R_{\\boldsymbol\\eta}(K_\\ell).$$\n\nThe maximum of each later functional is taken on the current retained set. Changing the order can therefore change the resulting set.",
+    "assumptions": "The ambient space is any real normed vector space. The set $K$ is nonempty and compact, and the list is finite and ordered. No finite-dimensionality or point-separation assumption is needed for this definition.",
+    "conclusion": "The result is a nonempty compact set. For the empty list it is $K$ itself. A singleton conclusion requires a separate point-separation hypothesis; this definition does not select a single point.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "Each maximum slice is nonempty compact by continuity on a nonempty compact set. Thus every recursive step is defined. Later lemmas show that the final set lies in $K$ and that all survivors have the same value under every functional in the list. If the list separates points, those equalities force the final set to be a singleton.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

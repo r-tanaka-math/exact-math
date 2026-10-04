@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.PureStateHomogeneity",
+  "title": "Approximately inner homogeneity of pure CAR states",
+  "stable_card_id": "395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb",
+  "identity_key": "lfh:lfh-declaration-card:sha256:395ec0494a4bb733050d7af49df8a7f8f5401408da63357e77d640e03a14a1fb",
+  "source_url": "mathlibannex/sources/lfh188/b5b2ce16a8eedc1d4c439ba4/index.html#L22",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "a54ff0f62bf2e543c952a693b85f5dd4c792d9d2f45fa97c294b41d0a5462b8e",
+  "accepted_guide_sha256": "6aad4a9c09c84eae33964227ced7034af6d725e23c16a2ac2a8b75f032457f21",
+  "content": {
+    "display_title": "Approximately inner homogeneity of pure CAR states",
+    "one_sentence_role": "The homogeneity property asks for exact state transport by an automorphism that is locally approximable by inner automorphisms.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. A state means a positive continuous complex-linear functional taking value $1$ at the identity; a pure state is an extreme point of this convex state space. The property of pure-state homogeneity says that, for every pair of pure states $\\varphi,\\psi$ on $A$, there is a complex star automorphism $\\alpha:A\\to A$ such that $\\varphi(\\alpha(a))=\\psi(a)$ for every $a\\in A$. In addition, for every finite $F\\subset A$ and every $\\varepsilon>0$, there is $u\\in U(A)$ with $\\|\\alpha(a)-uau^*\\|<\\varepsilon$ for all $a\\in F$.",
+    "definition_explanation": "The first requirement transports the state exactly, with the stated composition direction. The second is point-norm approximate innerness: a finite amount of algebra data can be moved almost as $\\alpha$ moves it. Both requirements concern the same $\\alpha$. No continuous path of unitaries is part of this definition.",
+    "assumptions": "The algebra is the fixed completed CAR algebra. The two functionals are pure states in the sense specified above. The automorphism is chosen for the state pair before the finite set and the error tolerance are given.",
+    "conclusion": "The equality is $\\varphi\\circ\\alpha=\\psi$. One unitary approximates $\\alpha$ on the entire chosen finite set; that unitary may change with the finite set and tolerance.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "This declaration defines a property; the separate CAR homogeneity theorem proves it. It does not assert that $\\alpha$ itself is inner or that implementing unitaries converge. The proposition about all simple separable unital C*-algebras named Kishimoto–Ozawa–Sakai is a different, more broadly quantified source definition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

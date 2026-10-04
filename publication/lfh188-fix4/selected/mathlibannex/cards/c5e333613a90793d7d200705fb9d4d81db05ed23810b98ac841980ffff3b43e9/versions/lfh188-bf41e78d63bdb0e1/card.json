@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.homogeneityShellFamily",
+  "title": "Choosing the CAR shell family from proved homogeneity",
+  "stable_card_id": "c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9",
+  "identity_key": "lfh:lfh-declaration-card:sha256:c5e333613a90793d7d200705fb9d4d81db05ed23810b98ac841980ffff3b43e9",
+  "source_url": "mathlibannex/sources/lfh188/c3ad871fddc44c6e55f60908/index.html#L72",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "9da5827d43b6ae75c25ffd7d0cf9b3b205c3a2b7ad9240db590b3f87baba4238",
+  "accepted_guide_sha256": "154b67b3c2650f7458517d1523df5bfea82271b655376b5e693120fa2a0d6844",
+  "content": {
+    "display_title": "Choosing the CAR shell family from proved homogeneity",
+    "one_sentence_role": "CAR homogeneity and exact shell matching supply one family whose distinguished component is fixed by an explicit identity choice.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. Write $\\iota_n:A_n\\to A$ for the canonical inclusion, $\\omega(\\iota_n(a))=a_{00}$ for the root state, $f_n=\\iota_n(E_{00})$ for its decreasing root projections, and $p_n=f_n-f_{n+1}$ for the difference shells. Each $p_n$ is a self-adjoint projection. Let $I$ be the set of unitary-equivalence classes of pure-state Gelfand–Naimark–Segal (GNS) representations of $A$. Choose a representative pure state $\\varphi_j$ for each $j\\in I$, with the distinguished class $o=[\\omega]$ represented by $\\varphi_o=\\omega$. Fix the following representative shell family. At $o$, choose $\\alpha_o=\\mathrm{id}_A$ and $w_{o,n}=p_n$. At every other $j$, choose an automorphism $\\alpha_j$ from CAR homogeneity for the pair $(\\varphi_j,\\omega)$, and then choose shell links for that same automorphism. Thus $\\varphi_j(\\alpha_j(a))=\\omega(a)$, $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$, and $w_{j,n}w_{j,n}^*=p_n$. This fixed choice is the homogeneity shell family.",
+    "definition_explanation": "The component supplier branches on $j=o$. On the root branch, the root-state representative is exactly $\\omega$ and $p_n^*p_n=p_n=p_np_n^*$, so identity and the shells themselves satisfy all component equations. On a non-root branch, homogeneity gives one $\\alpha_j$ with $\\varphi_j\\circ\\alpha_j=\\omega$ and approximate innerness. Apply the arbitrary-family shell-matching theorem to this $\\alpha_j$ and $(p_n)_n$, and choose its link sequence. The two root lemmas certify the explicit branch, and the displayed definition assembles these data into one family.",
+    "assumptions": "The selected states are pure, including the root state. CAR homogeneity is a proved result, and the difference shells are projections. No external KOS proposition or pre-existing shell family is an input to this definition.",
+    "conclusion": "The definition supplies a value of the representative-family structure, including both root equations. The same selected value can be carried into later constructions without making a fresh choice at each use.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "This is a fixed choice, not a uniqueness theorem for all possible families. In particular, the non-root links need not be unique. The subsequent structural theorem uses this very family. The present definition does not itself prove uniqueness of the irreducible representation class, the rank-one identities, simplicity, or the exclusion of compact-operator algebras.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

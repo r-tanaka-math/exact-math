@@ -1,0 +1,171 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+    "source_range": {
+      "end_line": 28,
+      "start_line": 22
+    },
+    "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem exists_state_extension_trace (family : RepresentativeShellFamily) :\n    ∃ φ : ShellFamilyTarget family →L[ℂ] ℂ,\n      φ ∈ MathlibAnnex.Analysis.CStarAlgebra.stateSpace (ShellFamilyTarget family) ∧\n      ∀ b, φ (shellFamilySourceHom family b) = trace b",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+    "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+      "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+      "start_line": 22,
+      "start_column": 1,
+      "end_line": 28,
+      "end_column": 75
+    },
+    "start_byte": 779,
+    "end_byte": 1055,
+    "sha256": "d1486a60cf0e297220cb4332e4da33794189a958f967133070af063b89255d8e",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Extending the CAR trace to the fixed shell target",
+    "one_sentence_role": "The source trace first becomes a state on the existing target algebra.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the completion of the matrix system $M_{2^n}(\\mathbb C)$, and let $\\tau$ be its normalized trace. Fix a representative shell family: for each chosen pure-GNS class $j$ it specifies an automorphism $\\alpha_j$ and partial isometries $w_{j,n}$ between the transported and root shells. Fix the links $L_j$ chosen by this family in the selected atomic representation $\\pi$. Throughout this Card,\n\n$$T=C^*(\\pi(A),\\{L_j\\}),\\qquad \\iota:A\\longrightarrow T,\\quad \\iota(a)=\\pi(a).$$\n\nThus $T$ is the already constructed concrete unital C*-algebra, and $\\iota$ is its injective source map. The links and target are kept fixed. A state means a positive continuous complex linear functional taking $1$ to $1$. There exists a state $\\phi$ on $T$ satisfying $\\phi(\\iota(a))=\\tau(a)$ for every $a\\in A$.",
+    "definition_explanation": null,
+    "assumptions": "The representative shell family is fixed. No representation of the target is an additional input to this extension theorem.",
+    "conclusion": "The set of state extensions of $\\tau$ to this same $T$ is nonempty. Traciality on all of $T$ and uniqueness of the extension are separate results.",
+    "proof_summary": "Transfer $\\tau$ to the isometric copy $\\iota(A)$, extend the bounded functional, and use normalization to obtain positivity.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The injective unital C*-homomorphism $\\iota$ is isometric. Consequently $\\lambda(\\iota(a))=\\tau(a)$ is well-defined and satisfies\n\n$$|\\lambda(\\iota(a))|\\leq\\|a\\|=\\|\\iota(a)\\|,\\qquad \\lambda(1)=1.$$\n\nThe input bounds are `norm_trace_le` and `trace_one`, and injectivity is `shellFamilySourceHom_injective`."
+      },
+      {
+        "step_id": "s2",
+        "text": "Apply the state-extension theorem for an injective unital star homomorphism, `exists_state_extension_of_injective`, with source functional $\\tau$. Its Hahn–Banach step extends $\\lambda$ with norm at most $1$; its normalized-contraction positivity argument makes the extension a state. Its restriction equality gives exactly $\\phi\\circ\\iota=\\tau$."
+      }
+    ],
+    "lean_realization_notes": "The extension theorem supplies an existence witness. The later definition `traceExtension` chooses one such witness; it does not change $T$ or create a universal completion.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean#L22-L28",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_state_extension_trace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean",
+        "source_range": {
+          "end_line": 28,
+          "start_line": 22
+        },
+        "source_sha256": "931d5792425ffb3c51dfc07ddf068c6838f12741c185fe61c16df2335c678de3",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed concrete target and source map",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L66-L69",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 69,
+          "start_line": 66
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Faithfulness of the source embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean#L78-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 78
+        },
+        "source_sha256": "6d85e71586556b28ff438f1b4f9807e475cf6fbb14dcdf11ef40d32fad653ee8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "State extension along an injective unital embedding",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/ExtensionOfEmbedding.lean#L77-L99",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.exists_state_extension_of_injective",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/State/ExtensionOfEmbedding.lean",
+        "source_sha256": "5f17b6494252d7817538676a7f446caabb8d89b4c546eeb2bb4b668df22417f0",
+        "source_range": {
+          "start_line": 77,
+          "end_line": 99
+        }
+      }
+    },
+    {
+      "label": "Normalization of the CAR trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L84-L90",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.trace_one",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 90,
+          "start_line": 84
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Contractive bound on the CAR trace",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L75-L82",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.norm_trace_le",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean",
+        "source_range": {
+          "end_line": 82,
+          "start_line": 75
+        },
+        "source_sha256": "23418050cbfadb65133fd3527823d30776cd0e2ff07b0d9d0389c4d04cee57e4",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "27922027d64747500d388ffe7fff3d06d4640882cdd419547b722bf62435216f",
+    "uid": "lfh:lfh-declaration-card:sha256:38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "707d398151dff952b4ac7f9f3a2d77758871512cb5e2c89ecf821bee48815366",
+    "uid": "lfh:lfh-card-exposition:sha256:fa8a11693e5f9bb98c312b93e2ce483d3a651cf894e83f0679b3465dd55a7ea2"
+  },
+  "guide": "Here `Limit`, `trace`, `ShellFamilyTarget family`, and `shellFamilySourceHom family` are $A,\\tau,T,\\iota$. The quantified `φ` is a state on $T$, and the final `∀ b` is equality on every source element. The linked proof invokes `exists_state_extension_of_injective`; that supplier is named in the proof, not in the displayed theorem signature.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/38f9dd2dee94e30e47039f5563b5824820090e96460226e5f8062b19b31c285b/versions/n69-707d398151dff952/index.html",
+    "pdf": "card.pdf"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.SeminormBall.map_eq",
+  "title": "Equality of seminorm balls under a linear bijection preserves the seminorms",
+  "stable_card_id": null,
+  "identity_key": "b9bead0331444581e4f118134d1d62f814409476ca37a163f9c555f1c5ec689a",
+  "source_url": "mathlibannex/sources/lfh188/c2cde53d757d55cd25cac892/index.html#L183",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Ball/VolumeRigidity.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "0250218f816ad2452f53b342a8f021d1cc81d427d4768cb11e2beaf81f10df8f",
+  "accepted_guide_sha256": "7dbef9f97a6d1bdbecababbef6d8cdebb359e395f730d4a19671d8eb296f958a",
+  "content": {
+    "display_title": "Equality of seminorm balls under a linear bijection preserves the seminorms",
+    "one_sentence_role": "Turns a ball-image equality into one seminorm inequality in each direction.",
+    "natural_language_statement": "Let $E,F$ be real vector spaces with definite seminorms $p$ and $q$, and write $B_p=\\{x:p(x)\\le1\\}$ and $B_q=\\{y:q(y)\\le1\\}$. If a real-linear bijection $L:E\\to F$ satisfies $L(B_p)=B_q$, then\n\n$$q(Lx)=p(x)\\qquad(x\\in E).$$",
+    "definition_explanation": null,
+    "assumptions": "The spaces are real vector spaces. The seminorms satisfy $p(x)=0\\Rightarrow x=0$ and $q(y)=0\\Rightarrow y=0$. The map $L$ is linear and bijective, and its image of the entire closed seminorm unit ball is exactly $B_q$. No topology, continuity, measure, compactness, finite-dimensionality or volume equality is assumed.",
+    "conclusion": "The given map $L$ preserves the two seminorms pointwise. With ordinary norms this gives the separately stated norm-preservation result for a linear bijection carrying one closed unit ball onto the other.",
+    "proof_summary": "For $x=0$, linearity and the seminorm axioms give equality. Suppose $x\\ne0$. Definiteness and nonnegativity give $p(x)>0$. The normalized vector $u=x/p(x)$ satisfies $p(u)=1$, so $u\\in B_p$. The forward ball containment gives $L(u)\\in B_q$. By linearity and seminorm homogeneity,\n\n$$\\frac{q(Lx)}{p(x)}=q(L(x/p(x)))\\le1,$$\n\nand multiplying by $p(x)>0$ gives $q(Lx)\\le p(x)$. This is the ball-containment lemma, valid for every $x$ after including zero. Since $L$ is bijective and $L(B_p)=B_q$, its inverse carries $B_q$ into $B_p$. Apply the same lemma with $(q,p,L^{-1})$ to $Lx$:\n\n$$p(x)=p(L^{-1}(Lx))\\le q(Lx).$$\n\nTogether the two inequalities give the desired equality.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "To verify the inverse containment, let $y\\in B_q$. The image equality supplies $u\\in B_p$ with $Lu=y$. Injectivity gives $L^{-1}y=u\\in B_p$. Thus the reversed ball-containment lemma has all its hypotheses, including definiteness of $q$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The two applications of the same lemma have opposite directions: $q(Lx)\\le p(x)$ and $p(L^{-1}(Lx))\\le q(Lx)$. Substitute the inverse identity in the second and apply antisymmetry. No conclusion is drawn from measure equality alone."
+      }
+    ],
+    "lean_realization_notes": "The auxiliary forward inequality only needs definiteness of the domain seminorm and containment of ball images. In the equality theorem, definiteness of $q$ is used when that same inequality is applied to $L^{-1}$. The argument is algebraic.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

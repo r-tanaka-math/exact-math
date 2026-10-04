@@ -1,0 +1,141 @@
+{
+  "assumptions": "Real normed vector spaces; the source s is convex with nonempty interior; f is an isometry equivalence s to t; x is interior to s exactly when f(x) is interior to t.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "e9a5e15ee95ad76de6435c37a4fee43c4bdda17836534bf186964da0c62a9c4f",
+    "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "1263484c712e461a6802349daed7936b3d5bc3f619a4670a7d5bc843f8a3263f",
+        "uid": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373"
+      },
+      "text": "The proof or construction of Convex-set extension via ambient interiors uses the project declaration “Mankiewicz extension on open connected domains” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Convex.0.MathlibAnnex.IsometryEquiv.interiorRestriction",
+      "source_locator": {
+        "end_column": 53,
+        "end_line": 49,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+        "source_sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c",
+        "start_column": 1,
+        "start_line": 24
+      },
+      "text": "The proof or construction of Convex-set extension via ambient interiors uses the project declaration “Restriction of an isometry to ambient interiors” at the indicated step."
+    }
+  ],
+  "conclusion": "f extends uniquely to an ambient real affine isometry equivalence. No additional convexity assumption on t is stated.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Convex-set extension via ambient interiors",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "e3280713e4d5094b18795c83a17dda49595e5719bd61fc723d19165618fcbd63",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:8d710bd235f9649cab3926e683bfba17088e64f24b8fbd23eab3482eef9721cd"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "7dc5136edabd6e33db77b7a9f9a2122488e5b12c078056cb01de6e0ab95ce426",
+    "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "e3280713e4d5094b18795c83a17dda49595e5719bd61fc723d19165618fcbd63",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:8d710bd235f9649cab3926e683bfba17088e64f24b8fbd23eab3482eef9721cd"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "7dc5136edabd6e33db77b7a9f9a2122488e5b12c078056cb01de6e0ab95ce426",
+      "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+  "natural_language_statement": "Let f be a surjective isometry from a convex subset s of a real normed space onto a subset t. Assume the ambient interior of s is nonempty and, for every x in s, x lies in interior(s) if and only if f(x) lies in interior(t). Then f extends uniquely to an ambient real affine isometry equivalence. No separate convexity assumption on t is required by this statement.",
+  "one_sentence_role": "Transfers the open-connected extension theorem to convex sets whose ambient interiors are matched exactly by the isometry.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Construct an isometry equivalence between interior(s) and interior(t) from the bidirectional interior-membership hypothesis."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Apply the open-connected extension theorem to the two open interiors, using connectedness of the source interior obtained from convexity of s."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Identify the subtype of points of s lying in interior(s) and prove it is dense in s via the convex closure-of-interior theorem."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Use continuity of the affine extension and of f to extend their equality from the dense interior subtype to every point of s."
+    },
+    {
+      "step_id": "step-5",
+      "text": "For uniqueness, restrict any competing ambient affine isometry to the source interior and invoke the uniqueness clause from the open-connected theorem."
+    }
+  ],
+  "proof_summary": "Restrict f to an isometry between the two ambient interiors. Convexity and nonempty interior make the source interior connected, so the open-connected theorem yields an affine extension on the interiors. The interior of a convex set with nonempty interior is dense in the set; continuity therefore extends agreement to all of s. Uniqueness is inherited by restriction to the interior.",
+  "source_locator": {
+    "end_column": 10,
+    "end_line": 95,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+    "source_sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c",
+    "start_column": 1,
+    "start_line": 51
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "663e35e00c2ca43a918c2d7698f640941fb8d2b824603b5321a1c5d3f82e79d6",
+    "uid": "lfh:lfh-source-build-binding:sha256:ed26b1fb41768b9b479899dc0042adac1db4f20718efd5af18b6bc250b8cafcf"
+  },
+  "source_sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c",
+  "source_signature": {
+    "end_byte": 2246,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "2285ef6e2982a0c593448cf1b20e65f6b3bbfaebdb960c90657435910b0b39de",
+    "source_command_range": {
+      "end_column": 10,
+      "end_line": 95,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+      "source_sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c",
+      "start_column": 1,
+      "start_line": 51
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean",
+    "source_sha256": "f6cab253fd6b2054d08c87bab759859c8d2bf89a27a6bb4ae14eff4801601f4c",
+    "start_byte": 1932,
+    "text": "theorem existsUnique_affineExtension_of_convex\n    {s : Set E} {t : Set F} (f : s ≃ᵢ t)\n    (hs : Convex ℝ s) (hsint : (interior s).Nonempty)\n    (hfi : ∀ x : s,\n      (x : E) ∈ interior s ↔ ((f x : t) : F) ∈ interior t) :\n    ∃! A : E ≃ᵃⁱ[ℝ] F,\n      ∀ x : s, A (x : E) = ((f x : t) : F)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Convex.lean#L51-L95",
+  "stable_card_id": "45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

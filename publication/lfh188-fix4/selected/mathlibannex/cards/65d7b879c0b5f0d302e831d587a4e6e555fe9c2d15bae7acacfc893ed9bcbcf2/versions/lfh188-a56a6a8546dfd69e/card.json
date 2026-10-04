@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.not_finiteDimensional",
+  "title": "The completed CAR algebra is infinite-dimensional",
+  "stable_card_id": "65d7b879c0b5f0d302e831d587a4e6e555fe9c2d15bae7acacfc893ed9bcbcf2",
+  "identity_key": "lfh:lfh-declaration-card:sha256:65d7b879c0b5f0d302e831d587a4e6e555fe9c2d15bae7acacfc893ed9bcbcf2",
+  "source_url": "mathlibannex/sources/lfh188/a18cb31751ebde92b1619283/index.html#L411",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "f5c7800f7da0e611f2f6db1575a66fc56320e596083feacd87fcaffeb7cab4e0",
+  "accepted_guide_sha256": "9582d2284e34052391ae7ccc55cdda58e1b2d1de85339f17560f45da55c6bd9f",
+  "content": {
+    "assumptions": "The algebra $A$ is the fixed completed CAR algebra. For every $n\\geq0$, its canonical stage map $\\iota_n:A_n\\to A$ is complex-linear and injective, and $\\dim_{\\mathbb C}A_n=(2^n)^2$. These are established properties of this construction, not new assumptions on an arbitrary algebra.",
+    "conclusion": "No finite integer can be the complex dimension of $A$: every stage contributes an embedded vector space of dimension $4^n$, and these dimensions are unbounded.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "The completed CAR algebra is infinite-dimensional",
+    "language_tag": "en",
+    "lean_realization_notes": "The conclusion concerns vector-space dimension over $\\mathbb C$. It does not require an irreducible representation or a claim about compact operators.",
+    "natural_language_statement": "Let $A$ be the norm completion of the matrix system $A_n=M_{2^n}(\\mathbb C)$ with embeddings $a\\mapsto a\\otimes I_2$. Then $A$ is not finite-dimensional as a complex vector space.",
+    "one_sentence_role": "Rules out finite dimension by retaining matrix subalgebras of unbounded dimension.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Assume that $A$ is finite-dimensional and write $k=\\dim_{\\mathbb C}A$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The linear injection $\\iota_{k+1}$ forces $\\dim_{\\mathbb C}A_{k+1}\\leq k$."
+      },
+      {
+        "step_id": "s3",
+        "text": "The stage dimension is $(2^{k+1})^2>k$, yielding the contradiction."
+      }
+    ],
+    "proof_summary": "If $A$ had finite dimension $k$, injectivity of each $\\iota_n$ would give $(2^n)^2\\leq k$. Take $n=k+1$. The elementary inequality $k<2^n\\leq(2^n)^2$ contradicts that bound."
+  }
+}

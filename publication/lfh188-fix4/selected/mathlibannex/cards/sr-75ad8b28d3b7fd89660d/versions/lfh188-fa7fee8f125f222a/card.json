@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.PluckerBody.eq_of_sphereIsometry",
+  "title": "Sphere isometries preserve the Plücker body",
+  "stable_card_id": null,
+  "identity_key": "53f7bc1299ddb98375af1cc502cee8334e09a87f345f0e148533487a148dd609",
+  "source_url": "mathlibannex/sources/lfh188/7484385cda1c20f2a4528b5b/index.html#L187",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Plucker/BodyInvariance.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "aeded10096a0d780b78a532d3c609f27b4e08e9215fb29d6377b3c4cc99382b5",
+  "accepted_guide_sha256": "aad4287bcfc0e0bfe21426313cdf86c427e7d5db183d4bab61808c77aef4593a",
+  "content": {
+    "display_title": "Sphere isometries preserve the Plücker body",
+    "one_sentence_role": "Combines generator transport and its inverse for every finite output dimension.",
+    "natural_language_statement": "Let $m,N\\in\\mathbb N_0$, put $n=m+1>0$, and give $E=\\mathbb R^n$ and $F=\\mathbb R^N$ their coordinate sup norms. Let $\\lambda_n$ be the fixed coordinate Lebesgue measure on $E$. Let $p,q:E\\to\\mathbb R$ be continuous real seminorms with specified positive constants $a_p,b_p,a_q,b_q$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty,\\qquad a_q\\|x\\|_\\infty\\le q(x)\\le b_q\\|x\\|_\\infty\\quad(x\\in E).$$\n\nBoth $p$ and $q$ are norms. For each $s\\in\\{p,q\\}$ define the closed unit ball, unit sphere, and real reference volume by\n$$K_s=\\{x:s(x)\\le1\\},\\qquad\\Sigma_s=\\{x:s(x)=1\\},\\qquad v_s=\\lambda_n(K_s)\\in(0,\\infty).$$\nThe finite measure is read as a real number when used as a scalar.\n\nLet $\\mathcal I_{n,N}$ be the finite set of increasing $n$-tuples of distinct rows from $\\{1,\\ldots,N\\}$. The minor-coordinate space $\\mathbb R^{\\mathcal I_{n,N}}$ carries its sup norm. For a linear map $B:E\\to F$, put $B_{ij}=(Be_j)_i$ in the standard coordinate basis. Write $\\Pi_n(B)$ for its maximal-minor vector and $\\mathcal V_p(B),\\mathcal V_q(B)$ for its two volume-scaled versions. Their coordinates and scaling are\n$$\\Pi_n(B)_I=\\det(B_{i_a,j})_{a,j=1}^n,\\qquad\\mathcal V_s(B)=v_s\\Pi_n(B)\\ (s\\in\\{p,q\\})\\quad(I=(i_1<\\cdots<i_n)).$$\n\nFor each $s\\in\\{p,q\\}$, let $\\mathcal C_s^N$ consist of linear maps $B:E\\to F$ with $\\|Bz\\|_\\infty\\le s(z)$ for all $z$. Set\n$$\\mathcal G_s^N=\\{\\pm\\mathcal V_s(B):B\\in\\mathcal C_s^N\\},\\qquad\\mathcal P_s^N=\\operatorname{conv}_{\\mathbb R}(\\mathcal G_s^N).$$\nIf $\\Delta:\\Sigma_p\\to\\Sigma_q$ is a bijection with $q(\\Delta(u)-\\Delta(v))=p(u-v)$ for all $u,v\\in\\Sigma_p$, then\n$$\\mathcal P_p^N=\\mathcal P_q^N.$$",
+    "definition_explanation": null,
+    "assumptions": "The source dimension is positive, $n=m+1$. Both seminorms have the specified positive norm comparisons and are continuous. The sphere map is a bijective chord-distance isometry. The output dimension $N$ is arbitrary, including zero.",
+    "conclusion": "The two bodies agree for each finite $N$. This statement does not classify the norms or assert that the given sphere map itself has a linear extension.",
+    "proof_summary": "Transport both signs, take convex hulls, and repeat for the inverse isometry.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Place every signed target generator in the source body.** For each $B\\in\\mathcal C_q^N$,\n$$\\mathcal V_q(B)\\in\\mathcal P_p^N,\\qquad-\\mathcal V_q(B)\\in\\mathcal P_p^N.$$\nThe first membership is [generator transport through the sphere isometry](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/BodyInvariance.lean#L134-L168) applied to $\\Delta$ and this $q$-contraction $B$. The second is [sign symmetry of the same source body](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L41-L50). Consequently,\n$$\\mathcal G_q^N\\subseteq\\mathcal P_p^N.$$\nThis is [the signed-generator inclusion](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/BodyInvariance.lean#L170-L177)."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Pass to convex hulls.** Since $\\mathcal P_p^N$ is convex, the preceding inclusion implies\n$$\\mathcal P_q^N=\\operatorname{conv}_{\\mathbb R}(\\mathcal G_q^N)\\subseteq\\mathcal P_p^N.$$\nEquivalently, every finite convex combination of its generators stays in the source body. This is [the body inclusion](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/BodyInvariance.lean#L179-L185)."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Use the inverse isometry for the reverse inclusion.** The bijection $\\Delta^{-1}:\\Sigma_q\\to\\Sigma_p$ satisfies the same chord-distance condition with $p,q$ interchanged. Applying Steps 1–2 to that map gives\n$$\\mathcal P_p^N\\subseteq\\mathcal P_q^N.$$\nThe two inclusions are for the same output dimension $N$ and the same reference minor coordinates, so they yield the asserted equality."
+      }
+    ],
+    "lean_realization_notes": null,
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

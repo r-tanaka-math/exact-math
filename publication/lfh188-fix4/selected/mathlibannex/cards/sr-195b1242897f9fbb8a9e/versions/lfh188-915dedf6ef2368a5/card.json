@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.SeminormBall.measure_lt",
+  "title": "A compact proper subset of a seminorm ball has smaller Haar measure",
+  "stable_card_id": null,
+  "identity_key": "461f355efa7341d4b765c6fe3d72a2dc48a40b0487e65a81cd2a080180b463a3",
+  "source_url": "mathlibannex/sources/lfh188/b0769a95104e0d2b48de595c/index.html#L118",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Ball/VolumeRigidity.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "cf91ef813d756e6a74e3bad4ef03ea2d2e828b67ce7a7e9ab4ff1ebd54f8c6c0",
+  "accepted_guide_sha256": "c99001ecaddc5c97f3a2895ac44b059d204ed125a1e2c6ff7e5724147ae1b72a",
+  "content": {
+    "display_title": "A compact proper subset of a seminorm ball has smaller Haar measure",
+    "one_sentence_role": "Finds a nonempty open part of the missing set and uses finiteness of the compact set to make the measure comparison strict.",
+    "natural_language_statement": "Let $E$ be a real normed space with its Borel measurable structure, let $\\mu$ be an additive Haar measure, and let $p:E\\to\\mathbb R$ be a continuous seminorm. Put $B_p=\\{x:p(x)\\le1\\}$. If $K\\subsetneq B_p$ is compact, then\n\n$$\\mu(K)<\\mu(B_p).$$",
+    "definition_explanation": null,
+    "assumptions": "The measure is an additive Haar measure: in particular it is finite on compact sets and positive on nonempty open sets. The seminorm $p$ is continuous for the given norm topology; it need not be definite. The set $K$ is compact, is contained in $B_p$, and is not equal to $B_p$. No convexity of $K$, finite-dimensionality of $E$, or finiteness of $\\mu(B_p)$ is added.",
+    "conclusion": "The measure inequality is strict in the extended nonnegative reals $[0,\\infty]$. Compactness ensures $\\mu(K)<\\infty$, while $\\mu(B_p)$ is allowed to be infinite.",
+    "proof_summary": "Choose $y\\in B_p\\setminus K$. Compactness makes $K$ closed, so its complement contains a neighbourhood of $y$. An inward point $ty$ with $0<t<1$ sufficiently close to $1$ remains outside $K$. By seminorm homogeneity,\n\n$$p(ty)=t\\,p(y)\\le t<1.$$\n\nContinuity of $p$ therefore makes $\\{z:p(z)<1\\}\\cap K^c$ a nonempty open subset of $B_p\\setminus K$. Positivity of Haar measure on nonempty open sets implies $0<\\mu(B_p\\setminus K)$. The sets $K$ and $B_p\\setminus K$ are measurable and disjoint, with union $B_p$. Hence\n\n$$\\mu(B_p)=\\mu(K)+\\mu(B_p\\setminus K)>\\mu(K),$$\n\nwhere strictness uses $\\mu(K)<\\infty$, obtained from compactness. This reasoning remains valid if the second summand is infinite.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "To make the inward choice explicit, take $\\delta>0$ with the open norm ball of radius $\\delta$ about $y$ contained in $K^c$. Set\n\n$$a=\\min\\left\\{\\frac12,\\frac{\\delta}{2(\\|y\\|+1)}\\right\\},\\qquad t=1-a.$$\n\nThen $0<a\\le1/2$, so $0<t<1$, and\n\n$$\\|ty-y\\|=a\\|y\\|<\\frac\\delta2<\\delta.$$\n\nThus $ty\\notin K$. The strict inequality for $p(ty)$ supplies an interior point of $B_p$; intersecting its open neighbourhood with $K^c$ gives the nonempty open defect."
+      },
+      {
+        "step_id": "s2",
+        "text": "The compact set $K$ is closed and Borel measurable. Continuity of $p$ makes $B_p=\\{p\\le1\\}$ closed and hence measurable, so its difference with $K$ is measurable. The containment $K\\subseteq B_p$ gives the disjoint decomposition $B_p=K\\cup(B_p\\setminus K)$. Additivity and the finite compact measure now justify the strict inequality, without subtracting infinite measures."
+      }
+    ],
+    "lean_realization_notes": "The key geometric input is a nonempty interior of $B_p\\setminus K$. It concerns the ambient norm topology, even when $p$ has a kernel. Taking $p=\\|\\cdot\\|$ gives the separately cited norm-ball specialization, without imposing convexity on $K$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

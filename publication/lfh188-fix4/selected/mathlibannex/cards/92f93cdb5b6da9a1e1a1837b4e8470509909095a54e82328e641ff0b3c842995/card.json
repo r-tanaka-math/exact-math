@@ -1,0 +1,151 @@
+{
+  "assumptions": "Real normed vector spaces; f is an isometry equivalence between closed balls with the same radius r > 0.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "8f8f74883b3320a2f4b6f780cbbf954685b42419f699eb7498b3a5f62286e6f5",
+    "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.IsometryEquiv.map_center_of_mapsTo_pointReflection",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "87c6848b90700ef729e5e4c337c08137c9495291a3155b705a5ad63663287d77",
+        "uid": "lfh:lfh-declaration-card:sha256:e7820e270300b3e7830e96df2b7f206fc5684f23124002cdf8f9ac29a25b6ad0"
+      },
+      "text": "The proof or construction of Affine extension from equal-radius closed balls uses the project declaration “Center transport under bounded point-reflection symmetry” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Ball.0.MathlibAnnex.IsometryEquiv.mapsTo_pointReflection_closedBall",
+      "source_locator": {
+        "end_column": 11,
+        "end_line": 39,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+        "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+        "start_column": 1,
+        "start_line": 35
+      },
+      "text": "The proof or construction of Affine extension from equal-radius closed balls uses the project declaration “Closed balls are invariant under center reflection” at the indicated step."
+    },
+    {
+      "label": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_of_convex",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "e9a5e15ee95ad76de6435c37a4fee43c4bdda17836534bf186964da0c62a9c4f",
+        "uid": "lfh:lfh-declaration-card:sha256:45c4db7ff375613be920f48ef4a7427063daaa3084fa98c5dd90c595522e7428"
+      },
+      "text": "The proof or construction of Affine extension from equal-radius closed balls uses the project declaration “Convex-set extension via ambient interiors” at the indicated step."
+    }
+  ],
+  "conclusion": "f extends uniquely to an ambient real affine isometry equivalence.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Affine extension from equal-radius closed balls",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "2f7bf290b978504895210d7d80094d4e2d1e83f0f45a7887e54ae6ff0e184f55",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:03b7dc60ea160c0d61bfa8ea0c8b6ceb1da55be5b45cd14888447c38df925320"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "17f27f1cddaac7817c4669469925411815ac3e0475b586fd47b2e04f5d14e0d3",
+    "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "2f7bf290b978504895210d7d80094d4e2d1e83f0f45a7887e54ae6ff0e184f55",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:03b7dc60ea160c0d61bfa8ea0c8b6ceb1da55be5b45cd14888447c38df925320"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "17f27f1cddaac7817c4669469925411815ac3e0475b586fd47b2e04f5d14e0d3",
+      "uid": "lfh:lfh-declaration-card:sha256:92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension_closedBall",
+  "natural_language_statement": "Let f be a surjective isometry between the closed balls closedBall(c,r) and closedBall(d,r) of the same radius r>0 in real normed spaces. Then f has a unique ambient real affine isometry-equivalence extension agreeing with f on the whole source closed ball.",
+  "one_sentence_role": "Extends an isometry of closed balls by first recovering the centers and then passing through the convex-interior extension theorem.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Regard c and d as points of their respective closed balls."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Use boundedness and point-reflection invariance of closed balls to prove that f maps the source center to the target center."
+    },
+    {
+      "step_id": "step-3",
+      "text": "For each source point, rewrite interior membership as a strict distance-to-center inequality and transport that distance through f using the center identity."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Show that the source closed ball has nonempty ambient interior because r is positive."
+    },
+    {
+      "step_id": "step-5",
+      "text": "Apply the convex-set extension theorem to the closed ball, the nonempty interior, and the proved interior-membership equivalence."
+    }
+  ],
+  "proof_summary": "The center-transport theorem shows that f sends c to d because both closed balls are bounded and invariant under reflection about their centers. Distance preservation then identifies membership in the two ambient interiors, which are the corresponding open balls. The convex extension theorem completes the proof.",
+  "source_locator": {
+    "end_column": 42,
+    "end_line": 78,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+    "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+    "start_column": 1,
+    "start_line": 41
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "bd293a5bb342a957f5be76bdae5b83576b3cbb2320529f61b585267c8044e3e9",
+    "uid": "lfh:lfh-source-build-binding:sha256:42971f096a71e5c1278f3391af26602e8e0baaa7a5237faaed231aa1defec457"
+  },
+  "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+  "source_signature": {
+    "end_byte": 1735,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "16f64003b8ad024edaaecebead56b269fe82f5468d9fc6b8a517072dbdc89ceb",
+    "source_command_range": {
+      "end_column": 42,
+      "end_line": 78,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+      "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+      "start_column": 1,
+      "start_line": 41
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean",
+    "source_sha256": "5422292481a6605e8cc4a1c2c3ef0b1200dfa418cac43dfda6d708e7db6a25c2",
+    "start_byte": 1484,
+    "text": "theorem existsUnique_affineExtension_closedBall\n    {c : E} {d : F} {r : ℝ} (f : closedBall c r ≃ᵢ closedBall d r)\n    (hr : 0 < r) :\n    ∃! A : E ≃ᵃⁱ[ℝ] F,\n      ∀ x : closedBall c r,\n        A (x : E) = ((f x : closedBall d r) : F)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Ball.lean#L41-L78",
+  "stable_card_id": "92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/92f93cdb5b6da9a1e1a1837b4e8470509909095a54e82328e641ff0b3c842995/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

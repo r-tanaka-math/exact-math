@@ -1,0 +1,32 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_unit_eigenvector_of_character_ne_infinity",
+  "title": "A character becomes a joint unit eigenvector",
+  "stable_card_id": "7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a",
+  "identity_key": "lfh:lfh-declaration-card:sha256:7a1b136b8464e6029397491d4d05fa22de45ecb383b3384c4e0c2fcf7df3150a",
+  "source_url": "mathlibannex/sources/lfh188/2bb4381550d957e780a58db7/index.html#L85",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterEigenvector.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 8,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "512142c7a49c0f027a090868bbe392fb4cf6b021093ea4b545f6e540f0cd8e97",
+  "accepted_guide_sha256": "9ff6087d3bf926864169aa171d528125120e603e13c7ce87e3cba1679e5eed4c",
+  "content": {
+    "display_title": "A character becomes a joint unit eigenvector",
+    "one_sentence_role": "Transfers a normalized GNS eigenvector to the given representation through a unitary with a specified direction.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed and. Let $H$ be a complex Hilbert space and $\\pi:A\\to\\mathcal B(H)$ a $*$-representation. Assume $\\pi$ is nonzero irreducible and that every nonzero irreducible representation of $A$ of $A$ is unitarily equivalent to it. Let $\\widehat\\pi(\\lambda,a)=\\lambda I_H+\\pi(a)$ be its unital extension to $\\widetilde A=\\mathbb C\\oplus A$. Write $\\iota(a)=(0,a)$ and $\\chi_\\infty(\\lambda,a)=\\lambda$. Let $D\\subseteq\\widetilde A$ be a norm-closed unital $*$-subalgebra and $\\chi$ a character of $D$ distinct from $\\chi_\\infty|_D$. Then there is $\\eta\\in H$ such that $$\\|\\eta\\|=1,\\qquad \\widehat\\pi(d)\\eta=\\chi(d)\\eta\\quad(d\\in D).$$",
+    "definition_explanation": null,
+    "assumptions": "No separability of $H$ is assumed, and $D$ is not assumed commutative. The existence of the specified character of $D$ is part of the input.",
+    "conclusion": "One unit vector is a joint eigenvector for every $d\\in D$, with eigenvalues given by the very same prescribed character $\\chi$.",
+    "proof_summary": "Extend the character to a pure state; prove that its GNS restriction is nonzero; use the singleton comparison and the zero GNS norm of a centered element.",
+    "proof_steps": [
+      "Apply [Pure-state extension of the prescribed character](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Extension.lean#L231-L258) to this closed unital $*$-subalgebra $D$ of the nonzero unital $\\widetilde A$ and its character $\\chi$. Obtain a pure state $\\varphi$ on $\\widetilde A$ with $\\varphi|_D=\\chi$. Let $(H_\\varphi,\\rho_U,\\xi)$ be its GNS representation, where $\\|\\xi\\|=1$, and restrict it by $\\rho(a)=\\rho_U(\\iota(a))$.",
+      "If $\\rho(a)=0$ for every $a\\in A$, the GNS identity would give $\\varphi(\\iota(a))=\\langle\\xi,\\rho(a)\\xi\\rangle=0$. Complex linearity and normalization would then give $$\\varphi(\\lambda,a)=\\lambda=\\chi_\\infty(\\lambda,a).$$ Restricting to $D$ contradicts $\\chi\\ne\\chi_\\infty|_D$. Thus $\\rho$ is nonzero. Purity gives irreducibility of $\\rho_U$ by [Pure-state GNS irreducibility](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Irreducible.lean#L127-L144). Reducing subspaces for $\\rho$ also reduce $\\lambda I+\\rho(a)$, so $\\rho$ is irreducible.",
+      "Apply the singleton condition to this nonzero irreducible $\\rho$ to obtain a unitary equivalence. Extending it to the unitizations supplies a unitary $V:H\\to H_\\varphi$ with $$V\\widehat\\pi(z)=\\rho_U(z)V\\qquad(z\\in\\widetilde A).$$ We use this chosen $V$ for the rest of the argument. It is unnecessary to identify it with a separately chosen earlier intertwiner.",
+      "For $d\\in D$, put $q=d-\\chi(d)1\\in D$. Multiplicativity and preservation of adjoints give $\\chi(q)=0$ and $\\chi(q^*q)=0$. Since the extension agrees with $\\chi$ on $D$, the GNS identity yields $$\\|\\rho_U(q)\\xi\\|^2=\\varphi(q^*q)=\\chi(q^*q)=0.$$ Therefore $\\rho_U(d)\\xi=\\chi(d)\\xi$.",
+      "Set $\\eta=V^{-1}\\xi$. Unitarity gives $\\|\\eta\\|=\\|\\xi\\|=1$. Substituting this same vector into the intertwining equation gives $$V\\widehat\\pi(d)\\eta=\\rho_U(d)\\xi=\\chi(d)\\xi=V(\\chi(d)\\eta).$$ Cancel the injective $V$ to obtain the stated joint eigenvector equations."
+    ],
+    "lean_realization_notes": []
+  }
+}

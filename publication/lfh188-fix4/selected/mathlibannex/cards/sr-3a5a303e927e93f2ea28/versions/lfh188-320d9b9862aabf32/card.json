@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.BilipschitzOrientation.integral_det_fderiv_eq_signed_volume",
+  "title": "The signed Jacobian integral is a sign times target volume",
+  "stable_card_id": null,
+  "identity_key": "f18dc0c7a7fb9b662830dde74406049fdcdfb70409266933986a86e3778f2947",
+  "source_url": "mathlibannex/sources/lfh188/30ac6cb4ff776727fd8bc4b5/index.html#L72",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Constancy.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "f17cc47db523e628895b64c4138c01c916cd3b2cfaafb433e0e9f4993475de29",
+  "accepted_guide_sha256": "d67ae7011cb95787bfef811e676e9a8d30b2f96d1175d1c5c57190cc8f907e54",
+  "content": {
+    "display_title": "The signed Jacobian integral is a sign times target volume",
+    "one_sentence_role": "Uses preconnectedness to obtain a constant, positive measure to identify its sign, and finite measure to integrate it.",
+    "natural_language_statement": "Let $n\\in\\mathbb N_0$ and let $E=\\mathbb R^n$ have the sup norm $\\|\\cdot\\|_\\infty$. Let $S,T\\subseteq E$ be open, and let $f,g:E\\to E$ be globally Lipschitz maps whose restrictions $f|_S:S\\to T$ and $g|_T:T\\to S$ are mutually inverse. Fix a number $\\ell>0$ such that\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\qquad(x,x'\\in E).$$\n\nAssume that $T$ is preconnected (it has no separation into two nonempty relatively open subsets) and that its Lebesgue measure $\\lambda(T)$ satisfies $0<\\lambda(T)<\\infty$.\n\nWrite $Df(x):E\\to E$ for the Fréchet derivative of $f$ at $x$ when it exists, and set $Df(x)=0$ at other points. Define the signed Jacobian by $J_f(x)=\\det Df(x)$. Then there exists $\\varepsilon\\in\\{-1,1\\}$ such that\n$$\\int_S J_f(x)\\,d\\lambda(x)=\\varepsilon\\lambda(T).$$\nHere the finite measure $\\lambda(T)$ is identified with its real value, so this is an equality of real numbers.",
+    "definition_explanation": null,
+    "assumptions": "The target $T$ is **preconnected**, has **positive** Lebesgue measure, and has **finite** Lebesgue measure:\n$$T\\text{ is preconnected},\\qquad 0<\\lambda(T)<\\infty.$$\nThese conditions are additional to openness and the following inverse and global metric assumptions.\n\nThe sets $S,T\\subseteq E$ are open. The inverse and image conditions are\n$$\\begin{aligned}\nf(S)&\\subseteq T,&g(T)&\\subseteq S,\\\\\ng(f(x))&=x\\quad(x\\in S),&f(g(y))&=y\\quad(y\\in T).\n\\end{aligned}$$\nThe global bounds use specified constants $C_f,C_g\\ge0$ and $\\ell>0$:\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\le C_f\\|x-x'\\|_\\infty\\qquad(x,x'\\in E),$$\n$$\\|g(y)-g(y')\\|_\\infty\\le C_g\\|y-y'\\|_\\infty\\qquad(y,y'\\in E).$$\nThe estimates hold on all of $E$, not just on $S$ or $T$. The inverse identities are required only on $S$ and $T$.",
+    "conclusion": "The integral of the signed Jacobian is either $\\lambda(T)$ or $-\\lambda(T)$. The sign $\\varepsilon$ is obtained from the maps; it is not fixed in advance.",
+    "proof_summary": "Identify the almost-everywhere constant value of the transported sign at a point outside its null exceptional set. Then substitute the constant function $1$ into signed transfer.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Obtain a constant and identify its value.** Define\n$$s_f(x)=\\begin{cases}1,&J_f(x)\\ge0,\\\\-1,&J_f(x)<0,\\end{cases}\\qquad\\sigma_f(y)=s_f(g(y)).$$\nBy [constancy of the transported sign](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Constancy.lean#L50-L56), applied with the assumed preconnectedness of $T$, there is $c\\in\\mathbb R$ for which the set\n$$N_c=\\{y\\in T:\\sigma_f(y)\\ne c\\}$$\nsatisfies $\\lambda(N_c)=0$. Since $\\lambda(T)>0$, choose $y_0\\in T\\setminus N_c$. Then\n$$c=\\sigma_f(y_0)\\in\\{-1,1\\}.$$\nThis is [the positive-measure sign-identification lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Constancy.lean#L58-L70) with the same almost-everywhere equality and the hypothesis $\\lambda(T)>0$. Put $\\varepsilon=c$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Integrate using finite target measure.** The relevant integrability calculation is\n$$\\int_T|1|\\,d\\lambda=\\lambda(T)<\\infty.$$\nThus the observable $\\phi(y)=1$ satisfies the hypothesis of [signed transfer](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L205-L280). With the same maps and sets, that formula and Step 1 give\n$$\\begin{aligned}\n\\int_S J_f(x)\\,d\\lambda(x)\n&=\\int_T\\sigma_f(y)\\,d\\lambda(y)\\\\\n&=\\int_T c\\,d\\lambda(y)=c\\lambda(T)=\\varepsilon\\lambda(T).\n\\end{aligned}$$\nThe replacement of $\\sigma_f$ by $c$ uses $\\lambda(N_c)=0$. The final integral is finite because $T$ has finite measure."
+      }
+    ],
+    "lean_realization_notes": "The proof uses the three target hypotheses at different stages: preconnectedness gives an almost-everywhere constant, positive measure identifies its value as a sign, and finite measure permits integration of that constant.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

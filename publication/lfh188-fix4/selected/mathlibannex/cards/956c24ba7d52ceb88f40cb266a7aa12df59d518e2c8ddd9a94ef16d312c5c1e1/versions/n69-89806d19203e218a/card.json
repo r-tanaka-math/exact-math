@@ -1,0 +1,163 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+    "source_range": {
+      "end_line": 104,
+      "start_line": 89
+    },
+    "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem homogeneity_of_innerIntertwiningSequences\n    (hlocal : ∀ (phi psi : Limit →L[ℂ] ℂ),\n      MathlibAnnex.CStarAlgebra.IsPureState Limit phi → MathlibAnnex.CStarAlgebra.IsPureState Limit psi →\n        HasInnerIntertwiningSequence phi psi) :\n    PureStateHomogeneity",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+    "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+      "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+      "start_line": 89,
+      "start_column": 1,
+      "end_line": 104,
+      "end_column": 16
+    },
+    "start_byte": 4300,
+    "end_byte": 4583,
+    "sha256": "d20a03d25f7a75545342d7f67e5ed9c6b05b2a9e7a34bdfa69e5e5ae6a29775c",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "Two-sided inner sequences imply pure-state homogeneity",
+    "one_sentence_role": "The forward and inverse limits close the homogeneity argument once an intertwining sequence is supplied for every pure-state pair.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. A state means a positive continuous complex-linear functional taking value $1$ at the identity; a pure state is an extreme point of this convex state space. Assume that every pair of pure states $\\varphi,\\psi$ admits inner automorphisms $\\alpha_n$ such that $\\alpha_n(a)$ and $\\alpha_n^{-1}(a)$ are norm-Cauchy for every $a$, and $\\varphi(\\alpha_n(a))\\to\\psi(a)$. Then there is an automorphism $\\alpha$ with $\\varphi\\circ\\alpha=\\psi$, and for every finite $F\\subset A$ and $\\varepsilon>0$ a unitary $u$ satisfies $\\|\\alpha(a)-uau^*\\|<\\varepsilon$ for every $a\\in F$.",
+    "definition_explanation": null,
+    "assumptions": "The supplier assumption quantifies over all pure-state pairs and gives the sequence conditions just stated. The theorem is conditional on this supplier. Completeness is a property of the completed CAR algebra, not a claim that a merely dense algebraic union already has these limits.",
+    "conclusion": "The algebra has the pure-state homogeneity property. The inverse Cauchy condition is what supplies surjectivity of the limit; approximate innerness then follows by choosing one sufficiently late term for each finite set.",
+    "proof_summary": "Fix a supplied sequence and define $\\alpha(a)=\\lim_n\\alpha_n(a)$ and $\\beta(a)=\\lim_n\\alpha_n^{-1}(a)$. Operations pass through the limits, and isometry lets the exact inverse identities pass through moving inputs. Thus $\\alpha$ and $\\beta$ are mutually inverse star homomorphisms. Continuity transports the state equation to the limit, and a common late index yields the finite-set approximation.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Each automorphism is an isometry. Norm completeness and the two Cauchy hypotheses therefore give the two pointwise limits. Continuity of addition, multiplication, scalar multiplication, and involution makes the forward limit a unital complex star homomorphism; the inverse limit has the same properties."
+      },
+      {
+        "step_id": "s2",
+        "text": "For fixed $a$, use $\\alpha_n(\\alpha_n^{-1}(a))=a$. The difference between $\\alpha_n(\\beta(a))$ and this constant value has norm $\\|\\beta(a)-\\alpha_n^{-1}(a)\\|\\to0$. Passing to the limit at the fixed input $\\beta(a)$ gives $\\alpha(\\beta(a))=a$. Interchanging the two sequences gives $\\beta(\\alpha(a))=a$. This proves bijectivity rather than only injectivity."
+      },
+      {
+        "step_id": "s3",
+        "text": "Continuity of $\\varphi$ gives $\\varphi(\\alpha_n(a))\\to\\varphi(\\alpha(a))$. The supplied state limit and uniqueness of limits imply $\\varphi(\\alpha(a))=\\psi(a)$."
+      },
+      {
+        "step_id": "s4",
+        "text": "For a finite set $F$, choose a single index $N$ beyond the convergence thresholds for all $a\\in F$. If $\\alpha_N=\\operatorname{Ad}(u_N)$, then $\\|\\alpha(a)-u_Nau_N^*\\|<\\varepsilon$ on $F$. For the empty set the requirement is vacuous."
+      }
+    ],
+    "lean_realization_notes": "This assembly theorem does not itself construct the sequences. The separate pure-state supplier discharges that hypothesis for CAR. It neither uses nor proves the general all-simple-separable-algebras KOS proposition.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean#L89-L104",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.homogeneity_of_innerIntertwiningSequences",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+        "source_range": {
+          "end_line": 104,
+          "start_line": 89
+        },
+        "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The precise supplier condition",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean#L77-L87",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean",
+        "source_range": {
+          "end_line": 87,
+          "start_line": 77
+        },
+        "source_sha256": "6d179537e1c328521c744c9bd47737cb60ee23a9272499d3f52ddf9f0b80fde8",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Construction of mutually inverse limits",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean#L201-L212",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean",
+        "source_sha256": "c59bb7371e07083206c3707b9083e40bc568c38af869585c4f84aa8a36cb2b1d",
+        "source_range": {
+          "start_line": 201,
+          "end_line": 212
+        }
+      }
+    },
+    {
+      "label": "Diagonal isometry argument giving bijectivity",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean#L114-L135",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.pointwiseLimitEquiv",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean",
+        "source_sha256": "c59bb7371e07083206c3707b9083e40bc568c38af869585c4f84aa8a36cb2b1d",
+        "source_range": {
+          "start_line": 114,
+          "end_line": 135
+        }
+      }
+    },
+    {
+      "label": "State equation and simultaneous finite-set approximation",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean#L256-L271",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.CStarAlgebra.twoSidedPointwiseLimit_state_and_approximatelyInner",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/ApproximateIntertwining.lean",
+        "source_sha256": "c59bb7371e07083206c3707b9083e40bc568c38af869585c4f84aa8a36cb2b1d",
+        "source_range": {
+          "start_line": 256,
+          "end_line": 271
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "31de10b4bf30350d4acecff8e7349eeb3d3aabd7a2a42cbe5a0255bc13a6f18e",
+    "uid": "lfh:lfh-declaration-card:sha256:956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "89806d19203e218a87f8efb6b7fda4e0e2b9f6dbab26730d939d05b3c4cb2c70",
+    "uid": "lfh:lfh-card-exposition:sha256:8118a523adee0df9d324ba1956aad434fcde1dbb9f64bbeaae108d19896afd3b"
+  },
+  "guide": "Here `hlocal` supplies the sequence for each pair of pure states. In the linked proof, rather than in this signature, `f` is $(\\alpha_n)$, and `hf`, `hfinv` are its forward and actual inverse Cauchy hypotheses. The exact proof uses `twoSidedPointwiseLimit` and its state/approximation theorem. Its output `PureStateHomogeneity` has the composition direction $\\varphi\\circ\\alpha=\\psi$.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/956c24ba7d52ceb88f40cb266a7aa12df59d518e2c8ddd9a94ef16d312c5c1e1/versions/n69-89806d19203e218a/index.html",
+    "pdf": "card.pdf"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.IsCompactOperatorModel",
+  "title": "A compact-operator model for a representation",
+  "stable_card_id": "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+  "identity_key": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+  "source_url": "mathlibannex/sources/lfh188/2b097ad41a9d12fb29581923/index.html#L26",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "2ccd05514cd6571908decd8a6e1d8a3991d3eeb9e9dcaf01b7070510bdeaeea8",
+  "accepted_guide_sha256": "d640d0b8566257ea8525354777d4a81352e71a27795c169ca2acfe7a7c614066",
+  "content": {
+    "display_title": "A compact-operator model for a representation",
+    "one_sentence_role": "Packages faithfulness together with the equality $e(A)=\\mathcal K(H)$.",
+    "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed, let $H$ be a complex Hilbert space, and let $e:A\\to\\mathcal B(H)$ be a $*$-representation. The predicate below asserts that $e$ identifies $A$ exactly with the compact operators on $H$.",
+    "definition_explanation": "The three conditions are $$e\\text{ is injective},\\qquad e(A)\\subseteq\\mathcal K(H),\\qquad\\mathcal K(H)\\subseteq e(A).$$ Equivalently, $e$ is faithful and $e(A)=\\mathcal K(H)$; hence $A$ is $*$-isomorphic to $\\mathcal K(H)$ through the specified representation.",
+    "assumptions": "No separability, irreducibility or singleton-spectrum hypothesis is part of this definition. A unit is not assumed.",
+    "conclusion": "The output is a property of the given representation $e$, not merely an assertion that some abstract $*$-isomorphism exists.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": []
+  }
+}

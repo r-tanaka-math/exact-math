@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.isPureState_rootFunctional | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/a68c873ffcdcabc7d1706334/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/a68c873ffcdcabc7d1706334/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.isPureState_rootFunctional</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/PureRoot.lean</code>, lines 63–94.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/PureRoot.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424/versions/n69-319bda4c63b72436/index.html">Back to Purity of the completed root state</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.GNS</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.PureStateHomogeneity.KishimotoOzawaSakai</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Purity of the finite-stage root state</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>At each matrix stage, a normalized positive functional which takes value one on</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>the distinguished rank-one projection is forced to be the root vector state.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>This gives a direct extreme-point proof, using the positive-functional GNS</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>Cauchy--Schwarz null-vector lemma rather than finite-dimensional spectral theory.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>open Set</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>open scoped ComplexOrder Convex</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a></span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a>@[simp]</span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>theorem rootFunctional_mem_stateSpace (n : ℕ) :</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>    rootFunctional n ∈ MathlibAnnex.CStarAlgebra.stateSpace (Stage n) := by</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>  constructor</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>  · intro x hx</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>    exact rootLinear_nonneg n x hx</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>  · exact rootPositiveFunctional_one n</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a></span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>/-- A state supported with value one on the root projection is the root state. -/</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>theorem eq_rootFunctional_of_apply_rootProjection_eq_one (n : ℕ)</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>    (phi : Stage n →L[ℂ] ℂ) (hphi : phi ∈ MathlibAnnex.CStarAlgebra.stateSpace (Stage n))</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    (hp : phi (rootProjection n) = 1) :</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    phi = rootFunctional n := by</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  let p : Stage n := rootProjection n</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>  let q : Stage n := 1 - p</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>  have hp_proj : IsStarProjection p := isStarProjection_rootProjection n</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>  have hq_proj : IsStarProjection q := hp_proj.one_sub</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>  let f : Stage n →ₚ[ℂ] ℂ := PositiveLinearMap.mk₀ phi.toLinearMap hphi.1</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  have hf_apply (x : Stage n) : f x = phi x := rfl</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  have hq_zero : f q = 0 := by</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>    rw [hf_apply, show q = 1 - p by rfl, map_sub, hphi.2, hp, sub_self]</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>  have hq_null : f (star q * q) = 0 := by</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>    rw [hq_proj.isSelfAdjoint.star_eq, hq_proj.isIdempotentElem.eq, hq_zero]</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>  have hleft (x : Stage n) : f (q * x) = 0 := by</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>    simpa [hq_proj.isSelfAdjoint.star_eq] using</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>      f.apply_star_mul_eq_zero_of_apply_star_mul_self_eq_zero hq_null x</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>  have hright (x : Stage n) : f (x * q) = 0 := by</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    simpa using</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>      f.apply_star_mul_eq_zero_of_apply_star_mul_self_eq_zero_right hq_null (star x)</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  intro x</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>  have hx_decomp : x = p * x * p + q * x + p * x * q := by</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>    dsimp only [q]</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    noncomm_ring [hp_proj.isIdempotentElem.eq]</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>  calc</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>    phi x = f x := rfl</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>    _ = f (p * x * p + q * x + p * x * q) := by rw [← hx_decomp]</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    _ = f (p * x * p) := by rw [map_add, map_add, hleft, hright, add_zero, add_zero]</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>    _ = f ((x 0 0) • p) := by rw [show p * x * p = (x 0 0) • p by</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>      exact rootProjection_mul_mul n x]</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>    _ = x 0 0 := by simp [map_smul, hf_apply, p, hp]</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>    _ = rootFunctional n x := rfl</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a></span>
+<span class="source-line selected" id="L63"><a class="line-no" href="#L63">63</a>/-- The distinguished root-coordinate state is pure at every finite matrix stage. -/</span>
+<span class="source-line selected" id="L64"><a class="line-no" href="#L64">64</a>theorem isPureState_rootFunctional (n : ℕ) :</span>
+<span class="source-line selected" id="L65"><a class="line-no" href="#L65">65</a>    MathlibAnnex.CStarAlgebra.IsPureState (Stage n) (rootFunctional n) := by</span>
+<span class="source-line selected" id="L66"><a class="line-no" href="#L66">66</a>  rw [MathlibAnnex.CStarAlgebra.IsPureState, mem_extremePoints_iff_left]</span>
+<span class="source-line selected" id="L67"><a class="line-no" href="#L67">67</a>  refine ⟨rootFunctional_mem_stateSpace n, ?_⟩</span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>  intro phi₁ hphi₁ phi₂ hphi₂ hsegment</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>  rcases hsegment with ⟨a, b, ha, hb, hab, hcomb⟩</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>  let p : Stage n := rootProjection n</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>  let q : Stage n := 1 - p</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>  have hp_proj : IsStarProjection p := isStarProjection_rootProjection n</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>  have hq_nonneg : 0 ≤ q := hp_proj.one_sub.nonneg</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>  have hphi₁q : 0 ≤ phi₁ q := hphi₁.1 q hq_nonneg</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>  have hphi₂q : 0 ≤ phi₂ q := hphi₂.1 q hq_nonneg</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>  have hrootq : rootFunctional n q = 0 := by</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>    simp [q, p, rootProjection]</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>  have hsum : a • phi₁ q + b • phi₂ q = 0 := by</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>    have := congrArg (fun psi : Stage n →L[ℂ] ℂ =&gt; psi q) hcomb</span>
+<span class="source-line selected" id="L80"><a class="line-no" href="#L80">80</a>    simpa [hrootq] using this</span>
+<span class="source-line selected" id="L81"><a class="line-no" href="#L81">81</a>  have ha_nonneg : 0 ≤ a • phi₁ q := smul_nonneg ha.le hphi₁q</span>
+<span class="source-line selected" id="L82"><a class="line-no" href="#L82">82</a>  have hb_nonneg : 0 ≤ b • phi₂ q := smul_nonneg hb.le hphi₂q</span>
+<span class="source-line selected" id="L83"><a class="line-no" href="#L83">83</a>  have ha_nonpos : a • phi₁ q ≤ 0 := by</span>
+<span class="source-line selected" id="L84"><a class="line-no" href="#L84">84</a>    rw [← hsum]</span>
+<span class="source-line selected" id="L85"><a class="line-no" href="#L85">85</a>    simp only [le_add_iff_nonneg_right]</span>
+<span class="source-line selected" id="L86"><a class="line-no" href="#L86">86</a>    exact hb_nonneg</span>
+<span class="source-line selected" id="L87"><a class="line-no" href="#L87">87</a>  have ha_zero : a • phi₁ q = 0 := le_antisymm ha_nonpos ha_nonneg</span>
+<span class="source-line selected" id="L88"><a class="line-no" href="#L88">88</a>  have hphi₁q_zero : phi₁ q = 0 := by</span>
+<span class="source-line selected" id="L89"><a class="line-no" href="#L89">89</a>    exact (smul_eq_zero.mp ha_zero).resolve_left ha.ne&#x27;</span>
+<span class="source-line selected" id="L90"><a class="line-no" href="#L90">90</a>  have hphi₁p : phi₁ p = 1 := by</span>
+<span class="source-line selected" id="L91"><a class="line-no" href="#L91">91</a>    have h := hphi₁q_zero</span>
+<span class="source-line selected" id="L92"><a class="line-no" href="#L92">92</a>    rw [show q = 1 - p by rfl, map_sub, hphi₁.2, sub_eq_zero] at h</span>
+<span class="source-line selected" id="L93"><a class="line-no" href="#L93">93</a>    exact h.symm</span>
+<span class="source-line selected" id="L94"><a class="line-no" href="#L94">94</a>  exact eq_rootFunctional_of_apply_rootProjection_eq_one n phi₁ hphi₁ hphi₁p</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a></span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

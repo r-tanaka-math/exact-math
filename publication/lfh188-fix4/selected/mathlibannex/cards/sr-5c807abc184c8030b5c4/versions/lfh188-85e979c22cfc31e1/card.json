@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.FiniteRecovery.nonempty_almostIsometryMatch_of_all_body_eq",
+  "title": "Equal Plücker bodies yield matching generators with an almost-isometric representative",
+  "stable_card_id": null,
+  "identity_key": "8fbe17f2901b616bdd02683ff457767f9182ee363c3c39dae6e8feeaa112c319",
+  "source_url": "mathlibannex/sources/lfh188/54e5d598af6180cccfdd1d88/index.html#L631",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Operator/FiniteRecovery.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "423229ca69e303c9e5a56a08f1719344670f047d0a6be68d119667472af8eeac",
+  "accepted_guide_sha256": "de6f3bbc263bf654e7be4fcd424f5e6d1ad3e6b99746c7e29ff271554192e613",
+  "content": {
+    "display_title": "Equal Plücker bodies yield matching generators with an almost-isometric representative",
+    "one_sentence_role": "Selects common minor coordinates with a target almost-isometric representative.",
+    "natural_language_statement": "Let $n=m+1>0$ and $V=\\mathbb R^n$ with the reference sup norm and standard Lebesgue measure $\\lambda$. The continuous norms $p,q$ have fixed positive comparison constants\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty,\\qquad\na_q\\|x\\|_\\infty\\le q(x)\\le b_q\\|x\\|_\\infty.$$\nSet $K_p=\\{x:p(x)\\le1\\}$, $K_q=\\{x:q(x)\\le1\\}$ and $v_p=\\lambda(K_p)$, $v_q=\\lambda(K_q)$, as positive finite real numbers. For a real linear map $A:V\\to\\mathbb R^N$, let $A_{ij}=(Ae_j)_i$ be its matrix in the standard bases. The minor-coordinate space has one coordinate for each increasing $n$-tuple $I$ of distinct rows from $\\{1,\\ldots,N\\}$, and\n$$\\Pi_n(A)_I=\\det(A_{I,*}).$$\nDefine the signed generator set and its real convex hull by\n$$\\begin{aligned}\n\\mathcal G_p^N\n &=\\left\\{\\sigma v_p\\Pi_n(A):\\begin{array}{l}\n       A:V\\to\\mathbb R^N\\text{ is real linear},\\ \\sigma\\in\\{1,-1\\},\\\\\n       \\|Ax\\|_\\infty\\le p(x)\\quad(x\\in V)\n       \\end{array}\\right\\},\\\\\n\\mathcal P_p^N&=\\operatorname{conv}_{\\mathbb R}\\mathcal G_p^N.\n\\end{aligned}$$\nDefine $\\mathcal G_q^N,\\mathcal P_q^N$ in the same way using $q,v_q$. The generators are vectors of minors, not linear maps. Suppose $\\varepsilon>0$ and $\\mathcal P_p^N=\\mathcal P_q^N$ for every $N$. There exist a dimension $N$, one minor vector $z$, and real linear maps $B_p,B_q:V\\to\\mathbb R^N$ with\n$$\\forall x,\\ \\|B_px\\|_\\infty\\le p(x),\\qquad\n\\forall x,\\ \\|B_qx\\|_\\infty\\le q(x),$$\n$$\\forall x\\ (q(x)=1),\\quad 1-\\varepsilon<\\|B_qx\\|_\\infty,$$\n$$z=\\sigma_pv_p\\Pi_n(B_p)=\\sigma_qv_q\\Pi_n(B_q),\\qquad\n\\sigma_p,\\sigma_q\\in\\{1,-1\\}.$$",
+    "definition_explanation": null,
+    "assumptions": "The two norm models, $\\varepsilon>0$, and body equality for every finite target dimension are inputs. No upper restriction on $\\varepsilon$ is required.",
+    "conclusion": "One dimension and one raw minor vector are shared. Both maps are contractive, but only $B_q$ is required to have the almost lower condition. The signs need not coincide.",
+    "proof_summary": "Choose target satellite parameters, refine the same support on the two compact raw sets, then extract the two representatives.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "**Choose parameters for the target norm.** Let $D_q>0$ be the maximum absolute determinant of $q$-dominated base rows; its positivity is [the determinant-maximum lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/FiniteRecovery.lean#L69-L70). Put $\\eta=D_q/2$. Then $0<\\eta<D_q$. Apply [the target satellite package](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean#L1115-L1134) with $q,\\eta,\\varepsilon$. It supplies $K>0$, radius $\\min(\\varepsilon,1)/(8K)$, net $C_{\\mathrm{net}}$ and $w>0$ with strict satellite budget $<w\\eta$. Fix $N=n+|C_{\\mathrm{net}}|$ and the oriented linear support $\\ell$ of its selected absolute maximizer."
+      },
+      {
+        "step_id": "2",
+        "text": "**Choose a common raw point in this support direction.** For the selected linear functional $\\ell$, set\n$$\\mathcal F_q=\\{z\\in\\mathcal G_q^N:\n              \\ell(z)=\\max_{u\\in\\mathcal G_q^N}\\ell(u)\\}.$$\nThe [raw-slice theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/FiniteRecovery.lean#L517-L551) applied to the target parameters says that every $z\\in\\mathcal F_q$ has a real linear representative $B_q$ such that\n$$\\begin{gathered}\n\\|B_qx\\|_\\infty\\le q(x)\\quad(x\\in V),\\\\\n1-\\varepsilon<\\|B_qx\\|_\\infty\\quad(q(x)=1),\\qquad\nz=\\pm v_q\\Pi_n(B_q).\n\\end{gathered}$$\nThe two raw sets $\\mathcal G_p^N,\\mathcal G_q^N$ are [compact](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L67-L90) and [nonempty](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L30-L32) and have equal convex hulls by the input at this $N$. Apply [common raw selection](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/LexicographicSelection.lean#L362-L372) to these sets, this same $\\ell$, and the displayed property of every point in its target maximum slice. It returns\n$$z\\in\\mathcal G_p^N\\cap\\mathcal G_q^N$$\nwith the displayed target-representative properties. This selects a particular common raw point; it does not infer that the two raw sets are equal."
+      },
+      {
+        "step_id": "3",
+        "text": "**Extract two representatives of the same point.** Source raw membership gives $B_p$, its contractivity and $z=\\sigma_pv_p\\Pi_n(B_p)$. Target goodness gives $B_q$, contractivity, lower condition and $z=\\sigma_qv_q\\Pi_n(B_q)$. Thus\n$$\\sigma_pv_p\\Pi_n(B_p)=z=\\sigma_qv_q\\Pi_n(B_q).$$\nThe [fixed-dimension construction](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Operator/FiniteRecovery.lean#L602-L629) places these same maps in all nine fields, retaining the separate signs."
+      }
+    ],
+    "lean_realization_notes": "The lower condition is required only for the target representative $B_q$. No lower estimate for $B_p$ or square factorization map is asserted at this stage.",
+    "content_completeness": "REVISED_EXACT_SOURCE_BOUND_OWNER_PENDING",
+    "language_tag": "en"
+  }
+}

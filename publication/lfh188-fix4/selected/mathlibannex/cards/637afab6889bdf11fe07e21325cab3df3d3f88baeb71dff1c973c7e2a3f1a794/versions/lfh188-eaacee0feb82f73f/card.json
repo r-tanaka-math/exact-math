@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital",
+  "title": "Singleton condition tested against all irreducible representations",
+  "stable_card_id": "637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794",
+  "identity_key": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794",
+  "source_url": "mathlibannex/sources/lfh188/129e6a3f6d79895ffb70518e/index.html#L37",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "4cbf83873ed761b654d9ba47dabb44ba534ff870a424ecb12ef8ddf2a8f985a4",
+  "accepted_guide_sha256": "ac83051814ba3ce1293677243808fa06979737264ca40d2c900486e93debee61",
+  "content": {
+    "display_title": "Singleton condition tested against all irreducible representations",
+    "one_sentence_role": "Defines the unital singleton condition while allowing the quantified representations to be presented without a unit equation.",
+    "natural_language_statement": "Let $A$ be a unital complex $C^*$-algebra, let $H$ be a complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ be a unital $*$-representation. The predicate below requires $\\pi$ to be nonzero irreducible and compares it with every nonzero irreducible $*$-representation $\\rho:A\\to\\mathcal B(K)$, even when the data type used for $\\rho$ does not initially record $\\rho(1_A)=I_K$.",
+    "definition_explanation": "For every complete complex Hilbert space $K$ and every $*$-representation $\\rho:A\\to\\mathcal B(K)$ that is nonzero irreducible, irreducibility forces $$\\rho(1_A)=I_K.$$ Indeed, $\\rho(1_A)$ is an idempotent whose range is a nonzero closed reducing subspace, hence all of $K$. The source expression `rho.toUnital hrho` therefore packages the same operator-valued map as a unital representation. The required conclusion is a unitary $U:H\\to K$ satisfying $$U\\pi(a)=\\rho(a)U\\qquad(a\\in A).$$",
+    "assumptions": "No separability or faithfulness assumption is included. The distinction is between a unital algebra and whether unit preservation is recorded in the representation interface; it is not a claim that $A$ or $\\rho$ lacks a unit.",
+    "conclusion": "The predicate says that $\\pi$ represents the unique unitary-equivalence class of nonzero irreducible $*$-representations of the unital algebra $A$, with the same operator maps whether or not the input interface initially records the unit equation.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": [
+      "The two implications in [Both directions of the singleton comparison](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean#L48-L76) identify this condition with the corresponding comparison restricted to unital representations: one direction regards the same unital representation through the interface that does not require a unit equation, the other uses the forced equation just proved. These remain distinct declared predicates and distinct Cards."
+    ]
+  }
+}

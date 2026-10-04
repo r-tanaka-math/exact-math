@@ -1,0 +1,150 @@
+{
+  "accepted_type_fingerprint_sha256": "e4655950e6a72a5f7428881abeff31353f0f120c9b3a0f23bd4c7c9b75e12c23",
+  "approved_card_model_sha256": "2a96b6ad6b9177ea1624ad7d1f53651683873eca65ff4e077b65a48aa092f077",
+  "assumptions": "Let A be a nonzero complex C*-algebra, not assumed unital, H a complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. No separability assumption on H is required.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "3753106ba648e2a30ddde2adad74dbe93df42d065d9a8b9d3790136458806884",
+    "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.IsSingletonIrreducibleModel",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "c089732cc79ef2a1a463e42c0bd496ccda8b2525b493dc8bcde5e4da70950bdb",
+        "uid": "lfh:lfh-declaration-card:sha256:15b02dd39a6c9afbc2cc1f023c8e4b29cc806759b53b21c82065a410d00117ff"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_nonzero_on_star_mul_self",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "80afe23433c02265252a97ff93dd683f25f5d0dbab62a98400823808de83329a",
+        "uid": "lfh:lfh-declaration-card:sha256:23a70d1e81d7c3d1ed7932a2de55be2e240d36d087130ed0dd8e21ce1e3d7013"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    },
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.isIrreducible_pureState_gnsStarAlgHom",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "54d38276b2624f4bbb831bdcdc75bbba5ee6d940ee1923e2674d469c88464230",
+        "uid": "lfh:lfh-declaration-card:sha256:68395281a7478e8c956a7482013ed5dd68c4d3f2107f38cf4f8e9117a8a99a4a"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "Then π is injective.",
+  "declaration_kind": "theorem",
+  "definition_equation": "IsSingletonIrreducibleModel.{u,v,u} π → Injective π.",
+  "definition_explanation": "IsSingletonIrreducibleModel.{u,v,u} π → Injective π.",
+  "display_title": "Faithfulness of a representative of the unique irreducible-representation class",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → Function.Injective ⇑pi",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "feea6dc38ab8fb94efd870fe5ea3e538156ecce877affe0f70e8b7382ae72a1c",
+    "uid": "lfh:lfh-card-exposition:sha256:306344c0f2324f3ee34cc6947154df8a5cd7d03e98ea7d666523dc1520d3649f"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "543da800097f78e8677d803a2dfca3da948166abe12924d6d290d864dcdac4ae",
+    "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 5,
+    "sha256": "feea6dc38ab8fb94efd870fe5ea3e538156ecce877affe0f70e8b7382ae72a1c",
+    "uid": "lfh:lfh-card-exposition:sha256:306344c0f2324f3ee34cc6947154df8a5cd7d03e98ea7d666523dc1520d3649f"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "543da800097f78e8677d803a2dfca3da948166abe12924d6d290d864dcdac4ae",
+      "uid": "lfh:lfh-declaration-card:sha256:66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.injective_of_singleton",
+  "natural_language_statement": "Let A be a nonzero complex C*-algebra, not assumed unital, H a complex Hilbert space, and π a representation of A on H that is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A. No separability assumption on H is required. Then π is injective.",
+  "one_sentence_role": "Shows that a representative of the unique irreducible-representation class of a nonzero C*-algebra is faithful.",
+  "owner_review_item_sha256": "9ea83816078618f9635cae9997222165939f073f900311acb3089aafe859b80e",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] {H : Type v} [inst_3 : NormedAddCommGroup H] [inst_4 : InnerProductSpace ℂ H] [inst_5 : CompleteSpace H] [Nontrivial A] (pi : MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation A H), pi.IsSingletonIrreducibleModel → Function.Injective ⇑pi"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsSingletonIrreducibleModel.{u,v,u} π → Injective π."
+    },
+    {
+      "step_id": "source_route",
+      "text": "For π(x−y)=0, the source assumes x−y≠0, embeds it into the minimal unitization, and finds a pure state detecting its star-square. Its GNS representation restricts to a nonzero irreducible representation of A. The unique-class hypothesis gives a unitary equivalence to π, which would force the detected element to act as zero there, a contradiction."
+    }
+  ],
+  "proof_summary": "For π(x−y)=0, the source assumes x−y≠0, embeds it into the minimal unitization, and finds a pure state detecting its star-square. Its GNS representation restricts to a nonzero irreducible representation of A. The unique-class hypothesis gives a unitary equivalence to π, which would force the detected element to act as zero there, a contradiction.",
+  "source_excerpt": {
+    "bytes": 2551,
+    "sha256": "be3d5b315ebf94638240b86ba2625ca21775fa80ec7fd4c33b4786a2c90beb87"
+  },
+  "source_locator": {
+    "end_column": 30,
+    "end_line": 94,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+    "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+    "start_column": 1,
+    "start_line": 33
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "60b07e694e523e06a448215f6a8fe36dfbd0dcc2dbf232b5771a2757a3258b00",
+    "uid": "lfh:lfh-source-build-binding:sha256:062df5b36de9660b645d326e9f96033d152c57240b553b83dea495ad778a4e73"
+  },
+  "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+  "source_signature": {
+    "end_byte": 1413,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "b03a36e61e705885ac5163de1998cc2b7a0c905ced477fc9d5f0e72141e1e4cd",
+    "source_command_range": {
+      "end_column": 30,
+      "end_line": 94,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+      "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+      "start_column": 1,
+      "start_line": 33
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean",
+    "source_sha256": "8a20369d926882e27a488d46d37b0dbc6f4431295dcc752c5b0e16b5c2d40bec",
+    "start_byte": 1239,
+    "text": "theorem injective_of_singleton [Nontrivial A]\n    (pi : NonUnitalCStarRepresentation A H)\n    (hsingle : IsSingletonIrreducibleModel.{u, v, u} pi) :\n    Function.Injective pi"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean#L33-L94",
+  "stable_card_id": "66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/66a6654fa9d1e8607b27f931148203017898635ae004e222a22fd8c88c82d2f2/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

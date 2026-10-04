@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.tracialRepresentation_injective",
+  "title": "Faithfulness of the target-state GNS representation",
+  "stable_card_id": "4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3",
+  "identity_key": "lfh:lfh-declaration-card:sha256:4584f92dc8d9b60095a3711eeec03fed2358049e92cda4b562ca383ff56817c3",
+  "source_url": "mathlibannex/sources/lfh188/7aad120ec6c4fc207b811f46/index.html#L126",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TracialRepresentation.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "8d2b084d7109e2dcfa2c7ad5af99f46231cecd7ff86338f53d0b6dd1efb0dc2f",
+  "accepted_guide_sha256": "30cad76ac775176df90bba2a7039c3c5de56fc41d97ffc7df3514338af0262aa",
+  "content": {
+    "display_title": "Faithfulness of the target-state GNS representation",
+    "one_sentence_role": "The ideal dichotomy of the same target forces the constructed nonzero representation to be injective.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra and $\\tau$ its normalized trace. Fix a representative shell family and its chosen unitary links $L_j$ in the selected atomic representation $\\pi$. Write $T=C^*(\\pi(A),\\{L_j\\})$ for the resulting concrete target and $\\iota:A\\to T$, $\\iota(a)=\\pi(a)$, for its faithful unital source map. This fixes one target and one source map throughout. Choose the state extension $\\phi:T\\to\\mathbb C$ of $\\tau$ supplied by state extension along $\\iota$. Its GNS representation is $(H_\\phi,\\rho_\\phi,\\xi_\\phi)$, with\n\n$$\\|\\xi_\\phi\\|=1,\\qquad \\phi(t)=\\langle\\xi_\\phi,\\rho_\\phi(t)\\xi_\\phi\\rangle.$$\n\nThe inner product is linear in its second argument. The $T$-orbit of $\\xi_\\phi$ is dense by the GNS construction. The representation $\\rho_\\phi:T\\to B(H_\\phi)$ is injective.",
+    "definition_explanation": null,
+    "assumptions": "The representative shell family is fixed. The established closed two-sided ideal dichotomy of this same $T$ is available as a theorem. The GNS space is nonzero because its canonical vector has norm $1$.",
+    "conclusion": "If $\\rho_\\phi(t)=\\rho_\\phi(s)$, then $t=s$. Thus the GNS representation of the chosen state on $T$ is faithful as an algebra representation.",
+    "proof_summary": "Apply the closed-ideal dichotomy to the kernel and exclude the whole-algebra case using the unit on the nonzero GNS space.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The kernel $I=\\ker\\rho_\\phi$ is a norm-closed two-sided ideal. The previously established result `shellFamilyTarget_closedIdeal_dichotomy` gives $I=\\{0\\}$ or $I=T$."
+      },
+      {
+        "step_id": "s2",
+        "text": "If $I=T$, then $\\rho_\\phi(1)=0$. But $\\rho_\\phi$ is unital, so\n\n$$\\xi_\\phi=I_{H_\\phi}\\xi_\\phi=\\rho_\\phi(1)\\xi_\\phi=0,$$\n\ncontradicting $\\|\\xi_\\phi\\|=1$. Hence $I=\\{0\\}$, which is precisely injectivity. The source applies `Representation.injective_of_closed_ideal_dichotomy` after installing the separately proved nontriviality of $H_\\phi$."
+      }
+    ],
+    "lean_realization_notes": "This does not infer faithfulness of an arbitrary vector state from faithfulness of its representation. State faithfulness requires its own argument. No irreducibility of $\\rho_\\phi$, purity of $\\phi$, or separability of $T$ is assumed.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

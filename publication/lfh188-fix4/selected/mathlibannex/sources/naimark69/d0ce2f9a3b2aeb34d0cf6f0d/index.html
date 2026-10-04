@@ -1,0 +1,174 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.projection_eq_rankOne_of_dense_orbit | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/d0ce2f9a3b2aeb34d0cf6f0d/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/d0ce2f9a3b2aeb34d0cf6f0d/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.projection_eq_rankOne_of_dense_orbit</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/Compression.lean</code>, lines 152–172.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Compression.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/d037e35eb7877cc000c8dd4c00542ec6472c63f14055ad12e94f5721e4fe6a61/versions/n69-f479404f3d58edd7/index.html">Back to The matching GNS fiber retains exactly its cyclic line</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import Mathlib.Analysis.InnerProductSpace.Adjoint</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.InnerProductSpace.CommonFixed</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>Compression of a norm-convergent source flag inside a continuous Hilbert-space</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>representation. The conclusion is a matrix-coefficient identity on the common</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>fixed space; no bidual or transport of strong limits through representations is</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>used.</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>-/</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a></span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>set_option autoImplicit false</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>open Filter</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>variable {A H : Type*}</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>variable [NormedRing A] [NormedAlgebra ℂ A] [StarRing A]</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>/--</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a>If a compression error tends to zero in the source norm, then its matrix</span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>coefficient vanishes on vectors fixed by every member of the flag. Continuity</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>of the representation is explicit; C*-representations supply it by standard</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a>contractivity.</span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>-/</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>theorem inner_map_eq_of_compression_tendsto</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>    (pi : A →⋆ₐ[ℂ] (H →L[ℂ] H)) (hpi : Continuous pi)</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    (q : ℕ → A) (phi : A →ₗ[ℂ] ℂ) (b : A) (x y : H)</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>    (hq_star : ∀ n, star (q n) = q n)</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a>    (hx : ∀ n, pi (q n) x = x) (hy : ∀ n, pi (q n) y = y)</span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>    (hcompression :</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>      Tendsto (fun n ↦ q n * b * q n - (phi b) • q n) atTop (nhds 0)) :</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a>    inner ℂ x (pi b y) = phi b * inner ℂ x y := by</span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>  have hop :</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>      Tendsto (fun n ↦ pi (q n * b * q n - (phi b) • q n)) atTop (nhds 0) := by</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>    change Tendsto (pi ∘ fun n ↦ q n * b * q n - (phi b) • q n) atTop (nhds 0)</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>    simpa only [map_zero] using (hpi.tendsto 0).comp hcompression</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a>  have happ :</span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>      Tendsto (fun n ↦ pi (q n * b * q n - (phi b) • q n) y) atTop (nhds 0) := by</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>    simpa [Function.comp_def] using</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>      ((ContinuousLinearMap.apply ℂ H y).continuous.tendsto 0).comp hop</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>  have hinner :</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>      Tendsto</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>        (fun n ↦ inner ℂ x (pi (q n * b * q n - (phi b) • q n) y))</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>        atTop (nhds 0) := by</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>    simpa using tendsto_const_nhds.inner happ</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>  have hcoeff (n : ℕ) :</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>      inner ℂ x (pi (q n * b * q n - (phi b) • q n) y) =</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>        inner ℂ x (pi b y) - phi b * inner ℂ x y := by</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    have hself : ContinuousLinearMap.adjoint (pi (q n)) = pi (q n) := by</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>      calc</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>        ContinuousLinearMap.adjoint (pi (q n)) = star (pi (q n)) := by</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>          rw [ContinuousLinearMap.star_eq_adjoint]</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>        _ = pi (star (q n)) := (map_star pi (q n)).symm</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>        _ = pi (q n) := by rw [hq_star n]</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>    calc</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>      inner ℂ x (pi (q n * b * q n - (phi b) • q n) y) =</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>          inner ℂ x (pi (q n) (pi b (pi (q n) y))) -</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a>            inner ℂ x ((phi b) • pi (q n) y) := by</span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>              simp only [map_sub, map_mul, map_smul, ContinuousLinearMap.sub_apply,</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>                ContinuousLinearMap.mul_apply, ContinuousLinearMap.smul_apply, inner_sub_right]</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>      _ = inner ℂ x (pi (q n) (pi b y)) -</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>            inner ℂ x ((phi b) • y) := by rw [hy n]</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>      _ = inner ℂ (pi (q n) x) (pi b y) -</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>            inner ℂ x ((phi b) • y) := by</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>              simpa [hself] using</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>                (ContinuousLinearMap.adjoint_inner_right (pi (q n)) x (pi b y))</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>      _ = inner ℂ x (pi b y) - phi b * inner ℂ x y := by</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>            rw [hx n, inner_smul_right]</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a>  have hconstant :</span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>      Tendsto</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>        (fun _ : ℕ ↦ inner ℂ x (pi b y) - phi b * inner ℂ x y)</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>        atTop (nhds 0) :=</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>    hinner.congr&#x27; (Filter.Eventually.of_forall fun n ↦ hcoeff n)</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>  have hconst :</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>      Tendsto</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>        (fun _ : ℕ ↦ inner ℂ x (pi b y) - phi b * inner ℂ x y)</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>        atTop (nhds (inner ℂ x (pi b y) - phi b * inner ℂ x y)) :=</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>    tendsto_const_nhds</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>  have hz : inner ℂ x (pi b y) - phi b * inner ℂ x y = 0 :=</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>    tendsto_nhds_unique hconst hconstant</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>  exact sub_eq_zero.mp hz</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a></span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>/--</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>Operator form of compression onto a supplied orthogonal projection whose range</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>is contained in the common fixed space. This is the manuscript&#x27;s compression</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>formula, still without moving a strong limit through `pi`.</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>-/</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>theorem projection_comp_map_comp_projection_eq</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>    (pi : A →⋆ₐ[ℂ] (H →L[ℂ] H)) (hpi : Continuous pi)</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>    (q : ℕ → A) (phi : A →ₗ[ℂ] ℂ) (b : A)</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    (hq_star : ∀ n, star (q n) = q n)</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>    (hcompression :</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a>      Tendsto (fun n ↦ q n * b * q n - (phi b) • q n) atTop (nhds 0))</span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>    (P : H →L[ℂ] H) (hP_star : ContinuousLinearMap.adjoint P = P)</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>    (hP_idem : P * P = P)</span>
+<span class="source-line" id="L98"><a class="line-no" href="#L98">98</a>    (hP_fixed : ∀ (n : ℕ) (z : H), pi (q n) (P z) = P z) :</span>
+<span class="source-line" id="L99"><a class="line-no" href="#L99">99</a>    P * pi b * P = (phi b) • P := by</span>
+<span class="source-line" id="L100"><a class="line-no" href="#L100">100</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L101"><a class="line-no" href="#L101">101</a>  intro z</span>
+<span class="source-line" id="L102"><a class="line-no" href="#L102">102</a>  apply ext_inner_left ℂ</span>
+<span class="source-line" id="L103"><a class="line-no" href="#L103">103</a>  intro w</span>
+<span class="source-line" id="L104"><a class="line-no" href="#L104">104</a>  have hcoeff := inner_map_eq_of_compression_tendsto pi hpi q phi b (P w) (P z)</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a>    hq_star (fun n ↦ hP_fixed n w) (fun n ↦ hP_fixed n z) hcompression</span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>  have hPPinner : inner ℂ (P w) (P z) = inner ℂ w (P z) := by</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>    have hPP : P (P z) = P z := by</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>      have := congrArg (fun T : H →L[ℂ] H ↦ T z) hP_idem</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>      simpa using this</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>    calc</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>      inner ℂ (P w) (P z) =</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>          inner ℂ w (ContinuousLinearMap.adjoint P (P z)) := by</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>            symm</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>            exact ContinuousLinearMap.adjoint_inner_right P w (P z)</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>      _ = inner ℂ w (P z) := by rw [hP_star, hPP]</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>  calc</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>    inner ℂ w ((P * pi b * P) z) = inner ℂ w (P (pi b (P z))) := rfl</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>    _ = inner ℂ (P w) (pi b (P z)) := by</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>      simpa [hP_star] using</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>        (ContinuousLinearMap.adjoint_inner_right P w (pi b (P z)))</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>    _ = phi b * inner ℂ (P w) (P z) := hcoeff</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>    _ = phi b * inner ℂ w (P z) := congrArg (fun c : ℂ ↦ phi b * c) hPPinner</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>    _ = inner ℂ w (((phi b) • P) z) := by</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>      simp [inner_smul_right]</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a></span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>/--</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>Compression formula for the actual orthogonal projection onto the common fixed</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>space of the represented flag.</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>-/</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>theorem commonFixedProjection_comp_map_comp_eq</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>    (pi : A →⋆ₐ[ℂ] (H →L[ℂ] H)) (hpi : Continuous pi)</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>    (q : ℕ → A) (phi : A →ₗ[ℂ] ℂ) (b : A)</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>    (hq_star : ∀ n, star (q n) = q n)</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>    (hcompression :</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>      Tendsto (fun n ↦ q n * b * q n - (phi b) • q n) atTop (nhds 0)) :</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    let P := MathlibAnnex.Analysis.InnerProductSpace.commonFixedProjection</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>      (fun n ↦ pi (q n))</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>    P * pi b * P = (phi b) • P := by</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>  let Q : ℕ → H →L[ℂ] H := fun n ↦ pi (q n)</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>  let P := MathlibAnnex.Analysis.InnerProductSpace.commonFixedProjection Q</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>  exact projection_comp_map_comp_projection_eq pi hpi q phi b hq_star hcompression P</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>    (MathlibAnnex.Analysis.InnerProductSpace.adjoint_commonFixedProjection Q)</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>    (MathlibAnnex.Analysis.InnerProductSpace.commonFixedProjection_idempotent Q)</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>    (fun n z ↦ MathlibAnnex.Analysis.InnerProductSpace.commonFixedProjection_apply_fixed Q n z)</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a></span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>/--</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>A compression projection is rank one when the chosen vector is cyclic for the</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>whole representation.  The density hypothesis is essential: without it this</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>does not identify an ambient common-fixed projection of arbitrary</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>multiplicity.</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>-/</span>
+<span class="source-line selected" id="L152"><a class="line-no" href="#L152">152</a>theorem projection_eq_rankOne_of_dense_orbit</span>
+<span class="source-line selected" id="L153"><a class="line-no" href="#L153">153</a>    (pi : A →⋆ₐ[ℂ] (H →L[ℂ] H)) (phi : A →ₗ[ℂ] ℂ)</span>
+<span class="source-line selected" id="L154"><a class="line-no" href="#L154">154</a>    (P : H →L[ℂ] H) (eta : H)</span>
+<span class="source-line selected" id="L155"><a class="line-no" href="#L155">155</a>    (hPeta : P eta = eta)</span>
+<span class="source-line selected" id="L156"><a class="line-no" href="#L156">156</a>    (hcompression : ∀ b : A, P * pi b * P = (phi b) • P)</span>
+<span class="source-line selected" id="L157"><a class="line-no" href="#L157">157</a>    (hphi : ∀ b : A, phi b = inner ℂ eta (pi b eta))</span>
+<span class="source-line selected" id="L158"><a class="line-no" href="#L158">158</a>    (hdense : DenseRange (fun b : A ↦ pi b eta)) :</span>
+<span class="source-line selected" id="L159"><a class="line-no" href="#L159">159</a>    P = InnerProductSpace.rankOne ℂ eta eta := by</span>
+<span class="source-line selected" id="L160"><a class="line-no" href="#L160">160</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line selected" id="L161"><a class="line-no" href="#L161">161</a>  intro x</span>
+<span class="source-line selected" id="L162"><a class="line-no" href="#L162">162</a>  induction x using hdense.induction_on with</span>
+<span class="source-line selected" id="L163"><a class="line-no" href="#L163">163</a>  | hp =&gt; apply isClosed_eq &lt;;&gt; fun_prop</span>
+<span class="source-line selected" id="L164"><a class="line-no" href="#L164">164</a>  | ih b =&gt;</span>
+<span class="source-line selected" id="L165"><a class="line-no" href="#L165">165</a>      have happ := congrArg (fun T : H →L[ℂ] H ↦ T eta) (hcompression b)</span>
+<span class="source-line selected" id="L166"><a class="line-no" href="#L166">166</a>      have hPb : P (pi b eta) = phi b • eta := by</span>
+<span class="source-line selected" id="L167"><a class="line-no" href="#L167">167</a>        simpa [hPeta] using happ</span>
+<span class="source-line selected" id="L168"><a class="line-no" href="#L168">168</a>      calc</span>
+<span class="source-line selected" id="L169"><a class="line-no" href="#L169">169</a>        P (pi b eta) = phi b • eta := hPb</span>
+<span class="source-line selected" id="L170"><a class="line-no" href="#L170">170</a>        _ = inner ℂ eta (pi b eta) • eta := by rw [hphi b]</span>
+<span class="source-line selected" id="L171"><a class="line-no" href="#L171">171</a>        _ = InnerProductSpace.rankOne ℂ eta eta (pi b eta) := by</span>
+<span class="source-line selected" id="L172"><a class="line-no" href="#L172">172</a>          rw [InnerProductSpace.rankOne_apply]</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a></span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

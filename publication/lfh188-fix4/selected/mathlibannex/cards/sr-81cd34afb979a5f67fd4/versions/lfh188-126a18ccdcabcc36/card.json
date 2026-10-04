@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.BilipschitzOrientation.fderiv_lower_bound",
+  "title": "A positive lower metric bound passes to the derivative",
+  "stable_card_id": null,
+  "identity_key": "324ce9b095744f9a4275b5147520093fab2b757117ac1818b3c5df1c73c2140e",
+  "source_url": "mathlibannex/sources/lfh188/9005faf882657421c7919bac/index.html#L135",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d13cfea772f82cdc47f7ef8bc5877579187689451484645ae6d6131d5c8d8420",
+  "accepted_guide_sha256": "ceb153037636e289a4e391d81836cd09a8b48fac700bd2a2c1c8c0d9bda9eeb4",
+  "content": {
+    "display_title": "A positive lower metric bound passes to the derivative",
+    "one_sentence_role": "Preserves the same lower constant in the difference-quotient limit.",
+    "natural_language_statement": "Let $n\\in\\mathbb N_0$ and let $E=\\mathbb R^n$ have the sup norm $\\|\\cdot\\|_\\infty$. Let $S,T\\subseteq E$ be open, and let $f,g:E\\to E$ be globally Lipschitz maps whose restrictions $f|_S:S\\to T$ and $g|_T:T\\to S$ are mutually inverse. Fix a number $\\ell>0$ such that\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\qquad(x,x'\\in E).$$\n\nSuppose $f$ is differentiable at a point $x\\in E$. Let $Df(x):E\\to E$ denote its Fréchet derivative there. Then\n$$\\ell\\|v\\|_\\infty\\le\\|Df(x)v\\|_\\infty\\qquad(v\\in E).$$",
+    "definition_explanation": null,
+    "assumptions": "The map $f$ is differentiable at this particular $x$; the point $x$ need not lie in $S$. The sets $S,T\\subseteq E$ are open. The inverse and image conditions are\n$$\\begin{aligned}\nf(S)&\\subseteq T,&g(T)&\\subseteq S,\\\\\ng(f(x))&=x\\quad(x\\in S),&f(g(y))&=y\\quad(y\\in T).\n\\end{aligned}$$\nThe global bounds use specified constants $C_f,C_g\\ge0$ and $\\ell>0$:\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\le C_f\\|x-x'\\|_\\infty\\qquad(x,x'\\in E),$$\n$$\\|g(y)-g(y')\\|_\\infty\\le C_g\\|y-y'\\|_\\infty\\qquad(y,y'\\in E).$$\nThe estimates hold on all of $E$, not just on $S$ or $T$. The inverse identities are required only on $S$ and $T$.",
+    "conclusion": "The derivative has the same positive lower constant $\\ell$ as the original map. In particular,\n$$Df(x)v=0\\quad\\Longrightarrow\\quad\\ell\\|v\\|_\\infty\\le0\\quad\\Longrightarrow\\quad v=0.$$\nThus $Df(x)$ is injective. The estimate also includes the direction $v=0$.",
+    "proof_summary": "Apply the lower bound to $x+tv$ and $x$, divide by $|t|$, and pass to the derivative as $t\\to0$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Write the difference-quotient estimate.** Fix $v\\in E$. For every real $t\\ne0$,\n$$\\begin{aligned}\n\\ell |t|\\|v\\|_\\infty&\\le\\|f(x+tv)-f(x)\\|_\\infty,\\\\\n\\ell\\|v\\|_\\infty&\\le\\left\\|\\frac{f(x+tv)-f(x)}{t}\\right\\|_\\infty.\n\\end{aligned}$$\nThe first line is the global lower bound at these two points. The second follows from $|t|>0$ and homogeneity of the norm; it does not require $v\\ne0$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Take the limit.** Differentiability at $x$ gives\n$$\\frac{f(x+tv)-f(x)}{t}\\longrightarrow Df(x)v\\qquad(t\\to0,\\ t\\ne0).$$\nConsequently,\n$$\\ell\\|v\\|_\\infty\\le\\lim_{t\\to0,\\ t\\ne0}\\left\\|\\frac{f(x+tv)-f(x)}{t}\\right\\|_\\infty=\\|Df(x)v\\|_\\infty.$$\nThis is precisely [the difference-quotient lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L99-L123) with linear map $Df(x)$, lower constant $\\ell$, the displayed global estimate, and differentiability at $x$. No derivative at any other point is needed."
+      }
+    ],
+    "lean_realization_notes": "Applying the same estimate to $u-v$ proves that $Df(x)u=Df(x)v$ forces $u=v$, as in [the derivative-injectivity corollary](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L143-L148). Since $Df(x)$ is a linear endomorphism of the finite-dimensional space $E$, [the determinant corollary](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L150-L157) gives $\\det Df(x)\\ne0$. Similarly, the original lower bound gives global injectivity of $f$ by applying it when $f(x)=f(x')$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

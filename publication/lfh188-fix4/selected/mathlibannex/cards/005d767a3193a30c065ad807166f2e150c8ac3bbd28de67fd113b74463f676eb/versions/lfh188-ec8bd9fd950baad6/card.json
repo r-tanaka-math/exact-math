@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.IsMaximalAbelian",
+  "title": "Maximal abelian $*$-subalgebras",
+  "stable_card_id": "005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb",
+  "identity_key": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb",
+  "source_url": "mathlibannex/sources/lfh188/5da3306ca722c07aeb592714/index.html#L25",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelian.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 4,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "bb1f3ebea0dfdd93940e59ced9c7e7c34734baef551a6372097567c1684d4e2f",
+  "accepted_guide_sha256": "3eb8b1349b03e9dbdda1322b99196ea48819775f7d4e9ac440d1a1ef15c077f0",
+  "content": {
+    "display_title": "Maximal abelian $*$-subalgebras",
+    "one_sentence_role": "Defines maximality by inclusion among commutative unital $*$-subalgebras.",
+    "natural_language_statement": "Let $A$ be a unital complex $C^*$-algebra and let $D\\subseteq A$ be a unital complex $*$-subalgebra. The predicate below says that $D$ is commutative and that no strictly larger commutative unital $*$-subalgebra contains it.",
+    "definition_explanation": "Explicitly, $D$ is maximal abelian precisely when both conditions hold: $$xy=yx\\qquad(x,y\\in D),$$ and, for every commutative unital $*$-subalgebra $E$, $$D\\subseteq E\\quad\\Longrightarrow\\quad E\\subseteq D.$$ In the second condition the two inclusions force $E=D$. The comparison is with all such subalgebras, not only with norm-closed ones.",
+    "assumptions": "$D$ contains the unit and is closed under addition, complex scalar multiplication, multiplication and adjoints. Norm closedness is not an assumption in this definition.",
+    "conclusion": "This is a property of the given subalgebra $D$, rather than a construction of a new subalgebra.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": [
+      "Norm closedness of a maximal abelian subalgebra is a later consequence, not an extra conjunct of this predicate."
+    ]
+  }
+}

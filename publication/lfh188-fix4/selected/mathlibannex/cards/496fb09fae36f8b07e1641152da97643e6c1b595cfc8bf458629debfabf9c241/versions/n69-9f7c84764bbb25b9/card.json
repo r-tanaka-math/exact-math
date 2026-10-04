@@ -1,0 +1,187 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_range": {
+      "end_line": 171,
+      "start_line": 152
+    },
+    "source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation :\n    AtomicCounterexampleEndpoint.{v} ∧\n    Nontrivial SeparableCounterexampleHilbertSpace ∧\n    TopologicalSpace.SeparableSpace SeparableCounterexampleHilbertSpace ∧\n    (∃ ρ : Representation AtomicCounterexampleAlgebra SeparableCounterexampleHilbertSpace,\n      Function.Injective ρ) ∧\n    (∀ (H : Type v) [NormedAddCommGroup H] [InnerProductSpace ℂ H]\n        [CompleteSpace H] [TopologicalSpace.SeparableSpace H],\n      ∀ ρ : NonUnitalRepresentation (A := AtomicCounterexampleAlgebra) (H := H),\n        ¬ ρ.IsIrreducible)",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+    "source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+      "source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+      "start_line": 152,
+      "start_column": 1,
+      "end_line": 171,
+      "end_column": 42
+    },
+    "start_byte": 7967,
+    "end_byte": 8640,
+    "sha256": "d3c63a89bb452a85d6d2d6cd29822144644d64057b2c8d5ffa306c19504ce7f9",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "A separably represented C*-algebra with no separable irreducible representation",
+    "one_sentence_role": "The same algebra $T$ has a faithful representation on a separable Hilbert space, but no nonzero irreducible representation on any separable Hilbert space.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra. Let $\\pi:A\\to B(\\mathcal H)$ be the direct sum of one chosen GNS representation from each pure-state GNS equivalence class, and let $(L_i)_{i\\in I}$ be the unitaries obtained from the fixed CAR homogeneity and shell construction. Put $T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})\\subseteq B(\\mathcal H)$, and write $\\iota(a)=\\pi(a)$ for the embedding into $T$. Let $\\tau$ be the normalized trace of $A$. The algebra $T$ retains all the properties in the cited representation-classification theorem: it is nonzero, norm closed, unital, infinite dimensional and simple; $\\iota$ is injective and unital; the inclusion $\\rho_0:T\\to B(\\mathcal H)$ is faithful and irreducible; every nonzero irreducible $*$-representation of $T$ is unitarily equivalent to $\\rho_0$; and $T$ is not isomorphic to the full algebra of compact operators on any Hilbert space. In addition, $H_\\tau=L^2(A,\\tau)$ is nonzero and separable, and there exists a faithful unital representation $T\\to B(H_\\tau)$. No separable complex Hilbert space carries a nonzero irreducible $*$-representation of $T$, even without assuming preservation of the identity.",
+    "definition_explanation": null,
+    "assumptions": "All assertions concern the same generated algebra $T$ and the same fixed shell unitaries. The absence of irreducible representations is quantified over arbitrary separable complex Hilbert spaces. Norm separability of $T$ is neither required nor asserted.",
+    "conclusion": "$T$ has both the faithful representation $\\widetilde\\rho$ on the separable space $H_\\tau$ and the faithful irreducible representation $\\rho_0$ on $\\mathcal H$. The representation $\\widetilde\\rho$ is reducible, whereas $\\mathcal H$ cannot be separable.",
+    "proof_summary": "Combine the classification and simplicity results for $T$ with the normalized CAR trace vector, the dense CAR orbit, faithfulness of $\\widetilde\\rho$, and the theorem excluding nonzero irreducible representations on separable Hilbert spaces.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Let $(\\pi_\\tau,H_\\tau,\\xi_\\tau)$ be the GNS representation and cyclic vector of $\\tau$. One has $\\|\\xi_\\tau\\|=1$, so $H_\\tau\\ne\\{0\\}$. The continuous map $a\\mapsto\\pi_\\tau(a)\\xi_\\tau$ has dense range. Since $A$ is separable, $H_\\tau$ is separable."
+      },
+      {
+        "step_id": "s2",
+        "text": "Take the GNS representation $\\rho_\\phi$ of the chosen extension $\\phi$ of $\\tau$ to $T$, and the unitary $E:H_\\tau\\to H_\\phi$ from the cited trace construction. Then $\\widetilde\\rho(t)=E^{-1}\\rho_\\phi(t)E$ is the established faithful representation on $H_\\tau$. The cited theorem excluding nonzero irreducible representations on separable Hilbert spaces applies to every $*$-representation $\\rho:T\\to B(H)$ with $H$ separable. These statements are conjoined with the classification and structural properties of the same $T$."
+      }
+    ],
+    "lean_realization_notes": "The faithful representation in the existential assertion is the already chosen $\\widetilde\\rho$. No different algebra or unrelated representation is chosen to establish the two separability assertions.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L152-L171",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint_and_exists_separable_faithful_representation_and_no_separable_irreducible_representation",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+        "source_range": {
+          "end_line": 171,
+          "start_line": 152
+        },
+        "source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The classification and structural properties of the constructed algebra",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L95-L98",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 98,
+          "start_line": 95
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The fixed trace-space abbreviation",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L25-L26",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.SeparableCounterexampleHilbertSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+        "source_range": {
+          "end_line": 26,
+          "start_line": 25
+        },
+        "source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "A nonzero vector in the trace space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean#L41-L43",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.nontrivial_traceHilbertSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceGNSModel.lean",
+        "source_range": {
+          "end_line": 43,
+          "start_line": 41
+        },
+        "source_sha256": "339b405feea2897a655b87d1ea66fe28c05e3634075d6bdd626b69f632d0f5c9",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Separability of that same space",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L34-L36",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableSpace_separableCounterexampleHilbertSpace",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+        "source_range": {
+          "end_line": 36,
+          "start_line": 34
+        },
+        "source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "The faithful witness",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean#L38-L40",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.separableCounterexampleRepresentation_injective",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableFaithful.lean",
+        "source_range": {
+          "end_line": 40,
+          "start_line": 38
+        },
+        "source_sha256": "053613b4363e0ea9c4900ab2d3646bcaf0d1e8a3c0dd06ff22ac3751e2a23798",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Exclusion on arbitrary separable Hilbert spaces",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean#L24-L56",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+        "source_range": {
+          "end_line": 56,
+          "start_line": 24
+        },
+        "source_sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "676839944ea44aba2ad0d82eecf10f9d7de497d78bdc437392982049cd4644ee",
+    "uid": "lfh:lfh-declaration-card:sha256:496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "9f7c84764bbb25b92b7c4902e233aa74a31f37794608360c1a4c9f1be8bc4418",
+    "uid": "lfh:lfh-card-exposition:sha256:2d04f960225daf7005d76568bcdfe0b73b7698319758d7dc15f2d53214a5acfd"
+  },
+  "guide": "The long conjunction in the exact signature keeps `AtomicCounterexampleEndpoint`, `Nontrivial` and `SeparableSpace` of $H_\\tau$, an existential injective representation, and the universal exclusion statement separate. `SeparableCounterexampleHilbertSpace` is $H_\\tau$ and `NonUnitalRepresentation` does not initially require $\\rho(1)=1$. The proof chooses `separableCounterexampleRepresentation`, the same $\\widetilde\\rho$.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/496fb09fae36f8b07e1641152da97643e6c1b595cfc8bf458629debfabf9c241/versions/n69-9f7c84764bbb25b9/index.html",
+    "pdf": "card.pdf"
+  }
+}

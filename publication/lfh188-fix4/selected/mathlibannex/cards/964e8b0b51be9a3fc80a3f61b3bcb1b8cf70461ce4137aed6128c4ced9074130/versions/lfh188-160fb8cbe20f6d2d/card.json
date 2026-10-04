@@ -1,0 +1,32 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_scalar_corner",
+  "title": "A nonzero projection with scalar corner",
+  "stable_card_id": "964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130",
+  "identity_key": "lfh:lfh-declaration-card:sha256:964e8b0b51be9a3fc80a3f61b3bcb1b8cf70461ce4137aed6128c4ced9074130",
+  "source_url": "mathlibannex/sources/lfh188/b06e4ab91664f699b75c2400/index.html#L102",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 8,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "dcaf42b5945566594f86facd75e382759ea6f580cd84fe37632b000407fb93ce",
+  "accepted_guide_sha256": "780f02453443ee88ac9e0467fbb4f41a71cdd51d0bcceb34bea04c408523d2cc",
+  "content": {
+    "display_title": "A nonzero projection with scalar corner",
+    "one_sentence_role": "Constructs a projection in the original algebra from an isolated non-scalar character of a unitization subalgebra.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed. Let $H$ be a separable complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ be a nonzero irreducible representation representing the unique unitary-equivalence class of nonzero irreducible representations of $A$. There is $p\\in A$ with $$p^*=p=p^2,\\qquad p\\ne0,\\qquad \\forall a\\in A\\ \\exists c\\in\\mathbb C:\\ pap=cp.$$ ",
+    "definition_explanation": null,
+    "assumptions": "Separability is imposed on $H$. The algebra need not be unital or separable. The scalar $c$ may depend on $a$, while the projection $p$ is fixed.",
+    "conclusion": "The same nonzero star projection has a one-dimensional algebraic corner $pAp=\\mathbb Cp$.",
+    "proof_summary": "Find an isolated character away from the scalar character, take its characteristic-function projection, show that its scalar coordinate vanishes, and extend its scalar corner from the abelian subalgebra to the ambient algebra.",
+    "proof_steps": [
+      "Write $\\widetilde A=\\mathbb C\\oplus A$, $\\iota(a)=(0,a)$, and $\\chi_\\infty(\\lambda,a)=\\lambda$. Choose $a_0\\ne0$ in $A$ and put $b=a_0^*a_0\\ne0$. In the unitization $\\widetilde A$, its image $\\iota(b)$ is self-adjoint. Apply [Maximal abelian containment](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean#L53-L59) to obtain a maximal abelian unital $*$-subalgebra $D$ containing $\\iota(b)$. It is closed and commutative. The character countability theorem [Countability of this character space](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CharacterCountable.lean#L93-L114) applies to the given singleton $\\pi$, separable $H$, and this closed $D$.",
+      "The element $\\iota(b)\\in D$ is nonzero and has scalar coordinate zero. Together with countability, these are the inputs to [An isolated non-scalar character](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean#L34-L75), yielding an isolated character $\\chi\\ne\\chi_\\infty|_D$. Its singleton is both open and closed in the character space. Thus the continuous function $1_{\\{\\chi\\}}$ corresponds under the Gelfand transform to a nonzero projection $q\\in D$ satisfying $$qd=\\chi(d)q\\qquad(d\\in D),$$ by [The projection of an isolated character](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/IsolatedCharacter.lean#L22-L70).",
+      "That characteristic function is zero at the different character $\\chi_\\infty|_D$, so $\\chi_\\infty(q)=0$. This value is precisely the scalar coordinate of $q\\in\\widetilde A$. Therefore $q=\\iota(p)$ for an element $p\\in A$. Injectivity of $\\iota$ transfers $q^*=q=q^2$ and $q\\ne0$ to $p^*=p=p^2\\ne0$.",
+      "The ambient corner calculation is [From maximal abelianness to a scalar ambient corner](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/MinimalProjection.lean#L22-L66). For any $z\\in\\widetilde A$, put $x=qzq$. Since $D$ is commutative and $qd=dq=\\chi(d)q$, for $d\\in D$ we get $$xd=qzqd=\\chi(d)x=dqzq=dx.$$ Maximal abelianness therefore puts $x$ in $D$. Apply the earlier equation to this $x$: $qx=\\chi(x)q$. But $q^2=q$ makes $qx=x$, so $qzq=\\chi(x)q$.",
+      "Finally set $z=\\iota(a)$ for an arbitrary $a\\in A$. With $q=\\iota(p)$, the last equation is $\\iota(pap)=\\iota(cp)$ for $c=\\chi(q\\iota(a)q)$. Injectivity of $\\iota$ gives $pap=cp$. This proves the universal scalar-corner condition on the same $p$."
+    ],
+    "lean_realization_notes": []
+  }
+}

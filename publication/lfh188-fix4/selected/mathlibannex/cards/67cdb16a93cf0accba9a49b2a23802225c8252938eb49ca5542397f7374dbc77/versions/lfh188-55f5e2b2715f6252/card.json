@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_selectedAtomicCyclicIsometry",
+  "title": "Assembling selected GNS cyclic subspaces into an isometric source representation",
+  "stable_card_id": "67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77",
+  "identity_key": "lfh:lfh-declaration-card:sha256:67cdb16a93cf0accba9a49b2a23802225c8252938eb49ca5542397f7374dbc77",
+  "source_url": "mathlibannex/sources/lfh188/561cbeecb45793a8d8ea1953/index.html#L307",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "c0bfb055058f001ab432d17e0bc4b3ab89842a3c706cc3c84461900b266c4de2",
+  "accepted_guide_sha256": "1c48447e5b17bc9705fe5825ec82ab86d1e4d2f976caaa5c5493095357f80b69",
+  "content": {
+    "assumptions": "Let $A$ be the completed CAR algebra, the completion of the matrix stages $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$. Let $f_n$ be the image of the first diagonal matrix unit, so $f_0=1$ and $f_n$ decreases through projections. The root state $\\omega$ takes the value $a_{00}$ on each matrix stage.\n\nChoose one pure state $\\varphi_j$ from each unitary-equivalence class $j\\in I$ of pure-state Gelfand-Naimark-Segal (GNS) representations, with root index $o$ and $\\varphi_o=\\omega$. Write $(H_j,\\pi_j,\\xi_j)$ for its complete complex GNS space, unital star representation and unit cyclic vector. Set $\\mathcal H=\\bigoplus_{j\\in I}H_j$, $\\pi=\\bigoplus_j\\pi_j$, and let $e_j:H_j\\to \\mathcal H$ be the coordinate embedding. No countability of $I$ is assumed. Inner products are linear in the second argument.\n\nA supplied shell family consists of unital complex star automorphisms $\\alpha_j$ and elements $w_{j,n}\\in A$. Put $f_{j,n}=\\alpha_j(f_n)$. The identities are $\\varphi_j\\circ\\alpha_j=\\omega$, $w_{j,n}^*w_{j,n}=f_{j,n}-f_{j,n+1}$ and $w_{j,n}w_{j,n}^*=f_n-f_{n+1}$. At the root, $\\alpha_o$ is the identity and $w_{o,n}=f_n-f_{n+1}$. The family is an input, not an existence conclusion. The vectors $\\eta_j$ are given simultaneously, one for each chosen class. No irreducibility of $\\sigma$ and no density of any individual orbit in all of $K$ is assumed. The algebra and the representations are unital, so each $\\eta_j$ belongs to $M_j$.",
+    "conclusion": "The isometry identifies the atomic Hilbert sum with a closed subspace reducing $\\sigma$. Each ambient limiting flag projection sends this range into the indicated cyclic line. This is control on the isometry range; it is not a claim that the entire ambient fixed space has dimension one.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Assembling selected GNS cyclic subspaces into an isometric source representation",
+    "language_tag": "en",
+    "lean_realization_notes": "Surjectivity is not part of this theorem. [The surjective cyclic-sum theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CaptureRange.lean#L32-L261) proves it in the generated-target setting with additional hypotheses. The present hypotheses already supply the vector states; they do not assert that every representation of the CAR algebra contains all selected classes.",
+    "natural_language_statement": "For the shell family and selected GNS spaces below, let $\\sigma:A\\to B(K)$ be a unital complex star representation on a complete complex Hilbert space. Suppose unit vectors $\\eta_j\\in K$ satisfy $\\langle\\eta_j,\\sigma(a)\\eta_j\\rangle=\\varphi_j(a)$ for every $j\\in I$ and $a\\in A$. Put $M_j=\\overline{\\{\\sigma(a)\\eta_j:a\\in A\\}}$ and let $P_j$ be the orthogonal projection onto $\\bigcap_n\\operatorname{ran}\\sigma(f_{j,n})$.\n\nThere is a complex-linear isometry $W:\\mathcal H\\to K$ such that $W(e_jH_j)\\subseteq M_j$, $W(e_j\\xi_j)=\\eta_j$ and $P_jW x\\in\\mathbb C\\eta_j$ for every $j$ and $x\\in \\mathcal H$. For every $a\\in A$, it satisfies $W\\pi(a)=\\sigma(a)W$.",
+    "one_sentence_role": "Joins mutually orthogonal pure-state cyclic copies and controls the limiting flag projections on their sum.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "On $M_j$, the restricted representation has the unit cyclic vector $\\eta_j$ with pure state $\\varphi_j$, and is irreducible. Equality of vector states gives a unitary $U_j:H_j\\to M_j$ sending $\\xi_j$ to $\\eta_j$ and intertwining $\\pi_j$ with the restriction of $\\sigma$. It extends the orbit map $\\pi_j(a)\\xi_j\\mapsto\\sigma(a)\\eta_j$."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $i\\ne j$, the orthogonal projection from $M_j$ to $M_i$ intertwines their restrictions, since the cyclic subspaces reduce $\\sigma$. A nonzero such intertwiner between irreducible representations would give a unitary equivalence by Schur's lemma, contradicting the distinct selected GNS classes. Thus $M_i\\perp M_j$. The maps $U_j$, followed by inclusion into $K$, form an orthogonal family of isometries."
+      },
+      {
+        "step_id": "s3",
+        "text": "For a fixed $i$, the state identity gives $\\varphi_i(f_{i,n})=1$, hence $\\sigma(f_{i,n})\\eta_i=\\eta_i$. Norm compression implies $P_i\\sigma(a)P_i=\\varphi_i(a)P_i$, so $P_i\\sigma(a)\\eta_i=\\varphi_i(a)\\eta_i$. Density of the orbit and closedness of the line give $P_iM_i\\subseteq\\mathbb C\\eta_i$. If $x\\in M_j$ with $j\\ne i$ and $P_i x\\ne0$, normalizing $P_i x$ yields a vector with state $\\varphi_i$. Its cyclic space is orthogonal to $M_j$. Then $\\langle P_i x,x\\rangle=\\|P_i x\\|^2=0$, a contradiction. Hence $P_iM_j=0$."
+      },
+      {
+        "step_id": "s4",
+        "text": "For $x=(x_j)\\in \\mathcal H$, define $W x=\\sum_j U_jx_j$, with each summand viewed in $K$. Orthogonality makes this an unconditionally norm-convergent Hilbert sum and gives $\\|Wx\\|^2=\\sum_j\\|x_j\\|^2$. The coordinate formulas give $W(e_j\\xi_j)=\\eta_j$. Applying the bounded operator $P_i$ kills every summand except the $i$-th, whose image lies in $\\mathbb C\\eta_i$. Applying the bounded operator $\\sigma(a)$ termwise gives $W\\pi(a)=\\sigma(a)W$."
+      }
+    ],
+    "proof_summary": "Identify each cyclic restriction with its selected GNS representation by [pointed cyclic transport](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean#L26-L107). [Orthogonality of inequivalent cyclic pieces](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean#L109-L207) allows these identifications to extend to the arbitrary-index Hilbert sum. The [own-piece compression identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean#L209-L254) and [vanishing on other cyclic pieces](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/CyclicCapture.lean#L256-L305) give the projection assertion; continuity passes the source intertwining law through the convergent sum."
+  }
+}

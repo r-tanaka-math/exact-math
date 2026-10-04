@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.eq_trace_of_apply_one_of_mul_comm",
+  "title": "Normalization and the trace identity determine the CAR trace",
+  "stable_card_id": "e409951550e6bcc3cae01d9629ee27cb7ecfa02f4c8c15e123c847dd0e9a3483",
+  "identity_key": "lfh:lfh-declaration-card:sha256:e409951550e6bcc3cae01d9629ee27cb7ecfa02f4c8c15e123c847dd0e9a3483",
+  "source_url": "mathlibannex/sources/lfh188/5fc801b3d35ff758eb72001e/index.html#L82",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "50c42fa3076bcd131e25d8f69c490ba6bcf5ebe57f66a8177b4fe903b6d8c939",
+  "accepted_guide_sha256": "e1958dc14ce8b4b354e4bc20754f36ee25d859e1e7d3556a93a1314ab06a1d25",
+  "content": {
+    "assumptions": "Continuity, complex linearity, normalization and the trace identity are the hypotheses on $f$. Positivity, faithfulness and an a priori norm bound of one are not additional hypotheses. Let $\\iota_n:M_{2^n}(\\mathbb C)\\to A$ be the canonical stage embedding. Write $e_{ij}=\\iota_n(E_{ij})$ for the matrix units of a stage of size $d=2^n$.",
+    "conclusion": "There is at most one normalized continuous trace on $A$, and the continuous functional $\\tau$ defined in [the CAR trace construction](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L62-L64) supplies it. In particular any tracial state equals $\\tau$, but the assertion applies to the larger class of functionals specified above.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Normalization and the trace identity determine the CAR trace",
+    "language_tag": "en",
+    "lean_realization_notes": "The argument depends on continuity at the last density step. It makes no uniqueness assertion for arbitrary discontinuous algebraic functionals, or for states without the trace identity.",
+    "natural_language_statement": "Let $A$ be the completion of $M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with normalized trace $\\tau$. If a continuous complex-linear functional $f:A\\to\\mathbb C$ satisfies $f(1)=1$ and $f(ab)=f(ba)$ for every $a,b\\in A$, then $f=\\tau$.",
+    "one_sentence_role": "Proves uniqueness without assuming positivity of the competing continuous functional.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Apply the trace identity to $e_{i0}e_{0i}=e_{ii}$ and $e_{0i}e_{i0}=e_{00}$ to obtain equal diagonal values."
+      },
+      {
+        "step_id": "s2",
+        "text": "For $i\\ne j$, the products $e_{ii}e_{ij}=e_{ij}$ and $e_{ij}e_{ii}=0$ give $f(e_{ij})=0$. Normalization now gives $d f(e_{00})=1$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Expand any stage matrix in matrix units. Linear equality on all stages extends to the completion because $f$ and $\\tau$ are continuous and the stage union is dense."
+      }
+    ],
+    "proof_summary": "The trace identity and matrix-unit multiplication force all diagonal values $f(e_{ii})$ to agree and all off-diagonal values to vanish. Since $\\sum_i e_{ii}=1$, each diagonal value equals $1/d$. Hence $f$ equals the normalized matrix trace on every stage. The union of stage images is dense in $A$, so continuity gives equality everywhere."
+  }
+}

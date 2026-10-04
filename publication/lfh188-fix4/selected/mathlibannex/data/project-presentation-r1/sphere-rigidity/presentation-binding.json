@@ -1,0 +1,81 @@
+{
+  "canonical_card_links": 0,
+  "content_terms_effect": "NONE",
+  "exposure_record": "HOSTING_RELEASE_RECORD",
+  "first_publication_date": null,
+  "inherited_project_manifest": {
+    "authority": "ACCEPTED_PROGRESSIVE_PROJECT_HANDOFF",
+    "sha256": "bc61667f9afd4898a8c76f0e0874fd60048fa79b2ea7df1f861e899a26890d77"
+  },
+  "profile": "PROJECT_PUBLIC_PRESENTATION_R1",
+  "project_identity": {
+    "mathematical_scope": "Unit-sphere chord-metric rigidity for real normed spaces",
+    "research_project_ref": "Exact Mathematics / Sphere Rigidity",
+    "slug": "sphere-rigidity",
+    "title": "Sphere Rigidity - Formalization and LFH"
+  },
+  "project_json": {
+    "bytes": 611301,
+    "path": "project.json",
+    "sha256": "e9e76a64238b331e09f2a78816920fcf5a17226dd69389c087509f9bf4e1c56d"
+  },
+  "project_kind": "RESEARCH_COMPANION",
+  "public_cards": 0,
+  "record_type": "LFH_PROJECT_PRESENTATION_BINDING",
+  "revision": "R1",
+  "schema": "mathlibannex.project-public-presentation-binding.v1",
+  "source_binding": {
+    "commit": "30963f26ac8ffa3dc3e9ec9de91fd0f9daf05305",
+    "direct_root": "MathlibAnnex.Analysis.Normed.Sphere.MetricRigidity",
+    "entry_path": "MathlibAnnex/Projects/SphereRigidity.lean",
+    "entry_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/MathlibAnnex/Projects/SphereRigidity.lean",
+    "entry_sha256": "b2d65019159b56484a87ec139ce8ec9ebd8f7a51cfdf7eaf44a97d8c99a05f80",
+    "manifest_permalink": "https://github.com/r-tanaka-math/mathlib-annex/blob/v0.2.0/docs/projects/sphere-rigidity.json",
+    "manifest_sha256": "c4b77099d6b66b217ecd4c371ac81269f11a811986b6018154c6eeb477add1c6",
+    "qualification_artifact_sha256": "40c62d234d6a49192404b5a2379295c58432b8e7b8606ecd0e055eeae18938a7",
+    "qualification_run": 35086615666,
+    "release_id": 389871289,
+    "release_url": "https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.2.0",
+    "repository": "https://github.com/r-tanaka-math/mathlib-annex",
+    "source_license": "Apache-2.0",
+    "tag": "v0.2.0",
+    "tree": "b3378851a5287f5e3c8418f668e4d0ba52718739"
+  },
+  "structural_files": [
+    {
+      "bytes": 2206531,
+      "path": "boundary-inputs.json",
+      "sha256": "b5b14c0995809e3db381e00d37845b7920ed377a8497bdd92237bfa8041424e6"
+    },
+    {
+      "bytes": 186,
+      "path": "card-coverage.json",
+      "sha256": "3dbbcfe3c9bc6e5591785e4fc0d03dc8067d9de3f9a24683670a06bc065c5184"
+    },
+    {
+      "bytes": 454931,
+      "path": "declarations.json",
+      "sha256": "40e920c53653d6c47bff3690fa8fa940c9e14042f29caed00be44f7a3b63800d"
+    },
+    {
+      "bytes": 61186,
+      "path": "display-graph.json",
+      "sha256": "49e59f0599833ea7f1a69a9fe053652ee528ce15d1d02bc71ab9c31764abc53f"
+    },
+    {
+      "bytes": 22553,
+      "path": "levels.json",
+      "sha256": "abd946b21759f76664fbfe70e1024c31266e06e6d7c6f001ae0c84857045d4d7"
+    },
+    {
+      "bytes": 5180644,
+      "path": "reachability.accepted.json",
+      "sha256": "14436e759aa9d38fe5da7fcaca410555bb6609b7c569b514b7af6c4f98bc3407"
+    },
+    {
+      "bytes": 3350,
+      "path": "routes.json",
+      "sha256": "7efcba4db603fee12b8d2cafa0b7f942a75e065a56aa5351662ab2c2a9fdebbb"
+    }
+  ]
+}

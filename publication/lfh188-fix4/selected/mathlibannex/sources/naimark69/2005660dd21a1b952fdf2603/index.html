@@ -1,0 +1,159 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalRepresentation.toUnital | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/2005660dd21a1b952fdf2603/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/2005660dd21a1b952fdf2603/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.Analysis.CStarAlgebra.NonUnitalRepresentation.toUnital</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean</code>, lines 98–111.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65/versions/n69-49a354534a5b9d1b/index.html">Back to No nonzero irreducible representation on a separable Hilbert space</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.Representation.Basic</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a></span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a>/-!</span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>Nonunital representation interface and the unitality bridge for nonzero</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a>irreducible representations of unital star algebras.</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a>-/</span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a></span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>set_option autoImplicit false</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a></span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>namespace MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a></span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a>universe u v</span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a></span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a>variable {A : Type u} [Semiring A] [Algebra ℂ A] [StarRing A]</span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>variable {H : Type v}</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a>variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a></span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a>/-- A possibly nonunital complex star representation. -/</span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>abbrev NonUnitalRepresentation := A →⋆ₙₐ[ℂ] (H →L[ℂ] H)</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>namespace NonUnitalRepresentation</span>
+<span class="source-line" id="L22"><a class="line-no" href="#L22">22</a></span>
+<span class="source-line" id="L23"><a class="line-no" href="#L23">23</a>def IsNonzero (pi : NonUnitalRepresentation (A := A) (H := H)) : Prop :=</span>
+<span class="source-line" id="L24"><a class="line-no" href="#L24">24</a>  ∃ a : A, pi a ≠ 0</span>
+<span class="source-line" id="L25"><a class="line-no" href="#L25">25</a></span>
+<span class="source-line" id="L26"><a class="line-no" href="#L26">26</a>def Reduces (pi : NonUnitalRepresentation (A := A) (H := H))</span>
+<span class="source-line" id="L27"><a class="line-no" href="#L27">27</a>    (K : Submodule ℂ H) : Prop :=</span>
+<span class="source-line" id="L28"><a class="line-no" href="#L28">28</a>  IsClosed (K : Set H) ∧</span>
+<span class="source-line" id="L29"><a class="line-no" href="#L29">29</a>    ∀ (a : A) (x : H), x ∈ K →</span>
+<span class="source-line" id="L30"><a class="line-no" href="#L30">30</a>      pi a x ∈ K ∧ ContinuousLinearMap.adjoint (pi a) x ∈ K</span>
+<span class="source-line" id="L31"><a class="line-no" href="#L31">31</a></span>
+<span class="source-line" id="L32"><a class="line-no" href="#L32">32</a>def IsIrreducible (pi : NonUnitalRepresentation (A := A) (H := H)) : Prop :=</span>
+<span class="source-line" id="L33"><a class="line-no" href="#L33">33</a>  pi.IsNonzero ∧ ∀ K : Submodule ℂ H, pi.Reduces K → K = ⊥ ∨ K = ⊤</span>
+<span class="source-line" id="L34"><a class="line-no" href="#L34">34</a></span>
+<span class="source-line" id="L35"><a class="line-no" href="#L35">35</a>theorem one_idempotent (pi : NonUnitalRepresentation (A := A) (H := H)) :</span>
+<span class="source-line" id="L36"><a class="line-no" href="#L36">36</a>    IsIdempotentElem (pi 1) := by</span>
+<span class="source-line" id="L37"><a class="line-no" href="#L37">37</a>  rw [IsIdempotentElem, ← map_mul]</span>
+<span class="source-line" id="L38"><a class="line-no" href="#L38">38</a>  simp</span>
+<span class="source-line" id="L39"><a class="line-no" href="#L39">39</a></span>
+<span class="source-line" id="L40"><a class="line-no" href="#L40">40</a>/-- The range of `pi 1` is a closed reducing subspace, even before unitality</span>
+<span class="source-line" id="L41"><a class="line-no" href="#L41">41</a>has been established. -/</span>
+<span class="source-line" id="L42"><a class="line-no" href="#L42">42</a>theorem reduces_range_one (pi : NonUnitalRepresentation (A := A) (H := H)) :</span>
+<span class="source-line" id="L43"><a class="line-no" href="#L43">43</a>    pi.Reduces (pi 1).range := by</span>
+<span class="source-line" id="L44"><a class="line-no" href="#L44">44</a>  have hp := one_idempotent pi</span>
+<span class="source-line" id="L45"><a class="line-no" href="#L45">45</a>  refine ⟨ContinuousLinearMap.IsIdempotentElem.isClosed_range hp, ?_⟩</span>
+<span class="source-line" id="L46"><a class="line-no" href="#L46">46</a>  intro a x hx</span>
+<span class="source-line" id="L47"><a class="line-no" href="#L47">47</a>  have hfix : pi 1 x = x :=</span>
+<span class="source-line" id="L48"><a class="line-no" href="#L48">48</a>    LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line" id="L49"><a class="line-no" href="#L49">49</a>      (ContinuousLinearMap.IsIdempotentElem.toLinearMap hp) |&gt;.mp hx</span>
+<span class="source-line" id="L50"><a class="line-no" href="#L50">50</a>  have hmap (b : A) : pi b x ∈ (pi 1).range := by</span>
+<span class="source-line" id="L51"><a class="line-no" href="#L51">51</a>    apply LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line" id="L52"><a class="line-no" href="#L52">52</a>      (ContinuousLinearMap.IsIdempotentElem.toLinearMap hp) |&gt;.mpr</span>
+<span class="source-line" id="L53"><a class="line-no" href="#L53">53</a>    calc</span>
+<span class="source-line" id="L54"><a class="line-no" href="#L54">54</a>      pi 1 (pi b x) = (pi 1 * pi b) x := rfl</span>
+<span class="source-line" id="L55"><a class="line-no" href="#L55">55</a>      _ = pi (1 * b) x := by rw [map_mul]</span>
+<span class="source-line" id="L56"><a class="line-no" href="#L56">56</a>      _ = pi b x := by simp</span>
+<span class="source-line" id="L57"><a class="line-no" href="#L57">57</a>  refine ⟨hmap a, ?_⟩</span>
+<span class="source-line" id="L58"><a class="line-no" href="#L58">58</a>  rw [← ContinuousLinearMap.star_eq_adjoint, ← map_star pi]</span>
+<span class="source-line" id="L59"><a class="line-no" href="#L59">59</a>  exact hmap (star a)</span>
+<span class="source-line" id="L60"><a class="line-no" href="#L60">60</a></span>
+<span class="source-line" id="L61"><a class="line-no" href="#L61">61</a>theorem map_one_ne_zero_of_isNonzero</span>
+<span class="source-line" id="L62"><a class="line-no" href="#L62">62</a>    (pi : NonUnitalRepresentation (A := A) (H := H)) (hpi : pi.IsNonzero) :</span>
+<span class="source-line" id="L63"><a class="line-no" href="#L63">63</a>    pi 1 ≠ 0 := by</span>
+<span class="source-line" id="L64"><a class="line-no" href="#L64">64</a>  obtain ⟨a, ha⟩ := hpi</span>
+<span class="source-line" id="L65"><a class="line-no" href="#L65">65</a>  intro hzero</span>
+<span class="source-line" id="L66"><a class="line-no" href="#L66">66</a>  apply ha</span>
+<span class="source-line" id="L67"><a class="line-no" href="#L67">67</a>  calc</span>
+<span class="source-line" id="L68"><a class="line-no" href="#L68">68</a>    pi a = pi (1 * a) := by rw [one_mul]</span>
+<span class="source-line" id="L69"><a class="line-no" href="#L69">69</a>    _ = pi 1 * pi a := by rw [map_mul]</span>
+<span class="source-line" id="L70"><a class="line-no" href="#L70">70</a>    _ = 0 := by rw [hzero, zero_mul]</span>
+<span class="source-line" id="L71"><a class="line-no" href="#L71">71</a></span>
+<span class="source-line" id="L72"><a class="line-no" href="#L72">72</a>/-- A nonzero irreducible representation of a unital algebra sends the unit</span>
+<span class="source-line" id="L73"><a class="line-no" href="#L73">73</a>to the identity operator.  Nontriviality of `H` alone is not substituted for</span>
+<span class="source-line" id="L74"><a class="line-no" href="#L74">74</a>nonzeroness of the representation. -/</span>
+<span class="source-line" id="L75"><a class="line-no" href="#L75">75</a>theorem map_one_eq_one_of_isIrreducible</span>
+<span class="source-line" id="L76"><a class="line-no" href="#L76">76</a>    (pi : NonUnitalRepresentation (A := A) (H := H))</span>
+<span class="source-line" id="L77"><a class="line-no" href="#L77">77</a>    (hirr : pi.IsIrreducible) : pi 1 = 1 := by</span>
+<span class="source-line" id="L78"><a class="line-no" href="#L78">78</a>  have hp := one_idempotent pi</span>
+<span class="source-line" id="L79"><a class="line-no" href="#L79">79</a>  have hrange_ne : (pi 1).range ≠ (⊥ : Submodule ℂ H) := by</span>
+<span class="source-line" id="L80"><a class="line-no" href="#L80">80</a>    intro hrange</span>
+<span class="source-line" id="L81"><a class="line-no" href="#L81">81</a>    apply map_one_ne_zero_of_isNonzero pi hirr.1</span>
+<span class="source-line" id="L82"><a class="line-no" href="#L82">82</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L83"><a class="line-no" href="#L83">83</a>    intro x</span>
+<span class="source-line" id="L84"><a class="line-no" href="#L84">84</a>    have hx : pi 1 x ∈ (pi 1).range := ⟨x, rfl⟩</span>
+<span class="source-line" id="L85"><a class="line-no" href="#L85">85</a>    rw [hrange, Submodule.mem_bot] at hx</span>
+<span class="source-line" id="L86"><a class="line-no" href="#L86">86</a>    simpa using hx</span>
+<span class="source-line" id="L87"><a class="line-no" href="#L87">87</a>  have hrange : (pi 1).range = (⊤ : Submodule ℂ H) :=</span>
+<span class="source-line" id="L88"><a class="line-no" href="#L88">88</a>    (hirr.2 (pi 1).range (reduces_range_one pi)).resolve_left hrange_ne</span>
+<span class="source-line" id="L89"><a class="line-no" href="#L89">89</a>  apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L90"><a class="line-no" href="#L90">90</a>  intro x</span>
+<span class="source-line" id="L91"><a class="line-no" href="#L91">91</a>  have hx : x ∈ (pi 1).range := by rw [hrange]; trivial</span>
+<span class="source-line" id="L92"><a class="line-no" href="#L92">92</a>  have hfix := LinearMap.IsIdempotentElem.mem_range_iff</span>
+<span class="source-line" id="L93"><a class="line-no" href="#L93">93</a>    (ContinuousLinearMap.IsIdempotentElem.toLinearMap hp) |&gt;.mp hx</span>
+<span class="source-line" id="L94"><a class="line-no" href="#L94">94</a>  simpa using hfix</span>
+<span class="source-line" id="L95"><a class="line-no" href="#L95">95</a></span>
+<span class="source-line" id="L96"><a class="line-no" href="#L96">96</a>/-- Bundle a nonzero irreducible nonunital representation as a unital star</span>
+<span class="source-line" id="L97"><a class="line-no" href="#L97">97</a>representation after proving the unit equation. -/</span>
+<span class="source-line selected" id="L98"><a class="line-no" href="#L98">98</a>noncomputable def toUnital (pi : NonUnitalRepresentation (A := A) (H := H))</span>
+<span class="source-line selected" id="L99"><a class="line-no" href="#L99">99</a>    (hirr : pi.IsIrreducible) : A →⋆ₐ[ℂ] (H →L[ℂ] H) where</span>
+<span class="source-line selected" id="L100"><a class="line-no" href="#L100">100</a>  toFun := pi</span>
+<span class="source-line selected" id="L101"><a class="line-no" href="#L101">101</a>  map_one&#x27; := map_one_eq_one_of_isIrreducible pi hirr</span>
+<span class="source-line selected" id="L102"><a class="line-no" href="#L102">102</a>  map_mul&#x27; := map_mul pi</span>
+<span class="source-line selected" id="L103"><a class="line-no" href="#L103">103</a>  map_zero&#x27; := map_zero pi</span>
+<span class="source-line selected" id="L104"><a class="line-no" href="#L104">104</a>  map_add&#x27; := map_add pi</span>
+<span class="source-line selected" id="L105"><a class="line-no" href="#L105">105</a>  commutes&#x27; c := by</span>
+<span class="source-line selected" id="L106"><a class="line-no" href="#L106">106</a>    calc</span>
+<span class="source-line selected" id="L107"><a class="line-no" href="#L107">107</a>      pi (algebraMap ℂ A c) = pi (c • (1 : A)) := by rw [Algebra.smul_def, mul_one]</span>
+<span class="source-line selected" id="L108"><a class="line-no" href="#L108">108</a>      _ = c • pi 1 := map_smul pi c 1</span>
+<span class="source-line selected" id="L109"><a class="line-no" href="#L109">109</a>      _ = algebraMap ℂ (H →L[ℂ] H) c := by</span>
+<span class="source-line selected" id="L110"><a class="line-no" href="#L110">110</a>        rw [map_one_eq_one_of_isIrreducible pi hirr, Algebra.smul_def, mul_one]</span>
+<span class="source-line selected" id="L111"><a class="line-no" href="#L111">111</a>  map_star&#x27; := map_star pi</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a></span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>@[simp]</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>theorem toUnital_apply (pi : NonUnitalRepresentation (A := A) (H := H))</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    (hirr : pi.IsIrreducible) (a : A) : pi.toUnital hirr a = pi a :=</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>  rfl</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a></span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>/-- Passing a nonzero irreducible possibly nonunital representation through</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>`toUnital` preserves irreducibility.  The represented operators, their</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>adjoints, and hence all reducing subspaces are definitionally unchanged. -/</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>theorem isIrreducible_toUnital</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>    (pi : NonUnitalRepresentation (A := A) (H := H))</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>    (hirr : pi.IsIrreducible) :</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>    Representation.IsIrreducible (pi.toUnital hirr) := by</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>  refine ⟨hirr.1, ?_⟩</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>  intro K hK</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>  exact hirr.2 K hK</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a></span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>end NonUnitalRepresentation</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a></span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>namespace Representation</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a></span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>universe w</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a></span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>/-- Exact capture predicate for the ordinary nonzero, possibly nonunital</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>target quantifier.  Universe `w` is left polymorphic rather than restricting</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>the target Hilbert dimension. -/</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>def IsUniqueIrreducibleModelAmongNonUnital</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>    (pi : Representation A H) : Prop :=</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a>  Function.Injective pi ∧ pi.IsIrreducible ∧</span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>    ∀ (K : Type w) [NormedAddCommGroup K] [InnerProductSpace ℂ K]</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>      [CompleteSpace K] (rho : NonUnitalRepresentation (A := A) (H := K)),</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>      ∀ hrho : rho.IsIrreducible, pi.UnitaryEquivalent (rho.toUnital hrho)</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a></span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>/-- A universal model for unital irreducible representations is already a</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>universal model for ordinary possibly nonunital nonzero irreducible</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>representations: irreducibility forces the latter to preserve the unit. -/</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>theorem IsUniqueIrreducibleModel.isUniqueIrreducibleModelAmongNonUnital</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>    {pi : Representation A H}</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>    (hpi : Representation.IsUniqueIrreducibleModel.{u, v, w} pi) :</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>    Representation.IsUniqueIrreducibleModelAmongNonUnital.{u, v, w} pi := by</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>  refine ⟨hpi.1, hpi.2.1, ?_⟩</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>  intro K _ _ _ rho hrho</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>  exact hpi.2.2 K (rho.toUnital hrho)</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>    (NonUnitalRepresentation.isIrreducible_toUnital rho hrho)</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a></span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>end Representation</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a></span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>end MathlibAnnex.Analysis.CStarAlgebra</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "6812e87b4173617c7ee0d418ad35e8ad125f0fa7932a1e8175bcd80941acebfb",
+  "approved_card_model_sha256": "42b1966c29d55f0b2f6a51912fbc2d7523959b7dafa7796120f2cfc675cb6103",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital. Let D be a closed commutative unital star subalgebra of Unitization ℂ A with countable character space, and let 0 ≠ d ∈ D have zero scalar coordinate.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "86c77d8996979dd6453b5b81a6f1314b1a2a146adc1a437fd80d77e3a94c0ee0",
+    "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Topology.exists_isOpen_singleton",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "819701b501957cdcf19003e34a0cad05ad728f597d7dc5224d359463cbf86461",
+        "uid": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "There exists a character χ distinct from the restricted infinity character for which {χ} is open in the character space. This theorem itself does not assume that any representation represents a unique irreducible-representation class.",
+  "declaration_kind": "theorem",
+  "definition_equation": "∃ χ, χ ≠ infinityCharacterOn D ∧ IsOpen {χ}.",
+  "definition_explanation": "∃ χ, χ ≠ infinityCharacterOn D ∧ IsOpen {χ}.",
+  "display_title": "Isolated character away from infinity",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] (D : StarSubalgebra ℂ (Unitization ℂ A)) [inst_3 : IsClosed ↑D] [inst_4 : IsMulCommutative ↥D] [Countable ↑(WeakDual.characterSpace ℂ ↥D)] (d : ↥D), d ≠ 0 → (↑d).toProd.1 = 0 → ∃ chi, chi ≠ MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacterOn D ∧ IsOpen {chi}",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "9c7bafd852afbd5cb9640610f01ff1a397b58672466285c1bda0c4292c1f6757",
+    "uid": "lfh:lfh-card-exposition:sha256:ded1e841a7f7dcb91ab936598ca4caed17dfb1c2f29f98caa7388eb2c8280e3e"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "537d6569b1dba3d3d4e7b68b9ca2771dc001ee34ab603793c0c5b52211804363",
+    "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "9c7bafd852afbd5cb9640610f01ff1a397b58672466285c1bda0c4292c1f6757",
+    "uid": "lfh:lfh-card-exposition:sha256:ded1e841a7f7dcb91ab936598ca4caed17dfb1c2f29f98caa7388eb2c8280e3e"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "537d6569b1dba3d3d4e7b68b9ca2771dc001ee34ab603793c0c5b52211804363",
+      "uid": "lfh:lfh-declaration-card:sha256:f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_isolated_character_ne_infinity",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital. Let D be a closed commutative unital star subalgebra of Unitization ℂ A with countable character space, and let 0 ≠ d ∈ D have zero scalar coordinate. There exists a character χ distinct from the restricted infinity character for which {χ} is open in the character space. This theorem itself does not assume that any representation represents a unique irreducible-representation class.",
+  "one_sentence_role": "Finds an isolated character distinct from the scalar character in a countable character space.",
+  "owner_review_item_sha256": "15a7c404404fdc2e99f9bbacaa5afb3ea53461d33a5aa4138b2cabeeee7db24d",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : NonUnitalCStarAlgebra A] [inst_1 : PartialOrder A] [StarOrderedRing A] (D : StarSubalgebra ℂ (Unitization ℂ A)) [inst_3 : IsClosed ↑D] [inst_4 : IsMulCommutative ↥D] [Countable ↑(WeakDual.characterSpace ℂ ↥D)] (d : ↥D), d ≠ 0 → (↑d).toProd.1 = 0 → ∃ chi, chi ≠ MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.infinityCharacterOn D ∧ IsOpen {chi}"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "∃ χ, χ ≠ infinityCharacterOn D ∧ IsOpen {χ}."
+    },
+    {
+      "step_id": "source_route",
+      "text": "Gelfand-transform injectivity finds a character not annihilating d; the zero scalar coordinate excludes the infinity character. The complement of that closed singleton is a nonempty open Baire subspace. The countable T1 Baire lemma yields an isolated point there, and openness transfers back to the full character space."
+    }
+  ],
+  "proof_summary": "Gelfand-transform injectivity finds a character not annihilating d; the zero scalar coordinate excludes the infinity character. The complement of that closed singleton is a nonempty open Baire subspace. The countable T1 Baire lemma yields an isolated point there, and openness transfers back to the full character space.",
+  "source_excerpt": {
+    "bytes": 1607,
+    "sha256": "4abbdea20fc97ea792c254bc77002ea0f5f653735b58f81fc10e826bfe01ccaf"
+  },
+  "source_locator": {
+    "end_column": 68,
+    "end_line": 75,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+    "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+    "start_column": 1,
+    "start_line": 34
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "c7a2faab5cca15f9debddeffe8caefcd36e24c46502edd84add7753f2cb745ed",
+    "uid": "lfh:lfh-source-build-binding:sha256:f5ddee6b47cd549c2c4fb02ea750ef1a12ee2e8f4a0be137f35e76f7bb5c8610"
+  },
+  "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+  "source_signature": {
+    "end_byte": 1785,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "861c860d9fdc66f3fb0739391862738d33aeadaa1775f1b2a120016501c59751",
+    "source_command_range": {
+      "end_column": 68,
+      "end_line": 75,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+      "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+      "start_column": 1,
+      "start_line": 34
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean",
+    "source_sha256": "f6df697614ab55c92bfa9675e146f5aee2cf47a83e9199a513a7ad403f818118",
+    "start_byte": 1343,
+    "text": "theorem exists_isolated_character_ne_infinity\n    (D : StarSubalgebra ℂ (Unitization ℂ A))\n    [IsClosed (D : Set (Unitization ℂ A))]\n    [IsMulCommutative D]\n    [Countable (WeakDual.characterSpace ℂ D)]\n    (d : D) (hd : d ≠ 0)\n    (hdfst : (d : Unitization ℂ A).fst = 0) :\n    ∃ chi : WeakDual.characterSpace ℂ D,\n      chi ≠ infinityCharacterOn (A := A) D ∧\n        IsOpen ({chi} : Set (WeakDual.characterSpace ℂ D))"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean#L34-L75",
+  "stable_card_id": "f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/f13185dafb7e72e6ddc0775a43c0210faf488dbee88282e3fdd08359cc7d6ad9/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "MathlibAnnex.Sphere.radialExtension_integral_abs_det",
+  "title": "The absolute Jacobian integral of a radial sphere extension",
+  "stable_card_id": null,
+  "identity_key": "30f9867eb4ea4a422298bd413a19a1fb2bd6e43badd81823b7e923a857f9bdc0",
+  "source_url": "mathlibannex/sources/lfh188/0824730258af73b6e22fa46a/index.html#L245",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Sphere/RadialJacobian.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "56ec5070e1442d28fe4a6cb353623cd07932f03dbb626fb7c9a61afa9531c6a0",
+  "accepted_guide_sha256": "e5c0746e9e0e08f7b2c08e6d46428030523d68af142dee003519e02cdfcc7579",
+  "content": {
+    "display_title": "The absolute Jacobian integral of a radial sphere extension",
+    "one_sentence_role": "Identifies the integral of the absolute Jacobian over an open source unit ball with the volume of the closed target unit ball.",
+    "natural_language_statement": "Let $m\\in\\mathbb N_0$, put $n=m+1$, and let $E=\\mathbb R^n$ have its standard sup norm $\\|\\cdot\\|_\\infty$ and Lebesgue measure $\\lambda$. Let $p,q$ be continuous seminorms on $E$ with specified positive constants $a_p,b_p,a_q,b_q$ satisfying\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty,\\qquad a_q\\|x\\|_\\infty\\le q(x)\\le b_q\\|x\\|_\\infty\\quad(x\\in E).$$\nThe lower bounds make $p$ and $q$ norms. Define their unit spheres by $\\Sigma_p=\\{x:p(x)=1\\}$ and $\\Sigma_q=\\{y:q(y)=1\\}$. Let $\\Delta:\\Sigma_p\\to\\Sigma_q$ be a bijection satisfying\n$$q(\\Delta(u)-\\Delta(v))=p(u-v)\\qquad(u,v\\in\\Sigma_p).$$\nIts radial extension, read as a map $R_\\Delta:E\\to E$ in the fixed coordinates, is\n$$R_\\Delta(x)=\\begin{cases}0,&x=0,\\\\ p(x)\\,\\Delta\\bigl(x/p(x)\\bigr),&x\\ne0.\\end{cases}$$\nFor $x\\ne0$, the normalized vector $x/p(x)$ belongs to $\\Sigma_p$, so this expression is defined. Put\n$$B_p=\\{x:p(x)<1\\},\\qquad \\overline B_q=\\{y:q(y)\\le1\\}.$$\nAt a differentiability point $x$, let $DR_\\Delta(x):E\\to E$ be the Fréchet derivative and set\n$$j_\\Delta(x)=|\\det DR_\\Delta(x)|.$$\nAt other points set $j_\\Delta(x)=0$. Thus $j_\\Delta$ is the absolute Jacobian, not a norm of $R_\\Delta(x)$ or a determinant of the nonlinear map itself. Then\n$$\\int_{B_p} j_\\Delta(x)\\,d\\lambda(x)=\\lambda(\\overline B_q),$$\nwhere the finite measure on the right is identified with its real value.",
+    "definition_explanation": null,
+    "assumptions": "The dimension is the positive integer $n=m+1$. The maps defining $p$ and $q$ are continuous seminorms with the displayed positive comparison bounds. The sphere map $\\Delta$ is a bijective isometry for the distances induced by $p$ and $q$.\n\nThe derivative and the measure in the integral use the fixed coordinate space $(E,\\|\\cdot\\|_\\infty)$, whereas the unit spheres use $p$ and $q$. No linearity or everywhere differentiability of $R_\\Delta$ is assumed.",
+    "conclusion": "The left side is the integral of the nonnegative function $j_\\Delta$ over the open $p$-unit ball. At a differentiability point, with coordinate vectors $e_1,\\ldots,e_n$ and component functions $R_{\\Delta,i}(x)=(R_\\Delta(x))_i$, the integrand is explicitly\n$$j_\\Delta(x)=\\left|\\det\\bigl(\\partial_jR_{\\Delta,i}(x)\\bigr)_{1\\le i,j\\le n}\\right|,$$\n$$\\partial_jR_{\\Delta,i}(x)=(DR_\\Delta(x)e_j)_i.$$\nThe right side is the volume of the closed $q$-unit ball in the same coordinates. The theorem uses the absolute Jacobian and does not assert that the radial extension is linear.",
+    "proof_summary": "Prove global Lipschitz control and the exact open-ball image. Apply the nonnegative area formula after removing the null nondifferentiability set, justify the real integral, and use the zero-measure boundary of the target ball.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Control the map and identify its image.** Radius preservation and the inverse radial extension give\n$$q(R_\\Delta(x))=p(x),\\qquad R_{\\Delta^{-1}}(R_\\Delta(x))=x\\qquad(x\\in E).$$\nIn particular, $R_\\Delta$ is injective. The radial three-Lipschitz estimate and the comparison bounds give\n$$\\begin{aligned}\nq(R_\\Delta(x)-R_\\Delta(x'))&\\le3p(x-x'),\\\\\n\\|R_\\Delta(x)-R_\\Delta(x')\\|_\\infty&\\le\\frac{3b_p}{a_q}\\|x-x'\\|_\\infty.\n\\end{aligned}$$\nThis is [the reference-coordinate Lipschitz bound](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Sphere/RadialJacobian.lean#L48-L62) for the same $p,q,\\Delta$. Define the open target ball $B_q=\\{y:q(y)<1\\}$. The radius identity gives $R_\\Delta(B_p)\\subseteq B_q$. Conversely, for $y\\in B_q$, take $x=R_{\\Delta^{-1}}(y)$; then $p(x)=q(y)<1$ and $R_\\Delta(x)=y$. Hence\n$$R_\\Delta(B_p)=B_q,$$\nas stated by [the exact open-ball image theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Sphere/RadialBall.lean#L137-L153)."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Remove null complements on the source and target.** Set\n$$G=B_p\\cap\\{x:R_\\Delta\\text{ is differentiable at }x\\},\\qquad N=B_p\\setminus G.$$\nThen\n$$\\lambda(N)=0,\\qquad \\lambda(R_\\Delta(N))=0.$$\nThe first is [Rademacher's theorem](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/Analysis/Calculus/Rademacher.lean#L387-L390) applied to the Lipschitz bound of Step 1. The second is [the equal-dimensional Lipschitz null-image theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Basic.lean#L80-L97) for that same map and the null set $N$; it is recorded in [the radial image-exception lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Sphere/RadialJacobian.lean#L137-L142). The set $G$ is measurable. Since $R_\\Delta$ is injective and $R_\\Delta(B_p)=B_q$,\n$$B_q\\setminus R_\\Delta(G)=R_\\Delta(N).$$\nThus the omitted target subset is null and $\\lambda(R_\\Delta(G))=\\lambda(B_q)$."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Apply the nonnegative area formula.** Write $\\int^+$ for the nonnegative extended integral, valued in $[0,\\infty]$. The formula is\n$$\\int_G^{+}j_\\Delta(x)\\,d\\lambda(x)=\\lambda(R_\\Delta(G)).$$\nApply [the injective nonnegative area formula](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/MeasureTheory/Function/Jacobian.lean#L1094-L1103) with measurable domain $G$, map $R_\\Delta$, derivative $DR_\\Delta(x)$ at each $x\\in G$, injectivity from Step 1, and reference Lebesgue measure $\\lambda$. Step 2 then yields\n$$\\int_{B_p}^{+}j_\\Delta\\,d\\lambda=\\int_G^{+}j_\\Delta\\,d\\lambda=\\lambda(R_\\Delta(G))=\\lambda(B_q).$$\nThe first equality uses $\\lambda(B_p\\setminus G)=0$. These are extended nonnegative integrals; real integrability is established next."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Verify integrability of the same integrand.** Put $\\overline B_p=\\{x:p(x)\\le1\\}$. This is compact by the comparison bounds. The integrability estimate is\n$$\\int_{\\overline B_p}j_\\Delta(x)\\,d\\lambda(x)=\\int_{\\overline B_p}|\\det DR_\\Delta(x)|\\,d\\lambda(x)<\\infty.$$\nFor [compact-set integrability of Lipschitz derivative minors](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Integral/MaximalMinor.lean#L102-L121), use $R_\\Delta$, its reference-coordinate Lipschitz bound, the compact set $\\overline B_p$, and all $n=m+1$ coordinates in increasing order. The resulting minor is $\\det DR_\\Delta$; taking the absolute value gives $j_\\Delta$. This application is recorded by [integrability of the radial absolute determinant](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Sphere/RadialJacobian.lean#L144-L163). Since $B_p\\subseteq\\overline B_p$, we have $j_\\Delta\\in L^1(B_p,\\lambda)$.\n\nBecause $j_\\Delta\\ge0$, its finite extended integral is the same number as its real integral. Taking real values in Step 3 therefore gives\n$$\\int_{B_p}j_\\Delta(x)\\,d\\lambda(x)=\\lambda(B_q),$$\nwith the finite measure on the right read as a real number."
+      },
+      {
+        "step_id": "s5",
+        "text": "**Replace the open target ball by the closed ball.** The boundary identities are\n$$\\partial B_q=\\{y:q(y)=1\\},\\qquad \\lambda(\\partial B_q)=0,$$\n$$\\overline B_q=B_q\\cup\\partial B_q,\\qquad \\lambda(\\overline B_q)=\\lambda(B_q)<\\infty.$$\nThe boundary description follows from the norm-ball description; its measure is zero by the convex-set boundary theorem. Both steps are used in [the open/closed target-volume lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Sphere/RadialJacobian.lean#L223-L243). Finiteness follows from compactness of the closed $q$-unit ball. Substitution into Step 4 gives the stated equality\n$$\\int_{B_p}j_\\Delta(x)\\,d\\lambda(x)=\\lambda(\\overline B_q).$$"
+      }
+    ],
+    "lean_realization_notes": "Changing from the norm $p$ or $q$ to the sup norm changes the normed-space structure, not the coordinate vector. The reference Lebesgue normalization remains fixed. At a point without a derivative, the source takes the zero linear map; since $n=m+1>0$, its determinant is zero, exactly matching the definition of $j_\\Delta$ above.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

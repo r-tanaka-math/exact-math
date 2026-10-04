@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.DeterminantFrame.exists_maximizingFrame",
+  "title": "An attained absolute determinant maximum",
+  "stable_card_id": null,
+  "identity_key": "b56e035fcecbdeb3b46f8b7d6dc4852c5d647fd6ed78a480fb4df7a468ee25ba",
+  "source_url": "mathlibannex/sources/lfh188/c4edc728067f2ec1d25ef5a9/index.html#L143",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "dbb5325a3743a839031e5cede9e311bc25abe486e04b062d2f3d4c544721760b",
+  "accepted_guide_sha256": "2ba8385db97c730d988234e7310a00804bf016106832f42d777a594bd7e1996c",
+  "content": {
+    "display_title": "An attained absolute determinant maximum",
+    "one_sentence_role": "Selects a maximizing dual frame for a specified basis.",
+    "natural_language_statement": "Let $n\\in\\mathbb N$, let $E$ be a finite-dimensional real normed vector space, and fix an ordered basis $b=(b_j)_{j=1}^n$. Write $C_b:E\\to\\mathbb R^n$ for the coordinate isomorphism, defined by $x=\\sum_{j=1}^n(C_bx)_j b_j$, and give its coordinate space the sup norm $\\|c\\|_\\infty=\\max_j|c_j|$ (zero in dimension zero). A frame is an ordered family $F=(\\ell_i)_{i=1}^n$ of continuous real linear functionals, with no independence assumed. Its matrix and evaluation map are\n$$M_F=(\\ell_i(b_j))_{i,j},\\qquad T_Fx=(\\ell_i(x))_i=M_FC_bx.$$\nThe admissible frames form the product of closed dual unit balls\n$$\\mathcal U=\\{F:\\|\\ell_i\\|_{E^*}\\le1\\text{ for every }i\\}.$$\nThe norm on $E$ need not be a coordinate sup norm. There is a frame $F_*\\in\\mathcal U$ such that\n$$\\forall F\\in\\mathcal U,\\quad |\\det M_F|\\le|\\det M_{F_*}|.$$",
+    "definition_explanation": null,
+    "assumptions": "The space is finite-dimensional over $\\mathbb R$ and $b$ is its specified basis indexed by $n$ elements. Each admissible row lies in the closed operator unit ball. No independence of the varying frames, positive dimension, or uniqueness of a maximizing frame is assumed.",
+    "conclusion": "One admissible frame attains the maximum of the absolute determinant. The numerical maximum $D_b=|\\det M_{F_*}|$ depends on $b$, although its value does not depend on which maximizer is chosen. Positivity is a separate result.",
+    "proof_summary": "Use compactness of the finite product of dual balls and continuity of the absolute determinant.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Supply the compact domain.** The dual space $E^*$ is finite-dimensional, hence its closed unit ball $\\overline B_{E^*}(0,1)$ is compact. The [compact dual unit ball](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L125-L128) and [finite product of these balls](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L130-L136) give\n   $$\\mathcal U=\\prod_{i=1}^n \\overline B_{E^*}(0,1)\\quad\\text{compact}.$$\n   The [zero-frame witness](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L138-L141) is $\\ell_i=0$ for every $i$, so the domain is nonempty, also when $n=0$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Maximize the correct function.** Every entry $F\\mapsto\\ell_i(b_j)$ is continuous, and the determinant is a finite sum of products of entries. Therefore $F\\mapsto|\\det M_F|$ is continuous, as in [continuity of the frame determinant](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L116-L123). Apply the extreme-value theorem to this continuous real function on the nonempty compact set $\\mathcal U$. Its output is $F_*\\in\\mathcal U$ with the displayed comparison for every $F\\in\\mathcal U$. This is an absolute maximum; no sign of $\\det M_{F_*}$ is asserted."
+      }
+    ],
+    "lean_realization_notes": "The selected maximizer is named by [the choice of maximizing frame](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L152-L154) and its value by [the attained maximum](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L167-L169). The coordinate identity $T_F=M_FC_b$ is [evaluation in basis coordinates](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Dual/DeterminantFrame.lean#L99-L114). These names do not add uniqueness or a nonzero determinant to this theorem.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

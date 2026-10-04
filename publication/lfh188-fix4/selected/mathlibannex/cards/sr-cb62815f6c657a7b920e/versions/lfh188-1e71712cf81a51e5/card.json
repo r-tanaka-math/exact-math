@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Matrix.ballVolumeScaledMaximalMinors",
+  "title": "Maximal minors scaled by the reference ball volume",
+  "stable_card_id": null,
+  "identity_key": "c58a142f5e0c86f1eb305127618aa51ef16cf62c2ed8741f12f7b4fa3242ec23",
+  "source_url": "mathlibannex/sources/lfh188/a835ad4400017feffbf21004/index.html#L18",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/LinearAlgebra/Matrix/VolumeScaledMaximalMinor.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "6fac7ef9b6a4689ca91d0f1aadb7686741c672e74c08bdd9054d7ee09f56289c",
+  "accepted_guide_sha256": "07eee092d07645f1f4c408179c68c30125447309b9e7bf0bb589221a51f365f8",
+  "content": {
+    "display_title": "Maximal minors scaled by the reference ball volume",
+    "one_sentence_role": "Fixes the volume factor and increasing-row signs.",
+    "natural_language_statement": "Let $n,N\\in\\mathbb N_0$ and give $E=\\mathbb R^n$ and $F=\\mathbb R^N$ their coordinate sup norms. Let $\\lambda_n$ be the fixed coordinate Lebesgue measure on $E$. Let $p:E\\to\\mathbb R$ be a continuous real seminorm with specified constants $a_p,b_p>0$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty\\qquad(x\\in E).$$\n\nThe lower bound makes $p$ a norm. Its closed unit ball and real reference volume are\n$$K_p=\\{x:p(x)\\le1\\},\\qquad v_p=\\lambda_n(K_p)\\in(0,\\infty).$$\nHere and below a finite Lebesgue measure is read as a real number when used as a scalar.\n\nLet $A:E\\to F$ be linear. Index its maximal minors by increasing row selections $I=(i_1<\\cdots<i_n)$ from $\\{1,\\ldots,N\\}$, using $A_{ij}=(Ae_j)_i$. Write $\\Pi_n(A)$ for the vector of these maximal minors and $\\mathcal V_p(A)$ for its volume-scaled version. They are given by\n$$\\mathcal V_p(A)=v_p\\Pi_n(A),\\qquad(\\mathcal V_p(A))_I=v_p\\det(A_{i_a,j})_{a,j=1}^n.$$",
+    "definition_explanation": "This definition multiplies every maximal minor by $v_p$. Increasing row order fixes each determinant sign. [The real ball-volume definition](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Measure/EquivalentSeminormBall.lean#L18-L19) takes the finite measure $\\lambda_n(K_p)$ and reads it as the real scalar $v_p$. The volume is finite and positive because\n$$\\{x:\\|x\\|_\\infty<1/b_p\\}\\subseteq K_p\\subseteq\\{x:\\|x\\|_\\infty\\le1/a_p\\}.$$\nThe first inclusion puts zero in the interior ([interior-point lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm/Topology.lean#L35-L46)); continuity makes the ball closed and the second bounds it, giving [compactness](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm/Topology.lean#L26-L33). Positivity of Lebesgue measure on a nonempty open set and finiteness on compact sets give [finite positive ball volume](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Measure/EquivalentSeminormBall.lean#L21-L28).",
+    "assumptions": "The source and target are finite real coordinate spaces with sup norms. The seminorm $p$ is continuous and has the stated positive lower and upper comparison constants. The measure is the original coordinate Lebesgue measure. No contraction assumption is imposed on $A$. The dimensions $n,N$ may be zero. When $n=0$, the unique empty minor has determinant $1$; when $N<n$, the minor-index set is empty and its function space has one element. Neither case is excluded.",
+    "conclusion": "The output is a real vector with one coordinate for each increasing row selection $I$. The reference coordinates and measure stay fixed.",
+    "proof_summary": null,
+    "proof_steps": null,
+    "lean_realization_notes": "Every linear map between these finite-dimensional spaces is continuous. The type of the source therefore does not narrow the stated class of maps.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

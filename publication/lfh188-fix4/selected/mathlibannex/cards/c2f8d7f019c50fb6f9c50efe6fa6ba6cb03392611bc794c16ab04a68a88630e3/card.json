@@ -1,0 +1,207 @@
+{
+  "assumptions": "Real normed vector spaces; f is an isometry equivalence s to t; R > 0; radius-R balls about c and f(c) are contained in s and t.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "b4ef8d7f9913ca0a211b548805d49160070e9f0bf268e84724d67c5b53d3412e",
+    "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+  },
+  "citations": [
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.midpointLinearIsometry",
+      "source_locator": {
+        "end_column": 25,
+        "end_line": 573,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 568
+      },
+      "text": "The proof or construction of Local affine-isometry chart on a smaller ball uses the project declaration “Linear isometry induced by midpoint and norm preservation” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.radialMap_midpoint_of_norm_lt",
+      "source_locator": {
+        "end_column": 9,
+        "end_line": 693,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 632
+      },
+      "text": "The proof or construction of Local affine-isometry chart on a smaller ball uses the project declaration “Local midpoint preservation of the radial map” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.map_midpoint_of_local_of_smul_pos",
+      "source_locator": {
+        "end_column": 67,
+        "end_line": 549,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 519
+      },
+      "text": "The proof or construction of Local affine-isometry chart on a smaller ball uses the project declaration “Positive homogeneity globalizes local midpoint preservation” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.radialMap_smul_of_pos",
+      "source_locator": {
+        "end_column": 7,
+        "end_line": 452,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 430
+      },
+      "text": "The proof or construction of Local affine-isometry chart on a smaller ball uses the project declaration “Positive homogeneity of the radial map” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.radialMap",
+      "source_locator": {
+        "end_column": 84,
+        "end_line": 409,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 402
+      },
+      "text": "The proof or construction of Local affine-isometry chart on a smaller ball uses the project declaration “Radial extension map” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.radialMap_eq_sub_of_norm_lt",
+      "source_locator": {
+        "end_column": 9,
+        "end_line": 630,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 578
+      },
+      "text": "The proof or construction of Local affine-isometry chart on a smaller ball uses the project declaration “The radial map agrees locally with translated f” at the indicated step."
+    },
+    {
+      "label": "_private.MathlibAnnex.Analysis.Normed.Affine.IsometryExtension.Local.0.MathlibAnnex.IsometryEquiv.norm_radialMap",
+      "source_locator": {
+        "end_column": 13,
+        "end_line": 517,
+        "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+        "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+        "start_column": 1,
+        "start_line": 501
+      },
+      "text": "The proof or construction of Local affine-isometry chart on a smaller ball uses the project declaration “The radial map preserves norms” at the indicated step."
+    }
+  ],
+  "conclusion": "An ambient affine isometry equivalence agrees with f on the ball about c of radius R/8.",
+  "declaration_kind": "theorem",
+  "definition_explanation": null,
+  "display_title": "Local affine-isometry chart on a smaller ball",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "4266e711a95e6b31aeda128f0bce98cf09d1b5793f59602352b7deda6495f785",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:287da7b8c6a8a1971dea92a6b05fc194463d1cbb1363ac15ec4d092b8221b6fe"
+  },
+  "exposition_ref_provenance": "DERIVED_CONTENT_DIGEST_NOT_CANONICAL_IDENTITY",
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "57980774b7bb9d703dad9b73dc930e03203d182af996346c7408eb373b1e0322",
+    "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 1,
+    "sha256": "4266e711a95e6b31aeda128f0bce98cf09d1b5793f59602352b7deda6495f785",
+    "uid": "lfh:lfh-card-exposition-content-digest:sha256:287da7b8c6a8a1971dea92a6b05fc194463d1cbb1363ac15ec4d092b8221b6fe"
+  },
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "57980774b7bb9d703dad9b73dc930e03203d182af996346c7408eb373b1e0322",
+      "uid": "lfh:lfh-declaration-card:sha256:c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.IsometryEquiv.exists_affineExtension_eqOn_ball",
+  "natural_language_statement": "Suppose a set isometry f:s≃ᵢt is defined on subsets containing the ambient balls ball(c,R) and ball(f(c),R), with R>0. Then there is an ambient real affine isometry equivalence A that agrees with f at every source point lying in the smaller ball ball(c,R/8).",
+  "one_sentence_role": "Constructs the local ambient affine chart used in the gluing proof for open connected domains.",
+  "proof_steps": [
+    {
+      "step_id": "step-1",
+      "text": "Set the working radius to r=R/8 and construct the radial map T from f."
+    },
+    {
+      "step_id": "step-2",
+      "text": "Establish T(0)=0, preservation of norms, positive homogeneity, and local midpoint preservation; rescaling upgrades midpoint preservation to all vectors."
+    },
+    {
+      "step_id": "step-3",
+      "text": "Package T first as an additive homomorphism and then as a real linear isometry."
+    },
+    {
+      "step_id": "step-4",
+      "text": "Show the range of the linear isometry contains ball(0,r) by pulling small target vectors back through f and applying the local radial formula."
+    },
+    {
+      "step_id": "step-5",
+      "text": "A submodule with nonempty interior is the whole space, so the linear isometry is surjective and becomes a linear isometry equivalence."
+    },
+    {
+      "step_id": "step-6",
+      "text": "Translate the linear equivalence from c to f(c), and use the local radial formula once more to prove agreement with f on ball(c,R/8)."
+    }
+  ],
+  "proof_summary": "A radial extension centered at c is built from values of f on the sphere of radius R/8. Local midpoint preservation and positive homogeneity make the radial map globally midpoint-preserving; norm preservation then turns it into a real linear isometry. Its range contains an open ball, so it is surjective. Translating this linear equivalence produces the required affine chart, and the local radial formula proves agreement with f.",
+  "source_locator": {
+    "end_column": 7,
+    "end_line": 786,
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_column": 1,
+    "start_line": 695
+  },
+  "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "98a10d3792e8d61d995ca428c03b67dab3227557f59acee55468182d2b5e859a",
+    "uid": "lfh:lfh-source-build-binding:sha256:6c0f184a187489f6bf8106de11df519af0cc616af3f96cbdd3b4f02546d73d48"
+  },
+  "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+  "source_signature": {
+    "end_byte": 29482,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "b59a4f9d6b1f1b1cac0bb748eb24d5c8ee702cce7674e19be0b4182356798fdb",
+    "source_command_range": {
+      "end_column": 7,
+      "end_line": 786,
+      "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+      "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+      "start_column": 1,
+      "start_line": 695
+    },
+    "source_path": "MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean",
+    "source_sha256": "2a992a460eade3e92f642ad76ebd00733614d65a4e338b36e25ac0517d39521a",
+    "start_byte": 29170,
+    "text": "theorem exists_affineExtension_eqOn_ball\n    {s : Set E} {t : Set F} (f : s ≃ᵢ t) (c : s) {R : ℝ} (hR : 0 < R)\n    (hsball : ball (c : E) R ⊆ s)\n    (htball : ball ((f c : t) : F) R ⊆ t) :\n    ∃ A : E ≃ᵃⁱ[ℝ] F, ∀ x : s,\n      (x : E) ∈ ball (c : E) (R / 8) → A (x : E) = ((f x : t) : F)"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L695-L786",
+  "stable_card_id": "c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-18",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/c2f8d7f019c50fb6f9c50efe6fa6ba6cb03392611bc794c16ab04a68a88630e3/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

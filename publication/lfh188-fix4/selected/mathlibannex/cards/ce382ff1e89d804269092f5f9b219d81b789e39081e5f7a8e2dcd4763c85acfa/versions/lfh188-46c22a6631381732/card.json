@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.Limit",
+  "title": "The CAR algebra as a completion of finite matrix stages",
+  "stable_card_id": "ce382ff1e89d804269092f5f9b219d81b789e39081e5f7a8e2dcd4763c85acfa",
+  "identity_key": "lfh:lfh-declaration-card:sha256:ce382ff1e89d804269092f5f9b219d81b789e39081e5f7a8e2dcd4763c85acfa",
+  "source_url": "mathlibannex/sources/lfh188/95646b73eb02c00e00753574/index.html#L277",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "8d6649e09fe846628f9f998314a8c92eeaa6dff68a6da751b95216b375e8bb9d",
+  "accepted_guide_sha256": "d23d6d772d0cfcc2a1fc66038ad604654e58b3b919ba2f4e41fac0eb31bfa41d",
+  "content": {
+    "assumptions": "The stages carry their usual complex matrix algebra operations and adjoint. The fixed embeddings are unital, preserve adjoints and are isometric. The index begins at $n=0$, where $A_0=\\mathbb C$. There is no freely chosen representation or additional hypothesis on another algebra.",
+    "conclusion": "Each stage has a canonical unital star homomorphism $\\iota_n:A_n\\to A$. These maps preserve norms, hence are injective, satisfy $\\iota_{n+1}(a\\otimes I_2)=\\iota_n(a)$, and have a dense union of ranges. With the operations extended from the union, $A$ is a unital complex C*-algebra. These structural facts are furnished by the separately cited stage maps, density result and completion instances; they explain how the named completion is used.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "Identify two finite-stage elements when their images agree in a common later stage. Addition, multiplication, scalar multiplication and adjoint can then be computed after passing to such a common stage. Isometry of the embeddings makes the norm of a represented element independent of its stage. Denote this normed union by $A_{\\mathrm{alg}}$. Define $A=\\widehat{A_{\\mathrm{alg}}}$, its Hausdorff norm completion. Equivalently, elements of $A$ are limits of Cauchy sequences from $A_{\\mathrm{alg}}$, with two sequences identified when their difference tends to zero. The Lean name `Limit` denotes this CAR algebra $A$; `PreCAR` denotes the normed union $A_{\\mathrm{alg}}$. Here `abbrev` introduces a readily unfoldable name for `UniformSpace.Completion PreCAR`, not a second algebra or an additional theorem. Its full defining expression is displayed below.",
+    "display_title": "The CAR algebra as a completion of finite matrix stages",
+    "language_tag": "en",
+    "lean_realization_notes": "The finite matrix stages form a dense subalgebra. The completion allows limits of norm-Cauchy sequences from that union. The construction uses the compatible operator norms of the stages; no new norm is chosen by taking a supremum over representations.",
+    "natural_language_statement": "For $n\\geq0$, let $A_n=M_{2^n}(\\mathbb C)$ with its operator norm, and include $A_n$ in $A_{n+1}$ by $a\\mapsto a\\otimes I_2$. The completed CAR algebra $A$ is the norm completion of the resulting increasing algebraic union. The declaration names this completion; the cited constructions supply its algebra and involution.",
+    "one_sentence_role": "Names the completed CAR algebra in which finite matrix calculations can be extended by norm approximation.",
+    "proof_steps": [],
+    "proof_summary": null
+  }
+}

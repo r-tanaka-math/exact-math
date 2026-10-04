@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_liftedCornerExponential_apply_eq_involution",
+  "title": "Lifting a corner involution to an ambient CAR unitary",
+  "stable_card_id": "68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32",
+  "identity_key": "lfh:lfh-declaration-card:sha256:68bfa7a5c5277bb3a0efdfd6f3fdbec6e079d8042e0ec7d2cab9a06db8b8fc32",
+  "source_url": "mathlibannex/sources/lfh188/fa5452165165d0eba7379f96/index.html#L185",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/InvolutionLift.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "2173f9089f56ea2e070ce212de022348542c8805e9f48ab675b8eaf9a4976a2c",
+  "accepted_guide_sha256": "faad1c125c6c755dafca4527c4664eec24a34e76a3c252a24397274417bca012",
+  "content": {
+    "display_title": "Lifting a corner involution to an ambient CAR unitary",
+    "one_sentence_role": "A prescribed unitary involution on a represented root corner can be realized on finitely many vectors by one lifted corner exponential.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. Let $H$ be a nonzero complex Hilbert space and $\\rho:A\\to B(H)$ an irreducible unital star representation. Fix a stage $n$, put $e=e_{00}^{(n)}$, and let $R=\\operatorname{ran}\\rho(e)$. Suppose $U:R\\to R$ is a surjective complex-linear isometry with $U^2=I_R$. For a finite family $v_0,\\ldots,v_{d-1}\\in R$, there is $h=h^*\\in A$, supported by $e$ on both sides, such that the unitary $u=\\sum_i e_{i0}^{(n)}\\bigl(e\\exp(ih)\\bigr)e_{0i}^{(n)}$ satisfies $\\rho(u)v_j=Uv_j$ for every $j$.",
+    "definition_explanation": null,
+    "assumptions": "The Hilbert space is complete and nonzero; irreducibility here means that the representation has no proper nonzero closed reducing subspace. The integer $d$ may be zero. The selected vectors need not span $R$. The involution is defined on the whole corner Hilbert space and is unitary there.",
+    "conclusion": "The same supported self-adjoint generator gives the ambient unitary and all the prescribed finite actions. Support means $eh=h=he$. The sum amplifies the corner unitary $e\\exp(ih)$ to a unitary of the unital algebra $A$.",
+    "proof_summary": "The involution determines an orthogonal projection $Q=(I_R-U)/2$. Let $T$ be the zero extension of $\\pi Q$ from $R$ to $H$, where $\\pi$ denotes the real circle constant. On the finite span of the selected vectors and their images under $U$, $\\exp(iT)$ acts as $U$. Supported self-adjoint interpolation realizes this exponential by a corner element; matrix amplification preserves its action on root-corner vectors.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Since $U$ is a unitary involution, $Q=(I_R-U)/2$ is an orthogonal projection. Let $T$ be the zero extension of $\\pi Q$ to $H$. It is self-adjoint, has range in $R$, and leaves the finite-dimensional space $E=\\operatorname{span}\\{v_j,Uv_j\\}$ invariant. On $R$, $\\exp(i\\pi Q)=I_R-2Q=U$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The supported exponential interpolation result gives a self-adjoint $h\\in eAe$ whose corner exponential acts as $\\exp(iT)$ on $E$. Its proof first interpolates $T$ on $E$ with $\\|h\\|\\leq2\\|T\\|$, then uses invariance of $E$ to compare the exponentials there."
+      },
+      {
+        "step_id": "s3",
+        "text": "For $z=e\\exp(ih)$, the matrix-unit amplification $L_n(z)=\\sum_i e_{i0}^{(n)}ze_{0i}^{(n)}$ is unitary. On a root-corner vector its represented action reduces to that of $z$. Hence $\\rho(L_n(z))v_j=Uv_j$. The route explanation below records the accompanying stage-central paths separately."
+      }
+    ],
+    "lean_realization_notes": "Only the displayed finite family is required to have the prescribed action. The theorem does not identify the action on the whole corner with $U$, and does not give a small-norm bound for $u-1$. In this Hilbert-operator setting the source adjoint $T^\\dagger$ is the ordinary Hilbert adjoint $T^*$; the exact source notation is retained.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

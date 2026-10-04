@@ -1,0 +1,391 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; script-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;"><title>MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx | MathlibAnnex</title><link rel="stylesheet" href="../../../assets/card-profile.css"><link rel="stylesheet" href="../../../assets/naimark69.css"><link rel="stylesheet" href="../../../assets/naimark69-math.css"><meta name="robots" content="noindex,follow,noarchive"><link rel="canonical" href="https://exactmathematics.org/mathlibannex/sources/naimark69/ee03ea6b6de3ad186f815389/"><meta property="og:url" content="https://exactmathematics.org/mathlibannex/sources/naimark69/ee03ea6b6de3ad186f815389/"></head><body><div id="site-top" tabindex="-1"></div><a class="skip" href="#main">Skip to content</a><header><div class="eyebrow">MATHLIBANNEX / EXACT SOURCE</div><h1>MathlibAnnex.CStarAlgebra.CAR.exists_stageTests_crossRepresentation_path_approx</h1><nav aria-label="Primary"><a href="../../../catalog/index.html">Catalog</a><a href="../../../projects/naimark-problem/index.html">Naimark’s Companion</a><a href="https://github.com/r-tanaka-math/mathlib-annex/releases/tag/v0.4.0">Source v0.4.0</a></nav><nav class="exact-site-context" aria-label="Exact Mathematics site context"><a href="../../../../index.html">Home</a> · <a href="../../../../research/naimark-problem/index.html">Research</a> · <a href="../../../index.html">MathlibAnnex</a></nav></header><main id="main"><p>Exact source: <code>MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean</code>, lines 22–104.</p><p><a href="../../../raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean.txt">Raw UTF-8 source</a></p><p><a href="../../../cards/fcecd0092e896b3ba36db2ba00f34f3072c433e030b8dd9594a41232c4008110/versions/n69-5c025351e5f794d8/index.html">Back to Cross-representation state approximation with a protected finite set</a> · <a href="../../../cards/3dfe02286dcb40387b6decbe45dddfbd82a2a7dfe7a6612c592255e76b2fac33/versions/n69-8a6ed21b4319688f/index.html">Back to Pure CAR states admit two-sided inner intertwining sequences</a></p><pre class="source-lines"><span class="source-line" id="L1"><a class="line-no" href="#L1">1</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.LocalTransport</span>
+<span class="source-line" id="L2"><a class="line-no" href="#L2">2</a>import MathlibAnnex.Analysis.CStarAlgebra.CAR.StagePurification</span>
+<span class="source-line" id="L3"><a class="line-no" href="#L3">3</a></span>
+<span class="source-line" id="L4"><a class="line-no" href="#L4">4</a>/-!</span>
+<span class="source-line" id="L5"><a class="line-no" href="#L5">5</a># Local transport of CAR vector states</span>
+<span class="source-line" id="L6"><a class="line-no" href="#L6">6</a></span>
+<span class="source-line" id="L7"><a class="line-no" href="#L7">7</a>This file separates the exact same-representation correction from the</span>
+<span class="source-line" id="L8"><a class="line-no" href="#L8">8</a>finite-stage approximation used between different representations.  The</span>
+<span class="source-line" id="L9"><a class="line-no" href="#L9">9</a>protected finite set and its tolerance are fixed before the state tests; a</span>
+<span class="source-line" id="L10"><a class="line-no" href="#L10">10</a>later target finite set is handled by finite-stage purification.</span>
+<span class="source-line" id="L11"><a class="line-no" href="#L11">11</a>-/</span>
+<span class="source-line" id="L12"><a class="line-no" href="#L12">12</a></span>
+<span class="source-line" id="L13"><a class="line-no" href="#L13">13</a>set_option autoImplicit false</span>
+<span class="source-line" id="L14"><a class="line-no" href="#L14">14</a></span>
+<span class="source-line" id="L15"><a class="line-no" href="#L15">15</a>noncomputable section</span>
+<span class="source-line" id="L16"><a class="line-no" href="#L16">16</a></span>
+<span class="source-line" id="L17"><a class="line-no" href="#L17">17</a>open MathlibAnnex.Analysis.CStarAlgebra</span>
+<span class="source-line" id="L18"><a class="line-no" href="#L18">18</a></span>
+<span class="source-line" id="L19"><a class="line-no" href="#L19">19</a>namespace MathlibAnnex.CStarAlgebra.CAR</span>
+<span class="source-line" id="L20"><a class="line-no" href="#L20">20</a></span>
+<span class="source-line" id="L21"><a class="line-no" href="#L21">21</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line selected" id="L22"><a class="line-no" href="#L22">22</a>/-- A target vector state in another representation can be approximated on</span>
+<span class="source-line selected" id="L23"><a class="line-no" href="#L23">23</a>any later finite set while the implementing inner automorphism nearly fixes</span>
+<span class="source-line selected" id="L24"><a class="line-no" href="#L24">24</a>an earlier protected finite set.  Closeness on the fixed stage tests is the</span>
+<span class="source-line selected" id="L25"><a class="line-no" href="#L25">25</a>only hypothesis connecting the two original vector states. -/</span>
+<span class="source-line selected" id="L26"><a class="line-no" href="#L26">26</a>theorem exists_stageTests_crossRepresentation_path_approx</span>
+<span class="source-line selected" id="L27"><a class="line-no" href="#L27">27</a>    {H : Type*}</span>
+<span class="source-line selected" id="L28"><a class="line-no" href="#L28">28</a>    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line selected" id="L29"><a class="line-no" href="#L29">29</a>    [Nontrivial H]</span>
+<span class="source-line selected" id="L30"><a class="line-no" href="#L30">30</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line selected" id="L31"><a class="line-no" href="#L31">31</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line selected" id="L32"><a class="line-no" href="#L32">32</a>    ∃ n, ∃ delta &gt; 0,</span>
+<span class="source-line selected" id="L33"><a class="line-no" href="#L33">33</a>      ∀ {K : Type*}</span>
+<span class="source-line selected" id="L34"><a class="line-no" href="#L34">34</a>        [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line selected" id="L35"><a class="line-no" href="#L35">35</a>        (sigma : Representation Limit K) (xi : H) (eta : K),</span>
+<span class="source-line selected" id="L36"><a class="line-no" href="#L36">36</a>      ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line selected" id="L37"><a class="line-no" href="#L37">37</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line selected" id="L38"><a class="line-no" href="#L38">38</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line selected" id="L39"><a class="line-no" href="#L39">39</a>          Representation.vectorFunctional sigma eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line selected" id="L40"><a class="line-no" href="#L40">40</a>      ∀ (F&#x27; : Finset Limit) (epsilon&#x27; : ℝ), 0 &lt; epsilon&#x27; →</span>
+<span class="source-line selected" id="L41"><a class="line-no" href="#L41">41</a>        ∃ u : unitary Limit,</span>
+<span class="source-line selected" id="L42"><a class="line-no" href="#L42">42</a>          ∃ p : Path 1 u,</span>
+<span class="source-line selected" id="L43"><a class="line-no" href="#L43">43</a>          (∀ t, ∀ a ∈ F,</span>
+<span class="source-line selected" id="L44"><a class="line-no" href="#L44">44</a>            ‖(p t : Limit) * a * star (p t : Limit) - a‖ &lt; epsilon ∧</span>
+<span class="source-line selected" id="L45"><a class="line-no" href="#L45">45</a>            ‖star (p t : Limit) * a * (p t : Limit) - a‖ &lt; epsilon) ∧</span>
+<span class="source-line selected" id="L46"><a class="line-no" href="#L46">46</a>          ∀ a ∈ F&#x27;,</span>
+<span class="source-line selected" id="L47"><a class="line-no" href="#L47">47</a>            ‖Representation.vectorFunctional rho (rho (u : Limit) xi) a -</span>
+<span class="source-line selected" id="L48"><a class="line-no" href="#L48">48</a>              Representation.vectorFunctional sigma eta a‖ &lt; epsilon&#x27; := by</span>
+<span class="source-line selected" id="L49"><a class="line-no" href="#L49">49</a>  classical</span>
+<span class="source-line selected" id="L50"><a class="line-no" href="#L50">50</a>  obtain ⟨n, delta, hdelta, hlocal⟩ :=</span>
+<span class="source-line selected" id="L51"><a class="line-no" href="#L51">51</a>    exists_stageTests_exact_unitary_path_apply_eq_and_conjugate_sub_norm_lt</span>
+<span class="source-line selected" id="L52"><a class="line-no" href="#L52">52</a>      rho hrho F hepsilon</span>
+<span class="source-line selected" id="L53"><a class="line-no" href="#L53">53</a>  refine ⟨n, delta, hdelta, ?_⟩</span>
+<span class="source-line selected" id="L54"><a class="line-no" href="#L54">54</a>  intro K _ _ _ sigma xi eta hxi heta hstate F&#x27; epsilon&#x27; hepsilon&#x27;</span>
+<span class="source-line selected" id="L55"><a class="line-no" href="#L55">55</a>  obtain ⟨m, hm⟩ := exists_common_stage_approx F&#x27;</span>
+<span class="source-line selected" id="L56"><a class="line-no" href="#L56">56</a>    (show 0 &lt; epsilon&#x27; / 3 by positivity)</span>
+<span class="source-line selected" id="L57"><a class="line-no" href="#L57">57</a>  let N : ℕ := max n m</span>
+<span class="source-line selected" id="L58"><a class="line-no" href="#L58">58</a>  have hnN : n ≤ N := le_max_left n m</span>
+<span class="source-line selected" id="L59"><a class="line-no" href="#L59">59</a>  have hmN : m ≤ N := le_max_right n m</span>
+<span class="source-line selected" id="L60"><a class="line-no" href="#L60">60</a>  obtain ⟨zeta, hzeta, hzstage⟩ :=</span>
+<span class="source-line selected" id="L61"><a class="line-no" href="#L61">61</a>    exists_unitVector_vectorFunctional_eq_on_stage rho</span>
+<span class="source-line selected" id="L62"><a class="line-no" href="#L62">62</a>      ((Representation.isIrreducible_iff_starAlgHom rho).mpr hrho)</span>
+<span class="source-line selected" id="L63"><a class="line-no" href="#L63">63</a>      sigma N eta heta</span>
+<span class="source-line selected" id="L64"><a class="line-no" href="#L64">64</a>  have hzmatrix (i j : Fin (2 ^ n)) :</span>
+<span class="source-line selected" id="L65"><a class="line-no" href="#L65">65</a>      Representation.vectorFunctional rho zeta (limitMatrixUnit n i j) =</span>
+<span class="source-line selected" id="L66"><a class="line-no" href="#L66">66</a>        Representation.vectorFunctional sigma eta (limitMatrixUnit n i j) := by</span>
+<span class="source-line selected" id="L67"><a class="line-no" href="#L67">67</a>    have h := hzstage (embed n N hnN (matrixUnit n i j))</span>
+<span class="source-line selected" id="L68"><a class="line-no" href="#L68">68</a>    simpa only [ofStage_embed, limitMatrixUnit] using h</span>
+<span class="source-line selected" id="L69"><a class="line-no" href="#L69">69</a>  obtain ⟨u, huapply, p, huprotect⟩ := hlocal xi zeta hxi hzeta (by</span>
+<span class="source-line selected" id="L70"><a class="line-no" href="#L70">70</a>    intro i j</span>
+<span class="source-line selected" id="L71"><a class="line-no" href="#L71">71</a>    rw [hzmatrix i j]</span>
+<span class="source-line selected" id="L72"><a class="line-no" href="#L72">72</a>    exact hstate i j)</span>
+<span class="source-line selected" id="L73"><a class="line-no" href="#L73">73</a>  refine ⟨u, p, huprotect, ?_⟩</span>
+<span class="source-line selected" id="L74"><a class="line-no" href="#L74">74</a>  intro a ha</span>
+<span class="source-line selected" id="L75"><a class="line-no" href="#L75">75</a>  obtain ⟨c, hc⟩ := hm a ha</span>
+<span class="source-line selected" id="L76"><a class="line-no" href="#L76">76</a>  let d : Limit := ofStage N (embed m N hmN c)</span>
+<span class="source-line selected" id="L77"><a class="line-no" href="#L77">77</a>  have hd : d = ofStage m c := by</span>
+<span class="source-line selected" id="L78"><a class="line-no" href="#L78">78</a>    dsimp only [d]</span>
+<span class="source-line selected" id="L79"><a class="line-no" href="#L79">79</a>    rw [ofStage_embed]</span>
+<span class="source-line selected" id="L80"><a class="line-no" href="#L80">80</a>  have htarget :</span>
+<span class="source-line selected" id="L81"><a class="line-no" href="#L81">81</a>      Representation.vectorFunctional rho zeta d =</span>
+<span class="source-line selected" id="L82"><a class="line-no" href="#L82">82</a>        Representation.vectorFunctional sigma eta d := by</span>
+<span class="source-line selected" id="L83"><a class="line-no" href="#L83">83</a>    dsimp only [d]</span>
+<span class="source-line selected" id="L84"><a class="line-no" href="#L84">84</a>    exact hzstage (embed m N hmN c)</span>
+<span class="source-line selected" id="L85"><a class="line-no" href="#L85">85</a>  rw [huapply]</span>
+<span class="source-line selected" id="L86"><a class="line-no" href="#L86">86</a>  have hdecomp :</span>
+<span class="source-line selected" id="L87"><a class="line-no" href="#L87">87</a>      Representation.vectorFunctional rho zeta a -</span>
+<span class="source-line selected" id="L88"><a class="line-no" href="#L88">88</a>          Representation.vectorFunctional sigma eta a =</span>
+<span class="source-line selected" id="L89"><a class="line-no" href="#L89">89</a>        Representation.vectorFunctional rho zeta (a - d) +</span>
+<span class="source-line selected" id="L90"><a class="line-no" href="#L90">90</a>          Representation.vectorFunctional sigma eta (d - a) := by</span>
+<span class="source-line selected" id="L91"><a class="line-no" href="#L91">91</a>    rw [map_sub, map_sub, htarget]</span>
+<span class="source-line selected" id="L92"><a class="line-no" href="#L92">92</a>    ring</span>
+<span class="source-line selected" id="L93"><a class="line-no" href="#L93">93</a>  rw [hdecomp]</span>
+<span class="source-line selected" id="L94"><a class="line-no" href="#L94">94</a>  calc</span>
+<span class="source-line selected" id="L95"><a class="line-no" href="#L95">95</a>    _ ≤ ‖Representation.vectorFunctional rho zeta (a - d)‖ +</span>
+<span class="source-line selected" id="L96"><a class="line-no" href="#L96">96</a>        ‖Representation.vectorFunctional sigma eta (d - a)‖ := norm_add_le _ _</span>
+<span class="source-line selected" id="L97"><a class="line-no" href="#L97">97</a>    _ ≤ ‖a - d‖ + ‖d - a‖ := by</span>
+<span class="source-line selected" id="L98"><a class="line-no" href="#L98">98</a>      exact add_le_add</span>
+<span class="source-line selected" id="L99"><a class="line-no" href="#L99">99</a>        (Representation.norm_vectorFunctional_apply_le rho hzeta (a - d))</span>
+<span class="source-line selected" id="L100"><a class="line-no" href="#L100">100</a>        (Representation.norm_vectorFunctional_apply_le sigma heta (d - a))</span>
+<span class="source-line selected" id="L101"><a class="line-no" href="#L101">101</a>    _ = 2 * ‖a - d‖ := by rw [norm_sub_rev d a]; ring</span>
+<span class="source-line selected" id="L102"><a class="line-no" href="#L102">102</a>    _ &lt; epsilon&#x27; := by</span>
+<span class="source-line selected" id="L103"><a class="line-no" href="#L103">103</a>      rw [hd]</span>
+<span class="source-line selected" id="L104"><a class="line-no" href="#L104">104</a>      linarith</span>
+<span class="source-line" id="L105"><a class="line-no" href="#L105">105</a></span>
+<span class="source-line" id="L106"><a class="line-no" href="#L106">106</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L107"><a class="line-no" href="#L107">107</a>/-- Endpoint-only compatibility wrapper for</span>
+<span class="source-line" id="L108"><a class="line-no" href="#L108">108</a>`exists_stageTests_crossRepresentation_path_approx`. -/</span>
+<span class="source-line" id="L109"><a class="line-no" href="#L109">109</a>theorem exists_stageTests_crossRepresentation_approx</span>
+<span class="source-line" id="L110"><a class="line-no" href="#L110">110</a>    {H : Type*}</span>
+<span class="source-line" id="L111"><a class="line-no" href="#L111">111</a>    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L112"><a class="line-no" href="#L112">112</a>    [Nontrivial H]</span>
+<span class="source-line" id="L113"><a class="line-no" href="#L113">113</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L114"><a class="line-no" href="#L114">114</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L115"><a class="line-no" href="#L115">115</a>    ∃ n, ∃ delta &gt; 0,</span>
+<span class="source-line" id="L116"><a class="line-no" href="#L116">116</a>      ∀ {K : Type*}</span>
+<span class="source-line" id="L117"><a class="line-no" href="#L117">117</a>        [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L118"><a class="line-no" href="#L118">118</a>        (sigma : Representation Limit K) (xi : H) (eta : K),</span>
+<span class="source-line" id="L119"><a class="line-no" href="#L119">119</a>      ‖xi‖ = 1 → ‖eta‖ = 1 →</span>
+<span class="source-line" id="L120"><a class="line-no" href="#L120">120</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L121"><a class="line-no" href="#L121">121</a>        ‖Representation.vectorFunctional rho xi (limitMatrixUnit n i j) -</span>
+<span class="source-line" id="L122"><a class="line-no" href="#L122">122</a>          Representation.vectorFunctional sigma eta (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L123"><a class="line-no" href="#L123">123</a>      ∀ (F&#x27; : Finset Limit) (epsilon&#x27; : ℝ), 0 &lt; epsilon&#x27; →</span>
+<span class="source-line" id="L124"><a class="line-no" href="#L124">124</a>        ∃ u : unitary Limit,</span>
+<span class="source-line" id="L125"><a class="line-no" href="#L125">125</a>          (∀ a ∈ F,</span>
+<span class="source-line" id="L126"><a class="line-no" href="#L126">126</a>            ‖(u : Limit) * a * star (u : Limit) - a‖ &lt; epsilon ∧</span>
+<span class="source-line" id="L127"><a class="line-no" href="#L127">127</a>            ‖star (u : Limit) * a * (u : Limit) - a‖ &lt; epsilon) ∧</span>
+<span class="source-line" id="L128"><a class="line-no" href="#L128">128</a>          ∀ a ∈ F&#x27;,</span>
+<span class="source-line" id="L129"><a class="line-no" href="#L129">129</a>            ‖Representation.vectorFunctional rho (rho (u : Limit) xi) a -</span>
+<span class="source-line" id="L130"><a class="line-no" href="#L130">130</a>              Representation.vectorFunctional sigma eta a‖ &lt; epsilon&#x27; := by</span>
+<span class="source-line" id="L131"><a class="line-no" href="#L131">131</a>  obtain ⟨n, delta, hdelta, hmain⟩ :=</span>
+<span class="source-line" id="L132"><a class="line-no" href="#L132">132</a>    exists_stageTests_crossRepresentation_path_approx rho hrho F hepsilon</span>
+<span class="source-line" id="L133"><a class="line-no" href="#L133">133</a>  refine ⟨n, delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L134"><a class="line-no" href="#L134">134</a>  intro K _ _ _ sigma xi eta hxi heta hstate F&#x27; epsilon&#x27; hepsilon&#x27;</span>
+<span class="source-line" id="L135"><a class="line-no" href="#L135">135</a>  obtain ⟨u, p, hprotect, happrox⟩ :=</span>
+<span class="source-line" id="L136"><a class="line-no" href="#L136">136</a>    hmain sigma xi eta hxi heta hstate F&#x27; epsilon&#x27; hepsilon&#x27;</span>
+<span class="source-line" id="L137"><a class="line-no" href="#L137">137</a>  refine ⟨u, ?_, happrox⟩</span>
+<span class="source-line" id="L138"><a class="line-no" href="#L138">138</a>  intro a ha</span>
+<span class="source-line" id="L139"><a class="line-no" href="#L139">139</a>  simpa only [p.target] using hprotect (1 : Set.Icc (0 : ℝ) 1) a ha</span>
+<span class="source-line" id="L140"><a class="line-no" href="#L140">140</a></span>
+<span class="source-line" id="L141"><a class="line-no" href="#L141">141</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L142"><a class="line-no" href="#L142">142</a>/-- With no near-centrality requirement, one irreducible CAR representation</span>
+<span class="source-line" id="L143"><a class="line-no" href="#L143">143</a>can approximate an arbitrary unit vector state from another representation on</span>
+<span class="source-line" id="L144"><a class="line-no" href="#L144">144</a>any finite set.  Stage zero supplies the exact transitivity step, while</span>
+<span class="source-line" id="L145"><a class="line-no" href="#L145">145</a>finite-stage purification supplies the requested state accuracy. -/</span>
+<span class="source-line" id="L146"><a class="line-no" href="#L146">146</a>theorem exists_unitary_crossRepresentation_path_approx</span>
+<span class="source-line" id="L147"><a class="line-no" href="#L147">147</a>    {H K : Type*}</span>
+<span class="source-line" id="L148"><a class="line-no" href="#L148">148</a>    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L149"><a class="line-no" href="#L149">149</a>    [Nontrivial H]</span>
+<span class="source-line" id="L150"><a class="line-no" href="#L150">150</a>    [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L151"><a class="line-no" href="#L151">151</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L152"><a class="line-no" href="#L152">152</a>    (sigma : Representation Limit K) (xi : H) (eta : K)</span>
+<span class="source-line" id="L153"><a class="line-no" href="#L153">153</a>    (hxi : ‖xi‖ = 1) (heta : ‖eta‖ = 1)</span>
+<span class="source-line" id="L154"><a class="line-no" href="#L154">154</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L155"><a class="line-no" href="#L155">155</a>    ∃ u : unitary Limit, ∃ p : Path 1 u, ∀ a ∈ F,</span>
+<span class="source-line" id="L156"><a class="line-no" href="#L156">156</a>      ‖Representation.vectorFunctional rho (rho (u : Limit) xi) a -</span>
+<span class="source-line" id="L157"><a class="line-no" href="#L157">157</a>        Representation.vectorFunctional sigma eta a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L158"><a class="line-no" href="#L158">158</a>  classical</span>
+<span class="source-line" id="L159"><a class="line-no" href="#L159">159</a>  obtain ⟨m, hm⟩ := exists_common_stage_approx F</span>
+<span class="source-line" id="L160"><a class="line-no" href="#L160">160</a>    (show 0 &lt; epsilon / 3 by positivity)</span>
+<span class="source-line" id="L161"><a class="line-no" href="#L161">161</a>  obtain ⟨zeta, hzeta, hzstage⟩ :=</span>
+<span class="source-line" id="L162"><a class="line-no" href="#L162">162</a>    exists_unitVector_vectorFunctional_eq_on_stage rho</span>
+<span class="source-line" id="L163"><a class="line-no" href="#L163">163</a>      ((Representation.isIrreducible_iff_starAlgHom rho).mpr hrho)</span>
+<span class="source-line" id="L164"><a class="line-no" href="#L164">164</a>      sigma m eta heta</span>
+<span class="source-line" id="L165"><a class="line-no" href="#L165">165</a>  obtain ⟨delta, hdelta, htrans⟩ :=</span>
+<span class="source-line" id="L166"><a class="line-no" href="#L166">166</a>    exists_delta_exact_unitary_path_apply_eq_and_stage_commutator</span>
+<span class="source-line" id="L167"><a class="line-no" href="#L167">167</a>      rho hrho 0 (by norm_num : (0 : ℝ) &lt; 1)</span>
+<span class="source-line" id="L168"><a class="line-no" href="#L168">168</a>  obtain ⟨u, huapply, p, _⟩ := htrans xi zeta hxi hzeta (by</span>
+<span class="source-line" id="L169"><a class="line-no" href="#L169">169</a>    intro i j</span>
+<span class="source-line" id="L170"><a class="line-no" href="#L170">170</a>    have hunit : limitMatrixUnit 0 (0 : Fin (2 ^ 0)) (0 : Fin (2 ^ 0)) = 1 := by</span>
+<span class="source-line" id="L171"><a class="line-no" href="#L171">171</a>      simpa using sum_limitMatrixUnit_diag 0</span>
+<span class="source-line" id="L172"><a class="line-no" href="#L172">172</a>    have hij : limitMatrixUnit 0 i j = 1 := by</span>
+<span class="source-line" id="L173"><a class="line-no" href="#L173">173</a>      rw [← hunit]</span>
+<span class="source-line" id="L174"><a class="line-no" href="#L174">174</a>      congr &lt;;&gt; apply Fin.ext &lt;;&gt; simp</span>
+<span class="source-line" id="L175"><a class="line-no" href="#L175">175</a>    rw [hij, Representation.vectorFunctional_one rho hxi,</span>
+<span class="source-line" id="L176"><a class="line-no" href="#L176">176</a>      Representation.vectorFunctional_one rho hzeta, sub_self, norm_zero]</span>
+<span class="source-line" id="L177"><a class="line-no" href="#L177">177</a>    exact hdelta)</span>
+<span class="source-line" id="L178"><a class="line-no" href="#L178">178</a>  refine ⟨u, p, ?_⟩</span>
+<span class="source-line" id="L179"><a class="line-no" href="#L179">179</a>  intro a ha</span>
+<span class="source-line" id="L180"><a class="line-no" href="#L180">180</a>  obtain ⟨c, hc⟩ := hm a ha</span>
+<span class="source-line" id="L181"><a class="line-no" href="#L181">181</a>  have htarget := hzstage c</span>
+<span class="source-line" id="L182"><a class="line-no" href="#L182">182</a>  rw [huapply]</span>
+<span class="source-line" id="L183"><a class="line-no" href="#L183">183</a>  have hdecomp :</span>
+<span class="source-line" id="L184"><a class="line-no" href="#L184">184</a>      Representation.vectorFunctional rho zeta a -</span>
+<span class="source-line" id="L185"><a class="line-no" href="#L185">185</a>          Representation.vectorFunctional sigma eta a =</span>
+<span class="source-line" id="L186"><a class="line-no" href="#L186">186</a>        Representation.vectorFunctional rho zeta (a - ofStage m c) +</span>
+<span class="source-line" id="L187"><a class="line-no" href="#L187">187</a>          Representation.vectorFunctional sigma eta (ofStage m c - a) := by</span>
+<span class="source-line" id="L188"><a class="line-no" href="#L188">188</a>    rw [map_sub, map_sub, htarget]</span>
+<span class="source-line" id="L189"><a class="line-no" href="#L189">189</a>    ring</span>
+<span class="source-line" id="L190"><a class="line-no" href="#L190">190</a>  rw [hdecomp]</span>
+<span class="source-line" id="L191"><a class="line-no" href="#L191">191</a>  calc</span>
+<span class="source-line" id="L192"><a class="line-no" href="#L192">192</a>    _ ≤ ‖Representation.vectorFunctional rho zeta (a - ofStage m c)‖ +</span>
+<span class="source-line" id="L193"><a class="line-no" href="#L193">193</a>        ‖Representation.vectorFunctional sigma eta (ofStage m c - a)‖ :=</span>
+<span class="source-line" id="L194"><a class="line-no" href="#L194">194</a>      norm_add_le _ _</span>
+<span class="source-line" id="L195"><a class="line-no" href="#L195">195</a>    _ ≤ ‖a - ofStage m c‖ + ‖ofStage m c - a‖ := by</span>
+<span class="source-line" id="L196"><a class="line-no" href="#L196">196</a>      exact add_le_add</span>
+<span class="source-line" id="L197"><a class="line-no" href="#L197">197</a>        (Representation.norm_vectorFunctional_apply_le rho hzeta _)</span>
+<span class="source-line" id="L198"><a class="line-no" href="#L198">198</a>        (Representation.norm_vectorFunctional_apply_le sigma heta _)</span>
+<span class="source-line" id="L199"><a class="line-no" href="#L199">199</a>    _ = 2 * ‖a - ofStage m c‖ := by</span>
+<span class="source-line" id="L200"><a class="line-no" href="#L200">200</a>      rw [norm_sub_rev (ofStage m c) a]</span>
+<span class="source-line" id="L201"><a class="line-no" href="#L201">201</a>      ring</span>
+<span class="source-line" id="L202"><a class="line-no" href="#L202">202</a>    _ &lt; epsilon := by linarith</span>
+<span class="source-line" id="L203"><a class="line-no" href="#L203">203</a></span>
+<span class="source-line" id="L204"><a class="line-no" href="#L204">204</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L205"><a class="line-no" href="#L205">205</a>/-- Endpoint-only compatibility wrapper for</span>
+<span class="source-line" id="L206"><a class="line-no" href="#L206">206</a>`exists_unitary_crossRepresentation_path_approx`. -/</span>
+<span class="source-line" id="L207"><a class="line-no" href="#L207">207</a>theorem exists_unitary_crossRepresentation_approx</span>
+<span class="source-line" id="L208"><a class="line-no" href="#L208">208</a>    {H K : Type*}</span>
+<span class="source-line" id="L209"><a class="line-no" href="#L209">209</a>    [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]</span>
+<span class="source-line" id="L210"><a class="line-no" href="#L210">210</a>    [Nontrivial H]</span>
+<span class="source-line" id="L211"><a class="line-no" href="#L211">211</a>    [NormedAddCommGroup K] [InnerProductSpace ℂ K] [CompleteSpace K]</span>
+<span class="source-line" id="L212"><a class="line-no" href="#L212">212</a>    (rho : Representation Limit H) (hrho : StarAlgHom.IsIrreducible rho)</span>
+<span class="source-line" id="L213"><a class="line-no" href="#L213">213</a>    (sigma : Representation Limit K) (xi : H) (eta : K)</span>
+<span class="source-line" id="L214"><a class="line-no" href="#L214">214</a>    (hxi : ‖xi‖ = 1) (heta : ‖eta‖ = 1)</span>
+<span class="source-line" id="L215"><a class="line-no" href="#L215">215</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L216"><a class="line-no" href="#L216">216</a>    ∃ u : unitary Limit, ∀ a ∈ F,</span>
+<span class="source-line" id="L217"><a class="line-no" href="#L217">217</a>      ‖Representation.vectorFunctional rho (rho (u : Limit) xi) a -</span>
+<span class="source-line" id="L218"><a class="line-no" href="#L218">218</a>        Representation.vectorFunctional sigma eta a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L219"><a class="line-no" href="#L219">219</a>  obtain ⟨u, -, happrox⟩ := exists_unitary_crossRepresentation_path_approx</span>
+<span class="source-line" id="L220"><a class="line-no" href="#L220">220</a>    rho hrho sigma xi eta hxi heta F hepsilon</span>
+<span class="source-line" id="L221"><a class="line-no" href="#L221">221</a>  exact ⟨u, happrox⟩</span>
+<span class="source-line" id="L222"><a class="line-no" href="#L222">222</a></span>
+<span class="source-line" id="L223"><a class="line-no" href="#L223">223</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L224"><a class="line-no" href="#L224">224</a>/-- Pure-state form of cross-representation local transport.  For a fixed</span>
+<span class="source-line" id="L225"><a class="line-no" href="#L225">225</a>source pure state and protected finite set, the finite stage tests are chosen</span>
+<span class="source-line" id="L226"><a class="line-no" href="#L226">226</a>before the target pure state and before the later approximation request. -/</span>
+<span class="source-line" id="L227"><a class="line-no" href="#L227">227</a>theorem exists_stageTests_pureState_path_approx</span>
+<span class="source-line" id="L228"><a class="line-no" href="#L228">228</a>    (phi : Limit →L[ℂ] ℂ) (hphi : MathlibAnnex.CStarAlgebra.IsPureState Limit phi)</span>
+<span class="source-line" id="L229"><a class="line-no" href="#L229">229</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L230"><a class="line-no" href="#L230">230</a>    ∃ n, ∃ delta &gt; 0,</span>
+<span class="source-line" id="L231"><a class="line-no" href="#L231">231</a>      ∀ (psi : Limit →L[ℂ] ℂ), MathlibAnnex.CStarAlgebra.IsPureState Limit psi →</span>
+<span class="source-line" id="L232"><a class="line-no" href="#L232">232</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L233"><a class="line-no" href="#L233">233</a>        ‖phi (limitMatrixUnit n i j) - psi (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L234"><a class="line-no" href="#L234">234</a>      ∀ (F&#x27; : Finset Limit) (epsilon&#x27; : ℝ), 0 &lt; epsilon&#x27; →</span>
+<span class="source-line" id="L235"><a class="line-no" href="#L235">235</a>        ∃ u : unitary Limit,</span>
+<span class="source-line" id="L236"><a class="line-no" href="#L236">236</a>          ∃ p : Path 1 u,</span>
+<span class="source-line" id="L237"><a class="line-no" href="#L237">237</a>          (∀ t, ∀ a ∈ F,</span>
+<span class="source-line" id="L238"><a class="line-no" href="#L238">238</a>            ‖star (p t : Limit) * a * (p t : Limit) - a‖ &lt; epsilon) ∧</span>
+<span class="source-line" id="L239"><a class="line-no" href="#L239">239</a>          ∀ a ∈ F&#x27;,</span>
+<span class="source-line" id="L240"><a class="line-no" href="#L240">240</a>            ‖phi (star (u : Limit) * a * (u : Limit)) - psi a‖ &lt; epsilon&#x27; := by</span>
+<span class="source-line" id="L241"><a class="line-no" href="#L241">241</a>  have hphiState : phi ∈ stateSpace Limit := extremePoints_subset hphi</span>
+<span class="source-line" id="L242"><a class="line-no" href="#L242">242</a>  let fphi := positiveLinearMapOfMemStateSpace phi hphiState</span>
+<span class="source-line" id="L243"><a class="line-no" href="#L243">243</a>  let rho : Representation Limit fphi.GNS := fphi.gnsStarAlgHom</span>
+<span class="source-line" id="L244"><a class="line-no" href="#L244">244</a>  let xi : fphi.GNS := fphi.gnsCyclicVector</span>
+<span class="source-line" id="L245"><a class="line-no" href="#L245">245</a>  have hxi : ‖xi‖ = 1 := by</span>
+<span class="source-line" id="L246"><a class="line-no" href="#L246">246</a>    change ‖stateGNSVector phi hphiState‖ = 1</span>
+<span class="source-line" id="L247"><a class="line-no" href="#L247">247</a>    exact norm_stateGNSVector phi hphiState</span>
+<span class="source-line" id="L248"><a class="line-no" href="#L248">248</a>  letI : Nontrivial fphi.GNS := by</span>
+<span class="source-line" id="L249"><a class="line-no" href="#L249">249</a>    apply nontrivial_of_ne xi 0</span>
+<span class="source-line" id="L250"><a class="line-no" href="#L250">250</a>    intro hzero</span>
+<span class="source-line" id="L251"><a class="line-no" href="#L251">251</a>    have hnorm := congrArg norm hzero</span>
+<span class="source-line" id="L252"><a class="line-no" href="#L252">252</a>    rw [hxi, norm_zero] at hnorm</span>
+<span class="source-line" id="L253"><a class="line-no" href="#L253">253</a>    norm_num at hnorm</span>
+<span class="source-line" id="L254"><a class="line-no" href="#L254">254</a>  have hrho : StarAlgHom.IsIrreducible rho := by</span>
+<span class="source-line" id="L255"><a class="line-no" href="#L255">255</a>    simpa [rho, fphi] using</span>
+<span class="source-line" id="L256"><a class="line-no" href="#L256">256</a>      isIrreducible_pureState_gnsStarAlgHom phi hphiState hphi</span>
+<span class="source-line" id="L257"><a class="line-no" href="#L257">257</a>  have hphiVF : Representation.vectorFunctional rho xi = phi := by</span>
+<span class="source-line" id="L258"><a class="line-no" href="#L258">258</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L259"><a class="line-no" href="#L259">259</a>    intro a</span>
+<span class="source-line" id="L260"><a class="line-no" href="#L260">260</a>    rw [Representation.vectorFunctional_apply]</span>
+<span class="source-line" id="L261"><a class="line-no" href="#L261">261</a>    change inner ℂ (stateGNSVector phi hphiState)</span>
+<span class="source-line" id="L262"><a class="line-no" href="#L262">262</a>      ((positiveLinearMapOfMemStateSpace phi hphiState).gnsStarAlgHom a</span>
+<span class="source-line" id="L263"><a class="line-no" href="#L263">263</a>        (stateGNSVector phi hphiState)) = phi a</span>
+<span class="source-line" id="L264"><a class="line-no" href="#L264">264</a>    exact inner_gnsStarAlgHom_stateGNSVector phi hphiState a</span>
+<span class="source-line" id="L265"><a class="line-no" href="#L265">265</a>  obtain ⟨n, delta, hdelta, hcross⟩ :=</span>
+<span class="source-line" id="L266"><a class="line-no" href="#L266">266</a>    exists_stageTests_crossRepresentation_path_approx rho hrho F hepsilon</span>
+<span class="source-line" id="L267"><a class="line-no" href="#L267">267</a>  refine ⟨n, delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L268"><a class="line-no" href="#L268">268</a>  intro psi hpsi hstate F&#x27; epsilon&#x27; hepsilon&#x27;</span>
+<span class="source-line" id="L269"><a class="line-no" href="#L269">269</a>  have hpsiState : psi ∈ stateSpace Limit := extremePoints_subset hpsi</span>
+<span class="source-line" id="L270"><a class="line-no" href="#L270">270</a>  let fpsi := positiveLinearMapOfMemStateSpace psi hpsiState</span>
+<span class="source-line" id="L271"><a class="line-no" href="#L271">271</a>  let sigma : Representation Limit fpsi.GNS := fpsi.gnsStarAlgHom</span>
+<span class="source-line" id="L272"><a class="line-no" href="#L272">272</a>  let eta : fpsi.GNS := fpsi.gnsCyclicVector</span>
+<span class="source-line" id="L273"><a class="line-no" href="#L273">273</a>  have heta : ‖eta‖ = 1 := by</span>
+<span class="source-line" id="L274"><a class="line-no" href="#L274">274</a>    change ‖stateGNSVector psi hpsiState‖ = 1</span>
+<span class="source-line" id="L275"><a class="line-no" href="#L275">275</a>    exact norm_stateGNSVector psi hpsiState</span>
+<span class="source-line" id="L276"><a class="line-no" href="#L276">276</a>  have hpsiVF : Representation.vectorFunctional sigma eta = psi := by</span>
+<span class="source-line" id="L277"><a class="line-no" href="#L277">277</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L278"><a class="line-no" href="#L278">278</a>    intro a</span>
+<span class="source-line" id="L279"><a class="line-no" href="#L279">279</a>    rw [Representation.vectorFunctional_apply]</span>
+<span class="source-line" id="L280"><a class="line-no" href="#L280">280</a>    change inner ℂ (stateGNSVector psi hpsiState)</span>
+<span class="source-line" id="L281"><a class="line-no" href="#L281">281</a>      ((positiveLinearMapOfMemStateSpace psi hpsiState).gnsStarAlgHom a</span>
+<span class="source-line" id="L282"><a class="line-no" href="#L282">282</a>        (stateGNSVector psi hpsiState)) = psi a</span>
+<span class="source-line" id="L283"><a class="line-no" href="#L283">283</a>    exact inner_gnsStarAlgHom_stateGNSVector psi hpsiState a</span>
+<span class="source-line" id="L284"><a class="line-no" href="#L284">284</a>  obtain ⟨u, p, hprotect, happrox⟩ :=</span>
+<span class="source-line" id="L285"><a class="line-no" href="#L285">285</a>    hcross sigma xi eta hxi heta (by</span>
+<span class="source-line" id="L286"><a class="line-no" href="#L286">286</a>      intro i j</span>
+<span class="source-line" id="L287"><a class="line-no" href="#L287">287</a>      rw [hphiVF, hpsiVF]</span>
+<span class="source-line" id="L288"><a class="line-no" href="#L288">288</a>      exact hstate i j) F&#x27; epsilon&#x27; hepsilon&#x27;</span>
+<span class="source-line" id="L289"><a class="line-no" href="#L289">289</a>  refine ⟨u, p, (fun t a ha =&gt; (hprotect t a ha).2), ?_⟩</span>
+<span class="source-line" id="L290"><a class="line-no" href="#L290">290</a>  intro a ha</span>
+<span class="source-line" id="L291"><a class="line-no" href="#L291">291</a>  have h := happrox a ha</span>
+<span class="source-line" id="L292"><a class="line-no" href="#L292">292</a>  rw [Representation.vectorFunctional_map_apply, hphiVF, hpsiVF] at h</span>
+<span class="source-line" id="L293"><a class="line-no" href="#L293">293</a>  exact h</span>
+<span class="source-line" id="L294"><a class="line-no" href="#L294">294</a></span>
+<span class="source-line" id="L295"><a class="line-no" href="#L295">295</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L296"><a class="line-no" href="#L296">296</a>/-- Endpoint-only compatibility wrapper for</span>
+<span class="source-line" id="L297"><a class="line-no" href="#L297">297</a>`exists_stageTests_pureState_path_approx`. -/</span>
+<span class="source-line" id="L298"><a class="line-no" href="#L298">298</a>theorem exists_stageTests_pureState_approx</span>
+<span class="source-line" id="L299"><a class="line-no" href="#L299">299</a>    (phi : Limit →L[ℂ] ℂ) (hphi : MathlibAnnex.CStarAlgebra.IsPureState Limit phi)</span>
+<span class="source-line" id="L300"><a class="line-no" href="#L300">300</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L301"><a class="line-no" href="#L301">301</a>    ∃ n, ∃ delta &gt; 0,</span>
+<span class="source-line" id="L302"><a class="line-no" href="#L302">302</a>      ∀ (psi : Limit →L[ℂ] ℂ), MathlibAnnex.CStarAlgebra.IsPureState Limit psi →</span>
+<span class="source-line" id="L303"><a class="line-no" href="#L303">303</a>      (∀ i j : Fin (2 ^ n),</span>
+<span class="source-line" id="L304"><a class="line-no" href="#L304">304</a>        ‖phi (limitMatrixUnit n i j) - psi (limitMatrixUnit n i j)‖ &lt; delta) →</span>
+<span class="source-line" id="L305"><a class="line-no" href="#L305">305</a>      ∀ (F&#x27; : Finset Limit) (epsilon&#x27; : ℝ), 0 &lt; epsilon&#x27; →</span>
+<span class="source-line" id="L306"><a class="line-no" href="#L306">306</a>        ∃ u : unitary Limit,</span>
+<span class="source-line" id="L307"><a class="line-no" href="#L307">307</a>          (∀ a ∈ F,</span>
+<span class="source-line" id="L308"><a class="line-no" href="#L308">308</a>            ‖star (u : Limit) * a * (u : Limit) - a‖ &lt; epsilon) ∧</span>
+<span class="source-line" id="L309"><a class="line-no" href="#L309">309</a>          ∀ a ∈ F&#x27;,</span>
+<span class="source-line" id="L310"><a class="line-no" href="#L310">310</a>            ‖phi (star (u : Limit) * a * (u : Limit)) - psi a‖ &lt; epsilon&#x27; := by</span>
+<span class="source-line" id="L311"><a class="line-no" href="#L311">311</a>  obtain ⟨n, delta, hdelta, hmain⟩ :=</span>
+<span class="source-line" id="L312"><a class="line-no" href="#L312">312</a>    exists_stageTests_pureState_path_approx phi hphi F hepsilon</span>
+<span class="source-line" id="L313"><a class="line-no" href="#L313">313</a>  refine ⟨n, delta, hdelta, ?_⟩</span>
+<span class="source-line" id="L314"><a class="line-no" href="#L314">314</a>  intro psi hpsi hstate F&#x27; epsilon&#x27; hepsilon&#x27;</span>
+<span class="source-line" id="L315"><a class="line-no" href="#L315">315</a>  obtain ⟨u, p, hprotect, happrox⟩ :=</span>
+<span class="source-line" id="L316"><a class="line-no" href="#L316">316</a>    hmain psi hpsi hstate F&#x27; epsilon&#x27; hepsilon&#x27;</span>
+<span class="source-line" id="L317"><a class="line-no" href="#L317">317</a>  refine ⟨u, ?_, happrox⟩</span>
+<span class="source-line" id="L318"><a class="line-no" href="#L318">318</a>  intro a ha</span>
+<span class="source-line" id="L319"><a class="line-no" href="#L319">319</a>  simpa only [p.target] using hprotect (1 : Set.Icc (0 : ℝ) 1) a ha</span>
+<span class="source-line" id="L320"><a class="line-no" href="#L320">320</a></span>
+<span class="source-line" id="L321"><a class="line-no" href="#L321">321</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L322"><a class="line-no" href="#L322">322</a>/-- Any pure CAR state can be approximated on a finite set by an inner</span>
+<span class="source-line" id="L323"><a class="line-no" href="#L323">323</a>translate of any other pure state.  This is the unprotected initialization</span>
+<span class="source-line" id="L324"><a class="line-no" href="#L324">324</a>step for the alternating intertwining construction. -/</span>
+<span class="source-line" id="L325"><a class="line-no" href="#L325">325</a>theorem exists_unitary_pureState_path_approx</span>
+<span class="source-line" id="L326"><a class="line-no" href="#L326">326</a>    (phi psi : Limit →L[ℂ] ℂ)</span>
+<span class="source-line" id="L327"><a class="line-no" href="#L327">327</a>    (hphi : MathlibAnnex.CStarAlgebra.IsPureState Limit phi) (hpsi : MathlibAnnex.CStarAlgebra.IsPureState Limit psi)</span>
+<span class="source-line" id="L328"><a class="line-no" href="#L328">328</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L329"><a class="line-no" href="#L329">329</a>    ∃ u : unitary Limit, ∃ p : Path 1 u, ∀ a ∈ F,</span>
+<span class="source-line" id="L330"><a class="line-no" href="#L330">330</a>      ‖phi (star (u : Limit) * a * (u : Limit)) - psi a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L331"><a class="line-no" href="#L331">331</a>  have hphiState : phi ∈ stateSpace Limit := extremePoints_subset hphi</span>
+<span class="source-line" id="L332"><a class="line-no" href="#L332">332</a>  let fphi := positiveLinearMapOfMemStateSpace phi hphiState</span>
+<span class="source-line" id="L333"><a class="line-no" href="#L333">333</a>  let rho : Representation Limit fphi.GNS := fphi.gnsStarAlgHom</span>
+<span class="source-line" id="L334"><a class="line-no" href="#L334">334</a>  let xi : fphi.GNS := fphi.gnsCyclicVector</span>
+<span class="source-line" id="L335"><a class="line-no" href="#L335">335</a>  have hxi : ‖xi‖ = 1 := by</span>
+<span class="source-line" id="L336"><a class="line-no" href="#L336">336</a>    change ‖stateGNSVector phi hphiState‖ = 1</span>
+<span class="source-line" id="L337"><a class="line-no" href="#L337">337</a>    exact norm_stateGNSVector phi hphiState</span>
+<span class="source-line" id="L338"><a class="line-no" href="#L338">338</a>  letI : Nontrivial fphi.GNS := by</span>
+<span class="source-line" id="L339"><a class="line-no" href="#L339">339</a>    apply nontrivial_of_ne xi 0</span>
+<span class="source-line" id="L340"><a class="line-no" href="#L340">340</a>    intro hzero</span>
+<span class="source-line" id="L341"><a class="line-no" href="#L341">341</a>    have hnorm := congrArg norm hzero</span>
+<span class="source-line" id="L342"><a class="line-no" href="#L342">342</a>    rw [hxi, norm_zero] at hnorm</span>
+<span class="source-line" id="L343"><a class="line-no" href="#L343">343</a>    norm_num at hnorm</span>
+<span class="source-line" id="L344"><a class="line-no" href="#L344">344</a>  have hrho : StarAlgHom.IsIrreducible rho := by</span>
+<span class="source-line" id="L345"><a class="line-no" href="#L345">345</a>    simpa [rho, fphi] using</span>
+<span class="source-line" id="L346"><a class="line-no" href="#L346">346</a>      isIrreducible_pureState_gnsStarAlgHom phi hphiState hphi</span>
+<span class="source-line" id="L347"><a class="line-no" href="#L347">347</a>  have hphiVF : Representation.vectorFunctional rho xi = phi := by</span>
+<span class="source-line" id="L348"><a class="line-no" href="#L348">348</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L349"><a class="line-no" href="#L349">349</a>    intro a</span>
+<span class="source-line" id="L350"><a class="line-no" href="#L350">350</a>    rw [Representation.vectorFunctional_apply]</span>
+<span class="source-line" id="L351"><a class="line-no" href="#L351">351</a>    change inner ℂ (stateGNSVector phi hphiState)</span>
+<span class="source-line" id="L352"><a class="line-no" href="#L352">352</a>      ((positiveLinearMapOfMemStateSpace phi hphiState).gnsStarAlgHom a</span>
+<span class="source-line" id="L353"><a class="line-no" href="#L353">353</a>        (stateGNSVector phi hphiState)) = phi a</span>
+<span class="source-line" id="L354"><a class="line-no" href="#L354">354</a>    exact inner_gnsStarAlgHom_stateGNSVector phi hphiState a</span>
+<span class="source-line" id="L355"><a class="line-no" href="#L355">355</a>  have hpsiState : psi ∈ stateSpace Limit := extremePoints_subset hpsi</span>
+<span class="source-line" id="L356"><a class="line-no" href="#L356">356</a>  let fpsi := positiveLinearMapOfMemStateSpace psi hpsiState</span>
+<span class="source-line" id="L357"><a class="line-no" href="#L357">357</a>  let sigma : Representation Limit fpsi.GNS := fpsi.gnsStarAlgHom</span>
+<span class="source-line" id="L358"><a class="line-no" href="#L358">358</a>  let eta : fpsi.GNS := fpsi.gnsCyclicVector</span>
+<span class="source-line" id="L359"><a class="line-no" href="#L359">359</a>  have heta : ‖eta‖ = 1 := by</span>
+<span class="source-line" id="L360"><a class="line-no" href="#L360">360</a>    change ‖stateGNSVector psi hpsiState‖ = 1</span>
+<span class="source-line" id="L361"><a class="line-no" href="#L361">361</a>    exact norm_stateGNSVector psi hpsiState</span>
+<span class="source-line" id="L362"><a class="line-no" href="#L362">362</a>  have hpsiVF : Representation.vectorFunctional sigma eta = psi := by</span>
+<span class="source-line" id="L363"><a class="line-no" href="#L363">363</a>    apply ContinuousLinearMap.ext</span>
+<span class="source-line" id="L364"><a class="line-no" href="#L364">364</a>    intro a</span>
+<span class="source-line" id="L365"><a class="line-no" href="#L365">365</a>    rw [Representation.vectorFunctional_apply]</span>
+<span class="source-line" id="L366"><a class="line-no" href="#L366">366</a>    change inner ℂ (stateGNSVector psi hpsiState)</span>
+<span class="source-line" id="L367"><a class="line-no" href="#L367">367</a>      ((positiveLinearMapOfMemStateSpace psi hpsiState).gnsStarAlgHom a</span>
+<span class="source-line" id="L368"><a class="line-no" href="#L368">368</a>        (stateGNSVector psi hpsiState)) = psi a</span>
+<span class="source-line" id="L369"><a class="line-no" href="#L369">369</a>    exact inner_gnsStarAlgHom_stateGNSVector psi hpsiState a</span>
+<span class="source-line" id="L370"><a class="line-no" href="#L370">370</a>  obtain ⟨u, p, hu⟩ := exists_unitary_crossRepresentation_path_approx</span>
+<span class="source-line" id="L371"><a class="line-no" href="#L371">371</a>    rho hrho sigma xi eta hxi heta F hepsilon</span>
+<span class="source-line" id="L372"><a class="line-no" href="#L372">372</a>  refine ⟨u, p, ?_⟩</span>
+<span class="source-line" id="L373"><a class="line-no" href="#L373">373</a>  intro a ha</span>
+<span class="source-line" id="L374"><a class="line-no" href="#L374">374</a>  have h := hu a ha</span>
+<span class="source-line" id="L375"><a class="line-no" href="#L375">375</a>  rw [Representation.vectorFunctional_map_apply, hphiVF, hpsiVF] at h</span>
+<span class="source-line" id="L376"><a class="line-no" href="#L376">376</a>  exact h</span>
+<span class="source-line" id="L377"><a class="line-no" href="#L377">377</a></span>
+<span class="source-line" id="L378"><a class="line-no" href="#L378">378</a>set_option maxHeartbeats 800000 in</span>
+<span class="source-line" id="L379"><a class="line-no" href="#L379">379</a>/-- Endpoint-only compatibility wrapper for</span>
+<span class="source-line" id="L380"><a class="line-no" href="#L380">380</a>`exists_unitary_pureState_path_approx`. -/</span>
+<span class="source-line" id="L381"><a class="line-no" href="#L381">381</a>theorem exists_unitary_pureState_approx</span>
+<span class="source-line" id="L382"><a class="line-no" href="#L382">382</a>    (phi psi : Limit →L[ℂ] ℂ)</span>
+<span class="source-line" id="L383"><a class="line-no" href="#L383">383</a>    (hphi : MathlibAnnex.CStarAlgebra.IsPureState Limit phi) (hpsi : MathlibAnnex.CStarAlgebra.IsPureState Limit psi)</span>
+<span class="source-line" id="L384"><a class="line-no" href="#L384">384</a>    (F : Finset Limit) {epsilon : ℝ} (hepsilon : 0 &lt; epsilon) :</span>
+<span class="source-line" id="L385"><a class="line-no" href="#L385">385</a>    ∃ u : unitary Limit, ∀ a ∈ F,</span>
+<span class="source-line" id="L386"><a class="line-no" href="#L386">386</a>      ‖phi (star (u : Limit) * a * (u : Limit)) - psi a‖ &lt; epsilon := by</span>
+<span class="source-line" id="L387"><a class="line-no" href="#L387">387</a>  obtain ⟨u, -, happrox⟩ :=</span>
+<span class="source-line" id="L388"><a class="line-no" href="#L388">388</a>    exists_unitary_pureState_path_approx phi psi hphi hpsi F hepsilon</span>
+<span class="source-line" id="L389"><a class="line-no" href="#L389">389</a>  exact ⟨u, happrox⟩</span>
+<span class="source-line" id="L390"><a class="line-no" href="#L390">390</a></span>
+<span class="source-line" id="L391"><a class="line-no" href="#L391">391</a>end MathlibAnnex.CStarAlgebra.CAR</span></pre></main><footer>Availability and publication history are recorded by the hosting release. Effective Exact Mathematics content terms apply.<br>AI-assisted material. Selected, edited, and reviewed by Ryotaro Tanaka.</footer><a class="back-to-top" href="#site-top">Back to top ↑</a></body></html>

@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.WeakGradient.localMollification_fderiv_apply_eq_zero",
+  "title": "Zero weak gradient gives zero derivatives of local mollifications",
+  "stable_card_id": null,
+  "identity_key": "4d267e2a1016f37933b1d940ec4b6b93ce2fa6bb23c3a5068557721dbd2c739d",
+  "source_url": "mathlibannex/sources/lfh188/1a571d27ec2e65aca41da5d8/index.html#L353",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "5c79f9b268f22ebca5088199373a63f4e1f0103fe21e49a328326e591727acbd",
+  "accepted_guide_sha256": "2ec6c53eb4326bb445202980fed27249a05c34c9e9480a01cbeac8d3e444fe3a",
+  "content": {
+    "display_title": "Zero weak gradient gives zero derivatives of local mollifications",
+    "one_sentence_role": "Substitutes a translated smooth kernel into the weak equation and tracks the reflection sign.",
+    "natural_language_statement": "Let $E$ be a finite-dimensional real normed vector space with its Borel structure and an additive Haar measure $\\mu$. Let $U\\subseteq E$ be open and $u:E\\to\\mathbb R$ locally integrable on $U$. Assume\n$$\\int_Uu(z)\\operatorname{div}W(z)\\,d\\mu(z)=0$$\nfor every $C^1$ vector field $W:E\\to E$ for which a compact set $K_W$ satisfies\n$$\\overline{\\{z\\in E:W(z)\\ne0\\}}\\subseteq K_W\\subseteq U.$$\nHere $\\operatorname{div}W(z):=\\operatorname{tr}(DW(z))$.\nFix $x\\in E$ and $R>0$ with $K:=\\overline B(x,4R)\\subseteq U$, and define\n$$v(z):=\\begin{cases}u(z),&z\\in K,\\\\0,&z\\notin K.\\end{cases}$$\nFor $k\\in\\mathbb N$, let $\\varphi_k$ be the normalized smooth bump centered at zero with inner radius $R/(2(k+2))$ and outer radius $r_k=R/(k+2)$; thus $\\varphi_k\\ge0$, $\\int_E\\varphi_k\\,d\\mu=1$, and its closed support lies in $\\overline B(0,r_k)$. Put\n$$v_k(y):=\\int_E\\varphi_k(t)v(y-t)\\,d\\mu(t).$$\nThen for every $y\\in B(x,R)$, every $k\\in\\mathbb N$, and every $e\\in E$,\n$$Dv_k(y)e=0.$$",
+    "definition_explanation": null,
+    "assumptions": "The ball data are supplied here; the theorem does not choose them. Only local integrability of $u$ on $U$ is required, not global integrability or Lipschitz continuity. The weak predicate alone would not imply integrability, so the separate local-integrability hypothesis is retained. Dimension zero and any direction, including $e=0$, are allowed.",
+    "conclusion": "Every directional derivative of this localized mollification vanishes at every point of the inner ball. The conclusion is pointwise for the smooth function $v_k$; it does not claim that the rough function $u$ is pointwise constant.",
+    "proof_summary": "Use $W(z)=\\varphi_k(y-z)e$ as the actual vector test field. Its divergence is the negative kernel derivative. Compact localization leaves its weak integral unchanged, and the derivative formula for convolution identifies the resulting zero integral with $Dv_k(y)e$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Construct an admissible field.** Define\n$$W(z):=\\varphi_k(y-z)e,\\qquad K_W:=\\overline B(y,r_k).$$\nIt is $C^1$ (in fact smooth), and its nonzero set is contained in $K_W$. Finite dimensionality makes this closed ball compact. For $z\\in K_W$, since $\\|y-x\\|<R$ and $r_k\\leq R/2$,\n$$\\|z-x\\|\\leq\\|z-y\\|+\\|y-x\\|<r_k+R\\leq\\tfrac32R<2R.$$\nThus $K_W\\subseteq\\overline B(x,2R)\\subseteq K\\subseteq U$, so the weak equation applies to this very field and carrier."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Compute the divergence with its sign.** For an arbitrary direction $h\\in E$, differentiating the reflected smooth kernel gives\n$$DW(z)h=\\bigl(D\\varphi_k(y-z)(-h)\\bigr)e\n=-\\bigl(D\\varphi_k(y-z)h\\bigr)e.$$\n[The rank-one trace identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/Divergence.lean#L22-L26) says that the trace of the map $h\\mapsto L(h)e$ is $L(e)$. Substituting $L=D\\varphi_k(y-z)$ gives\n$$\\operatorname{div}W(z)=-D\\varphi_k(y-z)e.$$\nThe minus sign comes from differentiating $z\\mapsto y-z$."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Identify the localized integral.** On $K_W$, both $\\mathbf1_Ku=u$ and $\\mathbf1_U=1$. Off $K_W$, the field is zero on an open neighborhood, because $K_W$ is closed and contains its nonzero set. Consequently $DW=0$ and $\\operatorname{div}W=0$ there. These two cases give the pointwise identity\n$$v(z)\\operatorname{div}W(z)\n=\\mathbf1_U(z)u(z)\\operatorname{div}W(z).$$\nAs $U$ is open and hence measurable, integration and the weak equation yield\n$$\\int_Ev(z)\\operatorname{div}W(z)\\,d\\mu(z)\n=\\int_Uu(z)\\operatorname{div}W(z)\\,d\\mu(z)=0.$$\nHere [the compact-localization integrability lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean#L122-L129) applies to the given local integrability on $U$ and the compact set $K\\subseteq U$, and makes $v$ globally integrable. The kernel derivative is continuous, bounded, and compactly supported after translation; the displayed products are integrable as well."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Substitute the derivative formula.** The localized function $v$ is locally integrable on $E$. Apply [the derivative formula for local mollifications](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean#L270-L313) with this same $v$, the positive radius $R$, the index $k$, the point $y$, and the direction $e$. It identifies the last integral below with $Dv_k(y)e$. Using Step 2 in Step 3 gives\n$$\\begin{aligned}\n0&=\\int_Ev(z)\\bigl[-D\\varphi_k(y-z)e\\bigr]\\,d\\mu(z)\\\\\n&=-\\int_Ev(z)D\\varphi_k(y-z)e\\,d\\mu(z)=-Dv_k(y)e.\n\\end{aligned}$$\nTherefore $Dv_k(y)e=0$. The calculation differentiates the smooth kernel and its convolution, never $u$ or the discontinuous cutoff $\\mathbf1_Ku$."
+      }
+    ],
+    "lean_realization_notes": "The local ball data also name the middle ball $\\overline B(x,2R)$. The translated test field used in the proof has a chosen compact carrier inside this middle ball and hence inside $K\\subseteq U$. A carrier is a compact set containing the nonzero set and its closure; it need not equal either. For a set $S$, $\\mathbf1_S$ denotes its indicator, equal to one on $S$ and zero off $S$. Thus the localized function is also written $v=\\mathbf1_Ku$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

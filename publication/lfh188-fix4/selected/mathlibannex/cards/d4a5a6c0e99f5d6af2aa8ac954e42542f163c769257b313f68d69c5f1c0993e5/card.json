@@ -1,0 +1,130 @@
+{
+  "accepted_type_fingerprint_sha256": "ef762bc42b9f28ea4d9eb7f84ab6e5e7a61404b7fb04f8ab7f55696b19297969",
+  "approved_card_model_sha256": "a36cc0a9e9af40240817effe02090dc901930c081ba965feaa6b77b61df3676f",
+  "assumptions": "Let x be self-adjoint in a unital complex C*-algebra A.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "3b716c28ce2e856618761c6501f718c76cf15bc712d79bcac94e6f1d09befae4",
+    "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+  },
+  "citations": [
+    {
+      "label": "MathlibAnnex.Analysis.CStarAlgebra.IsMaximalAbelian",
+      "target_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "6ecd9d4cd166a51597108ebc647b9591f3f695086b94c6969a58bccef565a979",
+        "uid": "lfh:lfh-declaration-card:sha256:005d767a3193a30c065ad807166f2e150c8ac3bbd28de67fd113b74463f676eb"
+      },
+      "text": "Exact formal dependency; inspect the linked Card and exact source."
+    }
+  ],
+  "conclusion": "There exists a maximal abelian unital star subalgebra D of A containing x.",
+  "declaration_kind": "theorem",
+  "definition_equation": "IsSelfAdjoint x → ∃ D : StarSubalgebra ℂ A, IsMaximalAbelian D ∧ x ∈ D.",
+  "definition_explanation": "IsSelfAdjoint x → ∃ D : StarSubalgebra ℂ A, IsMaximalAbelian D ∧ x ∈ D.",
+  "display_title": "Maximal abelian subalgebra containing a self-adjoint element",
+  "exact_elaborated_lean_type": "∀ {A : Type u} [inst : CStarAlgebra A] (x : A), IsSelfAdjoint x → ∃ D, MathlibAnnex.Analysis.CStarAlgebra.IsMaximalAbelian D ∧ x ∈ D",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "8db4b0319fc9796edff8d40938630d9078cbcdafc89af56217b9f8ab24bbda1e",
+    "uid": "lfh:lfh-card-exposition:sha256:5e4faf16583a49c42af4582fb5012d1fcabd030795bc26ebf1b20d45a0b508d0"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "75c2a8b27ccf5ce7464594f60bfb3f9b46e8da65633b714d95fb1e75ef95f2a6",
+    "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "8db4b0319fc9796edff8d40938630d9078cbcdafc89af56217b9f8ab24bbda1e",
+    "uid": "lfh:lfh-card-exposition:sha256:5e4faf16583a49c42af4582fb5012d1fcabd030795bc26ebf1b20d45a0b508d0"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "75c2a8b27ccf5ce7464594f60bfb3f9b46e8da65633b714d95fb1e75ef95f2a6",
+      "uid": "lfh:lfh-declaration-card:sha256:d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_maximalAbelian_containing_isSelfAdjoint",
+  "natural_language_statement": "Let x be self-adjoint in a unital complex C*-algebra A. There exists a maximal abelian unital star subalgebra D of A containing x.",
+  "one_sentence_role": "Places a self-adjoint element inside a maximal abelian unital star subalgebra.",
+  "owner_review_item_sha256": "183e3d59638bc0bb04b20696f52915b4405c7f34202f9b051e91dc93b3ac368d",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: ∀ {A : Type u} [inst : CStarAlgebra A] (x : A), IsSelfAdjoint x → ∃ D, MathlibAnnex.Analysis.CStarAlgebra.IsMaximalAbelian D ∧ x ∈ D"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsSelfAdjoint x → ∃ D : StarSubalgebra ℂ A, IsMaximalAbelian D ∧ x ∈ D."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source turns self-adjointness into IsStarNormal x and applies exists_maximalAbelian_containing. Normality is an intermediate premise, not the theorem's conclusion."
+    }
+  ],
+  "proof_summary": "The source turns self-adjointness into IsStarNormal x and applies exists_maximalAbelian_containing. Normality is an intermediate premise, not the theorem's conclusion.",
+  "source_excerpt": {
+    "bytes": 350,
+    "sha256": "67effee8acf98eb702ee339922c60a0dde71ff606322bd31ed6570848a6d2485"
+  },
+  "source_locator": {
+    "end_column": 43,
+    "end_line": 59,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean",
+    "source_sha256": "1ce651c4573fbc40f40eb01d9a014b31264d6e4399e00fdfb0d52e940a684726",
+    "start_column": 1,
+    "start_line": 53
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "b1f8a6ee1ae1fe9f77bbf331d8a5e934c84bfb660fc248b806d1254f7043baf6",
+    "uid": "lfh:lfh-source-build-binding:sha256:f62bd16bdea69f65ec2c8a64bf27f39435347e500440a3a6031a4aa57c3651d4"
+  },
+  "source_sha256": "1ce651c4573fbc40f40eb01d9a014b31264d6e4399e00fdfb0d52e940a684726",
+  "source_signature": {
+    "end_byte": 2012,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "cd4c108fbacb7496ce0862d579956598c75e9e53b9dde2df838e7c1fc2c564dd",
+    "source_command_range": {
+      "end_column": 43,
+      "end_line": 59,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean",
+      "source_sha256": "1ce651c4573fbc40f40eb01d9a014b31264d6e4399e00fdfb0d52e940a684726",
+      "start_column": 1,
+      "start_line": 53
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean",
+    "source_sha256": "1ce651c4573fbc40f40eb01d9a014b31264d6e4399e00fdfb0d52e940a684726",
+    "start_byte": 1856,
+    "text": "theorem exists_maximalAbelian_containing_isSelfAdjoint\n    (x : A) (hx : IsSelfAdjoint x) :\n    ∃ D : StarSubalgebra ℂ A, IsMaximalAbelian D ∧ x ∈ D"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/MaximalAbelianContaining.lean#L53-L59",
+  "stable_card_id": "d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/d4a5a6c0e99f5d6af2aa8ac954e42542f163c769257b313f68d69c5f1c0993e5/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

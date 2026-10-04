@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.faithful_and_compactOperatorModel_of_singleton_amongNonUnital",
+  "title": "Compact-operator conclusion for the unital singleton condition",
+  "stable_card_id": "8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141",
+  "identity_key": "lfh:lfh-declaration-card:sha256:8b10daad485fe797ba4250420c41ce6ffba033b4085e1a302b3eed0c4dd5d141",
+  "source_url": "mathlibannex/sources/lfh188/185d207591f9421e5c1389be/index.html#L76",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "936294cbca18b24420eace805432491fc8ac9c46c1cf5712a079fa4514306de6",
+  "accepted_guide_sha256": "c8849e0e5bea60662a4d8a779c25351288e6d23e378c8f28585039d81a738f07",
+  "content": {
+    "display_title": "Compact-operator conclusion for the unital singleton condition",
+    "one_sentence_role": "Applies the nonunital compact-operator theorem to the same operator-valued map underlying a unital representation.",
+    "natural_language_statement": "Let $A$ be a nonzero unital complex $C^*$-algebra, let $H$ be a separable complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ be a unital $*$-representation satisfying the singleton condition of R11. Then $\\pi$ is injective and $$\\pi(A)=\\mathcal K(H).$$",
+    "definition_explanation": null,
+    "assumptions": "The quantified irreducible representations in the singleton condition need not initially be packaged with a unit equation; R11 shows that nonzero irreducibility forces that equation. No separability assumption is made on $A$.",
+    "conclusion": "The same map $a\\mapsto\\pi(a)$ is a faithful compact-operator model. In particular, it gives a $*$-isomorphism $A\\cong_*\\mathcal K(H)$.",
+    "proof_summary": "View the same operator-valued function as a representation in the unit-free interface, apply the nonunital singleton theorem, and translate its conclusions back without changing any operator.",
+    "proof_steps": [
+      "Let $\\pi_0$ denote the same function $a\\mapsto\\pi(a)$, regarded in the representation interface that does not require a unit equation: $$\\pi_0(a)=\\pi(a)\\qquad(a\\in A).$$ No operator is changed.",
+      "The hypothesis of R11 says exactly that $\\pi_0$ represents the unique unitary-equivalence class of nonzero irreducible $*$-representations. Apply [Faithfulness and compact-operator model from a singleton representation](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactModel.lean#L43-L49) to $\\pi_0$.",
+      "The output is injectivity of $\\pi_0$ together with $\\pi_0(A)=\\mathcal K(H)$. Since $\\pi_0(a)=\\pi(a)$ for every $a$, these are precisely injectivity of $\\pi$ and $\\pi(A)=\\mathcal K(H)$."
+    ],
+    "lean_realization_notes": []
+  }
+}

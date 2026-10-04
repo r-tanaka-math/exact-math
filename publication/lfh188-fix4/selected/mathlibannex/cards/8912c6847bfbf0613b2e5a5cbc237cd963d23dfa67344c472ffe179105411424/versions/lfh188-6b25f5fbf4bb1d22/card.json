@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.isPureState_rootState",
+  "title": "Purity of the completed root state",
+  "stable_card_id": "8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424",
+  "identity_key": "lfh:lfh-declaration-card:sha256:8912c6847bfbf0613b2e5a5cbc237cd963d23dfa67344c472ffe179105411424",
+  "source_url": "mathlibannex/sources/lfh188/d84003fea52ab0582578d262/index.html#L550",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Completion.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "3ca163363455b314df88f6bb96539811a1d1062b13a2a5fe45741367530a14f2",
+  "accepted_guide_sha256": "c75ad15fb26a412c334d8294d39b6a38e0ee67de5e8db8984085c723d94ff74f",
+  "content": {
+    "assumptions": "The embeddings come from $a\\mapsto a\\otimes I_2$. The index $0$ is the distinguished first coordinate in each stage. The coordinate functionals are compatible and bounded by the matrix norm, so they extend to the specified functional $\\omega$ on the completion. Positivity and $\\omega(1)=1$ are established before the purity argument. Convex combinations use real coefficients.",
+    "conclusion": "If $\\varphi$ and $\\psi$ are states on $A$, $0<t<1$, and $\\omega=t\\varphi+(1-t)\\psi$, then $\\varphi=\\psi=\\omega$. Thus completion has not introduced a nontrivial convex decomposition of this state.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": null,
+    "display_title": "Purity of the completed root state",
+    "language_tag": "en",
+    "lean_realization_notes": "The purity asserted here is extremality in the state space. The proof uses the pure finite-stage restrictions and density; it makes no assertion that all states on $A$ are pure.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra with stage embeddings $\\iota_n:M_{2^n}(\\mathbb C)\\to A$. Let $\\omega:A\\to\\mathbb C$ be the continuous linear functional characterized by $\\omega(\\iota_n(a))=a_{00}$ for every stage matrix $a$. Then $\\omega$ is a pure state: it is an extreme point of the convex set of continuous positive unital complex-linear functionals on $A$.",
+    "one_sentence_role": "Passes extremality of the root vector states from every finite matrix stage to the completed CAR algebra.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Write $\\omega=t\\varphi+(1-t)\\psi$ with states $\\varphi,\\psi$ and $0<t<1$."
+      },
+      {
+        "step_id": "s2",
+        "text": "For each $n$, compose with $\\iota_n$ to obtain a convex decomposition of $a\\mapsto a_{00}$ into states on $M_{2^n}(\\mathbb C)$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Finite-stage purity forces $\\varphi\\circ \\iota_n=\\psi\\circ \\iota_n=(a\\mapsto a_{00})$."
+      },
+      {
+        "step_id": "s4",
+        "text": "Continuity and density imply $\\varphi=\\psi=\\omega$. The source uses the equivalent one-sided extreme-point criterion, establishing the first equality, which suffices."
+      }
+    ],
+    "proof_summary": "Restrict a proposed convex decomposition of $\\omega$ to each finite matrix stage. The restriction of a state is again a state, because $\\iota_n$ is unital and preserves positivity. The root coordinate state $a\\mapsto a_{00}$ is pure on each matrix algebra, so both restricted states equal it. The two continuous functionals therefore agree with $\\omega$ on the dense union of stages, and hence on all of $A$."
+  }
+}

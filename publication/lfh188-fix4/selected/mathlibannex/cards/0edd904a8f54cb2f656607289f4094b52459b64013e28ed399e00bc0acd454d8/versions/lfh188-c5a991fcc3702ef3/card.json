@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_preimage_of_compact_singleton",
+  "title": "Compact operators lie in a singleton representation range",
+  "stable_card_id": "0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8",
+  "identity_key": "lfh:lfh-declaration-card:sha256:0edd904a8f54cb2f656607289f4094b52459b64013e28ed399e00bc0acd454d8",
+  "source_url": "mathlibannex/sources/lfh188/3a45bed9444593f603d71076/index.html#L211",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "3593258cf54fff6f9cd7afc24323a54b8790b170e38472e9a463b82324dde7a0",
+  "accepted_guide_sha256": "c1010bd37214d8f3d3ffef75e6170fa0c50744e44483cf7f4f2e1a8f4904aa16",
+  "content": {
+    "display_title": "Compact operators lie in a singleton representation range",
+    "one_sentence_role": "Obtains the inclusion of all compact operators in the image of the original algebra.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed, let $H$ be a separable complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ be a $*$-representation representing the unique unitary-equivalence class of nonzero irreducible $*$-representations of $A$. If $T\\in\\mathcal B(H)$ is compact, then $$\\exists a\\in A,\\qquad \\pi(a)=T.$$ Thus $\\mathcal K(H)\\subseteq\\pi(A)$.",
+    "definition_explanation": null,
+    "assumptions": "Separability is assumed for $H$, not for $A$. The singleton hypothesis includes nonzero irreducibility of $\\pi$ and the universal unitary-equivalence condition. Faithfulness is not an input to this theorem.",
+    "conclusion": "The preimage belongs to $A$ itself. The reverse inclusion $\\pi(A)\\subseteq\\mathcal K(H)$ is a separate result.",
+    "proof_summary": "Use faithfulness to close the range, put every rank-one operator in it, and approximate an arbitrary compact operator by finite sums of rank-one operators.",
+    "proof_steps": [
+      "Use the inner product linear in its second argument. Apply [Faithfulness of a non-unital singleton model](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean#L34-L94) to this nonzero ordered $A$ and this singleton model $\\pi$ to obtain injectivity. An injective $C^*$-homomorphism is isometric, so completeness of $A$ makes $\\pi(A)$ norm closed. Apply [Every rank-one operator has a preimage](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean#L94-L105) to the same $\\pi$, using separability of $H$, to obtain preimages of every operator $\\theta_{x,y}(z)=\\langle y,z\\rangle x$. Additivity then supplies preimages of their finite sums.",
+      "Here is the compact approximation in [Compact approximation inside the closed representation range](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/CompactRange.lean#L121-L209). For $\\varepsilon>0$, the set $K=\\overline{T(\\overline B_H(0,1))}$ is compact, so choose a finite $\\varepsilon/2$-net $N$ for it. Let $E=\\operatorname{span}_{\\mathbb C}N$ and let $P_E$ be its orthogonal projection. Since $E$ is finite dimensional, $P_E$ exists and minimizes distance to $E$. For $\\|z\\|\\le1$, choose $n\\in N$ with $\\|Tz-n\\|<\\varepsilon/2$; then $$\\|Tz-P_ETz\\|\\le\\|Tz-n\\|<\\varepsilon/2.$$ Taking the operator norm gives $\\|T-P_ET\\|\\le\\varepsilon/2<\\varepsilon$.",
+      "Choose an orthonormal basis $e_1,\\ldots,e_m$ of $E$. By the inner-product convention just fixed, $$P_ET(z)=\\sum_{j=1}^m\\langle e_j,Tz\\rangle e_j=\\sum_{j=1}^m\\langle T^*e_j,z\\rangle e_j=\\sum_{j=1}^m\\theta_{e_j,T^*e_j}(z).$$ Step 1 puts this finite sum in $\\pi(A)$; the empty sum when $E=0$ is also allowed. Arbitrarily close such approximants place $T$ in the closure of $\\pi(A)$, which equals $\\pi(A)$. Unpacking membership gives the required $a$."
+    ],
+    "lean_realization_notes": []
+  }
+}

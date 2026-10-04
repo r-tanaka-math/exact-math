@@ -1,0 +1,26 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.IsPureState",
+  "title": "Pure states as real extreme points",
+  "stable_card_id": "2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840",
+  "identity_key": "lfh:lfh-declaration-card:sha256:2407611b2e8f0ff07b7d50cc8edfa17f744337c5a9ad013cf63d5ddb1eeb8840",
+  "source_url": "mathlibannex/sources/lfh188/0a00f8541b7d81653c0d6a56/index.html#L35",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/State/Basic.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 5,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "c7b331956d6f53324e6f8ef13356349aed2d2b2dde7380a1883ded6b990f8216",
+  "accepted_guide_sha256": "36eb8f04764a523c03bca697a1a1d103a6821992dcebf28731f0aba916ed01da",
+  "content": {
+    "display_title": "Pure states as real extreme points",
+    "one_sentence_role": "Defines purity inside the normalized positive state space.",
+    "natural_language_statement": "Let $A$ be a unital complex $C^*$-algebra, and let $\\varphi:A\\to\\mathbb C$ be continuous and complex-linear. Purity is the following condition on $\\varphi$.",
+    "definition_explanation": "Write $$S(A)=\\{\\psi:A\\to\\mathbb C\\text{ continuous and complex-linear}:\\ \\psi(a)\\ge0\\text{ for all }a\\ge0,\\ \\psi(1)=1\\}.$$ Then $\\varphi$ is pure precisely when $\\varphi\\in S(A)$ and, whenever $\\psi,\\eta\\in S(A)$ and $0<t<1$ satisfy $$\\varphi=(1-t)\\psi+t\\eta,$$ one has $\\psi=\\eta=\\varphi$. Equivalently, $\\varphi\\in\\operatorname{ext}_{\\mathbb R}S(A)$. Membership in the extreme-point set already includes membership in $S(A)$.",
+    "assumptions": "The definition does not require $A\\ne0$. Positivity uses the given star-compatible order on $A$ and the usual real nonnegative cone inside $\\mathbb C$.",
+    "conclusion": "A pure state is in particular a state; extremality is taken for real convex combinations.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": []
+  }
+}

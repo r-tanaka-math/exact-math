@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "fe61178930096423eb8584324473a627a1a9f9a9330758cdb4e2dadccfb20f27",
+  "approved_card_model_sha256": "133ef5572521c37618335dd8ec5ae1a273d670a4d4341822ec8368c2e5331b5b",
+  "assumptions": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and ρ a representation of A on H.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "ee21384769079014e7f0b83108c683e777408b5e63149385e2931aa44db2b8b1",
+    "uid": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6"
+  },
+  "citations": [],
+  "conclusion": "compactPreimageIdeal ρ is the two-sided algebraic ideal of elements whose represented bounded operator is compact. Norm-closedness is a separate theorem and is not a field of this returned TwoSidedIdeal.",
+  "declaration_kind": "def",
+  "definition_equation": "(compactPreimageIdeal ρ : Set A) = {a : A | IsCompactOperator (ρ a)}.",
+  "definition_explanation": "(compactPreimageIdeal ρ : Set A) = {a : A | IsCompactOperator (ρ a)}.",
+  "display_title": "Algebraic compact-preimage ideal",
+  "exact_elaborated_lean_type": "{A : Type u} → {H : Type v} → [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → [inst_2 : CompleteSpace H] → [inst_3 : NonUnitalCStarAlgebra A] → (A →⋆ₙₐ[ℂ] H →L[ℂ] H) → TwoSidedIdeal A",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "d1c18c74316e9f18633622fc81204fd774025015ae12d9e8a5d1bb9d33a83cde",
+    "uid": "lfh:lfh-card-exposition:sha256:9b3ec9d64a1b8afb11386d32cb624403cc93f5a35a367c21df1e95524abc26e8"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "7396571be9d1bba4849c993fdadff051a6f46ee2aabaf13064b2a79b92aabc36",
+    "uid": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 4,
+    "sha256": "d1c18c74316e9f18633622fc81204fd774025015ae12d9e8a5d1bb9d33a83cde",
+    "uid": "lfh:lfh-card-exposition:sha256:9b3ec9d64a1b8afb11386d32cb624403cc93f5a35a367c21df1e95524abc26e8"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "7396571be9d1bba4849c993fdadff051a6f46ee2aabaf13064b2a79b92aabc36",
+      "uid": "lfh:lfh-declaration-card:sha256:9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.CStarAlgebra.compactPreimageIdeal",
+  "natural_language_statement": "Let A be a complex C*-algebra, not assumed unital, H a complex Hilbert space, and ρ a representation of A on H. compactPreimageIdeal ρ is the two-sided algebraic ideal of elements whose represented bounded operator is compact. Norm-closedness is a separate theorem and is not a field of this returned TwoSidedIdeal.",
+  "one_sentence_role": "Collects the elements represented by compact operators into a two-sided algebraic ideal.",
+  "owner_review_item_sha256": "da6f92d7eddd01e8f40d005ede6b9db23ff3335e6244e11828a0e24f84a6ffa0",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → {H : Type v} → [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → [inst_2 : CompleteSpace H] → [inst_3 : NonUnitalCStarAlgebra A] → (A →⋆ₙₐ[ℂ] H →L[ℂ] H) → TwoSidedIdeal A"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "(compactPreimageIdeal ρ : Set A) = {a : A | IsCompactOperator (ρ a)}."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source constructs TwoSidedIdeal.mk' with carrier given by inverse image of compactOperator, checking zero, addition, negation and left/right multiplication using compact-operator composition. A later isClosed_compactPreimageIdeal establishes topological closedness."
+    }
+  ],
+  "proof_summary": "The source constructs TwoSidedIdeal.mk' with carrier given by inverse image of compactOperator, checking zero, addition, negation and left/right multiplication using compact-operator composition. A later isClosed_compactPreimageIdeal establishes topological closedness.",
+  "source_excerpt": {
+    "bytes": 1656,
+    "sha256": "373a8da1ce2f8ca6eeb1f4bf9f377b1ab25edf957de6316d608094446666a92e"
+  },
+  "source_locator": {
+    "end_column": 17,
+    "end_line": 63,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean",
+    "source_sha256": "56a6219605e19a8059f83789140b34bb66204d4c9c863cee515b68000e10266d",
+    "start_column": 1,
+    "start_line": 28
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "8bf8310553b24e2f6be6bb025408e3ac8dde3c4b4d437acd3050f1dbae3c5ddb",
+    "uid": "lfh:lfh-source-build-binding:sha256:d66b2997f277bf1968983e2e6826c184c7722fb127d1a4deac0d744b645ec5d1"
+  },
+  "source_sha256": "56a6219605e19a8059f83789140b34bb66204d4c9c863cee515b68000e10266d",
+  "source_signature": {
+    "end_byte": 1088,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "cbd536774fd98f91d3e5fc0195e834175a8546c7031b841b6e27c0ebeb7dbcea",
+    "source_command_range": {
+      "end_column": 17,
+      "end_line": 63,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean",
+      "source_sha256": "56a6219605e19a8059f83789140b34bb66204d4c9c863cee515b68000e10266d",
+      "start_column": 1,
+      "start_line": 28
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean",
+    "source_sha256": "56a6219605e19a8059f83789140b34bb66204d4c9c863cee515b68000e10266d",
+    "start_byte": 972,
+    "text": "def compactPreimageIdeal [NonUnitalCStarAlgebra A]\n    (rho : A →⋆ₙₐ[ℂ] (H →L[ℂ] H)) : TwoSidedIdeal A"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactPreimage.lean#L28-L63",
+  "stable_card_id": "9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/9355a7df6defbdd54a898d97fa5d5ff61ac59614adb1ceee96df088d9c1a66b6/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

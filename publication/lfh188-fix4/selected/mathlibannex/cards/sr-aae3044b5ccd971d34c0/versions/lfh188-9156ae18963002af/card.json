@@ -1,0 +1,49 @@
+{
+  "name": "MathlibAnnex.WeakDivergenceZero.nonempty_localAEConstantAt",
+  "title": "Local almost-everywhere constancy from the weak equation",
+  "stable_card_id": null,
+  "identity_key": "93947ac5582628868b9a4960d52ba627c5c3255a5b01d1506a685f087c6200b5",
+  "source_url": "mathlibannex/sources/lfh188/521a79ad627128acc378e039/index.html#L14",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Distribution/WeakGradient.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "a26a423bf64eda9884ab3d44deb8c12d8ab30eed12d3051d2626690322b0d158",
+  "accepted_guide_sha256": "87bd8f1e12997df114ea605364f4db3312b70b2166163623f6dc20359a69e14a",
+  "content": {
+    "display_title": "Local almost-everywhere constancy from the weak equation",
+    "one_sentence_role": "Turns constant mollifications into one almost-everywhere constant by choosing a common convergence point.",
+    "natural_language_statement": "Let $E$ be a finite-dimensional real normed vector space with its Borel structure and an additive Haar measure $\\mu$. Let $U\\subseteq E$ be open and $u:E\\to\\mathbb R$ locally integrable on $U$. Assume\n$$\\int_Uu(z)\\operatorname{div}W(z)\\,d\\mu(z)=0$$\nfor every $C^1$ vector field $W:E\\to E$ for which a compact set $K_W$ satisfies\n$$\\overline{\\{z\\in E:W(z)\\ne0\\}}\\subseteq K_W\\subseteq U.$$\nHere $\\operatorname{div}W(z):=\\operatorname{tr}(DW(z))$. For every $x\\in U$, there are an open set $V$ and a real number $c$ with\n$$x\\in V\\subseteq U,\\qquad u=c\\quad\\mu|_V\\text{-almost everywhere}.$$",
+    "definition_explanation": null,
+    "assumptions": "The domain need not be connected, bounded, or of finite measure. There is no global integrability, Lipschitz, or continuity assumption on $u$. No positive-dimension hypothesis is imposed. A point $x\\in U$ is supplied, so the conclusion is local; if $U$ is empty, there is no such point to consider.",
+    "conclusion": "The conclusion provides an open neighborhood $V$ of the prescribed point $x$, with $V\\subseteq U$, and a real constant $c$ such that $u=c$ almost everywhere on $V$. It does not assert $u(x)=c$ at the originally supplied point, which might be exceptional.",
+    "proof_summary": "Localize to a compact ball. The weak equation makes every derivative of each smooth mollification zero on the inner ball, hence each mollification is constant there. Almost-everywhere convergence at one fixed good point forces these constants to converge. Uniqueness of limits then identifies the value at almost every other point.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Choose a compact localization.** [The local-ball existence lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean#L88-L101), applied to openness at $x$, permits choosing $R>0$ with $\\overline B(x,4R)\\subseteq U$. Put\n$$B:=B(x,R),\\qquad K:=\\overline B(x,4R),\\qquad\nv(z):=\\begin{cases}u(z),&z\\in K,\\\\0,&z\\notin K.\\end{cases}$$\nThe inner ball is open, contains $x$, and lies in $K\\subseteq U$. The closed ball $K$ is compact and measurable. Local integrability on $U$ gives integrability on $K$, so $v$ is globally integrable and therefore locally integrable on $E$. In particular $v=u$ on $B$, also almost everywhere for $\\mu|_B$."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Use one shrinking sequence of kernels.** Choose normalized smooth bumps $\\varphi_k$ centered at zero with inner radius $a_k=R/(2(k+2))$ and outer radius $r_k=R/(k+2)$. In particular,\n$$\\varphi_k\\ge0,\\qquad\\int_E\\varphi_k\\,d\\mu=1,\\qquad\n\\overline{\\{z:\\varphi_k(z)\\ne0\\}}\\subseteq\\overline B(0,r_k).$$\n$$v_k(y):=\\int_E\\varphi_k(t)v(y-t)\\,d\\mu(t).$$\nThese functions are smooth by the compact-kernel convolution theorem. The radii satisfy $r_k\\to0$ and $r_k=2a_k$. [The normalized-bump convergence theorem for locally integrable functions](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean#L200-L211) therefore gives\n$$v_k(y)\\longrightarrow v(y)\\qquad\\text{for }\\mu\\text{-almost every }y.$$\nThe hypotheses are precisely local integrability of $v$, shrinking outer radii, and a uniform bound $2$ on the ratio of outer to inner radius."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Make every mollification constant on the inner ball.** Apply [the vanishing-directional-derivative theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean#L353-L373) to this open $U$, this local ball data, the given local integrability, and the weak equation. It gives\n$$Dv_k(y)e=0\\qquad(y\\in B,\\ e\\in E).$$\nThus $Dv_k(y)$ is the zero linear functional. The ball $B$ is convex, hence preconnected, and $v_k$ is differentiable there. Thus [the constancy theorem for each local mollification](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean#L402-L416) applies; its proof uses zero-derivative constancy on the open preconnected ball and supplies a real number $c_k$ such that\n$$v_k(y)=c_k\\qquad\\text{for every }y\\in B.$$\nThis is pointwise constancy of each smooth mollification, not yet a statement about the limit $u$."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Choose a single point at which the whole sequence converges.** The nonempty open ball has positive Haar measure. Restrict the almost-everywhere convergence in Step 2 to $B$ and intersect it with almost-everywhere membership in the measurable set $B$. [The inner-ball convergence-point lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Distribution/WeakGradient/Local.lean#L424-L451) therefore supplies one $y_0\\in B$ at which the entire sequence converges. Set $c=v(y_0)$. Then\n$$c_k=v_k(y_0)\\longrightarrow v(y_0)=c.$$\nThis fixed good point is the reason the constants converge. We neither assume that $(c_k)$ converges nor choose a different exceptional-set witness for each $k$."
+      },
+      {
+        "step_id": "s5",
+        "text": "**Pass to almost every other point and undo localization.** For almost every $y$ with respect to $\\mu|_B$, Step 2 gives $v_k(y)\\to v(y)$ and $y\\in B$. Step 3 gives $v_k(y)=c_k=v_k(y_0)$ for every $k$. Step 4 and uniqueness of real limits therefore imply\n$$v(y)=\\lim_{k\\to\\infty}v_k(y)=\\lim_{k\\to\\infty}c_k=c.$$\nSince $v=u$ on $B$, this gives $u=c$ almost everywhere for $\\mu|_B$. Taking $V=B$ supplies all the promised local data."
+      }
+    ],
+    "lean_realization_notes": "The construction below uses the inner ball $B(x,R)$, the compact carrier $K=\\overline B(x,4R)$, and the intermediate ball $\\overline B(x,2R)$. All inclusions and compactness assertions follow from the chosen ball data and finite dimensionality. The same localized function and the same kernel sequence are used throughout.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

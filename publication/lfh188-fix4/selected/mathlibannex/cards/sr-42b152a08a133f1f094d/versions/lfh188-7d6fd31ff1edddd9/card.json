@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.MeasureTheory.tendsto_integral_det_of_strongLn",
+  "title": "Determinant integrals under strong $L^n$ convergence",
+  "stable_card_id": null,
+  "identity_key": "b818f88272bded6172560f397463979bae62bdfdcc9af010edec1a24a866bdc3",
+  "source_url": "mathlibannex/sources/lfh188/c3f750e7d53ec7f938d454aa/index.html#L32",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/MeasureTheory/Integral/DeterminantContinuity.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "0fc2e6a5c66ad16c8c54f93528df3635c588c0df6f331643a812852eb7ded16a",
+  "accepted_guide_sha256": "e3f0a706712505e7e4abc489e7f2b514f24be3fe57ac5a1956708d00ac984e9e",
+  "content": {
+    "display_title": "Determinant integrals under strong $L^n$ convergence",
+    "one_sentence_role": "Uses Hölder’s inequality to turn strong $L^n$ convergence of matrix fields into convergence of their determinant integrals.",
+    "natural_language_statement": "Let $n\\geq1$, let $(\\Omega,\\mu)$ be a measure space, and let $\\mathcal F$ be any filter on an index set $I$. Let $P_i,Q:\\Omega\\to\\mathcal L(\\mathbb R^n,\\mathbb R^n)$, equipped with the operator norm induced by $\\|\\cdot\\|_\\infty$ on $\\mathbb R^n$. Suppose $Q\\in L^n(\\mu)$, eventually $P_i\\in L^n(\\mu)$ along $\\mathcal F$, and\n$$\\|P_i-Q\\|_{L^n(\\mu)}\\longrightarrow0\\quad(i\\to\\mathcal F).$$\nThen $\\int_\\Omega\\det P_i\\,d\\mu\\to\\int_\\Omega\\det Q\\,d\\mu$ along the same filter.",
+    "definition_explanation": null,
+    "assumptions": "The dimension is positive. Membership in $L^n$ includes almost-everywhere strong measurability and finite seminorm. The measure need not be finite, and the filter need not be a sequence filter. No pointwise convergence or common pointwise bound is assumed.",
+    "conclusion": "The limiting determinant is integrable, the approximating determinants are eventually integrable, and their integrals converge. In fact their differences converge to zero in $L^1(\\mu)$.",
+    "proof_summary": "Apply the determinant difference estimate, then Hölder with exponents $n/(n-1)$ and $n$. The resulting bound contains the factor $\\|P_i-Q\\|_{L^n}$, which tends to zero; the other factor stays bounded by the triangle inequality. Treat $n=1$ directly.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Start with the pointwise estimate and integrability.** The determinant bound gives, at every $x$,\n$$\\begin{aligned}\n|\\det P_i(x)-\\det Q(x)|\n&\\leq n\\bigl(\\|P_i(x)\\|_{\\mathrm{op}}+\\|Q(x)\\|_{\\mathrm{op}}\\bigr)^{n-1}\n\\|P_i(x)-Q(x)\\|_{\\mathrm{op}}.\n\\end{aligned}$$\nFor any field $T\\in L^n(\\mu)$, comparison with the zero operator gives\n$$|\\det T(x)|\\leq n\\|T(x)\\|_{\\mathrm{op}}^n,\\qquad\n\\int_\\Omega n\\|T(x)\\|_{\\mathrm{op}}^n\\,d\\mu<\\infty.$$\nContinuity of determinant supplies measurability, so $\\det T$ is integrable. Apply this to $Q$ and, eventually, to $P_i$. Hence the determinant difference is eventually integrable. All following estimates are on this eventual set of indices."
+      },
+      {
+        "step_id": "s2",
+        "text": "**If $n=1$, no nontrivial Hölder exponent is needed.** Step 1 reduces to\n$$\\|\\det P_i-\\det Q\\|_{L^1(\\mu)}\n\\leq\\|P_i-Q\\|_{L^1(\\mu)}\\longrightarrow0.$$"
+      },
+      {
+        "step_id": "s3",
+        "text": "**If $n\\geq2$, write Hölder's inequality with the actual functions.** Its conjugate exponents are $n/(n-1)$ and $n$. The functions $x\\mapsto\\|P_i(x)\\|_{\\mathrm{op}}+\\|Q(x)\\|_{\\mathrm{op}}$ and $x\\mapsto\\|P_i(x)-Q(x)\\|_{\\mathrm{op}}$ belong to $L^n(\\mu)$ by the hypotheses and Minkowski's inequality. Thus\n$$\\begin{aligned}\n\\|\\det P_i-\\det Q\\|_{L^1(\\mu)}\n&\\leq n\\int_\\Omega\n (\\|P_i(x)\\|_{\\mathrm{op}}+\\|Q(x)\\|_{\\mathrm{op}})^{n-1}\n \\|P_i(x)-Q(x)\\|_{\\mathrm{op}}\\,d\\mu\\\\\n&\\leq n\\left(\\int_\\Omega\n (\\|P_i(x)\\|_{\\mathrm{op}}+\\|Q(x)\\|_{\\mathrm{op}})^n\\,d\\mu\\right)^{(n-1)/n}\\\\\n&\\hspace{2em}\\cdot\\left(\\int_\\Omega\n \\|P_i(x)-Q(x)\\|_{\\mathrm{op}}^n\\,d\\mu\\right)^{1/n}\\\\\n&\\leq n\\bigl(\\|P_i\\|_{L^n(\\mu)}+\\|Q\\|_{L^n(\\mu)}\\bigr)^{n-1}\n \\|P_i-Q\\|_{L^n(\\mu)}\\\\\n&\\leq n\\bigl(\\|P_i-Q\\|_{L^n(\\mu)}+2\\|Q\\|_{L^n(\\mu)}\\bigr)^{n-1}\n \\|P_i-Q\\|_{L^n(\\mu)}.\n\\end{aligned}$$\nThe second inequality is Hölder. The next is Minkowski applied to the two scalar norm functions. The last uses $\\|P_i\\|_{L^n}\\leq\\|P_i-Q\\|_{L^n}+\\|Q\\|_{L^n}$. This identifies every function and exponent in the estimate without introducing new names for their norms."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Take the limit and then subtract the integrals.** Since $\\|P_i-Q\\|_{L^n(\\mu)}\\to0$, eventually it is at most $1$. The last bound in Step 3 is then at most\n$$n\\bigl(1+2\\|Q\\|_{L^n(\\mu)}\\bigr)^{n-1}\\|P_i-Q\\|_{L^n(\\mu)}\\longrightarrow0.$$\nThe coefficient is finite because $Q\\in L^n(\\mu)$. Together with Step 2 this proves $L^1$ convergence for every $n\\geq1$. The integrability checked in Step 1 now justifies\n$$\\begin{aligned}\n\\left|\\int_\\Omega\\det P_i\\,d\\mu-\\int_\\Omega\\det Q\\,d\\mu\\right|\n&=\\left|\\int_\\Omega(\\det P_i-\\det Q)\\,d\\mu\\right|\\\\\n&\\leq\\|\\det P_i-\\det Q\\|_{L^1(\\mu)}\\longrightarrow0.\n\\end{aligned}$$\nAll eventual statements and limits use the same filter $\\mathcal F$; neither finite total measure nor a sequence index was assumed."
+      }
+    ],
+    "lean_realization_notes": "The supplied convergence predicate records both seminorm convergence and eventual membership; the separate hypothesis on $Q$ is also necessary for the proof. The one-dimensional case is handled directly, without using the undefined exponent $n/(n-1)$ at $n=1$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

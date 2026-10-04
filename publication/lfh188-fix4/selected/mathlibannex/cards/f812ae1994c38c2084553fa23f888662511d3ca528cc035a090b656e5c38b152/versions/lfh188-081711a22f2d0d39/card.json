@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.shellFamilySourceHom",
+  "title": "The CAR source map into the fixed shell-family target",
+  "stable_card_id": "f812ae1994c38c2084553fa23f888662511d3ca528cc035a090b656e5c38b152",
+  "identity_key": "lfh:lfh-declaration-card:sha256:f812ae1994c38c2084553fa23f888662511d3ca528cc035a090b656e5c38b152",
+  "source_url": "mathlibannex/sources/lfh188/e2e001aa7498a9c4d12587b7/index.html#L66",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicEndpoint.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "2300e393c01b559a14213fa742449b28e9a229428c8b146722a0356e3551374f",
+  "accepted_guide_sha256": "b0c5dd082842a12ec11485f6eecc8a597dc52766be147ea88ae4da43357368f8",
+  "content": {
+    "display_title": "The CAR source map into the fixed shell-family target",
+    "one_sentence_role": "Restricting the codomain of the selected atomic representation gives the source map into one fixed generated target.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the unital matrix system $M_{2^n}(\\mathbb C)$ with embeddings $a\\mapsto a\\otimes I_2$. Let $\\omega$ be its distinguished pure product-vector state. Index pure-state GNS equivalence classes by $I$, choose one representative $\\varphi_j$ in each class with $\\varphi_o=\\omega$ at $o=[\\omega]$, and denote its GNS data by $(H_j,\\pi_j,\\xi_j)$. Write $\\mathcal H=\\bigoplus_{j\\in I}H_j$ for the Hilbert direct sum, $e_j:H_j\\to\\mathcal H$ for coordinate inclusion, and $\\pi(a)(x_j)_j=(\\pi_j(a)x_j)_j$. Here the sum consists of square-summable families and has no countability restriction on $I$. Fix a representative shell family: for each class $j$ it gives an automorphism $\\alpha_j$ with $\\varphi_j\\circ\\alpha_j=\\omega$ and shell links $w_{j,n}$ satisfying $w_{j,n}^*w_{j,n}=\\alpha_j(p_n)$ and $w_{j,n}w_{j,n}^*=p_n$. Here $f_n$ is the image of the distinguished matrix projection $E_{00}\\in M_{2^n}(\\mathbb C)$ in $A$, and $p_n=f_n-f_{n+1}$. At $o$, the family specifies $\\alpha_o=\\mathrm{id}$ and $w_{o,n}=p_n$. Choose once the family of unitary operators $L=(L_j)_j$ supplied for this shell family by the completed CAR atomic-shell realization theorem, and fix $T=C^*(\\pi(A),\\{L_j:j\\in I\\})\\subseteq B(\\mathcal H)$. The source map is the unital star homomorphism $\\iota:A\\to T$ defined by $\\iota(a)=\\pi(a)$, viewed as an element of $T$.",
+    "definition_explanation": "The generic map into a concrete generated target sends an algebra element to its represented operator, now with codomain that target. Apply this construction to the selected CAR atomic action $\\pi$ and the already chosen links $L$. The source and target units agree because $T$ is a unital star subalgebra of $B(\\mathcal H)$. No new completion, quotient, or choice of representation is performed by this map.",
+    "assumptions": "The given representative shell family, its selected link family $L$, and the resulting target $T$ are fixed throughout. The containment $\\pi(A)\\subseteq T$ follows from the definition of the generated algebra, so the codomain restriction is defined on every $a\\in A$. No target representation or target Hilbert space is an additional input to this definition.",
+    "conclusion": "If $\\rho_0:T\\to B(\\mathcal H)$ is literal inclusion, then $\\rho_0\\circ\\iota=\\pi$. In particular $\\iota(1)=1_T$. The separate source-injectivity theorem shows that this particular $\\iota$ is faithful; it uses the faithful direct-sum representation of CAR, rather than any simplicity assumption on $T$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "The choice of $L$ is made once in the cited shell-family-links definition. The maps $\\iota$ and $\\rho_0$ use that same choice and the same $T$, not unrelated witnesses of existence statements. The defining RHS is a codomain restriction; injectivity is a separately proved property.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

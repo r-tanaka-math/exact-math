@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.PluckerBody.body",
+  "title": "The symmetric convex body of contraction minors",
+  "stable_card_id": null,
+  "identity_key": "71151c47e2354561250a4e7c8ae8b6adb1752070d5bcff05d9c6af7a07aef5fd",
+  "source_url": "mathlibannex/sources/lfh188/98877c2fe60658a1ca085863/index.html#L26",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Convex/PluckerBody.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "47aa096afcfbabba850a581df4da7a16644022421b88caf15f80f6542bb10efd",
+  "accepted_guide_sha256": "1d77d3917585faa78f7a5b0bf31a2688b36eb63227f06925b19410275f2f65f3",
+  "content": {
+    "display_title": "The symmetric convex body of contraction minors",
+    "one_sentence_role": "Takes the real convex hull of both signs of every contraction generator.",
+    "natural_language_statement": "Let $n,N\\in\\mathbb N_0$ and give $E=\\mathbb R^n$ and $F=\\mathbb R^N$ their coordinate sup norms. Let $\\lambda_n$ be the fixed coordinate Lebesgue measure on $E$. Let $p:E\\to\\mathbb R$ be a continuous real seminorm with specified constants $a_p,b_p>0$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty\\qquad(x\\in E).$$\n\nThe lower bound makes $p$ a norm. Its closed unit ball and real reference volume are\n$$K_p=\\{x:p(x)\\le1\\},\\qquad v_p=\\lambda_n(K_p)\\in(0,\\infty).$$\nHere and below a finite Lebesgue measure is read as a real number when used as a scalar.\n\nLet $\\mathcal I_{n,N}$ be the finite set of increasing $n$-tuples of distinct rows from $\\{1,\\ldots,N\\}$. The minor-coordinate space $\\mathbb R^{\\mathcal I_{n,N}}$ carries its sup norm. For a linear map $B:E\\to F$, put $B_{ij}=(Be_j)_i$ in the standard coordinate basis. Write $\\Pi_n(B)$ for its maximal-minor vector and $\\mathcal V_p(B)$ for that vector scaled by $v_p$. Their coordinates and scaling are\n$$\\Pi_n(B)_I=\\det(B_{i_a,j})_{a,j=1}^n,\\qquad\\mathcal V_p(B)=v_p\\Pi_n(B)\\quad(I=(i_1<\\cdots<i_n)).$$\n\nA $p$-contraction is a linear map $B:E\\to F$ satisfying $\\|Bz\\|_\\infty\\le p(z)$ for every $z\\in E$. Write $\\mathcal C_p^N$ for these maps. Write $\\mathcal G_p^N$ for the signed generator set and $\\mathcal P_p^N$ for its real convex hull, so\n$$\\mathcal G_p^N=\\{\\mathcal V_p(B),-\\mathcal V_p(B):B\\in\\mathcal C_p^N\\},\\qquad\\mathcal P_p^N=\\operatorname{conv}_{\\mathbb R}(\\mathcal G_p^N).$$",
+    "definition_explanation": "For each integer $\\ell\\ge1$, choose weights $t_1,\\ldots,t_\\ell\\ge0$ with sum $1$, signs $\\varepsilon_k\\in\\{-1,1\\}$, and maps $B_k\\in\\mathcal C_p^N$. The body consists of all resulting finite convex combinations:\n$$\\mathcal P_p^N=\\left\\{\\sum_{k=1}^{\\ell}t_k\\varepsilon_k\\mathcal V_p(B_k):\n\\begin{array}{l}\\ell\\ge1,\\ t_k\\ge0,\\ \\sum_{k=1}^{\\ell}t_k=1,\\\\\n\\varepsilon_k\\in\\{-1,1\\},\\ B_k\\in\\mathcal C_p^N\\end{array}\\right\\}.$$\nThe [signed-generator definition](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L18-L24) is a separate declaration. The exact RHS of the present definition takes its real convex hull.",
+    "assumptions": "The source and target are finite real coordinate spaces with sup norms. The seminorm $p$ is continuous and has the stated positive lower and upper comparison constants. The measure is the original coordinate Lebesgue measure. The dimensions $n,N$ may be zero. When $n=0$, the unique empty minor has determinant $1$; when $N<n$, the minor-index set is empty and its function space has one element. Neither case is excluded.",
+    "conclusion": "This declaration defines $\\mathcal P_p^N$. Compactness and average membership are separate theorems.",
+    "proof_summary": null,
+    "proof_steps": null,
+    "lean_realization_notes": "The zero map is a contraction, so [generator nonemptiness](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L30-L32) supplies $\\mathcal V_p(0)\\in\\mathcal G_p^N$; this vector need not be zero when $n=0$. The two alternatives give [generator sign symmetry](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L34-L39). Consequently [body sign symmetry](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L41-L50) says $z\\in\\mathcal P_p^N\\Rightarrow-z\\in\\mathcal P_p^N$: negate each generator in a convex combination while keeping its nonnegative weights.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

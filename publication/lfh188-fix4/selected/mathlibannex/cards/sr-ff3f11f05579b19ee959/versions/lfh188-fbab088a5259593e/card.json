@@ -1,0 +1,33 @@
+{
+  "name": "MathlibAnnex.Satellite.abs_eval_lower_of_norms_nearby",
+  "title": "A nearby norming point gives an almost-norming evaluation",
+  "stable_card_id": null,
+  "identity_key": "db5359dbf59d830842867376244d1e08f85dc78a69fd70924f85f50060b3b72f",
+  "source_url": "mathlibannex/sources/lfh188/3624bc5e8b17aeb1cf08dbc3/index.html#L970",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Dual/Satellite.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "76a978dcc00e16703cf5650212cdf371c6a0d7983de05960d47b27b416cfd983",
+  "accepted_guide_sha256": "c7d5421eb642679086963db6dd65e1f774bc89a39629ad92ffec02e9e14429c5",
+  "content": {
+    "display_title": "A nearby norming point gives an almost-norming evaluation",
+    "one_sentence_role": "Two triangle inequalities transfer absolute norm attainment to a unit vector.",
+    "natural_language_statement": "Let $n\\in\\mathbb N$ and use reference coordinates $V=\\mathbb R^n$ with the sup norm. Let $p:V\\to\\mathbb R$ be a continuous seminorm with specified constants $a_p,b_p>0$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty\\qquad(x\\in V).$$\nThe lower comparison makes $p$ a norm. Let $r:V\\to\\mathbb R$ be continuous and real linear, with $|r(y)|\\le p(y)$ for every $y\\in V$ and let $x,z\\in V$, $\\delta\\in\\mathbb R$ satisfy\n$$p(x)=1,\\qquad p(x-z)\\le\\delta,\\qquad |r(z)|=p(z).$$\nThen $1-2\\delta\\le|r(x)|$.",
+    "definition_explanation": null,
+    "assumptions": "The four hypotheses are contraction $|r(y)|\\le p(y)$ for all $y$, the unit condition at $x$, the error bound at $x-z$, and absolute norm attainment at $z$. No independent $\\delta\\ge0$ or $\\delta>0$ hypothesis is imposed; nonnegativity follows from $0\\le p(x-z)\\le\\delta$.",
+    "conclusion": "The same functional $r$ gives $|r(x)|\\ge1-2\\delta$. It norms $z$ exactly and evaluates the nearby unit vector $x$ approximately; these points are not interchanged.",
+    "proof_summary": "Compare the norm at the nearby point with the unit norm, then bound the change in the same linear functional.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "The seminorm triangle inequality gives $1=p(x)\\le p(x-z)+p(z)$, hence $1-\\delta\\le p(z)$. By linearity and contraction,\n   $$p(z)=|r(z)|=|r(x)-r(x-z)|\\le|r(x)|+|r(x-z)|\\le|r(x)|+\\delta.$$\n   Combining the two displayed bounds yields $1-2\\delta\\le|r(x)|$. This also covers $\\delta=0$ and estimates whose lower bound is negative."
+      }
+    ],
+    "lean_realization_notes": "The contraction is evaluated at the difference of the two displayed points; the estimate is an elementary seminorm calculation.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

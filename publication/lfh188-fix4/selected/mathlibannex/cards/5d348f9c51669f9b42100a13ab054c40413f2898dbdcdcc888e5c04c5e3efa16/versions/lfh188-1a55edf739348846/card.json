@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.exists_unitary_crossRepresentation_path_approx",
+  "title": "Approximating another vector state along a unitary path",
+  "stable_card_id": "5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16",
+  "identity_key": "lfh:lfh-declaration-card:sha256:5d348f9c51669f9b42100a13ab054c40413f2898dbdcdcc888e5c04c5e3efa16",
+  "source_url": "mathlibannex/sources/lfh188/6a78676d0ffd00533bc1c1be/index.html#L142",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/StateTransport.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "8c5ef92d55e64650288d91be015773f79eee7e923d116ab71af6d83f17dc6bc8",
+  "accepted_guide_sha256": "fb4ba07378b912ad5d3ba8146801a874b84e4f85596a55de27610d8d35499d62",
+  "content": {
+    "display_title": "Approximating another vector state along a unitary path",
+    "one_sentence_role": "A fixed irreducible CAR representation can approximate any vector state on finitely many elements by moving a given unit vector.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra: the norm completion of the increasing union of $A_n=M_{2^n}(\\mathbb C)$ under the unital embeddings $a\\mapsto a\\otimes I_2$ (with the fixed coordinate reindexing). Write $\\iota_n:A_n\\to A$ for the canonical isometric inclusion and $e_{ij}^{(n)}=\\iota_n(E_{ij})$ for its matrix units. A representation is a unital complex star homomorphism into the bounded operators on a complex Hilbert space. Irreducibility means nonzero action and no proper nonzero closed reducing subspace. We use the inner product conjugate linear in its first argument and write $\\varphi_{\\pi,v}(a)=\\langle v,\\pi(a)v\\rangle$ for the vector functional. Let $\\pi:A\\to B(H)$ be irreducible with $H\\ne0$, let $\\sigma:A\\to B(K)$ be any representation, and choose unit vectors $\\xi\\in H$ and $\\eta\\in K$. For every finite $F\\subset A$ and $\\varepsilon>0$, there exist a unitary $u\\in U(A)$ and a norm-continuous path from $1$ to $u$ such that $|\\varphi_{\\pi,\\pi(u)\\xi}(a)-\\varphi_{\\sigma,\\eta}(a)|<\\varepsilon$ for all $a\\in F$.",
+    "definition_explanation": null,
+    "assumptions": "The spaces $H$ and $K$ are complete complex Hilbert spaces. Both representations are unital; only $\\pi$ must be irreducible. There are no initial stage-state tests and no protected finite set.",
+    "conclusion": "The approximating state is obtained from the specified starting vector $\\xi$ by a unitary in the identity path component of $U(A)$. The approximation is on the prescribed finite set at the endpoint.",
+    "proof_summary": "Keep the given vectors $\\xi\\in H$ and $\\eta\\in K$ fixed. Purification supplies a new unit vector $\\zeta\\in H$ that realizes the target state on a sufficiently large stage $m$. To move $\\xi$ to $\\zeta$, use the fixed-stage transport lemma at stage $0$, where its tests are automatic. These are two different stages: $m$ controls approximation, whereas stage $0$ supplies transport without any near-centrality requirement.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Choose $m$ so that each $a\\in F$ has an approximant $b_a\\in\\iota_m(A_m)$ with $\\|a-b_a\\|<\\varepsilon/3$. Apply [finite-stage purification](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/StagePurification.lean#L256-L278) to the given $\\pi$, $\\sigma$, and $\\eta$ at stage $m$. Its hypotheses hold because $\\pi$ is nonzero and irreducible, both representations are unital, and $\\|\\eta\\|=1$. It gives $\\zeta\\in H$ with $\\|\\zeta\\|=1$ and $\\varphi_{\\pi,\\zeta}(b)=\\varphi_{\\sigma,\\eta}(b)$ for all $b\\in\\iota_m(A_m)$. This is a new vector; the prescribed starting vector $\\xi$ is not replaced."
+      },
+      {
+        "step_id": "s2",
+        "text": "Use the [fixed-stage exact-transport lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/LocalTransport.lean#L353-L455), not the protected-finite-set theorem. For a prescribed stage $n$ and a positive commutator tolerance, it supplies a $\\delta>0$ before the pair of unit vectors is chosen. Its hypothesis compares their vector functionals on the matrix units of that stage. Set $n=0$ and take the auxiliary commutator tolerance to be $1$; its commutator conclusion will not be needed."
+      },
+      {
+        "step_id": "s3",
+        "text": "The inputs to this transport lemma are $\\xi,\\zeta\\in H$ in the same representation $\\pi$, not $\\xi$ and $\\eta$ from different spaces. Since $A_0=\\mathbb C$ and $e_{00}^{(0)}=1$, unitality and the two unit-vector norms give $|\\varphi_{\\pi,\\xi}(e_{00}^{(0)})-\\varphi_{\\pi,\\zeta}(e_{00}^{(0)})|=|1-1|=0<\\delta$. This is the only matrix-unit test at stage $0$. Thus the lemma supplies $u$ and a path $p$ from $1$ to $u$ with $\\pi(u)\\xi=\\zeta$. No comparison between these states on the larger stage $m$, and no norm closeness of $\\xi$ and $\\zeta$, is required."
+      },
+      {
+        "step_id": "s4",
+        "text": "For each $a\\in F$, the two states agree at $b_a$ and are contractive, so $|\\varphi_{\\pi,\\zeta}(a)-\\varphi_{\\sigma,\\eta}(a)|\\leq2\\|a-b_a\\|<2\\varepsilon/3<\\varepsilon.$ Substitute $\\zeta=\\pi(u)\\xi$ to obtain the asserted endpoint estimate."
+      }
+    ],
+    "lean_realization_notes": "The conclusion supplies a path but makes no near-centrality claim and no uniform approximation claim along that path. It does not identify the two representations or give exact equality of their states on all elements.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

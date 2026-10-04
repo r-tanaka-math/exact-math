@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.PluckerRecovery.nonempty_limitCertificate_of_pluckerBodies_eq",
+  "title": "A volume-normalized linear contraction obtained by a limit",
+  "stable_card_id": null,
+  "identity_key": "1f7ca1d57237f20d54f0e157a5c7089d9f9281d6b65d8ded28c06c7cc8e2a754",
+  "source_url": "mathlibannex/sources/lfh188/db45c097822d6675bb12d007/index.html#L299",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "f75c8b9f4dde311c3da7804a52d8a34ebabbe6c9c6d8e0d84645606f46bf634f",
+  "accepted_guide_sha256": "cc39bf21afd8952fd7945189e07f9c0deee09ac5bf62c9a6ab3723f1b2466016",
+  "content": {
+    "display_title": "A volume-normalized linear contraction obtained by a limit",
+    "one_sentence_role": "Takes a compact operator limit preserving the exact volume equation.",
+    "natural_language_statement": "Let $n=m+1>0$ and $V=\\mathbb R^n$ with the reference sup norm and standard Lebesgue measure $\\lambda$. The continuous norms $p,q$ have fixed positive comparison constants\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty,\\qquad\na_q\\|x\\|_\\infty\\le q(x)\\le b_q\\|x\\|_\\infty.$$\nSet $K_p=\\{x:p(x)\\le1\\}$, $K_q=\\{x:q(x)\\le1\\}$ and $v_p=\\lambda(K_p)$, $v_q=\\lambda(K_q)$, as positive finite real numbers. For a real linear map $A:V\\to\\mathbb R^N$, let $A_{ij}=(Ae_j)_i$ be its matrix in the standard bases. The minor-coordinate space has one coordinate for each increasing $n$-tuple $I$ of distinct rows from $\\{1,\\ldots,N\\}$, and\n$$\\Pi_n(A)_I=\\det(A_{I,*}).$$\nDefine the signed generator set and its real convex hull by\n$$\\begin{aligned}\n\\mathcal G_p^N\n &=\\left\\{\\sigma v_p\\Pi_n(A):\\begin{array}{l}\n       A:V\\to\\mathbb R^N\\text{ is real linear},\\ \\sigma\\in\\{1,-1\\},\\\\\n       \\|Ax\\|_\\infty\\le p(x)\\quad(x\\in V)\n       \\end{array}\\right\\},\\\\\n\\mathcal P_p^N&=\\operatorname{conv}_{\\mathbb R}\\mathcal G_p^N.\n\\end{aligned}$$\nDefine $\\mathcal G_q^N,\\mathcal P_q^N$ in the same way using $q,v_q$. The generators are vectors of minors, not linear maps. Assume $\\mathcal P_p^N=\\mathcal P_q^N$ for every $N$. There is one real linear $L:V\\to V$ with\n$$\\forall x,\\ q(Lx)\\le p(x),\\qquad L(K_p)\\subseteq K_q,\\qquad\nv_p|\\det L|=v_q,$$\n$$\\det L\\ne0,\\qquad L\\text{ injective and surjective}.$$",
+    "definition_explanation": null,
+    "assumptions": "The positive-dimensional coordinates, norm models and equality of every finite body are the inputs. No distortion parameter is supplied.",
+    "conclusion": "The same real linear bijection $L$ is contractive from the norm $p$ to the norm $q$ and has the exact determinant-volume normalization. Only ball inclusion is asserted here; equality of the two ball images is proved separately.",
+    "proof_summary": "Choose vanishing distortions, bound the maps in one compact operator ball, and pass the estimate and determinant equation to the same subsequence limit.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "**Choose and bound the sequence.** Set $\\varepsilon_k=1/(k+2)$. For each $k$, [linear recovery](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/RecoveryCertificate.lean#L989-L995) at the positive parameter $\\varepsilon_k$ gives\n$$(1-\\varepsilon_k)q(L_kx)\\le p(x),\\qquad v_p|\\det L_k|=v_q.$$\nBecause $0<\\varepsilon_k\\le1/2$ and $q\\ge0$,\n$$\\frac12q(L_kx)\\le(1-\\varepsilon_k)q(L_kx)\\le p(x),$$\n$$a_q\\|L_kx\\|_\\infty\\le q(L_kx)\\le2p(x)\\le2b_p\\|x\\|_\\infty.$$\nConsequently $\\|L_kx\\|_\\infty\\le(2b_p/a_q)\\|x\\|_\\infty$. These are [the half-distortion estimate](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/RecoveryCertificate.lean#L1003-L1011) and [the reference-norm estimate](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/RecoveryCertificate.lean#L1013-L1023), applied to the selected certificates."
+      },
+      {
+        "step_id": "2",
+        "text": "**Apply compactness in the operator space.** For real linear maps $T:V\\to V$, use the reference operator norm $\\|T\\|_{\\mathrm{op}}=\\sup_{\\|x\\|_\\infty\\le1}\\|Tx\\|_\\infty$. All maps belong to the same closed operator ball $\\{T:\\|T\\|_{\\mathrm{op}}\\le2b_p/a_q\\}$. The real space of linear maps $V\\to V$ is finite-dimensional, so this ball is compact. The [compact subsequence construction](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L148-L162) returns strictly increasing $k_j$ and one $L$ with $L_{k_j}\\to L$ in operator norm. For each fixed $x$,\n$$\\|L_{k_j}x-Lx\\|_\\infty\n\\le\\|L_{k_j}-L\\|_{\\mathrm{op}}\\|x\\|_\\infty\\longrightarrow0.$$\nStrict increase gives $k_j\\to\\infty$ and hence $\\varepsilon_{k_j}\\to0$. In [compact subsequence selection](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/Topology/Sequences.lean#L298-L300), the input sequence lies in one compact set in a first-countable space; the output is a limit in that set and a strictly increasing subsequence. The [continuous evaluation map and its RHS](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/Analysis/Normed/Operator/Bilinear.lean#L245-L256) is $\\mathrm{ev}_x(T)=Tx$, giving the same pointwise limit."
+      },
+      {
+        "step_id": "3",
+        "text": "**Pass the norm estimate to that limit.** Continuity of $q$ gives $q(L_{k_j}x)\\to q(Lx)$. Therefore\n$$(1-\\varepsilon_{k_j})q(L_{k_j}x)\\longrightarrow q(Lx).$$\nEvery term is at most $p(x)$, so $q(Lx)\\le p(x)$. If $x\\in K_p$, then $q(Lx)\\le1$, giving $L(K_p)\\subseteq K_q$. These are [the limit contraction](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L191-L211) and [its ball inclusion](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L214-L219)."
+      },
+      {
+        "step_id": "4",
+        "text": "**Pass the volume identity to the same map.** The determinant is continuous in the entries, so $\\det L_{k_j}\\to\\det L$. Thus\n$$v_p|\\det L|\n=\\lim_{j\\to\\infty}v_p|\\det L_{k_j}|=v_q.$$\nThis is [the limit determinant-volume equation](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L237-L266). Since $v_q>0$, the determinant cannot vanish. It makes $L$ injective, and an injection from finite-dimensional $V$ to itself is surjective. Store this same $L$ in every field."
+      }
+    ],
+    "lean_realization_notes": "The subsequence and its convergence are construction evidence, not extra public fields. Operator compactness uses the reference sup norm; contraction compares the stored norms $p,q$.",
+    "content_completeness": "REVISED_EXACT_SOURCE_BOUND_OWNER_PENDING",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.PluckerBody.isCompact_generators",
+  "title": "Compactness of the signed generator set",
+  "stable_card_id": null,
+  "identity_key": "be5ac9c5a5bae77ab6ab237c892037042a1800148d9cf87b73b01fb3ca7a4dbd",
+  "source_url": "mathlibannex/sources/lfh188/46443992068aa7299b84e4d7/index.html#L66",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Convex/PluckerBody.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "f6651ef68f8f256e9e59b470b843a0e15d459ca92a14da43067073b4f682cef4",
+  "accepted_guide_sha256": "041915fc0ae11b3eeb0993521a818182afdace1369c70862e099930c3a1f179d",
+  "content": {
+    "display_title": "Compactness of the signed generator set",
+    "one_sentence_role": "Passes compactness from contractions to their two signed minor images.",
+    "natural_language_statement": "Let $n,N\\in\\mathbb N_0$ and give $E=\\mathbb R^n$ and $F=\\mathbb R^N$ their coordinate sup norms. Let $\\lambda_n$ be the fixed coordinate Lebesgue measure on $E$. Let $p:E\\to\\mathbb R$ be a continuous real seminorm with specified constants $a_p,b_p>0$ such that\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty\\qquad(x\\in E).$$\n\nThe lower bound makes $p$ a norm. Its closed unit ball and real reference volume are\n$$K_p=\\{x:p(x)\\le1\\},\\qquad v_p=\\lambda_n(K_p)\\in(0,\\infty).$$\nHere and below a finite Lebesgue measure is read as a real number when used as a scalar.\n\nLet $\\mathcal I_{n,N}$ be the finite set of increasing $n$-tuples of distinct rows from $\\{1,\\ldots,N\\}$. The minor-coordinate space $\\mathbb R^{\\mathcal I_{n,N}}$ carries its sup norm. For a linear map $B:E\\to F$, put $B_{ij}=(Be_j)_i$ in the standard coordinate basis. Write $\\Pi_n(B)$ for its maximal-minor vector and $\\mathcal V_p(B)$ for that vector scaled by $v_p$. Their coordinates and scaling are\n$$\\Pi_n(B)_I=\\det(B_{i_a,j})_{a,j=1}^n,\\qquad\\mathcal V_p(B)=v_p\\Pi_n(B)\\quad(I=(i_1<\\cdots<i_n)).$$\n\nA $p$-contraction is a linear map $B:E\\to F$ satisfying $\\|Bz\\|_\\infty\\le p(z)$ for every $z\\in E$. Let $\\mathcal C_p^N$ be their set, and put\n$$\\mathcal G_p^N=\\{\\mathcal V_p(B),-\\mathcal V_p(B):B\\in\\mathcal C_p^N\\}.$$\n\nThen $\\mathcal G_p^N$ is compact.",
+    "definition_explanation": null,
+    "assumptions": "The source and target are finite real coordinate spaces with sup norms. The seminorm $p$ is continuous and has the stated positive lower and upper comparison constants. The measure is the original coordinate Lebesgue measure. The dimensions $n,N$ may be zero. When $n=0$, the unique empty minor has determinant $1$; when $N<n$, the minor-index set is empty and its function space has one element. Neither case is excluded.",
+    "conclusion": "Compactness holds in the usual topology of the finite-coordinate space $\\mathbb R^{\\mathcal I_{n,N}}$.",
+    "proof_summary": "Bound the operators and then take their continuous signed images.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Make the contraction set compact.** Give the finite-dimensional operator space $\\mathcal L(E,F)$ its induced operator norm\n$$\\|B\\|_{\\mathrm{op}}=\\sup_{\\|x\\|_\\infty\\le1}\\|Bx\\|_\\infty.$$\nThen\n$$\\mathcal C_p^N=\\bigcap_{x\\in E}\\{B:\\|Bx\\|_\\infty\\le p(x)\\},\\qquad\\|B\\|_{\\mathrm{op}}\\le b_p\\quad(B\\in\\mathcal C_p^N).$$\nFor fixed $x$, evaluation $B\\mapsto Bx$ is continuous, so every set in the intersection is closed. The norm bound follows from $\\|Bx\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty$. Thus the contraction set is closed and contained in the closed operator ball of radius $b_p$. Finite dimensionality makes it compact."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Take two continuous images.** Put $Q=\\mathcal V_p(\\mathcal C_p^N)$. Then\n$$\\mathcal G_p^N=Q\\cup(-Q).$$\nThis is [the image-union identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L52-L64). Matrix entries are continuous in the operator, determinants are finite polynomials, and the scalar $v_p$ is fixed. These are [continuity of maximal minors](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/LinearAlgebra/Matrix/MaximalMinor.lean#L179-L192) and [continuity after volume scaling](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/LinearAlgebra/Matrix/VolumeScaledMaximalMinor.lean#L48-L55). The continuous-image theorem applied first to $\\mathcal C_p^N$ and then to negation on $Q$ makes $Q$ and $-Q$ compact. Substitution into the displayed union gives compactness of $\\mathcal G_p^N$."
+      }
+    ],
+    "lean_realization_notes": null,
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

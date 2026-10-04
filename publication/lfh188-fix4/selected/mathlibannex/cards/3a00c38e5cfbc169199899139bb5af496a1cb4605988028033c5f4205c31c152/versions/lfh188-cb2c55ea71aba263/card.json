@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.HasInnerIntertwiningSequence",
+  "title": "A two-sided inner intertwining sequence for two states",
+  "stable_card_id": "3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152",
+  "identity_key": "lfh:lfh-declaration-card:sha256:3a00c38e5cfbc169199899139bb5af496a1cb4605988028033c5f4205c31c152",
+  "source_url": "mathlibannex/sources/lfh188/09a57ea3ed3668078abc0a9b/index.html#L77",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Homogeneity.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "debfc4d0f8a19cead613b64504d4f75bd55453552cbd402b2a5c974ba031442f",
+  "accepted_guide_sha256": "bc5f94ea6c90261c6a91297b5fc855072209cbbc457e485199234b2423917d43",
+  "content": {
+    "display_title": "A two-sided inner intertwining sequence for two states",
+    "one_sentence_role": "An inner sequence records both forward and actual inverse convergence data before any limiting automorphism is constructed.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra, the norm completion of the matrix stages $A_n=M_{2^n}(\\mathbb C)$ under $a\\mapsto a\\otimes I_2$, with the fixed coordinate reindexing. For a unitary $u\\in A$, write $\\operatorname{Ad}(u)(a)=uau^*$. Given continuous complex-linear functionals $\\varphi,\\psi:A\\to\\mathbb C$, an inner intertwining sequence is a sequence $(\\alpha_n)$ of complex star automorphisms with the following properties. For every $a\\in A$, both $(\\alpha_n(a))$ and $(\\alpha_n^{-1}(a))$ are Cauchy in norm. Each $\\alpha_n=\\operatorname{Ad}(u_n)$ for some unitary $u_n$, and $\\varphi(\\alpha_n(a))\\to\\psi(a)$ for every $a\\in A$.",
+    "definition_explanation": "Choose the automorphisms first and require the four conditions for those choices. Innerness is expressed as existence of an implementing unitary for each index. Norm completeness supplies pointwise limits from the two Cauchy conditions, while the exact inverse identities allow the two limits to be proved inverse to each other.",
+    "assumptions": "Only continuity and complex linearity of the two functionals are inputs to this definition. Positivity, normalization, and purity are not required here. The inverse in the second Cauchy condition is the inverse of that same $\\alpha_n$.",
+    "conclusion": "The datum is a sequence with four requirements: forward Cauchy behavior, inverse Cauchy behavior, innerness of each term, and pointwise convergence of the transported functional. A limiting automorphism is a later construction, not an additional field of the datum.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "Two unrelated Cauchy sequences do not meet the inverse requirement. No convergence of $(u_n)$ itself is asserted; the relevant convergence is of their conjugation actions on individual algebra elements.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

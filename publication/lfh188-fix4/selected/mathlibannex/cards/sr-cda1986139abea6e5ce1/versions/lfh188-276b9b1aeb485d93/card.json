@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.Sphere.lipschitzWith_radialExtension",
+  "title": "The radial extension is 3-Lipschitz",
+  "stable_card_id": null,
+  "identity_key": "46d1195928106417b790018ca79e1bb28a9ea0fb1c411a74679553bc71c317ff",
+  "source_url": "mathlibannex/sources/lfh188/e3df0aab89d4cd3049a9c8f8/index.html#L242",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Sphere/RadialExtension.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r3",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "01fbb3907373edf7dcdd7cb95a51fbeb2b5c73335d05a1def4972ee8b752871b",
+  "accepted_guide_sha256": "87ed83f724d62dfbd967187494fe9beedd18d6a8a0bd678b0f56f3486cf1130a",
+  "content": {
+    "display_title": "The radial extension is 3-Lipschitz",
+    "one_sentence_role": "Separates radial variation from the change of unit direction to obtain the global bound with coefficient 1 + 2.",
+    "natural_language_statement": "For real normed spaces $X,Y$ and a bijective chord-metric isometry $\\Delta:S_X\\to S_Y$, define $R_\\Delta(0)=0$ and $R_\\Delta(x)=\\|x\\|\\Delta(x/\\|x\\|)$ for $x\\ne0$. Here $S_X=\\{u\\in X:\\|u\\|=1\\}$ and $S_Y=\\{v\\in Y:\\|v\\|=1\\}$ are the unit spheres. Then for every $x,y\\in X$,\n\n$$\\|R_\\Delta(x)-R_\\Delta(y)\\|\\le3\\|x-y\\|.$$",
+    "definition_explanation": null,
+    "assumptions": "The sphere distances are inherited from the ambient norms. The map $\\Delta$ is a bijective isometry, so it preserves these chord distances and sends unit vectors to unit vectors. No completeness, finite-dimensionality or nontriviality assumption is made.",
+    "conclusion": "The forward radial map is globally $3$-Lipschitz. Applying the same theorem to $\\Delta^{-1}$ gives the separately stated $3$-Lipschitz bound for $R_{\\Delta^{-1}}$. Together with the inverse identities, this makes the radial bijection a homeomorphism with Lipschitz inverse.",
+    "proof_summary": "First assume $0<\\|y\\|\\le\\|x\\|$, and put $\\widehat x=x/\\|x\\|$, $\\widehat y=y/\\|y\\|$. Split the difference at the smaller radius:\n\n$$\\begin{aligned}\nR_\\Delta(x)-R_\\Delta(y)\n&=(\\|x\\|-\\|y\\|)\\Delta(\\widehat x)\\\\\n&\\quad+\\|y\\|\\bigl(\\Delta(\\widehat x)-\\Delta(\\widehat y)\\bigr).\n\\end{aligned}$$\n\nThe first direction has norm one and $\\Delta$ preserves chord distances. Hence\n\n$$\\begin{aligned}\n\\|R_\\Delta(x)-R_\\Delta(y)\\|\n&\\le |\\|x\\|-\\|y\\||+\\|y\\|\\|\\widehat x-\\widehat y\\|\\\\\n&\\le\\|x-y\\|+2\\|x-y\\|=3\\|x-y\\|.\n\\end{aligned}$$\n\nThe first bound is the reverse triangle inequality. The second uses the angular lemma with its three hypotheses $x\\ne0$, $y\\ne0$ and $\\|y\\|\\le\\|x\\|$. The following calculation gives its coefficient $2$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Set $r=\\|y\\|/\\|x\\|$. The assumed order and positivity imply $0\\le r\\le1$ and $r\\|x\\|=\\|y\\|$. Scaling the normalized difference gives\n\n$$\\|y\\|(\\widehat x-\\widehat y)=rx-y=r(x-y)+(r-1)y.$$\n\nConsequently $\\|y\\|\\|\\widehat x-\\widehat y\\|=\\|rx-y\\|$."
+      },
+      {
+        "step_id": "s2",
+        "text": "The first summand satisfies $\\|r(x-y)\\|=r\\|x-y\\|\\le\\|x-y\\|$. For the second,\n\n$$\\begin{aligned}\n\\|(r-1)y\\|&=(1-r)\\|y\\|\\\\\n&\\le(1-r)\\|x\\|=\\|x\\|-\\|y\\|\\\\\n&\\le\\|x-y\\|.\n\\end{aligned}$$\n\nThe triangle inequality now yields $\\|rx-y\\|\\le2\\|x-y\\|$, which is the required angular bound."
+      },
+      {
+        "step_id": "s3",
+        "text": "Insert this angular bound into the displayed radial decomposition. If the norm order is reversed, interchange $x,y$ and use the symmetry of $\\|x-y\\|$ and of the image distance. If one vector is zero, norm preservation gives the sharper equality $\\|R_\\Delta(x)-R_\\Delta(0)\\|=\\|x\\|$, so the bound by $3\\|x\\|$ follows; the two-zero case is immediate."
+      }
+    ],
+    "lean_realization_notes": "The constant $3$ is a proved upper bound. This statement makes no optimality assertion and supplies no ambient distance-preserving or linear-extension conclusion. Both directions of the homeomorphism use the same radial maps as in the definitions.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

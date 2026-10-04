@@ -1,0 +1,41 @@
+{
+  "name": "MathlibAnnex.EquivalentSeminorm.nonempty_linearIsometryEquiv_of_pluckerBodies_eq",
+  "title": "All Plücker bodies determine the norm up to linear isometry",
+  "stable_card_id": null,
+  "identity_key": "3c272fa744121ae69c875a97aba6d154a2b93eab0ea82e71726f9cfd0a67d340",
+  "source_url": "mathlibannex/sources/lfh188/259eef4cb39758b177ec1ebe/index.html#L39",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Plucker/ModelRigidity.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "f97501ad5aec2527ce2b2188acf6ce634ddb722f1fd641685d661e2a4050a3d0",
+  "accepted_guide_sha256": "d8c3ceec1cea7b2596e3363e9ae717e5701a6330c73f051cfec5982b98c2f231",
+  "content": {
+    "display_title": "All Plücker bodies determine the norm up to linear isometry",
+    "one_sentence_role": "Recovers a real linear equivalence preserving the two supplied norms.",
+    "natural_language_statement": "Let $n=m+1>0$ and $V=\\mathbb R^n$ with the reference sup norm and standard Lebesgue measure $\\lambda$. The continuous norms $p,q$ have fixed positive comparison constants\n$$a_p\\|x\\|_\\infty\\le p(x)\\le b_p\\|x\\|_\\infty,\\qquad\na_q\\|x\\|_\\infty\\le q(x)\\le b_q\\|x\\|_\\infty.$$\nSet $K_p=\\{x:p(x)\\le1\\}$, $K_q=\\{x:q(x)\\le1\\}$ and $v_p=\\lambda(K_p)$, $v_q=\\lambda(K_q)$, as positive finite real numbers. For a real linear map $A:V\\to\\mathbb R^N$, let $A_{ij}=(Ae_j)_i$ be its matrix in the standard bases. The minor-coordinate space has one coordinate for each increasing $n$-tuple $I$ of distinct rows from $\\{1,\\ldots,N\\}$, and\n$$\\Pi_n(A)_I=\\det(A_{I,*}).$$\nDefine [the signed generator set](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L19-L24) and [its real convex hull](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Convex/PluckerBody.lean#L26-L28) by\n$$\\begin{aligned}\n\\mathcal G_p^N\n &=\\left\\{\\sigma v_p\\Pi_n(A):\\begin{array}{l}\n       A:V\\to\\mathbb R^N\\text{ is real linear},\\ \\sigma\\in\\{1,-1\\},\\\\\n       \\|Ax\\|_\\infty\\le p(x)\\quad(x\\in V)\n       \\end{array}\\right\\},\\\\\n\\mathcal P_p^N&=\\operatorname{conv}_{\\mathbb R}\\mathcal G_p^N.\n\\end{aligned}$$\nDefine $\\mathcal G_q^N,\\mathcal P_q^N$ in the same way using $q,v_q$. The generators are vectors of minors, not linear maps. Assume $\\mathcal P_p^N=\\mathcal P_q^N$ for every $N$. There exists a real linear bijection $L:V\\to V$ satisfying\n$$\\forall x\\in V,\\quad q(Lx)=p(x).$$",
+    "definition_explanation": null,
+    "assumptions": "The two norm models and equality of every finite Plücker body are inputs.",
+    "conclusion": "The isometry is between $V$ equipped with $p$ and $V$ equipped with $q$. Preservation of the reference sup norm is not the conclusion.",
+    "proof_summary": "Keep the same limit map and its ball image, recover the norms from positive scaled sublevel sets, and promote that map to a linear equivalence.",
+    "proof_steps": [
+      {
+        "step_id": "1",
+        "text": "**Choose the limit map once.** Input the two norm models and body equalities to [limit recovery](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L299-L313). It supplies bijective $L$, contraction, ball inclusion and the exact determinant-volume equation. [ball image equality for that certificate](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Plucker/LimitRecovery.lean#L359-L365) gives $L(K_p)=K_q$ for the same $L$."
+      },
+      {
+        "step_id": "2",
+        "text": "**Read both gauges from the ball image.** For each $t>0$, homogeneity, linearity and bijectivity give\n$$\\begin{aligned}\np(x)\\le t\n&\\Longleftrightarrow x/t\\in K_p\\\\\n&\\Longleftrightarrow L(x/t)\\in K_q\\\\\n&\\Longleftrightarrow q(Lx)\\le t.\n\\end{aligned}$$\nThe middle equivalence uses $L(K_p)=K_q$. Its reverse implication also uses injectivity: if $L(x/t)=Ly$ with $y\\in K_p$, then $x/t=y$. If the two nonnegative numbers $p(x)$ and $q(Lx)$ differed, their positive midpoint would satisfy one comparison and not the other. Thus $q(Lx)=p(x)$; at $x=0$ both values are zero. The [norm reconstruction from a bijective ball image](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Ball/VolumeRigidity.lean#L185-L212) takes positive definiteness of $p,q$, the real linear bijection and exact ball image as inputs, and returns this equality at each $x$."
+      },
+      {
+        "step_id": "3",
+        "text": "**Retain that map in the equivalence.** Bijectivity promotes the same $L$ to a real linear equivalence. Store it and $\\forall x,\\ q(Lx)=p(x)$ in the two fields of [the model isometry structure](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Module/EquivalentSeminorm/Transport.lean#L76-L79). No sphere restriction is specified by these fields."
+      }
+    ],
+    "lean_realization_notes": "The recovered equivalence preserves $p$ and $q$ on the same coordinate vectors; it need not preserve the reference sup norm.",
+    "content_completeness": "REVISED_EXACT_SOURCE_BOUND_OWNER_PENDING",
+    "language_tag": "en"
+  }
+}

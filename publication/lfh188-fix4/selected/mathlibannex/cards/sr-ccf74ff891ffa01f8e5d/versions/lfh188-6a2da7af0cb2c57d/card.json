@@ -1,0 +1,49 @@
+{
+  "name": "MathlibAnnex.BilipschitzOrientation.weak_piola",
+  "title": "Weak Piola identity for a compactly supported test field",
+  "stable_card_id": null,
+  "identity_key": "253162bda56b659cce783d2218fa6c27a485a4959c3283f8208d2b41b09a71ff",
+  "source_url": "mathlibannex/sources/lfh188/33d28b579fd30ec597b2de5e/index.html#L375",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r4",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "0c048dc1cede12ab8b6f85e6951993e567470888327ea3ddcbbfabb5c32a128b",
+  "accepted_guide_sha256": "c47a6385914233bc64b3984cfcd992899a3872ac1e5205c8bce2b871a55ceffa",
+  "content": {
+    "display_title": "Weak Piola identity for a compactly supported test field",
+    "one_sentence_role": "Uses coordinate perturbations to show that the signed pullback of a test-field divergence has zero integral.",
+    "natural_language_statement": "Let $n\\in\\mathbb N_0$ and let $E=\\mathbb R^n$ have the sup norm $\\|\\cdot\\|_\\infty$. Let $S,T\\subseteq E$ be open, and let $f,g:E\\to E$ be globally Lipschitz maps whose restrictions $f|_S:S\\to T$ and $g|_T:T\\to S$ are mutually inverse. Fix a number $\\ell>0$ such that\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\qquad(x,x'\\in E).$$\n\nWrite $Df(x):E\\to E$ for the Fréchet derivative of $f$ at $x$ when it exists, and set $Df(x)=0$ at other points. Define the signed Jacobian by $J_f(x)=\\det Df(x)$.\n\nLet $W:E\\to E$ be a $C^1$ vector field, and choose a compact set $K\\subseteq T$ such that $W(y)=0$ for $y\\notin K$. Write $W_i(y)=(W(y))_i$ and define\n$$\\operatorname{div}W(y)=\\operatorname{tr}DW(y)=\\sum_{i=1}^n\\partial_i W_i(y).$$\nAll integrals use Lebesgue measure $\\lambda$ on these fixed coordinates. Then\n$$\\int_S (\\operatorname{div}W)(f(x))J_f(x)\\,d\\lambda(x)=0.$$",
+    "definition_explanation": null,
+    "assumptions": "The field $W$ is continuously differentiable on all of $E$. Its chosen compact set $K$ lies in $T$ and contains $\\{y:W(y)\\ne0\\}$; $K$ need not equal the closure of that set. No second derivative of $f$ is assumed.\n\nThe sets $S,T\\subseteq E$ are open. The inverse and image conditions are\n$$\\begin{aligned}\nf(S)&\\subseteq T,&g(T)&\\subseteq S,\\\\\ng(f(x))&=x\\quad(x\\in S),&f(g(y))&=y\\quad(y\\in T).\n\\end{aligned}$$\nThe global bounds use specified constants $C_f,C_g\\ge0$ and $\\ell>0$:\n$$\\ell\\|x-x'\\|_\\infty\\le\\|f(x)-f(x')\\|_\\infty\\le C_f\\|x-x'\\|_\\infty\\qquad(x,x'\\in E),$$\n$$\\|g(y)-g(y')\\|_\\infty\\le C_g\\|y-y'\\|_\\infty\\qquad(y,y'\\in E).$$\nThe estimates hold on all of $E$, not just on $S$ or $T$. The inverse identities are required only on $S$ and $T$.",
+    "conclusion": "The integral of the signed Jacobian times the pulled-back divergence vanishes. For $n=0$, the divergence is an empty sum and the conclusion is immediate. In positive dimension the proof below integrates determinant differences produced by compactly supported perturbations.",
+    "proof_summary": "For each coordinate, construct a compactly supported perturbation $u_i$ of $f$. Its determinant difference equals one term of the desired integrand. Prove that difference is integrable, use the null-Lagrangian identity to make its integral zero, and sum the coordinate identities.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Obtain a compact preimage and a Lipschitz test field.** The relevant identities are\n$$W(y)=0,\\quad DW(y)=0\\qquad(y\\notin K),$$\n$$f^{-1}(K)=g(K)\\subseteq S,\\qquad g(K)\\text{ is compact}.$$\nThe derivative vanishes off $K$ because the complement of the closed set $K$ is open and $W$ is identically zero there. Continuity of $DW$ on the compact set $K$ gives a number $M\\ge0$ such that $\\|DW(y)\\|\\le M$ for every $y\\in E$. [The compact-field Lipschitz lemma](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean#L138-L143) applies to this global derivative bound and the $C^1$ field $W$, and yields a global Lipschitz bound for $W$.\n\nFor the preimage identity, the lower metric estimate makes $f$ globally injective. If $f(x)=y\\in K\\subseteq T$, then $f(g(y))=y=f(x)$, so $x=g(y)$. Conversely $f(g(y))=y$ for $y\\in K$. This is [the exact preimage formula](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Calculus/BilipschitzOrientation/Piola.lean#L144-L157). The set $g(K)$ is compact because $g$ is continuous."
+      },
+      {
+        "step_id": "s2",
+        "text": "**Define the coordinate perturbations.** The case $n=0$ is already settled; write $n=m+1>0$. For $1\\le i\\le n$, let $e_i$ be the $i$th coordinate vector and let $P_i z=z_i e_i$. Define\n$$u_i(x)=P_i(W(f(x)))=W_i(f(x))e_i,\\qquad F_i(x)=f(x)+u_i(x),$$\n$$K_i=\\overline{\\{x:u_i(x)\\ne0\\}}\\subseteq f^{-1}(K)=g(K).$$\nThe inclusion holds because $W(f(x))=0$ whenever $f(x)\\notin K$, and $g(K)$ is closed. Hence $K_i$ is compact. The maps $P_i$, $W$ and $f$ are Lipschitz, so $u_i$ and $F_i$ are globally Lipschitz. Write $DF_i(x)$ for the derivative of $F_i$ where it exists and for the zero linear map otherwise. These are the maps and compact supports used in Step 4."
+      },
+      {
+        "step_id": "s3",
+        "text": "**Calculate the determinant difference.** At a point $x$ where $f$ is differentiable, put $A=Df(x)$ and $B=DW(f(x))$. Then\n$$B_{ij}=(DW(f(x))e_j)_i=(\\partial_j W_i)(f(x)),\\qquad DF_i(x)=(I+P_iB)A.$$\nThe matrix $I+P_iB$ has the identity rows except that row $i$ is $e_i^{\\mathsf T}+\\sum_j B_{ij}e_j^{\\mathsf T}$. Row-linearity gives\n$$\\det(I+P_iB)=1+B_{ii}.$$\nIndeed, a term with $j\\ne i$ has two equal rows, whereas the $j=i$ term is $B_{ii}$. Thus\n$$\\det DF_i(x)-J_f(x)=(\\partial_i W_i)(f(x))J_f(x).$$\nDefine, on all of $E$,\n$$Q_i(x)=\\det DF_i(x)-J_f(x),\\qquad H_i(x)=(\\partial_i W_i)(f(x))J_f(x).$$\nBy [Rademacher's theorem](https://github.com/leanprover-community/mathlib4/blob/360da6fa66c1273b76b6b2d8c5666fd5ac2e3b56/Mathlib/Analysis/Calculus/Rademacher.lean#L387-L390) for the globally Lipschitz map $f$, the calculation proves $Q_i=H_i$ for $\\lambda$-almost every $x\\in E$."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Prove integrability and apply the null-Lagrangian identity.** For the maps and compact set from Step 2,\n$$\\int_{K_i}|\\det DF_i(x)|\\,d\\lambda(x)<\\infty,\\qquad \\int_{K_i}|J_f(x)|\\,d\\lambda(x)<\\infty,$$\n$$Q_i(x)=0\\qquad(x\\notin K_i).$$\nThe two finite integrals follow from [compact-set integrability of derivative minors](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Integral/MaximalMinor.lean#L102-L121), applied separately to $F_i$ and $f$ on $K_i$. In dimension $n=m+1$, selecting all $n$ rows in coordinate order makes the minor the determinant itself. Outside $K_i$, $u_i$ vanishes on a neighborhood, so $F_i=f$ there and their total derivatives agree. This is [the off-support determinant-difference identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Integral/MaximalMinor.lean#L123-L136). Consequently,\n$$\\begin{aligned}\n\\int_E|Q_i(x)|\\,d\\lambda(x)\n&=\\int_{K_i}|\\det DF_i(x)-J_f(x)|\\,d\\lambda(x)\\\\\n&\\le\\int_{K_i}|\\det DF_i(x)|\\,d\\lambda(x)+\\int_{K_i}|J_f(x)|\\,d\\lambda(x)<\\infty.\n\\end{aligned}$$\nThe null-Lagrangian output is\n$$\\int_E Q_i(x)\\,d\\lambda(x)=\\int_E\\bigl(\\det D(f+u_i)(x)-\\det Df(x)\\bigr)\\,d\\lambda(x)=0.$$\nHere [the compact-perturbation theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/MeasureTheory/Integral/MaximalMinor.lean#L151-L238) is applied to these same $f,u_i$: both are globally Lipschitz, $u_i$ has compact support, $n=m+1>0$, and the selected minor uses every coordinate in order. Finally, the almost-everywhere equality in Step 3 gives\n$$H_i\\in L^1(E,\\lambda),\\qquad \\int_E H_i(x)\\,d\\lambda(x)=\\int_E Q_i(x)\\,d\\lambda(x)=0.$$"
+      },
+      {
+        "step_id": "s5",
+        "text": "**Restrict to the source set and sum.** For $x\\notin S$, Step 1 gives $f(x)\\notin K$, and therefore $DW(f(x))=0$ and $H_i(x)=0$. Hence\n$$0=\\int_EH_i\\,d\\lambda=\\int_SH_i\\,d\\lambda+\\int_{E\\setminus S}H_i\\,d\\lambda=\\int_SH_i\\,d\\lambda.$$\nUsing the defining coordinate sum for divergence, we obtain\n$$\\begin{aligned}\n\\int_S(\\operatorname{div}W)(f(x))J_f(x)\\,d\\lambda(x)\n&=\\int_S\\sum_{i=1}^nH_i(x)\\,d\\lambda(x)\\\\\n&=\\sum_{i=1}^n\\int_SH_i(x)\\,d\\lambda(x)=0.\n\\end{aligned}$$\nThe sum may pass through the integral because each $H_i$ is integrable by Step 4."
+      }
+    ],
+    "lean_realization_notes": "The argument integrates each determinant difference as one integrable function. It never subtracts two possibly divergent integrals over the whole ambient space. The absolute values in the integrability estimates do not replace the signed determinant in the theorem.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

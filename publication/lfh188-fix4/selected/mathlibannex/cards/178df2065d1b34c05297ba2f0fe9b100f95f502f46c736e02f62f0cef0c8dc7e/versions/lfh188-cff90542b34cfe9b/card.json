@@ -1,0 +1,37 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+  "title": "Distinct GNS classes have no unitary intertwiner",
+  "stable_card_id": "178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e",
+  "identity_key": "lfh:lfh-declaration-card:sha256:178df2065d1b34c05297ba2f0fe9b100f95f502f46c736e02f62f0cef0c8dc7e",
+  "source_url": "mathlibannex/sources/lfh188/0101aaa3d29427f827979956/index.html#L75",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/AtomicConstruction/PureAtomic.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "d05909d87e1bf86548852e6e5126f3e546c42bbbb21dac861bb8bbfebd012a23",
+  "accepted_guide_sha256": "ddb408f27abc434f4a84e440e167ab826e8bd98d4a32bbb591497bb1836cd8b0",
+  "content": {
+    "display_title": "Distinct GNS classes have no unitary intertwiner",
+    "one_sentence_role": "The class index makes the selected pure-GNS family pairwise unitarily inequivalent.",
+    "natural_language_statement": "Let $A$ be a unital complex C*-algebra, with the positive order used for its states, and fix a pure state $\\omega$. A pure state is an extreme point of the normalized positive continuous linear functionals. Let $I$ be the set of pure-state GNS representations modulo unitary equivalence. For each $j\\in I$, choose a pure state $\\varphi_j$ in that class, retaining $\\varphi_o=\\omega$ literally at $o=[\\omega]$. Write $(H_j,\\pi_j,\\xi_j)$ for its GNS space, representation and canonical cyclic vector. If $i\\ne j$, no surjective complex-linear isometry $E:H_i\\to H_j$ intertwines the two selected representations. Explicitly, for every such $E$, the equations $E\\pi_i(a)=\\pi_j(a)E$ cannot hold for all $a\\in A$.",
+    "definition_explanation": null,
+    "assumptions": "The GNS classes $i,j\\in I$ are assumed to be distinct. A candidate $E$ is a unitary map between the two complete Hilbert spaces; it need not carry $\\xi_i$ to $\\xi_j$. The same representative selection based at $\\omega$ is used on both sides.",
+    "conclusion": "The selected representations form a family with no unitary intertwiners between distinct indices. This supplies precisely the pairwise-inequivalence hypothesis of the generic atomic-shell construction.",
+    "proof_summary": "An intertwining unitary would certify GNS equivalence of the two selected states. Taking their quotient classes would therefore identify $i$ and $j$, contradicting their assumed distinctness.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Assume that the candidate unitary $E$ satisfies the intertwining equations. The selected representations are exactly the GNS actions of $\\varphi_i$ and $\\varphi_j$, so $E$ witnesses their GNS equivalence."
+      },
+      {
+        "step_id": "s2",
+        "text": "The cited representative-class theorem says that GNS-equivalent selected representatives have equal indices: each chosen representative has the class it was chosen from. Applying that theorem gives $i=j$, contrary to the hypothesis."
+      }
+    ],
+    "lean_realization_notes": "Two distinct pure states can belong to the same GNS class. The assertion here is about distinct classes. Vanishing of arbitrary bounded intertwiners requires an additional irreducibility argument and is not the conclusion of this declaration.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

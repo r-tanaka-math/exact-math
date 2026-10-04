@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_character_annihilating_closedIdeal_of_not_mem",
+  "title": "A character separating a closed ideal",
+  "stable_card_id": "1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f",
+  "identity_key": "lfh:lfh-declaration-card:sha256:1e09b496fe0e06eeb046e141957245bfb51a6b1b7b8c28cf44ffdefc9574de2f",
+  "source_url": "mathlibannex/sources/lfh188/76f7b42dd210af3fde78eaa7/index.html#L20",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 4,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "3cff44bff4b25f76896443307bbf029be7560747e5fb8a7c407993ac6106da42",
+  "accepted_guide_sha256": "d676b97b397cd148d14c3e7974c98391a12d187400cd925ecf11bfe22b105fb5",
+  "content": {
+    "display_title": "A character separating a closed ideal",
+    "one_sentence_role": "Finds one character which kills a closed ideal and detects a specified element outside it.",
+    "natural_language_statement": "Let $D$ be a commutative unital complex $C^*$-algebra, let $J$ be a norm-closed ideal, and let $d\\in D\\setminus J$. There is a character $\\chi:D\\to\\mathbb C$ such that $$\\chi(x)=0\\quad(x\\in J),\\qquad \\chi(d)\\ne0.$$ A character here is a nonzero complex algebra homomorphism, hence unital and continuous.",
+    "definition_explanation": null,
+    "assumptions": "Closedness is for the norm topology. Properness of $J$ and nontriviality of $D$ follow from $d\\notin J$; they are not extra hypotheses.",
+    "conclusion": "The same character satisfies both annihilation of all of $J$ and nonvanishing at $d$.",
+    "proof_summary": "Transport the ideal through the isometric Gelfand transform, find a point where the transformed element escapes its vanishing conditions, and evaluate there.",
+    "proof_steps": [
+      "Let $X$ be the character space of $D$ and $G:D\\to C(X,\\mathbb C)$ its Gelfand $*$-isomorphism, so $G(x)(\\chi)=\\chi(x)$. Put $K=G(J)$. Surjectivity and multiplicativity make $K$ an ideal. Since $G$ is an isometry and a homeomorphism, $K$ is closed. If $G(d)\\in K$, then $G(d)=G(x)$ for some $x\\in J$, contradicting injectivity of $G$ and $d\\notin J$.",
+      "Apply [The closed-ideal description applied to this Gelfand image](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/ClosedIdealCharacter.lean#L20-L65) to the norm-closed ideal $K$ of continuous functions on the compact Hausdorff $X$. It gives $$K=\\{f\\in C(X,\\mathbb C): f|_Z=0\\},\\qquad Z=\\{\\chi\\in X:g(\\chi)=0\\text{ for all }g\\in K\\}.$$ Since $G(d)\\notin K$, there is $\\chi\\in Z$ with $G(d)(\\chi)\\ne0$.",
+      "For $x\\in J$, the function $G(x)$ belongs to $K$, hence $\\chi(x)=G(x)(\\chi)=0$. At the distinguished element, $\\chi(d)=G(d)(\\chi)\\ne0$. These are the two required conditions on the very same point $\\chi$ of the character space."
+    ],
+    "lean_realization_notes": []
+  }
+}

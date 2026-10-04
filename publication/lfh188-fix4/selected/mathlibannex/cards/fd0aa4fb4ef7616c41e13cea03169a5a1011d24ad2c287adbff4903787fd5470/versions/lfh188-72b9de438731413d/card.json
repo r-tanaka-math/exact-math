@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+  "title": "A simple C*-algebra with a unique irreducible representation class",
+  "stable_card_id": "fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470",
+  "identity_key": "lfh:lfh-declaration-card:sha256:fd0aa4fb4ef7616c41e13cea03169a5a1011d24ad2c287adbff4903787fd5470",
+  "source_url": "mathlibannex/sources/lfh188/49e4d5feb3855514c1f8d8ca/index.html#L95",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "4f19d4781905308f229b4ea228939a26a179391596c6514aafe076ff333edff0",
+  "accepted_guide_sha256": "32760d0a20eb09e1d7ef851c419a26f9d192ee9cd26cab6fbb946e8f3ec39017",
+  "content": {
+    "display_title": "A simple C*-algebra with a unique irreducible representation class",
+    "one_sentence_role": "Establishes the properties that make the fixed algebra $T$ a counterexample to Naimark's problem.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra. Let $\\pi:A\\to B(\\mathcal H)$ be the direct sum of one chosen GNS representation from each pure-state GNS equivalence class, and let $(L_i)_{i\\in I}$ be the unitaries obtained from the fixed CAR homogeneity and shell construction. Put $T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})\\subseteq B(\\mathcal H)$, and write $\\iota(a)=\\pi(a)$ for the embedding into $T$. Let $\\rho_0:T\\to B(\\mathcal H)$ be the inclusion representation. Then $T$ is a nonzero, norm-closed, infinite-dimensional unital C*-algebra, $\\iota$ is injective and unital, and $\\rho_0$ is faithful and nonzero irreducible. Every nonzero irreducible $*$-representation $\\rho:T\\to B(K)$ on a complex Hilbert space $K$ is unitarily equivalent to $\\rho_0$, even if $\\rho(1)=1$ is not assumed: there is a unitary $U:\\mathcal H\\to K$ with $$U\\rho_0(t)=\\rho(t)U\\qquad(t\\in T).$$ The algebra $T$ is simple: every norm-closed two-sided ideal is $\\{0\\}$ or $T$. Moreover, for no complex Hilbert space $K$ is there an injective $*$-representation $e:T\\to B(K)$ with $e(T)=\\mathcal K(K)$.",
+    "definition_explanation": null,
+    "assumptions": "The automorphisms and shell unitaries are obtained from CAR homogeneity and fixed once. No simplicity or uniqueness-of-representation assumption is supplied to the theorem. The Hilbert space $K$ in the representation and compact-operator assertions is arbitrary; separability and preservation of the identity by the given representation are not assumed.",
+    "conclusion": "Thus $T$ has exactly one unitary-equivalence class of nonzero irreducible $*$-representations, but is not isomorphic to the full algebra of compact operators on any Hilbert space. The nonzero, norm-closed algebra $T$, its injective unital embedding $\\iota$ and its faithful irreducible inclusion $\\rho_0$ are the same throughout these assertions.",
+    "proof_summary": "Apply the cited theorem for a fixed shell family to the family supplied by CAR homogeneity. The construction and the representation-classification theorem give the embedding and unitary equivalences; their cited consequences give simplicity and the exclusion of an algebra of compact operators.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Let $o$ denote the class of the distinguished pure state, let $f_n$ be the decreasing root projections, and write $p_n=f_n-f_{n+1}$ for their shells. At $o$ choose $\\alpha_{o}=\\mathrm{id}$ and $w_{o,n}=p_n$. In each other class, CAR homogeneity supplies one automorphism $\\alpha_i$, and exact shell matching supplies all $w_{i,n}$ for that same $\\alpha_i$. These choices are made once for the entire construction."
+      },
+      {
+        "step_id": "s2",
+        "text": "The shell construction supplies an injective unital embedding $\\iota$ and an irreducible inclusion $\\rho_0$. Since $\\iota$ embeds the infinite-dimensional algebra $A$, the algebra $T$ is infinite dimensional. Its norm closure is part of its construction, and its nonzeroness follows from injectivity of $\\iota$."
+      },
+      {
+        "step_id": "s3",
+        "text": "The representation-classification theorem for this fixed family gives unitary equivalence with $\\rho_0$ for every unital nonzero irreducible representation. The cited unitality lemma gives $\\rho(1)=I_K$ for every nonzero irreducible $*$-representation $\\rho$ of $T$, so the same conclusion applies without initially assuming that $\\rho$ preserves the identity."
+      },
+      {
+        "step_id": "s4",
+        "text": "The cited simplicity theorem applies because $\\rho_0$ is faithful and all nonzero irreducible representations are unitarily equivalent to it. The cited compact-operator exclusion applies because $T$ is unital and infinite dimensional. The Lean theorem collects these proved properties for the same algebra."
+      }
+    ],
+    "lean_realization_notes": "In the displayed inclusion representation, one also has $T\\cap\\mathcal K(\\mathcal H)=\\{0\\}$. This follows from the stated properties: the intersection is a closed two-sided ideal of $T$; if it were nonzero, simplicity would give $T\\subseteq\\mathcal K(\\mathcal H)$. Then $I_{\\mathcal H}$ would be compact, so $\\mathcal H$, and hence $T\\subseteq B(\\mathcal H)$, would be finite dimensional, a contradiction. This is a consequence of the theorem, not an extra field of its Lean statement.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "accepted_type_fingerprint_sha256": "0b0dcc8591216d9259e52cb4fa3fa604e01f943611f1786fa94f2bee011c4728",
+  "approved_card_model_sha256": "4aebd025ef08238907197f864a3288a12bc174a600f3e5b7ba6270b0cf6c9882",
+  "assumptions": "Let A be a unital complex C*-algebra, H a complex Hilbert space, and π a unital representation of A on H. Competing nonzero irreducible representations are quantified through the nonunital representation interface; irreducibility supplies the associated unital representations used in the comparison.",
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "70bf38775c890eefb79631d1b6c0acb1310662f238112198f657a426c9c0edd2",
+    "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+  },
+  "citations": [],
+  "conclusion": "The representation π is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A, with competitors quantified through the nonunital representation interface. Faithfulness and separability are not part of the definition.",
+  "declaration_kind": "def",
+  "definition_equation": "IsSingletonIrreducibleModelAmongNonUnital π ↔ IsIrreducible π ∧ ∀ K ρ, IsIrreducible ρ → UnitaryEquivalent π (ρ.toUnital ...).",
+  "definition_explanation": "IsSingletonIrreducibleModelAmongNonUnital π ↔ IsIrreducible π ∧ ∀ K ρ, IsIrreducible ρ → UnitaryEquivalent π (ρ.toUnital ...).",
+  "display_title": "Unital representative of the unique irreducible-representation class",
+  "exact_elaborated_lean_type": "{A : Type u} → [inst : CStarAlgebra A] → {H : Type v} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → MathlibAnnex.Analysis.CStarAlgebra.Representation A H → Prop",
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "09c9dc90b2424077f8d9b49116e532a4f683bd503be36d79fee861e8d8f73374",
+    "uid": "lfh:lfh-card-exposition:sha256:cd2054c4cc9d783734e87d08edbc43463967ccd8032b1a6b708c4b2b7dd98b0e"
+  },
+  "historical_card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 1,
+    "sha256": "81030ed77ecc2d64bed6cae1d4ff01eb30737a09ac82256102d16be2cadb732c",
+    "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+  },
+  "historical_exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 6,
+    "sha256": "09c9dc90b2424077f8d9b49116e532a4f683bd503be36d79fee861e8d8f73374",
+    "uid": "lfh:lfh-card-exposition:sha256:cd2054c4cc9d783734e87d08edbc43463967ccd8032b1a6b708c4b2b7dd98b0e"
+  },
+  "historical_owner_decision": "APPROVED_SOURCE_EXPOSITION_CORRESPONDENCE_WITHOUT_CORRECTION",
+  "lineage": {
+    "classification": "SAME_UID_REVISION_INCREMENT",
+    "predecessor_card_ref": {
+      "record_type": "LFH_DECLARATION_CARD",
+      "revision": 1,
+      "sha256": "81030ed77ecc2d64bed6cae1d4ff01eb30737a09ac82256102d16be2cadb732c",
+      "uid": "lfh:lfh-declaration-card:sha256:637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794"
+    },
+    "renamed_to_relation_ref": null
+  },
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital",
+  "natural_language_statement": "Let A be a unital complex C*-algebra, H a complex Hilbert space, and π a unital representation of A on H. The representation π is a representative of the unique unitary-equivalence class of nonzero irreducible representations of A: π is irreducible, and for every nonzero irreducible representation ρ presented through the nonunital representation interface, π is unitarily equivalent to the associated unital representation ρ.toUnital. Faithfulness and separability are not part of the definition.",
+  "one_sentence_role": "Defines the corresponding condition for a unital representation, with competing nonzero irreducible representations quantified through the nonunital representation interface.",
+  "owner_review_item_sha256": "2e612a4fd422b9c56ef763f671bf81e7531591fcea864d1dab71847f4bf720f7",
+  "proof_steps": [
+    {
+      "step_id": "formal_type",
+      "text": "Exact Lean statement: {A : Type u} → [inst : CStarAlgebra A] → {H : Type v} → [inst_1 : NormedAddCommGroup H] → [inst_2 : InnerProductSpace ℂ H] → [inst_3 : CompleteSpace H] → MathlibAnnex.Analysis.CStarAlgebra.Representation A H → Prop"
+    },
+    {
+      "step_id": "source_equation",
+      "text": "IsSingletonIrreducibleModelAmongNonUnital π ↔ IsIrreducible π ∧ ∀ K ρ, IsIrreducible ρ → UnitaryEquivalent π (ρ.toUnital ...)."
+    },
+    {
+      "step_id": "source_route",
+      "text": "The source quantifies K and ρ independently as a nonunital star-homomorphism, assumes ρ.IsIrreducible, and uses ρ.toUnital in the comparison. This differs from merely possessing a separable faithful representation."
+    }
+  ],
+  "proof_summary": "The source quantifies K and ρ independently as a nonunital star-homomorphism, assumes ρ.IsIrreducible, and uses ρ.toUnital in the comparison. This differs from merely possessing a separable faithful representation.",
+  "source_excerpt": {
+    "bytes": 513,
+    "sha256": "6d86adb86105fe9f8b87546f70cace7f2b4a550e7a603909cc86df4f45048cdc"
+  },
+  "source_locator": {
+    "end_column": 49,
+    "end_line": 46,
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+    "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+    "start_column": 1,
+    "start_line": 37
+  },
+  "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+  "source_realization_ref": {
+    "record_type": "LFH_SOURCE_BUILD_BINDING",
+    "revision": 1,
+    "sha256": "f1716d57decb298d7f44f9c42f716d5b9f6075abe4e2925f8d04675f65ae8039",
+    "uid": "lfh:lfh-source-build-binding:sha256:5ee0ec1f15d01e6b65028a243a73e843e3b603c712ca86267bcc14db49329cf0"
+  },
+  "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+  "source_signature": {
+    "end_byte": 1341,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "47ee1154d386638b9bf02f1eec1885a1aa5fb023e85f49427f7ca931b52ff597",
+    "source_command_range": {
+      "end_column": 49,
+      "end_line": 46,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+      "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+      "start_column": 1,
+      "start_line": 37
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+    "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+    "start_byte": 1259,
+    "text": "def IsSingletonIrreducibleModelAmongNonUnital\n    (pi : Representation A H) : Prop"
+  },
+  "source_url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean#L37-L46",
+  "stable_card_id": "637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794",
+  "successor_owner_approval": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE",
+  "website_metadata": {
+    "source_release": "v0.4.0",
+    "catalog_scope": "WHOLE_LIBRARY",
+    "publication_authorized": true,
+    "catalog_current": true,
+    "first_publication_date": "2026-09-21",
+    "canonical_model_sha256": "7977ace875db05782fdc2f7034c811a9253728a7662bdf5bb9506a70d6cf6696",
+    "publication_state": "PUBLIC",
+    "this_revision_publication_date": "2026-09-21",
+    "canonical_url": "https://exactmathematics.org/mathlibannex/cards/637afab6889bdf11fe07e21325cab3df3d3f88baeb71dff1c973c7e2a3f1a794/",
+    "publication_batch": "EM_FULL_HP_PUBLICATION_R1",
+    "approval_scope": "APPROVED_REUSED_SOURCE_EXPOSITION_CORRESPONDENCE"
+  }
+}

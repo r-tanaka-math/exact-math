@@ -1,0 +1,31 @@
+{
+  "name": "MathlibAnnex.IsometryEquiv.existsUnique_affineExtension",
+  "title": "Mankiewicz extension on open connected domains",
+  "stable_card_id": "30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+  "identity_key": "lfh:lfh-declaration-card:sha256:30b5b915102151510645ff9e55aef46c99b259d2cb09540049f2b73b0eb07373",
+  "source_url": "mathlibannex/sources/lfh188/e2a4e0d3c29e768fe67c7b32/index.html#L120",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 2,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "28eb2e6873bebf56605ff2b80e487855fb05b555e091551238e0527fc6a2af32",
+  "accepted_guide_sha256": "f0df0dea467c5a19caabb59459da5400b07280f36e50f8d595f61e4a41e251e2",
+  "content": {
+    "display_title": "Mankiewicz extension on open connected domains",
+    "one_sentence_role": "Glues local affine-isometry charts using their agreement on open overlaps.",
+    "natural_language_statement": "Let $E,F$ be real normed spaces, $S\\subseteq E$ a nonempty connected open set, and $T\\subseteq F$ an open set. If $f:S\\to T$ is a bijective isometry, there is a unique surjective real affine isometry $A:E\\to F$ satisfying $A(x)=f(x)$ for every $x\\in S$.",
+    "definition_explanation": null,
+    "assumptions": "The source is open, connected and nonempty; the target is open; and the specified map is a distance-preserving bijection. No completeness or finite dimensionality is required. Target connectedness is not an independent hypothesis.",
+    "conclusion": "Exactly one ambient affine isometry extends the entire given map $f$.",
+    "proof_summary": "Produce charts from matching small balls. Their agreement near an overlap point forces global equality, making the chart assignment locally constant and therefore constant on the connected source.",
+    "proof_steps": [
+      "At $x\\in S$, openness gives positive radii $R_s,R_t$ with $B(x,R_s)\\subseteq S$ and $B(f(x),R_t)\\subseteq T$. Set $R=\\min(R_s,R_t)>0$. Apply [Construction of a local affine-isometry chart](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/Local.lean#L695-L786) with this same $f,x,R$ and the two smaller ball inclusions to obtain a surjective affine isometry $A_x$ agreeing with $f$ on $B(x,R/8)$.",
+      "The uniqueness mechanism is [Agreement on a nonempty open set determines the affine map](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean#L36-L71). If affine maps $A,B$ agree on a nonempty open set $u$, choose $c\\in u$ and $\\varepsilon>0$ with $B(c,\\varepsilon)\\subseteq u$. For $z\\ne c$, set $a=\\varepsilon/(2\\|z-c\\|)>0$ and $y=c+a(z-c)$. Then $\\|y-c\\|=\\varepsilon/2$, so $c,y\\in u$. Affinity gives $$0=A(y)-B(y)=a(A(z)-B(z)),$$ since $A(c)=B(c)$. Cancel $a$; at $z=c$ agreement is already known. Thus $A=B$ on the whole ambient space.",
+      "For each chosen chart $A_x$, let $r_x>0$ be a radius of agreement. If $y\\in S$ and $\\|y-x\\|<r_x$, then $$u=(s\\cap B(x,r_x))\\cap B(y,r_y)$$ is open, contains $y$, and is a region on which both $A_x,A_y$ equal $f$. Step 2 gives $A_x=A_y$ globally. Thus $x\\mapsto A_x$ is locally constant, exactly as required in [Gluing locally agreeing affine isometries](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/Normed/Affine/IsometryExtension/OpenConnected.lean#L74-L118).",
+      "Choose $x_0\\in S$, using nonemptiness. On a connected space a locally constant map is constant: each fiber is open and its complement, a union of other open fibers, is open. Therefore $A_x=A_{x_0}$ for every $x\\in S$. Put $A=A_{x_0}$; the local agreement at $x$ gives $A(x)=A_x(x)=f(x)$. If another affine isometry has this property, it agrees with $A$ on nonempty open $S$, so Step 2 proves uniqueness."
+    ],
+    "lean_realization_notes": []
+  }
+}

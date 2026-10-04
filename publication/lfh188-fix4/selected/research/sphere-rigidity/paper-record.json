@@ -1,0 +1,29 @@
+{
+  "title": "Rigidity of unit spheres in finite-dimensional real normed spaces",
+  "authors": [
+    "Jumpei Nakamura",
+    "Ryotaro Tanaka"
+  ],
+  "year": 2026,
+  "publication_type": "arXiv preprint",
+  "arxiv_id": "2609.31096",
+  "displayed_version": "v1",
+  "doi": "10.48550/arXiv.2609.31096",
+  "doi_url": "https://doi.org/10.48550/arXiv.2609.31096",
+  "abstract_url": "https://arxiv.org/abs/2609.31096",
+  "version_url": "https://arxiv.org/abs/2609.31096v1",
+  "pdf_url": "https://arxiv.org/pdf/2609.31096v1",
+  "arxiv_submission_date": "2026-09-25",
+  "arxiv_submission_timestamp_utc": null,
+  "announcement_timestamp": null,
+  "pages": null,
+  "record_kind": "PAPER_BIBLIOGRAPHY",
+  "hosting": "EXTERNAL_ARXIV_ONLY",
+  "peer_review_claim": false,
+  "hp_publication_date": "2026-09-28",
+  "hp_publication_performed": true,
+  "formal_scope_guards": [
+    "Object-level linear-isometry existence, not extension of a prescribed sphere isometry.",
+    "Listing the paper does not establish a new whole-paper Lean correspondence approval."
+  ]
+}

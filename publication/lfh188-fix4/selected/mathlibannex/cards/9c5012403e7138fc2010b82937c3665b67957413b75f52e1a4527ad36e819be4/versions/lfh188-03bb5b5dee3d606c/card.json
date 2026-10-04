@@ -1,0 +1,29 @@
+{
+  "name": "MathlibAnnex.Topology.exists_isOpen_singleton",
+  "title": "An isolated point in a countable Baire space",
+  "stable_card_id": "9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4",
+  "identity_key": "lfh:lfh-declaration-card:sha256:9c5012403e7138fc2010b82937c3665b67957413b75f52e1a4527ad36e819be4",
+  "source_url": "mathlibannex/sources/lfh188/9b0a08f09d09a6f0162fb7cf/index.html#L18",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Topology/CountableBaire.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 4,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "9d782ad21ca411aeea9e8dbd1b5723af5d0076bdbe930bee816b22302c48d2df",
+  "accepted_guide_sha256": "60543435636d429b48476a7513c4b81fe0031b057ebf51012d26ed942c4b1c54",
+  "content": {
+    "display_title": "An isolated point in a countable Baire space",
+    "one_sentence_role": "Applies the Baire property to the closed cover by singletons.",
+    "natural_language_statement": "Let $X$ be a nonempty countable topological space which is $T_1$ and Baire. Then some point $x\\in X$ is isolated: its singleton $\\{x\\}$ is open.",
+    "definition_explanation": null,
+    "assumptions": "The $T_1$ condition says that singletons are closed. No metric, completeness, compactness or Hausdorff assumption beyond $T_1$ is required.",
+    "conclusion": "At least one singleton is open; the conclusion does not say that every point is isolated.",
+    "proof_summary": "A countable closed cover of a nonempty Baire space has a member with nonempty interior.",
+    "proof_steps": [
+      "The $T_1$ property makes each $F_x=\\{x\\}$ closed. Since $X$ is countable, $$X=\\bigcup_{x\\in X}F_x$$ is a countable closed cover. The [Closed-cover Baire theorem with the singleton family](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Topology/CountableBaire.lean#L18-L28) applies because $X$ is nonempty and Baire.",
+      "It yields $x$ with $\\operatorname{int}(F_x)\\ne\\varnothing$. Choose $y$ in that interior. Since $\\operatorname{int}(F_x)\\subseteq\\{x\\}$, $y=x$, so $x\\in\\operatorname{int}\\{x\\}$. Thus $$\\{x\\}\\subseteq\\operatorname{int}\\{x\\}\\subseteq\\{x\\},$$ and $\\{x\\}$ equals its interior and is open."
+    ],
+    "lean_realization_notes": []
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "orientation": "prerequisite_to_dependent",
+  "node_count": 7,
+  "reachability_count": 13,
+  "display_edge_count": 7,
+  "maximum_level": 3,
+  "reachability": [
+    {
+      "prerequisite": "nm-2935ff4c10bc05cf969c",
+      "dependent": "nm-38ef179658db8f2bf005"
+    },
+    {
+      "prerequisite": "nm-2935ff4c10bc05cf969c",
+      "dependent": "nm-3de034cdfd1bf9a304f8"
+    },
+    {
+      "prerequisite": "nm-2935ff4c10bc05cf969c",
+      "dependent": "nm-57ef45a85d9319d5174b"
+    },
+    {
+      "prerequisite": "nm-2935ff4c10bc05cf969c",
+      "dependent": "nm-cfd7bd103cb81b3f6759"
+    },
+    {
+      "prerequisite": "nm-38ef179658db8f2bf005",
+      "dependent": "nm-57ef45a85d9319d5174b"
+    },
+    {
+      "prerequisite": "nm-38ef179658db8f2bf005",
+      "dependent": "nm-cfd7bd103cb81b3f6759"
+    },
+    {
+      "prerequisite": "nm-3de034cdfd1bf9a304f8",
+      "dependent": "nm-57ef45a85d9319d5174b"
+    },
+    {
+      "prerequisite": "nm-82e1bad838dd5221d5d0",
+      "dependent": "nm-57ef45a85d9319d5174b"
+    },
+    {
+      "prerequisite": "nm-82e1bad838dd5221d5d0",
+      "dependent": "nm-cfd7bd103cb81b3f6759"
+    },
+    {
+      "prerequisite": "nm-cfd7bd103cb81b3f6759",
+      "dependent": "nm-57ef45a85d9319d5174b"
+    },
+    {
+      "prerequisite": "nm-d1b00eb5a6db0d2d7cf7",
+      "dependent": "nm-57ef45a85d9319d5174b"
+    },
+    {
+      "prerequisite": "nm-d1b00eb5a6db0d2d7cf7",
+      "dependent": "nm-82e1bad838dd5221d5d0"
+    },
+    {
+      "prerequisite": "nm-d1b00eb5a6db0d2d7cf7",
+      "dependent": "nm-cfd7bd103cb81b3f6759"
+    }
+  ],
+  "nodes": [
+    {
+      "selected_node_id": "nm-2935ff4c10bc05cf969c",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-38ef179658db8f2bf005",
+        "nm-3de034cdfd1bf9a304f8"
+      ]
+    },
+    {
+      "selected_node_id": "nm-d1b00eb5a6db0d2d7cf7",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.concreteTarget",
+      "level": 0,
+      "prerequisites": [],
+      "used_by": [
+        "nm-82e1bad838dd5221d5d0"
+      ]
+    },
+    {
+      "selected_node_id": "nm-38ef179658db8f2bf005",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+      "level": 1,
+      "prerequisites": [
+        "nm-2935ff4c10bc05cf969c"
+      ],
+      "used_by": [
+        "nm-cfd7bd103cb81b3f6759"
+      ]
+    },
+    {
+      "selected_node_id": "nm-3de034cdfd1bf9a304f8",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+      "level": 1,
+      "prerequisites": [
+        "nm-2935ff4c10bc05cf969c"
+      ],
+      "used_by": [
+        "nm-57ef45a85d9319d5174b"
+      ]
+    },
+    {
+      "selected_node_id": "nm-82e1bad838dd5221d5d0",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+      "level": 1,
+      "prerequisites": [
+        "nm-d1b00eb5a6db0d2d7cf7"
+      ],
+      "used_by": [
+        "nm-cfd7bd103cb81b3f6759"
+      ]
+    },
+    {
+      "selected_node_id": "nm-cfd7bd103cb81b3f6759",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+      "level": 2,
+      "prerequisites": [
+        "nm-38ef179658db8f2bf005",
+        "nm-82e1bad838dd5221d5d0"
+      ],
+      "used_by": [
+        "nm-57ef45a85d9319d5174b"
+      ]
+    },
+    {
+      "selected_node_id": "nm-57ef45a85d9319d5174b",
+      "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.exists_completedAtomicShellModel",
+      "level": 3,
+      "prerequisites": [
+        "nm-3de034cdfd1bf9a304f8",
+        "nm-cfd7bd103cb81b3f6759"
+      ],
+      "used_by": []
+    }
+  ],
+  "display_edges": [
+    {
+      "prerequisite": "nm-2935ff4c10bc05cf969c",
+      "dependent": "nm-38ef179658db8f2bf005",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation",
+        "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-2935ff4c10bc05cf969c",
+      "dependent": "nm-3de034cdfd1bf9a304f8",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation",
+        "MathlibAnnex.CStarAlgebra.PureState.selectedRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-38ef179658db8f2bf005",
+      "dependent": "nm-cfd7bd103cb81b3f6759",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+        "MathlibAnnex.CStarAlgebra.PureState.no_unitaryIntertwiner_selectedRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-3de034cdfd1bf9a304f8",
+      "dependent": "nm-57ef45a85d9319d5174b",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_completedAtomicShellModel",
+        "MathlibAnnex.CStarAlgebra.CAR.selectedAtomicRepresentation"
+      ]
+    },
+    {
+      "prerequisite": "nm-82e1bad838dd5221d5d0",
+      "dependent": "nm-cfd7bd103cb81b3f6759",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel",
+        "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel"
+      ]
+    },
+    {
+      "prerequisite": "nm-cfd7bd103cb81b3f6759",
+      "dependent": "nm-57ef45a85d9319d5174b",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.CAR.exists_completedAtomicShellModel",
+        "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_pureAtomicShellModel"
+      ]
+    },
+    {
+      "prerequisite": "nm-d1b00eb5a6db0d2d7cf7",
+      "dependent": "nm-82e1bad838dd5221d5d0",
+      "source_witness_dependent_to_prerequisite": [
+        "MathlibAnnex.CStarAlgebra.AtomicConstruction.exists_irreducible_atomicShellModel",
+        "MathlibAnnex.CStarAlgebra.AtomicConstruction.concreteTarget"
+      ]
+    }
+  ]
+}

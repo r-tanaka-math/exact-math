@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.isSimpleCStarAlgebra_of_singleton_of_injective",
+  "title": "A faithful singleton model forces simplicity",
+  "stable_card_id": "106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03",
+  "identity_key": "lfh:lfh-declaration-card:sha256:106c2e5861a90efa2b3d1125a38099aaae4192ca2a311076da995a4ae3043e03",
+  "source_url": "mathlibannex/sources/lfh188/915d9b3f34d15f13457519a0/index.html#L29",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/Singleton.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 6,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "e40928fbcaf3b7f3ec23b5b63075ea7f4c9b9461c6cd1d0eb790a1bfbcfb8a98",
+  "accepted_guide_sha256": "fa04ed368351cc59db031cf97a4a13442abce3ac07a164e07970853e2efd5cf0",
+  "content": {
+    "display_title": "A faithful singleton model forces simplicity",
+    "one_sentence_role": "Uses irreducible representations annihilating proper ideals to rule out nonzero proper closed ideals.",
+    "natural_language_statement": "Let $A$ be a nonzero unital complex $C^*$-algebra, and let $H$ be a complex Hilbert space. Let $\\pi:A\\to\\mathcal B(H)$ be a unital $*$-representation. Assume that $\\pi$ is injective and is a singleton irreducible model among unital representations. Then every norm-closed two-sided ideal $I$ of $A$ is either $\\{0\\}$ or $A$.",
+    "definition_explanation": null,
+    "assumptions": "The singleton condition includes irreducibility on a nonzero space and unitary equivalence with every nonzero irreducible unital representation in the class of all complex Hilbert-space representations quantified in the definition. Injectivity is an explicit, separate hypothesis here. Neither $A$ nor $H$ is assumed separable.",
+    "conclusion": "$A$ is simple in the sense of nontriviality and absence of nonzero proper norm-closed two-sided ideals.",
+    "proof_summary": "An irreducible GNS representation kills a proper closed ideal. Transfer its zero action back through the singleton unitary, then use faithfulness.",
+    "proof_steps": [
+      "Fix a closed two-sided ideal $I$. If $I=A$ there is nothing to prove. Otherwise apply [A pure GNS representation annihilating a proper closed ideal](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/State/Ideal.lean#L69-L94) with this proper closed $I$ in the nonzero ordered unital algebra $A$. It supplies a pure state $\\varphi$ and an irreducible GNS representation $\\rho:A\\to\\mathcal B(H_\\varphi)$ with $\\rho(a)=0$ for every $a\\in I$. Its cyclic vector has norm one, so $H_\\varphi\\ne0$.",
+      "The singleton assumption, applied to this very $\\rho$, gives a unitary $U:H\\to H_\\varphi$ such that $$U(\\pi(a)x)=\\rho(a)(Ux)\\qquad(a\\in A,\\ x\\in H).$$ If $a\\in I$, the right side is zero. Injectivity of $U$ therefore gives $\\pi(a)x=0$ for every $x$, hence $\\pi(a)=0$.",
+      "Injectivity of $\\pi$ and $\\pi(0)=0$ yield $a=0$. Thus $I\\subseteq\\{0\\}$ and $I=\\{0\\}$. Together with the first case and the given $A\\ne0$, this is precisely the definition of simplicity."
+    ],
+    "lean_realization_notes": []
+  }
+}

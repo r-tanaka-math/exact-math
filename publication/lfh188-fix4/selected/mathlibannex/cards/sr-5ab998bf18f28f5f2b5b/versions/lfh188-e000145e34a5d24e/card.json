@@ -1,0 +1,45 @@
+{
+  "name": "MathlibAnnex.Mollification.tendsto_eLpNorm_fderiv_mollify_sub",
+  "title": "Strong local convergence of mollified derivatives",
+  "stable_card_id": null,
+  "identity_key": "c89e408facb1f8a7c35cf2ec92108a6019da216a4101e02ab6dd2d7694e71857",
+  "source_url": "mathlibannex/sources/lfh188/e3e85d767de59688f94bc4a4/index.html#L149",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Calculus/Mollification.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r5",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "2b5f64576a032a3d0f209601db7ec4155cdd19e8f87f625f6a7a1437104445b3",
+  "accepted_guide_sha256": "e8dda24a67f2e7c8929b348569786f54bb3adbdbabfff4377049c0fc9c1c6317",
+  "content": {
+    "display_title": "Strong local convergence of mollified derivatives",
+    "one_sentence_role": "Approximates the derivative in local $L^n$, where $n$ is the dimension of the domain.",
+    "natural_language_statement": "Fix a positive integer $n$ and an integer $N\\geq0$. Let $f:\\mathbb R^n\\to\\mathbb R^N$ and $C\\geq0$ satisfy\n$$\\|f(x)-f(y)\\|_\\infty\\leq C\\|x-y\\|_\\infty\\qquad(x,y\\in\\mathbb R^n),$$\nand let $K\\subseteq\\mathbb R^n$ be compact. For $\\varepsilon>0$, let $\\rho_\\varepsilon$ be the chosen smooth nonnegative bump kernel centered at zero, with inner radius $\\varepsilon/2$ and outer radius $\\varepsilon$, divided by its positive Lebesgue integral. Thus $\\int_{\\mathbb R^n}\\rho_\\varepsilon(y)\\,dy=1$ and its topological support is contained in $\\{y:\\|y\\|_\\infty\\le\\varepsilon\\}$. Using this same kernel, define the normalized convolution\n$$f_\\varepsilon(x)=\\int_{\\mathbb R^n}\\rho_\\varepsilon(y)f(x-y)\\,dy.$$\nThen\n$$\\|Df_\\varepsilon-Df\\|_{L^n(K)}\n=\\left(\\int_K\\|Df_\\varepsilon(x)-Df(x)\\|_{\\mathrm{op}}^n\\,dx\\right)^{1/n}\n\\longrightarrow0\\qquad(\\varepsilon\\downarrow0),$$\nand $Df_\\varepsilon\\in L^n(K)$ for all sufficiently small positive $\\varepsilon$. Here $\\|\\cdot\\|_{\\mathrm{op}}$ is induced by the two sup norms. The exponent is the already fixed domain dimension, not another parameter.",
+    "definition_explanation": null,
+    "assumptions": "The dimension satisfies $n\\geq1$, while $N$ may be zero. The compact set $K$ may be empty or have empty interior. The displayed Lipschitz bound holds on the whole domain. Neither $f$ nor $Df$ is assumed to belong to $L^n$ on the whole space. The derivative is defined almost everywhere by Rademacher's theorem; choosing zero at nondifferentiability points gives the same $L^n$ quantities.",
+    "conclusion": "Both the seminorm convergence and eventual $L^n$ membership hold for Lebesgue measure restricted to $K$. The original derivative itself belongs to $L^n(K)$ by measurability and the bound $\\|Df\\|\\leq C$.",
+    "proof_summary": "First prove $Df_\\varepsilon=\\rho_\\varepsilon*Df$. On $K$, each coordinate of this convolution equals the convolution of a bounded, compactly supported scalar function. Scalar convergence and a finite coordinate estimate then give the required operator-norm convergence.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "**Differentiate the convolution.** Fix $\\varepsilon>0$ and $x\\in\\mathbb R^n$. Rademacher's theorem and preservation of Lebesgue-null sets by $y\\mapsto x-y$ give differentiability of $f$ at $x-y$ for almost every $y$. For every increment $h$,\n$$\\|\\rho_\\varepsilon(y)[f(x+h-y)-f(x-y)]\\|_\\infty\n\\leq C\\rho_\\varepsilon(y)\\|h\\|_\\infty,\\qquad\n\\int C\\rho_\\varepsilon(y)\\,dy=C.$$\nThe integrand is integrable for each $x$, because $f$ is continuous and the kernel has compact support. The proposed derivative is measurable and is bounded by the same integrable function. These are the hypotheses for differentiation under the integral, which gives\n$$Df_\\varepsilon(x)=\\int_{\\mathbb R^n}\\rho_\\varepsilon(y)Df(x-y)\\,dy.$$\nFor the $a$th input vector $e_a$ and the $b$th output coordinate, this reads\n$$\\bigl(Df_\\varepsilon(x)e_a\\bigr)_b\n=\\int_{\\mathbb R^n}\\rho_\\varepsilon(y)\\bigl(Df(x-y)e_a\\bigr)_b\\,dy.$$"
+      },
+      {
+        "step_id": "s2",
+        "text": "**Replace a derivative coordinate by a compactly supported one without changing its convolution on $K$.** Choose $R\\geq0$ with $K\\subseteq\\overline B_\\infty(0,R)$ and put $S=\\overline B_\\infty(0,R+1)$. For $1\\leq a\\leq n$ and $1\\leq b\\leq N$, define the scalar function\n$$q_{ab}(z)=\\begin{cases}(Df(z)e_a)_b,&z\\in S,\\\\0,&z\\notin S.\\end{cases}$$\nIt is measurable, $|q_{ab}(z)|\\leq C$, and it vanishes outside the compact set $S$. Hence $q_{ab}\\in L^n(\\mathbb R^n)$.\n\nIf $x\\in K$, $0<\\varepsilon<1$, and $\\rho_\\varepsilon(y)\\ne0$, then\n$$\\|x-y\\|_\\infty\\leq\\|x\\|_\\infty+\\|y\\|_\\infty<R+1,\n\\qquad x-y\\in S.$$\nConsequently, for every $y$,\n$$\\rho_\\varepsilon(y)(Df(x-y)e_a)_b=\\rho_\\varepsilon(y)q_{ab}(x-y).$$\nIf the kernel factor is nonzero, this follows from $x-y\\in S$; otherwise both sides vanish. Also $q_{ab}(x)=(Df(x)e_a)_b$. Substituting into Step 1 gives\n$$\\bigl((Df_\\varepsilon(x)-Df(x))e_a\\bigr)_b\n=(\\rho_\\varepsilon*q_{ab})(x)-q_{ab}(x)\\qquad(x\\in K,\\ 0<\\varepsilon<1).$$"
+      },
+      {
+        "step_id": "s3",
+        "text": "**Prove convergence for that scalar function.** The normalized bumps have outer radius $\\varepsilon\\to0$ and outer-to-inner radius ratio $2$. The Lebesgue-differentiation convolution theorem therefore gives\n$$(\\rho_\\varepsilon*q_{ab})(x)\\longrightarrow q_{ab}(x)\n\\quad\\text{for almost every }x.$$\nNormalization and nonnegativity give\n$$|(\\rho_\\varepsilon*q_{ab})(x)|\n\\leq\\int\\rho_\\varepsilon(y)|q_{ab}(x-y)|\\,dy\\leq C.$$\nSet $T=\\overline B_\\infty(0,R+2)$. If $x\\notin T$ and $\\rho_\\varepsilon(y)\\ne0$ with $\\varepsilon<1$, then\n$$\\|x-y\\|_\\infty\\geq\\|x\\|_\\infty-\\|y\\|_\\infty>R+1,$$\nso $q_{ab}(x-y)=q_{ab}(x)=0$. Consequently\n$$|(\\rho_\\varepsilon*q_{ab})(x)-q_{ab}(x)|^n\n\\leq(2C)^n\\mathbf1_T(x),\\qquad\n\\int(2C)^n\\mathbf1_T(x)\\,dx=(2C)^n|T|<\\infty.$$\nDominated convergence, followed by taking the $n$th root, proves\n$$\\|\\rho_\\varepsilon*q_{ab}-q_{ab}\\|_{L^n(\\mathbb R^n)}\\longrightarrow0.$$\nIts $L^n(K)$ norm is no larger. Step 2 therefore proves convergence of every derivative-coordinate difference on $K$."
+      },
+      {
+        "step_id": "s4",
+        "text": "**Pass from coordinates to the operator norm.** For a linear map $A:\\mathbb R^n\\to\\mathbb R^N$ and $\\|v\\|_\\infty\\leq1$,\n$$\\begin{aligned}\n(Av)_b&=\\sum_{a=1}^n v_a(Ae_a)_b,\\\\\n|(Av)_b|&\\leq\\sum_{a=1}^n|(Ae_a)_b|\n\\leq\\sum_{a=1}^n\\sum_{b'=1}^N|(Ae_a)_{b'}|.\n\\end{aligned}$$\nTaking the maximum over $b$ and then the supremum over $v$ gives $\\|A\\|_{\\mathrm{op}}\\leq\\sum_{a,b}|(Ae_a)_b|$. To justify the finite-sum $L^n$ estimate, fix $0<\\varepsilon<1$ and write, on $K$,\n$$g_{ab}(x):=((Df_\\varepsilon(x)-Df(x))e_a)_b,\n\\qquad h(x):=\\sum_{a=1}^n\\sum_{b=1}^N|g_{ab}(x)|.$$\nSteps 2–3 give measurable $g_{ab}$ with $|g_{ab}|\\leq2C$. Thus $h\\leq2CnN$ and $\\int_K h^n<\\infty$, because $K$ has finite measure. For $n>1$, apply Hölder to $|g_{ab}|$ and $h^{n-1}$, with conjugate exponents $n$ and $n/(n-1)$:\n$$\\begin{aligned}\n\\int_K h(x)^n\\,dx\n&=\\sum_{a,b}\\int_K |g_{ab}(x)|h(x)^{n-1}\\,dx\\\\\n&\\leq\\sum_{a,b}\n \\left(\\int_K|g_{ab}(x)|^n\\,dx\\right)^{1/n}\n \\left(\\int_K h(x)^n\\,dx\\right)^{(n-1)/n}.\n\\end{aligned}$$\nIf $\\int_K h^n>0$, divide by its $(n-1)/n$ power; if it is zero, the desired inequality is immediate. For $n=1$ the same inequality is the equality $\\int_Kh=\\sum_{a,b}\\int_K|g_{ab}|$. This proves the finite-sum form of Minkowski used here, and hence\n$$\\begin{aligned}\n\\|Df_\\varepsilon-Df\\|_{L^n(K)}\n&\\leq\\|h\\|_{L^n(K)}\\\\\n&\\leq\\sum_{a=1}^n\\sum_{b=1}^N\n \\|x\\mapsto((Df_\\varepsilon(x)-Df(x))e_a)_b\\|_{L^n(K)}\n\\longrightarrow0.\n\\end{aligned}$$\nThe last limit uses Step 3 for each of the finitely many pairs $(a,b)$. For $N=0$ every operator is zero and the conclusion is immediate. Finally, $f_\\varepsilon$ is smooth for every $\\varepsilon>0$. Its derivative is continuous and bounded on compact $K$, so $Df_\\varepsilon\\in L^n(K)$. This supplies the membership assertion as well as the convergence."
+      }
+    ],
+    "lean_realization_notes": "Linearity of mollification for locally integrable summands and a common compact support bound for mollifications of a compactly supported map will be used later. Those auxiliary results concern the same kernels and are cited here; the present theorem does not assume that $f$ has compact support.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.CStarAlgebra.CAR.trace",
+  "title": "Constructing the normalized trace on the completed CAR algebra",
+  "stable_card_id": "ed2d0efd1c9929149eff4009da5c9011d720f4f178e084f1e099945c923d6987",
+  "identity_key": "lfh:lfh-declaration-card:sha256:ed2d0efd1c9929149eff4009da5c9011d720f4f178e084f1e099945c923d6987",
+  "source_url": "mathlibannex/sources/lfh188/15b380e1191accf6910e3336/index.html#L62",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean.txt",
+  "approved_commit": "1b91af29748c546635539e05903c31ed7aa24267",
+  "revision": "SOURCE_TABLE_APPROVED_R1",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "57264099d37f9dc44187a7311d8f6b02949c0531015973d46fd8ddaa0a6a632e",
+  "accepted_guide_sha256": "6bc4397b0ef10ec8e960f2fc06d4b4d30c8b1399f3cb73e6c0ddde57e1bd8f69",
+  "content": {
+    "assumptions": "The matrix norm is the C*-operator norm. The map $a\\mapsto a\\otimes I_2$ is a unital star homomorphism. Its entries with both added bit coordinates zero recover the entries of $a$, so it is injective; relabelling the coordinates does not affect injectivity. The C*-norm theorem for injective star homomorphisms then makes the stage map isometric. Thus the normed union has an unambiguous norm and its completion is $A$. These are proved features of the fixed construction, not new hypotheses about arbitrary directed systems.",
+    "conclusion": "The cited extension and stage-evaluation results identify one continuous functional on $A$. The [contractivity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L75-L82), [normalization](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L84-L90), [positivity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L98-L105), and [trace-identity](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/Trace.lean#L120-L125) theorems show $|\\tau(x)|\\leq\\|x\\|$, $\\tau(1)=1$, $\\tau(x^*x)\\geq0$, and $\\tau(xy)=\\tau(yx)$. Thus this extension is a normalized tracial state.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "definition_explanation": "At a matrix stage of size $d=2^n$, each diagonal entry satisfies $|a_{ii}|\\leq\\|a\\|$. Consequently $|\\tau_n(a)|\\leq d^{-1}\\sum_i|a_{ii}|\\leq\\|a\\|$. Under $a\\mapsto a\\otimes I_2$, each diagonal entry is repeated twice and the normalizing denominator doubles, so the trace is unchanged. Iterating proves compatibility with every later-stage embedding.\n\nThe algebraic direct limit identifies two matrices when their images agree in a common later stage. Trace compatibility makes the value independent of the chosen representative. Transport this linear functional to the normed union. Every element there is represented at a finite stage; the stage embeddings preserve norm, so the same bound holds on the union.\n\nFor a Cauchy sequence $x_k$ in that union, define the value at its limit by $\\tau(\\lim_k x_k)=\\lim_k\\tau(x_k)$. The bound makes the scalar sequence Cauchy and makes the limit independent of the representing sequence. This is the continuous extension used in the declaration.",
+    "display_title": "Constructing the normalized trace on the completed CAR algebra",
+    "language_tag": "en",
+    "lean_realization_notes": "The declaration defines the continuous extension. Positivity, normalization and traciality are separate proved results, not conclusions established merely by giving the definition. Uniqueness among all normalized continuous traces is proved in [the CAR trace-uniqueness theorem](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/TraceUnique.lean#L82-L91). No statement about extending this trace to the larger shell-generated target is part of this construction.",
+    "natural_language_statement": "Let $A_n=M_{2^n}(\\mathbb C)$ with connecting maps $a\\mapsto a\\otimes I_2$, and let $\\iota_n:A_n\\to A$ embed the stages in the completed CAR algebra. The trace constructed here is the continuous complex-linear functional $\\tau:A\\to\\mathbb C$ extending $\\tau_n(a)=2^{-n}\\sum_i a_{ii}$. In particular, $\\tau(\\iota_n(a))=\\tau_n(a)$.",
+    "one_sentence_role": "Carries compatible bounded matrix traces through the algebraic limit, normed union and completion.",
+    "proof_steps": [],
+    "proof_summary": null
+  }
+}

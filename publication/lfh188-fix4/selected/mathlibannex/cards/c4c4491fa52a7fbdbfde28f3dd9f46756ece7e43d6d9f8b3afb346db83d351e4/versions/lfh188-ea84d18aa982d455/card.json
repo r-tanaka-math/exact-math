@@ -1,0 +1,32 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.exists_nonzero_projection_rankOne_map",
+  "title": "A projection represented by a rank-one operator",
+  "stable_card_id": "c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4",
+  "identity_key": "lfh:lfh-declaration-card:sha256:c4c4491fa52a7fbdbfde28f3dd9f46756ece7e43d6d9f8b3afb346db83d351e4",
+  "source_url": "mathlibannex/sources/lfh188/828e79d1b76274d598d7596e/index.html#L76",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "172b0e8121425ab5e0154fa310444b31a98dad301162cb5c81188c2d90c708bc",
+  "accepted_guide_sha256": "c3299e18de7e9a62990a645190d257003c5168631bfe36e27abde83a8f874186",
+  "content": {
+    "display_title": "A projection represented by a rank-one operator",
+    "one_sentence_role": "Obtains all projection, normalization, image and compactness conditions on the same witnesses.",
+    "natural_language_statement": "Let $A$ be a nonzero complex $C^*$-algebra, with no unit assumed. Let $H$ be a separable complex Hilbert space and $\\pi:A\\to\\mathcal B(H)$ a nonzero irreducible representation representing the unique unitary-equivalence class of nonzero irreducible comparisons. There are $p\\in A$ and $e\\in H$ such that $$p^*=p=p^2,\\qquad p\\ne0,\\qquad\\|e\\|=1,\\qquad\\pi(p)=\\theta_{e,e},$$ where $\\theta_{e,e}(z)=\\langle e,z\\rangle e$ and the inner product is linear in its second argument. In particular, this same $\\pi(p)$ is compact.",
+    "definition_explanation": null,
+    "assumptions": "Separability concerns $H$. No prior faithfulness, simplicity, or unit in $A$ is assumed.",
+    "conclusion": "The chosen algebra projection has a rank-one orthogonal projection as its represented image, and that image is compact.",
+    "proof_summary": "Obtain a scalar-corner projection, use faithfulness to keep its image nonzero, apply the rank-one lemma, and substitute its image equation in compactness.",
+    "proof_steps": [
+      "Apply [A nonzero scalar-corner projection](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/MinimalProjection.lean#L102-L159) to the given singleton $\\pi$ and separable $H$. It gives $p^*=p=p^2\\ne0$ with $pap\\in\\mathbb Cp$ for all $a\\in A$. Apply [Faithfulness on the original algebra](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/Singleton.lean#L33-L94) to obtain injectivity of the same $\\pi$. Therefore $\\pi(p)=0$ would imply $p=0$, so $\\pi(p)\\ne0$.",
+      "Apply [A scalar corner has a rank-one represented image](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/NonUnital/RankOneProjection.lean#L46-L62) to this same $p$, its scalar-corner equations and the given irreducible $\\pi$. The reason its image has rank one is as follows. The operator $P=\\pi(p)$ is a nonzero orthogonal projection. Write $\\widehat\\pi(\\lambda,a)=\\lambda I+\\pi(a)$ on $\\widetilde A=\\mathbb C\\oplus A$. If $pap=cp$, then $$P\\widehat\\pi(\\lambda,a)P=\\lambda P+\\pi(pap)=(\\lambda+c)P.$$ Choose a nonzero $v$ in the range of $P$. Then $Pv=v$, so $P\\widehat\\pi(\\lambda,a)v=(\\lambda+c)v$. The unitized representation is irreducible, hence the orbit of $v$ is dense. Its image under $P$ lies in the closed one-dimensional subspace $\\mathbb Cv$; continuity therefore gives $P(H)\\subseteq\\mathbb Cv$. The reverse inclusion follows from $Pv=v$. For $e=v/\\|v\\|$, the operator $P$ is thus the orthogonal projection onto $\\mathbb Ce$, namely $$\\|e\\|=1,\\qquad\\pi(p)z=\\langle e,z\\rangle e\\quad(z\\in H).$$",
+      "The operator $\\theta_{e,e}:z\\mapsto\\langle e,z\\rangle e$ is bounded and has one-dimensional range, so it is compact: the closure of the image of the unit ball is a closed bounded subset of the finite-dimensional space $\\mathbb Ce$. Substituting $\\pi(p)=\\theta_{e,e}$ gives compactness of the same $\\pi(p)$. This does not assert that the entire subspace $\\mathbb Ce$ is a compact set. The same $p$ therefore satisfies all the stated clauses."
+    ],
+    "lean_realization_notes": [
+      "The proof obtains a scalar-corner projection, but minimality is not a separate field in the displayed conclusion."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "MathlibAnnex.Sphere.radialExtension",
+  "title": "Radial extension of an isometry between unit spheres",
+  "stable_card_id": null,
+  "identity_key": "79ff0f563a8ec7debebe7394a730be2e70da80c555dec20be8c1fa6c9c88c7dc",
+  "source_url": "mathlibannex/sources/lfh188/07519d1c040f27c792a937a8/index.html#L118",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/Normed/Sphere/RadialExtension.lean.txt",
+  "approved_commit": "a2e2003278ef10ffd9839978956284d0d43d2e45",
+  "revision": "r2",
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "dadb75eaddd5f641823000ab853b1c072fbdac40655c416aecea62f0dc9fadb9",
+  "accepted_guide_sha256": "d2ccd2c6df145ab9877bfc1c80a1f9d38650e9b2a762f09c9c2e2c6bd46a1981",
+  "content": {
+    "display_title": "Radial extension of an isometry between unit spheres",
+    "one_sentence_role": "Extends a bijective sphere isometry to all vectors by retaining each radius and transporting its unit direction.",
+    "natural_language_statement": "Let $X,Y$ be real normed spaces, let $S_X=\\{x:\\|x\\|=1\\}$ and $S_Y=\\{y:\\|y\\|=1\\}$ carry their ambient chord distances, and let $\\Delta:S_X\\to S_Y$ be a bijective isometry. The radial extension $R_\\Delta:X\\to Y$ sends zero to zero and sends a nonzero vector to its radius times the image of its unit direction.",
+    "definition_explanation": "For $x\\ne0$, put $\\widehat x=\\|x\\|^{-1}x$. Since $\\|x\\|>0$,\n\n$$\\|\\widehat x\\|=\\|x\\|^{-1}\\|x\\|=1.$$\n\nThus $\\widehat x\\in S_X$, so the formula\n\n$$R_\\Delta(x)=\\begin{cases}0,&x=0,\\\\ \\|x\\|\\Delta(\\widehat x),&x\\ne0\\end{cases}$$\n\nis well-defined. Normalization fixes unit vectors and is unchanged by positive rescaling, as the cited normalization lemmas state.",
+    "assumptions": "Both spaces are real normed spaces and $\\Delta$ is an isometry equivalence of their unit spheres. Neither space is assumed finite-dimensional, complete or nonzero. In the zero space there is no nonzero vector requiring normalization.",
+    "conclusion": "This defines $R_\\Delta$ on all of $X$. The separately cited norm theorem gives $\\|R_\\Delta(x)\\|=\\|x\\|$; for $x\\ne0$ this follows from $\\|\\Delta(x/\\|x\\|)\\|=1$, and zero is immediate. The sphere-agreement theorem gives $R_\\Delta(u)=\\Delta(u)$ for $u\\in S_X$.",
+    "proof_summary": null,
+    "proof_steps": [],
+    "lean_realization_notes": "This is a radial, positively homogeneous extension. Its defining operation uses positive radii; the declaration does not provide a linear extension theorem. In the classification argument $R_\\Delta$ is the map used for analytic and topological comparisons; a linear isometry supplied at a later stage is a separate object.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  }
+}

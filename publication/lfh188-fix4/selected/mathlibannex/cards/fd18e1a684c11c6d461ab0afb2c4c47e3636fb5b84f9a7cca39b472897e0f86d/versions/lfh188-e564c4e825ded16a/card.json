@@ -1,0 +1,29 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_space_of_singleton_amongNonUnital",
+  "title": "Finite-dimensional representation space in the unital singleton case",
+  "stable_card_id": "fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d",
+  "identity_key": "lfh:lfh-declaration-card:sha256:fd18e1a684c11c6d461ab0afb2c4c47e3636fb5b84f9a7cca39b472897e0f86d",
+  "source_url": "mathlibannex/sources/lfh188/d50ba7fd2064d2412c681e0b/index.html#L87",
+  "raw_url": "mathlibannex/raw/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean.txt",
+  "approved_commit": "9f9914f68db6aa7496e24fc413822f2b961f8c06",
+  "revision": 7,
+  "derived_view": true,
+  "native_registration_claim": false,
+  "official_CURRENT_changed": false,
+  "accepted_content_sha256": "e5822068e7563379ffb66299e3be1de3b253ff8679aa712e6a9543e1bef46c8e",
+  "accepted_guide_sha256": "3cf2c2af0bd2a1b454b241fe8ae488ad19531d4a53d63e71b4f5be6115f79a82",
+  "content": {
+    "display_title": "Finite-dimensional representation space in the unital singleton case",
+    "one_sentence_role": "Applies the unital finite-dimensional-space theorem after checking the representation-interface conversion.",
+    "natural_language_statement": "Let $A$ be a nonzero unital complex $C^*$-algebra, let $H$ be a separable complex Hilbert space, and let $\\pi:A\\to\\mathcal B(H)$ satisfy the singleton condition of R11. Then $H$ is finite dimensional over $\\mathbb C$.",
+    "definition_explanation": null,
+    "assumptions": "The universal condition quantifies over every nonzero irreducible $*$-representation of $A$; representations presented without a unit equation are unital by irreducibility, as explained in R11.",
+    "conclusion": "The same representation space $H$ has a finite complex basis.",
+    "proof_summary": "Convert the comparison condition for the same representation and apply the finite-dimensional-space theorem.",
+    "proof_steps": [
+      "Apply [The all-representations singleton condition implies the unital singleton condition](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean#L48-L63) to $\\pi$. For a unital nonzero irreducible $*$-representation $\\rho$, write $\\rho_0(a)=\\rho(a)$ for the same operator map viewed through the interface that does not require a unit equation. The assumed condition then supplies a unitary $U$ with $U\\pi(a)=\\rho(a)U$ for every $a\\in A$. Hence $\\pi$ satisfies the unital singleton condition.",
+      "Apply [Finite dimension of the unital singleton representation space](https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/FiniteDimension.lean#L24-L66) to the same nonzero ordered unital $A$, same separable $H$, and same $\\pi$ with that converted condition. Its conclusion is $\\dim_{\\mathbb C}H<\\infty$. In that theorem the closed compact-preimage ideal becomes all of $A$, so $\\pi(1)=I_H$ is compact and the compact-identity criterion supplies the finite dimension."
+    ],
+    "lean_realization_notes": []
+  }
+}

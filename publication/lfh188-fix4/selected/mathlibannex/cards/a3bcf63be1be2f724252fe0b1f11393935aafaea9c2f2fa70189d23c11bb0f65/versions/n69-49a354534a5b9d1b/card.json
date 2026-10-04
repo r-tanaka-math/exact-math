@@ -1,0 +1,179 @@
+{
+  "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+  "declaration_kind": "theorem",
+  "source_binding": {
+    "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+    "source_range": {
+      "end_line": 56,
+      "start_line": 24
+    },
+    "source_sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe",
+    "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+  },
+  "source_signature": {
+    "text": "theorem not_isIrreducible_of_separable\n    {H : Type v} [NormedAddCommGroup H] [InnerProductSpace ℂ H]\n    [CompleteSpace H] [TopologicalSpace.SeparableSpace H]\n    (rho : NonUnitalRepresentation (A := AtomicCounterexampleAlgebra) (H := H)) :\n    ¬ rho.IsIrreducible",
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+    "source_sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe",
+    "source_command_range": {
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+      "source_sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe",
+      "start_line": 24,
+      "start_column": 1,
+      "end_line": 56,
+      "end_column": 22
+    },
+    "start_byte": 866,
+    "end_byte": 1135,
+    "sha256": "25c41b07d54cfae7df899e502aa960b59251a1dd4dbadf644a548eab01c341f0",
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1"
+  },
+  "content": {
+    "display_title": "No nonzero irreducible representation on a separable Hilbert space",
+    "one_sentence_role": "Rules out irreducible representations of $T$ on separable Hilbert spaces by the finite-dimensionality theorem for a single irreducible representation class.",
+    "natural_language_statement": "Let $A$ be the completed CAR algebra. Let $\\pi:A\\to B(\\mathcal H)$ be the direct sum of one chosen GNS representation from each pure-state GNS equivalence class, and let $(L_i)_{i\\in I}$ be the unitaries obtained from the fixed CAR homogeneity and shell construction. Put $T=C^*(\\pi(A)\\cup\\{L_i:i\\in I\\})\\subseteq B(\\mathcal H)$, and write $\\iota(a)=\\pi(a)$ for the embedding into $T$. For every separable complex Hilbert space $H$, there is no nonzero irreducible $*$-representation $$\\rho:T\\longrightarrow B(H).$$ Preservation of the identity is not assumed. Here irreducibility means that the only closed subspaces of $H$ invariant under every $\\rho(t)$ are $\\{0\\}$ and $H$; for a $*$-representation these subspaces also reduce the representation.",
+    "definition_explanation": null,
+    "assumptions": "The algebra $T$ is the particular algebra constructed above, not an arbitrary C*-algebra. Its established properties are infinite dimensionality and a faithful irreducible inclusion $\\rho_0:T\\to B(\\mathcal H)$ to which every nonzero irreducible representation is unitarily equivalent. Separability is required of $H$, not of $T$; faithfulness and preservation of the identity are not assumptions on $\\rho$.",
+    "conclusion": "Every nonzero $*$-representation of $T$ on a separable Hilbert space is reducible. This does not rule out irreducible representations on nonseparable spaces: the inclusion $\\rho_0$ is one.",
+    "proof_summary": "Suppose that a nonzero irreducible representation $\\rho$ exists on a separable $H$. It must preserve the identity. Composing its unitary equivalence with $\\rho_0$ with the equivalence for an arbitrary irreducible representation shows that $\\rho$ represents the unique irreducible representation class. The cited finite-dimensionality theorem then contradicts the infinite dimensionality of $T$.",
+    "proof_steps": [
+      {
+        "step_id": "s1",
+        "text": "Put $P=\\rho(1)$. The $*$-representation identities give $P^*=P$, $P^2=P$, and $P\\rho(t)=\\rho(t)P=\\rho(t)$. Thus $P$ is an orthogonal projection with reducing range. Since $\\rho\\ne0$, one has $P\\ne0$; irreducibility therefore forces $P=I_H$. The same representation $\\rho$ is consequently unital; no new map is introduced."
+      },
+      {
+        "step_id": "s2",
+        "text": "The classification theorem gives a unitary $U_\\rho:\\mathcal H\\to H$ with $U_\\rho\\rho_0(t)=\\rho(t)U_\\rho$. For any nonzero irreducible $*$-representation $\\sigma:T\\to B(K)$, the same theorem gives a unitary $U_\\sigma:\\mathcal H\\to K$ with $U_\\sigma\\rho_0(t)=\\sigma(t)U_\\sigma$. There is no separability assumption on $K$."
+      },
+      {
+        "step_id": "s3",
+        "text": "Set $V=U_\\sigma U_\\rho^{-1}:H\\to K$. For every $t\\in T$, $$\\begin{aligned}V\\rho(t)&=U_\\sigma\\rho_0(t)U_\\rho^{-1}\\\\&=\\sigma(t)U_\\sigma U_\\rho^{-1}=\\sigma(t)V.\\end{aligned}$$ Hence every nonzero irreducible representation $\\sigma$ is unitarily equivalent to $\\rho$."
+      },
+      {
+        "step_id": "s4",
+        "text": "The cited finite-dimensionality theorem applies to a nonzero unital C*-algebra with exactly one unitary-equivalence class of nonzero irreducible representations, when that class has a representative on a separable Hilbert space. The representation $\\rho$ on $H$ satisfies precisely these hypotheses, so $\\dim_{\\mathbb C}T<\\infty$. But $\\iota$ embeds the infinite-dimensional CAR algebra into $T$. This is the contradiction."
+      }
+    ],
+    "lean_realization_notes": "The theorem places no separability restriction on the Hilbert space of another irreducible representation used for comparison. It asserts nonexistence only for the proposed representation on $H$.",
+    "content_completeness": "CARD_CONTENT_COMPLETE",
+    "language_tag": "en"
+  },
+  "citations": [
+    {
+      "label": "The stated existence or structural result",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean#L24-L56",
+      "role": "SOURCE_ATTRIBUTION",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.not_isIrreducible_of_separable",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/SeparableIrreducible.lean",
+        "source_range": {
+          "end_line": 56,
+          "start_line": 24
+        },
+        "source_sha256": "e0d3f53094f67caa16ca247a42bde3404795f3e62904f998bfbe9428651eefbe",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Unitary equivalence of all nonzero irreducible representations",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean#L95-L98",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "qualified_name": "MathlibAnnex.CStarAlgebra.CAR.atomicCounterexampleEndpoint",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CAR/AtomicCounterexample.lean",
+        "source_range": {
+          "end_line": 98,
+          "start_line": 95
+        },
+        "source_sha256": "5622f3f3cf8c469547e3e2584e0134f5204f202fa7a520217a5abcdb9a2a49e1",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f"
+      }
+    },
+    {
+      "label": "Unit preservation forced by nonzero irreducibility",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean#L75-L94",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalRepresentation.map_one_eq_one_of_isIrreducible",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean",
+        "source_sha256": "310216d56c948ea7fb6c70d0b288eac81c13dc5c9f8c76aa742b0ed64141a8ee",
+        "source_range": {
+          "start_line": 75,
+          "end_line": 94
+        }
+      }
+    },
+    {
+      "label": "Unital rebundling with unchanged operators",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean#L98-L111",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalRepresentation.toUnital",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/NonUnital.lean",
+        "source_sha256": "310216d56c948ea7fb6c70d0b288eac81c13dc5c9f8c76aa742b0ed64141a8ee",
+        "source_range": {
+          "start_line": 98,
+          "end_line": 111
+        }
+      }
+    },
+    {
+      "label": "A single unitary-equivalence class of nonzero irreducible representations",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean#L40-L46",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.IsSingletonIrreducibleModelAmongNonUnital",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+        "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+        "source_range": {
+          "start_line": 40,
+          "end_line": 46
+        }
+      }
+    },
+    {
+      "label": "Finite dimensionality when the unique irreducible class has a separable representative",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean#L98-L103",
+      "role": "EXPLANATORY_SUPPORT_NOT_NEW_FORMAL_DEPENDENCY_CLAIM",
+      "binding": {
+        "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.Representation.finiteDimensional_algebra_of_singleton_amongNonUnital",
+        "commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+        "tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+        "source_path": "MathlibAnnex/Analysis/CStarAlgebra/Representation/OrdinarySingleton.lean",
+        "source_sha256": "f9edc117f1607c33a7869f199cd685ce42e6baf1ce56c7510456d65aa78c5bdd",
+        "source_range": {
+          "start_line": 98,
+          "end_line": 103
+        }
+      }
+    }
+  ],
+  "card_ref": {
+    "record_type": "LFH_DECLARATION_CARD",
+    "revision": 2,
+    "sha256": "ad091ef1bdb46599561192f9b2e32004e2aa24220ab5bf053514f7acb52b56d2",
+    "uid": "lfh:lfh-declaration-card:sha256:a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65"
+  },
+  "exposition_ref": {
+    "record_type": "LFH_CARD_EXPOSITION",
+    "revision": 3,
+    "sha256": "49a354534a5b9d1bbf79c20ced250a9d16874d94f3c28f7f43b29b7d02e0f644",
+    "uid": "lfh:lfh-card-exposition:sha256:4158dd23cb48e0a2980e0c7de01b999be64f1c9610e1a99ac5c189dc95dd5170"
+  },
+  "guide": "`NonUnitalRepresentation` means a $*$-representation with no requirement that `rho 1 = 1`; it does not mean that the represented algebra lacks an identity. `IsIrreducible` here includes nonzeroness. The local `pi := rho.toUnital hrho` in the linked proof is the same $\\rho$ after $\\rho(1)=I_H$ has been proved, not the direct-sum representation $\\pi$ of CAR. `hambient_pi` and `hambient_sigma` give $U_\\rho$ and $U_\\sigma$; `hsingleton` states that every nonzero irreducible representation is unitarily equivalent to $\\rho$. This is the hypothesis of `finiteDimensional_algebra_of_singleton_amongNonUnital`. The parameter `v` allows the Hilbert space $H$ to lie in an independent universe; the comparison spaces in that finite-dimensionality theorem lie in the universe of $T$.",
+  "website": {
+    "candidate": false,
+    "publication_date": "2026-09-28",
+    "canonical_url": "/mathlibannex/cards/a3bcf63be1be2f724252fe0b1f11393935aafaea9c2f2fa70189d23c11bb0f65/versions/n69-49a354534a5b9d1b/index.html",
+    "pdf": "card.pdf"
+  }
+}
