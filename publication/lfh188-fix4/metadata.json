@@ -1922,6 +1922,54 @@
         }
       ],
       "reason": "HP publication-state and current selected scope only; mathematics and historical preparation remain unchanged"
+    },
+    "mathlibannex/projects/sphere-rigidity/index.html": {
+      "accepted_body_sha256": "65cba4d242fbbc878c9ea8a3dea0787fbafffd14c324277df09642a1171ea37a",
+      "public_body_sha256": "0d81ad0dd834f0b16271d295ab9ecfb50285ede6847b425b0ed8b4cc5f01f4f1",
+      "substitutions": [
+        {
+          "before": "MathlibAnnex / Private reading candidate",
+          "after": "MathlibAnnex / Selected reading scope",
+          "count": 1
+        }
+      ],
+      "reason": "Publication-state eyebrow only; accepted mathematical explanation unchanged"
+    },
+    "mathlibannex/projects/naimark-problem/index.html": {
+      "accepted_body_sha256": "eea5d940a152a3f0ae5aef32578a4130940e9a60a347b92585ad184d2aa2fb31",
+      "public_body_sha256": "87187230da70ec008b9813c854fa833bda3b6ef45215ed1a9ddff3e2a151357e",
+      "substitutions": [
+        {
+          "before": "MathlibAnnex / Private reading candidate",
+          "after": "MathlibAnnex / Selected reading scope",
+          "count": 1
+        }
+      ],
+      "reason": "Publication-state eyebrow only; accepted mathematical explanation unchanged"
+    },
+    "mathlibannex/projects/mankiewicz/index.html": {
+      "accepted_body_sha256": "cdf532c77744ee7b2c65739ec1bc8f255397cda94ab2ff4d8b3cd96042ac185f",
+      "public_body_sha256": "448da6e433148a2b981d3f9a287d368c032c7fa4b9c5fe5a35427d5ff1d6d771",
+      "substitutions": [
+        {
+          "before": "MathlibAnnex / Private reading candidate",
+          "after": "MathlibAnnex / Selected reading scope",
+          "count": 1
+        }
+      ],
+      "reason": "Publication-state eyebrow only; accepted mathematical explanation unchanged"
+    },
+    "mathlibannex/projects/rosenberg/index.html": {
+      "accepted_body_sha256": "34bd90a49d968e75fc8d007596e77f18550d64712e2e7c5a064b07879717a132",
+      "public_body_sha256": "17758bb5fe9fefce826e990c174a9718e5ac98b214f65e04846a5faa2c2f6b82",
+      "substitutions": [
+        {
+          "before": "MathlibAnnex / Private reading candidate",
+          "after": "MathlibAnnex / Selected reading scope",
+          "count": 1
+        }
+      ],
+      "reason": "Publication-state eyebrow only; accepted mathematical explanation unchanged"
     }
   }
 }

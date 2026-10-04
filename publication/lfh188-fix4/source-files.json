@@ -21,8 +21,8 @@
   },
   {
     "path": "publication/lfh188-fix4/metadata.json",
-    "bytes": 279031,
-    "sha256": "20c6dee10600a17f543e46dfd70e8fb054eb594dc2860c472227eb1a3676a381"
+    "bytes": 281228,
+    "sha256": "e2d03aac3bb02c857bf0443588d105f61163e3765eb735c3327d2debcaefd83e"
   },
   {
     "path": "publication/lfh188-fix4/revision-set.json",
@@ -5776,8 +5776,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/mankiewicz/index.html",
-    "bytes": 36147,
-    "sha256": "2239d187bfa69ea8ec804c4f95ece991e75269c632392b25fed17d0cf26da390"
+    "bytes": 36144,
+    "sha256": "6464e86cfb54c8b8308c9923645904976bd043fec6014c5c305907b5eb81b3b4"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/mankiewicz/project-data.json",
@@ -5861,8 +5861,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/naimark-problem/index.html",
-    "bytes": 255384,
-    "sha256": "fb8ff75635bfed6913d807b2472c0ce762b4c6c76149d6d5d81b5ffd3f061826"
+    "bytes": 255381,
+    "sha256": "146105de710ff4da655d95c109772ffa360135b250e2d3c1bf4f5d59340cf4b2"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/naimark-problem/project-data.json",
@@ -6106,8 +6106,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/rosenberg/index.html",
-    "bytes": 128589,
-    "sha256": "ddcb917b1f88ec8a4623073b2ad7b8419ef371ba6a32a4e04b45b4b7f46bda18"
+    "bytes": 128586,
+    "sha256": "b8bcd91512bc8c1742fe027f2008cf88768c251368e391fa1d83a4e93e6f4620"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/rosenberg/project-data.json",
@@ -6221,8 +6221,8 @@
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/sphere-rigidity/index.html",
-    "bytes": 250232,
-    "sha256": "aea5f5c53f4276b85aa954cda706794643e7beda1e94581a669f220f0ee2a8e4"
+    "bytes": 250229,
+    "sha256": "65fd5ad5482b2fe4d6e8b818b5f8449023eba829a6659b01d545442639c5cfc0"
   },
   {
     "path": "publication/lfh188-fix4/selected/mathlibannex/projects/sphere-rigidity/project-data.json",
@@ -14422,12 +14422,12 @@
   {
     "path": "publication/lfh188-fix4/selection.json",
     "bytes": 623012,
-    "sha256": "62ab74a672d99cd12dfc0af901c2ad82a6893d61ee600c3c3fea192cd2118efc"
+    "sha256": "dc2e6e4288f68cb4c061b777b27d2ded54b71450a2336ff337224b3807b5d355"
   },
   {
     "path": "scripts/lfh188-public-adapter.mjs",
-    "bytes": 12099,
-    "sha256": "d71891e9e61d7e141f21fcf6e4aaaa8fa02fe4b20b5961dca97edae6cc6cd17c"
+    "bytes": 12368,
+    "sha256": "d0c6ab291974b1646c788737741054f0dff401d92b2f8ee55139e506e5a7342f"
   },
   {
     "path": "scripts/postpublic-gate.mjs",
