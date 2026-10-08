@@ -1,0 +1,62 @@
+[
+  {
+    "path": "astro.config.mjs",
+    "bytes": 5484,
+    "sha256": "34e6c02c4935afdeac78580adbd700e355504396573f66cce3608ebe2ad4ad5c"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE-baseline-state.json",
+    "bytes": 1837,
+    "sha256": "2caf59ce0019ff653c7472a6cad207803de438a6577a9668c8cac0e3f84c74eb"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE-inventory.json",
+    "bytes": 561614,
+    "sha256": "5d305f645e78bd2581126731f95eb9f769a3ae7a799c366f17f5bc8581effd7d"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE/research/naimark-problem/index.html",
+    "bytes": 35812,
+    "sha256": "1de7317daf229ba52e51dacfd2ab23643a26d6a4ea496fd9243eb86d75ae386d"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE/research/sphere-rigidity/index.html",
+    "bytes": 37375,
+    "sha256": "7f752b7edfc25351bdf663689741d51b1cc0b073a2b54ca3ff7e702f8bc01b3a"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE_SUBPATH-baseline-state.json",
+    "bytes": 1889,
+    "sha256": "587874858c2a5639581087eb93e83c3ad502a5bb29fd415aaf9f892d1fa33277"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE_SUBPATH-inventory.json",
+    "bytes": 562481,
+    "sha256": "ea4f9fd9589147e5472bcfada8d124522fe1c9d2b0727b98c8440693b90b73b1"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE_SUBPATH/research/naimark-problem/index.html",
+    "bytes": 36388,
+    "sha256": "34d83e45b93a9078a3d8aceabcdf2dbc5a50743823db76fc30384ea989f9dcfe"
+  },
+  {
+    "path": "publication/research-related-work-r1/SITE_SUBPATH/research/sphere-rigidity/index.html",
+    "bytes": 37951,
+    "sha256": "85529ed31179234334ed3364432256fc61ce489e336d38c54d6ee898e0d0aab6"
+  },
+  {
+    "path": "publication/research-related-work-r1/metadata.json",
+    "bytes": 2303,
+    "sha256": "8577b6b1b317d6b35d44b08a271e546d15a2bfe354162fdc72dbfb9c77da04ea"
+  },
+  {
+    "path": "scripts/postpublic-gate.mjs",
+    "bytes": 16068,
+    "sha256": "73965d74a860bbd50a6b998062dc2ea54284f8b0923e464a9d44da81a278486c"
+  },
+  {
+    "path": "scripts/research-related-work-public-adapter.mjs",
+    "bytes": 9266,
+    "sha256": "6495dff6b4d72d5033d4b611e8d8448526982774114d9061bc6d6f700459e88b"
+  }
+]

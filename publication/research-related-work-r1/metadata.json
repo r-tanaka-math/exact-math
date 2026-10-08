@@ -1,0 +1,50 @@
+{
+  "schema": "exact.research-related-work-selection.v1",
+  "batch": "EXACT_RESEARCH_RELATED_WORK_PUBLICATION_R1",
+  "old_commit": "c81345e65b89092c09edd349af8c5942c4797085",
+  "old_tree": "adfe5715af15d9d6a526a09ea4b8dec94244535a",
+  "canonical_origin": "https://exactmathematics.org",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "public_repository_id": 1374460434,
+  "publication_date": "2026-10-08",
+  "accepted_candidate_commit": "0001692d4609ba3f8c01d554829d0d6b596b5119",
+  "accepted_candidate_subtree": "eca54fa214506b0cac8443b56b9e701446bb9445",
+  "hp_acceptance_sha256": "2256c5f26d86f1a2b5469ce828559d4407b54acb3abccf89bb7fc4c844ed773a",
+  "owner_message_sha256": "6778c867dd6d2825b3f72dfd4a92e176e68d1267912811993883bbb8322843f7",
+  "patch_plan_sha256": "3e3fa0b51b58a408de170be842e1fee1f2f365f63d16c4add19f29bd84aad4da",
+  "consulted_date": "2026-10-08",
+  "external_source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+  "dispatch_sha256": "f053675c0853d9da53c0bc464e231313b78ded26537724aee5750d5c81715ae7",
+  "profiles": {
+    "SITE": {
+      "file_count": 2890,
+      "inventory_sha256": "5d305f645e78bd2581126731f95eb9f769a3ae7a799c366f17f5bc8581effd7d",
+      "baseline_state_sha256": "2caf59ce0019ff653c7472a6cad207803de438a6577a9668c8cac0e3f84c74eb",
+      "html": {
+        "research/naimark-problem/index.html": {
+          "bytes": 35812,
+          "sha256": "1de7317daf229ba52e51dacfd2ab23643a26d6a4ea496fd9243eb86d75ae386d"
+        },
+        "research/sphere-rigidity/index.html": {
+          "bytes": 37375,
+          "sha256": "7f752b7edfc25351bdf663689741d51b1cc0b073a2b54ca3ff7e702f8bc01b3a"
+        }
+      }
+    },
+    "SITE_SUBPATH": {
+      "file_count": 2895,
+      "inventory_sha256": "ea4f9fd9589147e5472bcfada8d124522fe1c9d2b0727b98c8440693b90b73b1",
+      "baseline_state_sha256": "587874858c2a5639581087eb93e83c3ad502a5bb29fd415aaf9f892d1fa33277",
+      "html": {
+        "research/naimark-problem/index.html": {
+          "bytes": 36388,
+          "sha256": "34d83e45b93a9078a3d8aceabcdf2dbc5a50743823db76fc30384ea989f9dcfe"
+        },
+        "research/sphere-rigidity/index.html": {
+          "bytes": 37951,
+          "sha256": "85529ed31179234334ed3364432256fc61ce489e336d38c54d6ee898e0d0aab6"
+        }
+      }
+    }
+  }
+}
