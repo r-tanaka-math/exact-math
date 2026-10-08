@@ -1,3 +1,4 @@
+import {validateLFHInlineBaselineAct} from './lfh-inline-baseline-public-adapter.mjs';
 import {validateResearchRelatedWorkAct} from './research-related-work-public-adapter.mjs';
 import {validateLFH188Act} from './lfh188-public-adapter.mjs';
 import {validateNaimark69SRAct} from './naimark69-sr-public-adapter.mjs';
@@ -171,7 +172,8 @@ export function postPublicUpdateGate(deployment){
   const identity=gitIdentity('FULL_LAUNCH');
   need(process.env.EXACT_UPDATE_ACT,'EXACT_UPDATE_ACT must identify a separate owner act');
   const act=JSON.parse(fs.readFileSync(path.resolve(process.env.EXACT_UPDATE_ACT),'utf8'));
-  if(act.update_kind==='EXACT_RESEARCH_RELATED_WORK_PUBLICATION_R1')validateResearchRelatedWorkAct(act,identity,deployment,tokyoDate());
+  if(act.update_kind==='EXACT_LFH_INLINE_MATH_BASELINE_PUBLICATION_R1')validateLFHInlineBaselineAct(act,identity,deployment,tokyoDate());
+  else if(act.update_kind==='EXACT_RESEARCH_RELATED_WORK_PUBLICATION_R1')validateResearchRelatedWorkAct(act,identity,deployment,tokyoDate());
   else if(act.update_kind==='EXACT_LFH188_PUBLICATION_R1')validateLFH188Act(act,identity,deployment,tokyoDate());
   else if(act.update_kind==='EXACT_NAIMARK69_SR_PUBLICATION_R1')validateNaimark69SRAct(act,identity,deployment,tokyoDate());
   else if(act.update_kind==='EXACT_REVIEW_DISPLAY_CLEANUP_R1')validateReviewDisplayAct(act,identity,deployment,tokyoDate());

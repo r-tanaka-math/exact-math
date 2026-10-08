@@ -1,0 +1,40 @@
+{
+  "schema": "exact.lfh-inline-baseline-selection.v1",
+  "batch": "EXACT_LFH_INLINE_MATH_BASELINE_PUBLICATION_R1",
+  "old_commit": "06a33866e488348da7424fd8fcc45722d14b42d5",
+  "old_tree": "8fb1ee48154f9bcb2ec34153688182f6d3799dfe",
+  "accepted_candidate_commit": "a713d268729b408fd98141e764448b7b7b9d8946",
+  "accepted_candidate_subtree": "f772d32126e1c9c78b9738203277165d422a7561",
+  "canonical_origin": "https://exactmathematics.org",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "public_repository_id": 1374460434,
+  "hp_acceptance_sha256": "86cb21bfa7ee5b567656da77e75f37450a3a577a24d674c209b7e8c3bb77beda",
+  "owner_instruction_sha256": "5e7fa8d4901756ee410323eb7f28649539f54c0e4097c4c80a66095a1e45f230",
+  "dispatch_sha256": "aedbdac9ee8e9389a6aa442f571f289a4e3626978cb5a265e210a98c2dfc3d97",
+  "publication_date": "2026-10-08",
+  "css_before": {
+    "bytes": 26585,
+    "sha256": "1eaa564e951167fb3023c0291debe85ade21185c81ede0bdc71fab5ca062a0ac",
+    "git_blob": "3f91bccebd3fb6409bbdc07f8640616ecdfe27d5"
+  },
+  "css_after": {
+    "bytes": 30115,
+    "sha256": "6ac2463cfdcb5d008e27e4234fd8ee78bd46fa8da3ff868affc57ceb646e5be4",
+    "git_blob": "fdeb9c17cf84b82c4f927c39954048e2ed17d9d6"
+  },
+  "screen_only": true,
+  "profiles": {
+    "SITE": {
+      "file_count": 2890,
+      "inventory_sha256": "eb338e70320c096580ca2bc9e7bdb4a8d1b8fbb6f724e86402ef226221cc923a",
+      "baseline_state_sha256": "55186c3f3ca0bc62472fd14d3b76c685762bf3ff9e59c9f45570439c94f57f1b",
+      "accepted_site_tree": "86c97c851457970ec5f23f8e21baa6ed3737e428"
+    },
+    "SITE_SUBPATH": {
+      "file_count": 2895,
+      "inventory_sha256": "02f994273aff8cb17b0f671e857d6db8b2683a58c68d221d263e02b6638a4cb3",
+      "baseline_state_sha256": "b7cd9eea3e30a73bad3cfb88b088645632673ce9fa401ed541a1ef52907593e9",
+      "accepted_site_tree": "fe08316c81cbbf5008cefcf4eee9fd14c1be38b2"
+    }
+  }
+}

@@ -26,20 +26,21 @@ export function validateSourceRows(rows,changed){
  same(changed.slice().sort(),[...sourcePaths,prefix+'/source-files.json'].sort(),'exact source allowlist');
  for(const r of rows)need(Number.isSafeInteger(r.bytes)&&r.bytes>0&&/^[0-9a-f]{64}$/.test(r.sha256),'source row');
 }
-function verifySource(){
+function verifySource(sourceCommit='HEAD'){
+ need(sourceCommit==='HEAD'||(sourceCommit==='06a33866e488348da7424fd8fcc45722d14b42d5'&&git('rev-parse',sourceCommit+'^{tree}')==='8fb1ee48154f9bcb2ec34153688182f6d3799dfe'),'fixed historical publication only');
  const rows=read(path.join(dir,'source-files.json'));
  const m=read(path.join(dir,'metadata.json'));
- need(git('merge-base','--is-ancestor',m.old_commit,'HEAD')==='','ordinary public descendant');
- need(git('rev-parse',m.old_commit+'^{tree}')===m.old_tree&&git('rev-parse','HEAD')!==m.old_commit,'public baseline tree');
- need(git('rev-list','--merges',m.old_commit+'..HEAD')==='','no private history merge');
- need(git('diff','--diff-filter=D','--name-only',m.old_commit,'HEAD')==='','no deletions');
- const changed=git('diff','--name-only',m.old_commit,'HEAD').split('\n').filter(Boolean);
+ need(git('merge-base','--is-ancestor',m.old_commit,sourceCommit)==='','ordinary public descendant');
+ need(git('rev-parse',m.old_commit+'^{tree}')===m.old_tree&&git('rev-parse',sourceCommit)!==m.old_commit,'public baseline tree');
+ need(git('rev-list','--merges',m.old_commit+'..'+sourceCommit)==='','no private history merge');
+ need(git('diff','--diff-filter=D','--name-only',m.old_commit,sourceCommit)==='','no deletions');
+ const changed=git('diff','--name-only',m.old_commit,sourceCommit).split('\n').filter(Boolean);
  validateSourceRows(rows,changed);
- for(const r of rows){const b=fs.readFileSync(path.join(root,r.path));need(b.length===r.bytes&&sha(b)===r.sha256,'exact source bytes '+r.path);assertPublicText(b.toString());}
- need(git('diff','--name-only',m.old_commit,'HEAD','--','.github','public','src','package.json','package-lock.json','.node-version','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','protected source unchanged');
+ for(const r of rows){const b=sourceCommit==='HEAD'?fs.readFileSync(path.join(root,r.path)):execFileSync('git',['-C',root,'show',sourceCommit+':'+r.path]);need(b.length===r.bytes&&sha(b)===r.sha256,'exact source bytes '+r.path);assertPublicText(b.toString());}
+ need(git('diff','--name-only',m.old_commit,sourceCommit,'--','.github','public','src','package.json','package-lock.json','.node-version','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','protected source unchanged');
  return {rows,source_files_sha256:sha(fs.readFileSync(path.join(dir,'source-files.json')))};
 }
-export function verifyResearchRelatedWorkSelection(){
+export function verifyResearchRelatedWorkSelection(sourceCommit='HEAD'){
  verifyLFH188Selection();
  const raw=fs.readFileSync(path.join(dir,'metadata.json'));need(sha(raw)===metadataDigest,'immutable publication metadata');
  const m=JSON.parse(raw);need(m.batch===batch&&m.schema==='exact.research-related-work-selection.v1','selection identity');
@@ -51,7 +52,7 @@ export function verifyResearchRelatedWorkSelection(){
   need(Object.keys(inventories[area]).length===info.file_count,'output count');
   for(const rel of pages){const b=fs.readFileSync(path.join(dir,area,rel)),row=info.html[rel];need(b.length===row.bytes&&sha(b)===row.sha256,'accepted page '+area+'/'+rel);assertPublicText(b.toString());}
  }
- return {m,inventories,baselines,...verifySource()};
+ return {m,inventories,baselines,...verifySource(sourceCommit)};
 }
 export function validateResearchRelatedWorkAct(act,identity,deployment,today){
  need(act?.schema==='exact.owner-postpublic-update-act.v9'&&act.owner==='Ryotaro Tanaka'&&act.authorized===true&&act.authorization_state==='OWNER_AUTHORIZED_FOR_EXACT_UPDATE'&&act.update_kind===batch,'explicit current exact owner act');

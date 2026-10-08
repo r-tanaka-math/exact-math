@@ -1,3 +1,4 @@
+import {finishLFHInlineBaseline} from './scripts/lfh-inline-baseline-public-adapter.mjs';
 import {finishResearchRelatedWork} from './scripts/research-related-work-public-adapter.mjs';
 import {integrateLFH188,finishLFH188Output} from './scripts/lfh188-public-adapter.mjs';
 import {integrateNaimark69SR,finishNaimark69SROutput} from './scripts/naimark69-sr-public-adapter.mjs';
@@ -42,12 +43,13 @@ const guard={name:'exact-public-launch-hardening',hooks:{
     integrateProjects(root,base,profile);
     if(release)for(const f of release.imports){const p=path.resolve(root,f.path);if(!p.startsWith(root)||fs.existsSync(p))throw Error('Imported route collision');fs.mkdirSync(path.dirname(p),{recursive:true});fs.copyFileSync(f.src,p)}
     if(fullPublicProfile(profile)){
-      const related=release?.act?.update_kind==='EXACT_RESEARCH_RELATED_WORK_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_RESEARCH_RELATED_WORK_PUBLICATION_R1');
+      const inlineBaseline=release?.act?.update_kind==='EXACT_LFH_INLINE_MATH_BASELINE_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_LFH_INLINE_MATH_BASELINE_PUBLICATION_R1');
+      const related=inlineBaseline||release?.act?.update_kind==='EXACT_RESEARCH_RELATED_WORK_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_RESEARCH_RELATED_WORK_PUBLICATION_R1');
       const lfh188=related||release?.act?.update_kind==='EXACT_LFH188_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_LFH188_PUBLICATION_R1');
       const combined=lfh188||release?.act?.update_kind==='EXACT_NAIMARK69_SR_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_NAIMARK69_SR_PUBLICATION_R1');
       const cleanup=combined||release?.act?.update_kind==='EXACT_REVIEW_DISPLAY_CLEANUP_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_REVIEW_DISPLAY_CLEANUP_R1');
       const current=cleanup||release?.act?.update_kind==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1');
-      if(current){await integrateNaimarkArxiv(root,base);finishNaimarkArxivOutput(root,deployment,profile,mode,release);if(cleanup)finishReviewDisplayCleanup(root,deployment,profile,release);if(combined){integrateNaimark69SR(root,base);finishNaimark69SROutput(root,deployment,profile,release);}if(lfh188){integrateLFH188(root,base);finishLFH188Output(root,deployment,profile,release);}if(related)finishResearchRelatedWork(root,deployment,profile,release);}
+      if(current){await integrateNaimarkArxiv(root,base);finishNaimarkArxivOutput(root,deployment,profile,mode,release);if(cleanup)finishReviewDisplayCleanup(root,deployment,profile,release);if(combined){integrateNaimark69SR(root,base);finishNaimark69SROutput(root,deployment,profile,release);}if(lfh188){integrateLFH188(root,base);finishLFH188Output(root,deployment,profile,release);}if(related&&!inlineBaseline)finishResearchRelatedWork(root,deployment,profile,release);if(inlineBaseline)finishLFHInlineBaseline(root,deployment,profile,release);}
       else {integrateFullHP(root,base);finishFullHPOutput(root,deployment,profile,mode,release);}
     }
     else finishOutput(root,deployment,profile,mode,release);
