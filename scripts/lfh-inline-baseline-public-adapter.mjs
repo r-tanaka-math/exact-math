@@ -20,14 +20,15 @@ export function validateSourceRows(rows,changed){
  same(rows.map(r=>r.path).sort(),sourcePaths,'exact source manifest');same(changed.slice().sort(),[...sourcePaths,prefix+'/source-files.json'].sort(),'bounded changed source paths');
  for(const r of rows)need(Number.isSafeInteger(r.bytes)&&r.bytes>0&&/^[0-9a-f]{64}$/.test(r.sha256),'source row');
 }
-export function verifyLFHInlineBaselineSelection(){
+export function verifyLFHInlineBaselineSelection(sourceCommit='HEAD'){
+ need(sourceCommit==='HEAD'||(sourceCommit==='12e4ae8a5a04f418daeb4e77fcc54e57e9cd3d56'&&git('rev-parse',sourceCommit+'^{tree}')==='8a4e791add4145ba3c33a9fa6ff29244b96567e0'),'fixed historical publication only');
  const raw=fs.readFileSync(path.join(dir,'metadata.json'));need(sha(raw)===metadataDigest,'immutable metadata');const m=JSON.parse(raw);
  need(m.batch===batch&&m.schema==='exact.lfh-inline-baseline-selection.v1','new batch identity');same([m.old_commit,m.old_tree],[oldCommit,oldTree],'published baseline');
- need(git('merge-base','--is-ancestor',oldCommit,'HEAD')==='','ordinary public successor');need(git('rev-parse',oldCommit+'^{tree}')===oldTree&&git('rev-parse','HEAD')!==oldCommit,'baseline tree/current successor');
- need(git('rev-list','--merges',oldCommit+'..HEAD')==='','no private history merge');need(git('diff','--diff-filter=D','--name-only',oldCommit,'HEAD')==='','no deletion');
- const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,'HEAD').split('\n').filter(Boolean));
- for(const r of rows){const b=fs.readFileSync(path.join(root,r.path));need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);assertPublicText(b.toString());}
- need(git('diff','--name-only',oldCommit,'HEAD','--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','historical selection/workflow/terms/source unchanged');
+ need(git('merge-base','--is-ancestor',oldCommit,sourceCommit)==='','ordinary public successor');need(git('rev-parse',oldCommit+'^{tree}')===oldTree&&git('rev-parse',sourceCommit)!==oldCommit,'baseline tree/current successor');
+ need(git('rev-list','--merges',oldCommit+'..'+sourceCommit)==='','no private history merge');need(git('diff','--diff-filter=D','--name-only',oldCommit,sourceCommit)==='','no deletion');
+ const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,sourceCommit).split('\n').filter(Boolean));
+ for(const r of rows){const b=sourceCommit==='HEAD'?fs.readFileSync(path.join(root,r.path)):execFileSync('git',['-C',root,'show',sourceCommit+':'+r.path]);need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);assertPublicText(b.toString());}
+ need(git('diff','--name-only',oldCommit,sourceCommit,'--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','historical selection/workflow/terms/source unchanged');
  const inherited=verifyResearchRelatedWorkSelection(oldCommit);
  const bytes=fs.readFileSync(path.join(dir,'selected',css));need(bytes.length===m.css_after.bytes&&sha(bytes)===m.css_after.sha256,'accepted CSS exact');
  need(m.css_after.sha256==='6ac2463cfdcb5d008e27e4234fd8ee78bd46fa8da3ff868affc57ceb646e5be4'&&m.css_before.sha256==='1eaa564e951167fb3023c0291debe85ade21185c81ede0bdc71fab5ca062a0ac'&&m.screen_only===true,'fixed screen repair');

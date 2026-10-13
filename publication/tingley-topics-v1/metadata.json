@@ -1,0 +1,36 @@
+{
+  "schema": "exact.tingley-topics-selection.v1",
+  "batch": "EXACT_TINGLEY_TOPICS_PUBLICATION_R1",
+  "old_commit": "12e4ae8a5a04f418daeb4e77fcc54e57e9cd3d56",
+  "old_tree": "8a4e791add4145ba3c33a9fa6ff29244b96567e0",
+  "accepted_candidate_commit": "95dd30550d8d661675c82d30f8c4b3502c8a0fb0",
+  "accepted_candidate_subtree": "cd44d38ed465472f5b84b1fcaf628d658d3f60c0",
+  "canonical_origin": "https://exactmathematics.org",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "public_repository_id": 1374460434,
+  "owner_instruction_sha256": "cec43e7031226a0367d3de00cca87722a3bf3aa07913db03df87dc4883d52c3f",
+  "dispatch_sha256": "f133155179c76eeda90e8a70293e4a76660b79f526801bad56bf71fe254c179e",
+  "accepted_return_sha256": "8166604da4bed417228aed97a694bbfbfea3ac9391f379bebf317368795a1ff2",
+  "publication_date": "2026-10-13",
+  "prepared_date": "2026-10-13",
+  "author": "",
+  "publication_responsibility": "Ryotaro Tanaka",
+  "pdf": {
+    "path": "topics/tingley-chord-argument/tingley-chord-argument-v1.pdf",
+    "bytes": 352985,
+    "sha256": "bbbfc7a9d207ef30de0783024bba48f61cf0f11354351846424e0d8978ac6d57",
+    "pages": 21
+  },
+  "profiles": {
+    "SITE": {
+      "file_count": 2893,
+      "inventory_sha256": "84fcf323df95941a3b99bc1a20f89d32e1732d239769ab76ad83b3048009032d",
+      "baseline_state_sha256": "fb4bf17082b4bf7f939ac9a72801c9150f356e6334d7537afd85d3266f8ee29a"
+    },
+    "SITE_SUBPATH": {
+      "file_count": 2898,
+      "inventory_sha256": "f7334afc3c221648cf2257691260e2280693e216457f3f3bdb1d5377242d8c13",
+      "baseline_state_sha256": "811dd9bd9635ededbde4d6a5c70ec176dfb3afa3b7a8888ee5611f2bc965a997"
+    }
+  }
+}

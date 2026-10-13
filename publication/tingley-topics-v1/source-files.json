@@ -1,0 +1,82 @@
+[
+  {
+    "path": "astro.config.mjs",
+    "bytes": 6281,
+    "sha256": "4e2344a7041e61d36c752b5ea827d87b40c47f4b3469cb98fd0d129da8bd67a5"
+  },
+  {
+    "path": "publication/tingley-topics-v1/.gitattributes",
+    "bytes": 9,
+    "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE-baseline-state.json",
+    "bytes": 3570,
+    "sha256": "fb4bf17082b4bf7f939ac9a72801c9150f356e6334d7537afd85d3266f8ee29a"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE-inventory.json",
+    "bytes": 573654,
+    "sha256": "84fcf323df95941a3b99bc1a20f89d32e1732d239769ab76ad83b3048009032d"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE/topics/index.html",
+    "bytes": 25495,
+    "sha256": "ec63e28050e97dd3774ad3992bae5d28f29b3e3760689aba5d14b759b1fa785b"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE/topics/tingley-chord-argument/index.html",
+    "bytes": 30489,
+    "sha256": "32a4b377eb4f4d8048793d7ec2e3fd927fdf9f87e1559528521b6a4a641e717c"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE_SUBPATH-baseline-state.json",
+    "bytes": 3622,
+    "sha256": "811dd9bd9635ededbde4d6a5c70ec176dfb3afa3b7a8888ee5611f2bc965a997"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE_SUBPATH-inventory.json",
+    "bytes": 574536,
+    "sha256": "f7334afc3c221648cf2257691260e2280693e216457f3f3bdb1d5377242d8c13"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE_SUBPATH/topics/index.html",
+    "bytes": 25891,
+    "sha256": "f2491c4c553739b29b7a47c94ad601d7f665cf02e8c6216c14573c880b37f193"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SITE_SUBPATH/topics/tingley-chord-argument/index.html",
+    "bytes": 30993,
+    "sha256": "abc46d9d65227cd495b0d77212da434527893db8ae38fe28975d2b95a83f8053"
+  },
+  {
+    "path": "publication/tingley-topics-v1/SOURCE/home_topics.html",
+    "bytes": 1051,
+    "sha256": "b0224df1402ebb4dfc95bc0a9863f49cd754b258cc8eed0a663c045a9cf18c0f"
+  },
+  {
+    "path": "publication/tingley-topics-v1/metadata.json",
+    "bytes": 1703,
+    "sha256": "8c47a38ec5494654cd664b8b2ed986d7e6eb5c15b539a5f459662bbba8ec2d05"
+  },
+  {
+    "path": "publication/tingley-topics-v1/selected/tingley-chord-argument-v1.pdf",
+    "bytes": 352985,
+    "sha256": "bbbfc7a9d207ef30de0783024bba48f61cf0f11354351846424e0d8978ac6d57"
+  },
+  {
+    "path": "scripts/lfh-inline-baseline-public-adapter.mjs",
+    "bytes": 9913,
+    "sha256": "5eaf97366bb4f17660b9d11589a351982bacc1477f2286a51efdf007e94e1e3f"
+  },
+  {
+    "path": "scripts/postpublic-gate.mjs",
+    "bytes": 16493,
+    "sha256": "8d1a914964678bc27e52a65582f9c34ff11b1789168fd151e29c16ba910d8dfb"
+  },
+  {
+    "path": "scripts/tingley-topics-public-adapter.mjs",
+    "bytes": 10489,
+    "sha256": "07261c1a64d7d77423613711b82d5d4feabfced50650cb84e874efbf3ecc1ea3"
+  }
+]
