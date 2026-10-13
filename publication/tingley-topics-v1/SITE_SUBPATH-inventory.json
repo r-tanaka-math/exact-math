@@ -85,7 +85,7 @@
   },
   "index.html": {
     "bytes": 28137,
-    "sha256": "4d5b1c747526e2809116ec150bde33e666d565ebaca69b4fb1069ad4217ecb92"
+    "sha256": "93c0cc2d25d8ae1d42420b8fb3305eb9b96247556d7d74f1d861c302bc637ace"
   },
   "licensing/boundary.json": {
     "bytes": 3641,
@@ -11488,8 +11488,8 @@
     "sha256": "9dab925490246d8b2d8823b309d74a76b91347f456e7b417080701717b0a1799"
   },
   "release-state.json": {
-    "bytes": 3622,
-    "sha256": "811dd9bd9635ededbde4d6a5c70ec176dfb3afa3b7a8888ee5611f2bc965a997"
+    "bytes": 4317,
+    "sha256": "6d45b8520e7f932a348cd741ed6d60b1513833da0ae2961a9af83f86606956bd"
   },
   "reports/naimark-problem/draft-r1/naimark-brief-report.pdf": {
     "bytes": 327459,
@@ -11577,11 +11577,11 @@
   },
   "topics/index.html": {
     "bytes": 25891,
-    "sha256": "f2491c4c553739b29b7a47c94ad601d7f665cf02e8c6216c14573c880b37f193"
+    "sha256": "0e31237983084b0d2331987785e5eb191abbdadc57c3f60d24c58bc4283acfc2"
   },
   "topics/tingley-chord-argument/index.html": {
     "bytes": 30993,
-    "sha256": "abc46d9d65227cd495b0d77212da434527893db8ae38fe28975d2b95a83f8053"
+    "sha256": "a5aa57be88e6a85693fbb50378111e774d6deaa3a70b4c2d5ee2a3eb3e0da10e"
   },
   "topics/tingley-chord-argument/tingley-chord-argument-v1.pdf": {
     "bytes": 352985,

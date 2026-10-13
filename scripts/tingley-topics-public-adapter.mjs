@@ -10,7 +10,7 @@ import {assertPublicText} from './research-related-work-public-adapter.mjs';
 import {gitIdentity} from './deployment-identity.mjs';
 export const batch='EXACT_TINGLEY_TOPICS_PUBLICATION_R1';
 const root=fileURLToPath(new URL('../',import.meta.url)),prefix='publication/tingley-topics-v1',dir=path.join(root,prefix);
-const metadataDigest='8c47a38ec5494654cd664b8b2ed986d7e6eb5c15b539a5f459662bbba8ec2d05',oldCommit='12e4ae8a5a04f418daeb4e77fcc54e57e9cd3d56',oldTree='8a4e791add4145ba3c33a9fa6ff29244b96567e0';
+const metadataDigest='d7f564d7a58a5d963e00ebfb9e6604ddc7c1e6b4e45493c7a65827c40ee903e3',oldCommit='12e4ae8a5a04f418daeb4e77fcc54e57e9cd3d56',oldTree='8a4e791add4145ba3c33a9fa6ff29244b96567e0';
 const pages=['topics/index.html','topics/tingley-chord-argument/index.html'],pdf='topics/tingley-chord-argument/tingley-chord-argument-v1.pdf',css='mathlibannex/assets/lfh188.css';
 const sourcePaths=['astro.config.mjs','scripts/postpublic-gate.mjs','scripts/lfh-inline-baseline-public-adapter.mjs','scripts/tingley-topics-public-adapter.mjs',prefix+'/.gitattributes',prefix+'/metadata.json',prefix+'/SOURCE/home_topics.html',prefix+'/selected/tingley-chord-argument-v1.pdf',...['SITE','SITE_SUBPATH'].flatMap(a=>[prefix+'/'+a+'-inventory.json',prefix+'/'+a+'-baseline-state.json',...pages.map(p=>prefix+'/'+a+'/'+p)])].sort();
 const sha=b=>createHash('sha256').update(b).digest('hex'),read=p=>JSON.parse(fs.readFileSync(p));
@@ -39,6 +39,7 @@ export function validateTingleyAct(act,identity,deployment,today){
  need(act?.schema==='exact.owner-postpublic-update-act.v11'&&act.owner==='Ryotaro Tanaka'&&act.authorized===true&&act.authorization_state==='OWNER_AUTHORIZED_FOR_EXACT_UPDATE'&&act.update_kind===batch,'explicit exact owner act');
  const v=verifyTingleySelection(),m=v.m;
  same([act.new_commit,act.new_tree],[identity.commit,identity.tree],'exact current artifact');same([identity.commit,identity.tree],[git('rev-parse','HEAD'),git('rev-parse','HEAD^{tree}')],'actual checkout');
+ same([act.public_push_parent,m.public_push_parent],[git('rev-parse','HEAD^'),git('rev-parse','HEAD^')],'actual immediate public parent');
  same([deployment.origin,deployment.public_repository,deployment.base,deployment.deployment_profile],[m.canonical_origin,m.public_repository,'/','ROOT'],'production identity');same([act.base,act.deployment_profile],['/','ROOT'],'act root');
  need(/^\d{4}-\d{2}-\d{2}$/.test(today)&&act.update_date_asia_tokyo===today&&m.publication_date===today,'actual Tokyo date');
  for(const k of ['old_commit','old_tree','canonical_origin','public_repository','public_repository_id','accepted_candidate_commit','accepted_candidate_subtree','owner_instruction_sha256','dispatch_sha256','accepted_return_sha256'])same(act[k],m[k],'authority '+k);
