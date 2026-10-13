@@ -10,7 +10,7 @@ import {assertPublicText} from './research-related-work-public-adapter.mjs';
 import {gitIdentity} from './deployment-identity.mjs';
 export const batch='EXACT_TINGLEY_TOPICS_PUBLICATION_R1';
 const root=fileURLToPath(new URL('../',import.meta.url)),prefix='publication/tingley-topics-v1',dir=path.join(root,prefix);
-const metadataDigest='d7f564d7a58a5d963e00ebfb9e6604ddc7c1e6b4e45493c7a65827c40ee903e3',oldCommit='12e4ae8a5a04f418daeb4e77fcc54e57e9cd3d56',oldTree='8a4e791add4145ba3c33a9fa6ff29244b96567e0';
+const metadataDigest='a44a2853eee2d0f1075512c18fff01b5789fab7dadb4f4b123730678926ba2e7',oldCommit='12e4ae8a5a04f418daeb4e77fcc54e57e9cd3d56',oldTree='8a4e791add4145ba3c33a9fa6ff29244b96567e0';
 const pages=['topics/index.html','topics/tingley-chord-argument/index.html'],pdf='topics/tingley-chord-argument/tingley-chord-argument-v1.pdf',css='mathlibannex/assets/lfh188.css';
 const sourcePaths=['astro.config.mjs','scripts/postpublic-gate.mjs','scripts/lfh-inline-baseline-public-adapter.mjs','scripts/tingley-topics-public-adapter.mjs',prefix+'/.gitattributes',prefix+'/metadata.json',prefix+'/SOURCE/home_topics.html',prefix+'/selected/tingley-chord-argument-v1.pdf',...['SITE','SITE_SUBPATH'].flatMap(a=>[prefix+'/'+a+'-inventory.json',prefix+'/'+a+'-baseline-state.json',...pages.map(p=>prefix+'/'+a+'/'+p)])].sort();
 const sha=b=>createHash('sha256').update(b).digest('hex'),read=p=>JSON.parse(fs.readFileSync(p));
