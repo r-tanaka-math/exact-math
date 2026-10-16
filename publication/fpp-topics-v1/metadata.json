@@ -1,0 +1,38 @@
+{
+  "schema": "exact.fpp-topics-selection.v1",
+  "batch": "EXACT_FPP_TOPICS_PUBLICATION_R1",
+  "old_commit": "33e578b23983a02bff9ecc900bb34d4ea5ad25b1",
+  "old_tree": "5d86c2e190fa627f618a0aba0fc620606a5a0afc",
+  "public_push_parent": "33e578b23983a02bff9ecc900bb34d4ea5ad25b1",
+  "accepted_candidate_commit": "3a62373dc6db2762e2ddafe9fe7a381836b7ee89",
+  "accepted_candidate_subtree": "4564b255e6e5185d05fd8e8159265e4144b02b05",
+  "canonical_origin": "https://exactmathematics.org",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "public_repository_id": 1374460434,
+  "owner_instruction_sha256": "1226d3082ca51c5b011e25286f374cdaade2a38ebf251e037a037998e907a41d",
+  "dispatch_sha256": "98d09b40d160fb4006100670ea85eccf6a3d021e33b982cabd3d83292ed799b1",
+  "accepted_return_sha256": "a21e66672f8028e63e7f6c3c22eeaeebd7ba08b42651e08f0a88f9f7e942adc1",
+  "final_tex_sha256": "7c9e417ba944701133e318a416c19c15946a934fefe0c742960b14226d8c8a6b",
+  "publication_date": "2026-10-16",
+  "prepared_date": "2026-10-16",
+  "author": "",
+  "publication_responsibility": "Ryotaro Tanaka",
+  "pdf": {
+    "path": "topics/fixed-points-reflexive-banach-spaces/fixed-points-reflexive-banach-spaces-v1.pdf",
+    "bytes": 522690,
+    "sha256": "679c44e2f22dd2a29acc89577bbfb36f072ac0ed9b16a171cd7360736b2a2c1a",
+    "pages": 35
+  },
+  "profiles": {
+    "SITE": {
+      "file_count": 2895,
+      "inventory_sha256": "417a4676abf47315f20205e5bfe320757582ae019f02091f378943a016ecc07b",
+      "baseline_state_sha256": "439fb63b05a2024fa85c6af6dc324c3e53fb459a2f86b008ce53ec5d081af28d"
+    },
+    "SITE_SUBPATH": {
+      "file_count": 2900,
+      "inventory_sha256": "db2694763a5b92dbea5265e5a59750e551ea7317f826621d1ca915e2c55d3b33",
+      "baseline_state_sha256": "4f2124ebaa6d5bdf53e357a7d19e095c38944c858b11329b9bc566d60aa445d6"
+    }
+  }
+}

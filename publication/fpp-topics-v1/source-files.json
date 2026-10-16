@@ -1,0 +1,87 @@
+[
+  {
+    "path": "astro.config.mjs",
+    "bytes": 6607,
+    "sha256": "375335faf015c2ff4bb7f6b9f4de11a2dcfc31891814aaf5863c536137b5093c"
+  },
+  {
+    "path": "publication/fpp-topics-v1/.gitattributes",
+    "bytes": 9,
+    "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE-baseline-state.json",
+    "bytes": 4265,
+    "sha256": "439fb63b05a2024fa85c6af6dc324c3e53fb459a2f86b008ce53ec5d081af28d"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE-inventory.json",
+    "bytes": 574032,
+    "sha256": "417a4676abf47315f20205e5bfe320757582ae019f02091f378943a016ecc07b"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE/index.html",
+    "bytes": 28336,
+    "sha256": "0a28aa1a58c2577828312a12bddf4ac448670f193050e333613265ee721321ee"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE/topics/fixed-points-reflexive-banach-spaces/index.html",
+    "bytes": 30675,
+    "sha256": "8b281d1a69aec884b6dbf7e2957315a6a0548fc8e360ea7a27900be9d5d46171"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE/topics/index.html",
+    "bytes": 26274,
+    "sha256": "f82b56799cf16fc51003881ce0e9df7990488aca715d7640634fa45efd92b055"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE_SUBPATH-baseline-state.json",
+    "bytes": 4317,
+    "sha256": "4f2124ebaa6d5bdf53e357a7d19e095c38944c858b11329b9bc566d60aa445d6"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE_SUBPATH-inventory.json",
+    "bytes": 574914,
+    "sha256": "db2694763a5b92dbea5265e5a59750e551ea7317f826621d1ca915e2c55d3b33"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE_SUBPATH/index.html",
+    "bytes": 28912,
+    "sha256": "c9ca82ff8503cd2e6a6ba8799eabc3ef3392c207376267e45a5c1db2907d4de1"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE_SUBPATH/topics/fixed-points-reflexive-banach-spaces/index.html",
+    "bytes": 31179,
+    "sha256": "6e4d7d031c7ca522140e1618c2124d047d416e9e3f5318da62c00c8d114b6350"
+  },
+  {
+    "path": "publication/fpp-topics-v1/SITE_SUBPATH/topics/index.html",
+    "bytes": 26706,
+    "sha256": "2a90b98adb2001b99ac9b394be9ad1391c0ddd4263949c4846e64d1c12943ecf"
+  },
+  {
+    "path": "publication/fpp-topics-v1/metadata.json",
+    "bytes": 1883,
+    "sha256": "362abbe56e0c3a8b0d6124f93f86402d0376f89c2b29c54c32573002f84562fe"
+  },
+  {
+    "path": "publication/fpp-topics-v1/selected/fixed-points-reflexive-banach-spaces-v1.pdf",
+    "bytes": 522690,
+    "sha256": "679c44e2f22dd2a29acc89577bbfb36f072ac0ed9b16a171cd7360736b2a2c1a"
+  },
+  {
+    "path": "scripts/fpp-topics-public-adapter.mjs",
+    "bytes": 11753,
+    "sha256": "6d58678189778331400c9d3877d44a108744439b96a4dc5261b5c36415f4d213"
+  },
+  {
+    "path": "scripts/postpublic-gate.mjs",
+    "bytes": 16672,
+    "sha256": "a802bf02ee04fbbf410c772f14d51ca048cb6a7ba4cab7f8118522db425901e1"
+  },
+  {
+    "path": "scripts/tingley-topics-public-adapter.mjs",
+    "bytes": 10992,
+    "sha256": "9e18be61a8443cef748acf8151341a2d948bf3e0288dd1dedb4109a6ba84bdb8"
+  }
+]

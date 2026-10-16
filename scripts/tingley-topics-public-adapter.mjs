@@ -21,14 +21,15 @@ export function validateSourceRows(rows,changed){
  same(rows.map(r=>r.path).sort(),sourcePaths,'exact public source allowlist');same(changed.slice().sort(),[...sourcePaths,prefix+'/source-files.json'].sort(),'bounded changed paths');
  for(const r of rows)need(Number.isSafeInteger(r.bytes)&&r.bytes>0&&/^[0-9a-f]{64}$/.test(r.sha256),'source row');
 }
-export function verifyTingleySelection(){
+export function verifyTingleySelection(sourceCommit='HEAD'){
+ need(sourceCommit==='HEAD'||(sourceCommit==='33e578b23983a02bff9ecc900bb34d4ea5ad25b1'&&git('rev-parse',sourceCommit+'^{tree}')==='5d86c2e190fa627f618a0aba0fc620606a5a0afc'),'fixed historical Tingley publication only');
  const raw=fs.readFileSync(path.join(dir,'metadata.json'));need(sha(raw)===metadataDigest,'immutable metadata');const m=JSON.parse(raw);
  need(m.batch===batch&&m.schema==='exact.tingley-topics-selection.v1','batch');same([m.old_commit,m.old_tree],[oldCommit,oldTree],'baseline');
- need(git('merge-base','--is-ancestor',oldCommit,'HEAD')==='','ordinary public successor');need(git('rev-parse',oldCommit+'^{tree}')===oldTree&&git('rev-parse','HEAD')!==oldCommit,'baseline tree');
- need(git('rev-list','--merges',oldCommit+'..HEAD')===''&&git('diff','--diff-filter=D','--name-only',oldCommit,'HEAD')==='','no merges or deletion');
- const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,'HEAD').split('\n').filter(Boolean));
- for(const r of rows){const b=fs.readFileSync(path.join(root,r.path));need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);if(!r.path.endsWith('.pdf'))assertPublicText(b.toString());}
- need(git('diff','--name-only',oldCommit,'HEAD','--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/lfh-inline-baseline-r1','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','historical source, math, workflow and terms unchanged');
+ need(git('merge-base','--is-ancestor',oldCommit,sourceCommit)==='','ordinary public successor');need(git('rev-parse',oldCommit+'^{tree}')===oldTree&&git('rev-parse',sourceCommit)!==oldCommit,'baseline tree');
+ need(git('rev-list','--merges',oldCommit+'..'+sourceCommit)===''&&git('diff','--diff-filter=D','--name-only',oldCommit,sourceCommit)==='','no merges or deletion');
+ const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,sourceCommit).split('\n').filter(Boolean));
+ for(const r of rows){const b=sourceCommit==='HEAD'?fs.readFileSync(path.join(root,r.path)):execFileSync('git',['-C',root,'show',sourceCommit+':'+r.path]);need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);if(!r.path.endsWith('.pdf'))assertPublicText(b.toString());}
+ need(git('diff','--name-only',oldCommit,sourceCommit,'--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/lfh-inline-baseline-r1','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','historical source, math, workflow and terms unchanged');
  const inherited=verifyLFHInlineBaselineSelection(oldCommit),inventories={},baselines={};
  need(m.pdf.path===pdf&&m.pdf.bytes===352985&&m.pdf.sha256==='bbbfc7a9d207ef30de0783024bba48f61cf0f11354351846424e0d8978ac6d57'&&m.pdf.pages===21,'final PDF binding');
  same([m.author,m.publication_responsibility,m.prepared_date],['','Ryotaro Tanaka','2026-10-13'],'bibliographic responsibility');
