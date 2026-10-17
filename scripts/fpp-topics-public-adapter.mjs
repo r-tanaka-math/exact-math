@@ -23,14 +23,15 @@ export function validateSourceRows(rows,changed){
  same(rows.map(r=>r.path).sort(),sourcePaths,'exact public source allowlist');same(changed.slice().sort(),[...sourcePaths,prefix+'/source-files.json'].sort(),'bounded changed paths');
  for(const r of rows)need(Number.isSafeInteger(r.bytes)&&r.bytes>0&&/^[0-9a-f]{64}$/.test(r.sha256),'source row');
 }
-export function verifyFPPSelection(){
+export function verifyFPPSelection(sourceCommit='HEAD'){
+ need(sourceCommit==='HEAD'||(sourceCommit==='3f4cb2c3e0ef4abd8f58db3efd58d20c498c0aff'&&git('rev-parse',sourceCommit+'^{tree}')==='2846a8aeeab605e6632519d4667c4034bcbeaae3'),'fixed historical FPP publication only');
  const raw=fs.readFileSync(path.join(dir,'metadata.json'));need(sha(raw)===metadataDigest,'immutable metadata');const m=JSON.parse(raw);
  need(m.batch===batch&&m.schema==='exact.fpp-topics-selection.v1','batch');same([m.old_commit,m.old_tree,m.public_push_parent],[oldCommit,oldTree,oldCommit],'current public baseline');
- same([git('rev-parse','HEAD^'),git('rev-parse',oldCommit+'^{tree}')],[oldCommit,oldTree],'ordinary immediate public successor');
- need(git('rev-list','--merges',oldCommit+'..HEAD')===''&&git('diff','--diff-filter=D','--name-only',oldCommit,'HEAD')==='','no merges or deletion');
- const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,'HEAD').split('\n').filter(Boolean));
- for(const r of rows){const b=fs.readFileSync(path.join(root,r.path));need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);if(!r.path.endsWith('.pdf'))assertPublicText(b.toString());}
- need(git('diff','--name-only',oldCommit,'HEAD','--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/tingley-topics-v1','publication/lfh-inline-baseline-r1','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','all historical math, workflow, terms and Tingley unchanged');
+ same([git('rev-parse',sourceCommit+'^'),git('rev-parse',oldCommit+'^{tree}')],[oldCommit,oldTree],'ordinary immediate public successor');
+ need(git('rev-list','--merges',oldCommit+'..'+sourceCommit)===''&&git('diff','--diff-filter=D','--name-only',oldCommit,sourceCommit)==='','no merges or deletion');
+ const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,sourceCommit).split('\n').filter(Boolean));
+ for(const r of rows){const b=sourceCommit==='HEAD'?fs.readFileSync(path.join(root,r.path)):execFileSync('git',['-c','safe.directory='+root.replaceAll('\\','/').replace(/\/$/,''),'-C',root,'show',sourceCommit+':'+r.path]);need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);if(!r.path.endsWith('.pdf'))assertPublicText(b.toString());}
+ need(git('diff','--name-only',oldCommit,sourceCommit,'--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/tingley-topics-v1','publication/lfh-inline-baseline-r1','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','all historical math, workflow, terms and Tingley unchanged');
  const inherited=verifyTingleySelection(oldCommit),inventories={},baselines={};
  need(m.pdf.path===pdf&&m.pdf.bytes===522690&&m.pdf.sha256==='679c44e2f22dd2a29acc89577bbfb36f072ac0ed9b16a171cd7360736b2a2c1a'&&m.pdf.pages===35,'final PDF binding');
  need(m.final_tex_sha256==='7c9e417ba944701133e318a416c19c15946a934fefe0c742960b14226d8c8a6b','private exact five-edit source binding');
@@ -49,7 +50,7 @@ export function validateFPPAct(act,identity,deployment,today){
  same(act.pdf,m.pdf,'final PDF');same([act.metadata_sha256,act.source_files_sha256,act.source_file_count],[metadataDigest,v.source_files_sha256,v.rows.length],'source selection');same(act.output_inventory_sha256,Object.fromEntries(Object.entries(m.profiles).map(([a,x])=>[a,x.inventory_sha256])),'all served paths');return act;
 }
 function inventory(output){const rows={};for(const p of files(output)){const rel=path.relative(output,p).split(path.sep).join('/'),b=fs.readFileSync(p);rows[rel]={bytes:b.length,sha256:sha(b)};if(/\.(?:html|json|css|js|txt|bib|xml)$/.test(rel))assertPublicText(b.toString());}return rows;}
-function mountPriorTingley(output,deployment,v,area){
+export function mountPriorTingley(output,deployment,v,area){
  const base=deployment.base,priorDir=path.join(root,'publication/tingley-topics-v1');
  for(const rel of ['research/naimark-problem/index.html','research/sphere-rigidity/index.html'])fs.copyFileSync(path.join(root,'publication/research-related-work-r1',area,rel),path.join(output,rel));
  compareOutputRows(inventory(output),v.inherited.inventories[area],v.inherited.m.css_before);

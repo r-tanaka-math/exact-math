@@ -1,0 +1,39 @@
+{
+  "schema": "exact.brouwer-topics-selection.v1",
+  "batch": "EXACT_BROUWER_TOPICS_PUBLICATION_R1",
+  "old_commit": "3f4cb2c3e0ef4abd8f58db3efd58d20c498c0aff",
+  "old_tree": "2846a8aeeab605e6632519d4667c4034bcbeaae3",
+  "public_push_parent": "3f4cb2c3e0ef4abd8f58db3efd58d20c498c0aff",
+  "accepted_candidate_commit": "51fc947456370f658350b47e5e5cfa7e1189fd48",
+  "accepted_candidate_subtree": "21f2c61ba56c9bf77fef2d347d4f7270e2a2dc68",
+  "takeover_commit": "a8339a26d0c129357ad1bfe9e2d8af75e31390c3",
+  "canonical_origin": "https://exactmathematics.org",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "public_repository_id": 1374460434,
+  "owner_instruction_sha256": "ad1ae6b55b8750d1cdc84c407202ee6ad367cb0a4b086c803c07b969b07128c7",
+  "dispatch_sha256": "cdd4d55cd003a605199b847da636c861bed5f5d7aa68891eed88d2adfbd7ed04",
+  "accepted_return_sha256": "2c22f26cd93fc9e52ab424b423a9a2b7e146dea66aad600aa8224e257c51fec3",
+  "final_tex_sha256": "ae1d5e91bb147d62c6f213a609e2d67e907c3e3a8d0bffde98b47a309e8a9802",
+  "publication_date": "2026-10-17",
+  "prepared_date": "2026-10-16",
+  "author": "",
+  "publication_responsibility": "Ryotaro Tanaka",
+  "pdf": {
+    "path": "topics/brouwer-commuting-operators/brouwer-commuting-operators-v1.pdf",
+    "bytes": 351950,
+    "sha256": "89af273b3b650c79d04fe22cfd90f13b3c9ade7c76c1b6bd0b2f20da7aacc87d",
+    "pages": 13
+  },
+  "profiles": {
+    "SITE": {
+      "file_count": 2897,
+      "inventory_sha256": "86b516c11e3fd8822b141896901e101b3249f067813edd90321cc3ae4203c494",
+      "baseline_state_sha256": "4ba909836d112e0cb9a7c4737d0afdcfaf606f6e9b32118faa6796a9d9e15711"
+    },
+    "SITE_SUBPATH": {
+      "file_count": 2902,
+      "inventory_sha256": "e2bb62654f62791f852c6539c9c38d40e6f1592561b4a0bcb7693bf666487534",
+      "baseline_state_sha256": "079032e6934501d7d2c6a399938cd8e123bda664f70d54b0b2c0eaab5ac15a22"
+    }
+  }
+}
