@@ -1,0 +1,87 @@
+[
+  {
+    "path": "astro.config.mjs",
+    "bytes": 7400,
+    "sha256": "6485de2c09002fd65106f933dc233b18960b16b1130a434bacc5136433626511"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/.gitattributes",
+    "bytes": 8,
+    "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE-baseline-state.json",
+    "bytes": 5709,
+    "sha256": "47dedf1d7ac2f019e466303481c2f906134101c3775de4684479180cadab489a"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE-inventory.json",
+    "bytes": 563142,
+    "sha256": "70d1d56c97ea0a119a1ba1bad1ff09994b01880073f3a7d700c3380739c27694"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE/index.html",
+    "bytes": 29945,
+    "sha256": "96256ad33639f88238ab87738be48964483205e89056304c381de0ad4752468a"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE/topics/index.html",
+    "bytes": 27903,
+    "sha256": "04910e8692e7f09611fcbd434816661c3cb56d7864aaab2e85908457b58e0c4b"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE/topics/lipschitz-free-hilbert-spaces/index.html",
+    "bytes": 30867,
+    "sha256": "58eb6b735f9cb41ef5064fa63820e4346e35749f176dddf5994df3e1dca6c837"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE_SUBPATH-baseline-state.json",
+    "bytes": 5761,
+    "sha256": "b40e0b695f5b61652aabc154eb8dbe304b3459c221c7644daff6b2e3ed6ec4af"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE_SUBPATH-inventory.json",
+    "bytes": 564004,
+    "sha256": "f080bb5156fc887b5009c099abed2e452965aab7fc5abf1fe042981d85aad17d"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE_SUBPATH/index.html",
+    "bytes": 30593,
+    "sha256": "a22c4244a19ec4daf7e3ba9c563a08307c9c8d333c9c117296d4dd13b7471f19"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE_SUBPATH/topics/index.html",
+    "bytes": 28407,
+    "sha256": "cf077cb83d41469d98aaeaaad7a34455b5750e38b6822d709bd3b3817d1c344d"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/SITE_SUBPATH/topics/lipschitz-free-hilbert-spaces/index.html",
+    "bytes": 31335,
+    "sha256": "45c179721f0a9e29f286b250d1ef1dfab432696031e9a18f2fb7d284f1e23aa3"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/metadata.json",
+    "bytes": 1857,
+    "sha256": "73511ec451fe796e5e68179ec24e0a9826e58c1e3cd2e60b9c2c58af5ee86c43"
+  },
+  {
+    "path": "publication/lip-free-hilbert-topics-v1/selected/lipschitz-free-hilbert-spaces-v1.pdf",
+    "bytes": 539002,
+    "sha256": "6b79ead2166b0a52704cae65f4acca1d41f45f7864700d7524e9dab7811c0d4f"
+  },
+  {
+    "path": "scripts/brouwer-topics-public-adapter.mjs",
+    "bytes": 11584,
+    "sha256": "f6aab310af1ec2d6b3282580aed72bc9be6a5bb1141f40effecd199aeb832354"
+  },
+  {
+    "path": "scripts/lip-free-hilbert-topics-public-adapter.mjs",
+    "bytes": 11317,
+    "sha256": "f55189b0714e333a51bc8d4e86e22bd42c59ba7339028869856491dd4589f3e9"
+  },
+  {
+    "path": "scripts/postpublic-gate.mjs",
+    "bytes": 17094,
+    "sha256": "35755776e43f381b063f6bd8ee06fc407a1e6e6728a012506befc2a823b85454"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "schema": "exact.lip-free-hilbert-topics-selection.v1",
+  "batch": "EXACT_LIP_FREE_HILBERT_TOPICS_PUBLICATION_R1",
+  "old_commit": "075d2fb64b7cddeb0eeefe2568706fc72c649599",
+  "old_tree": "bccb2e76b5575e70bc58cb40853267bc695ed4bd",
+  "public_push_parent": "075d2fb64b7cddeb0eeefe2568706fc72c649599",
+  "accepted_candidate_commit": "5539f02cfede1c24be2e287fced4f0f9f3fd51de",
+  "accepted_candidate_subtree": "cc18f7a038df9836a1c09a047dc81d2354a29b39",
+  "canonical_origin": "https://exactmathematics.org",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "public_repository_id": 1374460434,
+  "owner_instruction_sha256": "ea281d8bffd40dd88043b28dd59335c084d9060baf1770dcfd6782646895d541",
+  "dispatch_sha256": "189a6f88c9e79990c67338563bbfacab635701f38120ec8a11b1828fe0a857d7",
+  "accepted_return_sha256": "80418d1e7f370267f80819621b62cab6bc641bda2076ef732e3f264839d36533",
+  "final_tex_sha256": "fa8adee55b64bdf7189a57f8ea50841fbebf4c70a69ebe8a109cf5f9729b8e3a",
+  "publication_date": "2026-10-25",
+  "prepared_date": "2026-10-24",
+  "author": "",
+  "publication_responsibility": "Ryotaro Tanaka",
+  "pdf": {
+    "path": "topics/lipschitz-free-hilbert-spaces/lipschitz-free-hilbert-spaces-v1.pdf",
+    "bytes": 539002,
+    "sha256": "6b79ead2166b0a52704cae65f4acca1d41f45f7864700d7524e9dab7811c0d4f",
+    "pages": 45
+  },
+  "profiles": {
+    "SITE": {
+      "file_count": 2899,
+      "inventory_sha256": "70d1d56c97ea0a119a1ba1bad1ff09994b01880073f3a7d700c3380739c27694",
+      "baseline_state_sha256": "47dedf1d7ac2f019e466303481c2f906134101c3775de4684479180cadab489a"
+    },
+    "SITE_SUBPATH": {
+      "file_count": 2904,
+      "inventory_sha256": "f080bb5156fc887b5009c099abed2e452965aab7fc5abf1fe042981d85aad17d",
+      "baseline_state_sha256": "b40e0b695f5b61652aabc154eb8dbe304b3459c221c7644daff6b2e3ed6ec4af"
+    }
+  }
+}
