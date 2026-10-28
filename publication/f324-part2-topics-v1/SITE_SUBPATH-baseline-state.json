@@ -1,0 +1,136 @@
+{
+  "schema": "exact.site-release-state.v16",
+  "publication_batch": "EXACT_LIP_FREE_HILBERT_TOPICS_PUBLICATION_R1",
+  "publication_state": "LOCAL_INDEXABLE_QUALIFICATION",
+  "site_commit": "461af063a0f6fec6e32638526371e2485e6418af",
+  "site_tree": "189e5ce9417c163a92d7d1eee98956e149d3031e",
+  "public_parent_commit": "075d2fb64b7cddeb0eeefe2568706fc72c649599",
+  "publication_date": "2026-10-25",
+  "site_first_publication_date": "2026-09-17",
+  "public_cards": 188,
+  "project_card_counts": {
+    "total": 188,
+    "sphere-rigidity": 75,
+    "naimark-problem": 69,
+    "mankiewicz": 11,
+    "rosenberg": 33
+  },
+  "main_naimark_cards": 68,
+  "ch_route_cards": 3,
+  "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+  "source_tree": "b752cf746a8660427937b3497f49c1797bf3ff3f",
+  "catalog_current": "SPHERE_75_NAIMARK_69_MANKIEWICZ_11_ROSENBERG_33",
+  "selection_mode": "IMMUTABLE_SOURCE_AND_EXACT_CARD_REVISION_SET",
+  "exact_revision_entries_digest": "19cef1e4f98bc2cf4b730999d556b8216c1ec78ce2d32c4be9736c7385ff5f91",
+  "revision_set_sha256": "8cf3cdc64c64269c3de1aa33fbbbba6ec250be5f8d0f2e5b6adf82fcc961623c",
+  "formal_CURRENT_changed": false,
+  "new_native_registration": false,
+  "new_mathematical_review": false,
+  "historical_release_record": "public-release-state.json",
+  "canonical_origin": "https://exactmathematics.org",
+  "profile": "PUBLIC_RELEASE_QUALIFICATION",
+  "feedback_mode": "LIVE_PUBLIC",
+  "formspree_automated_live_posts": 0,
+  "public_selection_manifest": "mathlibannex/releases/lfh188-fix4-r1.json",
+  "base": "/exact-mathematics/",
+  "deployment_profile": "SUBPATH",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "indexing": "LOCAL_INDEXABLE_QUALIFICATION",
+  "selection_sha256": "dc2e6e4288f68cb4c061b777b27d2ded54b71450a2336ff337224b3807b5d355",
+  "metadata_sha256": "e2d03aac3bb02c857bf0443588d105f61163e3765eb735c3327d2debcaefd83e",
+  "research_related_work": {
+    "schema": "exact.research-related-work-update.v1",
+    "accepted_candidate_commit": "0001692d4609ba3f8c01d554829d0d6b596b5119",
+    "accepted_candidate_subtree": "eca54fa214506b0cac8443b56b9e701446bb9445",
+    "hp_acceptance_sha256": "2256c5f26d86f1a2b5469ce828559d4407b54acb3abccf89bb7fc4c844ed773a",
+    "owner_message_sha256": "6778c867dd6d2825b3f72dfd4a92e176e68d1267912811993883bbb8322843f7",
+    "patch_plan_sha256": "3e3fa0b51b58a408de170be842e1fee1f2f365f63d16c4add19f29bd84aad4da",
+    "consulted_date": "2026-10-08",
+    "external_source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+    "page_sha256": {
+      "research/naimark-problem/index.html": "34d83e45b93a9078a3d8aceabcdf2dbc5a50743823db76fc30384ea989f9dcfe",
+      "research/sphere-rigidity/index.html": "85529ed31179234334ed3364432256fc61ce489e336d38c54d6ee898e0d0aab6"
+    },
+    "owner_publication_authorized": true
+  },
+  "lfh_inline_math_baseline": {
+    "schema": "exact.lfh-inline-math-baseline-update.v1",
+    "accepted_candidate_commit": "a713d268729b408fd98141e764448b7b7b9d8946",
+    "accepted_candidate_subtree": "f772d32126e1c9c78b9738203277165d422a7561",
+    "css_before_sha256": "1eaa564e951167fb3023c0291debe85ade21185c81ede0bdc71fab5ca062a0ac",
+    "css_sha256": "6ac2463cfdcb5d008e27e4234fd8ee78bd46fa8da3ff868affc57ceb646e5be4",
+    "screen_only": true,
+    "hp_acceptance_sha256": "86cb21bfa7ee5b567656da77e75f37450a3a577a24d674c209b7e8c3bb77beda",
+    "owner_instruction_sha256": "5e7fa8d4901756ee410323eb7f28649539f54c0e4097c4c80a66095a1e45f230",
+    "dispatch_sha256": "aedbdac9ee8e9389a6aa442f571f289a4e3626978cb5a265e210a98c2dfc3d97",
+    "owner_publication_authorized": true
+  },
+  "tingley_expository_note": {
+    "version": "1",
+    "author": "",
+    "publication_responsibility": "Ryotaro Tanaka",
+    "prepared_date": "2026-10-13",
+    "first_publication_date": "2026-10-14",
+    "version_publication_date": "2026-10-14",
+    "pdf": {
+      "path": "topics/tingley-chord-argument/tingley-chord-argument-v1.pdf",
+      "bytes": 352985,
+      "sha256": "bbbfc7a9d207ef30de0783024bba48f61cf0f11354351846424e0d8978ac6d57",
+      "pages": 21
+    },
+    "owner_instruction_sha256": "cec43e7031226a0367d3de00cca87722a3bf3aa07913db03df87dc4883d52c3f",
+    "dispatch_sha256": "f133155179c76eeda90e8a70293e4a76660b79f526801bad56bf71fe254c179e",
+    "owner_publication_authorized": true
+  },
+  "fpp_expository_note": {
+    "version": "1",
+    "author": "",
+    "publication_responsibility": "Ryotaro Tanaka",
+    "prepared_date": "2026-10-16",
+    "first_publication_date": "2026-10-16",
+    "version_publication_date": "2026-10-16",
+    "pdf": {
+      "path": "topics/fixed-points-reflexive-banach-spaces/fixed-points-reflexive-banach-spaces-v1.pdf",
+      "bytes": 522690,
+      "sha256": "679c44e2f22dd2a29acc89577bbfb36f072ac0ed9b16a171cd7360736b2a2c1a",
+      "pages": 35
+    },
+    "owner_instruction_sha256": "1226d3082ca51c5b011e25286f374cdaade2a38ebf251e037a037998e907a41d",
+    "dispatch_sha256": "98d09b40d160fb4006100670ea85eccf6a3d021e33b982cabd3d83292ed799b1",
+    "owner_publication_authorized": true
+  },
+  "brouwer_expository_note": {
+    "version": "1",
+    "author": "",
+    "publication_responsibility": "Ryotaro Tanaka",
+    "prepared_date": "2026-10-16",
+    "first_publication_date": "2026-10-17",
+    "version_publication_date": "2026-10-17",
+    "pdf": {
+      "path": "topics/brouwer-commuting-operators/brouwer-commuting-operators-v1.pdf",
+      "bytes": 351950,
+      "sha256": "89af273b3b650c79d04fe22cfd90f13b3c9ade7c76c1b6bd0b2f20da7aacc87d",
+      "pages": 13
+    },
+    "owner_instruction_sha256": "ad1ae6b55b8750d1cdc84c407202ee6ad367cb0a4b086c803c07b969b07128c7",
+    "dispatch_sha256": "cdd4d55cd003a605199b847da636c861bed5f5d7aa68891eed88d2adfbd7ed04",
+    "owner_publication_authorized": true
+  },
+  "lip_free_hilbert_expository_note": {
+    "version": "1",
+    "author": "",
+    "publication_responsibility": "Ryotaro Tanaka",
+    "prepared_date": "2026-10-24",
+    "first_publication_date": "2026-10-25",
+    "version_publication_date": "2026-10-25",
+    "pdf": {
+      "path": "topics/lipschitz-free-hilbert-spaces/lipschitz-free-hilbert-spaces-v1.pdf",
+      "bytes": 539002,
+      "sha256": "6b79ead2166b0a52704cae65f4acca1d41f45f7864700d7524e9dab7811c0d4f",
+      "pages": 45
+    },
+    "owner_instruction_sha256": "ea281d8bffd40dd88043b28dd59335c084d9060baf1770dcfd6782646895d541",
+    "dispatch_sha256": "189a6f88c9e79990c67338563bbfacab635701f38120ec8a11b1828fe0a857d7",
+    "owner_publication_authorized": true
+  }
+}

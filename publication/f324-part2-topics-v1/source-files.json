@@ -1,0 +1,87 @@
+[
+  {
+    "path": "astro.config.mjs",
+    "bytes": 7783,
+    "sha256": "a8b9072f1fe4de9baf3dddae2655580091c0b862cf139c990b4526d4c402b4a6"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/.gitattributes",
+    "bytes": 8,
+    "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE-baseline-state.json",
+    "bytes": 6446,
+    "sha256": "f054bb8cd2e0a92bb1c75343809608acd40e54b66c8f7ca266e8b7813c5b210f"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE-inventory.json",
+    "bytes": 563512,
+    "sha256": "76f75943dec8b6a3816ba2aa23a6538eecc1cfa5a81bcee966a2c9d245b1629e"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE/index.html",
+    "bytes": 31039,
+    "sha256": "23537571d02b2726cef4e6acd0846780ad6bf64154d0709b0174b9b22300931e"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE/topics/index.html",
+    "bytes": 28968,
+    "sha256": "deeac7687670cbedec0123a4751fa538ae8dc2bc89c9f99bbbcf1e610eac199a"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE/topics/lipschitz-homeomorphic-banach-spaces/index.html",
+    "bytes": 33757,
+    "sha256": "ddad3d824109e7020c46fc7db99d90e0f966505c09ea5236d46834a6de30e63f"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE_SUBPATH-baseline-state.json",
+    "bytes": 6498,
+    "sha256": "e03acdfc5c1e6fba329e480cee5ae18155b9e845f2a31587ba3991ba324c3b7a"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE_SUBPATH-inventory.json",
+    "bytes": 564374,
+    "sha256": "10d1470085be97b922379d381cb8699c3062d4871405b745de5e542826ef38df"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE_SUBPATH/index.html",
+    "bytes": 31723,
+    "sha256": "d997dbebd439ba2bcd39b25cebac4f5d4dbfe167f82f0c3d519fbf06685a0d77"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE_SUBPATH/topics/index.html",
+    "bytes": 29508,
+    "sha256": "9db0158984cdabe3a4b44b4bdb62c265ef953ace20d58cf31d6943675335ea5d"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/SITE_SUBPATH/topics/lipschitz-homeomorphic-banach-spaces/index.html",
+    "bytes": 34279,
+    "sha256": "24a43b2c4e6adcd921d1b17c9c62de9e382ea27880d15c392acf40665a082945"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/metadata.json",
+    "bytes": 3089,
+    "sha256": "0682cc69fe69141fd14e3fd100d34fff39ed6a26da235115f4d4eb00ceb0ee8f"
+  },
+  {
+    "path": "publication/f324-part2-topics-v1/selected/lipschitz-homeomorphic-banach-spaces-v1.pdf",
+    "bytes": 563368,
+    "sha256": "e6542431a42aec5cf18f652b42414c4c15b0b6ac96d0bfbb865cd7446082eab7"
+  },
+  {
+    "path": "scripts/f324-part2-topics-public-adapter.mjs",
+    "bytes": 11434,
+    "sha256": "9bbb18e32380964df1ec92deefdb407b871e9bdb3cfd58927876dafdedfe9395"
+  },
+  {
+    "path": "scripts/lip-free-hilbert-topics-public-adapter.mjs",
+    "bytes": 11767,
+    "sha256": "4b69d100dae5f03f161c801f0c1c2cf6f550f6c39c67778ad74556dc182334fd"
+  },
+  {
+    "path": "scripts/postpublic-gate.mjs",
+    "bytes": 17299,
+    "sha256": "b9ed35545692e14db687f6fc400e5d8da1ba7bc081189ceca9238326a6a44895"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "schema": "exact.f324-part2-topics-selection.v1",
+  "batch": "EXACT_F324_PART2_TOPICS_PUBLICATION_R1",
+  "old_commit": "461af063a0f6fec6e32638526371e2485e6418af",
+  "old_tree": "189e5ce9417c163a92d7d1eee98956e149d3031e",
+  "public_push_parent": "461af063a0f6fec6e32638526371e2485e6418af",
+  "accepted_candidate_commit": "6f63468003452725d3221bc268d6136efd4e67d3",
+  "accepted_candidate_subtree": "3b5f9a57b9af436b3d45857280275e8ed4026289",
+  "canonical_origin": "https://exactmathematics.org",
+  "public_repository": "https://github.com/r-tanaka-math/exact-math",
+  "public_repository_id": 1374460434,
+  "owner_instruction_sha256": "ac12a311e8a49a1bca102d7888ba7efeebde166066bf8f45c815e72b4f021554",
+  "dispatch_sha256": "484d584c18240041d35ac1dc8d8d3fb2bc81dc115491e5225c72f23e88adad9f",
+  "accepted_return_sha256": "ba6e5e27b203a341bdc080f2c14055ac34afaed87f9801a5ef709d616a7bffee",
+  "final_tex_sha256": "33139f9c189458389535c1392dd22e55852049c90e399f398c9de8a51af0f45c",
+  "publication_date": "2026-10-28",
+  "prepared_date": "2026-10-27",
+  "author": "",
+  "publication_responsibility": "Ryotaro Tanaka",
+  "pdf": {
+    "path": "topics/lipschitz-homeomorphic-banach-spaces/lipschitz-homeomorphic-banach-spaces-v1.pdf",
+    "bytes": 563368,
+    "sha256": "e6542431a42aec5cf18f652b42414c4c15b0b6ac96d0bfbb865cd7446082eab7",
+    "pages": 49
+  },
+  "profiles": {
+    "SITE": {
+      "file_count": 2901,
+      "inventory_sha256": "76f75943dec8b6a3816ba2aa23a6538eecc1cfa5a81bcee966a2c9d245b1629e",
+      "baseline_state_sha256": "f054bb8cd2e0a92bb1c75343809608acd40e54b66c8f7ca266e8b7813c5b210f"
+    },
+    "SITE_SUBPATH": {
+      "file_count": 2906,
+      "inventory_sha256": "10d1470085be97b922379d381cb8699c3062d4871405b745de5e542826ef38df",
+      "baseline_state_sha256": "e03acdfc5c1e6fba329e480cee5ae18155b9e845f2a31587ba3991ba324c3b7a"
+    }
+  },
+  "original_source": {
+    "author": "OpenAI",
+    "title": "Lipschitz Equivalent Separable Banach Spaces Need Not Be Linearly Isomorphic",
+    "manuscript_date": "2026-09-24",
+    "date_kind": "manuscript date; not a claim about first public availability",
+    "repository": "https://github.com/openai/math",
+    "commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+    "paper_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Lipschitz-Equivalent-Separable-Banach-Spaces-Need-Not-Be-Linearly-Isomorphic-September-24-2026/paper.pdf",
+    "directory_url": "https://github.com/openai/math/tree/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Lipschitz-Equivalent-Separable-Banach-Spaces-Need-Not-Be-Linearly-Isomorphic-September-24-2026",
+    "paper_git_blob": "5fdfbd16326d794c8221389b001fd4201c00e447",
+    "paper_bytes": 446455,
+    "README_git_blob": "5d450500b16156b2537a55764204f8643131c373",
+    "use": "Existing bibliography item [9]; same pinned source, no update of mathematical basis",
+    "checked_on": "2026-10-28",
+    "checks": "GitHub connector: pinned README and directory listing; PDF URI extracted from accepted PDF. No fresh re-audit of the original proof."
+  }
+}

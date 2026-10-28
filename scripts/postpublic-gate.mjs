@@ -1,3 +1,4 @@
+import {validateF324Part2Act} from './f324-part2-topics-public-adapter.mjs';
 import {validateLipFreeHilbertAct} from './lip-free-hilbert-topics-public-adapter.mjs';
 import {validateBrouwerAct} from './brouwer-topics-public-adapter.mjs';
 import {validateFPPAct} from './fpp-topics-public-adapter.mjs';
@@ -176,7 +177,8 @@ export function postPublicUpdateGate(deployment){
   const identity=gitIdentity('FULL_LAUNCH');
   need(process.env.EXACT_UPDATE_ACT,'EXACT_UPDATE_ACT must identify a separate owner act');
   const act=JSON.parse(fs.readFileSync(path.resolve(process.env.EXACT_UPDATE_ACT),'utf8'));
-  if(act.update_kind==='EXACT_LIP_FREE_HILBERT_TOPICS_PUBLICATION_R1')validateLipFreeHilbertAct(act,identity,deployment,tokyoDate());
+  if(act.update_kind==='EXACT_F324_PART2_TOPICS_PUBLICATION_R1')validateF324Part2Act(act,identity,deployment,tokyoDate());
+  else if(act.update_kind==='EXACT_LIP_FREE_HILBERT_TOPICS_PUBLICATION_R1')validateLipFreeHilbertAct(act,identity,deployment,tokyoDate());
   else if(act.update_kind==='EXACT_BROUWER_TOPICS_PUBLICATION_R1')validateBrouwerAct(act,identity,deployment,tokyoDate());
   else if(act.update_kind==='EXACT_FPP_TOPICS_PUBLICATION_R1')validateFPPAct(act,identity,deployment,tokyoDate());
   else if(act.update_kind==='EXACT_TINGLEY_TOPICS_PUBLICATION_R1')validateTingleyAct(act,identity,deployment,tokyoDate());
