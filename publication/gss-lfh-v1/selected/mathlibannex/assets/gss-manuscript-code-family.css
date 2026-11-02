@@ -1,0 +1,4 @@
+/* Proposed screen-only fix for the existing manuscript-style GSS Cards. */
+@media screen {
+  .gss-body article.manuscript.lfh188-body code { font-family: Lean, Project, monospace; }
+}

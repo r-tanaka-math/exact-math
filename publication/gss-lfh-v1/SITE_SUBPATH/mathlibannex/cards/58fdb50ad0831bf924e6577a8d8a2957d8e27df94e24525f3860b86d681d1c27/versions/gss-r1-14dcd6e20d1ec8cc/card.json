@@ -1,0 +1,30 @@
+{
+  "name": "Projectivization.exists_semilinearEquiv_of_finite_span",
+  "title": "Finite projective incidence determines a semilinear equivalence",
+  "identity_key": "lfh:lfh-declaration-card:sha256:58fdb50ad0831bf924e6577a8d8a2957d8e27df94e24525f3860b86d681d1c27",
+  "stable_card_id": "58fdb50ad0831bf924e6577a8d8a2957d8e27df94e24525f3860b86d681d1c27",
+  "card_revision": 1,
+  "card_sha256": "9e4b04cf36edb925862f694349f56eef15b7249ca2e3b2841361ce9453d09af5",
+  "exposition_revision": 1,
+  "exposition_sha256": "14dcd6e20d1ec8cc4d59dc4c4a542bd99d82e59c9bf3d87fee297cd610cc10cd",
+  "manuscript_sha256": "2eddab83cfeea74d55bbda2525c3f47d3e0fa972c62cabbc13123752f24414a5",
+  "guide_sha256": "df90c6811b7dfe934ed4fa67448cd7376c2b812813c1357cb377a8a6e864f472",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/LinearAlgebra/Projectivization/Semilinear.lean.html?from=35&start=514&end=533#L514",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/LinearAlgebra/Projectivization/Semilinear.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/LinearAlgebra/Projectivization/Semilinear.lean",
+    "raw_bytes": {
+      "bytes": 27588,
+      "sha256": "93f555c4b459b46388dcf866345d3d379b96cefb72f4aa7714eab5cc3a7f2f9f"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 5602,
+    "sha256": "909c55d3d3cfefb707c7714c6407e6ec91d5509094ade9f318bc754077eddd32"
+  }
+}

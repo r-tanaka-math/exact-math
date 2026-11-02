@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.normalPart_semilinear_factors_evaluation",
+  "title": "Semilinear factors recover all coefficient kernels",
+  "identity_key": "lfh:lfh-declaration-card:sha256:cdd4d1e9b1d3b5f4a4aa6965aec3cbfa46729e85fb8dce6f7924c8c8291a0407",
+  "stable_card_id": "cdd4d1e9b1d3b5f4a4aa6965aec3cbfa46729e85fb8dce6f7924c8c8291a0407",
+  "card_revision": 1,
+  "card_sha256": "1919ef0db13fddc618e9b733a7d233cfee2fe799b7c0efdaf7bca67e87358756",
+  "exposition_revision": 1,
+  "exposition_sha256": "4d7edc5c00bc315d2b47213dbfff1c440829740754b2a7d0d76f8cb2c641d5c9",
+  "manuscript_sha256": "2b8d132142726e8075ff2005a04d21cefc0e6f719845bc7656719afcea38f504",
+  "guide_sha256": "a773ebb94ea9d68a2c31a3635df37a3495bda4bafc25b604feabbbf5ae1e0f27",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartSemilinearRealization.lean.html?from=37&start=179&end=225#L179",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartSemilinearRealization.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartSemilinearRealization.lean",
+    "raw_bytes": {
+      "bytes": 15458,
+      "sha256": "a38463667b8a521fb7e214a79428b8f1423c4eef833c85400643beec241b2b7a"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 16937,
+    "sha256": "8f18d3f0c87629b8963f2580dd16041141d98bf757c5ee98dfd86aa43dda50ed"
+  }
+}

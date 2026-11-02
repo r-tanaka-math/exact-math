@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.nonempty_starAlgEquiv_iff_nonempty_geometricStructure_homeomorph_of_finiteDimensional_or",
+  "title": "GSS rigidity when either algebra is finite-dimensional",
+  "identity_key": "lfh:lfh-declaration-card:sha256:8b8480a55df0a4e96204c8b9b774c40d1fb0bdee6a15822103f93c366da3f62c",
+  "stable_card_id": "8b8480a55df0a4e96204c8b9b774c40d1fb0bdee6a15822103f93c366da3f62c",
+  "card_revision": 1,
+  "card_sha256": "dde125463da1e031393af76e061bec98f86ed03490b2aed8cd2156da705982e3",
+  "exposition_revision": 1,
+  "exposition_sha256": "d8658c3bcbb13dd0cb1d790ceefd6164e5529339b826ee92ddc120d340481184",
+  "manuscript_sha256": "c8a82d70f3fa5e9841f68a5908f75ec9112222026fa71c70eabd222f14edf351",
+  "guide_sha256": "868ca3d13066e39e31a69e48023f70dcee21ac4cf9a5135d04a47247db869d5a",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/ElementaryFiniteDimensionalRigidity.lean.html?from=60&start=147&end=165#L147",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/ElementaryFiniteDimensionalRigidity.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/ElementaryFiniteDimensionalRigidity.lean",
+    "raw_bytes": {
+      "bytes": 8690,
+      "sha256": "073523a9afa33efe3ab58ab6fdf1e4c919a954bf5f174e985374ff934c25f53c"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 7140,
+    "sha256": "2bf0a4051820b872d138551609a4dc09bbcad4a7e24652d89c72a2e1a55a8528"
+  }
+}

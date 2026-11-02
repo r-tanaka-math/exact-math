@@ -1,0 +1,1121 @@
+{
+  "shared_UIDs": 1,
+  "additional_UIDs": 68,
+  "combined_unique_UIDs": 256,
+  "publication_edition": "Version 1",
+  "previously_published_UIDs": 188,
+  "GSS_UIDs": 69,
+  "selection_role": "EXACT_RELEASE_REVISION_SET",
+  "rows": [
+    {
+      "key": "38",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "8bb6620137801883e60f145cf1d70dcac0458b64e972d628da64877bb86b9b67",
+        "uid": "lfh:lfh-declaration-card:sha256:36ad36607b1a349c8b0647a7d6e199c5c46b6c514e202fbb2a51742ba95929c3"
+      },
+      "route": "mathlibannex/cards/36ad36607b1a349c8b0647a7d6e199c5c46b6c514e202fbb2a51742ba95929c3/versions/gss-r1-cf4dbb68d9349dd9/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "35",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "9e4b04cf36edb925862f694349f56eef15b7249ca2e3b2841361ce9453d09af5",
+        "uid": "lfh:lfh-declaration-card:sha256:58fdb50ad0831bf924e6577a8d8a2957d8e27df94e24525f3860b86d681d1c27"
+      },
+      "route": "mathlibannex/cards/58fdb50ad0831bf924e6577a8d8a2957d8e27df94e24525f3860b86d681d1c27/versions/gss-r1-14dcd6e20d1ec8cc/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "1",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1920461172d18ea8206dbdbd7a0ece11093e458889a720c183e5baefb6c25d97",
+        "uid": "lfh:lfh-declaration-card:sha256:051c8b2fd731474cb5638761a359e66ab04e78beb04386598bdb1e8e977cc048"
+      },
+      "route": "mathlibannex/cards/051c8b2fd731474cb5638761a359e66ab04e78beb04386598bdb1e8e977cc048/versions/gss-r1-b29f460ba05d2dd1/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "7",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5231bb6cea3d1a33294e8038a886849e69645314a865cf17a3d3473814803dfb",
+        "uid": "lfh:lfh-declaration-card:sha256:ed8be8d278e688abbaaaaf2aeb148c8fd09bf3b9526a455940aad9c2d0bcedeb"
+      },
+      "route": "mathlibannex/cards/ed8be8d278e688abbaaaaf2aeb148c8fd09bf3b9526a455940aad9c2d0bcedeb/versions/gss-r1-1076e655b13cc43c/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "8",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "aaaf0ff06f46171ce6cfb9f4ef0b36221cad6a108f63cfc164c1b144ef32448d",
+        "uid": "lfh:lfh-declaration-card:sha256:7fd1342cdaa020367f7e436d83dd5b07f1709b2b3fce6d3fab51f8542192c8cb"
+      },
+      "route": "mathlibannex/cards/7fd1342cdaa020367f7e436d83dd5b07f1709b2b3fce6d3fab51f8542192c8cb/versions/gss-r1-c45fd4e9db692951/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "44",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "358541b6d170193d39b233b293afdb208df3ebb6bc8c8237f451da19c80f1872",
+        "uid": "lfh:lfh-declaration-card:sha256:6d987a777ad628da9151adcdfdef5693d121c754b214a7268d4bbb30b2b9677c"
+      },
+      "route": "mathlibannex/cards/6d987a777ad628da9151adcdfdef5693d121c754b214a7268d4bbb30b2b9677c/versions/gss-r1-0f27ae46ebd2ea45/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "2",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "f4cc32639662f8f5db1218cfa73a2a29b0e04de4b1d6db03c3d8cb737e0b6e32",
+        "uid": "lfh:lfh-declaration-card:sha256:1f4222f50792ca031f258638df676d23702dccbafd0e99dfd4e3f2f5e7ba8721"
+      },
+      "route": "mathlibannex/cards/1f4222f50792ca031f258638df676d23702dccbafd0e99dfd4e3f2f5e7ba8721/versions/gss-r1-a6864444b7f937a8/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "13",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "47fe06c79c7142605328ba71b49874f284d817485363590d00e8c5b78721dda9",
+        "uid": "lfh:lfh-declaration-card:sha256:52e5d62f7053b8306fdbbac8b721e9ef0475b7afaf156c739fd2ab9294273625"
+      },
+      "route": "mathlibannex/cards/52e5d62f7053b8306fdbbac8b721e9ef0475b7afaf156c739fd2ab9294273625/versions/gss-r1-74af612d52d19918/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "12",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "38a8f0214ce0fb421589596a6d983552506282203cf245988cce3624bcc1cf37",
+        "uid": "lfh:lfh-declaration-card:sha256:a94dce0ec7355781265c5013b5a05fc406db350a4a465c398f735051defb2c03"
+      },
+      "route": "mathlibannex/cards/a94dce0ec7355781265c5013b5a05fc406db350a4a465c398f735051defb2c03/versions/gss-r1-84659fc4c28b0535/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "42",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "c28c63e9af346265d56ae05fd4412c3dbcfc893dd5b8e4e9a8746c0b3daf7959",
+        "uid": "lfh:lfh-declaration-card:sha256:268b26f75aec1f93a1d7f03336590d46085719c35a97ca1c519b727608731e0c"
+      },
+      "route": "mathlibannex/cards/268b26f75aec1f93a1d7f03336590d46085719c35a97ca1c519b727608731e0c/versions/gss-r1-09052d98b151adfa/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "17",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "03b9952adb6d9fb262147afd2316953c3a702537714d16552bd4850595fd7416",
+        "uid": "lfh:lfh-declaration-card:sha256:1d5762922bae8477004705d3fdd85e6aedb3b9dafb54c41579a87ed1a2427fd6"
+      },
+      "route": "mathlibannex/cards/1d5762922bae8477004705d3fdd85e6aedb3b9dafb54c41579a87ed1a2427fd6/versions/gss-r1-f715bef56037c9e5/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "18",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "84b21157565936f0900d773f331211a7db9ed29634a0b23ed30b85b3f84466c6",
+        "uid": "lfh:lfh-declaration-card:sha256:dc5425431b0c12bf15137e6002c16b5ba2c600bde91d02b23dd813e4369498d1"
+      },
+      "route": "mathlibannex/cards/dc5425431b0c12bf15137e6002c16b5ba2c600bde91d02b23dd813e4369498d1/versions/gss-r1-e6b09cd26ba001ea/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "19",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ca3dfe8458bb62115cd3be45bf86612614c30c071c8c5eb316217185ac97d85f",
+        "uid": "lfh:lfh-declaration-card:sha256:cfac10adc682588763e2ae6326f6b0d05659d27f862faee2c7797548c83dff06"
+      },
+      "route": "mathlibannex/cards/cfac10adc682588763e2ae6326f6b0d05659d27f862faee2c7797548c83dff06/versions/gss-r1-e799bba24301220d/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "22",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "34e000fcce21325dbe5229f4ca9cbc22a9ec49d4470685a125077df4dc02bf4f",
+        "uid": "lfh:lfh-declaration-card:sha256:0b334e5bbbc829b14a2ca71c55edf8f4023aabf84d325141773156b8cb7305fb"
+      },
+      "route": "mathlibannex/cards/0b334e5bbbc829b14a2ca71c55edf8f4023aabf84d325141773156b8cb7305fb/versions/gss-r1-066cbd252414e739/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "23",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "a4d7edd8e108c13c9ed4157e3b7b5bf17a0b06296ba9c79e7d99c6e8ecf168cd",
+        "uid": "lfh:lfh-declaration-card:sha256:32a0d85ad11505691601ed6ff3a2592463049e23dac1307583b72fb7d89f4fe5"
+      },
+      "route": "mathlibannex/cards/32a0d85ad11505691601ed6ff3a2592463049e23dac1307583b72fb7d89f4fe5/versions/gss-r1-f413a6b2f988d5e7/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "24",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "afe60da871ed0e1467395b9d1f9d26c757ba308db45536bf90d19691ab51488d",
+        "uid": "lfh:lfh-declaration-card:sha256:b5a192e841f43aae6cbba4d6140d4b7da715805946eec19acd5e5cbaa90a8573"
+      },
+      "route": "mathlibannex/cards/b5a192e841f43aae6cbba4d6140d4b7da715805946eec19acd5e5cbaa90a8573/versions/gss-r1-2acfa649372da9c7/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "26",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ce590b80d388112ae6332e0b202a01bd73f95ad1fc373f5baa7b52e1c25eb7c3",
+        "uid": "lfh:lfh-declaration-card:sha256:40149bd49114dfa869eef625e06a0138beb53d7b8946c51f162e0e196f171ac1"
+      },
+      "route": "mathlibannex/cards/40149bd49114dfa869eef625e06a0138beb53d7b8946c51f162e0e196f171ac1/versions/gss-r1-ca68b7db0ee7c38c/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "43",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "70a1e3fb7fa315825f812a08558a8cc86b7e755d1062da2c3ac75a9f04d7cb00",
+        "uid": "lfh:lfh-declaration-card:sha256:1b53fbcb51ead52ce115008da9983e5c60906f86e1ee22c73fd5f7506b298524"
+      },
+      "route": "mathlibannex/cards/1b53fbcb51ead52ce115008da9983e5c60906f86e1ee22c73fd5f7506b298524/versions/gss-r1-e50e61ed10aff89d/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "52",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "77b3af19e3502b0b5afc8c30358547a659a0aa3aa1cb527ce405a40db30b0301",
+        "uid": "lfh:lfh-declaration-card:sha256:c6c317e4316ff82bf1e187209d9f5b8474c84243362865cd2a08f9476268e390"
+      },
+      "route": "mathlibannex/cards/c6c317e4316ff82bf1e187209d9f5b8474c84243362865cd2a08f9476268e390/versions/gss-r1-ebd626df135ab15d/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "compact-model-space",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "f6b51826d020b7289274f75e6c993c201217fb83c4e5feeb76f70453ffdeed7a",
+        "uid": "lfh:lfh-declaration-card:sha256:2e9d6a12ad890dd7453e90c194c7fbbdd01dcda7851e5d16c2275427fa6dad74"
+      },
+      "route": "mathlibannex/cards/2e9d6a12ad890dd7453e90c194c7fbbdd01dcda7851e5d16c2275427fa6dad74/versions/gss-r1-39a1ba115be76af0/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "irreducible-spectrum",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "4861864cbf4bde81b34c1eb6b8db30c4cf86345f85100e102aa041dc8fed8863",
+        "uid": "lfh:lfh-declaration-card:sha256:6d61411eb406741fdc311de8512a3c787026dbe4ac5fdd13f4ee8e3f9f8e5f36"
+      },
+      "route": "mathlibannex/cards/6d61411eb406741fdc311de8512a3c787026dbe4ac5fdd13f4ee8e3f9f8e5f36/versions/gss-r1-50deff8011e46124/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "55",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "15df9af01fb55a1bf3c91e399859630f7d80140dc5895327aa800161875df428",
+        "uid": "lfh:lfh-declaration-card:sha256:e1f8ae266d1290e2e7415612fea378e3069c91635f644d58b6b26f1a0eafeef4"
+      },
+      "route": "mathlibannex/cards/e1f8ae266d1290e2e7415612fea378e3069c91635f644d58b6b26f1a0eafeef4/versions/gss-r1-2e5669e8d2c49464/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "primitive-spectrum",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5a62cba0595026cc4bcc1122f62ebd940857f84d1c9d2b333632d3465c5b13bf",
+        "uid": "lfh:lfh-declaration-card:sha256:8f04eaabc6451d43c2e877d60ea2504bb4b937f2a0129f3789ea91fd53d5d568"
+      },
+      "route": "mathlibannex/cards/8f04eaabc6451d43c2e877d60ea2504bb4b937f2a0129f3789ea91fd53d5d568/versions/gss-r1-026b5249968b4adf/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "4",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5f6b1457045a74988a830333fcec541d63459263543911c3ad0be100b50a8ef7",
+        "uid": "lfh:lfh-declaration-card:sha256:2a268a095d051b4bcf9c934e4a60dea75d134e9a728ec7042cbb3f337410e13c"
+      },
+      "route": "mathlibannex/cards/2a268a095d051b4bcf9c934e4a60dea75d134e9a728ec7042cbb3f337410e13c/versions/gss-r1-bf1b0eb1ba8ddde0/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "5",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "f0613532e38693386ec173bdb62889b7f8ec31170003f913143f4d5b730d09ff",
+        "uid": "lfh:lfh-declaration-card:sha256:81027d4ce2fa25a93780f921f73b060bbfc8f9f580a00a9200face0fe00f60cc"
+      },
+      "route": "mathlibannex/cards/81027d4ce2fa25a93780f921f73b060bbfc8f9f580a00a9200face0fe00f60cc/versions/gss-r1-cded7ac5dfdcacee/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "6",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1c28567ab50d56a6375241e486873100c5e40573e93d09a82158d0f7e5e2aea6",
+        "uid": "lfh:lfh-declaration-card:sha256:e7204a2011082aa580b29d7ccd62e08ddd52aca1e2c46b67039f4c16541c0930"
+      },
+      "route": "mathlibannex/cards/e7204a2011082aa580b29d7ccd62e08ddd52aca1e2c46b67039f4c16541c0930/versions/gss-r1-25b7fa4b40b8bc83/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "10",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "6cf916ad94d6be805ffb88ccafb30dbb5db4f547b6cbfaecfa97ac0cf8d48e41",
+        "uid": "lfh:lfh-declaration-card:sha256:3b67671f8d00b7143cb622ec746b09b3ba0b6bcac0a8926d7154e3d863d5e910"
+      },
+      "route": "mathlibannex/cards/3b67671f8d00b7143cb622ec746b09b3ba0b6bcac0a8926d7154e3d863d5e910/versions/gss-r1-6778bb277cbbd251/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "11",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1881643031f1cb9a6c89f26c7e4b9535f4f8a9b2411d2e11505608edd8a4ad80",
+        "uid": "lfh:lfh-declaration-card:sha256:688c258fc54eb4a15918062a1e2948443b810613bbaadc07bf715c20a04aa429"
+      },
+      "route": "mathlibannex/cards/688c258fc54eb4a15918062a1e2948443b810613bbaadc07bf715c20a04aa429/versions/gss-r1-1ade8901e862180a/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "9",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "96ded6b59d6903074ee44899fe20a7ac843d71958e804834f2d3fdd59bba5918",
+        "uid": "lfh:lfh-declaration-card:sha256:4939855a58535afd690c762d3c5eb2934d6675343e81f46879be683217621da5"
+      },
+      "route": "mathlibannex/cards/4939855a58535afd690c762d3c5eb2934d6675343e81f46879be683217621da5/versions/gss-r1-b668cec6939db3b1/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "3",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "64324b7824e7944628e721b7af9729e584e7d2c1c5663efe355c931918a5fec3",
+        "uid": "lfh:lfh-declaration-card:sha256:0d49049cbfbdb774584e35ddc6cb49a1befcb0813eff99dc399e90c62475da1a"
+      },
+      "route": "mathlibannex/cards/0d49049cbfbdb774584e35ddc6cb49a1befcb0813eff99dc399e90c62475da1a/versions/gss-r1-5ba0666104ffcad2/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "c0-direct-sum",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "baac453b94b53f8dd3b5522e5a8dafb6524316acbcc0e4fbf0e8484d681370e9",
+        "uid": "lfh:lfh-declaration-card:sha256:613580e7a78da1e407fd973eb4a29fa79a46f0cd91a0f390c35e2d30e0c1ace1"
+      },
+      "route": "mathlibannex/cards/613580e7a78da1e407fd973eb4a29fa79a46f0cd91a0f390c35e2d30e0c1ace1/versions/gss-r1-caf05679cdf0546b/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "compact-operator-c0-sum",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "2f73021866e72dd25d244139fed61f1ee76e03fca90c88fd531984f1cc1e4bc3",
+        "uid": "lfh:lfh-declaration-card:sha256:5cf0bcfe187a49cb7ede9d665be53ec0dfc990d1f18c10024ceb9120076696ed"
+      },
+      "route": "mathlibannex/cards/5cf0bcfe187a49cb7ede9d665be53ec0dfc990d1f18c10024ceb9120076696ed/versions/gss-r1-c9c26d8f13af10e2/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "ideal-c0-sum-equivalence",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ff3deda7d520dc409ec71398699434e14b65bfa179c7712a82ce4ea242fb3cb8",
+        "uid": "lfh:lfh-declaration-card:sha256:8a8d58440958063c8cb597bb8de63288b0af0efc3cff567f92a54e5a55288c77"
+      },
+      "route": "mathlibannex/cards/8a8d58440958063c8cb597bb8de63288b0af0efc3cff567f92a54e5a55288c77/versions/gss-r1-975d408df450cf79/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "15",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "183dd516c87ce07c1d14c7fc61b30313085b853d29a27e5d46b2d8ed3bc59e71",
+        "uid": "lfh:lfh-declaration-card:sha256:6687745b481cc7b6e73c7c61ba652b611a41578831abbe59a67455d6f87adb1a"
+      },
+      "route": "mathlibannex/cards/6687745b481cc7b6e73c7c61ba652b611a41578831abbe59a67455d6f87adb1a/versions/gss-r1-127aee93a1a000f2/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "14",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "afe6051669975a09f5955926a5977589e99fda3baeb61e2ef598cfa502de43fa",
+        "uid": "lfh:lfh-declaration-card:sha256:2c9647786d7a86fe4fe7ffc8d30f26e964e04f65858a6915220629f7918072ba"
+      },
+      "route": "mathlibannex/cards/2c9647786d7a86fe4fe7ffc8d30f26e964e04f65858a6915220629f7918072ba/versions/gss-r1-3cc5b5cbc0d7b744/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "20",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "76d14678ffc54ce1940dd1698202d4ed65c82570afc906e4527a3a707439ea98",
+        "uid": "lfh:lfh-declaration-card:sha256:bd23b958c2bb8d456d73377db09ea107d5de98389ab34d3c93a173d0ce58a06c"
+      },
+      "route": "mathlibannex/cards/bd23b958c2bb8d456d73377db09ea107d5de98389ab34d3c93a173d0ce58a06c/versions/gss-r1-fb2eb7faae06898e/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "21",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "99b03276d4086a853abc410087669c306af2d6c766e60eedcb6bee188c8a057b",
+        "uid": "lfh:lfh-declaration-card:sha256:407f570c29b53ad2e9ffa1b46613c142a0e8c631c2aca03ec172505aade4b777"
+      },
+      "route": "mathlibannex/cards/407f570c29b53ad2e9ffa1b46613c142a0e8c631c2aca03ec172505aade4b777/versions/gss-r1-6167c2d975ac02b4/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "61",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "d3819b8587cdd7a5ab6e237e096babd8b775b50e5aff04bd2aad2bab7c336203",
+        "uid": "lfh:lfh-declaration-card:sha256:512cd884f8448768e9babb08ddd780e0eb15cf34727aa9a1c4925695669752ef"
+      },
+      "route": "mathlibannex/cards/512cd884f8448768e9babb08ddd780e0eb15cf34727aa9a1c4925695669752ef/versions/gss-r1-06ab3118631304ff/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "58",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "3be45b0c975f153e673a3bef4565d4102f60f506187c006d685dd5c724c425bc",
+        "uid": "lfh:lfh-declaration-card:sha256:246001db089358ca2048f2fa1f24011fbdceaba5e6ebb2ec6b7e18c4900cf1c0"
+      },
+      "route": "mathlibannex/cards/246001db089358ca2048f2fa1f24011fbdceaba5e6ebb2ec6b7e18c4900cf1c0/versions/gss-r1-e860795177df166d/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "59",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1927a6ba1973a8fbf9e34ac0b7734e6d376188517efec7b2c08937058af786ea",
+        "uid": "lfh:lfh-declaration-card:sha256:6b0c4cdd1964f6eb8c8b457a0b1b9b14bf8af4b70b47d74a6675a0a58e03bac5"
+      },
+      "route": "mathlibannex/cards/6b0c4cdd1964f6eb8c8b457a0b1b9b14bf8af4b70b47d74a6675a0a58e03bac5/versions/gss-r1-94476287b229a2fa/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "60",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "dde125463da1e031393af76e061bec98f86ed03490b2aed8cd2156da705982e3",
+        "uid": "lfh:lfh-declaration-card:sha256:8b8480a55df0a4e96204c8b9b774c40d1fb0bdee6a15822103f93c366da3f62c"
+      },
+      "route": "mathlibannex/cards/8b8480a55df0a4e96204c8b9b774c40d1fb0bdee6a15822103f93c366da3f62c/versions/gss-r1-d8658c3bcbb13dd0/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "16",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "083cb4f4e670eb0256e7e835b4056dc8792d6eb180de47bb6da5d2574fe82d66",
+        "uid": "lfh:lfh-declaration-card:sha256:34a7bd4f9a44a5027e879e535d823650db9e1c88c189d9512f4abf807927b2b2"
+      },
+      "route": "mathlibannex/cards/34a7bd4f9a44a5027e879e535d823650db9e1c88c189d9512f4abf807927b2b2/versions/gss-r1-0347c222eddf4f04/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "compact-c0-sum-equivalence",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "e1e0e0d301a159bd19b4078791632050cf594d6c8101af190b2015a1cf208650",
+        "uid": "lfh:lfh-declaration-card:sha256:7f5a85e6d674d8d375ac4ebf6bfeaeeb5655656a613e9459b1e67a21d5902204"
+      },
+      "route": "mathlibannex/cards/7f5a85e6d674d8d375ac4ebf6bfeaeeb5655656a613e9459b1e67a21d5902204/versions/gss-r1-655f95229b7a0fdd/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "46",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ca8f4799bd17ec868ce4f44d31ac34c0f24cd864efec072a98f81703e3793f5e",
+        "uid": "lfh:lfh-declaration-card:sha256:e3d1146d0e72a14eab872864b884e280adae5d387683e668928421e5dc6a02d1"
+      },
+      "route": "mathlibannex/cards/e3d1146d0e72a14eab872864b884e280adae5d387683e668928421e5dc6a02d1/versions/gss-r1-29dfdf789fe8e334/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "47",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "c632a03795d47f8b00e3a83382286052193bd94c8490f261c4650a59403bfd20",
+        "uid": "lfh:lfh-declaration-card:sha256:098d427d2201316055ccfe4ea61ab7733ae79857c7a734dfc892c6331c076008"
+      },
+      "route": "mathlibannex/cards/098d427d2201316055ccfe4ea61ab7733ae79857c7a734dfc892c6331c076008/versions/gss-r1-d0986f8f0a517994/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "49",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "f47d232fe5ba3eaf3cf6c2bcc996326b68e2b4d249384f079b2e936c15e36800",
+        "uid": "lfh:lfh-declaration-card:sha256:8dd97c9c7d665daf08abe024f5cd919ea304bee73fb0cd0f717abdb093598267"
+      },
+      "route": "mathlibannex/cards/8dd97c9c7d665daf08abe024f5cd919ea304bee73fb0cd0f717abdb093598267/versions/gss-r1-391d3e0bdbda498b/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "50",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "297a88ec2fbf93cca71b48d92709bbff9146edcb29d3ff60a2bb7a85a84c4ca5",
+        "uid": "lfh:lfh-declaration-card:sha256:06c5414a063d30311a7d885a6b5c3514d607fe9424d4f9d437cc9cfb38f1f597"
+      },
+      "route": "mathlibannex/cards/06c5414a063d30311a7d885a6b5c3514d607fe9424d4f9d437cc9cfb38f1f597/versions/gss-r1-3e5ca9e1f3eb6c3c/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "48",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "fbc70107d55632b153fc3deadae96ddfab6f68d12e08812d321df2733bf7ea46",
+        "uid": "lfh:lfh-declaration-card:sha256:266063c05c13ee8c87329de652bb2c68fc5c83d3d4cbf55198ea6880fd333614"
+      },
+      "route": "mathlibannex/cards/266063c05c13ee8c87329de652bb2c68fc5c83d3d4cbf55198ea6880fd333614/versions/gss-r1-6758a52f2a940b62/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "51",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ab86a6a8343db6b80c531bf0e80f5ac7b169c8d6d0ff6142668a0a529f4594c3",
+        "uid": "lfh:lfh-declaration-card:sha256:ac0a3be2c564732508d8ad691f5b3cc689bc54b939dea39024556786433cfa9c"
+      },
+      "route": "mathlibannex/cards/ac0a3be2c564732508d8ad691f5b3cc689bc54b939dea39024556786433cfa9c/versions/gss-r1-6ce5df88ae9d6bba/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "25",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "09f468e537a19e3fd2250e8613f42ba608e197b112a76f487c02f4f1cc471bd2",
+        "uid": "lfh:lfh-declaration-card:sha256:5429bab04d4f40f5c73221227780b415fefa1d60201f14325eccecbba2b19ca0"
+      },
+      "route": "mathlibannex/cards/5429bab04d4f40f5c73221227780b415fefa1d60201f14325eccecbba2b19ca0/versions/gss-r1-88b7da14af528988/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "27",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "8c34301154750a79af43401850d73ba22c2c5fabf40b6356c9a82b6cbdc77e18",
+        "uid": "lfh:lfh-declaration-card:sha256:4795f90dcc646f51bf6c591f133c4986f8f3694b72258db7a3f1ef7466c7ce4d"
+      },
+      "route": "mathlibannex/cards/4795f90dcc646f51bf6c591f133c4986f8f3694b72258db7a3f1ef7466c7ce4d/versions/gss-r1-e9e3247599f7b296/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "28",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5edd3ba38be38cbf4255c4f24ed83518cb6adddd2e72969f36a6ea7dd64a8a61",
+        "uid": "lfh:lfh-declaration-card:sha256:59104afef875e8e638fb7e2aab8b9911f46750d7596282da822dfc7c2d4e91cb"
+      },
+      "route": "mathlibannex/cards/59104afef875e8e638fb7e2aab8b9911f46750d7596282da822dfc7c2d4e91cb/versions/gss-r1-be2c9f197ae2181f/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "31",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "2e7550641addf5dff2d2a645d5101bdb8f3bac5631e92f4f64480dfc1e6c9665",
+        "uid": "lfh:lfh-declaration-card:sha256:a587d8854f5a92f1700294bc271b4ca2fce180c87fdbed8d1f5373a4a586cfec"
+      },
+      "route": "mathlibannex/cards/a587d8854f5a92f1700294bc271b4ca2fce180c87fdbed8d1f5373a4a586cfec/versions/gss-r1-0af56cd85a5c72ef/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "32",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "fac51bc00375f43e8e70f91c7f937e7d5c6cf4bbc0d7d085d46c6df7c94f1c63",
+        "uid": "lfh:lfh-declaration-card:sha256:5073fcc22c365d351ee496998fb6c996496d5cd2c983cfb21d4d847a74d4c04c"
+      },
+      "route": "mathlibannex/cards/5073fcc22c365d351ee496998fb6c996496d5cd2c983cfb21d4d847a74d4c04c/versions/gss-r1-aefe0f2958a89d2b/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "33",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "0aebc56f5341ca9763e1361bb1e61e80f98231ce37b34dbde81b6b4631e86441",
+        "uid": "lfh:lfh-declaration-card:sha256:a2705404d60633a46b0eb0b2efca80f869dcc0fbada6b1b4d355904be9334645"
+      },
+      "route": "mathlibannex/cards/a2705404d60633a46b0eb0b2efca80f869dcc0fbada6b1b4d355904be9334645/versions/gss-r1-becbb62047a1942f/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "34",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "53ddb1eeb700070874ff179acdd3430fc9c53ce664d90854f331aa6d0dceef64",
+        "uid": "lfh:lfh-declaration-card:sha256:ff830108100bff4a506917dc761a7cb66c608fdf5458f297ea9004c43c6b0d0c"
+      },
+      "route": "mathlibannex/cards/ff830108100bff4a506917dc761a7cb66c608fdf5458f297ea9004c43c6b0d0c/versions/gss-r1-f9968bc86c07e5d7/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "36",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "0ddef056429142f025bf5d82af0ca43d5ca635b8ae7563922eaddccbcdf7ae3f",
+        "uid": "lfh:lfh-declaration-card:sha256:5cfbc37ef11004746da196fbfc5f5056fde9ac47956927ce62f2432455f19e67"
+      },
+      "route": "mathlibannex/cards/5cfbc37ef11004746da196fbfc5f5056fde9ac47956927ce62f2432455f19e67/versions/gss-r1-ba829240898e4fb0/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "29",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "03d2f93d3cea78fd6d4f61fd3eafe23c98319869c76b5e3df23095e03968c587",
+        "uid": "lfh:lfh-declaration-card:sha256:3d7328185180155bea7c1880574a35b05bdae0c668b736859fa00b2169850f30"
+      },
+      "route": "mathlibannex/cards/3d7328185180155bea7c1880574a35b05bdae0c668b736859fa00b2169850f30/versions/gss-r1-7357148c43380cb4/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "30",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "c325b049149172bc58d128cd561c0704128d711eec991ba945035ca4b254a325",
+        "uid": "lfh:lfh-declaration-card:sha256:c5c807e60f29ab7e5c474f8feb345aefbfb09466fc16a5de659c5936369e3d47"
+      },
+      "route": "mathlibannex/cards/c5c807e60f29ab7e5c474f8feb345aefbfb09466fc16a5de659c5936369e3d47/versions/gss-r1-1552e52c77e45972/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "37",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "1919ef0db13fddc618e9b733a7d233cfee2fe799b7c0efdaf7bca67e87358756",
+        "uid": "lfh:lfh-declaration-card:sha256:cdd4d1e9b1d3b5f4a4aa6965aec3cbfa46729e85fb8dce6f7924c8c8291a0407"
+      },
+      "route": "mathlibannex/cards/cdd4d1e9b1d3b5f4a4aa6965aec3cbfa46729e85fb8dce6f7924c8c8291a0407/versions/gss-r1-4d7edc5c00bc315d/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "39",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "5747ac02d646c1376a8ac59c2b44dd537d85973255ec9801b297aabc69238fb9",
+        "uid": "lfh:lfh-declaration-card:sha256:fc684fc1b5cbdec020a888573ebda515b74803f00dac5a45c2f2451e93c3030a"
+      },
+      "route": "mathlibannex/cards/fc684fc1b5cbdec020a888573ebda515b74803f00dac5a45c2f2451e93c3030a/versions/gss-r1-ea876dbc73dca7ca/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "40",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "be1f8a7e519abd29afde1cabde352d09fcf8cada665a77f96ad75d184b69dc00",
+        "uid": "lfh:lfh-declaration-card:sha256:dea300e85441947834f53ac22636686acdcbc75b0e3128604dabf8cbaa7fd024"
+      },
+      "route": "mathlibannex/cards/dea300e85441947834f53ac22636686acdcbc75b0e3128604dabf8cbaa7fd024/versions/gss-r1-a8369a09aa88208e/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "41",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "72d5d31fa3ffa85e12fbee97141330befc8cbcafeb8a18eff6cc05f6d3421860",
+        "uid": "lfh:lfh-declaration-card:sha256:8686551592dd8150c7ef5068bf8d05af2e6bdb9ead5db503d7a630dfd196a5ee"
+      },
+      "route": "mathlibannex/cards/8686551592dd8150c7ef5068bf8d05af2e6bdb9ead5db503d7a630dfd196a5ee/versions/gss-r1-7f7f848863859418/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "45",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "a7b2ab68a35d5f1323865d88f3d9b31b578106c0b10f141e1e18631bc910ddbe",
+        "uid": "lfh:lfh-declaration-card:sha256:dc51710ade94e76e70bcb7900241f80803b3dce6e116bf506bc4edf74a6b2656"
+      },
+      "route": "mathlibannex/cards/dc51710ade94e76e70bcb7900241f80803b3dce6e116bf506bc4edf74a6b2656/versions/gss-r1-d6d5c51df5128d1a/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "53",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "9d4d6588039e85d4d272c23dae376a4b6f1af61fc2d18f9306d4ad0f84852e86",
+        "uid": "lfh:lfh-declaration-card:sha256:166b5d638f6c27a451035ece7780b33266836361fcf44befbf47db1e236d2049"
+      },
+      "route": "mathlibannex/cards/166b5d638f6c27a451035ece7780b33266836361fcf44befbf47db1e236d2049/versions/gss-r1-d97e88f2c1de3824/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "54",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "ed9e970b2ecd6c7edc02f6d75d85299f9f410338e661f957ed03b3daa2e87f52",
+        "uid": "lfh:lfh-declaration-card:sha256:f66f28a81e5b11fe946b7764a17aeab00b86335eca4620bd782d6ae3a0378354"
+      },
+      "route": "mathlibannex/cards/f66f28a81e5b11fe946b7764a17aeab00b86335eca4620bd782d6ae3a0378354/versions/gss-r1-df7d71195145f58b/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "56",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "0033e9b963ed3fa45f0191a1c1dab8c5c97858ccef83def82f74557af837493d",
+        "uid": "lfh:lfh-declaration-card:sha256:ae080d5891f10f5b129063951765313149d728fd1adffd820c33396a9641b794"
+      },
+      "route": "mathlibannex/cards/ae080d5891f10f5b129063951765313149d728fd1adffd820c33396a9641b794/versions/gss-r1-ea91a963dc22dec8/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "57",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 1,
+        "sha256": "7217b4e6e4b56a65cb42a9a9d20d4734b2232eeb86cb13eda916b6715c02f556",
+        "uid": "lfh:lfh-declaration-card:sha256:968004a0ac46ed45e01dd56a9cc2b9cbc91621c8cf2606fa8f9ee3455c64f83c"
+      },
+      "route": "mathlibannex/cards/968004a0ac46ed45e01dd56a9cc2b9cbc91621c8cf2606fa8f9ee3455c64f83c/versions/gss-r1-f378386d28ad2284/index.html",
+      "published_same_UID": false,
+      "published_route": null,
+      "published_native_card_ref": null,
+      "published_editorial_revision": null,
+      "stable_URL_changed": false,
+      "public_increment_UID": 1
+    },
+    {
+      "key": "is-compact-operator-model",
+      "card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 3,
+        "sha256": "4329259b4399443c46e9a493ef3081bde406d18a69b68d371617f4b64ca88f8d",
+        "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+      },
+      "route": "mathlibannex/cards/26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384/versions/gss-r3-5499220b48a8fdad/index.html",
+      "published_same_UID": true,
+      "published_route": "mathlibannex/cards/26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384/versions/lfh188-ed2a0cc573631368/index.html",
+      "published_native_card_ref": {
+        "record_type": "LFH_DECLARATION_CARD",
+        "revision": 2,
+        "sha256": "5b6417ca84b7f238af19c451492ddf07d9960d3c2b4eae863704a3ad8e7ad3ce",
+        "uid": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384"
+      },
+      "published_editorial_revision": 6,
+      "stable_URL_changed": false,
+      "public_increment_UID": 0
+    }
+  ],
+  "route_semantics": "Routes beginning mathlibannex/ are relative to the site root."
+}

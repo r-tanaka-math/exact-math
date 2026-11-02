@@ -1,0 +1,30 @@
+{
+  "name": "ClosureSpace.FiniteHomeomorph",
+  "title": "Finite-homeomorphisms of closure spaces",
+  "identity_key": "lfh:lfh-declaration-card:sha256:a94dce0ec7355781265c5013b5a05fc406db350a4a465c398f735051defb2c03",
+  "stable_card_id": "a94dce0ec7355781265c5013b5a05fc406db350a4a465c398f735051defb2c03",
+  "card_revision": 1,
+  "card_sha256": "38a8f0214ce0fb421589596a6d983552506282203cf245988cce3624bcc1cf37",
+  "exposition_revision": 1,
+  "exposition_sha256": "84659fc4c28b0535b7c50ace203805f74b471fe92077bb1732f046127ecb6349",
+  "manuscript_sha256": "503a5291e198ff42970e35ff56fd40f027f49c7e8fefef1ce01e797e195b5a55",
+  "guide_sha256": "ea528e0e35b522e46cdfd2acaed69b425e6101a31898bee7a1e86eb8944226fe",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/Maps.lean.html?from=12&start=157&end=159#L157",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Topology/ClosureSpace/Maps.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/Maps.lean",
+    "raw_bytes": {
+      "bytes": 7047,
+      "sha256": "5a35a3a6f70dc294fd56e8cfa873c14cb3ba9e9f29f599486556162eec641ade"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 6385,
+    "sha256": "65437fae03495d64dd2c34392348295cff93a29eae42046731974a28c22da037"
+  }
+}

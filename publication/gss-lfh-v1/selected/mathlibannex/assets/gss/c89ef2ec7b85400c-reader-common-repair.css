@@ -1,0 +1,45 @@
+/* Task-local restoration of the adopted LFH vector-math and proof-panel path.
+   Public LFH_INLINE_BASELINE_R1: wrapper owns the SVG depth, child is a block.
+   Apply that same rule in print; never compensate both wrapper and SVG.
+   B02_EQUATIONS_FIX2: centered display; independent shaded proof-steps panel.
+   No formula-specific offsets, TeX changes, font scaling or field additions. */
+.lfh188-body .math-svg {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 0;
+  vertical-align: calc(-1 * var(--math-depth, 0em)) !important;
+  padding-bottom: 0;
+  overflow: visible;
+}
+.lfh188-body .math-svg > svg {
+  display: block;
+  vertical-align: 0 !important;
+  overflow: visible;
+}
+.lfh188-body .math-block { text-align: center; }
+.lfh188-body .math-block > svg { display: block; margin-inline: auto; }
+.lfh188-body .equation-body > svg { display: block; margin-inline: auto; }
+.lfh188-body .math-svg svg svg, .lfh188-body .math-block svg svg { overflow: hidden; }
+@media print {
+  @page { size: A4; margin: 17mm 15mm 17mm 18mm; }
+  .signature-lead { break-inside: avoid; }
+  .lfh188-body details.proof-steps {
+    padding: 6pt 9pt;
+    margin: 7pt 0;
+    background: #f4f5f2;
+    break-inside: auto;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .lfh188-body details.proof-steps summary { padding: 0 0 4pt; break-after: avoid; }
+  /* A proof step can itself exceed one page; do not move it off a mostly empty page. */
+  .lfh188-body details.proof-steps > ol > li { break-inside: auto; }
+  .lfh188-body .math-block { break-inside: avoid; overflow: visible; }
+  .lfh188-body .exact-identity { display: none; }
+  .technical-only { display: none !important; }
+  .card-scope { break-before: page; }
+  .card-scope .lfh188-body:before { content: none; }
+}
+
+/* Standalone starts on page one. External CSS respects the retained CSP. */
+@media print { .standalone-reader .card-scope { break-before: auto; } }

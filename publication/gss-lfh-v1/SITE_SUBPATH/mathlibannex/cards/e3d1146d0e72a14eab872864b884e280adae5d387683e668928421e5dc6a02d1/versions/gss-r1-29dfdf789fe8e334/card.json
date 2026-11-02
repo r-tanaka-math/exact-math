@@ -1,0 +1,30 @@
+{
+  "name": "ClosureSpace.HasContinuousFiniteCompactComparison",
+  "title": "A continuous finite comparison with a compact-operator GSS",
+  "identity_key": "lfh:lfh-declaration-card:sha256:e3d1146d0e72a14eab872864b884e280adae5d387683e668928421e5dc6a02d1",
+  "stable_card_id": "e3d1146d0e72a14eab872864b884e280adae5d387683e668928421e5dc6a02d1",
+  "card_revision": 1,
+  "card_sha256": "ca8f4799bd17ec868ce4f44d31ac34c0f24cd864efec072a98f81703e3793f5e",
+  "exposition_revision": 1,
+  "exposition_sha256": "29dfdf789fe8e334b2d6867202f65d5d3a12d3f3f20bddec5277a5ca01e6a1a7",
+  "manuscript_sha256": "c4e9a71ce3f384da4b0ca892fb0dbe3a95d8a1b66efa09f9657ac0ac5b4742ff",
+  "guide_sha256": "27746544e7a3d1b62a86f9e4669f511c8770dce72c312ccce61bbcf34ea57533",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/GCRCharacterization.lean.html?from=46&start=39&end=53#L39",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/GCRCharacterization.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/GCRCharacterization.lean",
+    "raw_bytes": {
+      "bytes": 16255,
+      "sha256": "99db060f568a62d68d8f656cbe0ba8fe965f35f348b2c5755c8c503398a9fe12"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 9191,
+    "sha256": "107136c66d45688e466a982f5499afcaf7cfaf52cf6481dee3f7648ba4526070"
+  }
+}

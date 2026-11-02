@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.primitiveKernelFamily_eq_primitiveGeometricSpectrumFamily",
+  "title": "Primitive representation kernels are exactly geometric component intersections",
+  "identity_key": "lfh:lfh-declaration-card:sha256:0b334e5bbbc829b14a2ca71c55edf8f4023aabf84d325141773156b8cb7305fb",
+  "stable_card_id": "0b334e5bbbc829b14a2ca71c55edf8f4023aabf84d325141773156b8cb7305fb",
+  "card_revision": 1,
+  "card_sha256": "34e000fcce21325dbe5229f4ca9cbc22a9ec49d4470685a125077df4dc02bf4f",
+  "exposition_revision": 1,
+  "exposition_sha256": "066cbd252414e7394a1d6fff819d7f3380ee46882bc564d67017edcc339b29b9",
+  "manuscript_sha256": "929d7eb4d80cc18286a6c57cc3493480eed463b0fd0eb5758cf5b75e6d7e7570",
+  "guide_sha256": "6da7c1eaa72180eafbb69a024742b0f7bbf90a70b28b8856ab89a2eddce686db",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralComparison.lean.html?from=22&start=142&end=159#L142",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralComparison.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralComparison.lean",
+    "raw_bytes": {
+      "bytes": 9852,
+      "sha256": "87284c91d73f596a13fe051d81c68a5635cba32fe694db952955e5bfefed1a32"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 5130,
+    "sha256": "47d121b96dcfa272336b30dabb4d6fb5aca201b0b2f77bd2b66029df85b6a443"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "NormedSpace.supportKernelUnion",
+  "title": "Unions of kernels of supporting functionals",
+  "identity_key": "lfh:lfh-declaration-card:sha256:0d49049cbfbdb774584e35ddc6cb49a1befcb0813eff99dc399e90c62475da1a",
+  "stable_card_id": "0d49049cbfbdb774584e35ddc6cb49a1befcb0813eff99dc399e90c62475da1a",
+  "card_revision": 1,
+  "card_sha256": "64324b7824e7944628e721b7af9729e584e7d2c1c5663efe355c931918a5fec3",
+  "exposition_revision": 1,
+  "exposition_sha256": "5ba0666104ffcad2c24e7d6412133db4ae61eba40a4fec9fb7a09e0b3f72d7c2",
+  "manuscript_sha256": "b59ffeb803514c424d232797483ab72373304f0cb55544840a6bc832bf34aeac",
+  "guide_sha256": "a55e948043ba2382544b8bff78d5596ac6fefb9930dc20249647d6000a820936",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Support.lean.html?from=3&start=42&end=45#L42",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/Normed/GeometricStructure/Support.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Support.lean",
+    "raw_bytes": {
+      "bytes": 6822,
+      "sha256": "4fbb8f62dcd2a9a1d4d2af20d6770a8098c643b162459c5d6c3b7cb6bfd96ca0"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 5461,
+    "sha256": "c89142ba965b48ae6ba069cadd00c241d45c456beda396d13153fcb171fac31c"
+  }
+}

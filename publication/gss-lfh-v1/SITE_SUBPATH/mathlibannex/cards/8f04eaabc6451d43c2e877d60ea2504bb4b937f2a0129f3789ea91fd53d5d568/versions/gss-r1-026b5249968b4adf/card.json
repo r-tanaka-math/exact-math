@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.PrimitiveSpectrum",
+  "title": "The primitive spectrum as representation kernels",
+  "identity_key": "lfh:lfh-declaration-card:sha256:8f04eaabc6451d43c2e877d60ea2504bb4b937f2a0129f3789ea91fd53d5d568",
+  "stable_card_id": "8f04eaabc6451d43c2e877d60ea2504bb4b937f2a0129f3789ea91fd53d5d568",
+  "card_revision": 1,
+  "card_sha256": "5a62cba0595026cc4bcc1122f62ebd940857f84d1c9d2b333632d3465c5b13bf",
+  "exposition_revision": 1,
+  "exposition_sha256": "026b5249968b4adf1f789eaeca9c079efd31e765a4217128a219df13bcfb5cef",
+  "manuscript_sha256": "9b706a9e7388cff76770f33ec641c6dd64a23a96e8b715a082463b90e86956fd",
+  "guide_sha256": "99eb64833134262df40274bc7758a00c33f61703355e4833393eacaec256e25a",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/Spectrum/Primitive.lean.html?from=primitive-spectrum&start=33&end=33#L33",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/Spectrum/Primitive.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/Spectrum/Primitive.lean",
+    "raw_bytes": {
+      "bytes": 6081,
+      "sha256": "a283f23f3d1f991e4cf38564a7ce3c65820a99bbc60662b6b6f8b26745118df5"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 3926,
+    "sha256": "e1276e44820764be9b2ccd198f37e6d269d1a4fd92d41bc7fbcbe5bc715c904d"
+  }
+}

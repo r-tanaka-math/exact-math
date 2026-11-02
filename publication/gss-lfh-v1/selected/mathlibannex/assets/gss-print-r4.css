@@ -1,0 +1,9 @@
+/* R4 local print spacing for the eighteen inspected sparse-tail candidates. No font or mathematical content change. */
+@media print {
+ .gss-body article details { margin-block:8px !important; padding-block:8px !important; }
+ .gss-body article pre { margin-block:8px !important; padding-block:9px !important; }
+ .gss-body article [data-r3-print-unit] > p { margin-block:6px !important; }
+ .gss-body article td { padding-top:5px !important; padding-bottom:5px !important; }
+ .gss-body #card-13 details pre { margin-block:6px !important; padding-block:6px !important; }
+ .gss-body #card-13 [data-r3-print-unit] > p { margin-block:4px !important; }
+}

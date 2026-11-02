@@ -1,0 +1,11 @@
+/* Task-local successor; screen narrow only. Preserve print/Desktop geometry.
+   A max-content tag column replaces the insufficient 6% fixed table cell.
+   Natural-size equation SVG remains reachable in its focusable local scroll area. */
+@media screen and (max-width:600px){
+ .review-header a{display:inline-block}
+ .lfh188-body .math-tagged{display:grid;grid-template-columns:minmax(0,1fr) max-content;column-gap:.65em;align-items:center;max-width:100%;box-sizing:border-box}
+ .lfh188-body .math-tagged>.equation-body{display:block;width:auto;min-width:0;overflow-x:auto;overflow-y:auto;text-align:center}
+ .lfh188-body .math-tagged>.equation-body>svg{max-width:none;height:auto}
+ .lfh188-body .math-tagged>.equation-tag{display:block;width:auto;white-space:nowrap;text-align:right}
+ .lfh188-body .math-tagged>.equation-body:focus-visible{outline:2px solid #52636b;outline-offset:2px}
+}

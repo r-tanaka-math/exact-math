@@ -1,0 +1,30 @@
+{
+  "name": "ClosureSpace.Linked",
+  "title": "Linked points in a closure space",
+  "identity_key": "lfh:lfh-declaration-card:sha256:ed8be8d278e688abbaaaaf2aeb148c8fd09bf3b9526a455940aad9c2d0bcedeb",
+  "stable_card_id": "ed8be8d278e688abbaaaaf2aeb148c8fd09bf3b9526a455940aad9c2d0bcedeb",
+  "card_revision": 1,
+  "card_sha256": "5231bb6cea3d1a33294e8038a886849e69645314a865cf17a3d3473814803dfb",
+  "exposition_revision": 1,
+  "exposition_sha256": "1076e655b13cc43caf1829500a9e8c7d1b671462cf8fd973ab988e71d22f98f6",
+  "manuscript_sha256": "29d18c963b72cee77e48beb18b53b4b9e94013521bf980363adc862ba536aba9",
+  "guide_sha256": "c197c330256a71d3ba639ca3bae730d3c2e3eb8540a8ca094557a0c1b98b6127",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/Components.lean.html?from=7&start=30&end=30#L30",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Topology/ClosureSpace/Components.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/Components.lean",
+    "raw_bytes": {
+      "bytes": 5940,
+      "sha256": "f8a603680a6aa871b86d4c994dcec4514d7470deadf9a60466e110a9f572fd4f"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 3887,
+    "sha256": "936a589201855825e4b5110b0ba676190836a0b83cd73ca1494b1b292cc71a13"
+  }
+}

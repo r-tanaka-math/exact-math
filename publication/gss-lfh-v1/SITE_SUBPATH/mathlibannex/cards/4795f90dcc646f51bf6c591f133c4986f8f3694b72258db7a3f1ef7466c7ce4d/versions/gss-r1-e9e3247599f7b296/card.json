@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.normalPart",
+  "title": "The coefficient-kernel normal part",
+  "identity_key": "lfh:lfh-declaration-card:sha256:4795f90dcc646f51bf6c591f133c4986f8f3694b72258db7a3f1ef7466c7ce4d",
+  "stable_card_id": "4795f90dcc646f51bf6c591f133c4986f8f3694b72258db7a3f1ef7466c7ce4d",
+  "card_revision": 1,
+  "card_sha256": "8c34301154750a79af43401850d73ba22c2c5fabf40b6356c9a82b6cbdc77e18",
+  "exposition_revision": 1,
+  "exposition_sha256": "e9e3247599f7b2969fe9fb008c0c08fc9ae976c0fcf1b99b2deb1ffc4f198f46",
+  "manuscript_sha256": "c6a6d504bcc53653894fa3c1128011d9e15bf4857d45c7ac3d32898f7a8d687d",
+  "guide_sha256": "456e46394a0ff0fa8d0d6d84e036468d64a8d0a864d148ccd82dc83071c5e212",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPart.lean.html?from=27&start=35&end=38#L35",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPart.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPart.lean",
+    "raw_bytes": {
+      "bytes": 9858,
+      "sha256": "0b735c8fddbf5a1bdc106b20c1a62a4eb3370b4c82366ad610bb1ea145b7aadc"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 6356,
+    "sha256": "2e74ea0278be2c7509a9247a77f8b990a8d1581f6cee6412acfb9dbf87047fef"
+  }
+}

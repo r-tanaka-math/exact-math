@@ -1,0 +1,3 @@
+/* Keep the retained secondary identity link with preceding content in print.
+   No field, font, spacing, math, or screen change. */
+@media print { article.lfh188-body > p.meta { break-before: avoid; } }

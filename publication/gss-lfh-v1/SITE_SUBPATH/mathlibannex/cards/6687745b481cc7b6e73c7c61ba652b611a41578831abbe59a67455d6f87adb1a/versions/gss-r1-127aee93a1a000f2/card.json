@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_pureState_unitaryTranslate_of_mem_extremePoints_dual_closedBall",
+  "title": "An extreme dual functional has a pure-state unitary translate",
+  "identity_key": "lfh:lfh-declaration-card:sha256:6687745b481cc7b6e73c7c61ba652b611a41578831abbe59a67455d6f87adb1a",
+  "stable_card_id": "6687745b481cc7b6e73c7c61ba652b611a41578831abbe59a67455d6f87adb1a",
+  "card_revision": 1,
+  "card_sha256": "183dd516c87ce07c1d14c7fc61b30313085b853d29a27e5d46b2d8ed3bc59e71",
+  "exposition_revision": 1,
+  "exposition_sha256": "127aee93a1a000f27a2688ffe32424e5ef4b38909715ae00ef58071f29cdc63e",
+  "manuscript_sha256": "174a4febdb29c7ee2aa156d240c5802ec777eb591ad5b435462e0a9ef0aeb1ec",
+  "guide_sha256": "40484f661feab40b757423a0595d776231652a14fdcb3d48a52d48ed77172374",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/FacialStructure/ExtremeDecomposition.lean.html?from=15&start=61&end=81#L61",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/FacialStructure/ExtremeDecomposition.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/FacialStructure/ExtremeDecomposition.lean",
+    "raw_bytes": {
+      "bytes": 6480,
+      "sha256": "77d9584147f3fcc8b44fa83e5daa8c21b7f2042e8c1c7ddbacabcf783f9e6c0f"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 4467,
+    "sha256": "5ad80b2c5cbbfcd6bbbefd3f302f5671f5bc6b48aa96d8a59117dfd1e9bf8d26"
+  }
+}

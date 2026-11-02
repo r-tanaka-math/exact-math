@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.PrimitiveSpectrum.reducedAtomicRepresentation_spec_of_isCompactlyRepresented",
+  "title": "The same reduced atomic representation and its exact diagonal range",
+  "identity_key": "lfh:lfh-declaration-card:sha256:ae080d5891f10f5b129063951765313149d728fd1adffd820c33396a9641b794",
+  "stable_card_id": "ae080d5891f10f5b129063951765313149d728fd1adffd820c33396a9641b794",
+  "card_revision": 1,
+  "card_sha256": "0033e9b963ed3fa45f0191a1c1dab8c5c97858ccef83def82f74557af837493d",
+  "exposition_revision": 1,
+  "exposition_sha256": "ea91a963dc22dec8d98eead336ee113ed0ce54b2f431cf062f2a75c84bdda1bf",
+  "manuscript_sha256": "bf4a800f995b03a64c00930eeb5b59209410f43369d0cde8312c5c6c2b36a212",
+  "guide_sha256": "45ba1b4aeabf382bb54b8e06692982d3db18a662b800438df3dc29a204a4755e",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/Spectrum/CompactRepresentationCharacterization.lean.html?from=56&start=167&end=196#L167",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/Spectrum/CompactRepresentationCharacterization.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/Spectrum/CompactRepresentationCharacterization.lean",
+    "raw_bytes": {
+      "bytes": 10242,
+      "sha256": "df336d80fa66ba38ebcb4965196e85d9b19bfc390ebb1d2918f720d7ca9c006f"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 14513,
+    "sha256": "f9137b003991a37471fae9f12c60a2254daa7e1fe50b251df8015fea6cad8526"
+  }
+}

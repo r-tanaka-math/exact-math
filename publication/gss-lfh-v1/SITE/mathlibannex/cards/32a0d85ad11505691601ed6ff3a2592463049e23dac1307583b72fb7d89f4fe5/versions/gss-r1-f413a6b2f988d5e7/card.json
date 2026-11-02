@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.primitiveSpectrumHomeomorph",
+  "title": "The primitive spectrum and the primitive geometric spectrum",
+  "identity_key": "lfh:lfh-declaration-card:sha256:32a0d85ad11505691601ed6ff3a2592463049e23dac1307583b72fb7d89f4fe5",
+  "stable_card_id": "32a0d85ad11505691601ed6ff3a2592463049e23dac1307583b72fb7d89f4fe5",
+  "card_revision": 1,
+  "card_sha256": "a4d7edd8e108c13c9ed4157e3b7b5bf17a0b06296ba9c79e7d99c6e8ecf168cd",
+  "exposition_revision": 1,
+  "exposition_sha256": "f413a6b2f988d5e713fc49f95581364ba8df600f97607e0fb9b054c72ecc4d85",
+  "manuscript_sha256": "5456e61c8b93c8aee0e268aa5a14cfd141b090aa1fe575f91bd2ecb0f6ab2355",
+  "guide_sha256": "cbe320016c25bb0736fe0f71919e21039d6baf86aae95d837cf100636f63b707",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralHomeomorph.lean.html?from=23&start=128&end=133#L128",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralHomeomorph.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralHomeomorph.lean",
+    "raw_bytes": {
+      "bytes": 8826,
+      "sha256": "f92134dfd4ba015043177fd159bff9905179506d30877e5af3cf38eaf71c6237"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 7307,
+    "sha256": "21ab3f4a14833dfe0c694dc1e168679100845b060716074f3fd44f8feb023a5c"
+  }
+}

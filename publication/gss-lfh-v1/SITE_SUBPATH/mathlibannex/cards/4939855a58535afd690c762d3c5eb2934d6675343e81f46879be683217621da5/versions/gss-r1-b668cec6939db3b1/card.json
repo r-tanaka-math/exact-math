@@ -1,0 +1,30 @@
+{
+  "name": "NormedSpace.GeometricSpectrum",
+  "title": "The geometric spectrum",
+  "identity_key": "lfh:lfh-declaration-card:sha256:4939855a58535afd690c762d3c5eb2934d6675343e81f46879be683217621da5",
+  "stable_card_id": "4939855a58535afd690c762d3c5eb2934d6675343e81f46879be683217621da5",
+  "card_revision": 1,
+  "card_sha256": "96ded6b59d6903074ee44899fe20a7ac843d71958e804834f2d3fdd59bba5918",
+  "exposition_revision": 1,
+  "exposition_sha256": "b668cec6939db3b110a0ffecb33bde340624a0c2db09a6a2b5f1252beca5e721",
+  "manuscript_sha256": "073f26566ac963c3defe0e168017934cfc55a6f0186bc8955fc1de32edb21dd7",
+  "guide_sha256": "25836e22e009de8389304326edab88561ab00238ad07718a78d3bd2d9ae704ac",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Basic.lean.html?from=9&start=37&end=39#L37",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/Normed/GeometricStructure/Basic.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Basic.lean",
+    "raw_bytes": {
+      "bytes": 3797,
+      "sha256": "e2f688403bc22a66b6dd82ef04f99cdf0b0828537032c2b87fc917797827e6f8"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 7149,
+    "sha256": "14a88f4ee00981f7811a2ce36218b896c1893b313bceae2bb87b4bd59bedd38a"
+  }
+}

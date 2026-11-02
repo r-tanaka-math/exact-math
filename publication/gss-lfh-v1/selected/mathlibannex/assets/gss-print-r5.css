@@ -1,0 +1,5 @@
+/* R5 print-only: hide newly added technical registration metadata; retain mathematical provider definitions as complete units. */
+@media print {
+ .gss-registration { display:none !important; }
+ .gss-body article details.gss-provider-current { break-inside:avoid; }
+}

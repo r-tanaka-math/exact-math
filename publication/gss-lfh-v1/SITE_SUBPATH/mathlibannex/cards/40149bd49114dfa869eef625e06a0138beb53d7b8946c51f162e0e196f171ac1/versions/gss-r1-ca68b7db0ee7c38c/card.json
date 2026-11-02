@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.irreducibleSpectrumHomeomorphOfGeometricStructure",
+  "title": "A geometric-structure homeomorphism transports the irreducible spectrum",
+  "identity_key": "lfh:lfh-declaration-card:sha256:40149bd49114dfa869eef625e06a0138beb53d7b8946c51f162e0e196f171ac1",
+  "stable_card_id": "40149bd49114dfa869eef625e06a0138beb53d7b8946c51f162e0e196f171ac1",
+  "card_revision": 1,
+  "card_sha256": "ce590b80d388112ae6332e0b202a01bd73f95ad1fc373f5baa7b52e1c25eb7c3",
+  "exposition_revision": 1,
+  "exposition_sha256": "ca68b7db0ee7c38c2076bbd4fb01b99ff35f83a1fd2131539342b90cc90c8dc0",
+  "manuscript_sha256": "ab97afd84ced4d0c354a06fe0e9f8cca134c88b825687f17769f16c07de45834",
+  "guide_sha256": "2455b9c609222f4c187454b927837fe0f13f5b7dd859f055c2b7b3d090d6ff4e",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralPreserver.lean.html?from=26&start=33&end=37#L33",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralPreserver.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/SpectralPreserver.lean",
+    "raw_bytes": {
+      "bytes": 4220,
+      "sha256": "782bbe283cd76b8dcfe735c63264a608686e3a2cac55b9851c3a88fd2634e624"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 6591,
+    "sha256": "81495213fe0aa6212348c01ae945f2622e7d784a5462304077213d75c7574ea7"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.normalPartProjectivizationEquiv",
+  "title": "The normal part as a product of projective spaces",
+  "identity_key": "lfh:lfh-declaration-card:sha256:3d7328185180155bea7c1880574a35b05bdae0c668b736859fa00b2169850f30",
+  "stable_card_id": "3d7328185180155bea7c1880574a35b05bdae0c668b736859fa00b2169850f30",
+  "card_revision": 1,
+  "card_sha256": "03d2f93d3cea78fd6d4f61fd3eafe23c98319869c76b5e3df23095e03968c587",
+  "exposition_revision": 1,
+  "exposition_sha256": "7357148c43380cb47dbf57e8df036f92bcef370c8ac2b3de0279e9f79668ebc6",
+  "manuscript_sha256": "890ace7736fe50b5993d5b425a14de2c52928700ba4c1c3ef5898d1018840b3d",
+  "guide_sha256": "122091a640acd0f2e1fed2f09868263d07c383982992ff5544d79369aa472512",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartProjectivization.lean.html?from=29&start=77&end=83#L77",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartProjectivization.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartProjectivization.lean",
+    "raw_bytes": {
+      "bytes": 8726,
+      "sha256": "46047d7c85ac36f6ca13b63802b40aef083514680ac8f72f6f9f055bfab746fa"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 7086,
+    "sha256": "f36cababf459890a56e75448bcb90a7fa467ef41fa802142eadb7a803f4db09a"
+  }
+}

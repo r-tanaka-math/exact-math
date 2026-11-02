@@ -1,0 +1,30 @@
+{
+  "name": "NormedSpace.geometricStructureHomeomorphOfBirkhoffJames",
+  "title": "The closure-space homeomorphism induced by an orthogonality equivalence",
+  "identity_key": "lfh:lfh-declaration-card:sha256:e7204a2011082aa580b29d7ccd62e08ddd52aca1e2c46b67039f4c16541c0930",
+  "stable_card_id": "e7204a2011082aa580b29d7ccd62e08ddd52aca1e2c46b67039f4c16541c0930",
+  "card_revision": 1,
+  "card_sha256": "1c28567ab50d56a6375241e486873100c5e40573e93d09a82158d0f7e5e2aea6",
+  "exposition_revision": 1,
+  "exposition_sha256": "25b7fa4b40b8bc832d3399521fface99e438f556c5eaed0a8fcbfa5a7fd34a09",
+  "manuscript_sha256": "67adbc830f95e6c41ac7744bd0bbc1750cbf465c8d6ef76ccbc31b20b3059a1d",
+  "guide_sha256": "800d88993aa2458480a3ec860de406f63e1e3d155af811da52bc68816d93f439",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Preserver.lean.html?from=6&start=151&end=156#L151",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/Normed/GeometricStructure/Preserver.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Preserver.lean",
+    "raw_bytes": {
+      "bytes": 6919,
+      "sha256": "97cb58d68e8177eb69ab7ceb039970b127ea71bf99915985d891c41567e4bcb8"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 11724,
+    "sha256": "92b8ad2cea7d9df3d3b2c1e5da8bb2c6c51b3025766bb726c8bab7603f30e44c"
+  }
+}

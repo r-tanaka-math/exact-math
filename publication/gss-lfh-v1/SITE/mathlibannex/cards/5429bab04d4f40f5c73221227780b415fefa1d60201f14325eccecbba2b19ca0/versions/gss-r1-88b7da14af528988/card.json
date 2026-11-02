@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.NonUnitalCStarRepresentation.imageGeometricStructureHomeomorph",
+  "title": "The geometric structure of a representation image as a component closure",
+  "identity_key": "lfh:lfh-declaration-card:sha256:5429bab04d4f40f5c73221227780b415fefa1d60201f14325eccecbba2b19ca0",
+  "stable_card_id": "5429bab04d4f40f5c73221227780b415fefa1d60201f14325eccecbba2b19ca0",
+  "card_revision": 1,
+  "card_sha256": "09f468e537a19e3fd2250e8613f42ba608e197b112a76f487c02f4f1cc471bd2",
+  "exposition_revision": 1,
+  "exposition_sha256": "88b7da14af528988d3da4840bff2cad7782ca2b3b0f0143035a5b0bd67fc219f",
+  "manuscript_sha256": "d15486aeb4279521b5dcdfb471bad57e7be44f92e9ba4eb8673a5326b8d38bd3",
+  "guide_sha256": "dc28d811385cb97984a60bb22a2012e7fcc566ef4b782ee65f27a9ea067a84a8",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/ImageSubspace.lean.html?from=25&start=62&end=96#L62",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/ImageSubspace.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/ImageSubspace.lean",
+    "raw_bytes": {
+      "bytes": 9692,
+      "sha256": "9c3a311326b0139909454fe8d62c1d8d497ae7975dbdcd02ec407bda025b1324"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 9268,
+    "sha256": "251fe1f1aff2113c97da05597af1354ba6830899b53feff46cd6a9ac9c0884aa"
+  }
+}

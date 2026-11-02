@@ -1,0 +1,67 @@
+{
+  "qualified_name": "MathlibAnnex.Analysis.CStarAlgebra.IsCompactOperatorModel",
+  "declaration_kind": "def",
+  "display_title": "A compact-operator model for a representation",
+  "one_sentence_role": "Packages faithfulness together with the equality $e(A)=\\mathcal K(H)$.",
+  "natural_language_statement": "Let $A$ be a complex $C^*$-algebra, with no unit assumed, let $H$ be a complex Hilbert space, and let $e:A\\to\\mathcal B(H)$ be a $*$-representation. The predicate below asserts that $e$ identifies $A$ exactly with the compact operators on $H$.",
+  "definition_explanation": "The three conditions are $$e\\text{ is injective},\\qquad e(A)\\subseteq\\mathcal K(H),\\qquad\\mathcal K(H)\\subseteq e(A).$$ Equivalently, $e$ is faithful and $e(A)=\\mathcal K(H)$; hence $A$ is $*$-isomorphic to $\\mathcal K(H)$ through the specified representation.",
+  "assumptions": "No separability, irreducibility or singleton-spectrum hypothesis is part of this definition. A unit is not assumed.",
+  "conclusion": "The output is a property of the given representation $e$, not merely an assertion that some abstract $*$-isomorphism exists.",
+  "notes": [],
+  "citations": [
+    {
+      "label": "Exact definition and context",
+      "url": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean#L26-L33",
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+      "first_line": 26,
+      "last_line": 33
+    }
+  ],
+  "source_signature": {
+    "end_byte": 1039,
+    "extraction_profile": "PARSED_COMMAND_TOP_LEVEL_DECLARATION_HEADER_V1",
+    "sha256": "8cf30c0f4d10d0fbf94a18b62286bf6005bb988bbb5b52cd589baf23313d36a1",
+    "source_command_range": {
+      "end_column": 60,
+      "end_line": 33,
+      "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+      "source_sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285",
+      "start_column": 1,
+      "start_line": 26
+    },
+    "source_path": "MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+    "source_sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285",
+    "start_byte": 934,
+    "text": "def IsCompactOperatorModel [NonUnitalCStarAlgebra A]\n    (e : A →⋆ₙₐ[ℂ] (H →L[ℂ] H)) : Prop"
+  },
+  "source_context": {
+    "declaration": "MathlibAnnex.Analysis.CStarAlgebra.IsCompactOperatorModel",
+    "stable_uid": "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+    "source_commit": "437e6e46228bbb8e91211ebded349d7a30020e73",
+    "source_sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285",
+    "source_git_blob": "9a532d565c2af2a6f255f2a05bef4795c6871c26",
+    "prefix_range": {
+      "first_line": 1,
+      "last_line": 25
+    },
+    "command_excerpt_range": {
+      "first_line": 26,
+      "last_line": 33,
+      "alignment": "EXACT_WHOLE_SOURCE_LINES_NOT_A_NEW_PARSED_COMMAND"
+    },
+    "basis": "EXACT_SOURCE_SIGNATURE_PLUS_EXACT_SOURCE_PREFIX_AND_RELATED_DEFINITIONS",
+    "raw_prefix_is_not_all_assumptions": "Read source context; do not assert that every section variable is a binder of this declaration."
+  },
+  "projection_kind": "SOURCE_BOUND_EXPOSITION_EXPORT",
+  "publication_edition": "Version 1",
+  "original_exposition_sha256": "2ccd05514cd6571908decd8a6e1d8a3991d3eeb9e9dcaf01b7070510bdeaeea8",
+  "native_card_ref": {
+    "identity_key": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+    "card_revision": 3,
+    "card_sha256": "4329259b4399443c46e9a493ef3081bde406d18a69b68d371617f4b64ca88f8d"
+  },
+  "exposition_ref": {
+    "revision": 1,
+    "sha256": "5499220b48a8fdad92e384f2bc1a614467925550db22ed5b235596a3926a555f"
+  }
+}

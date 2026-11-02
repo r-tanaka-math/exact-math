@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.continuous_normalPartLinearMap_and_inverse_iff",
+  "title": "Two-sided continuity is exact operator equality",
+  "identity_key": "lfh:lfh-declaration-card:sha256:5073fcc22c365d351ee496998fb6c996496d5cd2c983cfb21d4d847a74d4c04c",
+  "stable_card_id": "5073fcc22c365d351ee496998fb6c996496d5cd2c983cfb21d4d847a74d4c04c",
+  "card_revision": 1,
+  "card_sha256": "fac51bc00375f43e8e70f91c7f937e7d5c6cf4bbc0d7d085d46c6df7c94f1c63",
+  "exposition_revision": 1,
+  "exposition_sha256": "aefe0f2958a89d2b2b8fa24115247ad2443a44de8aac05a4154b1f645232e928",
+  "manuscript_sha256": "4f5d20cbfe8ee81540da514b21be3d3bc3fdbe5eabb982ec899d257c2bb193dc",
+  "guide_sha256": "6406fef8981af6c93aa5663066d23ba8ac799adda4e8363993cbcff3f5b29a7d",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartBounded.lean.html?from=32&start=49&end=63#L49",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartBounded.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartBounded.lean",
+    "raw_bytes": {
+      "bytes": 11379,
+      "sha256": "6200f945697aa6f7a5aa6a619c18c5121caf3b0bd1a9c6ef9991d70f98bf4e0e"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 11497,
+    "sha256": "d673c8d05954053e217ea2cc44a9047cbde2c2c7e4089b741023fb90c8b3bed3"
+  }
+}

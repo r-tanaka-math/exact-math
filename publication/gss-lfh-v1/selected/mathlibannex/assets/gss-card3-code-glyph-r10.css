@@ -1,0 +1,5 @@
+/* R10: screen-only missing scalar fallback for the exact Card3 provider code consumer. */
+@font-face{font-family:GSSCardCodeSupplement;src:url(FreeSerif-20120503.ttf) format("truetype");unicode-range:U+1D4DA}
+@media screen{
+  #provider-current-3 pre,#provider-current-3 pre code{font-family:Lean,Project,GSSCardCodeSupplement,monospace}
+}

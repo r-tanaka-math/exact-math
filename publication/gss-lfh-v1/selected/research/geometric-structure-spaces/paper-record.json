@@ -1,0 +1,29 @@
+{
+  "title": "Banach space theoretical construction of (primitive) spectra of C*-algebras and the Naimark problem revisited",
+  "authors": [
+    "Ryotaro Tanaka"
+  ],
+  "year": 2025,
+  "publication_type": "arXiv preprint",
+  "arxiv_id": "2504.05551",
+  "displayed_version": "v1",
+  "doi": "10.48550/arXiv.2504.05551",
+  "doi_url": "https://doi.org/10.48550/arXiv.2504.05551",
+  "abstract_url": "https://arxiv.org/abs/2504.05551v1",
+  "version_url": "https://arxiv.org/abs/2504.05551v1",
+  "pdf_url": "https://arxiv.org/pdf/2504.05551v1",
+  "arxiv_submission_date": "2025-04-07",
+  "pages": 60,
+  "peer_review_claim": false,
+  "formal_scope_guards": [
+    "Exact selected Card/source correspondence; whole-manuscript correspondence not asserted",
+    "GSS v0.5.0 and reused compact-operator model v0.4.0 are separate bindings",
+    "Closure-space canonical recovery; no literal-subspace or general complete-classification claim"
+  ],
+  "record_kind": "PAPER_BIBLIOGRAPHY",
+  "hosting": "EXTERNAL_ARXIV_ONLY",
+  "hp_publication_date": "2026-11-02",
+  "hp_publication_performed": true,
+  "reference_pdf_independently_matched": false,
+  "reference_pdf_sha256": null
+}

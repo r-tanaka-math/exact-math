@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.nonempty_starAlgEquiv_iff_nonempty_geometricStructure_homeomorph_of_exists_boundedOperatorEquiv",
+  "title": "GSS rigidity from a full bounded-operator model",
+  "identity_key": "lfh:lfh-declaration-card:sha256:512cd884f8448768e9babb08ddd780e0eb15cf34727aa9a1c4925695669752ef",
+  "stable_card_id": "512cd884f8448768e9babb08ddd780e0eb15cf34727aa9a1c4925695669752ef",
+  "card_revision": 1,
+  "card_sha256": "d3819b8587cdd7a5ab6e237e096babd8b775b50e5aff04bd2aad2bab7c336203",
+  "exposition_revision": 1,
+  "exposition_sha256": "06ab3118631304ff7906e067cdb106f1a6a180bc37e18fc9ddd9096bc0b95153",
+  "manuscript_sha256": "32d001c1843e130f65d88ff60d63537cfad111d91357e561a82f40a80e73797b",
+  "guide_sha256": "ba22fa5401d6fae837e182fd298e58ea75da0e3da8e3fc5d16cb467e0be38a5d",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/BoundedOperatorModelCharacterization.lean.html?from=61&start=273&end=302#L273",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/BoundedOperatorModelCharacterization.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/BoundedOperatorModelCharacterization.lean",
+    "raw_bytes": {
+      "bytes": 14478,
+      "sha256": "4eae9121e1d7550620f7084c8bf2997868d77017b83a9031e8c1fef9e6c2f044"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 12714,
+    "sha256": "9882061e242d2e6006e539bda9ad3c3bdb6a6c0c0c1bf00d1fd4b69e52b19887"
+  }
+}

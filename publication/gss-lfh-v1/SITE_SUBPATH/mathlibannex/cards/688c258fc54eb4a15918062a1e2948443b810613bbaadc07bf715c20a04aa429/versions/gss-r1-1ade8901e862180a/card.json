@@ -1,0 +1,30 @@
+{
+  "name": "NormedSpace.geometricSpectrumToPrimitive",
+  "title": "From components to their common kernel",
+  "identity_key": "lfh:lfh-declaration-card:sha256:688c258fc54eb4a15918062a1e2948443b810613bbaadc07bf715c20a04aa429",
+  "stable_card_id": "688c258fc54eb4a15918062a1e2948443b810613bbaadc07bf715c20a04aa429",
+  "card_revision": 1,
+  "card_sha256": "1881643031f1cb9a6c89f26c7e4b9535f4f8a9b2411d2e11505608edd8a4ad80",
+  "exposition_revision": 1,
+  "exposition_sha256": "1ade8901e862180aa879dc0a6b4f5d59b71cb2d96c1175cf38b87e8c4bcf5c0e",
+  "manuscript_sha256": "d748c166c9236979efa92a11471c961308169b56bbcdf2406fabe48365c6857d",
+  "guide_sha256": "20bb343d6629ee4e7cba5d4dfc52e1059f4f2e90e0327904a4937d16d515961e",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Basic.lean.html?from=11&start=37&end=39#L37",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/Normed/GeometricStructure/Basic.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Basic.lean",
+    "raw_bytes": {
+      "bytes": 3797,
+      "sha256": "e2f688403bc22a66b6dd82ef04f99cdf0b0828537032c2b87fc917797827e6f8"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 9410,
+    "sha256": "4122fe0fce391efcd57c616d93ca7665930f50b48c80641ceeeafe3724ba5f1a"
+  }
+}

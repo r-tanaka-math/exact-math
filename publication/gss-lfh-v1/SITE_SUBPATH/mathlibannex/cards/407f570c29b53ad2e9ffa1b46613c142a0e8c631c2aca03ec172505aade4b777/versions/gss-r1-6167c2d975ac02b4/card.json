@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.geometricSpectrumToPrimitive_toGeometricSpectrum_pureStateKernel_val",
+  "title": "The intersection of a pure-state component is its GNS representation kernel",
+  "identity_key": "lfh:lfh-declaration-card:sha256:407f570c29b53ad2e9ffa1b46613c142a0e8c631c2aca03ec172505aade4b777",
+  "stable_card_id": "407f570c29b53ad2e9ffa1b46613c142a0e8c631c2aca03ec172505aade4b777",
+  "card_revision": 1,
+  "card_sha256": "99b03276d4086a853abc410087669c306af2d6c766e60eedcb6bee188c8a057b",
+  "exposition_revision": 1,
+  "exposition_sha256": "6167c2d975ac02b4155f91c88b1a8a6775a6b75e49d568431f6dabccc5399ace",
+  "manuscript_sha256": "964b5ca961e42940c244e402d89766a54b832c8a601d109d14e086705f0943b4",
+  "guide_sha256": "76c41a988e49227e2a562409fedafc5c59e9755d1d7898e125c9a5243985bec5",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/AbsoluteState.lean.html?from=21&start=281&end=294#L281",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/AbsoluteState.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/AbsoluteState.lean",
+    "raw_bytes": {
+      "bytes": 17775,
+      "sha256": "afe0569cd3868a0a6f245eaa7c781ba52db87401c1334a3deeac9ad74ee939ec"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 9798,
+    "sha256": "2486f8c000e1a36c59cfcf284337699258bed4b50fbed017194a7ea91ee9fbf2"
+  }
+}

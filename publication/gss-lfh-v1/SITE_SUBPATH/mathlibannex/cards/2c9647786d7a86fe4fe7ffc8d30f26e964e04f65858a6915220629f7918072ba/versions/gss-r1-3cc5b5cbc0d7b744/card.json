@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.isMaximalFace_iff_exists_mem_extremePoints_dual_closedBall",
+  "title": "Maximal faces of the C*-algebra unit ball and their unique support",
+  "identity_key": "lfh:lfh-declaration-card:sha256:2c9647786d7a86fe4fe7ffc8d30f26e964e04f65858a6915220629f7918072ba",
+  "stable_card_id": "2c9647786d7a86fe4fe7ffc8d30f26e964e04f65858a6915220629f7918072ba",
+  "card_revision": 1,
+  "card_sha256": "afe6051669975a09f5955926a5977589e99fda3baeb61e2ef598cfa502de43fa",
+  "exposition_revision": 1,
+  "exposition_sha256": "3cc5b5cbc0d7b744754812157ed0e2507152288ce32ca8d834dbd2c4b308000e",
+  "manuscript_sha256": "8b94c4b0cb91d0a8a7429c16fdb69ce661b6b41093899bec4696f46c0458a5d6",
+  "guide_sha256": "6c7623482e273bb0c542064653ebde6c3e6c549afe11c5b443835304a3afead8",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/FacialStructure/ExtremeMaximalFace.lean.html?from=14&start=102&end=111#L102",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/FacialStructure/ExtremeMaximalFace.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/FacialStructure/ExtremeMaximalFace.lean",
+    "raw_bytes": {
+      "bytes": 6411,
+      "sha256": "b71a3818e32f9e26ac72a3e3f8de05a7be6e88c0897a509877ea85935c3e2805"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 4860,
+    "sha256": "17b914ab41bac911f3b680794267582661322b56d11caece55b446e2fab9dfd6"
+  }
+}

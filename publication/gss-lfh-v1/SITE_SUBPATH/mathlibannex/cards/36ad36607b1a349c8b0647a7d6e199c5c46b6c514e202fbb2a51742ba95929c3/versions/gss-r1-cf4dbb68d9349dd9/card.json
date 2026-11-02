@@ -1,0 +1,30 @@
+{
+  "name": "LinearEquiv.regularity_of_isClosed_image_hyperplane",
+  "title": "Closed hyperplane images force semilinear regularity",
+  "identity_key": "lfh:lfh-declaration-card:sha256:36ad36607b1a349c8b0647a7d6e199c5c46b6c514e202fbb2a51742ba95929c3",
+  "stable_card_id": "36ad36607b1a349c8b0647a7d6e199c5c46b6c514e202fbb2a51742ba95929c3",
+  "card_revision": 1,
+  "card_sha256": "8bb6620137801883e60f145cf1d70dcac0458b64e972d628da64877bb86b9b67",
+  "exposition_revision": 1,
+  "exposition_sha256": "cf4dbb68d9349dd9c30204df7b0f5d5e0000f7393367c42de604ca3cf56fbd35",
+  "manuscript_sha256": "76ed31b6c4108aeb954f510c05c0330af9c61753d63e879b8cf794bf24a1cd38",
+  "guide_sha256": "4ff5ebb1d51ceba3af88fbb39d26a3c6798931b3d0773d1bd9ad0b2f3cf12c9d",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/Normed/Module/SemilinearRegularity.lean.html?from=38&start=291&end=302#L291",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/Normed/Module/SemilinearRegularity.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/Normed/Module/SemilinearRegularity.lean",
+    "raw_bytes": {
+      "bytes": 15216,
+      "sha256": "51dde79b6ffcfc7a63139d8716e3b044072d6a4f905796afb377c65aacfdf2f2"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 6122,
+    "sha256": "40b530f7e72380f33488acb58ae0835638edac7c163a07923b7db1f6fd411196"
+  }
+}

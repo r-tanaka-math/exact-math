@@ -23,14 +23,15 @@ export function validateSourceRows(rows,changed){
  same(rows.map(r=>r.path).sort(),sourcePaths,'exact public source allowlist');same(changed.slice().sort(),[...sourcePaths,prefix+'/source-files.json'].sort(),'bounded changed paths');
  for(const r of rows)need(Number.isSafeInteger(r.bytes)&&r.bytes>0&&/^[0-9a-f]{64}$/.test(r.sha256),'source row');
 }
-export function verifyF324Part2Selection(){
+export function verifyF324Part2Selection(sourceCommit='HEAD'){
+ need(sourceCommit==='HEAD'||(sourceCommit==='4b753a9f23938512fdafd01bd1a58a3a7e27c4f5'&&git('rev-parse',sourceCommit+'^{tree}')==='f721b8120fb9a5d0b304ef1f86d90194a1de4f9a'),'fixed historical F324Part2 publication only');
  const raw=fs.readFileSync(path.join(dir,'metadata.json'));need(sha(raw)===metadataDigest,'immutable metadata');const m=JSON.parse(raw);
  need(m.batch===batch&&m.schema==='exact.f324-part2-topics-selection.v1','batch');same([m.old_commit,m.old_tree,m.public_push_parent],[oldCommit,oldTree,oldCommit],'current public baseline');
- same([git('rev-parse','HEAD^'),git('rev-parse',oldCommit+'^{tree}')],[oldCommit,oldTree],'ordinary immediate public successor');
- need(git('rev-list','--merges',oldCommit+'..HEAD')===''&&git('diff','--diff-filter=D','--name-only',oldCommit,'HEAD')==='','no merges or deletion');
- const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,'HEAD').split('\n').filter(Boolean));
- for(const r of rows){const b=fs.readFileSync(path.join(root,r.path));need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);if(!r.path.endsWith('.pdf'))assertPublicText(b.toString());}
- need(git('diff','--name-only',oldCommit,'HEAD','--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/lip-free-hilbert-topics-v1','publication/brouwer-topics-v1','publication/fpp-topics-v1','publication/tingley-topics-v1','publication/lfh-inline-baseline-r1','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','all historical math, workflow, terms and Tingley unchanged');
+ same([git('rev-parse',sourceCommit+'^'),git('rev-parse',oldCommit+'^{tree}')],[oldCommit,oldTree],'ordinary immediate public successor');
+ need(git('rev-list','--merges',oldCommit+'..'+sourceCommit)===''&&git('diff','--diff-filter=D','--name-only',oldCommit,sourceCommit)==='','no merges or deletion');
+ const source=fs.readFileSync(path.join(dir,'source-files.json')),rows=JSON.parse(source);validateSourceRows(rows,git('diff','--name-only',oldCommit,sourceCommit).split('\n').filter(Boolean));
+ for(const r of rows){const b=sourceCommit==='HEAD'?fs.readFileSync(path.join(root,r.path)):execFileSync('git',['-c','safe.directory='+root.replaceAll('\\','/').replace(/\/$/,''),'-C',root,'show',sourceCommit+':'+r.path]);need(b.length===r.bytes&&sha(b)===r.sha256,'source bytes '+r.path);if(!r.path.endsWith('.pdf'))assertPublicText(b.toString());}
+ need(git('diff','--name-only',oldCommit,sourceCommit,'--','.github','src','public','assets','package.json','package-lock.json','.node-version','publication/lip-free-hilbert-topics-v1','publication/brouwer-topics-v1','publication/fpp-topics-v1','publication/tingley-topics-v1','publication/lfh-inline-baseline-r1','publication/research-related-work-r1','publication/lfh188-fix4','publication/content-terms-public-effective.md')==='','all historical math, workflow, terms and Tingley unchanged');
  const inherited=verifyLipFreeHilbertSelection(oldCommit),inventories={},baselines={};
  need(m.pdf.path===pdf&&m.pdf.bytes===563368&&m.pdf.sha256==='e6542431a42aec5cf18f652b42414c4c15b0b6ac96d0bfbb865cd7446082eab7'&&m.pdf.pages===49,'final PDF binding');
  need(m.final_tex_sha256==='33139f9c189458389535c1392dd22e55852049c90e399f398c9de8a51af0f45c','private exact four-edit source binding');

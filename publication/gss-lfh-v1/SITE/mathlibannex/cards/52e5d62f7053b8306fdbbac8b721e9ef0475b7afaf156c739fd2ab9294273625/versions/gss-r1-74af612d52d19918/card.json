@@ -1,0 +1,30 @@
+{
+  "name": "ClosureSpace.IsLinkedSet",
+  "title": "Pairwise linked subsets of a closure space",
+  "identity_key": "lfh:lfh-declaration-card:sha256:52e5d62f7053b8306fdbbac8b721e9ef0475b7afaf156c739fd2ab9294273625",
+  "stable_card_id": "52e5d62f7053b8306fdbbac8b721e9ef0475b7afaf156c739fd2ab9294273625",
+  "card_revision": 1,
+  "card_sha256": "47fe06c79c7142605328ba71b49874f284d817485363590d00e8c5b78721dda9",
+  "exposition_revision": 1,
+  "exposition_sha256": "74af612d52d19918f4bd3fb2ba6fbbe05c93721eb5e6f642ba929a20a909c88b",
+  "manuscript_sha256": "c1870d932256720edc702561c08b2909ceb7cbf858487e2194239a90e47b48b5",
+  "guide_sha256": "194522cb23c6a88e903f0f677ac3d3a1a623fb8a8e7197c6be964e5882223aac",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/LinkedSet.lean.html?from=13&start=30&end=31#L30",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Topology/ClosureSpace/LinkedSet.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/LinkedSet.lean",
+    "raw_bytes": {
+      "bytes": 3478,
+      "sha256": "95ac973ca7bf940c90e63b9e3d8ae88e8279c316a8d6e21bf1200ffcae8c0533"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 6657,
+    "sha256": "3aaefc2b19ef050a380ab16a2f00afaa6f4f5853b09657301dac509099f1cc89"
+  }
+}

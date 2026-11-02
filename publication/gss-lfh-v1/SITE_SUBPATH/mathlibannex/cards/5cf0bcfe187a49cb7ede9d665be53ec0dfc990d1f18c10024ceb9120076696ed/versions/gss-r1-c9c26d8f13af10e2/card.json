@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.CompactOperatorC0Sum",
+  "title": "The dependent c₀-sum of compact-operator algebras",
+  "identity_key": "lfh:lfh-declaration-card:sha256:5cf0bcfe187a49cb7ede9d665be53ec0dfc990d1f18c10024ceb9120076696ed",
+  "stable_card_id": "5cf0bcfe187a49cb7ede9d665be53ec0dfc990d1f18c10024ceb9120076696ed",
+  "card_revision": 1,
+  "card_sha256": "2f73021866e72dd25d244139fed61f1ee76e03fca90c88fd531984f1cc1e4bc3",
+  "exposition_revision": 1,
+  "exposition_sha256": "c9c26d8f13af10e255ea0b7022188f076908e9e96f60c249c6c1f93ccf62ddb7",
+  "manuscript_sha256": "ea4f71e47292bee94ae7d3f86f83673d6901f26376a6738fa63079a026a20758",
+  "guide_sha256": "5ae70ffb5f47b605d5669b0475a65da501105b01e34d4ab85fb6d9ac95c5bb30",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/DirectSum/CompactOperators.lean.html?from=compact-operator-c0-sum&start=28&end=32#L28",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/DirectSum/CompactOperators.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/DirectSum/CompactOperators.lean",
+    "raw_bytes": {
+      "bytes": 1111,
+      "sha256": "6a59d66e9df29269621d2b968bee9a1c047e0b9ba092eda8d0d4392439e09d0f"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 3039,
+    "sha256": "e370bd13748cb810ebea8d49f037fc937695345e6809c040d681bf99423c7772"
+  }
+}

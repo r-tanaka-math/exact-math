@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.IsCompactOperatorModel",
+  "title": "A compact-operator model for a representation",
+  "identity_key": "lfh:lfh-declaration-card:sha256:26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+  "stable_card_id": "26c4dc7e5f4912c1494c383fd3d50537f9cb6328e2450925e91201f48c5d8384",
+  "card_revision": 3,
+  "card_sha256": "4329259b4399443c46e9a493ef3081bde406d18a69b68d371617f4b64ca88f8d",
+  "exposition_revision": 1,
+  "exposition_sha256": "5499220b48a8fdad92e384f2bc1a614467925550db22ed5b235596a3926a555f",
+  "manuscript_sha256": "2ccd05514cd6571908decd8a6e1d8a3991d3eeb9e9dcaf01b7070510bdeaeea8",
+  "guide_sha256": "d640d0b8566257ea8525354777d4a81352e71a27795c169ca2acfe7a7c614066",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/lfh-v0.4.0/MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean.html?from=is-compact-operator-model&start=26&end=33#L26",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/437e6e46228bbb8e91211ebded349d7a30020e73/MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/lfh-v0.4.0/MathlibAnnex/Analysis/CStarAlgebra/CompactModel.lean",
+    "raw_bytes": {
+      "bytes": 3652,
+      "sha256": "d76879b349527cfdc65525d780a4f27f220bd19c8ab69e01f7b5bb87a1f8c285"
+    },
+    "release_scope": "v0.4.0"
+  },
+  "exposition_export": {
+    "url": "exposition.json",
+    "bytes": 3795,
+    "sha256": "d6b8ea975648ca93e85533e441eb461ba7fdc476851350053deb734ac6d50523"
+  }
+}

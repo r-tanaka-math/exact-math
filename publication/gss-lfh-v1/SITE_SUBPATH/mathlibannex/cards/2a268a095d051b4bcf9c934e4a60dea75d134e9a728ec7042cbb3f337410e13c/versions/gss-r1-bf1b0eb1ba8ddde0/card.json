@@ -1,0 +1,30 @@
+{
+  "name": "NormedSpace.GeometricStructureSpace",
+  "title": "Points of the geometric structure space",
+  "identity_key": "lfh:lfh-declaration-card:sha256:2a268a095d051b4bcf9c934e4a60dea75d134e9a728ec7042cbb3f337410e13c",
+  "stable_card_id": "2a268a095d051b4bcf9c934e4a60dea75d134e9a728ec7042cbb3f337410e13c",
+  "card_revision": 1,
+  "card_sha256": "5f6b1457045a74988a830333fcec541d63459263543911c3ad0be100b50a8ef7",
+  "exposition_revision": 1,
+  "exposition_sha256": "bf1b0eb1ba8ddde084482ccc3351973dbf109ee34668774424eb4a1c00cf0ccf",
+  "manuscript_sha256": "6315fdbb173841f94e865ab87fd07bb8693b9fca792fdff8a8b52b98f2409921",
+  "guide_sha256": "fc92c96e41dbf4a9cb9d3dcbe7d59ec7b0d017678bf572673b5e72f1fba620c9",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Face.lean.html?from=4&start=32&end=39#L32",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/Normed/GeometricStructure/Face.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Face.lean",
+    "raw_bytes": {
+      "bytes": 1735,
+      "sha256": "46ac614a9243e989d7e8ccc6bce4cee37fb8cc8420fdd0126a3f3befdf283743"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 6642,
+    "sha256": "19e727081f4afd0b3a35a586f8ea2038f911bf3f46ce44d02f63554940a3001c"
+  }
+}

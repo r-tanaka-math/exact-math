@@ -1,0 +1,26 @@
+@media print {
+  header, footer, .back-to-top, .gss-preview-banner, .gss-relations, .gss-pdf-link, body > a, .gss-body > p,
+  .gss-body article > .source-links, .gss-body article .exact-identity, [data-r3-technical-only],
+  .gss-body article [data-r3-print-duplicate], .gss-body article [data-r3-print-duplicate-panel] { display:none !important; }
+  main, .gss-body { padding:0 !important; margin:0 !important; max-width:none !important; }
+  .gss-body article { border:0 !important; padding:0 !important; }
+  body { font-size:10pt !important; }
+  h1 { font-size:20pt !important; line-height:1.2; }
+  h2 { font-size:15pt !important; }
+  table { font-size:9pt !important; }
+  tr { break-inside:avoid; }
+  .gss-body table { width:100%; }
+  .gss-body td { padding:7px; }
+  .gss-body pre { white-space:pre-wrap; overflow-wrap:anywhere; overflow:visible; max-height:none; }
+  .gss-body .math-svg { overflow:visible; }
+  .gss-body .math-svg > svg { max-width:none !important; }
+  .gss-body .math-block > svg { max-width:100% !important; height:auto; }
+  .gss-body article details:not(.exact-identity):not([data-r3-print-duplicate-panel]) { display:block !important; }
+  .gss-body article details > summary { display:block; break-after:avoid; }
+  .source-tail { break-before:auto !important; }
+  .gss-body article .r3-print-destination { display:inline; padding:0; margin:0; font-size:0; line-height:0; }
+}
+
+@media print { .gss-body article pre[data-r3-print-short] { break-inside:avoid; } .gss-body article [data-r3-source-caption] { break-after:avoid; } }
+
+@media print { .gss-body article [data-r3-print-unit] { break-inside:avoid; } .gss-body article h2, .gss-body article h3, .gss-body article h4 { break-after:avoid; } }

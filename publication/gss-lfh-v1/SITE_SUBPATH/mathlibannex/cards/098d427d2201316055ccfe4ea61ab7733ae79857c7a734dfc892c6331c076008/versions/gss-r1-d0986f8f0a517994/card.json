@@ -1,0 +1,30 @@
+{
+  "name": "ClosureSpace.HasCompactOperatorHomeomorph",
+  "title": "A full homeomorphism to a compact-operator GSS",
+  "identity_key": "lfh:lfh-declaration-card:sha256:098d427d2201316055ccfe4ea61ab7733ae79857c7a734dfc892c6331c076008",
+  "stable_card_id": "098d427d2201316055ccfe4ea61ab7733ae79857c7a734dfc892c6331c076008",
+  "card_revision": 1,
+  "card_sha256": "c632a03795d47f8b00e3a83382286052193bd94c8490f261c4650a59403bfd20",
+  "exposition_revision": 1,
+  "exposition_sha256": "d0986f8f0a51799404cd33a885f642cae4b7cfdd57cffa4e9701fd6493141f38",
+  "manuscript_sha256": "18cdbac144ad5679e96b132b9a87ba0cd988a2628dd7761f868eb13617e3fc70",
+  "guide_sha256": "b6a27c488f02593e1e7ce42445dbd2635ef015dd998b6fadb89bec16b107d388",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/GCRCharacterization.lean.html?from=47&start=57&end=69#L57",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/GCRCharacterization.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/GCRCharacterization.lean",
+    "raw_bytes": {
+      "bytes": 16255,
+      "sha256": "99db060f568a62d68d8f656cbe0ba8fe965f35f348b2c5755c8c503398a9fe12"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 8377,
+    "sha256": "2d1676e2c52713991085fa3e687733f36b12deb9c8c01c3616be9f788c5947b5"
+  }
+}

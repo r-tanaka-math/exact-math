@@ -1,0 +1,30 @@
+{
+  "name": "ClosureSpace",
+  "title": "Closure spaces before topology",
+  "identity_key": "lfh:lfh-declaration-card:sha256:051c8b2fd731474cb5638761a359e66ab04e78beb04386598bdb1e8e977cc048",
+  "stable_card_id": "051c8b2fd731474cb5638761a359e66ab04e78beb04386598bdb1e8e977cc048",
+  "card_revision": 1,
+  "card_sha256": "1920461172d18ea8206dbdbd7a0ece11093e458889a720c183e5baefb6c25d97",
+  "exposition_revision": 1,
+  "exposition_sha256": "b29f460ba05d2dd1333a2a3fb82e431b8733bf32fca1a27f618cfeeb6c7a89de",
+  "manuscript_sha256": "4cac2496ebf2f2ea927aae150a194274bdec49dcca513ba261e3a4df9dedf4cf",
+  "guide_sha256": "4aca0024df6db0dcc992761bcbc9258a6fd55a368e336593ce41b0ba4de76abc",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/Basic.lean.html?from=1&start=28&end=30#L28",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Topology/ClosureSpace/Basic.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Topology/ClosureSpace/Basic.lean",
+    "raw_bytes": {
+      "bytes": 4509,
+      "sha256": "985a7e7c4fb1e2a2a299c7cf8874531bbfacd31d2ef0cdace6efeb4dd0607c3a"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 3996,
+    "sha256": "545bb368640372fec8e9c9e92f596406380529ec5f194f466410ea1392613de0"
+  }
+}

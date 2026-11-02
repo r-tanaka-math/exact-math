@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.normalPart_semilinear_factors_scalar_types",
+  "title": "Each selected scalar automorphism is identity or conjugation",
+  "identity_key": "lfh:lfh-declaration-card:sha256:fc684fc1b5cbdec020a888573ebda515b74803f00dac5a45c2f2451e93c3030a",
+  "stable_card_id": "fc684fc1b5cbdec020a888573ebda515b74803f00dac5a45c2f2451e93c3030a",
+  "card_revision": 1,
+  "card_sha256": "5747ac02d646c1376a8ac59c2b44dd537d85973255ec9801b297aabc69238fb9",
+  "exposition_revision": 1,
+  "exposition_sha256": "ea876dbc73dca7ca93cebec01fd27c86b328a62af733f7babd4efd4d551579bd",
+  "manuscript_sha256": "e9719c6263686fc15f38a4a299239a5dc7cb90c4116c77b82bd2d2e919f09d60",
+  "guide_sha256": "b95a048e86d2930176e56eeac754f6af16adaf32fa04b016d44019613f4341be",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartSemilinearRegularity.lean.html?from=39&start=229&end=235#L229",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartSemilinearRegularity.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/NormalPartSemilinearRegularity.lean",
+    "raw_bytes": {
+      "bytes": 12407,
+      "sha256": "e1c3c617c7a1966d78e01e4832dd8dbfef300f907a1ee02a70da2800b36ec543"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 14151,
+    "sha256": "e4b5120e26346edf98523ab59feccb052cb2957c35200659ff213ec966ccdb0b"
+  }
+}

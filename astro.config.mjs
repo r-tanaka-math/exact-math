@@ -1,3 +1,4 @@
+import {finishGSS} from './scripts/gss-lfh-public-adapter.mjs';
 import {finishF324Part2} from './scripts/f324-part2-topics-public-adapter.mjs';
 import {finishLipFreeHilbert} from './scripts/lip-free-hilbert-topics-public-adapter.mjs';
 import {finishBrouwer} from './scripts/brouwer-topics-public-adapter.mjs';
@@ -48,7 +49,8 @@ const guard={name:'exact-public-launch-hardening',hooks:{
     integrateProjects(root,base,profile);
     if(release)for(const f of release.imports){const p=path.resolve(root,f.path);if(!p.startsWith(root)||fs.existsSync(p))throw Error('Imported route collision');fs.mkdirSync(path.dirname(p),{recursive:true});fs.copyFileSync(f.src,p)}
     if(fullPublicProfile(profile)){
-      const f324Part2=release?.act?.update_kind==='EXACT_F324_PART2_TOPICS_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_F324_PART2_TOPICS_PUBLICATION_R1');
+      const gss=release?.act?.update_kind==='EXACT_GSS_LFH_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_GSS_LFH_PUBLICATION_R1');
+      const f324Part2=gss||release?.act?.update_kind==='EXACT_F324_PART2_TOPICS_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_F324_PART2_TOPICS_PUBLICATION_R1');
       const lipFreeHilbert=release?.act?.update_kind==='EXACT_LIP_FREE_HILBERT_TOPICS_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_LIP_FREE_HILBERT_TOPICS_PUBLICATION_R1');
       const brouwer=release?.act?.update_kind==='EXACT_BROUWER_TOPICS_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_BROUWER_TOPICS_PUBLICATION_R1');
       const fpp=release?.act?.update_kind==='EXACT_FPP_TOPICS_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_FPP_TOPICS_PUBLICATION_R1');
@@ -59,7 +61,7 @@ const guard={name:'exact-public-launch-hardening',hooks:{
       const combined=lfh188||release?.act?.update_kind==='EXACT_NAIMARK69_SR_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_NAIMARK69_SR_PUBLICATION_R1');
       const cleanup=combined||release?.act?.update_kind==='EXACT_REVIEW_DISPLAY_CLEANUP_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EXACT_REVIEW_DISPLAY_CLEANUP_R1');
       const current=cleanup||release?.act?.update_kind==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1'||(profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH==='EM_NAIMARK_ARXIV_CARD20_PUBLICATION_R1');
-      if(current){await integrateNaimarkArxiv(root,base);finishNaimarkArxivOutput(root,deployment,profile,mode,release);if(cleanup)finishReviewDisplayCleanup(root,deployment,profile,release);if(combined){integrateNaimark69SR(root,base);finishNaimark69SROutput(root,deployment,profile,release);}if(lfh188){integrateLFH188(root,base);finishLFH188Output(root,deployment,profile,release);}if(related&&!inlineBaseline&&!tingley&&!fpp&&!brouwer&&!lipFreeHilbert&&!f324Part2)finishResearchRelatedWork(root,deployment,profile,release);if(inlineBaseline)finishLFHInlineBaseline(root,deployment,profile,release);if(tingley)finishTingley(root,deployment,profile,release);if(fpp)finishFPP(root,deployment,profile,release);if(brouwer)finishBrouwer(root,deployment,profile,release);if(lipFreeHilbert)finishLipFreeHilbert(root,deployment,profile,release);if(f324Part2)finishF324Part2(root,deployment,profile,release);}
+      if(current){await integrateNaimarkArxiv(root,base);finishNaimarkArxivOutput(root,deployment,profile,mode,release);if(cleanup)finishReviewDisplayCleanup(root,deployment,profile,release);if(combined){integrateNaimark69SR(root,base);finishNaimark69SROutput(root,deployment,profile,release);}if(lfh188){integrateLFH188(root,base);finishLFH188Output(root,deployment,profile,release);}if(related&&!inlineBaseline&&!tingley&&!fpp&&!brouwer&&!lipFreeHilbert&&!f324Part2)finishResearchRelatedWork(root,deployment,profile,release);if(inlineBaseline)finishLFHInlineBaseline(root,deployment,profile,release);if(tingley)finishTingley(root,deployment,profile,release);if(fpp)finishFPP(root,deployment,profile,release);if(brouwer)finishBrouwer(root,deployment,profile,release);if(lipFreeHilbert)finishLipFreeHilbert(root,deployment,profile,release);if(gss)await finishGSS(root,deployment,profile,release);else if(f324Part2)finishF324Part2(root,deployment,profile,release);}
       else {integrateFullHP(root,base);finishFullHPOutput(root,deployment,profile,mode,release);}
     }
     else finishOutput(root,deployment,profile,mode,release);

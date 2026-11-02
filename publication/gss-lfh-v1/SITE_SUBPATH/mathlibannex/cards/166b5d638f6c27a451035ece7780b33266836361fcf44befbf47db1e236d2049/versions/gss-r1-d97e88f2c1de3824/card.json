@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.exists_faithful_normalPart_transport",
+  "title": "Faithful normal-part transport through a specified GSS homeomorphism",
+  "identity_key": "lfh:lfh-declaration-card:sha256:166b5d638f6c27a451035ece7780b33266836361fcf44befbf47db1e236d2049",
+  "stable_card_id": "166b5d638f6c27a451035ece7780b33266836361fcf44befbf47db1e236d2049",
+  "card_revision": 1,
+  "card_sha256": "9d4d6588039e85d4d272c23dae376a4b6f1af61fc2d18f9306d4ad0f84852e86",
+  "exposition_revision": 1,
+  "exposition_sha256": "d97e88f2c1de3824c23b4eb8ee4032919adf43e791de44518b07a1fc3869a11e",
+  "manuscript_sha256": "46a5a97cc6a50f3148398b92b66c435c513e9ef2c258c90dd162f7d8caf83e3c",
+  "guide_sha256": "59308268c7e72d2f3ccaa9eb2e5471f7d72ec1f5b5e041adda9a6422e35474ba",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/FaithfulNormalPart.lean.html?from=53&start=200&end=236#L200",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/FaithfulNormalPart.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/FaithfulNormalPart.lean",
+    "raw_bytes": {
+      "bytes": 12992,
+      "sha256": "23ce4f23a554d629596348f5647c60d1aae9de3e08cc823d8efd820179efa3e9"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 12158,
+    "sha256": "6fdb4b0633e2f4f0e83b6f004d5640a44fb639aa77529674013787f84dc8d7df"
+  }
+}

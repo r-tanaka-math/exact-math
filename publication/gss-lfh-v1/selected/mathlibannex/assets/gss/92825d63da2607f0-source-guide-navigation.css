@@ -1,0 +1,24 @@
+/* W34: scoped source-guide presentation. Adopted shell/math/font unchanged. */
+.source-guide-table .guide-heading {
+  display: block; font-family: inherit; font-weight: 700;
+  margin: 0 0 .6em; line-height: 1.4;
+}
+.source-guide-table .guide-code {
+  display: block; white-space: pre-wrap; overflow-wrap: anywhere;
+  margin: 0; padding: 0; border: 0; background: transparent;
+}
+.guide-fallback, .guide-return { display: block; margin-top: .5em; }
+.source-guide-table td:first-child > code { white-space: pre-wrap; }
+.source-guide-table .guide-math-punctuation { white-space: nowrap; }
+.guide-source-line.guide-highlight { background: #fff2ba; }
+.guide-source-line { scroll-margin-top: 1.5rem; }
+.guide-range-anchor { scroll-margin-top: 1.5rem; }
+.guide-heading:focus-visible, .guide-return:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.guide-related { margin-block: 1em; }
+@media print {
+  .source-block > .guide-long-signature,
+  .source-block > .guide-long-signature pre { break-inside: auto; page-break-inside: auto; }
+  .guide-related, .guide-return, .guide-fallback { display: none !important; }
+  .source-guide-table .guide-heading { color: inherit; text-decoration: none; }
+  .guide-source-line.guide-highlight { background: transparent; }
+}

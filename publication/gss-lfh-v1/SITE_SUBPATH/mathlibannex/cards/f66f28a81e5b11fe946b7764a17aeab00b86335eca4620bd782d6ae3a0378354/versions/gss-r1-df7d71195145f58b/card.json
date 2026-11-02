@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.eq_compactOperatorStarSubalgebra_iff_of_geometricStructure_homeomorph",
+  "title": "A specified GSS homeomorphism preserves compact-operator equality",
+  "identity_key": "lfh:lfh-declaration-card:sha256:f66f28a81e5b11fe946b7764a17aeab00b86335eca4620bd782d6ae3a0378354",
+  "stable_card_id": "f66f28a81e5b11fe946b7764a17aeab00b86335eca4620bd782d6ae3a0378354",
+  "card_revision": 1,
+  "card_sha256": "ed9e970b2ecd6c7edc02f6d75d85299f9f410338e661f957ed03b3daa2e87f52",
+  "exposition_revision": 1,
+  "exposition_sha256": "df7d71195145f58b0192cc02f22644b32ec4ef391e913e5c9fc514a6b678a1e5",
+  "manuscript_sha256": "6f0f1f134f7b7fe0e13705251dcc39b4ba2521f78b9f4e5f2172f8121b3f7cdf",
+  "guide_sha256": "68322df4ad3867fec8b47223181278231c25cd4ecad4d94cef5bb75f840c509c",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/CompactTrichotomyTransport.lean.html?from=54&start=430&end=443#L430",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/CompactTrichotomyTransport.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/CompactTrichotomyTransport.lean",
+    "raw_bytes": {
+      "bytes": 23927,
+      "sha256": "d03a54b6ea031cecce1787c6924bcbc5a786cec83dbc053b4ed4cc3390249e84"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 11385,
+    "sha256": "dbc7f7410186f32d5e34fa4817fde0c0f9269d25087669c019dc0b336750547c"
+  }
+}

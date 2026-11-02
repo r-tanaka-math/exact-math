@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.nonempty_starAlgEquiv_iff_nonempty_geometricStructure_homeomorph_of_exists_isCompactlyRepresented",
+  "title": "One-sided compact representability gives GSS rigidity",
+  "identity_key": "lfh:lfh-declaration-card:sha256:246001db089358ca2048f2fa1f24011fbdceaba5e6ebb2ec6b7e18c4900cf1c0",
+  "stable_card_id": "246001db089358ca2048f2fa1f24011fbdceaba5e6ebb2ec6b7e18c4900cf1c0",
+  "card_revision": 1,
+  "card_sha256": "3be45b0c975f153e673a3bef4565d4102f60f506187c006d685dd5c724c425bc",
+  "exposition_revision": 1,
+  "exposition_sha256": "e860795177df166d057812a1c02c1c9ed14eba453dfd7bd4798a404bcff12963",
+  "manuscript_sha256": "6dd11a0259518e5cc1181fd46265c04627c1db11cf272b2c7fb557e0916ff848",
+  "guide_sha256": "9403fc0250f6daa61f4de9a9b5b5b2669c2d6e31d7dad94c9264cbe1517fa582",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/exact-mathematics/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/CompactRepresentationRigidity.lean.html?from=58&start=114&end=153#L114",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/CompactRepresentationRigidity.lean",
+    "raw": "https://exactmathematics.org/exact-mathematics/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/GeometricStructure/CompactRepresentationRigidity.lean",
+    "raw_bytes": {
+      "bytes": 8336,
+      "sha256": "94c92a49a55ce7989ac42cf271285f2c630c6ea1a74983ea2771a22723e13924"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 11125,
+    "sha256": "2262ccb4e037973fd2fc4a63aef436166f8a0ce7ac6c9e1771d6e472b0f39ef4"
+  }
+}

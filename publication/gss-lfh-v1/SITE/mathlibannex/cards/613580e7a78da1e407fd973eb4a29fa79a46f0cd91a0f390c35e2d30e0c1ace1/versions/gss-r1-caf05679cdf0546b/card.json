@@ -1,0 +1,30 @@
+{
+  "name": "MathlibAnnex.Analysis.CStarAlgebra.C0DirectSum",
+  "title": "The dependent c₀-direct sum",
+  "identity_key": "lfh:lfh-declaration-card:sha256:613580e7a78da1e407fd973eb4a29fa79a46f0cd91a0f390c35e2d30e0c1ace1",
+  "stable_card_id": "613580e7a78da1e407fd973eb4a29fa79a46f0cd91a0f390c35e2d30e0c1ace1",
+  "card_revision": 1,
+  "card_sha256": "baac453b94b53f8dd3b5522e5a8dafb6524316acbcc0e4fbf0e8484d681370e9",
+  "exposition_revision": 1,
+  "exposition_sha256": "caf05679cdf0546bdc7c088c3dabfd7cdf145fe08ec184814204cab72f63b596",
+  "manuscript_sha256": "e55fba268c8c8ab6515a7e96ee1ce1c36174a0b6a96b2f4fc4c55c2faa57b467",
+  "guide_sha256": "8d8b51bfd563d90848ec3190506685b9d1920096c79e19db284698a1531cfa5c",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/DirectSum/C0DirectSum.lean.html?from=c0-direct-sum&start=225&end=227#L225",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/CStarAlgebra/DirectSum/C0DirectSum.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/CStarAlgebra/DirectSum/C0DirectSum.lean",
+    "raw_bytes": {
+      "bytes": 13647,
+      "sha256": "c62f1b8c28a6d41292e0210269d200ebc2913f195946e796ee93fbf884113693"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 3757,
+    "sha256": "5ddba8f5cc58cbe58717781c8f24f731a67eebd24d0eff774bf1f16311bc9c69"
+  }
+}

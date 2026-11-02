@@ -1,0 +1,7 @@
+/* Source-view only. Existing released font bytes; no shared stylesheet restyle. */
+@font-face{font-family:Project;src:url(DejaVuSans.ttf) format("truetype");font-style:normal;font-weight:400}
+@font-face{font-family:Project;src:url(DejaVuSans-Bold.ttf) format("truetype");font-style:normal;font-weight:700}
+@font-face{font-family:Lean;src:url(lean-main-4bee0719801e.woff2) format("woff2");unicode-range:U+0000-2A05,U+2A07-10FFFF}
+@font-face{font-family:Lean;src:url(lean-nary-6b21e0df2fbc.woff2) format("woff2");unicode-range:U+2A06}
+@font-face{font-family:GSSSourceSupplement;src:url(FreeSerif-20120503.ttf) format("truetype");unicode-range:U+2A05,U+1D4DA,U+1D4DD}
+body.gss-source-view-r9 .gss-source-code,body.gss-source-view-r9 .gss-source-code code{font-family:Lean,GSSSourceSupplement,Project,monospace;font-synthesis:none}

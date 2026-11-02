@@ -1,0 +1,30 @@
+{
+  "name": "NormedSpace.geometricStructureClosure",
+  "title": "The geometric structure closure",
+  "identity_key": "lfh:lfh-declaration-card:sha256:81027d4ce2fa25a93780f921f73b060bbfc8f9f580a00a9200face0fe00f60cc",
+  "stable_card_id": "81027d4ce2fa25a93780f921f73b060bbfc8f9f580a00a9200face0fe00f60cc",
+  "card_revision": 1,
+  "card_sha256": "f0613532e38693386ec173bdb62889b7f8ec31170003f913143f4d5b730d09ff",
+  "exposition_revision": 1,
+  "exposition_sha256": "cded7ac5dfdcacee2a082f86bc699d9ca4e8f7bc833b54c8936bc023fa9fa8e4",
+  "manuscript_sha256": "e63bf868032513bbcb2f6faa8dfa8aa3dca07a0a3a1a9a2e9ed1023a5bada9a1",
+  "guide_sha256": "99389dbf27ede4fece97107f36df5d790b1234c0e0d34cf3876e405698bfb3ed",
+  "derived_view": true,
+  "publication_edition": "Version 1",
+  "projection_kind": "EXACT_CARD_REVISION_VIEW",
+  "source_binding": {
+    "source_view": "https://exactmathematics.org/mathlibannex/sources/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Face.lean.html?from=5&start=32&end=39#L32",
+    "fixed_original": "https://github.com/r-tanaka-math/mathlib-annex/blob/ac405356bb98afed954da9b9c795d23cc8d5d149/MathlibAnnex/Analysis/Normed/GeometricStructure/Face.lean",
+    "raw": "https://exactmathematics.org/mathlibannex/raw/gss-v0.5.0/MathlibAnnex/Analysis/Normed/GeometricStructure/Face.lean",
+    "raw_bytes": {
+      "bytes": 1735,
+      "sha256": "46ac614a9243e989d7e8ccc6bce4cee37fb8cc8420fdd0126a3f3befdf283743"
+    },
+    "release_scope": "v0.5.0"
+  },
+  "exposition_export": {
+    "url": "exposition.md",
+    "bytes": 6628,
+    "sha256": "bac9448ed24968c2d2c8a7b0127c2bab73f3533a11705e512fd84044b3c76904"
+  }
+}

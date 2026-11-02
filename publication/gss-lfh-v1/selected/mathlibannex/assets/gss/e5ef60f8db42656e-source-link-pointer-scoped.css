@@ -1,0 +1,4 @@
+@media screen and (max-width: 600px) {
+  article.lfh188-body li > a { display: inline-block; max-width: 100%; }
+  article.lfh188-body p > a { display: inline-block; max-width: 100%; }
+}

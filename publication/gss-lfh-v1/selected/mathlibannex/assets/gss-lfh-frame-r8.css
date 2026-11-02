@@ -1,0 +1,11 @@
+/* R8 outer-only reuse of published card-profile frame values. No selectors into accepted math/source/graph. */
+.gss-lfh-frame{background:#1d3541;color:white;padding:32px max(20px,calc((100vw - 1060px)/2));font:16px/1.7 Project,system-ui,sans-serif}
+.gss-lfh-frame a{color:#e0d8b5}.gss-lfh-frame nav{display:flex;flex-wrap:wrap;gap:12px 22px;margin:12px 0}.gss-lfh-frame .eyebrow{font-size:11px;letter-spacing:.14em;color:inherit}.gss-lfh-frame p{font-size:13px;margin:8px 0}
+.gss-lfh-footer{max-width:1100px;margin:40px auto 0;padding:24px 20px;border-top:1px solid #becbca;font-size:12px}.gss-lfh-footer p{margin:8px 0}
+.gss-lfh-frame a:focus-visible,.gss-lfh-footer a:focus-visible{outline:3px solid #b95f00;outline-offset:4px}
+@media(max-width:420px){.gss-lfh-frame{padding:26px 16px}}
+@media print{.gss-lfh-frame,.gss-lfh-footer,.gss-r8-project-extra{display:none!important}}
+/* Reused accepted MathJax SVG geometry; same inline wrapper/SVG coordination. */
+.gss-research-math{display:inline-block;line-height:0;padding:0;vertical-align:calc(-1 * var(--gss-r8-depth))}.gss-research-math>svg{display:block;vertical-align:0;max-width:none;overflow:visible}
+.gss-r8-cstar{--gss-r8-depth:0.0220000em}
+.gss-r8-kh{--gss-r8-depth:0.2500000em}
