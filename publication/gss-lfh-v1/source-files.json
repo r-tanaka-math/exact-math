@@ -12,7 +12,7 @@
   {
     "path": "publication/gss-lfh-v1/metadata.json",
     "bytes": 141479,
-    "sha256": "5437055a1580b444fa6db1b121545ef89be6213314b40dfc889e18a4e2a215ef"
+    "sha256": "6461aa91609a90a3a1b6207e1409a4c06886f7b84ff29ddc5f0891f3b29af6d1"
   },
   {
     "path": "publication/gss-lfh-v1/selected/mathlibannex/assets/gss/04d59e513521b61d-card-36-metrics.css",
@@ -2786,8 +2786,8 @@
   },
   {
     "path": "publication/gss-lfh-v1/SITE/mathlibannex/index.html",
-    "bytes": 33507,
-    "sha256": "f9be2fade2d6bca01c686e297df31dd8d7ea2808cfd2dfcd7e64727ab8caebec"
+    "bytes": 33505,
+    "sha256": "282958df707eb1f69d28608069dd88aef59a7fb41beb521935f615bc50adaf95"
   },
   {
     "path": "publication/gss-lfh-v1/SITE/mathlibannex/projects/geometric-structure-spaces/boundary.html",
@@ -3271,8 +3271,8 @@
   },
   {
     "path": "publication/gss-lfh-v1/SITE/research/geometric-structure-spaces/index.html",
-    "bytes": 41812,
-    "sha256": "eecd6cac694d7f246e798c34737a384296c88fbf12a110b57ef881f7d58b1f73"
+    "bytes": 41808,
+    "sha256": "2253051688ca34fc054a8b4543f539d4ac6c5e71a956edd245d64f231feb4549"
   },
   {
     "path": "publication/gss-lfh-v1/SITE/research/index.html",
@@ -3292,12 +3292,12 @@
   {
     "path": "publication/gss-lfh-v1/SITE-inventory.json",
     "bytes": 700236,
-    "sha256": "8eec106950988cd81d7517d8d871906b7684b163b18c64c6e5221e14dafc7fd2"
+    "sha256": "7c12fcf3e5eb3f99d53dfc493a8177ffaecc60c5bbd50245cd80533f7bad113d"
   },
   {
     "path": "publication/gss-lfh-v1/SITE-overlay.json",
     "bytes": 232426,
-    "sha256": "83e7f8c8095f7163ba9e547d18253006620af19837ac3567709c3adc64f88c52"
+    "sha256": "b39d9fdff3f1af117d6c1dabef2091e7e0dc39bb991760165a388e86194387be"
   },
   {
     "path": "publication/gss-lfh-v1/SITE_SUBPATH/index.html",
@@ -4341,8 +4341,8 @@
   },
   {
     "path": "publication/gss-lfh-v1/SITE_SUBPATH/mathlibannex/index.html",
-    "bytes": 34011,
-    "sha256": "ec3312ba9026df2ed098fca4ca7f8baf629f88c535cbeee9c21392cc5fc6ce97"
+    "bytes": 34009,
+    "sha256": "7ffa303fb418e68f5f097013d08d5adc87a58e26466a5c8cda3a221ab6840be7"
   },
   {
     "path": "publication/gss-lfh-v1/SITE_SUBPATH/mathlibannex/projects/geometric-structure-spaces/boundary.html",
@@ -4826,8 +4826,8 @@
   },
   {
     "path": "publication/gss-lfh-v1/SITE_SUBPATH/research/geometric-structure-spaces/index.html",
-    "bytes": 42280,
-    "sha256": "0b5deb5d88a04a05d292a2d7a13c166349809b2f7fb9b834a0c30ee2ad1d178e"
+    "bytes": 42276,
+    "sha256": "7099ca7a309a50cbdf9055524188f9bdaa1f9041ae306a17317f74aeba847e6d"
   },
   {
     "path": "publication/gss-lfh-v1/SITE_SUBPATH/research/index.html",
@@ -4847,12 +4847,12 @@
   {
     "path": "publication/gss-lfh-v1/SITE_SUBPATH-inventory.json",
     "bytes": 701098,
-    "sha256": "6c36e19e1850c2a31a8049b0306659b841aa7c003b5759efb8cb946e58a068de"
+    "sha256": "c4f694a7968b55747e9f1adf05b5ffccb37c52674defb92538e5f9f8ae204eb6"
   },
   {
     "path": "publication/gss-lfh-v1/SITE_SUBPATH-overlay.json",
     "bytes": 234890,
-    "sha256": "eb0877d3eeaf403cbc0796ebca3894814c42a9a8382761fce6274813ce19f487"
+    "sha256": "0f3c1791da2c82be6376dec42ddf5e089b9245b9ef070a691126149114a22643"
   },
   {
     "path": "scripts/f324-part2-topics-public-adapter.mjs",
@@ -4862,7 +4862,7 @@
   {
     "path": "scripts/gss-lfh-public-adapter.mjs",
     "bytes": 11506,
-    "sha256": "1e1e7a86510925c1a151344bf0becdffebfd22af2e6b2b03420400b77fadff16"
+    "sha256": "5d46ea55f4542b96e44299512440d426fac37f317241750d1f50a4507cf9d0f1"
   },
   {
     "path": "scripts/postpublic-gate.mjs",

@@ -2,7 +2,7 @@
 import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';import {isDeepStrictEqual} from 'node:util';
 import {verifyF324Part2Selection,mountPriorF324Part2} from './f324-part2-topics-public-adapter.mjs';
 const validatedGSSActs=new WeakMap();
-export const batch='EXACT_GSS_LFH_PUBLICATION_R1';const root=fileURLToPath(new URL('../',import.meta.url)),prefix='publication/gss-lfh-v1',dir=path.join(root,prefix),metadataDigest='5437055a1580b444fa6db1b121545ef89be6213314b40dfc889e18a4e2a215ef';
+export const batch='EXACT_GSS_LFH_PUBLICATION_R1';const root=fileURLToPath(new URL('../',import.meta.url)),prefix='publication/gss-lfh-v1',dir=path.join(root,prefix),metadataDigest='6461aa91609a90a3a1b6207e1409a4c06886f7b84ff29ddc5f0891f3b29af6d1';
 const sha=b=>createHash('sha256').update(b).digest('hex'),need=(x,m)=>{if(!x)throw Error('GSS_PUBLICATION_REFUSED: '+m)},same=(a,b,m)=>need(isDeepStrictEqual(a,b),m),read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const git=(...a)=>execFileSync('git',['-c','safe.directory='+root.replaceAll('\\','/').replace(/\/$/,''),'-c','core.longpaths=true','-C',root,...a],{encoding:'utf8'}).trim();
 export function verifyGSSSelectionFiles(){

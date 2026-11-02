@@ -4,8 +4,8 @@
   "edition": "Version 1",
   "prepared_date": "2026-11-01",
   "publication_date": "2026-11-02",
-  "owner_instruction_sha256": "4effa0a3f396285d26fbbf53322a654f602715099507320dfb4b929c608f11c5",
-  "publication_dispatch_sha256": "4b3cbd8b14b60f88e83aff14ee8d3904cb10ba67270746de65459ebf89241fcd",
+  "owner_instruction_sha256": "7efafdde3f5f55d74165f23dcbea7799dda95aa2c7d8ea0d44cf8b8d6331a692",
+  "publication_dispatch_sha256": "f30777ba0f18d14cf0fe7cefa0dc81b9380ffb3707587e2ee8fbfccc51a9faa3",
   "public_parent": "4b753a9f23938512fdafd01bd1a58a3a7e27c4f5",
   "public_parent_tree": "f721b8120fb9a5d0b304ef1f86d90194a1de4f9a",
   "canonical_origin": "https://exactmathematics.org",
@@ -18,11 +18,11 @@
       "paths": 3548,
       "inventory": {
         "bytes": 700236,
-        "sha256": "8eec106950988cd81d7517d8d871906b7684b163b18c64c6e5221e14dafc7fd2"
+        "sha256": "7c12fcf3e5eb3f99d53dfc493a8177ffaecc60c5bbd50245cd80533f7bad113d"
       },
       "overlay": {
         "bytes": 232426,
-        "sha256": "83e7f8c8095f7163ba9e547d18253006620af19837ac3567709c3adc64f88c52"
+        "sha256": "b39d9fdff3f1af117d6c1dabef2091e7e0dc39bb991760165a388e86194387be"
       },
       "baseline": {
         "bytes": 563512,
@@ -33,11 +33,11 @@
       "paths": 3553,
       "inventory": {
         "bytes": 701098,
-        "sha256": "6c36e19e1850c2a31a8049b0306659b841aa7c003b5759efb8cb946e58a068de"
+        "sha256": "c4f694a7968b55747e9f1adf05b5ffccb37c52674defb92538e5f9f8ae204eb6"
       },
       "overlay": {
         "bytes": 234890,
-        "sha256": "eb0877d3eeaf403cbc0796ebca3894814c42a9a8382761fce6274813ce19f487"
+        "sha256": "0f3c1791da2c82be6376dec42ddf5e089b9245b9ef070a691126149114a22643"
       },
       "baseline": {
         "bytes": 564374,

@@ -2276,8 +2276,8 @@
   },
   "mathlibannex/index.html": {
     "source": "publication/gss-lfh-v1/SITE/mathlibannex/index.html",
-    "bytes": 33507,
-    "sha256": "f9be2fade2d6bca01c686e297df31dd8d7ea2808cfd2dfcd7e64727ab8caebec"
+    "bytes": 33505,
+    "sha256": "282958df707eb1f69d28608069dd88aef59a7fb41beb521935f615bc50adaf95"
   },
   "mathlibannex/projects/geometric-structure-spaces/boundary.html": {
     "source": "publication/gss-lfh-v1/SITE/mathlibannex/projects/geometric-structure-spaces/boundary.html",
@@ -3251,8 +3251,8 @@
   },
   "research/geometric-structure-spaces/index.html": {
     "source": "publication/gss-lfh-v1/SITE/research/geometric-structure-spaces/index.html",
-    "bytes": 41812,
-    "sha256": "eecd6cac694d7f246e798c34737a384296c88fbf12a110b57ef881f7d58b1f73"
+    "bytes": 41808,
+    "sha256": "2253051688ca34fc054a8b4543f539d4ac6c5e71a956edd245d64f231feb4549"
   },
   "research/geometric-structure-spaces/paper-record.json": {
     "source": "publication/gss-lfh-v1/selected/research/geometric-structure-spaces/paper-record.json",
