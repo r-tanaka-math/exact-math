@@ -12,7 +12,7 @@
   {
     "path": "publication/gss-lfh-v1/metadata.json",
     "bytes": 141479,
-    "sha256": "780ed6c68fcc6a553c2ceedef7e6860342f6b01703f29ef308a26c4a11651449"
+    "sha256": "5437055a1580b444fa6db1b121545ef89be6213314b40dfc889e18a4e2a215ef"
   },
   {
     "path": "publication/gss-lfh-v1/selected/mathlibannex/assets/gss/04d59e513521b61d-card-36-metrics.css",
@@ -4856,13 +4856,13 @@
   },
   {
     "path": "scripts/f324-part2-topics-public-adapter.mjs",
-    "bytes": 11864,
-    "sha256": "35c9b51eef00745eaaee50b59337d8ee988067da40cc91c0e8e8559cb91fb932"
+    "bytes": 12894,
+    "sha256": "b9d8f8cec996103570d48b92a9eeff30e7bf2180d6f19b9322feb69f2f7a05ed"
   },
   {
     "path": "scripts/gss-lfh-public-adapter.mjs",
-    "bytes": 10090,
-    "sha256": "c14def56ba643aafdba33f805629c1996cb918dd7f6b9827e1e790be14765872"
+    "bytes": 11506,
+    "sha256": "1e1e7a86510925c1a151344bf0becdffebfd22af2e6b2b03420400b77fadff16"
   },
   {
     "path": "scripts/postpublic-gate.mjs",

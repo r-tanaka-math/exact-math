@@ -1,7 +1,8 @@
 // Exact Version1 GSS public-source projection. No act is created by this adapter.
 import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';import {isDeepStrictEqual} from 'node:util';
+import {verifyF324Part2Selection,mountPriorF324Part2} from './f324-part2-topics-public-adapter.mjs';
 const validatedGSSActs=new WeakMap();
-export const batch='EXACT_GSS_LFH_PUBLICATION_R1';const root=fileURLToPath(new URL('../',import.meta.url)),prefix='publication/gss-lfh-v1',dir=path.join(root,prefix),metadataDigest='780ed6c68fcc6a553c2ceedef7e6860342f6b01703f29ef308a26c4a11651449';
+export const batch='EXACT_GSS_LFH_PUBLICATION_R1';const root=fileURLToPath(new URL('../',import.meta.url)),prefix='publication/gss-lfh-v1',dir=path.join(root,prefix),metadataDigest='5437055a1580b444fa6db1b121545ef89be6213314b40dfc889e18a4e2a215ef';
 const sha=b=>createHash('sha256').update(b).digest('hex'),need=(x,m)=>{if(!x)throw Error('GSS_PUBLICATION_REFUSED: '+m)},same=(a,b,m)=>need(isDeepStrictEqual(a,b),m),read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const git=(...a)=>execFileSync('git',['-c','safe.directory='+root.replaceAll('\\','/').replace(/\/$/,''),'-c','core.longpaths=true','-C',root,...a],{encoding:'utf8'}).trim();
 export function verifyGSSSelectionFiles(){
@@ -11,10 +12,35 @@ export function verifyGSSSelectionFiles(){
  const profiles={};for(const a of ['SITE','SITE_SUBPATH']){profiles[a]={};for(const k of ['inventory','overlay','baseline']){const p=path.join(dir,a+'-'+k+'.json'),b=fs.readFileSync(p);need(b.length===m.profiles[a][k].bytes&&sha(b)===m.profiles[a][k].sha256,'profile '+a+k);profiles[a][k]=JSON.parse(b)}need(Object.keys(profiles[a].inventory).length===m.profiles[a].paths,'all output paths');}
  return{m,rows,profiles,metadataDigest,source_files_sha256:sha(fs.readFileSync(path.join(dir,'source-files.json')))};
 }
+// Keep the last *published* baseline distinct from local unpublished checkpoints.
+// Every intermediate commit is single-parent, in scope, and bound into the new act.
+export function verifyGSSSourceHistory(v=verifyGSSSelectionFiles()){
+ const m=v.m,allowed=new Set([...m.allowed_source_paths,prefix+'/source-files.json']);
+ same(git('rev-parse',m.public_parent+'^{tree}'),m.public_parent_tree,'fixed published baseline tree');
+ need(git('merge-base','--is-ancestor',m.public_parent,'HEAD')==='','published baseline must be an ancestor');
+ const lines=git('rev-list','--topo-order','--reverse','--parents',m.public_parent+'..HEAD').split('\n').filter(Boolean);
+ need(lines.length>0,'nonempty ordinary publication successor');
+ const lineage=[];let previous=m.public_parent;
+ for(const line of lines){
+  const ids=line.split(' ');need(ids.length===2&&ids[1]===previous,'single-parent linear publication history');
+  const commit=ids[0],parent=ids[1],tree=git('rev-parse',commit+'^{tree}');
+  const fields=git('diff-tree','--no-commit-id','--no-renames','--raw','-z','-r',parent,commit).split('\0');
+  if(fields.at(-1)==='')fields.pop();need(fields.length>0&&fields.length%2===0,'nonempty exact source checkpoint');
+  for(let i=0;i<fields.length;i+=2){
+   const h=/^:(\d{6}) (\d{6}) ([a-f0-9]{40}) ([a-f0-9]{40}) ([A-Z])$/.exec(fields[i]);
+   need(h&&['A','M'].includes(h[5])&&h[2]==='100644'&&['000000','100644'].includes(h[1]),'no deletion, rename, link, special file or mode change in publication history');
+   need(allowed.has(fields[i+1]),'out-of-scope intermediate source '+fields[i+1]);
+  }
+  lineage.push({commit,tree,parent});previous=commit;
+ }
+ same(previous,git('rev-parse','HEAD'),'complete current publication lineage');
+ same(git('diff','--no-renames','--name-only',m.public_parent,'HEAD').split('\n').filter(Boolean).sort(),[...allowed].sort(),'bounded cumulative public source delta');
+ return lineage;
+}
 export function validateGSSAct(act,identity,deployment,today){
- need(act?.schema==='exact.owner-postpublic-update-act.gss-v1'&&act.owner==='Ryotaro Tanaka'&&act.authorized===true&&act.authorization_state==='OWNER_AUTHORIZED_FOR_EXACT_UPDATE'&&act.update_kind===batch,'new explicit exact owner authorization');
+ need(act?.schema==='exact.owner-postpublic-update-act.gss-v2'&&act.owner==='Ryotaro Tanaka'&&act.authorized===true&&act.authorization_state==='OWNER_AUTHORIZED_FOR_EXACT_UPDATE'&&act.update_kind===batch,'new explicit exact owner authorization');
  const v=verifyGSSSelectionFiles(),m=v.m;need(m.publication_date===today&&/^\d{4}-\d{2}-\d{2}$/.test(today),'assigned actual Tokyo publication date');need(/^[a-f0-9]{64}$/.test(m.owner_instruction_sha256||'')&&/^[a-f0-9]{64}$/.test(m.publication_dispatch_sha256||''),'new owner/dispatch evidence required');
- same([identity.commit,identity.tree],[git('rev-parse','HEAD'),git('rev-parse','HEAD^{tree}')],'actual current public checkout');same([act.new_commit,act.new_tree],[identity.commit,identity.tree],'act exact source commit/tree');same([git('rev-parse','HEAD^'),git('rev-parse',m.public_parent+'^{tree}')],[m.public_parent,m.public_parent_tree],'ordinary fixed parent');
+ same([identity.commit,identity.tree],[git('rev-parse','HEAD'),git('rev-parse','HEAD^{tree}')],'actual current public checkout');same([act.new_commit,act.new_tree],[identity.commit,identity.tree],'act exact source commit/tree');same(act.source_lineage,verifyGSSSourceHistory(v),'act exact append-only publication lineage');
  need(git('rev-list','--merges',m.public_parent+'..HEAD')===''&&git('diff','--diff-filter=D','--name-only',m.public_parent,'HEAD')==='','no merge/deletion');same(git('diff','--name-only',m.public_parent,'HEAD').split('\n').filter(Boolean).sort(),[...m.allowed_source_paths,prefix+'/source-files.json'].sort(),'bounded public source delta');
  same([deployment.origin,deployment.public_repository,deployment.base,deployment.deployment_profile],[m.canonical_origin,m.public_repository,'/','ROOT'],'production deployment');
  for(const k of ['public_parent','public_parent_tree','accepted_candidate_commit','accepted_reader_manifest_sha256','owner_instruction_sha256','publication_dispatch_sha256','publication_date'])same(act[k],m[k],'act '+k);
@@ -77,8 +103,7 @@ export function applyGSSOverlay(output,area,v=verifyGSSSelectionFiles()){
 export async function finishGSS(output,deployment,profile,release){
  const v=verifyGSSSelectionFiles(),m=v.m,area=deployment.base==='/'?'SITE':'SITE_SUBPATH';need((profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH===batch)||(profile==='FULL_LAUNCH'&&release?.act?.update_kind===batch&&area==='SITE'),'bounded build profile');
  let runtimeAct=null;if(profile==='FULL_LAUNCH'){const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());runtimeAct=validateGSSAct(release.act,{commit:git('rev-parse','HEAD'),tree:git('rev-parse','HEAD^{tree}')},deployment,today);}
- const {verifyF324Part2Selection,mountPriorLipFreeHilbert}=await import('./f324-part2-topics-public-adapter.mjs');const prior=verifyF324Part2Selection(m.public_parent);mountPriorLipFreeHilbert(output,deployment,prior.inherited,area);
- const olddir=path.join(root,'publication/f324-part2-topics-v1');for(const n of ['index.html','topics/index.html','topics/lipschitz-homeomorphic-banach-spaces/index.html'])fs.copyFileSync(path.join(olddir,area,n),path.join(output,n));fs.copyFileSync(path.join(olddir,'selected/lipschitz-homeomorphic-banach-spaces-v1.pdf'),path.join(output,'topics/lipschitz-homeomorphic-banach-spaces/lipschitz-homeomorphic-banach-spaces-v1.pdf'));
+ const prior=verifyF324Part2Selection(m.public_parent);mountPriorF324Part2(output,deployment,prior,area);
  applyGSSOverlay(output,area,v);
  if(runtimeAct){const expected=expectedGSSReleaseStateBytes(preparedReleaseStateBytes(area,v),validatedRuntimeSnapshot(runtimeAct,area,v));fs.writeFileSync(path.join(output,'release-state.json'),expected);}
  verifyGSSOutput(output,area,v,runtimeAct);console.log('PASS_GSS_EXACT_FINAL_MOUNT',area,Object.keys(v.profiles[area].inventory).length);

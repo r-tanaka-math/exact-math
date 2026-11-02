@@ -59,15 +59,31 @@ function mountPriorLipFreeHilbert(output,deployment,v,area){
  const sm=path.join(output,'sitemap.xml'),s=fs.readFileSync(sm,'utf8');need(s.split('</urlset>').length===2,'historical Lipschitz-Free Hilbert sitemap');fs.writeFileSync(sm,s.replace('</urlset>','<url><loc>'+deployment.origin+deployment.base+'topics/lipschitz-free-hilbert-spaces/</loc></url></urlset>'));
  compareOutputRows(inventory(output),v.inventories[area]);
 }
+// One complete payload mount is shared by the original release and later successors.
+// This does not authorize a new release or reuse the historical owner act.
+function mountF324Part2Payload(output,deployment,area){
+ const base=deployment.base;
+ for(const rel of pages){const dst=path.join(output,rel);fs.mkdirSync(path.dirname(dst),{recursive:true});if(rel.startsWith('topics/lipschitz-homeomorphic-banach-'))need(!fs.existsSync(dst),'new F324Part2 path');fs.copyFileSync(path.join(dir,area,rel),dst);}
+ fs.copyFileSync(path.join(dir,'selected/lipschitz-homeomorphic-banach-spaces-v1.pdf'),path.join(output,pdf));
+ const sm=path.join(output,'sitemap.xml'),s=fs.readFileSync(sm,'utf8');need(s.split('</urlset>').length===2,'sitemap');fs.writeFileSync(sm,s.replace('</urlset>','<url><loc>'+deployment.origin+base+'topics/lipschitz-homeomorphic-banach-spaces/</loc></url></urlset>'));
+}
+export function mountPriorF324Part2(output,deployment,v,area){
+ need(area==='SITE'||area==='SITE_SUBPATH','historical output profile');
+ same([deployment.origin,deployment.public_repository],[v.m.canonical_origin,v.m.public_repository],'historical deployment');
+ same([deployment.base,deployment.deployment_profile],area==='SITE'?['/','ROOT']:['/exact-mathematics/','SUBPATH'],'historical profile');
+ mountPriorLipFreeHilbert(output,deployment,v.inherited,area);
+ mountF324Part2Payload(output,deployment,area);
+ // Retain the historical comparator's scope here. GSS separately checks every
+ // final byte, including the entire prepared or validated runtime release-state.
+ compareOutputRows(inventory(output),v.inventories[area]);
+}
 export function finishF324Part2(output,deployment,profile,release){
  const v=verifyF324Part2Selection(),m=v.m,identity=gitIdentity(profile),area=deployment.base==='/'?'SITE':'SITE_SUBPATH',base=deployment.base;
  same([deployment.origin,deployment.public_repository],[m.canonical_origin,m.public_repository],'deployment');same([base,deployment.deployment_profile],area==='SITE'?['/','ROOT']:['/exact-mathematics/','SUBPATH'],'profile');
  need((profile==='PUBLIC_RELEASE_QUALIFICATION'&&process.env.EXACT_QUALIFICATION_BATCH===batch)||(profile==='FULL_LAUNCH'&&area==='SITE'&&release?.act?.update_kind===batch),'bounded profile');
  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());need(today===m.publication_date,'publication date');
  mountPriorLipFreeHilbert(output,deployment,v.inherited,area);
- for(const rel of pages){const dst=path.join(output,rel);fs.mkdirSync(path.dirname(dst),{recursive:true});if(rel.startsWith('topics/lipschitz-homeomorphic-banach-'))need(!fs.existsSync(dst),'new F324Part2 path');fs.copyFileSync(path.join(dir,area,rel),dst);}
- fs.copyFileSync(path.join(dir,'selected/lipschitz-homeomorphic-banach-spaces-v1.pdf'),path.join(output,pdf));
- const sm=path.join(output,'sitemap.xml'),s=fs.readFileSync(sm,'utf8');need(s.split('</urlset>').length===2,'sitemap');fs.writeFileSync(sm,s.replace('</urlset>','<url><loc>'+deployment.origin+base+'topics/lipschitz-homeomorphic-banach-spaces/</loc></url></urlset>'));
+ mountF324Part2Payload(output,deployment,area);
  const state=structuredClone(v.baselines[area]);Object.assign(state,{schema:'exact.site-release-state.v17',publication_batch:batch,site_commit:identity.commit,site_tree:identity.tree,public_parent_commit:oldCommit,publication_date:today,publication_state:release?'AUTHORIZED_POSTPUBLIC_UPDATE':'LOCAL_INDEXABLE_QUALIFICATION',profile,indexing:release?'PUBLIC_INDEXABLE':'LOCAL_INDEXABLE_QUALIFICATION'});
  state.f324_part2_expository_note={version:'1',author:'',publication_responsibility:m.publication_responsibility,prepared_date:m.prepared_date,first_publication_date:today,version_publication_date:today,pdf:m.pdf,owner_instruction_sha256:m.owner_instruction_sha256,dispatch_sha256:m.dispatch_sha256,owner_publication_authorized:true};
  fs.writeFileSync(path.join(output,'release-state.json'),JSON.stringify(state,null,2)+'\n');compareOutputRows(inventory(output),v.inventories[area]);console.log('PASS_F324Part2_FINAL_MOUNT',area,Object.keys(v.inventories[area]).length);
